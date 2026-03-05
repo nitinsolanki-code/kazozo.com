@@ -1,0 +1,1190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kazozo — Live Agent Demo</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700;1,800&family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg: #0C0B12;
+    --surface: #13121D;
+    --card: #1A192A;
+    --coral: #FF6B5A;
+    --lime: #CDFF64;
+    --lavender: #B8A9FF;
+    --sky: #64D2FF;
+    --amber: #FFB84D;
+    --text: #F0EFF4;
+    --muted: #7D7A8C;
+    --border: rgba(255,255,255,0.06);
+    --green: #34d399;
+    --mono: 'Space Grotesk', 'SF Mono', 'Fira Code', monospace;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    overflow-x: hidden;
+    line-height: 1.6;
+  }
+
+  a { color: var(--lavender); text-decoration: none; }
+
+  /* ===== TEXTURE + ORBS ===== */
+  .texture-bg {
+    position: fixed; top: 0; left: 0;
+    width: 100%; height: 100%; z-index: 0;
+    background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.015) 1px, transparent 0);
+    background-size: 32px 32px;
+  }
+
+  .content { position: relative; z-index: 1; }
+
+  .orb { position: absolute; border-radius: 50%; filter: blur(120px); pointer-events: none; }
+  .orb-1 { width: 500px; height: 500px; top: -150px; right: -100px; background: conic-gradient(from 180deg, rgba(184,169,255,0.15), rgba(100,210,255,0.1), rgba(205,255,100,0.06), rgba(255,107,90,0.1), rgba(184,169,255,0.15)); animation: orbSpin 30s linear infinite; }
+  .orb-2 { width: 350px; height: 350px; top: 3000px; left: -120px; background: radial-gradient(circle, rgba(255,107,90,0.1), rgba(205,255,100,0.05), transparent); animation: orbFloat 14s ease-in-out infinite; }
+  .orb-3 { width: 280px; height: 280px; top: 6000px; right: -80px; background: radial-gradient(circle, rgba(184,169,255,0.1), rgba(100,210,255,0.06), transparent); animation: orbFloat 18s ease-in-out infinite; }
+
+  @keyframes orbSpin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+  @keyframes orbFloat { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-40px); } }
+  @keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:0.4; } }
+
+  /* ===== NAV ===== */
+  nav { max-width: 1200px; margin: 16px auto 0; padding: 0 24px; }
+
+  .nav-inner {
+    display: flex; justify-content: space-between; align-items: center;
+    background: rgba(19,18,29,0.8); backdrop-filter: blur(20px);
+    border: 1px solid var(--border); border-radius: 16px; padding: 14px 28px;
+  }
+
+  .logo-link { text-decoration: none; }
+  .logo { font-family: 'Space Grotesk', sans-serif; font-size: 24px; font-weight: 700; color: var(--text); }
+  .logo span { color: var(--coral); }
+
+  .nav-links { display: flex; gap: 24px; list-style: none; align-items: center; }
+  .nav-links a { color: var(--muted); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.3s; }
+  .nav-links a:hover { color: var(--text); }
+
+  .btn-nav {
+    background: var(--coral); color: #fff !important; padding: 10px 22px;
+    border-radius: 10px; font-weight: 600; transition: all 0.3s;
+  }
+  .btn-nav:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(255,107,90,0.3); }
+
+  /* ===== HERO ===== */
+  .hero {
+    text-align: center; padding: 120px 24px 60px;
+    max-width: 900px; margin: 0 auto; position: relative;
+  }
+
+  .hero-tag {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 12px; font-weight: 600; text-transform: uppercase;
+    letter-spacing: 2.5px; color: var(--lime); margin-bottom: 28px;
+  }
+
+  .hero-tag .dot { width: 6px; height: 6px; background: var(--lime); border-radius: 50%; box-shadow: 0 0 8px var(--lime); animation: pulse 2s infinite; }
+
+  h1 {
+    font-family: 'Playfair Display', serif; font-size: clamp(38px, 5vw, 62px);
+    font-weight: 800; line-height: 1.1; letter-spacing: -2px; margin-bottom: 28px;
+  }
+
+  h1 em { font-style: italic; color: var(--coral); }
+
+  .hero-sub {
+    font-size: 18px; color: var(--muted); line-height: 1.75;
+    max-width: 700px; margin: 0 auto 40px;
+  }
+
+  .hero-stats {
+    display: flex; gap: 40px; justify-content: center; flex-wrap: wrap;
+  }
+  .hero-stat { text-align: center; }
+  .hero-stat .num { font-family: 'Space Grotesk', sans-serif; font-size: 2rem; font-weight: 700; color: var(--coral); }
+  .hero-stat .label { font-size: 13px; color: var(--muted); margin-top: 4px; }
+
+  /* ===== SECTION HEADERS ===== */
+  .agents-section { max-width: 1200px; margin: 80px auto 0; padding: 0 24px; }
+
+  .section-header {
+    display: flex; align-items: center; gap: 12px;
+    font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700;
+    margin-bottom: 32px;
+  }
+  .section-header .icon { font-size: 1.8rem; }
+  .section-header .pricing-hint {
+    font-family: 'Inter', sans-serif; font-size: 13px; color: var(--muted);
+    margin-left: 12px; font-weight: 400;
+  }
+
+  /* ===== AGENT CARDS ===== */
+  .agents-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px; margin-bottom: 60px;
+  }
+
+  .agent-card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 16px; padding: 28px; cursor: pointer;
+    transition: all 0.3s ease; position: relative; overflow: hidden;
+  }
+  .agent-card:hover { border-color: var(--coral); transform: translateY(-4px); box-shadow: 0 12px 40px rgba(255,107,90,0.12); }
+  .agent-card .icon { font-size: 2rem; margin-bottom: 12px; }
+  .agent-card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 1.15rem; margin-bottom: 8px; font-weight: 600; }
+  .agent-card p { font-size: 14px; color: var(--muted); margin-bottom: 16px; }
+  .agent-card .tools-list { display: flex; flex-wrap: wrap; gap: 6px; }
+
+  .tool-tag {
+    font-size: 11px; padding: 3px 10px; border-radius: 100px;
+    background: rgba(184,169,255,0.08); color: var(--lavender); border: 1px solid rgba(184,169,255,0.15);
+  }
+
+  .agent-card .try-btn {
+    display: inline-flex; align-items: center; gap: 6px;
+    margin-top: 16px; padding: 8px 20px; border-radius: 10px;
+    background: var(--coral); color: white; font-size: 14px; font-weight: 600;
+    border: none; cursor: pointer; transition: all 0.3s; font-family: 'Inter', sans-serif;
+  }
+  .agent-card .try-btn:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(255,107,90,0.3); }
+
+  /* ===== COMPARISON TABLE ===== */
+  .compare-section { max-width: 1000px; margin: 80px auto; padding: 0 24px; }
+  .compare-section h2 { font-family: 'Playfair Display', serif; font-size: 1.8rem; text-align: center; margin-bottom: 32px; }
+
+  .compare-table {
+    width: 100%; border-collapse: collapse;
+    background: var(--card); border-radius: 16px; overflow: hidden;
+    border: 1px solid var(--border);
+  }
+  .compare-table th, .compare-table td {
+    padding: 14px 20px; text-align: left; font-size: 14px;
+    border-bottom: 1px solid var(--border);
+  }
+  .compare-table th { background: var(--surface); color: var(--muted); font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .compare-table td:first-child { color: var(--muted); }
+  .compare-table .yes { color: var(--green); font-weight: 600; }
+  .compare-table .no { color: #f87171; opacity: 0.7; }
+
+  /* ===== PRICING ===== */
+  .pricing-section { max-width: 1100px; margin: 100px auto 0; padding: 0 24px; }
+  .pricing-section h2 { font-family: 'Playfair Display', serif; font-size: 1.8rem; text-align: center; margin-bottom: 8px; }
+  .pricing-section h2 em { font-style: italic; color: var(--coral); }
+  .pricing-subtitle { text-align: center; color: var(--muted); font-size: 1rem; margin-bottom: 48px; max-width: 600px; margin-left: auto; margin-right: auto; }
+
+  .pricing-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px; margin-bottom: 48px;
+  }
+
+  .pricing-card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 16px; padding: 36px 32px; position: relative;
+    display: flex; flex-direction: column;
+  }
+  .pricing-card.featured { border-color: var(--coral); box-shadow: 0 0 40px rgba(255,107,90,0.12); }
+
+  .pricing-badge {
+    position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+    background: linear-gradient(135deg, var(--coral), var(--amber));
+    color: white; font-size: 12px; font-weight: 600; padding: 4px 16px;
+    border-radius: 100px; text-transform: uppercase; letter-spacing: 0.5px;
+  }
+
+  .pricing-card .tier-name {
+    font-family: 'Space Grotesk', sans-serif; font-size: 1rem; color: var(--muted);
+    font-weight: 600; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px;
+  }
+  .pricing-card .price { font-family: 'Space Grotesk', sans-serif; font-size: 2.5rem; font-weight: 700; margin-bottom: 4px; }
+  .pricing-card .price .unit { font-size: 0.9rem; font-weight: 400; color: var(--muted); }
+  .pricing-card .price-note { font-size: 13px; color: var(--muted); margin-bottom: 24px; }
+
+  .pricing-card .features-list { list-style: none; padding: 0; margin: 0 0 32px 0; flex: 1; }
+  .pricing-card .features-list li {
+    padding: 8px 0; font-size: 14px; color: var(--text);
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: flex-start; gap: 10px;
+  }
+  .pricing-card .features-list li:last-child { border-bottom: none; }
+  .pricing-card .features-list .check { color: var(--green); flex-shrink: 0; font-size: 14px; margin-top: 2px; }
+
+  .pricing-card .cta-btn {
+    display: block; width: 100%; padding: 14px; border-radius: 10px;
+    font-size: 15px; font-weight: 600; text-align: center; cursor: pointer;
+    border: 2px solid var(--coral); color: var(--coral); background: transparent;
+    transition: all 0.2s; font-family: 'Inter', sans-serif;
+  }
+  .pricing-card .cta-btn:hover { background: var(--coral); color: white; }
+  .pricing-card.featured .cta-btn {
+    background: linear-gradient(135deg, var(--coral), #e85a4a);
+    color: white; border-color: transparent;
+  }
+  .pricing-card.featured .cta-btn:hover { opacity: 0.9; }
+
+  .pricing-compare {
+    background: var(--card); border: 1px solid var(--border); border-radius: 16px;
+    padding: 24px 32px; margin-bottom: 32px; text-align: center;
+  }
+  .pricing-compare .savings-headline { font-family: 'Space Grotesk', sans-serif; font-size: 1.3rem; font-weight: 700; color: var(--green); margin-bottom: 8px; }
+  .pricing-compare p { color: var(--muted); font-size: 14px; }
+  .pricing-compare .competitor-prices { display: flex; justify-content: center; gap: 40px; margin-top: 16px; flex-wrap: wrap; }
+  .pricing-compare .competitor { text-align: center; }
+  .pricing-compare .competitor .name { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; }
+  .pricing-compare .competitor .comp-price { font-size: 1.2rem; font-weight: 700; color: #f87171; text-decoration: line-through; opacity: 0.7; }
+
+  .pricing-faq { max-width: 700px; margin: 0 auto; }
+  .pricing-faq h3 { font-family: 'Playfair Display', serif; font-size: 1.2rem; text-align: center; margin-bottom: 24px; color: var(--muted); }
+  .faq-item { border-bottom: 1px solid var(--border); padding: 16px 0; }
+  .faq-item .faq-q { font-weight: 600; font-size: 14px; margin-bottom: 6px; }
+  .faq-item .faq-a { font-size: 14px; color: var(--muted); }
+
+  /* ===== AGENT PRICING TABLE ===== */
+  .agent-table-wrap { max-width: 900px; width: 100%; margin: 0 auto 40px; padding: 0; }
+  .agent-table {
+    width: 100%; border-collapse: collapse; font-size: 14px;
+    background: var(--card); border-radius: 16px; overflow: hidden;
+    border: 1px solid var(--border);
+  }
+  .agent-table th {
+    text-align: left; padding: 12px 16px; color: var(--muted); font-weight: 600;
+    background: var(--surface); font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px;
+  }
+  .agent-table th:nth-child(3), .agent-table th:nth-child(4) { text-align: right; }
+  .agent-table .tier-row td { padding: 10px 16px; font-weight: 600; color: var(--lavender); font-size: 13px; letter-spacing: 0.05em; background: rgba(184,169,255,0.05); }
+  .agent-table .agent-row td { padding: 10px 16px; border-bottom: 1px solid var(--border); }
+  .agent-table .agent-row td:nth-child(2) { text-align: center; color: var(--muted); }
+  .agent-table .agent-row td:nth-child(3) { text-align: right; font-weight: 600; }
+  .agent-table .agent-row td:nth-child(4) { text-align: right; color: var(--muted); }
+  .price-utility { color: var(--green); }
+  .price-workflow { color: var(--amber); }
+  .price-strategic { color: var(--lavender); }
+  .volume-note { text-align: center; color: var(--muted); font-size: 13px; margin-top: 16px; }
+
+  /* ===== FOOTER ===== */
+  footer {
+    max-width: 1200px; margin: 100px auto 0; padding: 40px 24px;
+    border-top: 1px solid var(--border); text-align: center;
+  }
+  .footer-links { display: flex; gap: 24px; justify-content: center; margin-bottom: 20px; }
+  .footer-links a { color: var(--muted); font-size: 14px; transition: color 0.3s; }
+  .footer-links a:hover { color: var(--text); }
+  .footer-copy { color: var(--muted); font-size: 13px; }
+
+  /* ===== DEMO OVERLAY ===== */
+  .demo-overlay {
+    display: none; position: fixed; inset: 0; z-index: 1000;
+    background: rgba(12,11,18,0.85); backdrop-filter: blur(12px);
+    align-items: center; justify-content: center; padding: 20px;
+  }
+  .demo-overlay.active { display: flex; animation: fadeIn 0.2s; }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+  .demo-panel {
+    width: 100%; max-width: 800px; height: 85vh; max-height: 700px;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 20px; display: flex; flex-direction: column;
+    overflow: hidden; animation: slideUp 0.3s ease-out;
+  }
+  @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+  .demo-header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 16px 24px; border-bottom: 1px solid var(--border);
+    background: var(--card);
+  }
+  .demo-header-left { display: flex; align-items: center; gap: 12px; }
+  .demo-header-left .agent-icon { font-size: 1.5rem; }
+  .demo-header-left h3 { font-family: 'Space Grotesk', sans-serif; font-size: 1rem; }
+  .demo-header-left .status { font-size: 12px; color: var(--green); }
+  .demo-close {
+    background: none; border: none; color: var(--muted); font-size: 24px;
+    cursor: pointer; padding: 4px 8px; border-radius: 6px;
+  }
+  .demo-close:hover { background: rgba(255,255,255,0.05); color: var(--text); }
+
+  .demo-toolbar {
+    display: flex; gap: 8px; padding: 12px 24px;
+    border-bottom: 1px solid var(--border); overflow-x: auto;
+  }
+  .demo-toolbar button {
+    white-space: nowrap; font-size: 12px; padding: 6px 14px;
+    border-radius: 100px; border: 1px solid var(--border);
+    background: var(--surface); color: var(--muted); cursor: pointer;
+    transition: all 0.15s; font-family: 'Inter', sans-serif;
+  }
+  .demo-toolbar button:hover { border-color: var(--coral); color: var(--coral); background: rgba(255,107,90,0.05); }
+
+  .demo-messages {
+    flex: 1; overflow-y: auto; padding: 20px 24px;
+    display: flex; flex-direction: column; gap: 16px;
+  }
+  .demo-messages::-webkit-scrollbar { width: 6px; }
+  .demo-messages::-webkit-scrollbar-track { background: transparent; }
+  .demo-messages::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
+  .msg { max-width: 85%; animation: msgIn 0.3s ease-out; }
+  @keyframes msgIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+  .msg-user { align-self: flex-end; }
+  .msg-user .bubble {
+    background: var(--coral); color: white; padding: 10px 16px;
+    border-radius: 16px 16px 4px 16px; font-size: 14px;
+  }
+  .msg-bot { align-self: flex-start; }
+  .msg-bot .bubble {
+    background: var(--card); border: 1px solid var(--border);
+    padding: 12px 16px; border-radius: 16px 16px 16px 4px; font-size: 14px;
+  }
+  .msg-bot .bubble strong { color: var(--coral); }
+
+  .actions-panel {
+    align-self: flex-start; max-width: 85%;
+    background: rgba(184,169,255,0.05); border: 1px solid rgba(184,169,255,0.12);
+    border-radius: 12px; padding: 12px 16px; font-size: 13px;
+  }
+  .actions-panel .actions-title {
+    font-size: 11px; font-weight: 700; color: var(--lavender);
+    letter-spacing: 0.5px; margin-bottom: 8px; font-family: 'Space Grotesk', sans-serif;
+  }
+  .action-item {
+    display: flex; align-items: flex-start; gap: 8px; padding: 4px 0;
+    color: var(--muted); font-size: 13px;
+  }
+  .action-item .check { color: var(--green); font-weight: 700; flex-shrink: 0; }
+  .action-item .tool-name { color: var(--text); font-family: var(--mono); font-size: 11px; background: rgba(255,255,255,0.05); padding: 1px 6px; border-radius: 3px; }
+
+  .typing-indicator { align-self: flex-start; display: flex; gap: 4px; padding: 12px 16px; }
+  .typing-indicator span {
+    width: 8px; height: 8px; border-radius: 50%; background: var(--muted);
+    animation: typingBounce 1.4s infinite ease-in-out;
+  }
+  .typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
+  .typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
+  @keyframes typingBounce { 0%, 80%, 100% { transform: scale(0.6); opacity: 0.4; } 40% { transform: scale(1); opacity: 1; } }
+
+  .demo-input {
+    display: flex; gap: 8px; padding: 16px 24px;
+    border-top: 1px solid var(--border); background: var(--surface);
+  }
+  .demo-input input {
+    flex: 1; padding: 10px 16px; border-radius: 10px;
+    border: 1px solid var(--border); background: var(--card);
+    color: var(--text); font-size: 14px; outline: none; font-family: 'Inter', sans-serif;
+  }
+  .demo-input input:focus { border-color: var(--coral); }
+  .demo-input input::placeholder { color: var(--muted); }
+  .demo-input button {
+    padding: 10px 20px; border-radius: 10px; border: none;
+    background: var(--coral); color: white; font-size: 14px;
+    font-weight: 600; cursor: pointer; transition: all 0.3s; font-family: 'Inter', sans-serif;
+  }
+  .demo-input button:hover { box-shadow: 0 6px 20px rgba(255,107,90,0.3); }
+  .demo-input button:disabled { opacity: 0.5; cursor: not-allowed; }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 900px) {
+    .nav-links { display: none; }
+    .agents-grid { grid-template-columns: 1fr; }
+    .pricing-grid { grid-template-columns: 1fr; }
+    .hero-stats { gap: 24px; }
+    .pricing-compare .competitor-prices { gap: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="texture-bg"></div>
+
+<div class="content">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="logo-link"><div class="logo">Kazo<span>zo</span></div></a>
+      <ul class="nav-links">
+        <li><a href="#agents">Agents</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="demo.html">Full Offer</a></li>
+        <li><a href="#agents" class="btn-nav">Try an Agent</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-tag">
+      <span class="dot"></span>
+      Live Interactive Demo
+    </div>
+    <h1>See Every Agent <em>in Action</em></h1>
+    <p class="hero-sub">Not chatbots. AI agents that write follow-ups, send proposals, onboard clients, draft newsletters, and report to you weekly — all on autopilot. Click any agent to try it live.</p>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="num">13</div>
+        <div class="label">Agent Types</div>
+      </div>
+      <div class="hero-stat">
+        <div class="num">3</div>
+        <div class="label">Agent Tiers</div>
+      </div>
+      <div class="hero-stat" style="cursor:pointer" onclick="document.getElementById('pricing').scrollIntoView({behavior:'smooth'})">
+        <div class="num">From $0.10</div>
+        <div class="label">Per Resolution ↓</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- UTILITY AGENTS -->
+  <section class="agents-section" id="agents">
+    <div class="section-header">
+      <span class="icon">⚡</span>
+      <span>Utility Agents</span>
+      <span class="pricing-hint">$0.10–$0.15/resolution · $15/mo minimum</span>
+    </div>
+    <div class="agents-grid">
+      <div class="agent-card" onclick="openDemo('support')">
+        <div class="icon">🎧</div>
+        <h3>FAQ Bot</h3>
+        <p>Answers FAQs, triages tickets, routes to the right person, summarizes threads.</p>
+        <div class="tools-list">
+          <span class="tool-tag">Answer FAQ</span>
+          <span class="tool-tag">Triage Ticket</span>
+          <span class="tool-tag">Route Issue</span>
+          <span class="tool-tag">Summarize</span>
+        </div>
+        <button class="try-btn">Try it live →</button>
+      </div>
+      <div class="agent-card" onclick="openDemo('employee')">
+        <div class="icon">👤</div>
+        <h3>Employee Agent</h3>
+        <p>Answers HR policy questions, PTO balances, creates Jira tickets, handles payroll FAQs.</p>
+        <div class="tools-list">
+          <span class="tool-tag">HR Policy Q&A</span>
+          <span class="tool-tag">PTO Lookup</span>
+          <span class="tool-tag">Create Ticket</span>
+          <span class="tool-tag">Payroll FAQ</span>
+        </div>
+        <button class="try-btn">Try it live →</button>
+      </div>
+      <div class="agent-card" onclick="openDemo('it_helpdesk')">
+        <div class="icon">🖥️</div>
+        <h3>IT Helpdesk Agent</h3>
+        <p>Troubleshoots VPN/network issues, checks system status, provides setup guides, triages tickets.</p>
+        <div class="tools-list">
+          <span class="tool-tag">Troubleshoot</span>
+          <span class="tool-tag">System Status</span>
+          <span class="tool-tag">Setup Guide</span>
+          <span class="tool-tag">Triage Ticket</span>
+        </div>
+        <button class="try-btn">Try it live →</button>
+      </div>
+      <div class="agent-card" onclick="openDemo('reputation')">
+        <div class="icon">⭐</div>
+        <h3>Review Manager</h3>
+        <p>Requests reviews after successful jobs, routes unhappy customers to you first.</p>
+        <div class="tools-list">
+          <span class="tool-tag">Request Review</span>
+          <span class="tool-tag">Sentiment Check</span>
+          <span class="tool-tag">Route Complaint</span>
+          <span class="tool-tag">Google Reviews</span>
+        </div>
+        <button class="try-btn">Try it live →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORKFLOW AGENTS -->
+  <section class="agents-section">
+    <div class="section-header">
+      <span class="icon">🔧</span>
+      <span>Workflow Agents</span>
+      <span class="pricing-hint">$0.20–$0.30/resolution · $25/mo minimum</span>
+    </div>
+    <div class="agents-grid">
+      <div class="agent-card" onclick="openDemo('follow_up')">
+        <div class="icon">🎧</div>
+        <h3>Customer Support Agent</h3>
+        <p>Full ticket handling, case wrap-up, escalation routing, knowledge base lookups.</p>
+        <div class="tools-list">
+          <span class="tool-tag">Handle Ticket</span>
+          <span class="tool-tag">Escalate</span>
+          <span class="tool-tag">KB Lookup</span>
+          <span class="tool-tag">Wrap-Up</span>
+        </div>
+        <button class="try-btn">Try it live →</button>
+      </div>
+      <div class="agent-card" onclick="openDemo('reactivation')">
+        <div class="icon">🎯</div>
+        <h3>Lead Qualifier</h3>
+        <p>Scores incoming leads, enriches with firmographic data, routes to the right rep.</p>
+        <div class="tools-list">
+          <span class="tool-tag">Score Lead</span>
+          <span class="tool-tag">Enrich Data</span>
+          <span class="tool-tag">Route to Rep</span>
+          <span class="tool-tag">CRM Update</span>
+        </div>
+        <button class="try-btn">Try it live →</button>
+      </div>
+      <div class="agent-card" onclick="openDemo('onboarding')">
+        <div class="icon">✉️</div>
+        <h3>Sales Outreach Agent</h3>
+        <p>Personalized sequences, follow-ups, meeting scheduling, CRM logging.</p>
+        <div class="tools-list">
+          <span class="tool-tag">Auto-Reply</span>
+          <span class="tool-tag">Nurture Sequence</span>
+          <span class="tool-tag">Schedule Meeting</span>
+          <span class="tool-tag">Log Activity</span>
+        </div>
+        <button class="try-btn">Try it live →</button>
+      </div>
+      <div class="agent-card" onclick="openDemo('sop')">
+        <div class="icon">📝</div>
+        <h3>Case Wrap-Up Agent</h3>
+        <p>Auto-classifies cases, populates wrap-up fields, extracts patterns for knowledge base.</p>
+        <div class="tools-list">
+          <span class="tool-tag">Classify Case</span>
+          <span class="tool-tag">Fill Fields</span>
+          <span class="tool-tag">Extract Pattern</span>
+          <span class="tool-tag">Update KB</span>
+        </div>
+        <button class="try-btn">Try it live →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- STRATEGIC AGENTS -->
+  <section class="agents-section">
+    <div class="section-header">
+      <span class="icon">🚀</span>
+      <span>Strategic Agents</span>
+      <span class="pricing-hint">$0.50–$1.00/resolution · $50/mo minimum</span>
+    </div>
+    <div class="agents-grid">
+      <div class="agent-card" onclick="openDemo('proposal')">
+        <div class="icon">📋</div>
+        <h3>Proposal Writer</h3>
+        <p>Generates proposals from templates, populates pricing, sends for e-signature.</p>
+        <div class="tools-list">
+          <span class="tool-tag">Generate Proposal</span>
+          <span class="tool-tag">E-Sign</span>
+          <span class="tool-tag">Track Status</span>
+          <span class="tool-tag">Template Fill</span>
+        </div>
+        <button class="try-btn">Try it live →</button>
+      </div>
+      <div class="agent-card" onclick="openDemo('report')">
+        <div class="icon">📊</div>
+        <h3>Weekly Report Agent</h3>
+        <p>Every Monday: leads, bookings, close rate, revenue, pipeline, what changed.</p>
+        <div class="tools-list">
+          <span class="tool-tag">Pull CRM Data</span>
+          <span class="tool-tag">Generate Report</span>
+          <span class="tool-tag">Trend Analysis</span>
+          <span class="tool-tag">Email Summary</span>
+        </div>
+        <button class="try-btn">Try it live →</button>
+      </div>
+      <div class="agent-card" onclick="openDemo('newsletter')">
+        <div class="icon">📰</div>
+        <h3>Newsletter Agent</h3>
+        <p>Weekly email written from your notes + links + CTAs.</p>
+        <div class="tools-list">
+          <span class="tool-tag">Draft Email</span>
+          <span class="tool-tag">Add CTAs</span>
+          <span class="tool-tag">Format Newsletter</span>
+          <span class="tool-tag">Schedule Send</span>
+        </div>
+        <button class="try-btn">Try it live →</button>
+      </div>
+      <div class="agent-card" onclick="openDemo('content')">
+        <div class="icon">🎬</div>
+        <h3>Content Writer Agent</h3>
+        <p>Turns one long video/podcast into clips + captions + posting plan.</p>
+        <div class="tools-list">
+          <span class="tool-tag">Transcribe</span>
+          <span class="tool-tag">Generate Clips</span>
+          <span class="tool-tag">Write Captions</span>
+          <span class="tool-tag">Schedule Posts</span>
+        </div>
+        <button class="try-btn">Try it live →</button>
+      </div>
+      <div class="agent-card" onclick="openDemo('ad_creative')">
+        <div class="icon">🎨</div>
+        <h3>Ad Creative Agent</h3>
+        <p>Generates variants of hooks/angles/copy, tracks what's working.</p>
+        <div class="tools-list">
+          <span class="tool-tag">Generate Hooks</span>
+          <span class="tool-tag">A/B Variants</span>
+          <span class="tool-tag">Write Copy</span>
+          <span class="tool-tag">Track Performance</span>
+        </div>
+        <button class="try-btn">Try it live →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY AGENTS, NOT CHATBOTS? -->
+  <section class="compare-section">
+    <h2>Why Agents, Not Chatbots?</h2>
+    <table class="compare-table">
+      <thead>
+        <tr><th>Capability</th><th>Traditional Chatbots</th><th>Kazozo Agents</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Write personalized follow-ups</td><td class="no">No — generic templates</td><td class="yes">Yes — AI-written per lead</td></tr>
+        <tr><td>Send proposals & contracts</td><td class="no">No — manual process</td><td class="yes">Yes — generates, sends, tracks</td></tr>
+        <tr><td>Onboard new clients</td><td class="no">No — sends a PDF</td><td class="yes">Yes — emails, forms, tasks, kickoff</td></tr>
+        <tr><td>Write weekly CEO reports</td><td class="no">No</td><td class="yes">Yes — pulls data, writes narrative</td></tr>
+        <tr><td>Create nurture sequences</td><td class="no">No — one-off replies</td><td class="yes">Yes — 7-21 day automated flows</td></tr>
+        <tr><td>Request reviews at right time</td><td class="no">No</td><td class="yes">Yes — sentiment-aware timing</td></tr>
+        <tr><td>Draft newsletters from notes</td><td class="no">No</td><td class="yes">Yes — writes, formats, schedules</td></tr>
+        <tr><td>Answer HR & IT policy questions</td><td class="no">✗ Generic responses</td><td class="yes">✓ Company-specific KB answers</td></tr>
+        <tr><td>Triage IT & employee tickets</td><td class="no">✗ Basic routing</td><td class="yes">✓ Smart classification + priority</td></tr>
+        <tr><td>Visible action audit trail</td><td class="no">No</td><td class="yes">Yes — every action logged</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- PRICING -->
+  <section class="pricing-section" id="pricing">
+    <h2>Pick Your Agents. <em>Pay Per Resolution.</em></h2>
+    <p class="pricing-subtitle">Every agent has its own price based on value delivered. Start with one, add more anytime. No bundles, no tiers, no lock-in.</p>
+
+    <!-- Agent Pricing Table -->
+    <div class="agent-table-wrap">
+      <table class="agent-table">
+        <thead>
+          <tr><th>Agent</th><th>Category</th><th style="text-align:right">Per Resolution</th><th style="text-align:right">Mo. Minimum</th></tr>
+        </thead>
+        <tbody>
+          <tr class="tier-row"><td colspan="4">UTILITY AGENTS</td></tr>
+          <tr class="agent-row"><td>FAQ Bot</td><td>Support</td><td class="price-utility">$0.10</td><td>$15/mo</td></tr>
+          <tr class="agent-row"><td>Employee Agent</td><td>Operations</td><td class="price-utility">$0.10</td><td>$15/mo</td></tr>
+          <tr class="agent-row"><td>IT Helpdesk Agent</td><td>Operations</td><td class="price-utility">$0.12</td><td>$15/mo</td></tr>
+          <tr class="agent-row"><td>Review Manager</td><td>Sales</td><td class="price-utility">$0.15</td><td>$15/mo</td></tr>
+
+          <tr class="tier-row"><td colspan="4">WORKFLOW AGENTS</td></tr>
+          <tr class="agent-row"><td>Customer Support Agent</td><td>Support</td><td class="price-workflow">$0.25</td><td>$25/mo</td></tr>
+          <tr class="agent-row"><td>Lead Qualifier</td><td>Sales</td><td class="price-workflow">$0.25</td><td>$25/mo</td></tr>
+          <tr class="agent-row"><td>Sales Outreach Agent</td><td>Sales</td><td class="price-workflow">$0.30</td><td>$25/mo</td></tr>
+          <tr class="agent-row"><td>Case Wrap-Up Agent</td><td>Support</td><td class="price-workflow">$0.20</td><td>$25/mo</td></tr>
+
+          <tr class="tier-row"><td colspan="4">STRATEGIC AGENTS</td></tr>
+          <tr class="agent-row"><td>Proposal Writer</td><td>Sales</td><td class="price-strategic">$0.50</td><td>$50/mo</td></tr>
+          <tr class="agent-row"><td>Weekly Report Agent</td><td>Strategy</td><td class="price-strategic">$0.75</td><td>$50/mo</td></tr>
+          <tr class="agent-row"><td>Newsletter Agent</td><td>Strategy</td><td class="price-strategic">$1.00</td><td>$50/mo</td></tr>
+          <tr class="agent-row"><td>Content Writer Agent</td><td>Strategy</td><td class="price-strategic">$0.75</td><td>$50/mo</td></tr>
+          <tr class="agent-row"><td>Ad Creative Agent</td><td>Strategy</td><td class="price-strategic">$0.50</td><td>$50/mo</td></tr>
+        </tbody>
+      </table>
+      <p class="volume-note">Volume discounts: 10% off with 4+ agents · 15% off with 8+ · 20% off with 12+</p>
+    </div>
+
+    <div class="pricing-compare">
+      <div class="savings-headline">Kazozo vs. Competitors — Per Resolution</div>
+      <p>Same work. Fraction of the cost. Each resolution is a complete interaction, start to finish.</p>
+      <div class="competitor-prices">
+        <div class="competitor"><div class="name">Salesforce Agentforce</div><div class="comp-price">$2.00/conversation</div></div>
+        <div class="competitor"><div class="name">Zendesk AI</div><div class="comp-price">$1.50/resolution</div></div>
+        <div class="competitor"><div class="name">Intercom Fin</div><div class="comp-price">$0.99/resolution</div></div>
+        <div class="competitor"><div class="name">Kazozo</div><div class="comp-price" style="color: var(--green); text-decoration: none;">$0.10–1.00/resolution</div></div>
+      </div>
+    </div>
+
+    <div class="pricing-faq">
+      <h3>Frequently Asked Questions</h3>
+      <div class="faq-item">
+        <div class="faq-q">What counts as a "resolution"?</div>
+        <div class="faq-a">A resolution is one complete interaction an agent handles from start to finish — whether it takes one message or ten. Multi-turn conversations count as one resolution.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Why do agents have different prices?</div>
+        <div class="faq-a">Price reflects value delivered. An FAQ Bot answering "what are your hours?" is simpler than a Proposal Writer drafting a $5K contract. You pay based on what each agent does for you.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Can I start with just one agent?</div>
+        <div class="faq-a">Yes. Pick any single agent and pay per resolution. Add more agents anytime — each one is independent. No bundles or packages required.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What happens when you add new agents?</div>
+        <div class="faq-a">New agents are available immediately at their listed price. Your existing agents and pricing are never affected. It's like adding an app — your other apps don't change.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Is there a minimum?</div>
+        <div class="faq-a">Each active agent has a small monthly minimum: $15/mo for Utility agents, $25/mo for Workflow agents, $50/mo for Strategic agents. You pay the greater of your minimum or actual usage. Most active users clear the minimum within the first week.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What about setup?</div>
+        <div class="faq-a">Setup is included. We connect your CRM, configure your agents, and go live in 1-2 weeks. No SI partner required — Salesforce implementations typically cost $50-200K.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-links">
+      <a href="#agents">Agents</a>
+      <a href="#pricing">Pricing</a>
+      <a href="index.html">Home</a>
+      <a href="demo.html">Full Offer</a>
+    </div>
+    <div class="footer-copy">© 2026 Kazozo · Simulated demo — no real systems connected</div>
+  </footer>
+</div>
+
+<!-- DEMO OVERLAY -->
+<div id="demoOverlay" class="demo-overlay">
+  <div class="demo-panel">
+    <div class="demo-header">
+      <div class="demo-header-left">
+        <div class="agent-icon" id="demoIcon">✉️</div>
+        <div>
+          <h3 id="demoTitle">Agent</h3>
+          <div class="status">● Agent Active</div>
+        </div>
+      </div>
+      <button class="demo-close" onclick="closeDemo()">&times;</button>
+    </div>
+    <div class="demo-toolbar" id="demoToolbar"></div>
+    <div class="demo-messages" id="demoMessages"></div>
+    <div class="demo-input">
+      <input type="text" id="demoInput" placeholder="Try a quick action above, or type your own request..." onkeypress="if(event.key==='Enter') handleSend();">
+      <button id="demoSendBtn" onclick="handleSend()">Send</button>
+    </div>
+  </div>
+</div>
+
+<script>
+let currentAgent = null;
+let isBusy = false;
+
+const AGENTS = {
+  follow_up: {
+    name: "Follow-Up Agent", icon: "✉️",
+    greeting: "Hi! I'm your Follow-Up Agent. I can send personalized follow-ups to leads, set up nurture sequences, and track engagement. What would you like me to do?",
+    quickActions: ["Send a follow-up to my last 5 leads", "Set up a 14-day nurture sequence", "Check follow-up status"],
+    scenarios: {
+      "send.*follow-up|follow up.*leads|last.*leads": {
+        actions: [
+          { tool: "crm_fetch_leads", desc: "Retrieved your last 5 leads", detail: "TechCorp, DesignCo, RetailPro, SaaS.io, StartupX", status: "success" },
+          { tool: "analyze_lead_context", desc: "Analyzed lead history & interests", detail: "Found last interaction points and engagement levels", status: "success" },
+          { tool: "generate_followups", desc: "Generated 5 personalized messages", detail: "Each message references their specific context and pain points", status: "success" },
+          { tool: "schedule_sends", desc: "Scheduled for optimal delivery times", detail: "Staggered over next 2 days based on timezone and engagement patterns", status: "success" },
+        ],
+        response: "Done! I've sent personalized follow-ups to your last 5 leads:\n\n• **TechCorp** — Mentioned their API integration questions from last call\n• **DesignCo** — Followed up on the demo they attended 3 days ago\n• **RetailPro** — Win-back message (no contact in 30 days)\n• **SaaS.io** — Next-step email after they viewed pricing\n• **StartupX** — Addressed the budget questions they had\n\nAll messages are sent from your email. Want me to set up a follow-up sequence for next week?"
+      },
+      "nurture.*sequence|14-day|nurture": {
+        actions: [
+          { tool: "create_nurture_flow", desc: "Created 5-email nurture sequence", detail: "Days 1, 4, 7, 11, 14 — escalating value proposition", status: "success" },
+          { tool: "personalize_content", desc: "Personalized each email by company/role", detail: "5 unique variants per email based on lead profile", status: "success" },
+          { tool: "assign_to_leads", desc: "Applied sequence to 12 new leads", detail: "Automated based on lead source and engagement level", status: "success" },
+          { tool: "enable_tracking", desc: "Enabled open/click tracking", detail: "Real-time engagement metrics for each recipient", status: "success" },
+        ],
+        response: "14-day nurture sequence is live!\n\n**Sequence Overview**:\n• **Day 1**: Welcome + value prop (problem intro)\n• **Day 4**: Social proof (case study)\n• **Day 7**: Feature deep-dive (solution)\n• **Day 11**: Limited-time offer (urgency)\n• **Day 14**: Final call-to-action\n\n**Active**: 12 leads enrolled\n**Personalization**: Yes — tailored by company size & industry\n**Tracking**: Real-time opens/clicks\n\nYou'll get daily engagement reports. Want me to adjust any of the messaging?"
+      }
+    }
+  },
+  proposal: {
+    name: "Proposal Agent", icon: "📋",
+    greeting: "Hi! I'm your Proposal Agent. I can generate custom proposals, send them for e-signature, and track their status. What would you like me to do?",
+    quickActions: ["Generate a proposal for Riverside Dental", "Check proposal status for all open deals", "Send proposal for $5K annual contract"],
+    scenarios: {
+      "generate.*proposal|riverside dental|proposal.*2500": {
+        actions: [
+          { tool: "crm_lookup_client", desc: "Retrieved Riverside Dental info", detail: "Company: Riverside Dental, Contact: Dr. Sarah Lee, Monthly spend: $2,500", status: "success" },
+          { tool: "load_template", desc: "Selected proposal template", detail: "Retainer Agreement template for dental industry loaded", status: "success" },
+          { tool: "populate_proposal", desc: "Filled in client details & pricing", detail: "Populated: company name, contact, scope, 12-month retainer at $2,500/mo", status: "success" },
+          { tool: "generate_pdf", desc: "Generated PDF document", detail: "High-quality PDF with logo, branding, and signature blocks", status: "success" },
+          { tool: "send_for_esign", desc: "Sent to Riverside Dental for e-signature", detail: "DocuSign link sent to dr.lee@riversidedental.com", status: "success" },
+        ],
+        response: "Proposal generated & sent!\n\n**Client**: Riverside Dental (Dr. Sarah Lee)\n**Package**: $2,500/month retainer (annual contract)\n**Document**: Professional PDF with your branding\n\n**What I did**:\n1. Filled in client info from CRM\n2. Generated customized proposal (12-month terms)\n3. Sent DocuSign link to dr.lee@riversidedental.com\n4. Logged in CRM as 'Proposal Sent'\n\n**Next Step**: Dr. Lee will receive the e-sign email. Once signed, I'll notify you and log it as 'Contract Signed' in your CRM."
+      },
+      "check.*proposal|proposal status|open deals": {
+        actions: [
+          { tool: "crm_fetch_open_deals", desc: "Retrieved all open opportunities", detail: "8 deals with pending proposals", status: "success" },
+          { tool: "check_esign_status", desc: "Checked e-signature status for each", detail: "Pulled DocuSign status from all pending proposals", status: "success" },
+        ],
+        response: "Here's your **proposal status** for all open deals:\n\n**Signed (3)**:\n• TechCorp Enterprise — Signed March 1 ($45K)\n• DesignCo Premium — Signed Feb 28 ($12K)\n• RetailPro Standard — Signed Feb 25 ($8K)\n\n**Pending Signature (4)**:\n• Riverside Dental — Sent March 3 ($30K) — 2 days old\n• SaaS.io — Sent Feb 27 ($22K) — 5 days old, no opens yet\n• StartupX — Sent Feb 24 ($18K) — 8 days old, 1 open, needs follow-up\n• MediaCo — Sent Feb 20 ($35K) — 12 days old, URGENT\n\n**Action Items**: StartupX and MediaCo need follow-up calls."
+      }
+    }
+  },
+  reactivation: {
+    name: "Reactivation Agent", icon: "🔄",
+    greeting: "Hi! I'm your Reactivation Agent. I find old leads that have gone cold and re-engage them with targeted win-back campaigns. What would you like me to do?",
+    quickActions: ["Wake up leads from last 90 days", "Send win-back campaign to inactive customers", "Find high-value prospects who went silent"],
+    scenarios: {
+      "wake up|cold.*90|reactivate|win-back|inactive": {
+        actions: [
+          { tool: "segment_leads", desc: "Segmented leads by inactivity", detail: "Found 47 leads with no contact in 90+ days", status: "success" },
+          { tool: "score_reactivation", desc: "Scored leads by reactivation potential", detail: "Top 15 have high likelihood to close (based on prior engagement)", status: "success" },
+          { tool: "generate_winback_copy", desc: "Generated personalized win-back messages", detail: "Customized by industry, prior pain points, and last interaction", status: "success" },
+          { tool: "schedule_campaign", desc: "Scheduled 3-email win-back sequence", detail: "Days 1 (re-engagement), 5 (offer), 10 (urgency) with staggered delivery", status: "success" },
+        ],
+        response: "Win-back campaign launched!\n\n**Reactivation Target**: 47 cold leads (90+ days inactive)\n**Top Prospects**: 15 high-value leads prioritized\n\n**Campaign Details**:\n• **Email 1** (Day 1): \"We miss you\" — Acknowledge gap, offer update\n• **Email 2** (Day 5): Success story — Show what's changed since last contact\n• **Email 3** (Day 10): Limited offer — Time-sensitive incentive\n\n**Personalization**: Each message references their industry, prior conversations, and stated pain points.\n\n**Estimated Recovery**: ~8-12% of these leads typically re-engage."
+      }
+    }
+  },
+  reputation: {
+    name: "Reputation Agent", icon: "⭐",
+    greeting: "Hi! I'm your Reputation Agent. I request reviews from happy customers and catch unhappy ones before they leave negative reviews. What would you like me to do?",
+    quickActions: ["Send review requests to last week's completed jobs", "Check sentiment on recent interactions", "Request Google reviews from top customers"],
+    scenarios: {
+      "review.*request|send.*review|completed.*jobs|review request": {
+        actions: [
+          { tool: "fetch_completed_jobs", desc: "Retrieved last week's completed projects", detail: "7 completed jobs with satisfied clients", status: "success" },
+          { tool: "analyze_sentiment", desc: "Analyzed customer sentiment from interactions", detail: "All 7 showed positive sentiment (happy clients)", status: "success" },
+          { tool: "generate_review_requests", desc: "Generated personalized review request emails", detail: "Each references the specific work completed and impact achieved", status: "success" },
+          { tool: "send_with_links", desc: "Sent direct review links (Google, Trustpilot)", detail: "Customized links for each platform, one-click submission", status: "success" },
+        ],
+        response: "Review requests sent to 7 clients!\n\n**Review Links Sent**: \n• Google Reviews — 7 requests\n• Trustpilot — 3 applicable\n• HomeAdvisor — 5 applicable\n\n**Timing**: Sent 3-5 days after job completion (optimal for memory)\n\n**Tracking**: I'll monitor responses and send reminders to non-respondents after 1 week."
+      }
+    }
+  },
+  support: {
+    name: "Support Desk Agent", icon: "🎧",
+    greeting: "Hi! I'm your Support Desk Agent. I answer FAQs, triage tickets, and route issues to the right team. What would you like me to do?",
+    quickActions: ["Customer asking about refund policy", "Triage these 5 new support tickets", "Route urgent billing issue to appropriate team"],
+    scenarios: {
+      "refund|refund policy|billing question": {
+        actions: [
+          { tool: "search_kb", desc: "Searched knowledge base for refund policy", detail: "Found KB-102: Refund & Credit Policy", status: "success" },
+          { tool: "retrieve_policy", desc: "Retrieved full policy details", detail: "30-day money-back guarantee, conditions, process", status: "success" },
+          { tool: "draft_response", desc: "Drafted personalized customer response", detail: "Clear, empathetic, includes next steps", status: "success" },
+        ],
+        response: "Here's what I found:\n\n**Refund Policy** (KB-102):\n• 30-day money-back guarantee on all plans\n• Refund if: product doesn't meet expectations, duplicate charge, or billing error\n• No questions asked within 30 days\n• Processing: 3-5 business days\n\n**For this customer**: I've drafted a response that explains the policy clearly and offers to process a refund if they qualify."
+      },
+      "triage|new tickets|5.*tickets": {
+        actions: [
+          { tool: "fetch_pending_tickets", desc: "Retrieved 5 new support tickets", detail: "Mixed urgency: 2 high, 2 medium, 1 low", status: "success" },
+          { tool: "classify_by_type", desc: "Classified tickets by issue type", detail: "3 billing, 1 technical, 1 account access", status: "success" },
+          { tool: "assign_priority", desc: "Assigned priority levels", detail: "High: billing error + account locked | Medium: general questions", status: "success" },
+          { tool: "route_to_team", desc: "Routed to appropriate teams with context", detail: "Billing team (2), Tech support (1), Account management (2)", status: "success" },
+        ],
+        response: "Triage complete! Here's the breakdown:\n\n**HIGH PRIORITY** (Immediate):\n• TK-4521 — Billing error, duplicate charge, needs refund\n• TK-4522 — Account locked, customer frustrated\n\n**MEDIUM PRIORITY** (Today):\n• TK-4523 — Upgrade question, product inquiry\n• TK-4524 — Feature request, technical nature\n\n**LOW PRIORITY** (Within 24hrs):\n• TK-4525 — General feedback, non-urgent\n\nAll routed to their respective teams with full context."
+      }
+    }
+  },
+  onboarding: {
+    name: "Onboarding Agent", icon: "🚀",
+    greeting: "Hi! I'm your Onboarding Agent. I set up everything for new clients — welcome emails, intake forms, project tasks, and kickoff meetings. What would you like me to do?",
+    quickActions: ["New client just signed: Riverside Dental", "Generate onboarding checklist for project", "Schedule client kickoff meeting"],
+    scenarios: {
+      "new client.*signed|onboard.*riverside|start.*onboarding": {
+        actions: [
+          { tool: "fetch_client_data", desc: "Retrieved client info from signed contract", detail: "Riverside Dental — Dr. Sarah Lee, location: San Diego, CA", status: "success" },
+          { tool: "send_welcome_email", desc: "Sent personalized welcome email", detail: "Intro message with next steps and timeline", status: "success" },
+          { tool: "create_intake_form", desc: "Generated custom intake form", detail: "Sent via Typeform: business goals, current tools, timeline, team size", status: "success" },
+          { tool: "create_project_tasks", desc: "Created onboarding task checklist", detail: "15 tasks across kickoff, setup, training, and launch phases", status: "success" },
+          { tool: "schedule_kickoff", desc: "Scheduled kickoff meeting", detail: "Proposed 3 time slots, calendar invite sent to Dr. Lee", status: "success" },
+        ],
+        response: "Riverside Dental onboarding initiated!\n\n**Client**: Riverside Dental (Dr. Sarah Lee)\n\n**What I've Done**:\n1. Sent welcome email with project overview\n2. Shared intake form (needs to be completed in 48 hrs)\n3. Created 15-task onboarding checklist\n4. Proposed 3 kickoff times (Wed, Thu, Fri)\n\n**Timeline**:\n• Week 1: Intake, kickoff meeting\n• Week 2: Setup and configuration\n• Week 3: Training for their team\n• Week 4: Go-live"
+      }
+    }
+  },
+  sop: {
+    name: "SOP Builder Agent", icon: "📝",
+    greeting: "Hi! I'm your SOP Builder Agent. I turn your messy process notes into clear, structured SOPs and checklists. What would you like me to do?",
+    quickActions: ["Build SOP from these process notes", "Create client onboarding checklist", "Document billing workflow"],
+    scenarios: {
+      "sop|build.*sop|process|workflow|billing": {
+        actions: [
+          { tool: "parse_notes", desc: "Parsed unstructured process notes", detail: "Extracted key steps, decision points, and handoffs", status: "success" },
+          { tool: "structure_steps", desc: "Organized into step-by-step format", detail: "Created 12 clear steps with decision points and escalation paths", status: "success" },
+          { tool: "create_checklist", desc: "Generated companion checklist", detail: "Quick-ref checklist with checkboxes for each step", status: "success" },
+          { tool: "add_examples", desc: "Added real-world examples and edge cases", detail: "Examples and what-to-do-if scenarios", status: "success" },
+        ],
+        response: "SOP created from your process notes!\n\n**Document**: Billing Workflow SOP\n**Format**: Step-by-step guide + checklist\n**Steps**: 10 primary steps with decision points\n**Edge Cases Documented**: Failed payments, disputed charges, refund requests\n**Output Formats**: PDF guide + Word checklist\n\nReady to go live?"
+      }
+    }
+  },
+  report: {
+    name: "Weekly Report Agent", icon: "📊",
+    greeting: "Hi! I'm your Weekly Report Agent. Every Monday I pull your business metrics, analyze trends, and send you a CEO briefing. What would you like me to do?",
+    quickActions: ["Give me this week's numbers", "Generate Monday CEO briefing", "Compare metrics to last quarter"],
+    scenarios: {
+      "this week|week.*numbers|monday|briefing": {
+        actions: [
+          { tool: "pull_pipeline_data", desc: "Retrieved current pipeline", detail: "$387K total pipeline across 28 opportunities", status: "success" },
+          { tool: "calculate_metrics", desc: "Calculated key metrics", detail: "New leads: 12 (up 15% WoW), Close rate: 23%, Revenue: $42.5K closed", status: "success" },
+          { tool: "analyze_trends", desc: "Analyzed week-over-week trends", detail: "Pipeline up 8%, close rate up 5%, velocity improving", status: "success" },
+          { tool: "highlight_changes", desc: "Flagged significant changes & items needing attention", detail: "2 deals at risk, 1 surprise opportunity, budget forecast positive", status: "success" },
+        ],
+        response: "**Weekly CEO Briefing** — March 4, 2026\n\n**Key Numbers**:\n• **Pipeline**: $387K (up 8% WoW)\n• **New Leads**: 12 this week (up 15%)\n• **Closed Revenue**: $42.5K\n• **Close Rate**: 23% (avg: 18%)\n\n**What Needs Your Attention**:\n1. Call SaaS.io (no contact 5 days, proposal pending)\n2. Schedule MediaCo kickoff (contract signed)\n3. Follow up with StartupX on expansion scope\n\nFull report sent to your email."
+      }
+    }
+  },
+  newsletter: {
+    name: "Newsletter Agent", icon: "📰",
+    greeting: "Hi! I'm your Newsletter Agent. I draft weekly newsletters from your notes, add CTAs, format for email, and schedule sends. What would you like me to do?",
+    quickActions: ["Draft this week's newsletter", "Write newsletter on spring promotions", "Create customer success stories email"],
+    scenarios: {
+      "draft.*newsletter|write.*newsletter|this week.*letter": {
+        actions: [
+          { tool: "fetch_notes", desc: "Retrieved your notes and links", detail: "3 key topics, 5 links, 2 CTAs flagged", status: "success" },
+          { tool: "write_copy", desc: "Generated newsletter body", detail: "Engaging intro, 3 sections with transitions, compelling CTAs", status: "success" },
+          { tool: "format_email", desc: "Formatted for email clients", detail: "Responsive design, branded template, mobile-optimized", status: "success" },
+          { tool: "add_analytics", desc: "Added tracking pixels for opens/clicks", detail: "UTM parameters for source tracking", status: "success" },
+        ],
+        response: "Newsletter drafted!\n\n**Subject**: \"Spring Growth Hacks: 3 Ways to Scale This Quarter\"\n\n**Content Breakdown**:\n• **Intro**: Hook about spring momentum\n• **Section 1**: LinkedIn strategy\n• **Section 2**: Email campaign best practices\n• **Section 3**: Product update announcement\n• **CTA 1**: \"Read the full guide\"\n• **CTA 2**: \"Join our webinar\"\n\n**Estimated length**: ~500 words\n**Subscribers**: 4,200\n**Suggested send**: Tuesday 10 AM"
+      }
+    }
+  },
+  content: {
+    name: "Content Agent", icon: "🎬",
+    greeting: "Hi! I'm your Content Agent. I take your videos or podcasts and repurpose them into clips, captions, and social media posts. What would you like me to do?",
+    quickActions: ["Repurpose our latest podcast episode", "Create social clips from video", "Generate captions and posting schedule"],
+    scenarios: {
+      "podcast|video|repurpose|clips|transcribe": {
+        actions: [
+          { tool: "transcribe_media", desc: "Transcribed podcast episode", detail: "45-min episode → 8,200-word transcript", status: "success" },
+          { tool: "identify_moments", desc: "Identified 5 key moments for clips", detail: "Found 5 short, quotable clips (30-90 seconds each)", status: "success" },
+          { tool: "generate_captions", desc: "Generated engaging captions", detail: "5 unique captions optimized for each platform", status: "success" },
+          { tool: "create_posting_schedule", desc: "Built 10-day posting calendar", detail: "Staggered posts across 4 platforms with optimal timing", status: "success" },
+        ],
+        response: "**Content Repurposed**: \"How to Build Your First Product\"\n\n**Source**: 45-min podcast episode\n\n**Deliverables**:\n• Full transcript (8,200 words)\n• 5 short video clips (30-90 seconds)\n• 10 social media posts (multi-platform)\n• 10-day posting calendar\n\n**Posting Schedule** (Next 10 Days):\n• LinkedIn: 3 posts\n• Twitter: 4 posts\n• TikTok: 2 videos\n• Email: 1 full-episode link"
+      }
+    }
+  },
+  employee: {
+    name: "Employee Agent", icon: "👤",
+    greeting: "Hi! I'm your Employee Agent. I can answer HR policy questions, look up PTO balances, create Jira tickets, check calendars, and handle payroll FAQs. What do you need?",
+    quickActions: ["How many PTO days do I have left?", "Create a Jira ticket for a bug I found", "What's the company bereavement policy?"],
+    scenarios: {
+      "pto|vacation|time off|days.*left|how many.*days": {
+        actions: [
+          { tool: "lookup_employee", desc: "Retrieved your employee profile", detail: "John Smith, Engineering, Start date: Jan 2024", status: "success" },
+          { tool: "fetch_pto_balance", desc: "Retrieved PTO balances", detail: "Annual: 20 days, Used: 8, Remaining: 12, Pending: 2", status: "success" },
+          { tool: "check_blackout_dates", desc: "Checked upcoming blackout dates", detail: "No blackout dates in the next 30 days", status: "success" },
+        ],
+        response: "Here's your **PTO Summary**:\n\n• **Annual Allowance**: 20 days\n• **Used**: 8 days (last used: Feb 14-15)\n• **Pending Approval**: 2 days (Mar 20-21)\n• **Remaining**: 12 days\n\n**Upcoming Blackout Dates**: None in the next 30 days"
+      },
+      "jira|ticket|bug|create.*ticket": {
+        actions: [
+          { tool: "parse_issue_description", desc: "Analyzed your bug description", detail: "Classified as: Bug, Priority: Medium, Component: API Gateway", status: "success" },
+          { tool: "lookup_project", desc: "Found matching Jira project", detail: "Project: PLATFORM, Board: Engineering Sprint 24", status: "success" },
+          { tool: "create_jira_ticket", desc: "Created Jira ticket PLATFORM-1847", detail: "Assigned to API team, linked to sprint backlog", status: "success" },
+          { tool: "notify_team", desc: "Notified API team lead", detail: "Slack notification sent to #api-team channel", status: "success" },
+        ],
+        response: "Jira ticket created!\n\n**Ticket**: PLATFORM-1847\n**Title**: API Gateway returning 500 on batch requests\n**Priority**: Medium\n**Assigned To**: API Team (Sprint 24 backlog)\n\nYou'll get updates when the status changes."
+      },
+      "bereavement|policy|sick|parental|leave policy|expense|per diem": {
+        actions: [
+          { tool: "search_hr_kb", desc: "Searched HR knowledge base", detail: "Found matching policy document: HR-POL-042", status: "success" },
+          { tool: "retrieve_policy", desc: "Retrieved full policy details", detail: "Bereavement Leave Policy — last updated Jan 2026", status: "success" },
+        ],
+        response: "Here's the **Bereavement Leave Policy** (HR-POL-042):\n\n**Immediate Family** (spouse, child, parent, sibling):\n• 5 paid days of leave\n• No approval required — just notify your manager\n\n**Extended Family** (grandparent, in-law, aunt/uncle):\n• 3 paid days of leave\n\n**Additional Support**:\n• Up to 5 additional unpaid days upon request\n• EAP counseling available (confidential, 24/7)"
+      }
+    }
+  },
+  it_helpdesk: {
+    name: "IT Helpdesk Agent", icon: "🖥️",
+    greeting: "Hi! I'm your IT Helpdesk Agent. I can troubleshoot VPN and network issues, check system status, provide setup guides, and triage IT tickets. What's going on?",
+    quickActions: ["My VPN won't connect", "Is Salesforce down right now?", "New laptop setup guide for Engineering"],
+    scenarios: {
+      "vpn|connect|network|wifi|can't connect|won't connect": {
+        actions: [
+          { tool: "check_vpn_status", desc: "Checked VPN server status", detail: "VPN cluster us-west-2: Online, 42% capacity, latency 23ms", status: "success" },
+          { tool: "run_diagnostics", desc: "Running network diagnostics", detail: "DNS resolution: OK, Gateway: OK, Certificate: Valid until Dec 2026", status: "success" },
+          { tool: "check_known_issues", desc: "Checked for known issues", detail: "No active incidents affecting VPN", status: "success" },
+        ],
+        response: "Let's troubleshoot your VPN issue. The VPN servers look healthy on our end.\n\n**Server Status**: us-west-2 cluster is online (42% capacity)\n\n**Try these steps**:\n1. Disconnect & reconnect — Close VPN client, wait 10 seconds, reopen\n2. Switch protocol — Change from IKEv2 to OpenVPN\n3. Check your network — Try a different WiFi\n4. Clear DNS cache\n5. Reinstall client\n\nIf none work, I'll escalate to the network team."
+      },
+      "salesforce.*down|is.*down|status|outage|system.*down": {
+        actions: [
+          { tool: "check_status_page", desc: "Checked all system status pages", detail: "Queried Statuspage.io for all monitored services", status: "success" },
+          { tool: "check_internal_monitoring", desc: "Checked internal monitoring", detail: "Pulled latest health checks from Datadog", status: "success" },
+        ],
+        response: "Current **System Status**:\n\n**All Clear**:\n• Salesforce — Operational (99.9% uptime last 24h)\n• Slack — Operational\n• Google Workspace — Operational\n• Jira — Operational\n• GitHub — Operational\n\n**Degraded**:\n• Zoom — Intermittent issues with recordings (not calls)"
+      },
+      "new laptop|setup guide|onboard.*engineer|install": {
+        actions: [
+          { tool: "lookup_role_config", desc: "Retrieved Engineering role configuration", detail: "Engineering team: 12 required apps, 4 access groups, 2 dev environments", status: "success" },
+          { tool: "generate_setup_guide", desc: "Generated personalized setup guide", detail: "Step-by-step checklist based on Engineering role", status: "success" },
+          { tool: "create_access_requests", desc: "Pre-created access request tickets", detail: "4 tickets created for Okta group assignments (pending IT approval)", status: "success" },
+        ],
+        response: "**Engineering Laptop Setup Guide**\n\n**Phase 1 — Day 1 Essentials** (30 min):\n1. Sign into company WiFi\n2. Enroll in Okta MFA\n3. Set up email\n4. Join Slack channels\n5. Install VPN client\n\n**Phase 2 — Dev Environment** (1 hour):\n6. Install Homebrew + iTerm2\n7. Clone repos\n8. Install Docker Desktop\n9. Set up local dev environment\n10. Install VS Code + extensions\n\nAccess request tickets have been pre-created."
+      }
+    }
+  },
+  ad_creative: {
+    name: "Ad Creative Agent", icon: "🎨",
+    greeting: "Hi! I'm your Ad Creative Agent. I generate multiple ad variations with different hooks and copy angles, then track which ones perform best. What would you like me to do?",
+    quickActions: ["Generate 5 ad variants for our spring promo", "Create A/B test copy variations", "Analyze which ads are converting best"],
+    scenarios: {
+      "ad.*variant|spring promo|generate.*ad|ad.*copy": {
+        actions: [
+          { tool: "analyze_audience", desc: "Analyzed target audience insights", detail: "Pain points: cost, time, complexity. Top motivations: ROI, speed, simplicity", status: "success" },
+          { tool: "generate_hooks", desc: "Generated 5 hook angles", detail: "5 different approaches: pain, benefit, curiosity, urgency, social proof", status: "success" },
+          { tool: "write_copy_variants", desc: "Wrote 5 complete ad copies", detail: "Headline, body, CTA tailored to each hook", status: "success" },
+          { tool: "create_landing_variants", desc: "Suggested A/B test structure", detail: "5 ad variants to 2 landing pages (speed vs. features)", status: "success" },
+        ],
+        response: "**5 Ad Variants Generated** for Spring Promo\n\n**Variant 1 — Pain Hook**\n\"Stop managing agents manually. Let them manage themselves.\"\n\n**Variant 2 — Benefit Hook**\n\"Stop paying $200K/year for people to do what our agents do free.\"\n\n**Variant 3 — Curiosity Hook**\n\"Your competitors are already using agents. Are you?\"\n\n**Variant 4 — Urgency Hook**\n\"99% off setup fees. This week only.\"\n\n**Variant 5 — Social Proof Hook**\n\"Joined by 500+ SaaS & services companies.\"\n\n**Recommendation**: Run all 5 for 3 days, equal budget. Winner typically appears within 24-48 hours."
+      }
+    }
+  }
+};
+
+function openDemo(agentType) {
+  currentAgent = agentType;
+  const agent = AGENTS[agentType];
+  document.getElementById("demoIcon").textContent = agent.icon;
+  document.getElementById("demoTitle").textContent = agent.name;
+  document.getElementById("demoOverlay").classList.add("active");
+  const toolbar = document.getElementById("demoToolbar");
+  toolbar.innerHTML = "";
+  agent.quickActions.forEach(text => {
+    const btn = document.createElement("button");
+    btn.textContent = text;
+    btn.onclick = () => { document.getElementById("demoInput").value = text; handleSend(); };
+    toolbar.appendChild(btn);
+  });
+  const msgs = document.getElementById("demoMessages");
+  msgs.innerHTML = "";
+  addBotMessage(agent.greeting);
+  document.getElementById("demoInput").focus();
+}
+
+function closeDemo() {
+  document.getElementById("demoOverlay").classList.remove("active");
+  currentAgent = null;
+}
+
+document.addEventListener("keydown", e => { if (e.key === "Escape") closeDemo(); });
+document.getElementById("demoOverlay").addEventListener("click", e => {
+  if (e.target === document.getElementById("demoOverlay")) closeDemo();
+});
+
+function handleSend() {
+  const input = document.getElementById("demoInput");
+  const text = input.value.trim();
+  if (!text || isBusy) return;
+  input.value = "";
+  processMessage(text);
+}
+
+async function processMessage(text) {
+  isBusy = true;
+  document.getElementById("demoSendBtn").disabled = true;
+  addUserMessage(text);
+  const msgs = document.getElementById("demoMessages");
+  const typing = document.createElement("div");
+  typing.className = "typing-indicator";
+  typing.id = "typingDots";
+  typing.innerHTML = "<span></span><span></span><span></span>";
+  msgs.appendChild(typing);
+  scrollToBottom();
+
+  const agent = AGENTS[currentAgent];
+  let scenario = null;
+  const lower = text.toLowerCase();
+  for (const [pattern, data] of Object.entries(agent.scenarios)) {
+    const regex = new RegExp(pattern, "i");
+    if (regex.test(lower)) { scenario = data; break; }
+  }
+
+  if (!scenario) {
+    const capabilities = {
+      follow_up: "• Generate personalized follow-ups for leads\n• Create and schedule nurture sequences\n• Track email engagement and opens",
+      proposal: "• Generate proposals from templates\n• Send for e-signature via DocuSign\n• Check e-signature status and log results",
+      reactivation: "• Segment cold leads (90+ days inactive)\n• Generate personalized win-back campaigns\n• Schedule reactivation sequences",
+      reputation: "• Request reviews from happy customers\n• Check sentiment on interactions\n• Route unhappy customers before they leave negative reviews",
+      support: "• Answer FAQs using your knowledge base\n• Triage and classify support tickets\n• Route issues to the right team members",
+      onboarding: "• Send welcome emails to new clients\n• Create and manage intake forms\n• Build onboarding checklists and schedules",
+      sop: "• Transform process notes into structured SOPs\n• Create step-by-step guides with decision points\n• Generate companion checklists",
+      report: "• Pull CRM data and calculate key metrics\n• Generate weekly CEO briefings\n• Analyze trends and flag items needing attention",
+      newsletter: "• Draft newsletters from your notes\n• Add CTAs and format for email clients\n• Schedule sends and track open/click rates",
+      content: "• Transcribe podcasts and videos\n• Generate short clips for social media\n• Create captions and posting calendars",
+      employee: "• Answer HR policy questions (PTO, benefits, leave)\n• Look up PTO balances and policy details\n• Create Jira tickets from natural language",
+      it_helpdesk: "• Troubleshoot VPN, network, and connectivity issues\n• Check real-time system status\n• Generate setup guides by role",
+      ad_creative: "• Generate multiple ad copy variations\n• Create A/B test variants with different hooks\n• Track which ads are converting best"
+    };
+    scenario = {
+      actions: [],
+      response: `I understand your request. In production, I'd use my connected tools to help. Try one of the suggested prompts above to see me in action!\n\nAs an agent, I can:\n${capabilities[currentAgent] || ''}`
+    };
+  }
+
+  await sleep(800);
+  const td = document.getElementById("typingDots");
+  if (td) td.remove();
+
+  if (scenario.actions.length > 0) {
+    const actionsDiv = document.createElement("div");
+    actionsDiv.className = "actions-panel";
+    actionsDiv.innerHTML = `<div class="actions-title">AGENT ACTIONS</div>`;
+    msgs.appendChild(actionsDiv);
+    scrollToBottom();
+    for (let i = 0; i < scenario.actions.length; i++) {
+      await sleep(400 + Math.random() * 300);
+      const a = scenario.actions[i];
+      const item = document.createElement("div");
+      item.className = "action-item";
+      item.style.animation = "msgIn 0.3s ease-out";
+      item.innerHTML = `<span class="check">✓</span><span class="tool-name">${a.tool}</span><span>${a.desc}</span>`;
+      actionsDiv.appendChild(item);
+      const detail = document.createElement("div");
+      detail.style.cssText = "padding-left: 24px; font-size: 11px; color: var(--muted); margin-bottom: 4px;";
+      detail.textContent = a.detail;
+      actionsDiv.appendChild(detail);
+      scrollToBottom();
+    }
+    await sleep(300);
+  }
+
+  addBotMessage(scenario.response);
+  isBusy = false;
+  document.getElementById("demoSendBtn").disabled = false;
+  document.getElementById("demoInput").focus();
+}
+
+function addUserMessage(text) {
+  const msgs = document.getElementById("demoMessages");
+  const div = document.createElement("div");
+  div.className = "msg msg-user";
+  div.innerHTML = `<div class="bubble">${escapeHtml(text)}</div>`;
+  msgs.appendChild(div);
+  scrollToBottom();
+}
+
+function addBotMessage(text) {
+  const msgs = document.getElementById("demoMessages");
+  const div = document.createElement("div");
+  div.className = "msg msg-bot";
+  let html = escapeHtml(text)
+    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+    .replace(/\n• /g, '<br>• ')
+    .replace(/\n\|/g, '<br>|')
+    .replace(/\n(\d+)\./g, '<br>$1.')
+    .replace(/\n{2,}/g, '<br><br>')
+    .replace(/\n/g, '<br>');
+  div.innerHTML = `<div class="bubble">${html}</div>`;
+  msgs.appendChild(div);
+  scrollToBottom();
+}
+
+function scrollToBottom() {
+  const msgs = document.getElementById("demoMessages");
+  msgs.scrollTop = msgs.scrollHeight;
+}
+
+function escapeHtml(text) {
+  const div = document.createElement("div");
+  div.textContent = text;
+  return div.innerHTML;
+}
+
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+</script>
+</body>
+</html>
