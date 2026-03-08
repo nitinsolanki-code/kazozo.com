@@ -3,9 +3,29 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kazozo — AI Agents That Run Your Business</title>
+<title>Kazozo — AI Agents for Sales, Support & Operations</title>
+<meta name="description" content="Salesforce Agentforce alternative built for SMBs. 11 AI agents, 87 tools — automate support, sales, field ops and growth. Predictable monthly pricing starting at $149/mo.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://kazozo.com/">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Kazozo — AI Agents That Run Your Business">
+<meta property="og:description" content="Salesforce Agentforce alternative for SMBs. 11 AI agents, 87 tools. Predictable monthly pricing from $149/mo.">
+<meta property="og:url" content="https://kazozo.com/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Kazozo">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Kazozo — AI Agents That Run Your Business">
+<meta name="twitter:description" content="Salesforce Agentforce alternative for SMBs. 11 AI agents, 87 tools. Predictable monthly pricing from $149/mo.">
+
+<!-- Fonts (preconnect for performance) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700;1,800&family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700;1,800&family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -151,7 +171,7 @@
   .tiers-header .section-sub { margin: 0 auto; }
 
   .tiers-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;
   }
 
   .tier-card {
@@ -178,8 +198,9 @@
   }
 
   .tier-card:nth-child(1) .tier-badge { background: rgba(100,210,255,0.12); color: var(--sky); }
-  .tier-card:nth-child(2) .tier-badge { background: rgba(184,169,255,0.12); color: var(--lavender); }
-  .tier-card:nth-child(3) .tier-badge { background: rgba(255,107,90,0.12); color: var(--coral); }
+  .tier-card:nth-child(2) .tier-badge { background: rgba(205,255,100,0.12); color: var(--lime); }
+  .tier-card:nth-child(3) .tier-badge { background: rgba(184,169,255,0.12); color: var(--lavender); }
+  .tier-card:nth-child(4) .tier-badge { background: rgba(255,107,90,0.12); color: var(--coral); }
 
   .tier-card h3 {
     font-family: 'Playfair Display', serif; font-size: 26px;
@@ -187,8 +208,9 @@
   }
 
   .tier-card:nth-child(1) h3 { color: var(--sky); }
-  .tier-card:nth-child(2) h3 { color: var(--lavender); }
-  .tier-card:nth-child(3) h3 { color: var(--coral); }
+  .tier-card:nth-child(2) h3 { color: var(--lime); }
+  .tier-card:nth-child(3) h3 { color: var(--lavender); }
+  .tier-card:nth-child(4) h3 { color: var(--coral); }
 
   .tier-price-line {
     font-size: 14px; color: var(--muted); margin-bottom: 4px;
@@ -199,10 +221,13 @@
   }
 
   .tier-card:nth-child(1) .tier-price-line strong { color: var(--sky); }
-  .tier-card:nth-child(2) .tier-price-line strong { color: var(--lavender); }
-  .tier-card:nth-child(3) .tier-price-line strong { color: var(--coral); }
+  .tier-card:nth-child(2) .tier-price-line strong { color: var(--lime); }
+  .tier-card:nth-child(3) .tier-price-line strong { color: var(--lavender); }
+  .tier-card:nth-child(4) .tier-price-line strong { color: var(--coral); }
 
   .tier-min { font-size: 12px; color: var(--muted); }
+
+  .plan-popular { position: absolute; top: -12px; right: 20px; background: var(--lime); color: var(--bg); font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.5px; }
 
   .tier-agents {
     padding: 20px 28px 28px; display: flex; flex-direction: column; gap: 0;
@@ -555,8 +580,8 @@
 
   .cta h2 {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(32px, 4vw, 48px); font-weight: 800;
-    letter-spacing: -1.5px; margin-bottom: 12px; line-height: 1.1;
+    font-size: clamp(38px, 5vw, 56px); font-weight: 800;
+    letter-spacing: -1.5px; margin-bottom: 16px; line-height: 1.1;
   }
 
   .cta h2 em { font-style: italic; color: var(--coral); }
@@ -583,7 +608,7 @@
   /* ===== RESPONSIVE ===== */
   @media (max-width: 900px) {
     .nav-links { display: none; }
-    .tiers-grid { grid-template-columns: 1fr; }
+    .tiers-grid { grid-template-columns: repeat(2, 1fr); }
     .hiw-grid { grid-template-columns: 1fr; }
     .verticals-grid { grid-template-columns: 1fr; }
     .verticals-grid-2 { grid-template-columns: 1fr; }
@@ -597,6 +622,23 @@
     .pricing-table th, .pricing-table td { padding: 10px 12px; font-size: 12px; }
   }
 </style>
+
+<!-- Organization Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Kazozo",
+  "url": "https://kazozo.com",
+  "description": "Salesforce Agentforce alternative built for SMBs. AI agents that automate customer support, sales, field operations, and business growth. 87 tools. Pay per resolution, not per seat.",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "hello@kazozo.com",
+    "contactType": "sales"
+  },
+  "sameAs": []
+}
+</script>
 </head>
 <body>
 
@@ -614,8 +656,8 @@
       <ul class="nav-links">
         <li><a href="#agents">Agents</a></li>
         <li><a href="#pricing">Pricing</a></li>
-        <li><a href="#verticals">Industries</a></li>
-        <li><a href="live-demo.html">Live Demo</a></li>
+        <li><a href="live-demo.html">Simulation</a></li>
+        <li><a href="#why">Why Kazozo</a></li>
         <li><a href="#cta" class="btn-nav">Get Started</a></li>
       </ul>
     </div>
@@ -635,47 +677,57 @@
   <!-- AGENT TIERS -->
   <section class="agent-tiers" id="agents">
     <div class="tiers-header">
-      <div class="section-eyebrow eyebrow-lavender">13 Agents. 3 Tiers.</div>
+      <div class="section-eyebrow eyebrow-lavender">11 Agents. 4 Categories.</div>
       <h2 class="section-heading" style="text-align:center;">Pick your agents. <em style="color:var(--lavender);">Pay per resolution.</em></h2>
-      <p class="section-sub" style="text-align:center;">Start with one. Scale to all thirteen. Every agent connects to your CRM and runs on autopilot.</p>
+      <p class="section-sub" style="text-align:center;">Start with one. Scale to eleven. Every agent connects to your systems and runs on autopilot.</p>
     </div>
 
     <div class="tiers-grid">
+      <!-- FRONTLINE -->
+      <div class="tier-card">
+        <div class="tier-top">
+          <div class="tier-badge">Frontline</div>
+          <h3>First Point of Contact</h3>
+          <div class="tier-price-line"><strong>$0.15</strong> / resolution</div>
+        </div>
+        <div class="tier-agents">
+          <div class="ta-item">
+            <div class="ta-icon">🛡️</div>
+            <div class="ta-text">
+              <h5>Frontline Agent</h5>
+              <p>Greets customers, understands intent, routes to the right agent.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <!-- UTILITY -->
       <div class="tier-card">
         <div class="tier-top">
           <div class="tier-badge">Utility</div>
-          <h3>Utility Agents</h3>
+          <h3>Internal & Back-Office</h3>
           <div class="tier-price-line"><strong>$0.10–$0.15</strong> / resolution</div>
-          <div class="tier-min">$15/agent/mo minimum</div>
         </div>
         <div class="tier-agents">
           <div class="ta-item">
-            <div class="ta-icon">&#128172;</div>
-            <div class="ta-text">
-              <h5>FAQ Bot</h5>
-              <p>Instant answers from your knowledge base — policies, pricing, hours, procedures.</p>
-            </div>
-          </div>
-          <div class="ta-item">
-            <div class="ta-icon">&#128100;</div>
+            <div class="ta-icon">👤</div>
             <div class="ta-text">
               <h5>Employee Agent</h5>
-              <p>HR policy Q&A, PTO lookups, Jira tickets, payroll FAQs.</p>
+              <p>PTO requests, expense reports, HR lookups, onboarding Q&A.</p>
             </div>
           </div>
           <div class="ta-item">
-            <div class="ta-icon">&#128187;</div>
+            <div class="ta-icon">🖥️</div>
             <div class="ta-text">
-              <h5>IT Helpdesk Agent</h5>
-              <p>VPN troubleshooting, system status, setup guides, ticket triage.</p>
+              <h5>IT Helpdesk</h5>
+              <p>Password resets, access requests, basic tech troubleshooting.</p>
             </div>
           </div>
           <div class="ta-item">
-            <div class="ta-icon">&#11088;</div>
+            <div class="ta-icon">⭐</div>
             <div class="ta-text">
               <h5>Review Manager</h5>
-              <p>Requests reviews from happy customers, routes complaints privately.</p>
+              <p>Monitors and responds to online reviews.</p>
             </div>
           </div>
         </div>
@@ -685,37 +737,36 @@
       <div class="tier-card">
         <div class="tier-top">
           <div class="tier-badge">Workflow</div>
-          <h3>Workflow Agents</h3>
-          <div class="tier-price-line"><strong>$0.20–$0.30</strong> / resolution</div>
-          <div class="tier-min">$25/agent/mo minimum</div>
+          <h3>Customer Ops & Revenue</h3>
+          <div class="tier-price-line"><strong>$0.25–$0.30</strong> / resolution</div>
         </div>
         <div class="tier-agents">
           <div class="ta-item">
-            <div class="ta-icon">&#127919;</div>
+            <div class="ta-icon">🎧</div>
             <div class="ta-text">
-              <h5>Customer Support Agent</h5>
-              <p>Triages tickets, drafts replies, routes to the right person, follows up.</p>
+              <h5>Customer Support</h5>
+              <p>Support tickets, account actions, refunds, plan changes, escalation.</p>
             </div>
           </div>
           <div class="ta-item">
-            <div class="ta-icon">&#128200;</div>
+            <div class="ta-icon">🎯</div>
             <div class="ta-text">
               <h5>Lead Qualifier</h5>
-              <p>Scores inbound leads, enriches contact data, routes hot leads to sales.</p>
+              <p>Scores inbound leads, enriches data, routes hot leads to sales.</p>
             </div>
           </div>
           <div class="ta-item">
-            <div class="ta-icon">&#9889;</div>
+            <div class="ta-icon">✉️</div>
             <div class="ta-text">
-              <h5>Sales Outreach Agent</h5>
-              <p>Personalized follow-ups within 60 seconds. 7–21 day nurture sequences.</p>
+              <h5>Sales Agent</h5>
+              <p>Outreach sequences, follow-ups, proposals, e-signatures, CRM logging.</p>
             </div>
           </div>
           <div class="ta-item">
-            <div class="ta-icon">&#128203;</div>
+            <div class="ta-icon">🔧</div>
             <div class="ta-text">
-              <h5>Case Wrap-Up Agent</h5>
-              <p>Summarizes resolved tickets, updates CRM, triggers satisfaction survey.</p>
+              <h5>Service Operations</h5>
+              <p>Dispatch, technician assignment, job tracking, SLA monitoring.</p>
             </div>
           </div>
         </div>
@@ -725,44 +776,29 @@
       <div class="tier-card">
         <div class="tier-top">
           <div class="tier-badge">Strategic</div>
-          <h3>Strategic Agents</h3>
-          <div class="tier-price-line"><strong>$0.50–$1.00</strong> / resolution</div>
-          <div class="tier-min">$50/agent/mo minimum</div>
+          <h3>High-Value, Complex Workflows</h3>
+          <div class="tier-price-line"><strong>$0.50–$0.75</strong> / resolution</div>
         </div>
         <div class="tier-agents">
           <div class="ta-item">
-            <div class="ta-icon">&#128221;</div>
+            <div class="ta-icon">💰</div>
             <div class="ta-text">
-              <h5>Proposal Writer</h5>
-              <p>Auto-generates proposals from CRM data, sends for e-signature.</p>
+              <h5>Finance Agent</h5>
+              <p>Purchase orders, budget checks, invoice processing, vendor spend.</p>
             </div>
           </div>
           <div class="ta-item">
-            <div class="ta-icon">&#128202;</div>
+            <div class="ta-icon">📊</div>
             <div class="ta-text">
-              <h5>Weekly Report Agent</h5>
-              <p>Monday briefing with leads, revenue, pipeline, trends.</p>
+              <h5>Weekly Report</h5>
+              <p>Executive performance summaries from CRM and metrics data.</p>
             </div>
           </div>
           <div class="ta-item">
-            <div class="ta-icon">&#128231;</div>
+            <div class="ta-icon">🎬</div>
             <div class="ta-text">
-              <h5>Newsletter Agent</h5>
-              <p>Writes your weekly email from notes and links.</p>
-            </div>
-          </div>
-          <div class="ta-item">
-            <div class="ta-icon">&#9997;&#65039;</div>
-            <div class="ta-text">
-              <h5>Content Writer Agent</h5>
-              <p>Repurposes podcasts/videos into clips + captions + posting plan.</p>
-            </div>
-          </div>
-          <div class="ta-item">
-            <div class="ta-icon">&#127912;</div>
-            <div class="ta-text">
-              <h5>Ad Creative Agent</h5>
-              <p>Generates hook/angle/copy variants for ads.</p>
+              <h5>Content Agent</h5>
+              <p>Blog posts, social media, newsletters, email campaigns, ad copy.</p>
             </div>
           </div>
         </div>
@@ -770,49 +806,87 @@
     </div>
   </section>
 
-  <!-- PRICING TABLE -->
+  <!-- PRICING -->
   <section class="pricing-section" id="pricing">
     <div class="pricing-header">
       <div class="section-eyebrow eyebrow-amber">Transparent Pricing</div>
-      <h2 class="section-heading" style="text-align:center;">Pay per resolution. <em style="color:var(--amber);">Not per seat.</em></h2>
-      <p class="section-sub" style="text-align:center;">You pay the greater of your monthly minimum or actual usage. No surprises.</p>
+      <h2 class="section-heading" style="text-align:center;">Predictable monthly pricing. <em style="color:var(--amber);">Built for SMBs.</em></h2>
+      <p class="section-sub" style="text-align:center;">Hybrid plans with included resolutions. Overage billed per-resolution. No per-seat fees.</p>
     </div>
 
-    <div class="pricing-table-wrap">
-      <table class="pricing-table">
-        <thead>
-          <tr>
-            <th>Agent</th>
-            <th>Category</th>
-            <th>Per Resolution</th>
-            <th>Mo. Minimum</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr class="tier-row utility"><td colspan="4">Utility Agents — $15/agent/mo minimum</td></tr>
-          <tr><td>FAQ Bot</td><td>Support</td><td class="price-val sky">$0.10</td><td>$15/mo</td></tr>
-          <tr><td>Employee Agent</td><td>Operations</td><td class="price-val sky">$0.10</td><td>$15/mo</td></tr>
-          <tr><td>IT Helpdesk Agent</td><td>Operations</td><td class="price-val sky">$0.12</td><td>$15/mo</td></tr>
-          <tr><td>Review Manager</td><td>Sales</td><td class="price-val sky">$0.15</td><td>$15/mo</td></tr>
-
-          <tr class="tier-row workflow"><td colspan="4">Workflow Agents — $25/agent/mo minimum</td></tr>
-          <tr><td>Customer Support Agent</td><td>Support</td><td class="price-val lavender">$0.25</td><td>$25/mo</td></tr>
-          <tr><td>Lead Qualifier</td><td>Sales</td><td class="price-val lavender">$0.25</td><td>$25/mo</td></tr>
-          <tr><td>Sales Outreach Agent</td><td>Sales</td><td class="price-val lavender">$0.30</td><td>$25/mo</td></tr>
-          <tr><td>Case Wrap-Up Agent</td><td>Support</td><td class="price-val lavender">$0.20</td><td>$25/mo</td></tr>
-
-          <tr class="tier-row strategic"><td colspan="4">Strategic Agents — $50/agent/mo minimum</td></tr>
-          <tr><td>Proposal Writer</td><td>Sales</td><td class="price-val coral">$0.50</td><td>$50/mo</td></tr>
-          <tr><td>Weekly Report Agent</td><td>Strategy</td><td class="price-val coral">$0.75</td><td>$50/mo</td></tr>
-          <tr><td>Newsletter Agent</td><td>Strategy</td><td class="price-val coral">$1.00</td><td>$50/mo</td></tr>
-          <tr><td>Content Writer Agent</td><td>Strategy</td><td class="price-val coral">$0.75</td><td>$50/mo</td></tr>
-          <tr><td>Ad Creative Agent</td><td>Strategy</td><td class="price-val coral">$0.50</td><td>$50/mo</td></tr>
-        </tbody>
-      </table>
-      <div class="pricing-note">
-        <strong>Volume discounts:</strong> 10% off with 4+ agents &middot; 15% off with 8+ &middot; 20% off with 12+<br>
-        <strong>Competitors:</strong> Salesforce $2.00/conv &middot; Zendesk $1.50/res &middot; Intercom $0.99/res
+    <div class="tiers-grid" style="margin-top:40px;">
+      <div class="tier-card" style="text-align:center; position:relative;">
+        <div class="tier-top">
+          <div class="tier-badge">Starter</div>
+          <h3 style="margin-bottom:8px; font-size:22px;">Starter</h3>
+          <div class="tier-price-line" style="font-size:32px; margin-bottom:8px;"><strong style="color:var(--sky);">$149</strong><span style="font-size:16px; color:var(--muted);">/mo</span></div>
+        </div>
+        <div style="padding:24px 20px; color:var(--muted); font-size:14px; line-height:1.8; text-align:left;">
+          <ul style="list-style:none; padding:0; margin:0;">
+            <li style="padding:8px 0; border-bottom: 1px solid var(--border);"><span style="color:var(--text);">500</span> included resolutions</li>
+            <li style="padding:8px 0; border-bottom: 1px solid var(--border);">$0.25 overage/resolution</li>
+            <li style="padding:8px 0;">Up to 3 agents</li>
+          </ul>
+        </div>
       </div>
+      <div class="tier-card" style="text-align:center; position:relative;">
+        <div class="plan-popular">POPULAR</div>
+        <div class="tier-top">
+          <div class="tier-badge">Growth</div>
+          <h3 style="margin-bottom:8px; font-size:22px;">Growth</h3>
+          <div class="tier-price-line" style="font-size:32px; margin-bottom:8px;"><strong style="color:var(--lime);">$399</strong><span style="font-size:16px; color:var(--muted);">/mo</span></div>
+        </div>
+        <div style="padding:24px 20px; color:var(--muted); font-size:14px; line-height:1.8; text-align:left;">
+          <ul style="list-style:none; padding:0; margin:0;">
+            <li style="padding:8px 0; border-bottom: 1px solid var(--border);"><span style="color:var(--text);">2,000</span> included resolutions</li>
+            <li style="padding:8px 0; border-bottom: 1px solid var(--border);">$0.18 overage/resolution</li>
+            <li style="padding:8px 0;">Up to 6 agents</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tier-card" style="text-align:center; position:relative;">
+        <div class="tier-top">
+          <div class="tier-badge">Pro</div>
+          <h3 style="margin-bottom:8px; font-size:22px;">Pro</h3>
+          <div class="tier-price-line" style="font-size:32px; margin-bottom:8px;"><strong style="color:var(--lavender);">$899</strong><span style="font-size:16px; color:var(--muted);">/mo</span></div>
+        </div>
+        <div style="padding:24px 20px; color:var(--muted); font-size:14px; line-height:1.8; text-align:left;">
+          <ul style="list-style:none; padding:0; margin:0;">
+            <li style="padding:8px 0; border-bottom: 1px solid var(--border);"><span style="color:var(--text);">6,000</span> included resolutions</li>
+            <li style="padding:8px 0; border-bottom: 1px solid var(--border);">$0.12 overage/resolution</li>
+            <li style="padding:8px 0;">Up to 12 agents (all agents)</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tier-card" style="text-align:center; position:relative;">
+        <div class="tier-top">
+          <div class="tier-badge">Enterprise</div>
+          <h3 style="margin-bottom:8px; font-size:22px;">Enterprise</h3>
+          <div class="tier-price-line" style="font-size:32px; margin-bottom:8px;"><strong style="color:var(--coral);">Custom</strong></div>
+        </div>
+        <div style="padding:24px 20px; color:var(--muted); font-size:14px; line-height:1.8; text-align:left;">
+          <ul style="list-style:none; padding:0; margin:0;">
+            <li style="padding:8px 0; border-bottom: 1px solid var(--border);">Custom resolutions</li>
+            <li style="padding:8px 0; border-bottom: 1px solid var(--border);">Custom overage</li>
+            <li style="padding:8px 0;">Unlimited agents</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:48px; padding:32px; background:rgba(255,255,255,0.02); border:1px solid var(--border); border-radius:16px;">
+      <h4 style="color:var(--text); font-size:16px; margin-bottom:20px; font-weight:600;">Per-Resolution Rates (Pay-As-You-Go)</h4>
+      <div style="display:grid; grid-template-columns:repeat(2, 1fr); gap:16px; font-size:14px; color:var(--muted);">
+        <div style="display:flex; justify-content:space-between; padding:8px 0; border-bottom:1px solid var(--border);"><span>Frontline</span><span style="color:var(--text); font-weight:600;">$0.15/res</span></div>
+        <div style="display:flex; justify-content:space-between; padding:8px 0; border-bottom:1px solid var(--border);"><span>Utility</span><span style="color:var(--text); font-weight:600;">$0.10–$0.15/res</span></div>
+        <div style="display:flex; justify-content:space-between; padding:8px 0; border-bottom:1px solid var(--border);"><span>Workflow</span><span style="color:var(--text); font-weight:600;">$0.25–$0.30/res</span></div>
+        <div style="display:flex; justify-content:space-between; padding:8px 0;"><span>Strategic</span><span style="color:var(--text); font-weight:600;">$0.50–$0.75/res</span></div>
+      </div>
+    </div>
+
+    <div class="pricing-note" style="margin-top:30px;">
+      <strong>Volume discounts (per-resolution model):</strong> 10% off at 4+ agents &middot; 15% at 8+ &middot; 20% at 12+<br>
+      Industry average per-resolution cost: <strong>$1.50–$2.00</strong>. Kazozo starts at <strong>$0.10</strong>.
     </div>
   </section>
 
@@ -820,25 +894,21 @@
   <section class="verticals" id="verticals">
     <div class="verticals-header">
       <div class="section-eyebrow eyebrow-lime">Built for Your Industry</div>
-      <h2 class="section-heading" style="text-align:center;">Pre-configured packages. <em style="color:var(--lime);">Go live in days.</em></h2>
-      <p class="section-sub" style="text-align:center;">Pick your vertical. We configure the agents, connect your CRM, and deploy. Zero compliance overhead.</p>
+      <h2 class="section-heading" style="text-align:center;">Pre-configured for your vertical. <em style="color:var(--lime);">Go live in days.</em></h2>
+      <p class="section-sub" style="text-align:center;">Pick your industry. We configure the right agents, connect your CRM, and deploy. You're live in 1–2 weeks.</p>
     </div>
 
     <div class="verticals-grid">
-      <!-- Home Services -->
       <div class="vert-card">
         <div class="vert-top">
           <h3>Home Services</h3>
           <div class="vert-sub">HVAC &middot; Plumbing &middot; Electrical &middot; Roofing &middot; Landscaping</div>
         </div>
         <ul class="vert-agents">
-          <li><span class="vert-check">&#10003;</span> FAQ Bot — "How much does X cost?" &middot; "Do you service my zip?"</li>
-          <li><span class="vert-check">&#10003;</span> Lead Qualifier — Routes emergency jobs to dispatch</li>
-          <li><span class="vert-check">&#10003;</span> Sales Outreach — Follows up on unsold estimates</li>
-          <li><span class="vert-check">&#10003;</span> Customer Support — "Where's my technician?"</li>
-          <li><span class="vert-check">&#10003;</span> Review Manager — Post-job Google review requests</li>
-          <li><span class="vert-check">&#10003;</span> Case Wrap-Up — Closes work orders, updates CRM</li>
-          <li><span class="vert-check">&#10003;</span> Weekly Report — Jobs, revenue, close rate, pipeline</li>
+          <li><span class="vert-check">&#10003;</span> Answer customer questions 24/7 — pricing, availability, service areas</li>
+          <li><span class="vert-check">&#10003;</span> Follow up on every unsold estimate automatically</li>
+          <li><span class="vert-check">&#10003;</span> Request Google reviews after every completed job</li>
+          <li><span class="vert-check">&#10003;</span> Weekly revenue and pipeline report every Monday</li>
         </ul>
         <div class="vert-meta">
           <div class="vert-price">$55<span>/mo starter</span></div>
@@ -846,20 +916,16 @@
         </div>
       </div>
 
-      <!-- Real Estate -->
       <div class="vert-card">
         <div class="vert-top">
           <h3>Real Estate</h3>
           <div class="vert-sub">Brokerages &middot; Teams &middot; Solo Agents &middot; Property Management</div>
         </div>
         <ul class="vert-agents">
-          <li><span class="vert-check">&#10003;</span> FAQ Bot — Property details, showing availability, process Qs</li>
-          <li><span class="vert-check">&#10003;</span> Lead Qualifier — Scores buyer/seller leads by motivation</li>
-          <li><span class="vert-check">&#10003;</span> Sales Outreach — Open house follow-ups, listing alerts</li>
-          <li><span class="vert-check">&#10003;</span> Proposal Writer — CMAs and listing presentations</li>
-          <li><span class="vert-check">&#10003;</span> Review Manager — Post-closing review requests</li>
-          <li><span class="vert-check">&#10003;</span> Newsletter — Monthly market updates, just-sold emails</li>
-          <li><span class="vert-check">&#10003;</span> Weekly Report — Showings, offers, closings, production</li>
+          <li><span class="vert-check">&#10003;</span> Qualify and score every inbound lead instantly</li>
+          <li><span class="vert-check">&#10003;</span> Auto-send open house follow-ups and listing alerts</li>
+          <li><span class="vert-check">&#10003;</span> Generate CMAs and listing presentations on demand</li>
+          <li><span class="vert-check">&#10003;</span> Weekly production report — showings, offers, closings</li>
         </ul>
         <div class="vert-meta">
           <div class="vert-price">$65<span>/mo starter</span></div>
@@ -867,21 +933,16 @@
         </div>
       </div>
 
-      <!-- Marketing Agencies -->
       <div class="vert-card">
         <div class="vert-top">
           <h3>Marketing Agencies</h3>
           <div class="vert-sub">Digital &middot; Creative &middot; PR &middot; Social Media &middot; Content</div>
         </div>
         <ul class="vert-agents">
-          <li><span class="vert-check">&#10003;</span> Lead Qualifier — Scores inbound inquiries by budget/scope</li>
-          <li><span class="vert-check">&#10003;</span> Proposal Writer — Pitch decks and SOWs from discovery notes</li>
-          <li><span class="vert-check">&#10003;</span> Customer Support — Routes client requests to PMs</li>
-          <li><span class="vert-check">&#10003;</span> Newsletter — Agency thought leadership emails</li>
-          <li><span class="vert-check">&#10003;</span> Content Writer — Repurposes client content across channels</li>
-          <li><span class="vert-check">&#10003;</span> Ad Creative — Hook/angle/copy variants for client campaigns</li>
-          <li><span class="vert-check">&#10003;</span> Weekly Report — Deliverables, revenue, utilization, pipeline</li>
-          <li><span class="vert-check">&#10003;</span> Case Wrap-Up — Project close-out, final deliverables, NPS</li>
+          <li><span class="vert-check">&#10003;</span> Score inbound inquiries by budget and scope</li>
+          <li><span class="vert-check">&#10003;</span> Auto-generate pitch decks and SOWs from discovery calls</li>
+          <li><span class="vert-check">&#10003;</span> Repurpose content across channels — blog, social, email</li>
+          <li><span class="vert-check">&#10003;</span> Weekly report — deliverables, revenue, utilization, pipeline</li>
         </ul>
         <div class="vert-meta">
           <div class="vert-price">$125<span>/mo starter</span></div>
@@ -891,19 +952,16 @@
     </div>
 
     <div class="verticals-grid-2">
-      <!-- Recruiting -->
       <div class="vert-card">
         <div class="vert-top">
           <h3>Recruiting / Staffing</h3>
           <div class="vert-sub">Staffing Firms &middot; Recruiting Agencies &middot; RPOs &middot; Talent Acquisition</div>
         </div>
         <ul class="vert-agents">
-          <li><span class="vert-check">&#10003;</span> FAQ Bot — Job details, benefits, application status</li>
-          <li><span class="vert-check">&#10003;</span> Lead Qualifier — Screens applicants by experience/availability</li>
-          <li><span class="vert-check">&#10003;</span> Sales Outreach — Nurtures hiring managers with candidates</li>
-          <li><span class="vert-check">&#10003;</span> Customer Support — Interview scheduling, offer status</li>
-          <li><span class="vert-check">&#10003;</span> Case Wrap-Up — Closes placements, triggers invoicing</li>
-          <li><span class="vert-check">&#10003;</span> Weekly Report — Submittals, interviews, placements, revenue</li>
+          <li><span class="vert-check">&#10003;</span> Screen applicants by experience and availability instantly</li>
+          <li><span class="vert-check">&#10003;</span> Nurture hiring managers with qualified candidates</li>
+          <li><span class="vert-check">&#10003;</span> Close placements and trigger invoicing automatically</li>
+          <li><span class="vert-check">&#10003;</span> Weekly report — submittals, interviews, placements, revenue</li>
         </ul>
         <div class="vert-meta">
           <div class="vert-price">$65<span>/mo starter</span></div>
@@ -911,21 +969,16 @@
         </div>
       </div>
 
-      <!-- E-commerce -->
       <div class="vert-card">
         <div class="vert-top">
           <h3>E-commerce / DTC</h3>
           <div class="vert-sub">Shopify &middot; Amazon &middot; DTC Brands &middot; Subscription Boxes</div>
         </div>
         <ul class="vert-agents">
-          <li><span class="vert-check">&#10003;</span> FAQ Bot — "Where's my order?" &middot; sizing &middot; returns policy</li>
-          <li><span class="vert-check">&#10003;</span> Customer Support — Exchanges, refunds, escalation routing</li>
-          <li><span class="vert-check">&#10003;</span> Review Manager — Post-purchase review requests</li>
-          <li><span class="vert-check">&#10003;</span> Sales Outreach — Win-back campaigns, cart abandonment</li>
-          <li><span class="vert-check">&#10003;</span> Newsletter — Weekly promos, product launches, seasonal</li>
-          <li><span class="vert-check">&#10003;</span> Ad Creative — Ad copy variants for Meta/Google</li>
-          <li><span class="vert-check">&#10003;</span> Content Writer — Product descriptions, blog, social captions</li>
-          <li><span class="vert-check">&#10003;</span> Weekly Report — Revenue, orders, AOV, top products, ROAS</li>
+          <li><span class="vert-check">&#10003;</span> Handle "where's my order?" and returns 24/7</li>
+          <li><span class="vert-check">&#10003;</span> Win back abandoned carts and lapsed customers</li>
+          <li><span class="vert-check">&#10003;</span> Generate ad copy variants and product descriptions at scale</li>
+          <li><span class="vert-check">&#10003;</span> Weekly report — revenue, AOV, top products, ROAS</li>
         </ul>
         <div class="vert-meta">
           <div class="vert-price">$55<span>/mo starter</span></div>
@@ -935,7 +988,7 @@
     </div>
 
     <div class="verticals-note">
-      <strong>Every package uses existing Kazozo agents</strong> — zero custom development. Start with 3 agents (starter), scale to the full package anytime. Volume discounts apply: 10% off at 4+ agents &middot; 15% off at 8+ &middot; 20% off at 12+
+      <strong>Don't see your industry?</strong> Kazozo agents are configurable for any vertical. We'll build your custom package and connect your CRM — <a href="mailto:hello@kazozo.com" style="color:var(--lime);">let's talk</a>.
     </div>
   </section>
 
@@ -991,6 +1044,31 @@
     </div>
   </section>
 
+  <!-- WHY KAZOZO -->
+  <section class="proof" id="why" style="padding-top:80px; padding-bottom:80px;">
+    <div class="proof-inner" style="max-width:900px;">
+      <div class="section-eyebrow eyebrow-lavender" style="text-align:center;">Why Kazozo</div>
+      <h2 class="section-heading" style="text-align:center; margin-bottom:40px;">Not a chatbot. <em style="color:var(--lavender);">A workforce.</em></h2>
+      <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap:28px;">
+        <div style="background:var(--card); border:1px solid var(--border); border-radius:12px; padding:28px;">
+          <div style="font-size:28px; margin-bottom:12px;">&#128270;</div>
+          <h4 style="font-family:'Playfair Display',serif; font-size:18px; margin-bottom:8px;">Deep intelligence</h4>
+          <p style="color:var(--muted); font-size:14px; line-height:1.7;">Our agents don't just answer questions — they research, enrich, score, and act. Lead data is verified across multiple sources before it ever hits your CRM.</p>
+        </div>
+        <div style="background:var(--card); border:1px solid var(--border); border-radius:12px; padding:28px;">
+          <div style="font-size:28px; margin-bottom:12px;">&#128279;</div>
+          <h4 style="font-family:'Playfair Display',serif; font-size:18px; margin-bottom:8px;">Connects to everything</h4>
+          <p style="color:var(--muted); font-size:14px; line-height:1.7;">Your CRM, your email, your calendar, your billing — agents plug into the tools you already use. No migration. No rip-and-replace.</p>
+        </div>
+        <div style="background:var(--card); border:1px solid var(--border); border-radius:12px; padding:28px;">
+          <div style="font-size:28px; margin-bottom:12px;">&#9889;</div>
+          <h4 style="font-family:'Playfair Display',serif; font-size:18px; margin-bottom:8px;">Agents that compound</h4>
+          <p style="color:var(--muted); font-size:14px; line-height:1.7;">Agents hand off to each other. Your lead qualifier enriches a contact, then sales outreach follows up within 60 seconds — no human in the loop.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- CONSOLE DEMO -->
   <section class="demo-section">
     <div class="demo-heading">
@@ -1037,11 +1115,13 @@
 
   <!-- CTA -->
   <section class="cta" id="cta">
-    <h2>Ready to put your business on <em>autopilot?</em></h2>
-    <p class="cta-sub">Pick your agents. Connect your CRM. Let them work.</p>
-    <div class="cta-buttons">
-      <a href="#agents" class="btn-primary">Explore the Agents &#8594;</a>
-    </div>
+    <h2>Ready to <em>Kazozo?</em></h2>
+    <p class="cta-sub">Tell us about your business. We'll show you which agents fit.</p>
+    <form class="cta-form" action="mailto:hello@kazozo.com" method="post" enctype="text/plain" style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top:28px; max-width:520px; margin-left:auto; margin-right:auto;">
+      <input type="email" placeholder="your@email.com" required style="flex:1; min-width:220px; padding:14px 20px; border-radius:10px; border:1px solid var(--border); background:var(--surface); color:var(--text); font-family:'Inter',sans-serif; font-size:15px; outline:none; transition:border 0.2s;" onfocus="this.style.borderColor='var(--coral)'" onblur="this.style.borderColor='var(--border)'" />
+      <button type="submit" class="btn-primary" style="white-space:nowrap; padding:14px 32px; cursor:pointer; border:none; font-family:'Inter',sans-serif; font-size:15px;">Let's Talk &#8594;</button>
+    </form>
+    <p style="color:var(--muted); font-size:12px; margin-top:14px;">No spam. We'll reach out within 24 hours.</p>
   </section>
 
   <!-- FOOTER -->
@@ -1051,6 +1131,7 @@
       <li><a href="#agents">Agents</a></li>
       <li><a href="#pricing">Pricing</a></li>
       <li><a href="#verticals">Industries</a></li>
+      <li><a href="mailto:hello@kazozo.com">hello@kazozo.com</a></li>
     </ul>
     <div class="footer-credit">&copy; 2026 Kazozo</div>
   </footer>
