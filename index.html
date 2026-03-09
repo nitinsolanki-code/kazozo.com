@@ -667,7 +667,7 @@
         <li><a href="#pricing">Pricing</a></li>
         <li><a href="live-demo.html">Simulation</a></li>
         <li><a href="#why">Why Kazozo</a></li>
-        <li><a href="#cta" class="btn-nav">Get My Agents</a></li>
+        <li><a href="javascript:void(0)" onclick="if(window.KazozoWidget){window.KazozoWidget.open()}else{document.getElementById('cta').scrollIntoView({behavior:'smooth'})}" class="btn-nav">Talk to Kaz</a></li>
       </ul>
     </div>
   </nav>
@@ -1156,12 +1156,11 @@
   <!-- CTA -->
   <section class="cta" id="cta">
     <h2>Get your <em>agent stack</em></h2>
-    <p class="cta-sub">Tell us your industry and biggest bottleneck. We'll recommend the right agents and show you what they cost.</p>
-    <form class="cta-form" action="mailto:hello@kazozo.com" method="post" enctype="text/plain" style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top:28px; max-width:520px; margin-left:auto; margin-right:auto;">
-      <input type="email" placeholder="your@email.com" required style="flex:1; min-width:220px; padding:14px 20px; border-radius:10px; border:1px solid var(--border); background:var(--surface); color:var(--text); font-family:'Inter',sans-serif; font-size:15px; outline:none; transition:border 0.2s;" onfocus="this.style.borderColor='var(--coral)'" onblur="this.style.borderColor='var(--border)'" />
-      <button type="submit" class="btn-primary" style="white-space:nowrap; padding:14px 32px; cursor:pointer; border:none; font-family:'Inter',sans-serif; font-size:15px;">Get My Agents &#8594;</button>
-    </form>
-    <p style="color:var(--muted); font-size:12px; margin-top:14px;">No spam. We'll reach out within 24 hours with your recommended agent stack.</p>
+    <p class="cta-sub">Tell Kaz your industry and biggest bottleneck. He'll recommend the right agents and show you what they cost.</p>
+    <div style="margin-top:28px;">
+      <a href="javascript:void(0)" onclick="if(window.KazozoWidget){window.KazozoWidget.open()}else{alert('Chat loading — try again in a moment.')}" class="btn-primary" style="padding:16px 36px; font-size:16px; display:inline-flex; align-items:center; gap:10px;">Talk to Kaz &#8594;</a>
+    </div>
+    <p style="color:var(--muted); font-size:12px; margin-top:14px;">Your AI front desk — available 24/7.</p>
   </section>
 
   <!-- FOOTER -->
