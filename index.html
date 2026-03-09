@@ -4,13 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kazozo — AI Agents for Sales, Support & Operations</title>
-<meta name="description" content="Salesforce Agentforce alternative built for SMBs. 11 AI agents, 87 tools — automate support, sales, field ops and growth. Predictable monthly pricing starting at $149/mo.">
+<meta name="description" content="Salesforce Agentforce alternative built for SMBs. 5 core AI agents handle leads, sales, support, and operations — then expand to 11. Pricing from $149/mo.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://kazozo.com/">
 
 <!-- Open Graph -->
 <meta property="og:title" content="Kazozo — AI Agents That Run Your Business">
-<meta property="og:description" content="Salesforce Agentforce alternative for SMBs. 11 AI agents, 87 tools. Predictable monthly pricing from $149/mo.">
+<meta property="og:description" content="Salesforce Agentforce alternative for SMBs. 5 core AI agents for sales, support & ops — expand to 11. From $149/mo.">
 <meta property="og:url" content="https://kazozo.com/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Kazozo">
@@ -18,7 +18,7 @@
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Kazozo — AI Agents That Run Your Business">
-<meta name="twitter:description" content="Salesforce Agentforce alternative for SMBs. 11 AI agents, 87 tools. Predictable monthly pricing from $149/mo.">
+<meta name="twitter:description" content="Salesforce Agentforce alternative for SMBs. 5 core AI agents for sales, support & ops — expand to 11. From $149/mo.">
 
 <!-- Fonts (preconnect for performance) -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -606,9 +606,14 @@
   .footer-credit a { color: var(--text); text-decoration: none; font-weight: 600; }
 
   /* ===== RESPONSIVE ===== */
+  @media (max-width: 1100px) {
+    .agent-tiers [style*="repeat(5"] { grid-template-columns: repeat(3, 1fr) !important; }
+  }
+
   @media (max-width: 900px) {
     .nav-links { display: none; }
     .tiers-grid { grid-template-columns: repeat(2, 1fr); }
+    .agent-tiers [style*="repeat(5"] { grid-template-columns: repeat(2, 1fr) !important; }
     .hiw-grid { grid-template-columns: 1fr; }
     .verticals-grid { grid-template-columns: 1fr; }
     .verticals-grid-2 { grid-template-columns: 1fr; }
@@ -620,6 +625,10 @@
     footer { flex-direction: column; gap: 20px; text-align: center; }
     .cta-buttons { flex-direction: column; }
     .pricing-table th, .pricing-table td { padding: 10px 12px; font-size: 12px; }
+  }
+
+  @media (max-width: 600px) {
+    .agent-tiers [style*="repeat(5"] { grid-template-columns: 1fr !important; }
   }
 </style>
 
@@ -658,150 +667,181 @@
         <li><a href="#pricing">Pricing</a></li>
         <li><a href="live-demo.html">Simulation</a></li>
         <li><a href="#why">Why Kazozo</a></li>
-        <li><a href="#cta" class="btn-nav">Get Started</a></li>
+        <li><a href="#cta" class="btn-nav">Get My Agents</a></li>
       </ul>
     </div>
   </nav>
 
   <!-- HERO -->
   <section class="hero">
-    <div class="hero-tag"><span class="dot"></span> AI Agents That Run Your Business</div>
-    <h1>You're losing revenue to slow follow-ups and <em>manual busywork</em></h1>
-    <p class="hero-sub"><span class="hl">Kazozo deploys 13 AI agents across your business</span> — they follow up with leads, send proposals, onboard clients, write your newsletter, and deliver a CEO report every Monday. All for less than one part-time hire.</p>
+    <div class="hero-tag"><span class="dot"></span> AI Agents for Sales, Support & Operations</div>
+    <h1>Stop losing deals to slow follow-ups and <em>manual busywork</em></h1>
+    <p class="hero-sub"><span class="hl">Kazozo gives your business 5 core AI agents</span> that greet customers, qualify leads, close deals, handle support, and manage service ops — all running 24/7. Start here, then expand to 11 agents as you grow.</p>
     <div class="hero-actions">
-      <a href="#agents" class="btn-primary">See the Agents &#8594;</a>
+      <a href="#agents" class="btn-primary">See Your Core Agents &#8594;</a>
       <a href="#pricing" class="btn-outline">View Pricing</a>
     </div>
   </section>
 
-  <!-- AGENT TIERS -->
+  <!-- CORE AGENTS -->
   <section class="agent-tiers" id="agents">
     <div class="tiers-header">
-      <div class="section-eyebrow eyebrow-lavender">11 Agents. 4 Categories.</div>
-      <h2 class="section-heading" style="text-align:center;">Pick your agents. <em style="color:var(--lavender);">Pay per resolution.</em></h2>
-      <p class="section-sub" style="text-align:center;">Start with one. Scale to eleven. Every agent connects to your systems and runs on autopilot.</p>
+      <div class="section-eyebrow eyebrow-coral">Your Core Workforce</div>
+      <h2 class="section-heading" style="text-align:center;">5 agents. One <em style="color:var(--coral);">revenue engine.</em></h2>
+      <p class="section-sub" style="text-align:center;">From first contact to fulfillment — these agents cover the entire customer lifecycle. Start here.</p>
     </div>
 
-    <div class="tiers-grid">
-      <!-- CUSTOMER-FACING -->
-      <div class="tier-card">
+    <!-- LIFECYCLE FLOW -->
+    <div style="display:grid; grid-template-columns: repeat(5, 1fr); gap:16px; margin-bottom:16px;">
+      <div style="text-align:center; padding:10px 0;">
+        <div style="font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:2px; color:var(--sky); margin-bottom:6px;">01</div>
+        <div style="font-size:12px; color:var(--muted);">First Contact</div>
+      </div>
+      <div style="text-align:center; padding:10px 0;">
+        <div style="font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:2px; color:var(--lime); margin-bottom:6px;">02</div>
+        <div style="font-size:12px; color:var(--muted);">Qualify</div>
+      </div>
+      <div style="text-align:center; padding:10px 0;">
+        <div style="font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:2px; color:var(--lavender); margin-bottom:6px;">03</div>
+        <div style="font-size:12px; color:var(--muted);">Close</div>
+      </div>
+      <div style="text-align:center; padding:10px 0;">
+        <div style="font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:2px; color:var(--amber); margin-bottom:6px;">04</div>
+        <div style="font-size:12px; color:var(--muted);">Support</div>
+      </div>
+      <div style="text-align:center; padding:10px 0;">
+        <div style="font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:2px; color:var(--coral); margin-bottom:6px;">05</div>
+        <div style="font-size:12px; color:var(--muted);">Fulfillment</div>
+      </div>
+    </div>
+
+    <div style="display:grid; grid-template-columns: repeat(5, 1fr); gap:16px;">
+
+      <!-- FRONTLINE AGENT -->
+      <div class="tier-card" style="border-color:rgba(100,210,255,0.15);">
         <div class="tier-top">
-          <div class="tier-badge">Customer-Facing</div>
-          <h3>Talks to Your Customers</h3>
-          <div class="tier-price-line"><strong>$0.15–$0.25</strong> / resolution</div>
+          <div style="font-size:28px; margin-bottom:12px;">🛡️</div>
+          <h3 style="color:var(--sky); font-size:20px;">Frontline Agent</h3>
+          <div class="tier-price-line"><strong style="color:var(--sky);">$0.15</strong> / resolution</div>
         </div>
         <div class="tier-agents">
-          <div class="ta-item">
-            <div class="ta-icon">🛡️</div>
-            <div class="ta-text">
-              <h5>Frontline Agent</h5>
-              <p>Greets customers, understands intent, routes to the right agent.</p>
-            </div>
-          </div>
-          <div class="ta-item">
-            <div class="ta-icon">🎧</div>
-            <div class="ta-text">
-              <h5>Customer Support</h5>
-              <p>Support tickets, account actions, refunds, plan changes, escalation.</p>
-            </div>
-          </div>
+          <p style="font-size:13px; color:var(--muted); line-height:1.65;">Greets every visitor, understands intent, answers questions, and routes to the right agent — 24/7.</p>
         </div>
       </div>
 
-      <!-- UTILITY -->
-      <div class="tier-card">
+      <!-- LEAD QUALIFIER -->
+      <div class="tier-card" style="border-color:rgba(205,255,100,0.15);">
         <div class="tier-top">
-          <div class="tier-badge">Utility</div>
-          <h3>Internal & Back-Office</h3>
-          <div class="tier-price-line"><strong>$0.10–$0.15</strong> / resolution</div>
+          <div style="font-size:28px; margin-bottom:12px;">🎯</div>
+          <h3 style="color:var(--lime); font-size:20px;">Lead Qualifier</h3>
+          <div class="tier-price-line"><strong style="color:var(--lime);">$0.30</strong> / resolution</div>
         </div>
         <div class="tier-agents">
-          <div class="ta-item">
-            <div class="ta-icon">👤</div>
-            <div class="ta-text">
-              <h5>Employee Agent</h5>
-              <p>PTO requests, expense reports, HR lookups, onboarding Q&A.</p>
-            </div>
-          </div>
-          <div class="ta-item">
-            <div class="ta-icon">🖥️</div>
-            <div class="ta-text">
-              <h5>IT Helpdesk</h5>
-              <p>Password resets, access requests, basic tech troubleshooting.</p>
-            </div>
-          </div>
-          <div class="ta-item">
-            <div class="ta-icon">⭐</div>
-            <div class="ta-text">
-              <h5>Review Manager</h5>
-              <p>Monitors and responds to online reviews.</p>
-            </div>
-          </div>
+          <p style="font-size:13px; color:var(--muted); line-height:1.65;">Scores inbound leads, enriches contact data, and routes hot prospects to sales within seconds.</p>
         </div>
       </div>
 
-      <!-- WORKFLOW -->
-      <div class="tier-card">
+      <!-- SALES AGENT -->
+      <div class="tier-card" style="border-color:rgba(184,169,255,0.15);">
         <div class="tier-top">
-          <div class="tier-badge">Workflow</div>
-          <h3>Revenue & Operations</h3>
-          <div class="tier-price-line"><strong>$0.25–$0.30</strong> / resolution</div>
+          <div style="font-size:28px; margin-bottom:12px;">✉️</div>
+          <h3 style="color:var(--lavender); font-size:20px;">Sales Agent</h3>
+          <div class="tier-price-line"><strong style="color:var(--lavender);">$0.25</strong> / resolution</div>
         </div>
         <div class="tier-agents">
-          <div class="ta-item">
-            <div class="ta-icon">🎯</div>
-            <div class="ta-text">
-              <h5>Lead Qualifier</h5>
-              <p>Scores inbound leads, enriches data, routes hot leads to sales.</p>
-            </div>
-          </div>
-          <div class="ta-item">
-            <div class="ta-icon">✉️</div>
-            <div class="ta-text">
-              <h5>Sales Agent</h5>
-              <p>Outreach sequences, follow-ups, proposals, e-signatures, CRM logging.</p>
-            </div>
-          </div>
-          <div class="ta-item">
-            <div class="ta-icon">🔧</div>
-            <div class="ta-text">
-              <h5>Service Operations</h5>
-              <p>Dispatch, technician assignment, job tracking, SLA monitoring.</p>
-            </div>
-          </div>
+          <p style="font-size:13px; color:var(--muted); line-height:1.65;">Outreach sequences, follow-ups, proposals, and e-signatures — all logged to your CRM automatically.</p>
         </div>
       </div>
 
-      <!-- STRATEGIC -->
-      <div class="tier-card">
+      <!-- CUSTOMER SUPPORT -->
+      <div class="tier-card" style="border-color:rgba(255,184,77,0.15);">
         <div class="tier-top">
-          <div class="tier-badge">Strategic</div>
-          <h3>High-Value, Complex Workflows</h3>
-          <div class="tier-price-line"><strong>$0.50–$0.75</strong> / resolution</div>
+          <div style="font-size:28px; margin-bottom:12px;">🎧</div>
+          <h3 style="color:var(--amber); font-size:20px;">Customer Support</h3>
+          <div class="tier-price-line"><strong style="color:var(--amber);">$0.25</strong> / resolution</div>
         </div>
         <div class="tier-agents">
-          <div class="ta-item">
-            <div class="ta-icon">💰</div>
-            <div class="ta-text">
-              <h5>Finance Agent</h5>
-              <p>Purchase orders, budget checks, invoice processing, vendor spend.</p>
-            </div>
-          </div>
-          <div class="ta-item">
-            <div class="ta-icon">📊</div>
-            <div class="ta-text">
-              <h5>Weekly Report</h5>
-              <p>Executive performance summaries from CRM and metrics data.</p>
-            </div>
-          </div>
-          <div class="ta-item">
-            <div class="ta-icon">🎬</div>
-            <div class="ta-text">
-              <h5>Content Agent</h5>
-              <p>Blog posts, social media, newsletters, email campaigns, ad copy.</p>
-            </div>
-          </div>
+          <p style="font-size:13px; color:var(--muted); line-height:1.65;">Tickets, refunds, plan changes, and account actions — handled instantly with smart escalation.</p>
         </div>
+      </div>
+
+      <!-- SERVICE OPERATIONS -->
+      <div class="tier-card" style="border-color:rgba(255,107,90,0.15);">
+        <div class="tier-top">
+          <div style="font-size:28px; margin-bottom:12px;">🔧</div>
+          <h3 style="color:var(--coral); font-size:20px;">Service Ops</h3>
+          <div class="tier-price-line"><strong style="color:var(--coral);">$0.30</strong> / resolution</div>
+        </div>
+        <div class="tier-agents">
+          <p style="font-size:13px; color:var(--muted); line-height:1.65;">Scheduling, dispatch, technician assignment, job tracking, and SLA monitoring after the sale.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- LIFECYCLE CONNECTOR -->
+    <div style="text-align:center; padding:40px 0 16px;">
+      <div style="display:inline-block; padding:10px 24px; border:1px solid var(--border); border-radius:10px; font-size:13px; color:var(--muted); background:var(--surface);">
+        Each agent hands off to the next — <span style="color:var(--text); font-weight:600;">your leads move from first touch to fulfillment without a human in the loop.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPAND YOUR WORKFORCE -->
+  <section style="max-width:1200px; margin:0 auto; padding:0 24px 80px;">
+    <div style="text-align:center; margin-bottom:40px;">
+      <div class="section-eyebrow eyebrow-lavender">Expand When You're Ready</div>
+      <h2 class="section-heading" style="text-align:center; font-size:clamp(24px,3vw,36px);">Plus 6 more agents for <em style="color:var(--lavender);">back-office, content & intelligence.</em></h2>
+    </div>
+
+    <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:16px;">
+      <div style="background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:24px; transition:all 0.3s;" onmouseover="this.style.borderColor='rgba(255,255,255,0.1)'" onmouseout="this.style.borderColor='var(--border)'">
+        <div style="display:flex; align-items:center; gap:12px; margin-bottom:10px;">
+          <span style="font-size:22px;">👤</span>
+          <h4 style="font-family:'Space Grotesk',sans-serif; font-size:15px; font-weight:600;">Employee Agent</h4>
+        </div>
+        <p style="font-size:12px; color:var(--muted); line-height:1.6;">PTO, expense reports, HR lookups, onboarding Q&A.</p>
+        <div style="font-size:12px; color:var(--sky); font-weight:600; margin-top:10px;">$0.10/res</div>
+      </div>
+      <div style="background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:24px; transition:all 0.3s;" onmouseover="this.style.borderColor='rgba(255,255,255,0.1)'" onmouseout="this.style.borderColor='var(--border)'">
+        <div style="display:flex; align-items:center; gap:12px; margin-bottom:10px;">
+          <span style="font-size:22px;">🖥️</span>
+          <h4 style="font-family:'Space Grotesk',sans-serif; font-size:15px; font-weight:600;">IT Helpdesk</h4>
+        </div>
+        <p style="font-size:12px; color:var(--muted); line-height:1.6;">Password resets, access requests, basic troubleshooting.</p>
+        <div style="font-size:12px; color:var(--sky); font-weight:600; margin-top:10px;">$0.15/res</div>
+      </div>
+      <div style="background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:24px; transition:all 0.3s;" onmouseover="this.style.borderColor='rgba(255,255,255,0.1)'" onmouseout="this.style.borderColor='var(--border)'">
+        <div style="display:flex; align-items:center; gap:12px; margin-bottom:10px;">
+          <span style="font-size:22px;">⭐</span>
+          <h4 style="font-family:'Space Grotesk',sans-serif; font-size:15px; font-weight:600;">Review Manager</h4>
+        </div>
+        <p style="font-size:12px; color:var(--muted); line-height:1.6;">Monitors and responds to online reviews automatically.</p>
+        <div style="font-size:12px; color:var(--sky); font-weight:600; margin-top:10px;">$0.10/res</div>
+      </div>
+      <div style="background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:24px; transition:all 0.3s;" onmouseover="this.style.borderColor='rgba(255,255,255,0.1)'" onmouseout="this.style.borderColor='var(--border)'">
+        <div style="display:flex; align-items:center; gap:12px; margin-bottom:10px;">
+          <span style="font-size:22px;">💰</span>
+          <h4 style="font-family:'Space Grotesk',sans-serif; font-size:15px; font-weight:600;">Finance Agent</h4>
+        </div>
+        <p style="font-size:12px; color:var(--muted); line-height:1.6;">Purchase orders, budget checks, invoice processing.</p>
+        <div style="font-size:12px; color:var(--coral); font-weight:600; margin-top:10px;">$0.75/res</div>
+      </div>
+      <div style="background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:24px; transition:all 0.3s;" onmouseover="this.style.borderColor='rgba(255,255,255,0.1)'" onmouseout="this.style.borderColor='var(--border)'">
+        <div style="display:flex; align-items:center; gap:12px; margin-bottom:10px;">
+          <span style="font-size:22px;">🎬</span>
+          <h4 style="font-family:'Space Grotesk',sans-serif; font-size:15px; font-weight:600;">Content Agent</h4>
+        </div>
+        <p style="font-size:12px; color:var(--muted); line-height:1.6;">Blog posts, social media, newsletters, email campaigns.</p>
+        <div style="font-size:12px; color:var(--coral); font-weight:600; margin-top:10px;">$0.75/res</div>
+      </div>
+      <div style="background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:24px; transition:all 0.3s;" onmouseover="this.style.borderColor='rgba(255,255,255,0.1)'" onmouseout="this.style.borderColor='var(--border)'">
+        <div style="display:flex; align-items:center; gap:12px; margin-bottom:10px;">
+          <span style="font-size:22px;">📊</span>
+          <h4 style="font-family:'Space Grotesk',sans-serif; font-size:15px; font-weight:600;">Weekly Report</h4>
+        </div>
+        <p style="font-size:12px; color:var(--muted); line-height:1.6;">Executive summaries from CRM, revenue, and pipeline data.</p>
+        <div style="font-size:12px; color:var(--coral); font-weight:600; margin-top:10px;">$0.50/res</div>
       </div>
     </div>
   </section>
@@ -1007,8 +1047,8 @@
       <div class="hiw-card">
         <div class="hiw-number">02</div>
         <div class="hiw-icon">&#129302;</div>
-        <h3>Pick your agents</h3>
-        <p>Start with one or all 13. We configure and deploy in 1–2 weeks — done-for-you.</p>
+        <h3>Pick your core agents</h3>
+        <p>Start with the 5 core agents. Add more as you grow. We configure and deploy in 1–2 weeks — done-for-you.</p>
       </div>
       <div class="hiw-card">
         <div class="hiw-number">03</div>
@@ -1019,18 +1059,18 @@
     </div>
   </section>
 
-  <!-- SOCIAL PROOF -->
+  <!-- PLATFORM METRICS -->
   <section class="proof">
     <div class="proof-inner">
-      <h2>Average Kazozo Client Results</h2>
+      <h2>Built to Deliver</h2>
       <div class="proof-grid">
         <div class="proof-stat">
-          <div class="proof-number">3x</div>
-          <div class="proof-label">Faster lead follow-up</div>
+          <div class="proof-number">&lt;60s</div>
+          <div class="proof-label">Lead follow-up time vs hours manually</div>
         </div>
         <div class="proof-stat">
-          <div class="proof-number">60%</div>
-          <div class="proof-label">Reduction in manual admin tasks</div>
+          <div class="proof-number">87</div>
+          <div class="proof-label">Tools across 11 agents</div>
         </div>
         <div class="proof-stat">
           <div class="proof-number">$0.10</div>
@@ -1038,7 +1078,7 @@
         </div>
         <div class="proof-stat">
           <div class="proof-number">1–2 wks</div>
-          <div class="proof-label">Setup time (vs 3–6 months enterprise)</div>
+          <div class="proof-label">Go-live time (vs 3–6 months enterprise)</div>
         </div>
       </div>
     </div>
@@ -1115,13 +1155,13 @@
 
   <!-- CTA -->
   <section class="cta" id="cta">
-    <h2>Ready to <em>Kazozo?</em></h2>
-    <p class="cta-sub">Tell us about your business. We'll show you which agents fit.</p>
+    <h2>Get your <em>agent stack</em></h2>
+    <p class="cta-sub">Tell us your industry and biggest bottleneck. We'll recommend the right agents and show you what they cost.</p>
     <form class="cta-form" action="mailto:hello@kazozo.com" method="post" enctype="text/plain" style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top:28px; max-width:520px; margin-left:auto; margin-right:auto;">
       <input type="email" placeholder="your@email.com" required style="flex:1; min-width:220px; padding:14px 20px; border-radius:10px; border:1px solid var(--border); background:var(--surface); color:var(--text); font-family:'Inter',sans-serif; font-size:15px; outline:none; transition:border 0.2s;" onfocus="this.style.borderColor='var(--coral)'" onblur="this.style.borderColor='var(--border)'" />
-      <button type="submit" class="btn-primary" style="white-space:nowrap; padding:14px 32px; cursor:pointer; border:none; font-family:'Inter',sans-serif; font-size:15px;">Let's Talk &#8594;</button>
+      <button type="submit" class="btn-primary" style="white-space:nowrap; padding:14px 32px; cursor:pointer; border:none; font-family:'Inter',sans-serif; font-size:15px;">Get My Agents &#8594;</button>
     </form>
-    <p style="color:var(--muted); font-size:12px; margin-top:14px;">No spam. We'll reach out within 24 hours.</p>
+    <p style="color:var(--muted); font-size:12px; margin-top:14px;">No spam. We'll reach out within 24 hours with your recommended agent stack.</p>
   </section>
 
   <!-- FOOTER -->
