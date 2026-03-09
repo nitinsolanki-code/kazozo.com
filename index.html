@@ -683,12 +683,12 @@
     </div>
 
     <div class="tiers-grid">
-      <!-- FRONTLINE -->
+      <!-- CUSTOMER-FACING -->
       <div class="tier-card">
         <div class="tier-top">
-          <div class="tier-badge">Frontline</div>
-          <h3>First Point of Contact</h3>
-          <div class="tier-price-line"><strong>$0.15</strong> / resolution</div>
+          <div class="tier-badge">Customer-Facing</div>
+          <h3>Talks to Your Customers</h3>
+          <div class="tier-price-line"><strong>$0.15–$0.25</strong> / resolution</div>
         </div>
         <div class="tier-agents">
           <div class="ta-item">
@@ -696,6 +696,13 @@
             <div class="ta-text">
               <h5>Frontline Agent</h5>
               <p>Greets customers, understands intent, routes to the right agent.</p>
+            </div>
+          </div>
+          <div class="ta-item">
+            <div class="ta-icon">🎧</div>
+            <div class="ta-text">
+              <h5>Customer Support</h5>
+              <p>Support tickets, account actions, refunds, plan changes, escalation.</p>
             </div>
           </div>
         </div>
@@ -737,17 +744,10 @@
       <div class="tier-card">
         <div class="tier-top">
           <div class="tier-badge">Workflow</div>
-          <h3>Customer Ops & Revenue</h3>
+          <h3>Revenue & Operations</h3>
           <div class="tier-price-line"><strong>$0.25–$0.30</strong> / resolution</div>
         </div>
         <div class="tier-agents">
-          <div class="ta-item">
-            <div class="ta-icon">🎧</div>
-            <div class="ta-text">
-              <h5>Customer Support</h5>
-              <p>Support tickets, account actions, refunds, plan changes, escalation.</p>
-            </div>
-          </div>
           <div class="ta-item">
             <div class="ta-icon">🎯</div>
             <div class="ta-text">
@@ -877,7 +877,7 @@
     <div style="margin-top:48px; padding:32px; background:rgba(255,255,255,0.02); border:1px solid var(--border); border-radius:16px;">
       <h4 style="color:var(--text); font-size:16px; margin-bottom:20px; font-weight:600;">Per-Resolution Rates (Pay-As-You-Go)</h4>
       <div style="display:grid; grid-template-columns:repeat(2, 1fr); gap:16px; font-size:14px; color:var(--muted);">
-        <div style="display:flex; justify-content:space-between; padding:8px 0; border-bottom:1px solid var(--border);"><span>Frontline</span><span style="color:var(--text); font-weight:600;">$0.15/res</span></div>
+        <div style="display:flex; justify-content:space-between; padding:8px 0; border-bottom:1px solid var(--border);"><span>Customer-Facing</span><span style="color:var(--text); font-weight:600;">$0.15–$0.25/res</span></div>
         <div style="display:flex; justify-content:space-between; padding:8px 0; border-bottom:1px solid var(--border);"><span>Utility</span><span style="color:var(--text); font-weight:600;">$0.10–$0.15/res</span></div>
         <div style="display:flex; justify-content:space-between; padding:8px 0; border-bottom:1px solid var(--border);"><span>Workflow</span><span style="color:var(--text); font-weight:600;">$0.25–$0.30/res</span></div>
         <div style="display:flex; justify-content:space-between; padding:8px 0;"><span>Strategic</span><span style="color:var(--text); font-weight:600;">$0.50–$0.75/res</span></div>
@@ -1137,6 +1137,16 @@
   </footer>
 
 </div>
+
+<!-- Kazozo Frontline Agent Widget -->
+<script
+  src="https://kazozo-platform-production.up.railway.app/widget/embed-loader.js"
+  data-tenant="kazozo-001"
+  data-bot-name="Kaz"
+  data-welcome="Hey! I'm Kaz, Kazozo's AI assistant. Ask me about our platform, pricing, or get a demo."
+  data-color="#ff6b5a"
+  data-position="bottom-right"
+></script>
 
 </body>
 </html>

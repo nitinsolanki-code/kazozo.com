@@ -933,11 +933,11 @@
     </div>
   </section>
 
-  <!-- Frontline Agent -->
+  <!-- Customer-Facing Agents -->
   <section id="agents" class="section">
     <div class="section-header">
-      <span class="section-badge">FIRST POINT OF CONTACT</span>
-      <h2 class="section-title">Frontline</h2>
+      <span class="section-badge">TALKS TO YOUR CUSTOMERS</span>
+      <h2 class="section-title">Customer-Facing</h2>
     </div>
     <div class="agents-grid">
       <!-- Frontline Agent -->
@@ -968,16 +968,7 @@
         </div>
         <button class="try-it-btn" onclick="showModal(0, ‘’)">Try Simulation</button>
       </div>
-    </div>
-  </section>
 
-  <!-- Workflow Agents -->
-  <section class="section">
-    <div class="section-header">
-      <span class="section-badge">CUSTOMER OPS & REVENUE</span>
-      <h2 class="section-title">Workflow</h2>
-    </div>
-    <div class="agents-grid">
       <!-- Customer Support -->
       <div class="agent-card">
         <div class="agent-header">
@@ -1000,13 +991,22 @@
           <span class="tag">KB Search</span>
         </div>
         <div class="agent-actions">
-          <button class="quick-action" onclick="showModal(1, 'Billing discrepancy on last invoice')">Billing Issue</button>
-          <button class="quick-action" onclick="showModal(1, 'Process refund for overcharge')">Process Refund</button>
-          <button class="quick-action" onclick="showModal(1, 'Summarize today's tickets')">Summary</button>
+          <button class="quick-action" onclick="showModal(1, ‘Billing discrepancy on last invoice’)">Billing Issue</button>
+          <button class="quick-action" onclick="showModal(1, ‘Process refund for overcharge’)">Process Refund</button>
+          <button class="quick-action" onclick="showModal(1, ‘Summarize today’s tickets’)">Summary</button>
         </div>
-        <button class="try-it-btn" onclick="showModal(1, '')">Try Simulation</button>
+        <button class="try-it-btn" onclick="showModal(1, ‘’)">Try Simulation</button>
       </div>
+    </div>
+  </section>
 
+  <!-- Workflow Agents -->
+  <section class="section">
+    <div class="section-header">
+      <span class="section-badge">REVENUE & OPERATIONS</span>
+      <h2 class="section-title">Workflow</h2>
+    </div>
+    <div class="agents-grid">
       <!-- Lead Qualifier -->
       <div class="agent-card">
         <div class="ribbon">ENHANCED</div>
@@ -1392,10 +1392,16 @@
           </thead>
           <tbody>
             <tr>
-              <td class="pricing-category">Frontline</td>
+              <td class="pricing-category">Customer-Facing</td>
               <td class="pricing-agent">Frontline Agent</td>
               <td>$0.15</td>
               <td>19</td>
+            </tr>
+            <tr>
+              <td class="pricing-category">Customer-Facing</td>
+              <td class="pricing-agent">Customer Support</td>
+              <td>$0.25</td>
+              <td>7</td>
             </tr>
             <tr>
               <td class="pricing-category">Utility</td>
@@ -1414,12 +1420,6 @@
               <td class="pricing-agent">Review Manager</td>
               <td>$0.10</td>
               <td>2</td>
-            </tr>
-            <tr>
-              <td class="pricing-category">Workflow</td>
-              <td class="pricing-agent">Customer Support</td>
-              <td>$0.25</td>
-              <td>7</td>
             </tr>
             <tr>
               <td class="pricing-category">Workflow</td>
@@ -2140,5 +2140,16 @@
     });
   </script>
   </div><!-- end content -->
+
+<!-- Kazozo Frontline Agent Widget -->
+<script
+  src="https://kazozo-platform-production.up.railway.app/widget/embed-loader.js"
+  data-tenant="kazozo-001"
+  data-bot-name="Kaz"
+  data-welcome="Hey! I'm Kaz, Kazozo's AI assistant. Ask me about our platform, pricing, or get a demo."
+  data-color="#ff6b5a"
+  data-position="bottom-right"
+></script>
+
 </body>
 </html>
