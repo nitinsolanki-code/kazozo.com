@@ -74,11 +74,12 @@
     @keyframes orbFloat { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-40px); } }
 
     /* ===== NAV ===== */
-    nav { max-width: 1200px; margin: 16px auto 0; padding: 0 24px; position: sticky; top: 0; z-index: 100; }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 12px 24px; }
 
     .nav-inner {
+      max-width: 1200px; margin: 0 auto;
       display: flex; justify-content: space-between; align-items: center;
-      background: rgba(19,18,29,0.8); backdrop-filter: blur(20px);
+      background: rgba(19,18,29,0.85); backdrop-filter: blur(20px);
       border: 1px solid var(--border); border-radius: 16px; padding: 14px 28px;
     }
 
