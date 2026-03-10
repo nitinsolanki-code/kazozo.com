@@ -899,12 +899,12 @@
     <!-- Navigation -->
     <nav>
       <div class="nav-inner">
-        <div class="nav-logo">kazo<span>zo</span></div>
+        <a href="index.html" class="nav-logo" style="text-decoration:none;">kazo<span>zo</span></a>
         <ul class="nav-links">
-          <li><a href="#core-agents">Core Agents</a></li>
-          <li><a href="#pricing">Pricing</a></li>
-          <li><a href="#comparison">Compare</a></li>
-          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#agents">Agents</a></li>
+          <li><a href="index.html#pricing">Pricing</a></li>
+          <li><a href="industries.html">Industries</a></li>
+          <li><a href="live-demo.html" style="color:var(--text);">Simulation</a></li>
           <li><a href="javascript:void(0)" onclick="if(window.KazozoWidget){window.KazozoWidget.open()}else{document.getElementById('cta').scrollIntoView({behavior:'smooth'})}" class="btn-nav" style="background:var(--coral);color:#fff!important;padding:10px 22px;border-radius:10px;font-weight:600;">Talk to Kaz</a></li>
         </ul>
       </div>
@@ -960,7 +960,7 @@
             <div class="agent-title">Frontline Agent</div>
           </div>
           <div class="agent-pricing">
-            <div class="agent-price">$0.15/res</div>
+            <div class="agent-price">$0.10/res</div>
           </div>
         </div>
         <div class="agent-tools">Multi-Tool Agent</div>
@@ -990,7 +990,7 @@
             <div class="agent-title">Lead Qualifier</div>
           </div>
           <div class="agent-pricing">
-            <div class="agent-price">$0.30/res</div>
+            <div class="agent-price">$0.25/res</div>
           </div>
         </div>
         <div class="agent-tools">Multi-Tool Agent</div>
@@ -1078,7 +1078,7 @@
             <div class="agent-title">Service Operations</div>
           </div>
           <div class="agent-pricing">
-            <div class="agent-price">$0.30/res</div>
+            <div class="agent-price">$0.25/res</div>
           </div>
         </div>
         <div class="agent-tools">Multi-Tool Agent</div>
@@ -1139,7 +1139,7 @@
             <div class="agent-title">IT Helpdesk</div>
           </div>
           <div class="agent-pricing">
-            <div class="agent-price">$0.15/res</div>
+            <div class="agent-price">$0.12/res</div>
           </div>
         </div>
         <p class="agent-description">IT support that fixes things — password resets, VPN troubleshooting, access provisioning, system status.</p>
@@ -1158,7 +1158,7 @@
             <div class="agent-title">Review Manager</div>
           </div>
           <div class="agent-pricing">
-            <div class="agent-price">$0.10/res</div>
+            <div class="agent-price">$0.15/res</div>
           </div>
         </div>
         <p class="agent-description">Requests reviews after successful jobs, responds to online reviews, routes unhappy customers to you first.</p>
@@ -1196,7 +1196,7 @@
             <div class="agent-title">Content Agent</div>
           </div>
           <div class="agent-pricing">
-            <div class="agent-price">$0.75/res</div>
+            <div class="agent-price">$0.50/res</div>
           </div>
         </div>
         <p class="agent-description">Blog posts, social media, newsletters, email campaigns, ad copy, video clips, captions, and posting schedules.</p>
@@ -1215,7 +1215,7 @@
             <div class="agent-title">Weekly Report</div>
           </div>
           <div class="agent-pricing">
-            <div class="agent-price">$0.50/res</div>
+            <div class="agent-price">$0.75/res</div>
           </div>
         </div>
         <p class="agent-description">Every Monday: pulls CRM data, analyzes trends, writes a narrative CEO report with pipeline, revenue, and what changed.</p>
@@ -1345,19 +1345,19 @@
             <tr>
               <td class="pricing-category">Core</td>
               <td class="pricing-agent">Frontline Agent</td>
-              <td>$0.15</td>
+              <td>$0.10</td>
               <td>19</td>
             </tr>
             <tr>
               <td class="pricing-category">Core</td>
               <td class="pricing-agent">Lead Qualifier</td>
-              <td>$0.30</td>
+              <td>$0.25</td>
               <td>16</td>
             </tr>
             <tr>
               <td class="pricing-category">Core</td>
               <td class="pricing-agent">Sales Agent</td>
-              <td>$0.25</td>
+              <td>$0.30</td>
               <td>6</td>
             </tr>
             <tr>
@@ -1369,7 +1369,7 @@
             <tr>
               <td class="pricing-category">Core</td>
               <td class="pricing-agent">Service Operations</td>
-              <td>$0.30</td>
+              <td>$0.25</td>
               <td>12</td>
             </tr>
             <tr>
@@ -1381,13 +1381,13 @@
             <tr>
               <td class="pricing-category">Expansion</td>
               <td class="pricing-agent">IT Helpdesk</td>
-              <td>$0.15</td>
+              <td>$0.12</td>
               <td>2</td>
             </tr>
             <tr>
               <td class="pricing-category">Expansion</td>
               <td class="pricing-agent">Review Manager</td>
-              <td>$0.10</td>
+              <td>$0.15</td>
               <td>2</td>
             </tr>
             <tr>
@@ -1399,13 +1399,13 @@
             <tr>
               <td class="pricing-category">Expansion</td>
               <td class="pricing-agent">Content Agent</td>
-              <td>$0.75</td>
+              <td>$0.50</td>
               <td>6</td>
             </tr>
             <tr>
               <td class="pricing-category">Expansion</td>
               <td class="pricing-agent">Weekly Report</td>
-              <td>$0.50</td>
+              <td>$0.75</td>
               <td>3</td>
             </tr>
           </tbody>
@@ -1539,7 +1539,7 @@
       </div>
       <div class="faq-item">
         <div class="faq-question">
-          <span>What's included in the Lead Qualifier price ($0.45/res)?</span>
+          <span>What's included in the Lead Qualifier price ($0.25/res)?</span>
           <span class="faq-toggle">+</span>
         </div>
         <div class="faq-answer">
@@ -1606,7 +1606,15 @@
 
   <!-- Footer -->
   <footer>
-    <p>&copy; 2026 Kazozo. All rights reserved. 5 core AI agents for sales, support & ops.</p>
+    <div style="margin-bottom:12px;"><a href="index.html" style="font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:700;color:var(--muted);text-decoration:none;">kazo<span style="color:var(--coral);">zo</span></a></div>
+    <div style="display:flex;gap:24px;justify-content:center;margin-bottom:12px;flex-wrap:wrap;">
+      <a href="index.html#agents" style="color:var(--muted);text-decoration:none;font-size:14px;">Agents</a>
+      <a href="index.html#pricing" style="color:var(--muted);text-decoration:none;font-size:14px;">Pricing</a>
+      <a href="industries.html" style="color:var(--muted);text-decoration:none;font-size:14px;">Industries</a>
+      <a href="live-demo.html" style="color:var(--muted);text-decoration:none;font-size:14px;">Simulation</a>
+      <a href="mailto:hello@kazozo.com" style="color:var(--muted);text-decoration:none;font-size:14px;">hello@kazozo.com</a>
+    </div>
+    <p>&copy; 2026 Kazozo. All rights reserved.</p>
   </footer>
 
   <!-- Modals for Each Agent -->
