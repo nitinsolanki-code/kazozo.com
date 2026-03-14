@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kazozo — See 5 Core AI Agents in Action | Interactive Simulations</title>
+  <title>AI Agent Simulations — Kazozo</title>
   <meta name="description" content="Try Kazozo's 5 core AI agents — frontline, lead qualification, sales, support & service ops. Salesforce Agentforce alternative built for SMBs. Interactive simulations.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://kazozo.com/live-demo.html">
@@ -14,11 +14,13 @@
   <meta property="og:url" content="https://kazozo.com/live-demo.html">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Kazozo">
+  <meta property="og:image" content="https://kazozo.com/og-image.png">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Kazozo — See 5 Core AI Agents in Action">
-  <meta name="twitter:description" content="5 core AI agents for sales, support & ops — expand to 11. Salesforce Agentforce alternative for SMBs. Try simulations.">
+  <meta name="twitter:title" content="AI Agent Simulations — Kazozo">
+  <meta name="twitter:description" content="Try 5 AI agents live — sales, support, lead qualification & ops. Interactive simulations.">
+  <meta name="twitter:image" content="https://kazozo.com/og-image.png">
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230C0B12'/%3E%3Ctext x='3' y='23' font-family='system-ui,sans-serif' font-size='20' font-weight='700' fill='%23F0EFF4'%3Ek%3C/text%3E%3Ctext x='15' y='23' font-family='system-ui,sans-serif' font-size='20' font-weight='700' fill='%23FF6B5A'%3Ez%3C/text%3E%3C/svg%3E">
@@ -2271,10 +2273,50 @@
       });
     });
   </script>
+
+  <!-- Navigation & UX Scripts -->
+  <script>
+  // Hamburger menu
+  const hamburger = document.getElementById('hamburger');
+  const mobileNav = document.getElementById('mobileNav');
+  const mobileOverlay = document.getElementById('mobileOverlay');
+
+  function openMobileNav() {
+    hamburger.classList.add('hamburger-active');
+    hamburger.setAttribute('aria-expanded', 'true');
+    mobileNav.classList.add('active');
+    mobileOverlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeMobileNav() {
+    hamburger.classList.remove('hamburger-active');
+    hamburger.setAttribute('aria-expanded', 'false');
+    mobileNav.classList.remove('active');
+    mobileOverlay.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+  hamburger.addEventListener('click', () => {
+    mobileNav.classList.contains('active') ? closeMobileNav() : openMobileNav();
+  });
+  mobileOverlay.addEventListener('click', closeMobileNav);
+  document.querySelectorAll('.mobile-nav-link').forEach(link => {
+    link.addEventListener('click', closeMobileNav);
+  });
+
+  // Scroll to top
+  const scrollTopBtn = document.getElementById('scrollTop');
+  window.addEventListener('scroll', () => {
+    scrollTopBtn.classList.toggle('visible', window.scrollY > 500);
+  }, { passive: true });
+  scrollTopBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+  </script>
+
   </div><!-- end content -->
 
 <!-- Kazozo Frontline Agent Widget -->
-<script
+<script async
   src="https://kazozo-platform-production.up.railway.app/widget/embed-loader.js"
   data-tenant="kazozo-001"
   data-api="https://kazozo-platform-production.up.railway.app"
