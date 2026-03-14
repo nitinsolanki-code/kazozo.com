@@ -20,6 +20,9 @@
   <meta name="twitter:title" content="Kazozo — See 5 Core AI Agents in Action">
   <meta name="twitter:description" content="5 core AI agents for sales, support & ops — expand to 11. Salesforce Agentforce alternative for SMBs. Try simulations.">
 
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230C0B12'/%3E%3Ctext x='3' y='23' font-family='system-ui,sans-serif' font-size='20' font-weight='700' fill='%23F0EFF4'%3Ek%3C/text%3E%3Ctext x='15' y='23' font-family='system-ui,sans-serif' font-size='20' font-weight='700' fill='%23FF6B5A'%3Ez%3C/text%3E%3C/svg%3E">
+
   <!-- Fonts (preconnect for performance) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -113,7 +116,7 @@
 
   /* ===== HAMBURGER MENU ===== */
   .hamburger {
-    display: none; align-items: center; gap: 8px;
+    display: flex; align-items: center; gap: 8px;
     background: none; border: none; cursor: pointer; padding: 8px; z-index: 1001;
   }
   .hamburger-lines {
@@ -187,7 +190,7 @@
   .scroll-top:hover { background: var(--coral); color: #fff; border-color: var(--coral); }
   .scroll-top svg { width: 18px; height: 18px; }
 
-  html { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; overflow-x: hidden; }
 
   footer {
     border-top: 1px solid var(--border); padding: 48px 24px 32px;
@@ -219,7 +222,6 @@
   .footer-socials svg { width: 18px; height: 18px; }
 
   @media (max-width: 900px) {
-    .hamburger { display: flex; }
     .nav-links { display: none; }
     .footer-inner { flex-direction: column; gap: 24px; text-align: center; }
     .footer-nav { justify-content: center; }
@@ -902,7 +904,6 @@
     }
 
     @media (max-width: 768px) {
-      .hamburger { display: flex; }
       .nav-links { display: none; }
       .hero h1 {
         font-size: 2rem;
@@ -1019,7 +1020,13 @@
     <!-- Navigation -->
     <nav>
       <div class="nav-inner">
-        <a href="index.html" class="logo" style="text-decoration:none;">kazo<span>zo</span></a>
+        <div style="display:flex;align-items:center;gap:16px;">
+          <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+            <div class="hamburger-lines"><span></span><span></span></div>
+            <span class="hamburger-label">Menu</span>
+          </button>
+          <a href="index.html" class="logo" style="text-decoration:none;">kazo<span>zo</span></a>
+        </div>
         <ul class="nav-links">
           <li><a href="index.html#agents">Agents</a></li>
           <li><a href="index.html#pricing">Pricing</a></li>
@@ -1027,10 +1034,6 @@
           <li><a href="live-demo.html" style="color:var(--text);">Simulation</a></li>
           <li><a href="javascript:void(0)" onclick="if(window.KazozoWidget){window.KazozoWidget.open()}else{document.getElementById('cta').scrollIntoView({behavior:'smooth'})}" class="btn-nav" style="background:var(--coral);color:#fff!important;padding:10px 22px;border-radius:10px;font-weight:600;">Talk to Kaz</a></li>
         </ul>
-      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
-        <div class="hamburger-lines"><span></span><span></span></div>
-        <span class="hamburger-label">Menu</span>
-      </button>
       </div>
     </nav>
 
@@ -1763,7 +1766,7 @@
     </div>
     <hr class="footer-divider">
     <div class="footer-bottom">
-      <div class="footer-credit">&copy; 2026 Kazozo &middot; <a href="https://solanki.co" target="_blank" rel="noopener" style="color:var(--muted);text-decoration:none;">A Solanki Co product</a></div>
+      <div class="footer-credit">&copy; 2026 Kazozo &middot; <a href="https://solanki.co" target="_blank" rel="noopener" style="color:var(--muted);text-decoration:none;">A Solanki Co product</a> &middot; <a href="privacy.html" style="color:var(--muted);text-decoration:none;">Privacy</a> &middot; <a href="terms.html" style="color:var(--muted);text-decoration:none;">Terms</a></div>
       <div class="footer-socials">
         <a href="https://instagram.com/kazozo.ai" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg></a>
         <a href="https://x.com/kazozo_ai" target="_blank" rel="noopener" aria-label="X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>

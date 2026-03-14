@@ -11,13 +11,15 @@
 <meta property="og:description" content="AI agents built for Chiropractic & Wellness. Pre-configured packages from $55/mo.">
 <meta property="og:url" content="https://kazozo.com/chiropractic.html">
 <meta property="og:type" content="website">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230C0B12'/%3E%3Ctext x='3' y='23' font-family='system-ui,sans-serif' font-size='20' font-weight='700' fill='%23F0EFF4'%3Ek%3C/text%3E%3Ctext x='15' y='23' font-family='system-ui,sans-serif' font-size='20' font-weight='700' fill='%23FF6B5A'%3Ez%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700;1,800&family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
   * { margin:0; padding:0; box-sizing:border-box; }
+  html { overflow-x:hidden; }
   :root { --bg:#0C0B12; --surface:#16151E; --card:#1A1924; --border:rgba(255,255,255,0.06); --text:#F5F5F7; --muted:#8A8A9A; --coral:#FF6B5A; --lime:#CDFF64; --lavender:#B8A9FF; --sky:#64D2FF; --amber:#FFB84D; }
-  body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text); line-height:1.6; -webkit-font-smoothing:antialiased; }
+  body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text); line-height:1.6; -webkit-font-smoothing:antialiased; overflow-x:hidden; }
   a { color:var(--text); text-decoration:none; }
 
   /* NAV */
@@ -32,7 +34,7 @@
   .btn-nav:hover { transform:translateY(-1px); box-shadow:0 6px 20px rgba(255,107,90,0.3); }
 
   /* HAMBURGER MENU */
-  .hamburger { display:none; align-items:center; gap:8px; background:none; border:none; cursor:pointer; padding:8px; z-index:1001; }
+  .hamburger { display:flex; align-items:center; gap:8px; background:none; border:none; cursor:pointer; padding:8px; z-index:1001; }
   .hamburger-lines { display:flex; flex-direction:column; justify-content:center; width:20px; height:14px; }
   .hamburger-lines span { display:block; width:100%; height:1.5px; background:var(--text); transition:all 0.3s cubic-bezier(0.4,0,0.2,1); }
   .hamburger-lines span:first-child { margin-bottom:5px; }
@@ -77,7 +79,6 @@
 
   @media(max-width:900px) {
     .nav-links { display:none; }
-    .hamburger { display:flex; }
     .footer-inner { flex-direction:column; gap:24px; text-align:center; }
     .footer-nav { justify-content:center; }
     .footer-bottom { flex-direction:column; gap:12px; }
@@ -116,7 +117,13 @@
 
   <nav>
     <div class="nav-inner">
-      <a href="index.html" class="logo" style="text-decoration:none;">kazo<span>zo</span></a>
+      <div style="display:flex;align-items:center;gap:16px;">
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+          <div class="hamburger-lines"><span></span><span></span></div>
+          <span class="hamburger-label">Menu</span>
+        </button>
+        <a href="index.html" class="logo" style="text-decoration:none;">kazo<span>zo</span></a>
+      </div>
       <ul class="nav-links">
         <li><a href="index.html#agents">Agents</a></li>
         <li><a href="index.html#pricing">Pricing</a></li>
@@ -124,10 +131,6 @@
         <li><a href="live-demo.html">Simulation</a></li>
         <li><a href="javascript:void(0)" onclick="if(window.KazozoWidget){window.KazozoWidget.open()}else{document.getElementById('cta').scrollIntoView({behavior:'smooth'})}" class="btn-nav">Talk to Kaz</a></li>
       </ul>
-      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
-        <div class="hamburger-lines"><span></span><span></span></div>
-        <span class="hamburger-label">Menu</span>
-      </button>
     </div>
   </nav>
 
@@ -303,7 +306,7 @@
     </div>
     <hr class="footer-divider">
     <div class="footer-bottom">
-      <div class="footer-credit">&copy; 2026 Kazozo &middot; <a href="https://solanki.co" target="_blank" rel="noopener" style="color:var(--muted);text-decoration:none;">A Solanki Co product</a></div>
+      <div class="footer-credit">&copy; 2026 Kazozo &middot; <a href="https://solanki.co" target="_blank" rel="noopener" style="color:var(--muted);text-decoration:none;">A Solanki Co product</a> &middot; <a href="privacy.html" style="color:var(--muted);text-decoration:none;">Privacy</a> &middot; <a href="terms.html" style="color:var(--muted);text-decoration:none;">Terms</a></div>
       <div class="footer-socials">
         <a href="https://instagram.com/kazozo.ai" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg></a>
         <a href="https://x.com/kazozo_ai" target="_blank" rel="noopener" aria-label="X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
