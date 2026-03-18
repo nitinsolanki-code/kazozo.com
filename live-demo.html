@@ -57,7 +57,7 @@
       background: var(--bg);
       color: var(--text);
       line-height: 1.6;
-      overflow-x: hidden;
+      overflow-x: hidden; width:100%; max-width:100vw;
     }
 
     /* ===== TEXTURE + ORBS ===== */
@@ -932,7 +932,34 @@
         grid-template-columns: 1fr;
       }
     }
-  </style>
+  
+  /* MOBILE FIRST FIXES */
+  img, iframe, video, embed, object, svg { max-width: 100%; }
+  .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; width: 100%; }
+
+  @media(max-width:600px) {
+    nav { padding:8px 12px; }
+    .nav-inner { padding:10px 16px; border-radius:12px; }
+    .logo { font-size:20px; }
+    .hero { padding:100px 16px 40px; }
+    .hero h1 { font-size:clamp(24px,7vw,36px); letter-spacing:-1px; }
+    .hero p { font-size:15px; }
+    .section { padding:0 16px 60px; }
+    .section h2 { font-size:clamp(20px,5vw,28px); }
+    .pkg { padding:20px 16px; }
+    .pkg-name { font-size:16px; }
+    .pkg-price { font-size:22px; }
+    .cta-btn { width:100%; justify-content:center; padding:14px 24px; font-size:15px; }
+    footer { padding:32px 16px; }
+    .footer-nav { flex-direction:column; gap:24px; }
+    .scroll-top { bottom:140px; right:16px; }
+  }
+  @media(max-width:380px) {
+    .hero h1 { font-size:22px; }
+    .nav-inner { padding:8px 12px; }
+    .logo { font-size:18px; }
+  }
+</style>
 
   <!-- FAQ Schema for Rich Snippets -->
   <script type="application/ld+json">
@@ -2314,6 +2341,40 @@
   </script>
 
   </div><!-- end content -->
+
+<!-- Chatbot widget mobile containment -->
+<style>
+  #kazozo-widget-container,
+  [id*="kazozo-widget"],
+  [class*="kazozo-chat"],
+  [class*="widget-chat"] {
+    max-width: 100vw !important;
+    overflow: hidden !important;
+  }
+  @media (max-width: 600px) {
+    #kazozo-widget-container,
+    [id*="kazozo-widget"],
+    [class*="kazozo-chat"],
+    [class*="widget-chat"] {
+      right: 8px !important;
+      bottom: 70px !important;
+      max-width: calc(100vw - 16px) !important;
+    }
+    #kazozo-widget-container iframe,
+    [id*="kazozo-widget"] iframe {
+      max-width: calc(100vw - 16px) !important;
+      width: calc(100vw - 16px) !important;
+      max-height: 65vh !important;
+    }
+    #kazozo-widget-container > div:last-child,
+    [id*="kazozo-widget"] > div:last-child,
+    [class*="widget-toggle"],
+    [class*="chat-toggle"] {
+      right: 8px !important;
+      bottom: 70px !important;
+    }
+  }
+</style>
 
 <!-- Kazozo Frontline Agent Widget -->
 <script async

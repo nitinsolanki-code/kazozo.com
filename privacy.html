@@ -13,7 +13,7 @@
   * { margin:0; padding:0; box-sizing:border-box; }
   :root { --bg:#0C0B12; --surface:#13121D; --card:#1A192A; --coral:#FF6B5A; --lime:#CDFF64; --text:#F0EFF4; --muted:#7D7A8C; --border:rgba(255,255,255,0.06); }
   html { overflow-x:hidden; scroll-behavior:smooth; }
-  body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text); overflow-x:hidden; }
+  body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text); overflow-x:hidden; width:100%; max-width:100vw; }
   a { color:var(--coral); }
   nav { position:fixed; top:0; left:0; right:0; z-index:1000; padding:12px 24px; }
   .nav-inner { max-width:1200px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; background:rgba(19,18,29,0.85); backdrop-filter:blur(20px); border:1px solid var(--border); border-radius:16px; padding:14px 28px; }
@@ -28,6 +28,33 @@
   p, li { font-size:15px; color:var(--muted); line-height:1.8; margin-bottom:12px; }
   ul { padding-left:20px; margin-bottom:12px; }
   footer { border-top:1px solid var(--border); padding:24px; text-align:center; font-size:13px; color:var(--muted); }
+
+  /* MOBILE FIRST FIXES */
+  img, iframe, video, embed, object, svg { max-width: 100%; }
+  .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; width: 100%; }
+
+  @media(max-width:600px) {
+    nav { padding:8px 12px; }
+    .nav-inner { padding:10px 16px; border-radius:12px; }
+    .logo { font-size:20px; }
+    .hero { padding:100px 16px 40px; }
+    .hero h1 { font-size:clamp(24px,7vw,36px); letter-spacing:-1px; }
+    .hero p { font-size:15px; }
+    .section { padding:0 16px 60px; }
+    .section h2 { font-size:clamp(20px,5vw,28px); }
+    .pkg { padding:20px 16px; }
+    .pkg-name { font-size:16px; }
+    .pkg-price { font-size:22px; }
+    .cta-btn { width:100%; justify-content:center; padding:14px 24px; font-size:15px; }
+    footer { padding:32px 16px; }
+    .footer-nav { flex-direction:column; gap:24px; }
+    .scroll-top { bottom:140px; right:16px; }
+  }
+  @media(max-width:380px) {
+    .hero h1 { font-size:22px; }
+    .nav-inner { padding:8px 12px; }
+    .logo { font-size:18px; }
+  }
 </style>
 </head>
 <body>

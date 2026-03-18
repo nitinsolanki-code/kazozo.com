@@ -50,12 +50,14 @@
     --green: #34d399;
   }
 
-  html { overflow-x: hidden; }
+  html { overflow-x: hidden; width: 100%; }
   body {
     font-family: 'Inter', sans-serif;
     background: var(--bg);
     color: var(--text);
     overflow-x: hidden;
+    width: 100%;
+    max-width: 100vw;
   }
 
   /* ===== TEXTURE + ORBS ===== */
@@ -66,7 +68,7 @@
     background-size: 32px 32px;
   }
 
-  .content { position: relative; z-index: 1; overflow: hidden; }
+  .content { position: relative; z-index: 1; overflow: hidden; width: 100%; max-width: 100vw; }
 
   .orb { position: absolute; border-radius: 50%; filter: blur(120px); pointer-events: none; }
   .orb-1 { width: 500px; height: 500px; top: -150px; right: -100px; background: conic-gradient(from 180deg, rgba(184,169,255,0.15), rgba(100,210,255,0.1), rgba(205,255,100,0.06), rgba(255,107,90,0.1), rgba(184,169,255,0.15)); animation: orbSpin 30s linear infinite; }
@@ -707,7 +709,14 @@
   .footer-socials a:hover { color: var(--text); }
   .footer-socials svg { width: 18px; height: 18px; }
 
-  /* ===== RESPONSIVE ===== */
+  /* ===== RESPONSIVE — MOBILE FIRST ===== */
+
+  /* Ensure all images, iframes, embeds stay in bounds */
+  img, iframe, video, embed, object, svg { max-width: 100%; }
+
+  /* Table scroll wrappers for mobile */
+  .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; width: 100%; }
+
   @media (max-width: 1100px) {
     .agent-tiers [style*="repeat(5"] { grid-template-columns: repeat(3, 1fr) !important; }
   }
@@ -730,11 +739,87 @@
     .cta-buttons { flex-direction: column; }
     .pricing-table th, .pricing-table td { padding: 10px 12px; font-size: 12px; }
     .hero h1 { font-size: clamp(28px, 7vw, 48px); }
+    .testimonial-grid { grid-template-columns: 1fr; }
   }
 
   @media (max-width: 600px) {
     .agent-tiers [style*="repeat(5"] { grid-template-columns: 1fr !important; }
+    .tiers-grid { grid-template-columns: 1fr; }
+    .proof-grid { grid-template-columns: 1fr; }
     .sticky-cta { display: flex; }
+
+    /* Nav tighter on small screens */
+    nav { padding: 8px 12px; }
+    .nav-inner { padding: 10px 16px; border-radius: 12px; }
+    .logo { font-size: 20px; }
+
+    /* Hero mobile */
+    .hero { padding: 100px 16px 40px; }
+    .hero h1 { font-size: clamp(26px, 8vw, 38px); letter-spacing: -1px; }
+    .hero-sub { font-size: 15px; }
+    .hero-actions { flex-direction: column; align-items: center; }
+    .btn-primary, .btn-outline { width: 100%; max-width: 320px; text-align: center; justify-content: center; }
+
+    /* Proof bar */
+    .proof-bar { gap: 16px; }
+    .proof-bar-num { font-size: 22px; }
+
+    /* Section padding */
+    .agent-tiers, .verticals, .how-it-works, .demo-section, .built-by, .pricing-section { padding-left: 16px; padding-right: 16px; }
+
+    /* Section headings */
+    .section-heading { font-size: clamp(22px, 6vw, 32px); }
+    .section-sub { font-size: 15px; }
+
+    /* Tier cards */
+    .tier-top { padding: 24px 20px 16px; }
+    .tier-agents { padding: 16px 20px 20px; }
+    .tier-card h3 { font-size: 22px; }
+
+    /* Proof section */
+    .proof-number { font-size: 28px; }
+
+    /* Demo section */
+    .demo-body { padding: 16px; }
+    .dmsg-text { font-size: 13px; padding: 10px 14px; max-width: 90%; }
+
+    /* Comparison table */
+    .compare-table { font-size: 12px; }
+    .compare-table th, .compare-table td { padding: 10px 8px; }
+
+    /* FAQ */
+    .faq-q { font-size: 14px; padding: 16px 0; }
+    .faq-a-inner { font-size: 13px; }
+
+    /* Footer */
+    footer { padding: 32px 16px 24px; }
+    .footer-nav { flex-direction: column; gap: 24px; }
+
+    /* Scroll-to-top button - keep clear of chatbot */
+    .scroll-top { bottom: 140px; right: 16px; }
+
+    /* Chatbot widget containment */
+    #kazozo-widget-container,
+    [id*="kazozo-widget"],
+    [class*="kazozo-widget"] {
+      max-width: calc(100vw - 32px) !important;
+      right: 16px !important;
+    }
+    #kazozo-widget-container iframe,
+    [id*="kazozo-widget"] iframe {
+      max-width: calc(100vw - 32px) !important;
+      max-height: 70vh !important;
+    }
+  }
+
+  @media (max-width: 380px) {
+    .hero h1 { font-size: 24px; }
+    .nav-inner { padding: 8px 12px; }
+    .logo { font-size: 18px; }
+    .proof-bar-item { min-width: 80px; }
+    .proof-bar-num { font-size: 20px; }
+    .tier-card h3 { font-size: 20px; }
+    .compare-table th, .compare-table td { padding: 8px 6px; font-size: 11px; }
   }
 
   /* ===== SCROLL ANIMATIONS ===== */
@@ -780,8 +865,6 @@
   .compare-table td { padding: 14px 16px; border-bottom: 1px solid var(--border); color: var(--muted); }
   .compare-table tr td:first-child { color: var(--text); font-weight: 500; }
   .compare-table .col-kaz { color: var(--coral) !important; font-weight: 600 !important; }
-  @media (max-width: 600px) { .compare-table { font-size: 12px; } .compare-table th, .compare-table td { padding: 10px 8px; } }
-
   /* ===== FAQ ===== */
   .faq-item { border-bottom: 1px solid var(--border); }
   .faq-q {
@@ -805,7 +888,6 @@
   .testimonial-quote { font-size: 15px; line-height: 1.7; color: var(--text); font-style: italic; margin-bottom: 16px; }
   .testimonial-author { font-size: 13px; color: var(--muted); }
   .testimonial-author strong { color: var(--text); font-style: normal; }
-  @media (max-width: 900px) { .testimonial-grid { grid-template-columns: 1fr; } }
 </style>
 
 <!-- Organization Schema -->
@@ -1429,13 +1511,14 @@
   </section>
 
   <!-- COMPARISON TABLE -->
-  <section class="fade-up" id="compare" style="max-width:1000px; margin:0 auto; padding:80px 24px;">
+  <section class="fade-up" id="compare" style="max-width:1000px; margin:0 auto; padding:80px 16px;">
     <div style="text-align:center; margin-bottom:40px;">
       <div class="section-eyebrow eyebrow-coral">How We Compare</div>
       <h2 class="section-heading" style="text-align:center;">Enterprise tools. <em style="color:var(--coral);">Without enterprise complexity.</em></h2>
       <p class="section-sub" style="text-align:center;">You shouldn't need a six-figure budget and a 6-month implementation to automate your sales and support.</p>
     </div>
     <div style="background:var(--surface); border:1px solid var(--border); border-radius:20px; overflow:hidden;">
+      <div class="table-scroll">
       <table class="compare-table">
         <thead>
           <tr><th></th><th class="col-kaz">Kazozo</th><th>Salesforce Agentforce</th><th>Intercom Fin</th><th>Drift</th></tr>
@@ -1451,6 +1534,7 @@
           <tr><td>Developer required</td><td class="col-kaz">No</td><td>Yes</td><td>Minimal</td><td>Minimal</td></tr>
         </tbody>
       </table>
+      </div>
     </div>
   </section>
 
@@ -1564,6 +1648,41 @@
   </button>
 
 </div>
+
+<!-- Chatbot widget mobile containment -->
+<style>
+  #kazozo-widget-container,
+  [id*="kazozo-widget"],
+  [class*="kazozo-chat"],
+  [class*="widget-chat"] {
+    max-width: 100vw !important;
+    overflow: hidden !important;
+  }
+  @media (max-width: 600px) {
+    #kazozo-widget-container,
+    [id*="kazozo-widget"],
+    [class*="kazozo-chat"],
+    [class*="widget-chat"] {
+      right: 8px !important;
+      bottom: 70px !important;
+      max-width: calc(100vw - 16px) !important;
+    }
+    #kazozo-widget-container iframe,
+    [id*="kazozo-widget"] iframe {
+      max-width: calc(100vw - 16px) !important;
+      width: calc(100vw - 16px) !important;
+      max-height: 65vh !important;
+    }
+    /* Widget toggle button */
+    #kazozo-widget-container > div:last-child,
+    [id*="kazozo-widget"] > div:last-child,
+    [class*="widget-toggle"],
+    [class*="chat-toggle"] {
+      right: 8px !important;
+      bottom: 70px !important;
+    }
+  }
+</style>
 
 <!-- Kazozo Frontline Agent Widget -->
 <script async
