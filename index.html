@@ -725,6 +725,7 @@
     .nav-links { display: none; }
     .tiers-grid { grid-template-columns: repeat(2, 1fr); }
     .agent-tiers [style*="repeat(5"] { grid-template-columns: repeat(2, 1fr) !important; }
+    .agent-tiers [style*="repeat(3"] { grid-template-columns: repeat(2, 1fr) !important; }
     .hiw-grid { grid-template-columns: 1fr; }
     .verticals-grid { grid-template-columns: 1fr; }
     .verticals-grid-2 { grid-template-columns: 1fr; }
@@ -744,6 +745,9 @@
 
   @media (max-width: 600px) {
     .agent-tiers [style*="repeat(5"] { grid-template-columns: 1fr !important; }
+    .agent-tiers [style*="repeat(3"] { grid-template-columns: 1fr !important; }
+    /* Expand agents grid — force single column so all 6 cards visible */
+    [style*="grid-template-columns:repeat(3"] { grid-template-columns: repeat(2, 1fr) !important; }
     .tiers-grid { grid-template-columns: 1fr; }
     .proof-grid { grid-template-columns: 1fr; }
     .sticky-cta { display: flex; }
@@ -800,14 +804,30 @@
 
     /* Chatbot widget containment */
     #kazozo-widget-container,
+    #kazozo-widget,
     [id*="kazozo-widget"],
     [class*="kazozo-widget"] {
-      max-width: calc(100vw - 32px) !important;
-      right: 16px !important;
+      max-width: 100vw !important;
+    }
+    .kazozo-chat,
+    #kazozo-chat {
+      right: 8px !important;
+      left: 8px !important;
+      bottom: 80px !important;
+      width: calc(100vw - 16px) !important;
+      max-width: calc(100vw - 16px) !important;
+      max-height: 70vh !important;
+    }
+    .kazozo-toggle,
+    #kazozo-toggle {
+      right: 12px !important;
+      bottom: 12px !important;
+      width: 52px !important;
+      height: 52px !important;
     }
     #kazozo-widget-container iframe,
     [id*="kazozo-widget"] iframe {
-      max-width: calc(100vw - 32px) !important;
+      max-width: calc(100vw - 16px) !important;
       max-height: 70vh !important;
     }
   }
@@ -1652,34 +1672,68 @@
 <!-- Chatbot widget mobile containment -->
 <style>
   #kazozo-widget-container,
+  #kazozo-widget,
   [id*="kazozo-widget"],
   [class*="kazozo-chat"],
   [class*="widget-chat"] {
     max-width: 100vw !important;
     overflow: hidden !important;
   }
+
+  /* Kaz chat panel — constrain to viewport on all screens */
+  .kazozo-chat,
+  #kazozo-chat {
+    max-width: calc(100vw - 32px) !important;
+  }
+
   @media (max-width: 600px) {
-    #kazozo-widget-container,
-    [id*="kazozo-widget"],
-    [class*="kazozo-chat"],
-    [class*="widget-chat"] {
+    /* Chat panel: full width minus gutters, pinned to bottom */
+    .kazozo-chat,
+    #kazozo-chat {
       right: 8px !important;
-      bottom: 70px !important;
+      left: 8px !important;
+      bottom: 80px !important;
+      width: calc(100vw - 16px) !important;
       max-width: calc(100vw - 16px) !important;
+      max-height: 70vh !important;
+    }
+    /* Toggle button */
+    .kazozo-toggle,
+    #kazozo-toggle {
+      right: 12px !important;
+      bottom: 12px !important;
+      width: 52px !important;
+      height: 52px !important;
+    }
+    /* Microphone icon — better contrast against coral/orange */
+    .kazozo-chat button[aria-label*="voice"],
+    .kazozo-chat button[aria-label*="Voice"],
+    .kazozo-chat button[aria-label*="mic"],
+    .kazozo-chat button[aria-label*="Mic"],
+    .kazozo-chat .kazozo-voice-btn,
+    .kazozo-chat button svg[viewBox] {
+      color: #fff !important;
+      fill: #fff !important;
+      opacity: 1 !important;
+    }
+    /* Ensure input area mic button has white background circle for contrast */
+    .kazozo-chat [class*="voice"],
+    .kazozo-chat [class*="mic"] {
+      background: rgba(255,255,255,0.15) !important;
+      border-radius: 50% !important;
+      color: #fff !important;
+    }
+
+    #kazozo-widget-container,
+    #kazozo-widget,
+    [id*="kazozo-widget"] {
+      max-width: 100vw !important;
     }
     #kazozo-widget-container iframe,
     [id*="kazozo-widget"] iframe {
       max-width: calc(100vw - 16px) !important;
       width: calc(100vw - 16px) !important;
-      max-height: 65vh !important;
-    }
-    /* Widget toggle button */
-    #kazozo-widget-container > div:last-child,
-    [id*="kazozo-widget"] > div:last-child,
-    [class*="widget-toggle"],
-    [class*="chat-toggle"] {
-      right: 8px !important;
-      bottom: 70px !important;
+      max-height: 70vh !important;
     }
   }
 </style>
