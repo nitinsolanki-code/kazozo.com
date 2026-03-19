@@ -1686,6 +1686,31 @@
     max-width: calc(100vw - 32px) !important;
   }
 
+  /* Fix mic SVG icon — no width/height attrs causes it to collapse */
+  #kazozo-voice svg,
+  .kazozo-voice-btn svg,
+  .kazozo-chat button[aria-label*="oice"] svg {
+    width: 20px !important;
+    height: 20px !important;
+    min-width: 20px !important;
+    min-height: 20px !important;
+    display: block !important;
+  }
+
+  /* Input area — must respect chat panel width */
+  .kazozo-input-area {
+    width: 100% !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+  }
+
+  /* Send button — prevent overflow */
+  #kazozo-send {
+    flex-shrink: 0 !important;
+    white-space: nowrap !important;
+    padding: 10px 14px !important;
+  }
+
   @media (max-width: 600px) {
     /* Chat panel: full width minus gutters, pinned to bottom */
     .kazozo-chat,
@@ -1704,6 +1729,16 @@
       bottom: 12px !important;
       width: 52px !important;
       height: 52px !important;
+    }
+    /* Send button compact on mobile */
+    #kazozo-send {
+      padding: 8px 12px !important;
+      font-size: 14px !important;
+    }
+    /* Input area overflow fix on mobile */
+    .kazozo-input-area {
+      gap: 6px !important;
+      padding: 10px 10px !important;
     }
     /* Microphone icon — better contrast against coral/orange */
     .kazozo-chat button[aria-label*="voice"],
