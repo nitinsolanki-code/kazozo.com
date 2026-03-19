@@ -101,6 +101,37 @@
   }
   .btn-nav:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(255,107,90,0.3); }
 
+  /* ===== NAV AUTH BUTTONS ===== */
+  .nav-auth {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-left: auto;
+  }
+  .nav-login {
+    color: #e0e0e8;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    transition: color 0.3s;
+  }
+  .nav-login:hover { color: #7c5cfc; }
+  .nav-signup {
+    color: white;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 600;
+    background: linear-gradient(135deg, #7c5cfc, #ff6b6b);
+    padding: 0.5rem 1.25rem;
+    border-radius: 0.4rem;
+    transition: all 0.3s;
+  }
+  .nav-signup:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+  }
+
   /* ===== HAMBURGER MENU ===== */
   .hamburger {
     display: flex; align-items: center; gap: 8px;
@@ -723,6 +754,7 @@
 
   @media (max-width: 900px) {
     .nav-links { display: none; }
+    .nav-auth { display: none; }
     .tiers-grid { grid-template-columns: repeat(2, 1fr); }
     .agent-tiers [style*="repeat(5"] { grid-template-columns: repeat(2, 1fr) !important; }
     .agent-tiers [style*="repeat(3"] { grid-template-columns: repeat(2, 1fr) !important; }
@@ -1010,6 +1042,10 @@
         <li><a href="javascript:void(0)" onclick="if(window.KazozoWidget){window.KazozoWidget.open()}else{document.getElementById('cta').scrollIntoView({behavior:'smooth'})}" class="btn-nav">Talk to Kaz</a></li>
       </ul>
     </div>
+    <div class="nav-auth">
+      <a href="https://api.kazozo.com/customer-login.html" class="nav-login">Login</a>
+      <a href="https://api.kazozo.com/signup.html" class="nav-signup">Get Started</a>
+    </div>
   </nav>
 
   <!-- MOBILE NAV -->
@@ -1021,6 +1057,10 @@
     <a href="industries.html" class="mobile-nav-link">Industries</a>
     <a href="live-demo.html" class="mobile-nav-link">Simulation</a>
     <a href="javascript:void(0)" onclick="if(window.KazozoWidget){window.KazozoWidget.open()}else{document.getElementById('cta').scrollIntoView({behavior:'smooth'})};closeMobileNav();" class="mobile-cta">Talk to Kaz &#8594;</a>
+    <div style="display:flex; gap:12px; margin-top:12px; padding:0 24px;">
+      <a href="https://api.kazozo.com/customer-login.html" class="mobile-nav-link" style="flex:1; text-align:center;">Login</a>
+      <a href="https://api.kazozo.com/signup.html" class="mobile-cta" style="flex:1; text-align:center; margin:0;">Get Started</a>
+    </div>
   </div>
 
   <!-- HERO -->
