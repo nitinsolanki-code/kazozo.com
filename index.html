@@ -1751,12 +1751,21 @@
       fill: #fff !important;
       opacity: 1 !important;
     }
-    /* Ensure input area mic button has white background circle for contrast */
+    /* Ensure mic button keeps coral background and white icon */
+    #kazozo-voice,
+    .kazozo-voice-btn,
     .kazozo-chat [class*="voice"],
     .kazozo-chat [class*="mic"] {
-      background: rgba(255,255,255,0.15) !important;
+      background: #ff6b5a !important;
       border-radius: 50% !important;
       color: #fff !important;
+    }
+    #kazozo-voice svg,
+    .kazozo-voice-btn svg {
+      width: 20px !important;
+      height: 20px !important;
+      min-width: 20px !important;
+      fill: #fff !important;
     }
 
     #kazozo-widget-container,
