@@ -562,7 +562,18 @@
   .vert-card {
     background: var(--surface); border: none;
     border-radius: 20px; padding: 0; overflow: hidden; transition: all 0.4s;
+    position: relative;
   }
+
+  .vert-card .vert-bg {
+    position: absolute; inset: 0; opacity: 0.15;
+    background-size: cover; background-position: center;
+    transition: transform 0.7s ease, opacity 0.4s ease;
+    pointer-events: none; z-index: 0;
+  }
+
+  .vert-card:hover .vert-bg { transform: scale(1.1); opacity: 0.25; }
+  .vert-card > *:not(.vert-bg) { position: relative; z-index: 1; }
 
   .vert-card:hover { transform: translateY(-4px); background: var(--card); }
 
@@ -1711,6 +1722,7 @@
 
     <div class="verticals-grid">
       <a href="home-services.html" class="vert-card" style="text-decoration:none;color:inherit;display:block;">
+        <div class="vert-bg" style="background-image:url('https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?q=80&w=1200&auto=format&fit=crop');"></div>
         <div class="vert-top">
           <h3>Home Services</h3>
           <div class="vert-sub">HVAC &middot; Plumbing &middot; Electrical &middot; Roofing &middot; Landscaping</div>
@@ -1728,6 +1740,7 @@
       </a>
 
       <a href="real-estate.html" class="vert-card" style="text-decoration:none;color:inherit;display:block;">
+        <div class="vert-bg" style="background-image:url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1200&auto=format&fit=crop');"></div>
         <div class="vert-top">
           <h3>Real Estate</h3>
           <div class="vert-sub">Brokerages &middot; Teams &middot; Solo Agents &middot; Property Management</div>
@@ -1745,6 +1758,7 @@
       </a>
 
       <a href="marketing-agencies.html" class="vert-card" style="text-decoration:none;color:inherit;display:block;">
+        <div class="vert-bg" style="background-image:url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200&auto=format&fit=crop');"></div>
         <div class="vert-top">
           <h3>Marketing Agencies</h3>
           <div class="vert-sub">Digital &middot; Creative &middot; PR &middot; Social Media &middot; Content</div>
@@ -1764,6 +1778,7 @@
 
     <div class="verticals-grid-2">
       <a href="recruiting-staffing.html" class="vert-card" style="text-decoration:none;color:inherit;display:block;">
+        <div class="vert-bg" style="background-image:url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1200&auto=format&fit=crop');"></div>
         <div class="vert-top">
           <h3>Recruiting / Staffing</h3>
           <div class="vert-sub">Staffing Firms &middot; Recruiting Agencies &middot; RPOs &middot; Talent Acquisition</div>
@@ -1781,6 +1796,7 @@
       </a>
 
       <a href="ecommerce.html" class="vert-card" style="text-decoration:none;color:inherit;display:block;">
+        <div class="vert-bg" style="background-image:url('https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=1200&auto=format&fit=crop');"></div>
         <div class="vert-top">
           <h3>E-commerce / DTC</h3>
           <div class="vert-sub">Shopify &middot; Amazon &middot; DTC Brands &middot; Subscription Boxes</div>
