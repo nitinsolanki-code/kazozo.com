@@ -71,7 +71,7 @@
   .text-glow-primary { text-shadow: 0 0 20px rgba(255, 180, 164, 0.3); }
   .glass-panel { backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
 
-  html { overflow-x: hidden; width: 100%; }
+  html { overflow-x: hidden; width: 100%; max-width: 100vw; }
   body {
     font-family: 'Manrope', sans-serif;
     background: var(--bg);
@@ -80,6 +80,7 @@
     width: 100%;
     max-width: 100vw;
     -webkit-font-smoothing: antialiased;
+    position: relative;
   }
 
   /* ===== TEXTURE + ORBS ===== */
@@ -90,7 +91,7 @@
     background-size: 32px 32px;
   }
 
-  .content { position: relative; z-index: 1; overflow: hidden; width: 100%; max-width: 100vw; }
+  .content { position: relative; z-index: 1; overflow: hidden; overflow-x: hidden; width: 100%; max-width: 100vw; box-sizing: border-box; }
 
   .orb { position: absolute; border-radius: 50%; filter: blur(120px); pointer-events: none; }
   .orb-1 { width: 500px; height: 500px; top: -150px; right: -100px; background: conic-gradient(from 180deg, rgba(70,234,237,0.1), rgba(255,180,164,0.08), rgba(235,195,20,0.04), rgba(70,234,237,0.1)); animation: orbSpin 30s linear infinite; }
@@ -873,6 +874,7 @@
 
   @media (max-width: 1100px) {
     .agent-tiers [style*="repeat(5"] { grid-template-columns: repeat(3, 1fr) !important; }
+    .agent-tiers [style*="repeat(5,"] { grid-template-columns: repeat(3, 1fr) !important; }
   }
 
   @media (max-width: 900px) {
@@ -885,7 +887,9 @@
     .platform-grid { grid-template-columns: 1fr; }
     .tiers-grid { grid-template-columns: repeat(2, 1fr); }
     .agent-tiers [style*="repeat(5"] { grid-template-columns: repeat(2, 1fr) !important; }
+    .agent-tiers [style*="repeat(5,"] { grid-template-columns: repeat(2, 1fr) !important; }
     .agent-tiers [style*="repeat(3"] { grid-template-columns: repeat(2, 1fr) !important; }
+    .agent-tiers [style*="repeat(3,"] { grid-template-columns: repeat(2, 1fr) !important; }
     .hiw-grid { grid-template-columns: 1fr; }
     .verticals-grid { grid-template-columns: 1fr; }
     .verticals-grid-2 { grid-template-columns: 1fr; }
@@ -904,12 +908,27 @@
   }
 
   @media (max-width: 600px) {
+    /* ===== GRID OVERRIDES — ALL inline grids collapse on mobile ===== */
     .agent-tiers [style*="repeat(5"] { grid-template-columns: 1fr !important; }
+    .agent-tiers [style*="repeat(5,"] { grid-template-columns: 1fr !important; }
     .agent-tiers [style*="repeat(3"] { grid-template-columns: 1fr !important; }
-    /* Expand agents grid — force single column so all 6 cards visible */
-    [style*="grid-template-columns:repeat(3"] { grid-template-columns: repeat(2, 1fr) !important; }
-    .tiers-grid { grid-template-columns: 1fr; }
+    .agent-tiers [style*="repeat(3,"] { grid-template-columns: 1fr !important; }
+
+    /* Expand agents grid — 3-col → 1-col */
+    [style*="grid-template-columns:repeat(3"] { grid-template-columns: 1fr !important; }
+    [style*="grid-template-columns: repeat(3"] { grid-template-columns: 1fr !important; }
+
+    /* 2-col grids → 1-col (pricing info grid, etc.) */
+    [style*="grid-template-columns:repeat(2"] { grid-template-columns: 1fr !important; }
+    [style*="grid-template-columns: repeat(2"] { grid-template-columns: 1fr !important; }
+
+    /* 5-col grids → inline horizontal scroll or single col */
+    [style*="grid-template-columns: repeat(5"] { grid-template-columns: 1fr !important; }
+    [style*="grid-template-columns:repeat(5"] { grid-template-columns: 1fr !important; }
+
+    .tiers-grid { grid-template-columns: 1fr !important; }
     .proof-grid { grid-template-columns: 1fr; }
+    .testimonial-grid { grid-template-columns: 1fr !important; }
     .sticky-cta { display: flex; }
 
     /* Nav tighter on small screens */
@@ -924,18 +943,18 @@
     .hero-actions { flex-direction: column; align-items: center; }
     .btn-primary, .btn-outline { width: 100%; max-width: 320px; text-align: center; justify-content: center; }
 
-    /* Proof bar */
-    .proof-bar { gap: 16px; }
+    /* Proof bar — wrap properly */
+    .proof-bar { gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .proof-bar-item { min-width: 80px; flex: 0 0 auto; }
     .proof-bar-num { font-size: 22px; }
 
-    /* Testimonials responsive */
-    [style*="grid-template-columns:repeat(3, 1fr)"] { grid-template-columns: 1fr !important; }
-    /* Agent workflow responsive */
+    /* Agent workflow — collapse timeline to 2-col grid hiding arrows */
     [style*="grid-template-columns:auto 1fr auto"] { grid-template-columns: 1fr 1fr !important; gap: 16px !important; }
     [style*="grid-template-columns:auto 1fr auto"] > div:nth-child(even) { display: none !important; }
 
-    /* Section padding */
+    /* Section padding — ensure no horizontal overflow */
     .agent-tiers, .verticals, .how-it-works, .demo-section, .built-by, .pricing-section { padding-left: 16px; padding-right: 16px; }
+    section { max-width: 100vw; overflow-x: hidden; }
 
     /* Section headings */
     .section-heading { font-size: clamp(22px, 6vw, 32px); }
@@ -946,6 +965,9 @@
     .tier-agents { padding: 16px 20px 20px; }
     .tier-card h3 { font-size: 22px; }
 
+    /* Pricing tier grid — horizontal scroll fallback */
+    .tiers-grid { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
     /* Proof section */
     .proof-number { font-size: 28px; }
 
@@ -953,9 +975,10 @@
     .demo-body { padding: 16px; }
     .dmsg-text { font-size: 13px; padding: 10px 14px; max-width: 90%; }
 
-    /* Comparison table */
-    .compare-table { font-size: 12px; }
-    .compare-table th, .compare-table td { padding: 10px 8px; }
+    /* Comparison table — ensure scroll wrapper works */
+    .compare-table { font-size: 12px; min-width: 500px; }
+    .compare-table th, .compare-table td { padding: 10px 8px; white-space: nowrap; }
+    .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; max-width: 100%; }
 
     /* FAQ */
     .faq-q { font-size: 14px; padding: 16px 0; }
@@ -968,21 +991,55 @@
     /* Scroll-to-top button - keep clear of chatbot */
     .scroll-top { bottom: 140px; right: 16px; }
 
+    /* ===== OVERFLOW CONTAINMENT ===== */
+    /* Prevent ANY element from causing horizontal scroll */
+    .content, main, .hero, .platform-products, .agent-tiers,
+    .verticals, .pricing-section, .demo-section, .proof, .cta,
+    footer, .proof-bar, .footer-inner, .footer-bottom {
+      max-width: 100vw !important;
+      overflow-x: hidden !important;
+    }
+
+    /* Inline-style containers — clip any wider children */
+    [style*="max-width:1200px"],
+    [style*="max-width:1100px"],
+    [style*="max-width:1000px"],
+    [style*="max-width: 1200px"],
+    [style*="max-width: 1100px"],
+    [style*="max-width: 1000px"],
+    [style*="max-width:900px"],
+    [style*="max-width: 900px"] {
+      max-width: 100% !important;
+      overflow-x: hidden !important;
+      padding-left: 16px !important;
+      padding-right: 16px !important;
+      box-sizing: border-box !important;
+    }
+
+    /* Images that could cause overflow */
+    img, video, iframe, embed, object, svg, canvas {
+      max-width: 100% !important;
+      height: auto;
+    }
+
     /* Chatbot widget containment */
     #kazozo-widget-container,
     #kazozo-widget,
     [id*="kazozo-widget"],
     [class*="kazozo-widget"] {
       max-width: 100vw !important;
+      overflow: hidden !important;
     }
     .kazozo-chat,
     #kazozo-chat {
+      position: fixed !important;
       right: 8px !important;
       left: 8px !important;
       bottom: 80px !important;
       width: calc(100vw - 16px) !important;
       max-width: calc(100vw - 16px) !important;
       max-height: 70vh !important;
+      overflow: hidden !important;
     }
     .kazozo-toggle,
     #kazozo-toggle {
@@ -1002,10 +1059,16 @@
     .hero h1 { font-size: 24px; }
     .nav-inner { padding: 8px 12px; }
     .logo { font-size: 18px; }
-    .proof-bar-item { min-width: 80px; }
-    .proof-bar-num { font-size: 20px; }
+    .proof-bar-item { min-width: 70px; }
+    .proof-bar-num { font-size: 18px; }
+    .proof-bar-label { font-size: 9px; }
     .tier-card h3 { font-size: 20px; }
     .compare-table th, .compare-table td { padding: 8px 6px; font-size: 11px; }
+    .section-heading { font-size: clamp(20px, 6vw, 28px) !important; }
+    .section-sub { font-size: 14px; }
+    .btn-primary, .btn-outline { font-size: 14px; padding: 12px 20px; }
+    /* Tighten agent workflow at very small screens */
+    [style*="grid-template-columns:auto 1fr auto"] { grid-template-columns: 1fr !important; }
   }
 
   /* ===== SCROLL ANIMATIONS ===== */
@@ -2098,12 +2161,22 @@
   [class*="widget-chat"] {
     max-width: 100vw !important;
     overflow: hidden !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Nuclear containment — no widget descendant can cause overflow */
+  #kazozo-widget-container *,
+  #kazozo-widget *,
+  [id*="kazozo-widget"] * {
+    max-width: 100vw !important;
+    box-sizing: border-box !important;
   }
 
   /* Kaz chat panel — constrain to viewport on all screens */
   .kazozo-chat,
   #kazozo-chat {
     max-width: calc(100vw - 32px) !important;
+    box-sizing: border-box !important;
   }
 
   /* Fix mic SVG icon — no width/height attrs causes it to collapse */
