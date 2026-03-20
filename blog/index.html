@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kazozo Blog — AI Agents, Automation & Growth for SMBs</title>
+    <meta name="description" content="Insights on AI agents, automation, and growing your business with intelligent automation.">
+    <meta property="og:title" content="Kazozo Blog — AI Agents, Automation & Growth for SMBs">
+    <meta property="og:description" content="Insights on AI agents, automation, and growing your business with intelligent automation.">
+    <meta property="og:image" content="https://kazozo.com/og-image.jpg">
+    <link rel="canonical" href="https://kazozo.com/blog/">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700;1,800&family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #0C0B12;
+            --surface: #13121D;
+            --card: #1A192A;
+            --coral: #FF6B5A;
+            --lime: #CDFF64;
+            --lavender: #B8A9FF;
+            --sky: #64D2FF;
+            --amber: #FFB84D;
+            --text: #F0EFF4;
+            --muted: #7D7A8C;
+            --border: rgba(255,255,255,0.06);
+            --green: #34d399;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(12, 11, 18, 0.95);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 2rem;
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-decoration: none;
+            color: var(--text);
+        }
+
+        .logo span {
+            color: var(--coral);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            color: var(--coral);
+        }
+
+        .cta-button {
+            background: var(--coral);
+            color: #fff;
+            padding: 0.6rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background 0.3s;
+        }
+
+        .cta-button:hover {
+            background: #ff5549;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, rgba(255, 107, 90, 0.1) 0%, rgba(205, 255, 100, 0.05) 100%);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--muted);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Main Content */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        /* Article Grid */
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .article-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s, border-color 0.3s;
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .article-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--coral);
+        }
+
+        .article-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, var(--lavender) 0%, var(--sky) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.3);
+        }
+
+        .article-card:nth-child(1) .article-image {
+            background: linear-gradient(135deg, var(--coral) 0%, var(--amber) 100%);
+        }
+
+        .article-card:nth-child(2) .article-image {
+            background: linear-gradient(135deg, var(--lime) 0%, var(--sky) 100%);
+        }
+
+        .article-card:nth-child(3) .article-image {
+            background: linear-gradient(135deg, var(--sky) 0%, var(--lavender) 100%);
+        }
+
+        .article-card:nth-child(4) .article-image {
+            background: linear-gradient(135deg, var(--amber) 0%, var(--coral) 100%);
+        }
+
+        .article-card:nth-child(5) .article-image {
+            background: linear-gradient(135deg, var(--lavender) 0%, var(--lime) 100%);
+        }
+
+        .article-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .article-meta {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            margin-bottom: 1rem;
+            font-size: 0.85rem;
+            color: var(--muted);
+        }
+
+        .article-category {
+            background: rgba(205, 255, 100, 0.15);
+            color: var(--lime);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-weight: 600;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.75rem;
+        }
+
+        .article-card:nth-child(2) .article-category {
+            background: rgba(100, 210, 255, 0.15);
+            color: var(--sky);
+        }
+
+        .article-card:nth-child(3) .article-category {
+            background: rgba(184, 169, 255, 0.15);
+            color: var(--lavender);
+        }
+
+        .article-card:nth-child(4) .article-category {
+            background: rgba(255, 184, 77, 0.15);
+            color: var(--amber);
+        }
+
+        .article-card:nth-child(5) .article-category {
+            background: rgba(52, 211, 153, 0.15);
+            color: var(--green);
+        }
+
+        .article-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        .article-excerpt {
+            color: var(--muted);
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+            font-size: 0.95rem;
+        }
+
+        .article-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
+            font-size: 0.85rem;
+            color: var(--muted);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--surface);
+            border-top: 1px solid var(--border);
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+        }
+
+        footer .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        footer h3 {
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        footer ul {
+            list-style: none;
+        }
+
+        footer li {
+            margin-bottom: 0.75rem;
+        }
+
+        footer a {
+            color: var(--muted);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        footer a:hover {
+            color: var(--coral);
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 1rem;
+                font-size: 0.85rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .articles-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="/" class="logo">kazo<span>zo</span></a>
+            <ul>
+                <li><a href="/#agents">Agents</a></li>
+                <li><a href="/#pricing">Pricing</a></li>
+                <li><a href="/industries.html">Industries</a></li>
+                <li><a href="/live-demo.html">Simulation</a></li>
+                <li><a href="#contact" class="cta-button">Talk to Kaz</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <div class="hero">
+            <h1>The Kazozo Blog</h1>
+            <p>Insights on AI agents, automation, and growing your business</p>
+        </div>
+
+        <div class="articles-grid">
+            <a href="what-is-agentic-ai.html" class="article-card">
+                <div class="article-image"></div>
+                <div class="article-content">
+                    <div class="article-meta">
+                        <span class="article-category">AI Fundamentals</span>
+                        <span>8 min read</span>
+                    </div>
+                    <h2 class="article-title">What is Agentic AI? A Plain-English Guide for Business Owners</h2>
+                    <p class="article-excerpt">Agentic AI might sound technical, but the concept is simple. Learn how autonomous agents differ from chatbots and why they're a game-changer for SMBs.</p>
+                    <div class="article-footer">
+                        <span>Mar 19, 2026</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="ai-agents-roi-small-business.html" class="article-card">
+                <div class="article-image"></div>
+                <div class="article-content">
+                    <div class="article-meta">
+                        <span class="article-category">ROI & Business</span>
+                        <span>8 min read</span>
+                    </div>
+                    <h2 class="article-title">The ROI of AI Agents for Small Businesses: What to Expect</h2>
+                    <p class="article-excerpt">Cut labor costs, accelerate response times, and convert more leads. See what realistic ROI looks like for SMBs using AI agents.</p>
+                    <div class="article-footer">
+                        <span>Mar 19, 2026</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="how-to-automate-lead-follow-up.html" class="article-card">
+                <div class="article-image"></div>
+                <div class="article-content">
+                    <div class="article-meta">
+                        <span class="article-category">Best Practices</span>
+                        <span>9 min read</span>
+                    </div>
+                    <h2 class="article-title">How to Automate Lead Follow-Up Without Losing the Human Touch</h2>
+                    <p class="article-excerpt">Speed matters in sales. Discover how to deploy AI agents that follow up instantly while keeping your brand voice authentic.</p>
+                    <div class="article-footer">
+                        <span>Mar 19, 2026</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="ai-agents-vs-chatbots.html" class="article-card">
+                <div class="article-image"></div>
+                <div class="article-content">
+                    <div class="article-meta">
+                        <span class="article-category">Comparison</span>
+                        <span>8 min read</span>
+                    </div>
+                    <h2 class="article-title">AI Agents vs Chatbots: What's the Difference and Why It Matters</h2>
+                    <p class="article-excerpt">Think AI agents are just fancy chatbots? Think again. Understand the evolution from rules to true autonomy.</p>
+                    <div class="article-footer">
+                        <span>Mar 19, 2026</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="kazozo-vs-building-your-own-ai.html" class="article-card">
+                <div class="article-image"></div>
+                <div class="article-content">
+                    <div class="article-meta">
+                        <span class="article-category">Strategy</span>
+                        <span>8 min read</span>
+                    </div>
+                    <h2 class="article-title">Buy vs Build: Why Pre-Configured AI Agents Beat Custom Development</h2>
+                    <p class="article-excerpt">Building your own AI is tempting. But the math rarely works out. Learn why off-the-shelf platforms like Kazozo save time and money.</p>
+                    <div class="article-footer">
+                        <span>Mar 19, 2026</span>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div>
+                <h3>Kazozo</h3>
+                <p style="color: var(--muted); margin-bottom: 1rem;">AI agents that grow your business.</p>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/#agents">Agents</a></li>
+                    <li><a href="/#pricing">Pricing</a></li>
+                    <li><a href="/industries.html">Industries</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3>Resources</h3>
+                <ul>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="/live-demo.html">Simulation</a></li>
+                    <li><a href="#docs">Documentation</a></li>
+                    <li><a href="#api">API</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3>Company</h3>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#privacy">Privacy</a></li>
+                    <li><a href="#terms">Terms</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Kazozo. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

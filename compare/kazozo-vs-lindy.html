@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Compare Kazozo vs Lindy.ai - Choose the best AI agent platform for your small business. Pre-built industry agents vs DIY platform.">
+    <meta name="keywords" content="Lindy.ai alternative, best AI agents for small business, AI agent platforms, Kazozo vs Lindy">
+    <meta property="og:title" content="Kazozo vs Lindy.ai — AI Agent Platforms Compared for SMBs">
+    <meta property="og:description" content="Compare Kazozo vs Lindy.ai - Choose the best AI agent platform for your small business. Pre-built industry agents vs DIY platform.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://kazozo.com/compare/kazozo-vs-lindy.html">
+    <meta property="og:image" content="https://kazozo.com/og-image.png">
+    <link rel="canonical" href="https://kazozo.com/compare/kazozo-vs-lindy.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700;1,800&family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <title>Kazozo vs Lindy.ai — AI Agent Platforms Compared for SMBs</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #0C0B12;
+            --surface: #13121D;
+            --card: #1A192A;
+            --coral: #FF6B5A;
+            --lime: #CDFF64;
+            --lavender: #B8A9FF;
+            --sky: #64D2FF;
+            --amber: #FFB84D;
+            --text: #F0EFF4;
+            --muted: #7D7A8C;
+            --border: rgba(255,255,255,0.06);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        a {
+            color: var(--coral);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--lime);
+        }
+
+        /* Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(12, 11, 18, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 2rem;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .logo-coral {
+            color: var(--coral);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--muted);
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--text);
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.85rem;
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 6rem 2rem 4rem;
+            text-align: center;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+
+        h1 .highlight {
+            background: linear-gradient(135deg, var(--coral), var(--lime));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--muted);
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        /* Comparison Table */
+        .comparison-section {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .comparison-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .comparison-table th {
+            background: var(--surface);
+            padding: 1.5rem;
+            text-align: left;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .comparison-table th:first-child {
+            color: var(--muted);
+        }
+
+        .comparison-table th:nth-child(2),
+        .comparison-table th:nth-child(3) {
+            text-align: center;
+            min-width: 180px;
+        }
+
+        .comparison-table td {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .comparison-table td:first-child {
+            color: var(--text);
+            font-weight: 500;
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .comparison-table td:nth-child(2),
+        .comparison-table td:nth-child(3) {
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        .feature-value {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: rgba(255, 107, 90, 0.1);
+            border: 1px solid rgba(255, 107, 90, 0.3);
+            border-radius: 6px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .feature-value.kazozo {
+            background: rgba(205, 255, 100, 0.1);
+            border-color: rgba(205, 255, 100, 0.3);
+            color: var(--lime);
+        }
+
+        .feature-value.highlight {
+            background: rgba(100, 210, 255, 0.1);
+            border-color: rgba(100, 210, 255, 0.3);
+            color: var(--sky);
+        }
+
+        .checkmark {
+            color: var(--lime);
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+
+        /* Key Differences Section */
+        .differences-section {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .differences-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .differences-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .difference-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: border-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .difference-card:hover {
+            border-color: var(--coral);
+            transform: translateY(-4px);
+        }
+
+        .difference-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .difference-card.kazozo h3 {
+            color: var(--lime);
+        }
+
+        .difference-card.lindy h3 {
+            color: var(--sky);
+        }
+
+        .difference-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .difference-card.kazozo .difference-icon {
+            background: rgba(205, 255, 100, 0.15);
+        }
+
+        .difference-card.lindy .difference-icon {
+            background: rgba(100, 210, 255, 0.15);
+        }
+
+        .difference-card p {
+            color: var(--muted);
+            line-height: 1.8;
+        }
+
+        .difference-card ul {
+            margin-top: 1rem;
+            margin-left: 1.5rem;
+            color: var(--muted);
+        }
+
+        .difference-card li {
+            margin-bottom: 0.75rem;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .differences-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Who Should Choose Section */
+        .who-section {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .who-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .who-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .who-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2.5rem;
+        }
+
+        .who-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.75rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .who-card.kazozo h3 {
+            color: var(--lime);
+        }
+
+        .who-card.lindy h3 {
+            color: var(--sky);
+        }
+
+        .who-badge {
+            display: inline-block;
+            padding: 0.5rem 1.25rem;
+            border-radius: 20px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600;
+            font-size: 0.8rem;
+        }
+
+        .who-card.kazozo .who-badge {
+            background: rgba(205, 255, 100, 0.2);
+            color: var(--lime);
+        }
+
+        .who-card.lindy .who-badge {
+            background: rgba(100, 210, 255, 0.2);
+            color: var(--sky);
+        }
+
+        .who-card ul {
+            list-style: none;
+        }
+
+        .who-card li {
+            padding: 0.75rem 0;
+            padding-left: 1.75rem;
+            position: relative;
+            color: var(--muted);
+        }
+
+        .who-card li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        .who-card.kazozo li:before {
+            color: var(--lime);
+        }
+
+        .who-card.lindy li:before {
+            color: var(--sky);
+        }
+
+        @media (max-width: 768px) {
+            .who-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .faq-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .faq-item {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+            transition: border-color 0.3s ease;
+        }
+
+        .faq-item:hover {
+            border-color: var(--coral);
+        }
+
+        .faq-question {
+            padding: 1.75rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            font-family: 'Space Grotesk', sans-serif;
+            transition: background 0.3s ease;
+        }
+
+        .faq-item:hover .faq-question {
+            background: rgba(255, 107, 90, 0.05);
+        }
+
+        .faq-toggle {
+            color: var(--coral);
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-toggle {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            border-top: 1px solid var(--border);
+        }
+
+        .faq-answer p {
+            padding: 1.75rem;
+            color: var(--muted);
+            line-height: 1.8;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 3rem 2rem;
+            background: linear-gradient(135deg, rgba(255, 107, 90, 0.1), rgba(205, 255, 100, 0.1));
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            color: var(--muted);
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: var(--coral);
+            color: var(--bg);
+            border: none;
+            border-radius: 8px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .cta-button:hover {
+            background: var(--lime);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(205, 255, 100, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--surface);
+            border-top: 1px solid var(--border);
+            margin-top: 6rem;
+            padding: 3rem 2rem;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text);
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-section a {
+            color: var(--muted);
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--coral);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--border);
+            padding-top: 2rem;
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .footer-container {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            h1 {
+                font-size: 2.25rem;
+            }
+
+            .comparison-section h2,
+            .differences-section h2,
+            .who-section h2,
+            .faq-section h2 {
+                font-size: 1.75rem;
+            }
+
+            .comparison-table {
+                font-size: 0.9rem;
+            }
+
+            .comparison-table th,
+            .comparison-table td {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="/" class="logo">kazo<span class="logo-coral">zo</span></a>
+            <ul class="nav-links">
+                <li><a href="/#agents">Agents</a></li>
+                <li><a href="/#pricing">Pricing</a></li>
+                <li><a href="/industries.html">Industries</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Kazozo vs <span class="highlight">Lindy.ai</span></h1>
+        <p>Compare the leading AI agent platforms. Choose between pre-built, industry-specific solutions or DIY agent builders.</p>
+    </section>
+
+    <!-- Comparison Table -->
+    <section class="comparison-section">
+        <h2>Feature Comparison</h2>
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Feature</th>
+                    <th>Kazozo</th>
+                    <th>Lindy.ai</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Approach</td>
+                    <td><span class="feature-value kazozo">Pre-configured industry agents</span></td>
+                    <td><span class="feature-value">General-purpose no-code builder</span></td>
+                </tr>
+                <tr>
+                    <td>Pricing Model</td>
+                    <td><span class="feature-value kazozo">$149–$899/mo + per-resolution</span></td>
+                    <td><span class="feature-value">~$49–$299/mo</span></td>
+                </tr>
+                <tr>
+                    <td>Setup Time</td>
+                    <td><span class="feature-value kazozo">Done-for-you in 1–2 weeks</span></td>
+                    <td><span class="feature-value">DIY (build your own agents)</span></td>
+                </tr>
+                <tr>
+                    <td>Industry Specialization</td>
+                    <td><span class="feature-value kazozo">27 verticals covered</span></td>
+                    <td><span class="feature-value">Industry-agnostic</span></td>
+                </tr>
+                <tr>
+                    <td>Core Agents Included</td>
+                    <td><span class="feature-value kazozo highlight">5 core + 6 expansion agents</span></td>
+                    <td><span class="feature-value">Unlimited (build custom)</span></td>
+                </tr>
+                <tr>
+                    <td>CRM Integration</td>
+                    <td><span class="checkmark">✓</span></td>
+                    <td><span class="checkmark">✓</span></td>
+                </tr>
+                <tr>
+                    <td>Learning Curve</td>
+                    <td><span class="feature-value kazozo">Minimal – ready to use</span></td>
+                    <td><span class="feature-value">Moderate – requires building</span></td>
+                </tr>
+                <tr>
+                    <td>Customization</td>
+                    <td><span class="feature-value kazozo">Pre-optimized for your industry</span></td>
+                    <td><span class="feature-value">Full flexibility</span></td>
+                </tr>
+                <tr>
+                    <td>Support Model</td>
+                    <td><span class="feature-value kazozo">Dedicated onboarding & support</span></td>
+                    <td><span class="feature-value">Community & self-serve</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- Key Differences -->
+    <section class="differences-section">
+        <h2>Key Differences</h2>
+        <div class="differences-grid">
+            <div class="difference-card kazozo">
+                <h3>
+                    <div class="difference-icon">⚡</div>
+                    Kazozo: Pre-Built & Ready
+                </h3>
+                <p>Kazozo provides turnkey, pre-configured agents tailored to your specific industry. You get:</p>
+                <ul>
+                    <li>5 core agents immediately deployed</li>
+                    <li>Industry best practices built-in</li>
+                    <li>Quick time-to-value (1–2 weeks)</li>
+                    <li>Dedicated implementation & support</li>
+                    <li>27 industry verticals available</li>
+                </ul>
+            </div>
+            <div class="difference-card lindy">
+                <h3>
+                    <div class="difference-icon">🛠️</div>
+                    Lindy: Platform & Builder
+                </h3>
+                <p>Lindy.ai is a flexible no-code platform where you build agents from scratch. You get:</p>
+                <ul>
+                    <li>Complete control and flexibility</li>
+                    <li>Build unlimited custom agents</li>
+                    <li>Learn through documentation & community</li>
+                    <li>Lower entry cost ($49+/mo)</li>
+                    <li>Best for technical founders & builders</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Who Should Choose -->
+    <section class="who-section">
+        <h2>Which Platform Is Right for You?</h2>
+        <div class="who-grid">
+            <div class="who-card kazozo">
+                <h3>
+                    Choose <span style="color: var(--lime);">Kazozo</span> If...
+                </h3>
+                <ul>
+                    <li>You want agents running within 1–2 weeks</li>
+                    <li>Your business fits one of 27 industry verticals</li>
+                    <li>You prefer done-for-you solutions over DIY</li>
+                    <li>You need dedicated onboarding & support</li>
+                    <li>You want best practices pre-optimized for your industry</li>
+                    <li>You're a non-technical leader or SMB</li>
+                    <li>You value time-to-ROI over flexibility</li>
+                    <li>You need industry-standard compliance & practices</li>
+                </ul>
+            </div>
+            <div class="who-card lindy">
+                <h3>
+                    Choose <span style="color: var(--sky);">Lindy.ai</span> If...
+                </h3>
+                <ul>
+                    <li>You want complete control & customization</li>
+                    <li>Your use case is unique or highly specialized</li>
+                    <li>You enjoy building & experimenting</li>
+                    <li>You prefer lower upfront costs</li>
+                    <li>You have technical expertise in-house</li>
+                    <li>You want to build unlimited agents</li>
+                    <li>You value a maker community & DIY ethos</li>
+                    <li>You're willing to invest time in setup & optimization</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <h2>Frequently Asked Questions</h2>
+
+        <div class="faq-item active">
+            <div class="faq-question">
+                <span>What agents does Kazozo include?</span>
+                <span class="faq-toggle">▼</span>
+            </div>
+            <div class="faq-answer">
+                <p>Kazozo provides 5 core agents covering key business functions, plus 6 expansion agents for specialized use cases. Each agent is pre-configured for your specific industry vertical and comes with best practices, templates, and integrations ready to go. The agents handle lead qualification, customer support, appointment scheduling, data enrichment, and more—depending on your industry.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>Can I customize agents in Kazozo?</span>
+                <span class="faq-toggle">▼</span>
+            </div>
+            <div class="faq-answer">
+                <p>Yes. While Kazozo agents arrive pre-optimized for your industry, they're fully customizable. Your dedicated implementation team helps configure agents to your exact workflows, tone, and requirements. Unlike building from scratch, you start with industry best practices and modify from there—saving months of setup and optimization time.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>How does Kazozo pricing work with "per-resolution"?</span>
+                <span class="faq-toggle">▼</span>
+            </div>
+            <div class="faq-answer">
+                <p>Kazozo charges a base monthly fee ($149–$899) depending on your plan and industry vertical, plus a per-resolution cost for each task the agent completes (e.g., per qualified lead, per resolved support ticket). This aligns costs with business impact—you pay more as your agents drive more value. Lindy.ai, by contrast, charges a flat monthly fee regardless of usage.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>What industries does Kazozo serve?</span>
+                <span class="faq-toggle">▼</span>
+            </div>
+            <div class="faq-answer">
+                <p>Kazozo specializes in 27 industry verticals including SaaS, Insurance, Real Estate, Healthcare, Professional Services, E-commerce, Staffing, Finance, Legal, Education, Hospitality, Manufacturing, and more. Each vertical gets industry-specific agents, workflows, compliance templates, and integrations. If your industry isn't listed, contact sales—we're continuously expanding verticals.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>How quickly can I get Kazozo agents live?</span>
+                <span class="faq-toggle">▼</span>
+            </div>
+            <div class="faq-answer">
+                <p>Kazozo is a done-for-you service. Most customers have agents live within 1–2 weeks. Your dedicated implementation team handles discovery, configuration, testing, training, and launch. Lindy.ai, by contrast, requires you to build agents yourself—typically 2–4 weeks or more depending on complexity and your technical skills.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>Can both platforms integrate with CRM systems?</span>
+                <span class="faq-toggle">▼</span>
+            </div>
+            <div class="faq-answer">
+                <p>Yes, both Kazozo and Lindy.ai support CRM integrations. Kazozo comes with pre-built, industry-standard CRM connectors (HubSpot, Salesforce, Pipedrive, etc.) configured for your vertical. Lindy.ai offers CRM integrations but you configure them yourself. Either way, agents can read/write data to your CRM seamlessly.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>Is Lindy.ai cheaper than Kazozo?</span>
+                <span class="faq-toggle">▼</span>
+            </div>
+            <div class="faq-answer">
+                <p>Lindy.ai has a lower entry cost ($49–$299/mo). However, Kazozo's higher price ($149–$899/mo + per-resolution) includes dedicated onboarding, industry optimization, and done-for-you setup—meaning faster ROI and less internal effort. Calculate total cost of ownership: Lindy.ai's lower cost + your time investment vs. Kazozo's higher cost + faster launch + higher impact.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>Which platform has better compliance & security?</span>
+                <span class="faq-toggle">▼</span>
+            </div>
+            <div class="faq-answer">
+                <p>Both platforms prioritize security. Kazozo's agents are pre-configured with industry compliance best practices (HIPAA for healthcare, GDPR for EU, SOC 2 for enterprise, etc.). Lindy.ai is flexible and secure but requires you to configure compliance yourself. If your industry has strict compliance requirements, Kazozo's pre-built templates save significant time and risk.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <h2>Ready to Transform Your Business?</h2>
+        <p>Let's discuss which AI agent platform is the best fit for your team and goals.</p>
+        <button class="cta-button" onclick="window.location.href='#';">Talk to Kaz</button>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4>Product</h4>
+                <ul>
+                    <li><a href="/#agents">Agents</a></li>
+                    <li><a href="/#pricing">Pricing</a></li>
+                    <li><a href="/industries.html">Industries</a></li>
+                    <li><a href="#security">Security</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#blog">Blog</a></li>
+                    <li><a href="#careers">Careers</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="#docs">Documentation</a></li>
+                    <li><a href="#guides">Guides</a></li>
+                    <li><a href="#api">API Docs</a></li>
+                    <li><a href="#help">Help Center</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="#privacy">Privacy Policy</a></li>
+                    <li><a href="#terms">Terms of Service</a></li>
+                    <li><a href="#security-privacy">Security & Privacy</a></li>
+                    <li><a href="#cookies">Cookie Policy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Kazozo. All rights reserved. | <a href="#">Privacy</a> | <a href="#">Terms</a> | <a href="#">Contact</a></p>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Toggle Functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', function() {
+                const faqItem = this.parentElement;
+                faqItem.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>

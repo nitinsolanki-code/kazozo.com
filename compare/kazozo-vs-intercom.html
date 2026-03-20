@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kazozo vs Intercom — AI-First Agents vs Traditional Support Platform</title>
+    <meta name="description" content="Compare Kazozo's AI-native agents to Intercom. Discover why fast-growing teams choose Kazozo as the best Intercom alternative for small business with per-resolution pricing and 27 industry packages.">
+    <meta name="keywords" content="Kazozo vs Intercom, Intercom alternative, AI customer service, support platform comparison">
+    <meta property="og:title" content="Kazozo vs Intercom — AI-First Agents vs Traditional Support Platform">
+    <meta property="og:description" content="Compare Kazozo's AI-native agents to Intercom. Discover why fast-growing teams choose Kazozo as the best Intercom alternative.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://kazozo.com/compare/kazozo-vs-intercom.html">
+    <meta property="og:image" content="https://kazozo.com/og-image.jpg">
+    <link rel="canonical" href="https://kazozo.com/compare/kazozo-vs-intercom.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700;1,800&family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #0C0B12;
+            --surface: #13121D;
+            --card: #1A192A;
+            --coral: #FF6B5A;
+            --lime: #CDFF64;
+            --lavender: #B8A9FF;
+            --sky: #64D2FF;
+            --amber: #FFB84D;
+            --text: #F0EFF4;
+            --muted: #7D7A8C;
+            --border: rgba(255,255,255,0.06);
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: var(--surface);
+            border-bottom: 1px solid var(--border);
+            backdrop-filter: blur(10px);
+            background-color: rgba(19, 18, 29, 0.95);
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            text-decoration: none;
+            color: var(--text);
+        }
+
+        .logo-highlight {
+            color: var(--coral);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--text);
+            text-decoration: none;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--coral);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 6rem 2rem;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(255, 107, 90, 0.1) 0%, rgba(184, 169, 255, 0.1) 100%);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .hero .container {
+            max-width: 900px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--muted);
+            margin-bottom: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            padding: 0.875rem 2rem;
+            border-radius: 0.5rem;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-primary {
+            background-color: var(--coral);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #FF5846;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px rgba(255, 107, 90, 0.3);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--text);
+            border: 1px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--surface);
+            border-color: rgba(255,255,255,0.1);
+        }
+
+        /* Feature Comparison Table */
+        .comparison-section {
+            padding: 5rem 2rem;
+            background-color: var(--bg);
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 1rem;
+            letter-spacing: -0.01em;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--muted);
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 0.75rem;
+            overflow: hidden;
+        }
+
+        .comparison-table thead {
+            background: var(--card);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .comparison-table th {
+            padding: 1.5rem;
+            text-align: left;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600;
+            color: var(--text);
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .comparison-table td {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.95rem;
+        }
+
+        .comparison-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        .feature-name {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600;
+            color: var(--text);
+            width: 30%;
+        }
+
+        .feature-kazozo {
+            width: 35%;
+            color: var(--lime);
+        }
+
+        .feature-intercom {
+            width: 35%;
+            color: var(--sky);
+        }
+
+        .checkmark {
+            color: var(--lime);
+            font-weight: 700;
+        }
+
+        .xmark {
+            color: var(--coral);
+        }
+
+        .limited {
+            color: var(--amber);
+        }
+
+        /* Beyond Section */
+        .beyond-section {
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, rgba(205, 255, 100, 0.05) 0%, rgba(100, 210, 255, 0.05) 100%);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .beyond-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .beyond-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .beyond-card {
+            background: var(--card);
+            padding: 2rem;
+            border-radius: 0.75rem;
+            border: 1px solid var(--border);
+        }
+
+        .beyond-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--lime);
+        }
+
+        .beyond-card.intercom h3 {
+            color: var(--sky);
+        }
+
+        .beyond-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .beyond-card li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .beyond-card li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--coral);
+        }
+
+        .beyond-card.intercom li:before {
+            color: var(--sky);
+        }
+
+        /* Who Should Choose Section */
+        .choice-section {
+            padding: 5rem 2rem;
+            background-color: var(--bg);
+        }
+
+        .choice-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .choice-card {
+            background: var(--card);
+            padding: 2.5rem;
+            border-radius: 0.75rem;
+            border: 2px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .choice-card:hover {
+            border-color: var(--coral);
+            box-shadow: 0 12px 32px rgba(255, 107, 90, 0.15);
+        }
+
+        .choice-card.intercom:hover {
+            border-color: var(--sky);
+            box-shadow: 0 12px 32px rgba(100, 210, 255, 0.15);
+        }
+
+        .choice-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--lime);
+        }
+
+        .choice-card.intercom h3 {
+            color: var(--sky);
+        }
+
+        .choice-card ul {
+            list-style: none;
+        }
+
+        .choice-card li {
+            padding: 0.75rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: var(--text);
+        }
+
+        .choice-card li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--lime);
+            font-weight: 700;
+        }
+
+        .choice-card.intercom li:before {
+            color: var(--sky);
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, rgba(184, 169, 255, 0.05) 0%, rgba(255, 107, 90, 0.05) 100%);
+            border-top: 1px solid var(--border);
+        }
+
+        .faq-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 0.75rem;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            border-color: rgba(255,255,255,0.1);
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .faq-toggle {
+            color: var(--coral);
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-toggle {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            background: var(--surface);
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+        }
+
+        .faq-answer-content {
+            padding: 0 1.5rem 1.5rem 1.5rem;
+            color: var(--muted);
+            line-height: 1.8;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 5rem 2rem;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(205, 255, 100, 0.1) 0%, rgba(100, 210, 255, 0.1) 100%);
+            border-top: 1px solid var(--border);
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: -0.01em;
+        }
+
+        .cta-content p {
+            font-size: 1.1rem;
+            color: var(--muted);
+            margin-bottom: 2rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--surface);
+            border-top: 1px solid var(--border);
+            padding: 3rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text);
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--coral);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--border);
+            padding-top: 2rem;
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 1.75rem;
+            }
+
+            .comparison-table {
+                font-size: 0.85rem;
+            }
+
+            .comparison-table th,
+            .comparison-table td {
+                padding: 1rem;
+            }
+
+            .feature-name {
+                width: 25%;
+            }
+
+            .feature-kazozo,
+            .feature-intercom {
+                width: 37.5%;
+            }
+
+            .beyond-grid,
+            .choice-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            nav ul {
+                gap: 1.5rem;
+                font-size: 0.85rem;
+            }
+
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="/" class="logo">kazo<span class="logo-highlight">zo</span></a>
+            <ul>
+                <li><a href="/#agents">Agents</a></li>
+                <li><a href="/#pricing">Pricing</a></li>
+                <li><a href="/industries.html">Industries</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Kazozo vs Intercom</h1>
+            <p class="hero-subtitle">AI-First Agents vs Traditional Support Platform</p>
+            <p style="color: var(--muted); margin-bottom: 2rem; max-width: 700px; margin-left: auto; margin-right: auto;">
+                Discover why fast-growing teams are replacing Intercom with Kazozo's AI-native agents that handle the entire customer lifecycle—from lead qualification to support resolution to operations.
+            </p>
+            <div class="hero-cta">
+                <button class="btn btn-primary">Talk to Kaz</button>
+                <button class="btn btn-secondary">View Pricing</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature Comparison Table -->
+    <section class="comparison-section">
+        <div class="container">
+            <h2 class="section-title">Feature-by-Feature Comparison</h2>
+            <p class="section-subtitle">See how Kazozo stacks up against Intercom's traditional support platform approach</p>
+
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th style="text-align: center;">Kazozo</th>
+                        <th style="text-align: center;">Intercom</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="feature-name">AI Agents Included</td>
+                        <td style="text-align: center;" class="feature-kazozo"><span class="checkmark">11 Specialized</span></td>
+                        <td style="text-align: center;" class="feature-intercom">Limited add-ons</td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Pricing Model</td>
+                        <td style="text-align: center;" class="feature-kazozo">$149/mo flat + per-resolution</td>
+                        <td style="text-align: center;" class="feature-intercom">$39/seat/mo (scales fast)</td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Per-Seat Fees</td>
+                        <td style="text-align: center;" class="feature-kazozo"><span class="checkmark">✓ No</span></td>
+                        <td style="text-align: center;" class="feature-intercom"><span class="xmark">✗ Yes</span></td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Lead Qualification</td>
+                        <td style="text-align: center;" class="feature-kazozo"><span class="checkmark">✓ Built-in</span></td>
+                        <td style="text-align: center;" class="feature-intercom"><span class="xmark">✗ No</span></td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Sales Automation</td>
+                        <td style="text-align: center;" class="feature-kazozo"><span class="checkmark">✓ Full Suite</span></td>
+                        <td style="text-align: center;" class="feature-intercom"><span class="limited">△ Limited</span></td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Customer Support Agent</td>
+                        <td style="text-align: center;" class="feature-kazozo"><span class="checkmark">✓ Yes</span></td>
+                        <td style="text-align: center;" class="feature-intercom"><span class="checkmark">✓ Yes</span></td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Fin AI Copilot</td>
+                        <td style="text-align: center;" class="feature-kazozo"><span class="checkmark">✓ Built-in</span></td>
+                        <td style="text-align: center;" class="feature-intercom"><span class="limited">△ Add-on only</span></td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Operations Automation</td>
+                        <td style="text-align: center;" class="feature-kazozo"><span class="checkmark">✓ Full Suite</span></td>
+                        <td style="text-align: center;" class="feature-intercom"><span class="xmark">✗ No</span></td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Industry-Specific Packages</td>
+                        <td style="text-align: center;" class="feature-kazozo"><span class="checkmark">27 Verticals</span></td>
+                        <td style="text-align: center;" class="feature-intercom"><span class="xmark">None</span></td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Custom Integration</td>
+                        <td style="text-align: center;" class="feature-kazozo"><span class="checkmark">✓ Unlimited</span></td>
+                        <td style="text-align: center;" class="feature-intercom"><span class="checkmark">✓ Yes</span></td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Setup Time</td>
+                        <td style="text-align: center;" class="feature-kazozo">24-48 hours</td>
+                        <td style="text-align: center;" class="feature-intercom">1-2 weeks</td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Performance Analytics</td>
+                        <td style="text-align: center;" class="feature-kazozo"><span class="checkmark">✓ Comprehensive</span></td>
+                        <td style="text-align: center;" class="feature-intercom"><span class="checkmark">✓ Yes</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Beyond Customer Support -->
+    <section class="beyond-section">
+        <div class="beyond-container">
+            <h2 class="section-title">Beyond Customer Support</h2>
+            <p class="section-subtitle">Kazozo covers the entire customer lifecycle while Intercom focuses on messaging and support</p>
+
+            <div class="beyond-grid">
+                <div class="beyond-card">
+                    <h3>Kazozo's Full Lifecycle Approach</h3>
+                    <ul>
+                        <li>Lead qualification & scoring</li>
+                        <li>Sales negotiation & closing</li>
+                        <li>Onboarding automation</li>
+                        <li>Customer support & escalation</li>
+                        <li>Retention & upsell</li>
+                        <li>Operations & back-office tasks</li>
+                        <li>Analytics & insights</li>
+                        <li>Custom integrations</li>
+                    </ul>
+                </div>
+
+                <div class="beyond-card intercom">
+                    <h3>Intercom's Support-First Focus</h3>
+                    <ul>
+                        <li>Customer messaging platform</li>
+                        <li>Support ticket management</li>
+                        <li>AI copilot for support (add-on)</li>
+                        <li>Help center & knowledge base</li>
+                        <li>Customer data platform</li>
+                        <li>Messenger customization</li>
+                        <li>Resolution metrics</li>
+                        <li>Basic integrations</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Who Should Choose -->
+    <section class="choice-section">
+        <div class="container">
+            <h2 class="section-title">Who Should Choose?</h2>
+
+            <div class="choice-grid">
+                <div class="choice-card">
+                    <h3>Choose Kazozo If You</h3>
+                    <ul>
+                        <li>Want AI agents covering your entire customer journey</li>
+                        <li>Need to reduce headcount and operational costs</li>
+                        <li>Are growing fast and want predictable pricing</li>
+                        <li>Operate in specific industries (SaaS, ecommerce, healthcare, etc.)</li>
+                        <li>Want lead qualification and sales automation built-in</li>
+                        <li>Need 24/7 automated support without human handoff delays</li>
+                        <li>Prefer per-resolution pricing over per-seat costs</li>
+                        <li>Want setup and deployment in days, not weeks</li>
+                    </ul>
+                </div>
+
+                <div class="choice-card intercom">
+                    <h3>Choose Intercom If You</h3>
+                    <ul>
+                        <li>Need a best-in-class customer messaging platform</li>
+                        <li>Want human team collaboration built-in</li>
+                        <li>Primarily focus on customer support and engagement</li>
+                        <li>Need advanced help center and knowledge base features</li>
+                        <li>Prefer a platform with longer market presence</li>
+                        <li>Have primarily human-driven support processes</li>
+                        <li>Want tighter email and messaging integration</li>
+                        <li>Need enterprise compliance and SLA guarantees</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="faq-container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <p class="section-subtitle">Get answers to common questions about switching from Intercom to Kazozo</p>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Can Kazozo integrate with my existing Intercom data?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        Yes. We provide seamless migration tools to import your customer data, conversation history, and workflows from Intercom. Our team handles the migration process to ensure zero data loss and minimal disruption to your operations.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>How does Kazozo's per-resolution pricing compare to Intercom's per-seat model?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        Intercom charges $39-99+ per team member monthly, costs grow with your team. Kazozo charges $149/month base fee plus per-resolution costs, typically 50-70% cheaper for teams handling 5,000+ monthly interactions. For example, a 10-person support team on Intercom costs $390-990/month; on Kazozo, the same volume costs $149 + resolution fees (usually $200-400).
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Does Kazozo support human handoff to my team?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        Absolutely. Kazozo's AI agents can intelligently escalate complex issues to your human team with full conversation context. You maintain complete control over escalation rules and can monitor all agent-to-human transitions in real-time.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Can Kazozo handle our sales qualification and lead scoring?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        Yes, that's a core differentiator. Kazozo includes dedicated lead qualification and scoring agents that work 24/7. They qualify prospects, score by fit, and pass qualified leads directly to your sales team. Intercom requires additional tools or manual processes for this.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>What's the onboarding process like?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        Kazozo typically deploys in 24-48 hours. We provide: initial setup consultation, data migration from existing tools, custom agent configuration for your workflows, integration testing, and training for your team. Our onboarding specialists guide you through every step.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Do you offer industry-specific configurations?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        Yes. Kazozo offers 27 industry-specific packages (SaaS, ecommerce, healthcare, real estate, etc.) with pre-configured agents, workflows, and compliance settings. This means faster deployment and better results for your specific business model.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Can I use Kazozo with my CRM or existing tools?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        Kazozo integrates with any major CRM, ecommerce platform, or business tool via API. We support Salesforce, HubSpot, Stripe, Shopify, Slack, and hundreds more. Custom integrations are available for enterprise requirements.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>How does Kazozo handle data privacy and compliance?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        Kazozo is SOC 2 Type II certified and GDPR, CCPA, and HIPAA compliant. All data is encrypted in transit and at rest. We offer industry-specific compliance packages, and your data never leaves your designated region unless explicitly configured otherwise.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>Ready to Replace Intercom?</h2>
+            <p>See how Kazozo's AI agents can transform your customer operations across sales, support, and beyond. Get a personalized demo in 15 minutes.</p>
+            <button class="btn btn-primary" style="margin-top: 1.5rem;">Talk to Kaz</button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Product</h4>
+                <ul>
+                    <li><a href="/#agents">Agents</a></li>
+                    <li><a href="/#pricing">Pricing</a></li>
+                    <li><a href="/industries.html">Industries</a></li>
+                    <li><a href="/compare/">Comparisons</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/blog">Blog</a></li>
+                    <li><a href="/careers">Careers</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="/docs">Documentation</a></li>
+                    <li><a href="/api">API Reference</a></li>
+                    <li><a href="/templates">Templates</a></li>
+                    <li><a href="/support">Support</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="/privacy">Privacy Policy</a></li>
+                    <li><a href="/terms">Terms of Service</a></li>
+                    <li><a href="/security">Security</a></li>
+                    <li><a href="/compliance">Compliance</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Kazozo. All rights reserved. | <a href="https://kazozo.com" style="color: var(--coral);">kazozo.com</a></p>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Toggle Functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', function() {
+                const faqItem = this.parentElement;
+                faqItem.classList.toggle('active');
+            });
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // CTA Button Handler
+        document.querySelectorAll('.btn-primary').forEach(btn => {
+            btn.addEventListener('click', function() {
+                // This would typically open a chat or contact form
+                // For now, we'll log the action
+                console.log('Talk to Kaz clicked');
+                // In production, this would open a modal or chat widget
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kazozo vs Salesforce Agentforce — Which AI Agent Platform is Right for Your Business?</title>
+    <meta name="description" content="Compare Kazozo vs Salesforce Agentforce. Discover why SMBs choose Kazozo as a Salesforce alternative. Fast setup, transparent pricing, industry-specific solutions.">
+    <meta name="keywords" content="Salesforce alternative, AI agents, SMB CRM, Kazozo vs Salesforce, small business AI, Agentforce comparison">
+    <meta name="canonical" href="https://kazozo.com/compare/kazozo-vs-salesforce-agentforce.html">
+
+    <!-- OG Tags -->
+    <meta property="og:title" content="Kazozo vs Salesforce Agentforce — AI Agent Comparison">
+    <meta property="og:description" content="See how Kazozo compares to Salesforce Agentforce for SMBs. Faster setup, better pricing, industry-specific features.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://kazozo.com/compare/kazozo-vs-salesforce-agentforce.html">
+    <meta property="og:image" content="https://kazozo.com/og-image.jpg">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700;1,800&family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #0C0B12;
+            --surface: #13121D;
+            --card: #1A192A;
+            --coral: #FF6B5A;
+            --lime: #CDFF64;
+            --lavender: #B8A9FF;
+            --sky: #64D2FF;
+            --amber: #FFB84D;
+            --text: #F0EFF4;
+            --muted: #7D7A8C;
+            --border: rgba(255,255,255,0.06);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Sticky Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: rgba(12, 11, 18, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 2rem;
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 800;
+            text-decoration: none;
+            color: var(--text);
+        }
+
+        .logo span {
+            color: var(--coral);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--text);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero .subtitle {
+            font-size: 1.1rem;
+            color: var(--muted);
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Section Spacing */
+        section {
+            padding: 60px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        section h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text);
+        }
+
+        /* Feature Comparison Table */
+        .comparison-table {
+            overflow-x: auto;
+            margin-top: 2rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: var(--card);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th {
+            background-color: var(--surface);
+            padding: 1.5rem;
+            text-align: left;
+            font-weight: 600;
+            border-bottom: 1px solid var(--border);
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        td {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        td:first-child {
+            font-weight: 600;
+            width: 30%;
+        }
+
+        td:nth-child(2),
+        td:nth-child(3) {
+            width: 35%;
+        }
+
+        .check {
+            color: var(--lime);
+            font-weight: bold;
+        }
+
+        .cross {
+            color: var(--coral);
+        }
+
+        /* Who is it for Section */
+        .audience-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .audience-card {
+            background-color: var(--card);
+            padding: 2.5rem;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+
+        .audience-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .audience-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .audience-card li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .audience-card li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--coral);
+            font-weight: bold;
+        }
+
+        .audience-card.kazozo h3 {
+            color: var(--lime);
+        }
+
+        .audience-card.kazozo li:before {
+            color: var(--lime);
+        }
+
+        .audience-card.salesforce h3 {
+            color: var(--sky);
+        }
+
+        .audience-card.salesforce li:before {
+            color: var(--sky);
+        }
+
+        /* Pricing Comparison */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .pricing-card {
+            background-color: var(--card);
+            padding: 2rem;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+
+        .pricing-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .price {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin: 1rem 0;
+            color: var(--lime);
+        }
+
+        .pricing-card.salesforce .price {
+            color: var(--coral);
+        }
+
+        .price-desc {
+            color: var(--muted);
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .pricing-details {
+            list-style: none;
+        }
+
+        .pricing-details li {
+            padding: 0.75rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .pricing-details li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--lime);
+        }
+
+        .pricing-card.salesforce .pricing-details li:before {
+            color: var(--coral);
+        }
+
+        /* Why Kazozo Section */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .benefit-card {
+            background-color: var(--card);
+            padding: 2rem;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            border-color: var(--lime);
+            box-shadow: 0 0 20px rgba(205, 255, 100, 0.1);
+        }
+
+        .benefit-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .benefit-card h3 {
+            margin-bottom: 1rem;
+        }
+
+        .benefit-card p {
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        /* FAQ Section */
+        .faq-list {
+            margin-top: 2rem;
+        }
+
+        .faq-item {
+            background-color: var(--card);
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            cursor: pointer;
+            user-select: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background-color: var(--surface);
+        }
+
+        .faq-toggle {
+            font-size: 1.5rem;
+            color: var(--lime);
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-toggle {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            padding: 0 1.5rem;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            padding: 1.5rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .faq-answer p {
+            color: var(--muted);
+            line-height: 1.8;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, rgba(205, 255, 100, 0.1), rgba(100, 210, 255, 0.1));
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 3rem 2rem;
+            text-align: center;
+            margin: 0 0;
+        }
+
+        .cta-section h2 {
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            color: var(--muted);
+            margin-bottom: 2rem;
+            font-size: 1.05rem;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, var(--lime), #B8FF4D);
+            color: var(--bg);
+            border: none;
+            padding: 1rem 3rem;
+            font-size: 1rem;
+            font-weight: 700;
+            border-radius: 6px;
+            cursor: pointer;
+            font-family: 'Space Grotesk', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(205, 255, 100, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--surface);
+            border-top: 1px solid var(--border);
+            padding: 3rem 0 2rem 0;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text);
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section a {
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            display: inline-block;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--text);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--border);
+            padding-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .social-links a {
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--lime);
+        }
+
+        .footer-bottom p {
+            color: var(--muted);
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            section h2 {
+                font-size: 1.6rem;
+            }
+
+            .audience-grid,
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+
+            nav ul {
+                gap: 1rem;
+                font-size: 0.85rem;
+            }
+
+            .logo {
+                font-size: 1.2rem;
+            }
+
+            table {
+                font-size: 0.9rem;
+            }
+
+            th, td {
+                padding: 1rem;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Highlight colors for comparison */
+        .kazozo-highlight {
+            color: var(--lime);
+        }
+
+        .salesforce-highlight {
+            color: var(--sky);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="/" class="logo">kazo<span>zo</span></a>
+            <ul>
+                <li><a href="/#agents">Agents</a></li>
+                <li><a href="/#pricing">Pricing</a></li>
+                <li><a href="/industries.html">Industries</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Kazozo vs Salesforce Agentforce</h1>
+            <p class="subtitle">Which AI agent platform is right for your business? Compare features, pricing, and capabilities to make an informed decision.</p>
+        </div>
+    </section>
+
+    <!-- Feature Comparison Table -->
+    <section>
+        <div class="container">
+            <h2>Feature Comparison</h2>
+            <div class="comparison-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th><span class="kazozo-highlight">Kazozo</span></th>
+                            <th><span class="salesforce-highlight">Salesforce Agentforce</span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Setup Time</td>
+                            <td><span class="check">✓ Days (1-7)</span></td>
+                            <td>Weeks to Months (4-12)</td>
+                        </tr>
+                        <tr>
+                            <td>Starting Price</td>
+                            <td><span class="check">✓ $99/month</span></td>
+                            <td>Custom (typically $500+/month)</td>
+                        </tr>
+                        <tr>
+                            <td>Target Audience</td>
+                            <td><span class="check">✓ SMBs & Startups</span></td>
+                            <td>Enterprise</td>
+                        </tr>
+                        <tr>
+                            <td>Number of Agents Included</td>
+                            <td><span class="check">✓ Up to 10</span></td>
+                            <td>Limited; additional agents costly</td>
+                        </tr>
+                        <tr>
+                            <td>CRM Integration</td>
+                            <td><span class="check">✓ Native + API</span></td>
+                            <td><span class="check">✓ Native (Salesforce only)</span></td>
+                        </tr>
+                        <tr>
+                            <td>Industry-Specific Packages</td>
+                            <td><span class="check">✓ Yes (6+ industries)</span></td>
+                            <td>Limited templates</td>
+                        </tr>
+                        <tr>
+                            <td>Time to Go Live</td>
+                            <td><span class="check">✓ 1-7 days</span></td>
+                            <td>3-6 months</td>
+                        </tr>
+                        <tr>
+                            <td>Support Model</td>
+                            <td><span class="check">✓ Dedicated + Community</span></td>
+                            <td>Account Manager (Enterprise only)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    <!-- Who is it for Section -->
+    <section>
+        <div class="container">
+            <h2>Who Is It For?</h2>
+            <div class="audience-grid">
+                <div class="audience-card kazozo">
+                    <h3>Kazozo: Built for SMBs</h3>
+                    <ul>
+                        <li>Growing teams (5-100 people)</li>
+                        <li>Budget-conscious organizations</li>
+                        <li>Need quick go-live (days, not months)</li>
+                        <li>Want AI agents without complexity</li>
+                        <li>Serve specific industries (retail, SaaS, healthcare, etc.)</li>
+                        <li>Flexible integrations with existing tools</li>
+                    </ul>
+                </div>
+                <div class="audience-card salesforce">
+                    <h3>Salesforce Agentforce: Built for Enterprise</h3>
+                    <ul>
+                        <li>Large organizations (500+ employees)</li>
+                        <li>Existing Salesforce ecosystem users</li>
+                        <li>Complex, custom implementations</li>
+                        <li>Dedicated support and consulting</li>
+                        <li>Multi-department deployments</li>
+                        <li>Unlimited budget for customization</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Comparison -->
+    <section>
+        <div class="container">
+            <h2>Pricing Comparison</h2>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Kazozo Starter</h3>
+                    <div class="price">$99<span style="font-size: 1rem; color: var(--muted);">/mo</span></div>
+                    <p class="price-desc">Perfect for getting started</p>
+                    <ul class="pricing-details">
+                        <li>Up to 3 agents</li>
+                        <li>50,000 conversations/month</li>
+                        <li>Email + chat support</li>
+                        <li>1 industry template</li>
+                        <li>Standard analytics</li>
+                    </ul>
+                </div>
+                <div class="pricing-card salesforce">
+                    <h3>Salesforce Agentforce</h3>
+                    <div class="price">Custom</div>
+                    <p class="price-desc">Enterprise pricing</p>
+                    <ul class="pricing-details">
+                        <li>Implementation: $50K-$500K+</li>
+                        <li>Monthly: $500-$5,000+</li>
+                        <li>Dedicated support</li>
+                        <li>Custom integrations</li>
+                        <li>Advanced analytics</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why SMBs Choose Kazozo -->
+    <section>
+        <div class="container">
+            <h2>Why SMBs Choose Kazozo</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">⚡</div>
+                    <h3>Speed & Simplicity</h3>
+                    <p>Launch your first AI agent in days, not months. No complex implementations or lengthy IT projects required.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">💰</div>
+                    <h3>Transparent, Affordable Pricing</h3>
+                    <p>Predictable monthly costs starting at $99. No surprise implementation fees or hidden charges. Scale as you grow.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🎯</div>
+                    <h3>Industry-Focused Solutions</h3>
+                    <p>Pre-built templates for retail, SaaS, healthcare, hospitality, and more. Get started with best practices for your industry.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🤝</div>
+                    <h3>Personal Support</h3>
+                    <p>Real people, not just bots. Our team is here to help you succeed, not sell you more features you don't need.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section>
+        <div class="container">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Can Kazozo integrate with our existing CRM system?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes! Kazozo integrates with popular CRM systems including Salesforce (if you're already using it), HubSpot, Pipedrive, and others via API. We also support custom integrations for specialized systems. Our team can help you set up the right integration for your tech stack.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How quickly can we go live with Kazozo?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Most customers go live within 1-7 days. Our pre-built industry templates and simple setup process mean you're not waiting for custom development. For straightforward use cases, some clients launch in just 24-48 hours. We'll work with your team to ensure a smooth implementation.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What if we already have Salesforce? Should we use Agentforce instead?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Not necessarily. If you're a smaller team or want to launch agents quickly without massive Salesforce investment, Kazozo is a great option. You can integrate with Salesforce while keeping costs low and time-to-value high. Many SMBs use Kazozo alongside Salesforce for faster, more cost-effective agent deployment.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What happens when we scale beyond our current plan?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Kazozo is designed to scale with you. As your needs grow, you can add more agents, increase conversation volume, and unlock advanced features—all with transparent, predictable pricing. No surprise bills or forced enterprise contracts. Our growth plans support teams from 5 people to over 500.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section>
+        <div class="container">
+            <div class="cta-section">
+                <h2>Ready to Build Your First AI Agent?</h2>
+                <p>Join hundreds of SMBs transforming customer interactions with Kazozo.</p>
+                <button class="cta-button" onclick="if(window.KazozoWidget){window.KazozoWidget.open()}else{window.location='/#cta'}">Talk to Kaz</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/#agents">Agents</a></li>
+                        <li><a href="/#pricing">Pricing</a></li>
+                        <li><a href="/industries.html">Industries</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="/about">About</a></li>
+                        <li><a href="/blog">Blog</a></li>
+                        <li><a href="/careers">Careers</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="/privacy.html">Privacy Policy</a></li>
+                        <li><a href="/terms.html">Terms of Service</a></li>
+                        <li><a href="/security">Security</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="/docs">Documentation</a></li>
+                        <li><a href="/api">API Reference</a></li>
+                        <li><a href="/status">Status</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Kazozo. All rights reserved.</p>
+                <div class="social-links">
+                    <a href="https://twitter.com/kazozo" title="Twitter">𝕏</a>
+                    <a href="https://linkedin.com/company/kazozo" title="LinkedIn">in</a>
+                    <a href="https://github.com/kazozo" title="GitHub">⚙</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Toggle Functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', function() {
+                const faqItem = this.closest('.faq-item');
+                faqItem.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>

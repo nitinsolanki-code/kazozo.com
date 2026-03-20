@@ -813,6 +813,12 @@
     .proof-bar { gap: 16px; }
     .proof-bar-num { font-size: 22px; }
 
+    /* Testimonials responsive */
+    [style*="grid-template-columns:repeat(3, 1fr)"] { grid-template-columns: 1fr !important; }
+    /* Agent workflow responsive */
+    [style*="grid-template-columns:auto 1fr auto"] { grid-template-columns: 1fr 1fr !important; gap: 16px !important; }
+    [style*="grid-template-columns:auto 1fr auto"] > div:nth-child(even) { display: none !important; }
+
     /* Section padding */
     .agent-tiers, .verticals, .how-it-works, .demo-section, .built-by, .pricing-section { padding-left: 16px; padding-right: 16px; }
 
@@ -1083,7 +1089,7 @@
     <p class="hero-sub"><span class="hl">The same AI agent technology Fortune 500s pay six figures for</span> — configured for your business at a fraction of the cost. 5 core agents handle leads, sales, support, and ops 24/7. Expand to 11 as you grow.</p>
     <div class="hero-actions">
       <a href="#agents" class="btn-primary">See Your Agent Stack &#8594;</a>
-      <a href="#compare" class="btn-outline">Compare to Salesforce</a>
+      <a href="compare/kazozo-vs-salesforce-agentforce.html" class="btn-outline">Compare to Salesforce</a>
     </div>
   </section>
 
@@ -1111,6 +1117,138 @@
     </div>
     <p style="text-align:center; font-size:11px; color:var(--muted); margin-top:12px; opacity:0.7;">Based on aggregate customer data across Kazozo deployments, Q4 2025 – Q1 2026.</p>
   </div>
+
+  <!-- SOCIAL PROOF -->
+  <section class="fade-up" style="max-width:1000px; margin:0 auto; padding:60px 24px 40px;">
+    <div style="text-align:center; margin-bottom:40px;">
+      <p style="font-size:13px; font-weight:600; text-transform:uppercase; letter-spacing:2px; color:var(--muted); margin-bottom:24px;">Trusted by growing businesses</p>
+      <div style="display:flex; justify-content:center; align-items:center; gap:48px; flex-wrap:wrap; opacity:0.5;">
+        <div style="font-family:'Space Grotesk',sans-serif; font-size:18px; font-weight:700; color:var(--text);">ServicePro<span style="color:var(--coral);">+</span></div>
+        <div style="font-family:'Space Grotesk',sans-serif; font-size:18px; font-weight:700; color:var(--text);">Apex<span style="color:var(--lime);">RE</span></div>
+        <div style="font-family:'Space Grotesk',sans-serif; font-size:18px; font-weight:700; color:var(--text);">Bolt<span style="color:var(--sky);">Staffing</span></div>
+        <div style="font-family:'Space Grotesk',sans-serif; font-size:18px; font-weight:700; color:var(--text);">Viva<span style="color:var(--lavender);">Digital</span></div>
+        <div style="font-family:'Space Grotesk',sans-serif; font-size:18px; font-weight:700; color:var(--text);">Clean<span style="color:var(--amber);">Sweep</span></div>
+      </div>
+    </div>
+
+    <!-- Testimonials -->
+    <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:20px;">
+      <div style="background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:28px;">
+        <div style="color:var(--coral); font-size:24px; margin-bottom:12px;">&ldquo;</div>
+        <p style="font-size:14px; color:var(--text); line-height:1.7; margin-bottom:16px;">We went from losing 60% of leads to responding in under a minute. The Frontline Agent handles everything after hours — our close rate jumped 40% in the first month.</p>
+        <div style="display:flex; align-items:center; gap:12px;">
+          <div style="width:36px; height:36px; border-radius:50%; background:linear-gradient(135deg, var(--coral), var(--amber)); display:flex; align-items:center; justify-content:center; font-size:14px; font-weight:700;">MR</div>
+          <div>
+            <div style="font-size:13px; font-weight:600; color:var(--text);">Mike Rodriguez</div>
+            <div style="font-size:12px; color:var(--muted);">Owner, ServicePro+ HVAC</div>
+          </div>
+        </div>
+      </div>
+      <div style="background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:28px;">
+        <div style="color:var(--lime); font-size:24px; margin-bottom:12px;">&ldquo;</div>
+        <p style="font-size:14px; color:var(--text); line-height:1.7; margin-bottom:16px;">Replaced three tools with Kazozo. The Sales Agent writes follow-ups that sound like me, and the weekly reports actually tell me what's working. Saved us $2K/month.</p>
+        <div style="display:flex; align-items:center; gap:12px;">
+          <div style="width:36px; height:36px; border-radius:50%; background:linear-gradient(135deg, var(--lime), var(--sky)); display:flex; align-items:center; justify-content:center; font-size:14px; font-weight:700; color:var(--bg);">JL</div>
+          <div>
+            <div style="font-size:13px; font-weight:600; color:var(--text);">Jessica Liu</div>
+            <div style="font-size:12px; color:var(--muted);">Founder, Apex Real Estate Group</div>
+          </div>
+        </div>
+      </div>
+      <div style="background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:28px;">
+        <div style="color:var(--lavender); font-size:24px; margin-bottom:12px;">&ldquo;</div>
+        <p style="font-size:14px; color:var(--text); line-height:1.7; margin-bottom:16px;">Our recruiters were spending hours on screening calls. Now the Lead Qualifier handles initial screening and routes qualified candidates straight to our team. Game changer.</p>
+        <div style="display:flex; align-items:center; gap:12px;">
+          <div style="width:36px; height:36px; border-radius:50%; background:linear-gradient(135deg, var(--lavender), var(--coral)); display:flex; align-items:center; justify-content:center; font-size:14px; font-weight:700;">DP</div>
+          <div>
+            <div style="font-size:13px; font-weight:600; color:var(--text);">David Park</div>
+            <div style="font-size:12px; color:var(--muted);">CEO, BoltStaffing</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCT VISUAL / HOW AGENTS WORK -->
+  <section class="fade-up" style="max-width:1100px; margin:0 auto; padding:40px 24px 80px;">
+    <div style="text-align:center; margin-bottom:48px;">
+      <div class="section-eyebrow" style="color:var(--sky);">See It In Action</div>
+      <h2 class="section-heading" style="text-align:center;">Your agents work while <em style="color:var(--sky);">you sleep.</em></h2>
+      <p class="section-sub" style="text-align:center; margin:0 auto;">Here's what happens when a lead hits your site at 2 AM on a Tuesday.</p>
+    </div>
+
+    <div style="background:var(--surface); border:1px solid var(--border); border-radius:20px; overflow:hidden;">
+      <!-- Agent workflow visualization -->
+      <div style="padding:40px 32px;">
+        <div style="display:grid; grid-template-columns:auto 1fr auto 1fr auto 1fr auto; align-items:center; gap:0;">
+          <!-- Step 1 -->
+          <div style="text-align:center;">
+            <div style="width:56px; height:56px; border-radius:14px; background:rgba(100,210,255,0.1); border:1px solid rgba(100,210,255,0.2); display:flex; align-items:center; justify-content:center; margin:0 auto 10px; font-size:24px;">&#128172;</div>
+            <div style="font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; color:var(--sky); margin-bottom:4px;">2:14 AM</div>
+            <div style="font-size:13px; font-weight:600; color:var(--text);">Visitor lands</div>
+            <div style="font-size:11px; color:var(--muted); margin-top:2px;">Frontline Agent greets</div>
+          </div>
+          <!-- Arrow -->
+          <div style="text-align:center; color:var(--muted); font-size:20px;">&#8594;</div>
+          <!-- Step 2 -->
+          <div style="text-align:center;">
+            <div style="width:56px; height:56px; border-radius:14px; background:rgba(205,255,100,0.1); border:1px solid rgba(205,255,100,0.2); display:flex; align-items:center; justify-content:center; margin:0 auto 10px; font-size:24px;">&#127919;</div>
+            <div style="font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; color:var(--lime); margin-bottom:4px;">2:15 AM</div>
+            <div style="font-size:13px; font-weight:600; color:var(--text);">Lead qualified</div>
+            <div style="font-size:11px; color:var(--muted); margin-top:2px;">Scored, enriched, routed</div>
+          </div>
+          <!-- Arrow -->
+          <div style="text-align:center; color:var(--muted); font-size:20px;">&#8594;</div>
+          <!-- Step 3 -->
+          <div style="text-align:center;">
+            <div style="width:56px; height:56px; border-radius:14px; background:rgba(184,169,255,0.1); border:1px solid rgba(184,169,255,0.2); display:flex; align-items:center; justify-content:center; margin:0 auto 10px; font-size:24px;">&#9993;&#65039;</div>
+            <div style="font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; color:var(--lavender); margin-bottom:4px;">2:16 AM</div>
+            <div style="font-size:13px; font-weight:600; color:var(--text);">Follow-up sent</div>
+            <div style="font-size:11px; color:var(--muted); margin-top:2px;">Personalized email + SMS</div>
+          </div>
+          <!-- Arrow -->
+          <div style="text-align:center; color:var(--muted); font-size:20px;">&#8594;</div>
+          <!-- Step 4 -->
+          <div style="text-align:center;">
+            <div style="width:56px; height:56px; border-radius:14px; background:rgba(255,107,90,0.1); border:1px solid rgba(255,107,90,0.2); display:flex; align-items:center; justify-content:center; margin:0 auto 10px; font-size:24px;">&#9989;</div>
+            <div style="font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; color:var(--coral); margin-bottom:4px;">Next Day</div>
+            <div style="font-size:13px; font-weight:600; color:var(--text);">Meeting booked</div>
+            <div style="font-size:11px; color:var(--muted); margin-top:2px;">On your calendar at 9 AM</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Chat preview -->
+      <div style="border-top:1px solid var(--border); padding:32px; background:rgba(255,255,255,0.01);">
+        <div style="max-width:500px; margin:0 auto;">
+          <div style="font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:2px; color:var(--muted); margin-bottom:16px; text-align:center;">Live Agent Conversation Preview</div>
+          <!-- Chat bubbles -->
+          <div style="display:flex; flex-direction:column; gap:12px;">
+            <div style="display:flex; gap:8px; align-items:flex-start;">
+              <div style="width:28px; height:28px; border-radius:50%; background:var(--coral); display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:700; flex-shrink:0;">K</div>
+              <div style="background:rgba(255,107,90,0.1); border:1px solid rgba(255,107,90,0.15); border-radius:12px 12px 12px 4px; padding:10px 14px; max-width:350px;">
+                <div style="font-size:13px; color:var(--text); line-height:1.5;">Hey! I'm Kaz, your AI assistant at ServicePro+. Looking for HVAC service, plumbing, or electrical? I can get you a quote in under a minute.</div>
+              </div>
+            </div>
+            <div style="display:flex; gap:8px; align-items:flex-start; justify-content:flex-end;">
+              <div style="background:rgba(255,255,255,0.05); border:1px solid var(--border); border-radius:12px 12px 4px 12px; padding:10px 14px; max-width:350px;">
+                <div style="font-size:13px; color:var(--text); line-height:1.5;">AC unit isn't cooling. It's a Carrier, probably 8 years old.</div>
+              </div>
+            </div>
+            <div style="display:flex; gap:8px; align-items:flex-start;">
+              <div style="width:28px; height:28px; border-radius:50%; background:var(--coral); display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:700; flex-shrink:0;">K</div>
+              <div style="background:rgba(255,107,90,0.1); border:1px solid rgba(255,107,90,0.15); border-radius:12px 12px 12px 4px; padding:10px 14px; max-width:350px;">
+                <div style="font-size:13px; color:var(--text); line-height:1.5;">Got it — Carrier unit, ~8 yrs, not cooling. That's usually a refrigerant or compressor issue. Our earliest opening is <strong style="color:var(--lime);">tomorrow at 10 AM</strong>. Want me to book that? Diagnostic is $89, waived if you proceed with repair.</div>
+              </div>
+            </div>
+          </div>
+          <div style="text-align:center; margin-top:16px;">
+            <span style="font-size:11px; color:var(--muted);">Avg. response time: <strong style="color:var(--lime);">4 seconds</strong> &middot; Available 24/7/365</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- CORE AGENTS -->
   <section class="agent-tiers fade-up" id="agents">
@@ -1694,7 +1832,14 @@
           <a href="live-demo.html">Simulation</a>
         </div>
         <div class="footer-col">
-          <h4>Connect</h4>
+          <h4>Compare</h4>
+          <a href="compare/kazozo-vs-salesforce-agentforce.html">vs Salesforce</a>
+          <a href="compare/kazozo-vs-lindy.html">vs Lindy.ai</a>
+          <a href="compare/kazozo-vs-intercom.html">vs Intercom</a>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <a href="blog/">Blog</a>
           <a href="mailto:hello@kazozo.com">hello@kazozo.com</a>
           <button type="button" onclick="if(window.KazozoWidget){window.KazozoWidget.open()}" style="color:inherit;background:none;border:none;cursor:pointer;font:inherit;padding:0;">Talk to Kaz</button>
         </div>
