@@ -50,6 +50,17 @@
     --green: #34d399;
   }
 
+  /* ===== FOCUS VISIBLE (Accessibility) ===== */
+  :focus-visible {
+    outline: 2px solid var(--coral);
+    outline-offset: 2px;
+  }
+  a:focus-visible, button:focus-visible {
+    outline: 2px solid var(--coral);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
   html { overflow-x: hidden; width: 100%; }
   body {
     font-family: 'Inter', sans-serif;
@@ -1041,7 +1052,7 @@
         <li><a href="#pricing">Pricing</a></li>
         <li><a href="industries.html">Industries</a></li>
         <li><a href="live-demo.html">Simulation</a></li>
-        <li><a href="javascript:void(0)" onclick="if(window.KazozoWidget){window.KazozoWidget.open()}else{document.getElementById('cta').scrollIntoView({behavior:'smooth'})}" class="btn-nav">Talk to Kaz</a></li>
+        <li><button type="button" onclick="if(window.KazozoWidget){window.KazozoWidget.open()}else{document.getElementById('cta').scrollIntoView({behavior:'smooth'})}" class="btn-nav" style="font-family:inherit;font-size:inherit;">Talk to Kaz</button></li>
       </ul>
       <div class="nav-auth">
         <a href="https://api.kazozo.com/customer-login.html" class="nav-login">Login</a>
@@ -1058,7 +1069,7 @@
     <a href="#pricing" class="mobile-nav-link">Pricing</a>
     <a href="industries.html" class="mobile-nav-link">Industries</a>
     <a href="live-demo.html" class="mobile-nav-link">Simulation</a>
-    <a href="javascript:void(0)" onclick="if(window.KazozoWidget){window.KazozoWidget.open()}else{document.getElementById('cta').scrollIntoView({behavior:'smooth'})};closeMobileNav();" class="mobile-cta">Talk to Kaz &#8594;</a>
+    <button type="button" onclick="if(window.KazozoWidget){window.KazozoWidget.open()}else{document.getElementById('cta').scrollIntoView({behavior:'smooth'})};closeMobileNav();" class="mobile-cta" style="font-family:inherit;cursor:pointer;">Talk to Kaz &#8594;</button>
     <div style="display:flex; gap:12px; margin-top:12px; padding:0 24px;">
       <a href="https://api.kazozo.com/customer-login.html" class="mobile-nav-link" style="flex:1; text-align:center;">Login</a>
       <a href="https://api.kazozo.com/signup.html" class="mobile-cta" style="flex:1; text-align:center; margin:0;">Get Started</a>
@@ -1068,7 +1079,7 @@
   <!-- HERO -->
   <section class="hero">
     <div class="hero-tag"><span class="dot"></span> Enterprise-Grade AI Agents &middot; SMB Prices</div>
-    <h1>Stop losing deals to slow follow-ups and <em>manual busywork</em></h1>
+    <h1>AI Agents for Sales, Support &amp; Ops — Stop Losing Deals to <em>Manual Busywork</em></h1>
     <p class="hero-sub"><span class="hl">The same AI agent technology Fortune 500s pay six figures for</span> — configured for your business at a fraction of the cost. 5 core agents handle leads, sales, support, and ops 24/7. Expand to 11 as you grow.</p>
     <div class="hero-actions">
       <a href="#agents" class="btn-primary">See Your Agent Stack &#8594;</a>
@@ -1098,6 +1109,7 @@
       <div class="proof-bar-num" style="color:var(--amber);">1–2 wk</div>
       <div class="proof-bar-label">Go-live time</div>
     </div>
+    <p style="text-align:center; font-size:11px; color:var(--muted); margin-top:12px; opacity:0.7;">Based on aggregate customer data across Kazozo deployments, Q4 2025 – Q1 2026.</p>
   </div>
 
   <!-- CORE AGENTS -->
@@ -1355,7 +1367,7 @@
     </div>
 
     <div class="verticals-grid">
-      <div class="vert-card">
+      <a href="home-services.html" class="vert-card" style="text-decoration:none;color:inherit;display:block;">
         <div class="vert-top">
           <h3>Home Services</h3>
           <div class="vert-sub">HVAC &middot; Plumbing &middot; Electrical &middot; Roofing &middot; Landscaping</div>
@@ -1370,9 +1382,9 @@
           <div class="vert-price">$55<span>/mo starter</span></div>
           <div class="vert-crm">ServiceTitan &middot; Housecall Pro &middot; Jobber</div>
         </div>
-      </div>
+      </a>
 
-      <div class="vert-card">
+      <a href="real-estate.html" class="vert-card" style="text-decoration:none;color:inherit;display:block;">
         <div class="vert-top">
           <h3>Real Estate</h3>
           <div class="vert-sub">Brokerages &middot; Teams &middot; Solo Agents &middot; Property Management</div>
@@ -1387,9 +1399,9 @@
           <div class="vert-price">$65<span>/mo starter</span></div>
           <div class="vert-crm">Follow Up Boss &middot; KvCORE &middot; GoHighLevel</div>
         </div>
-      </div>
+      </a>
 
-      <div class="vert-card">
+      <a href="marketing-agencies.html" class="vert-card" style="text-decoration:none;color:inherit;display:block;">
         <div class="vert-top">
           <h3>Marketing Agencies</h3>
           <div class="vert-sub">Digital &middot; Creative &middot; PR &middot; Social Media &middot; Content</div>
@@ -1404,11 +1416,11 @@
           <div class="vert-price">$130<span>/mo starter</span></div>
           <div class="vert-crm">HubSpot &middot; Salesforce &middot; Monday.com</div>
         </div>
-      </div>
+      </a>
     </div>
 
     <div class="verticals-grid-2">
-      <div class="vert-card">
+      <a href="recruiting-staffing.html" class="vert-card" style="text-decoration:none;color:inherit;display:block;">
         <div class="vert-top">
           <h3>Recruiting / Staffing</h3>
           <div class="vert-sub">Staffing Firms &middot; Recruiting Agencies &middot; RPOs &middot; Talent Acquisition</div>
@@ -1423,9 +1435,9 @@
           <div class="vert-price">$65<span>/mo starter</span></div>
           <div class="vert-crm">Bullhorn &middot; JobAdder &middot; Greenhouse</div>
         </div>
-      </div>
+      </a>
 
-      <div class="vert-card">
+      <a href="ecommerce.html" class="vert-card" style="text-decoration:none;color:inherit;display:block;">
         <div class="vert-top">
           <h3>E-commerce / DTC</h3>
           <div class="vert-sub">Shopify &middot; Amazon &middot; DTC Brands &middot; Subscription Boxes</div>
@@ -1440,14 +1452,14 @@
           <div class="vert-price">$55<span>/mo starter</span></div>
           <div class="vert-crm">Shopify &middot; Klaviyo &middot; Gorgias</div>
         </div>
-      </div>
+      </a>
     </div>
 
     <div style="text-align:center; margin-top:32px;">
       <a href="industries.html" style="display:inline-flex; align-items:center; gap:8px; padding:14px 32px; font-size:15px; background:transparent; color:var(--lime); border:1px solid var(--lime); border-radius:12px; text-decoration:none; font-weight:600; transition:all 0.3s;" onmouseover="this.style.background='var(--lime)';this.style.color='var(--bg)'" onmouseout="this.style.background='transparent';this.style.color='var(--lime)'">See all 27 industries &#8594;</a>
     </div>
     <div class="verticals-note" style="margin-top:20px;">
-      <strong>Don't see your industry?</strong> Kazozo agents are configurable for any vertical. <a href="javascript:void(0)" onclick="if(window.KazozoWidget){window.KazozoWidget.open()}else{document.getElementById('cta').scrollIntoView({behavior:'smooth'})}" style="color:var(--lime);">Talk to Kaz</a> and we'll build your custom package.
+      <strong>Don't see your industry?</strong> Kazozo agents are configurable for any vertical. <button type="button" onclick="if(window.KazozoWidget){window.KazozoWidget.open()}else{document.getElementById('cta').scrollIntoView({behavior:'smooth'})}" style="color:var(--lime);background:none;border:none;cursor:pointer;font:inherit;text-decoration:underline;">Talk to Kaz</button> and we'll build your custom package.
     </div>
   </section>
 
@@ -1661,7 +1673,7 @@
     <h2>Get your <em>agent stack</em></h2>
     <p class="cta-sub">Tell Kaz your industry and biggest bottleneck. He'll recommend the right agents and show you what they cost.</p>
     <div style="margin-top:28px;">
-      <a href="javascript:void(0)" onclick="if(window.KazozoWidget){window.KazozoWidget.open()}else{alert('Chat loading — try again in a moment.')}" class="btn-primary" style="padding:16px 36px; font-size:16px; display:inline-flex; align-items:center; gap:10px;">Talk to Kaz &#8594;</a>
+      <button type="button" onclick="if(window.KazozoWidget){window.KazozoWidget.open()}else{alert('Chat loading — try again in a moment.')}" class="btn-primary" style="padding:16px 36px; font-size:16px; display:inline-flex; align-items:center; gap:10px;">Talk to Kaz &#8594;</button>
     </div>
     <p style="color:var(--muted); font-size:12px; margin-top:14px;">Your AI front desk — available 24/7.</p>
   </section>
@@ -1684,7 +1696,7 @@
         <div class="footer-col">
           <h4>Connect</h4>
           <a href="mailto:hello@kazozo.com">hello@kazozo.com</a>
-          <a href="javascript:void(0)" onclick="if(window.KazozoWidget){window.KazozoWidget.open()}">Talk to Kaz</a>
+          <button type="button" onclick="if(window.KazozoWidget){window.KazozoWidget.open()}" style="color:inherit;background:none;border:none;cursor:pointer;font:inherit;padding:0;">Talk to Kaz</button>
         </div>
       </div>
     </div>
@@ -1701,7 +1713,7 @@
 
   <!-- STICKY MOBILE CTA -->
   <div class="sticky-cta" id="stickyCta">
-    <a href="javascript:void(0)" onclick="if(window.KazozoWidget){window.KazozoWidget.open()}else{document.getElementById('cta').scrollIntoView({behavior:'smooth'})}">Talk to Kaz &#8594;</a>
+    <button type="button" onclick="if(window.KazozoWidget){window.KazozoWidget.open()}else{document.getElementById('cta').scrollIntoView({behavior:'smooth'})}" style="font:inherit;color:inherit;background:none;border:none;cursor:pointer;width:100%;">Talk to Kaz &#8594;</button>
   </div>
 
   <!-- SCROLL TO TOP -->
