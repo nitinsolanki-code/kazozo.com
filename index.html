@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kazozo — Enterprise-Grade AI Agents at SMB Prices</title>
-<meta name="description" content="Enterprise-grade AI agents at SMB prices. 5 core agents handle sales, support &amp; ops 24/7. 27 industry packages from $149/mo. Ships in days, not months.">
+<title>Kazozo — The AI Platform for Business</title>
+<meta name="description" content="The AI platform that runs your business. AI agents for sales, support &amp; ops. Agentic apps coming soon. Enterprise-grade tools at SMB prices, from $149/mo.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://kazozo.com/">
 
@@ -13,8 +13,8 @@
 <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Crect width='180' height='180' rx='40' fill='%230C0B12'/%3E%3Ctext x='16' y='130' font-family='system-ui,sans-serif' font-size='120' font-weight='700' fill='%23F0EFF4'%3Ek%3C/text%3E%3Ctext x='88' y='130' font-family='system-ui,sans-serif' font-size='120' font-weight='700' fill='%23FF6B5A'%3Ez%3C/text%3E%3C/svg%3E">
 
 <!-- Open Graph -->
-<meta property="og:title" content="Kazozo — Enterprise-Grade AI Agents at SMB Prices">
-<meta property="og:description" content="5 AI agents handle leads, sales, support & ops 24/7. Enterprise tools without enterprise complexity. Industry packages from $149/mo.">
+<meta property="og:title" content="Kazozo — The AI Platform for Business">
+<meta property="og:description" content="The AI platform that runs your business. Agents, apps, and automation — enterprise-grade tools at SMB prices.">
 <meta property="og:url" content="https://kazozo.com/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Kazozo">
@@ -22,8 +22,8 @@
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Kazozo — Enterprise-Grade AI Agents at SMB Prices">
-<meta name="twitter:description" content="5 AI agents handle leads, sales, support & ops 24/7. Enterprise tools without enterprise complexity. From $149/mo.">
+<meta name="twitter:title" content="Kazozo — The AI Platform for Business">
+<meta name="twitter:description" content="The AI platform that runs your business. Agents, apps, and automation — enterprise-grade tools at SMB prices.">
 <meta name="twitter:image" content="https://kazozo.com/og-image.png">
 
 <!-- Fonts (preconnect for performance) -->
@@ -103,8 +103,47 @@
   .logo span { color: var(--coral); }
 
   .nav-links { display: flex; gap: 24px; list-style: none; align-items: center; }
-  .nav-links a { color: var(--muted); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.3s; }
-  .nav-links a:hover { color: var(--text); }
+  .nav-links a, .nav-links .nav-dropdown-trigger { color: var(--muted); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.3s; cursor: pointer; }
+  .nav-links a:hover, .nav-links .nav-dropdown-trigger:hover { color: var(--text); }
+
+  /* ===== NAV DROPDOWN ===== */
+  .nav-dropdown {
+    position: relative;
+  }
+  .nav-dropdown-trigger {
+    display: inline-flex; align-items: center; gap: 4px;
+    background: none; border: none; font: inherit; padding: 0;
+  }
+  .nav-dropdown-trigger svg { width: 12px; height: 12px; transition: transform 0.2s; }
+  .nav-dropdown:hover .nav-dropdown-trigger svg { transform: rotate(180deg); }
+  .nav-dropdown-menu {
+    position: absolute; top: calc(100% + 12px); left: -16px;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 12px; padding: 8px; min-width: 240px;
+    opacity: 0; pointer-events: none; transform: translateY(-4px);
+    transition: all 0.2s ease; z-index: 1001;
+    box-shadow: 0 16px 48px rgba(0,0,0,0.4);
+  }
+  .nav-dropdown:hover .nav-dropdown-menu {
+    opacity: 1; pointer-events: auto; transform: translateY(0);
+  }
+  .nav-dropdown-menu a {
+    display: flex; align-items: center; gap: 12px;
+    padding: 12px 14px; border-radius: 8px; transition: background 0.15s;
+  }
+  .nav-dropdown-menu a:hover { background: rgba(255,255,255,0.04); }
+  .nav-dropdown-icon {
+    width: 36px; height: 36px; border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px; flex-shrink: 0;
+  }
+  .nav-dropdown-label { font-size: 13px; font-weight: 600; color: var(--text); }
+  .nav-dropdown-desc { font-size: 11px; color: var(--muted); margin-top: 1px; }
+  .nav-dropdown-soon {
+    display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 1px; color: var(--amber); background: rgba(255,184,77,0.1);
+    padding: 2px 6px; border-radius: 4px; margin-left: 6px;
+  }
 
   .btn-nav {
     background: var(--coral); color: #fff !important; padding: 10px 22px;
@@ -206,6 +245,45 @@
     text-decoration: none; transition: all 0.3s;
   }
   .mobile-nav .mobile-cta:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(255,107,90,0.3); }
+
+  /* ===== PLATFORM PRODUCTS SHOWCASE ===== */
+  .platform-products {
+    max-width: 1000px; margin: 0 auto; padding: 40px 24px 60px;
+  }
+  .platform-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+  }
+  .platform-card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 20px; padding: 36px 32px; position: relative;
+    overflow: hidden; transition: border-color 0.3s, transform 0.3s;
+    text-decoration: none; color: inherit; display: block;
+  }
+  .platform-card:hover { transform: translateY(-2px); }
+  .platform-card-active { border-color: rgba(100,210,255,0.25); }
+  .platform-card-active:hover { border-color: rgba(100,210,255,0.4); }
+  .platform-card-soon { border-color: rgba(255,184,77,0.15); opacity: 0.7; }
+  .platform-card-icon {
+    width: 52px; height: 52px; border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 26px; margin-bottom: 20px;
+  }
+  .platform-card h3 {
+    font-family: 'Playfair Display', serif; font-size: 24px;
+    font-weight: 700; margin-bottom: 10px;
+  }
+  .platform-card p {
+    font-size: 14px; color: var(--muted); line-height: 1.7; margin-bottom: 20px;
+  }
+  .platform-card-cta {
+    font-size: 13px; font-weight: 600; display: inline-flex;
+    align-items: center; gap: 6px;
+  }
+  .platform-card-tag {
+    position: absolute; top: 20px; right: 20px;
+    font-size: 10px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 1.5px; padding: 4px 10px; border-radius: 6px;
+  }
 
   /* ===== SCROLL TO TOP ===== */
   .scroll-top {
@@ -768,6 +846,7 @@
   @media (max-width: 900px) {
     .nav-links { display: none; }
     .nav-auth { display: none; }
+    .platform-grid { grid-template-columns: 1fr; }
     .tiers-grid { grid-template-columns: repeat(2, 1fr); }
     .agent-tiers [style*="repeat(5"] { grid-template-columns: repeat(2, 1fr) !important; }
     .agent-tiers [style*="repeat(3"] { grid-template-columns: repeat(2, 1fr) !important; }
@@ -968,7 +1047,7 @@
   "@type": "Organization",
   "name": "Kazozo",
   "url": "https://kazozo.com",
-  "description": "Salesforce Agentforce alternative built for SMBs. AI agents that automate customer support, sales, field operations, and business growth. 87 tools. Pay per resolution, not per seat.",
+  "description": "The AI platform for business. AI agents for sales, support, and operations — plus agentic apps coming soon. Enterprise-grade tools at SMB prices.",
   "contactPoint": {
     "@type": "ContactPoint",
     "email": "hello@kazozo.com",
@@ -1054,7 +1133,25 @@
         <a href="index.html" class="logo" style="text-decoration:none;">kazo<span>zo</span></a>
       </div>
       <ul class="nav-links">
-        <li><a href="#agents">Agents</a></li>
+        <li class="nav-dropdown">
+          <button type="button" class="nav-dropdown-trigger">Products <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 4.5l3 3 3-3"/></svg></button>
+          <div class="nav-dropdown-menu">
+            <a href="#agents">
+              <div class="nav-dropdown-icon" style="background:rgba(100,210,255,0.1); border:1px solid rgba(100,210,255,0.15);">&#129302;</div>
+              <div>
+                <div class="nav-dropdown-label">AI Agents</div>
+                <div class="nav-dropdown-desc">Sales, support &amp; ops on autopilot</div>
+              </div>
+            </a>
+            <a href="#agentic-apps" style="opacity:0.5; pointer-events:none;">
+              <div class="nav-dropdown-icon" style="background:rgba(205,255,100,0.1); border:1px solid rgba(205,255,100,0.15);">&#9889;</div>
+              <div>
+                <div class="nav-dropdown-label">Agentic Apps <span class="nav-dropdown-soon">Soon</span></div>
+                <div class="nav-dropdown-desc">AI-powered business applications</div>
+              </div>
+            </a>
+          </div>
+        </li>
         <li><a href="#pricing">Pricing</a></li>
         <li><a href="industries.html">Industries</a></li>
         <li><a href="live-demo.html">Simulation</a></li>
@@ -1070,8 +1167,10 @@
   <!-- MOBILE NAV -->
   <div class="mobile-nav-overlay" id="mobileOverlay"></div>
   <div class="mobile-nav" id="mobileNav">
-    <span class="mobile-nav-label">Menu</span>
-    <a href="#agents" class="mobile-nav-link">Agents</a>
+    <span class="mobile-nav-label">Products</span>
+    <a href="#agents" class="mobile-nav-link">AI Agents</a>
+    <a href="#" class="mobile-nav-link" style="opacity:0.4; pointer-events:none;">Agentic Apps <span class="nav-dropdown-soon">Soon</span></a>
+    <span class="mobile-nav-label" style="margin-top:16px;">Navigate</span>
     <a href="#pricing" class="mobile-nav-link">Pricing</a>
     <a href="industries.html" class="mobile-nav-link">Industries</a>
     <a href="live-demo.html" class="mobile-nav-link">Simulation</a>
@@ -1084,11 +1183,11 @@
 
   <!-- HERO -->
   <section class="hero">
-    <div class="hero-tag"><span class="dot"></span> Enterprise-Grade AI Agents &middot; SMB Prices</div>
-    <h1>AI Agents for Sales, Support &amp; Ops — Stop Losing Deals to <em>Manual Busywork</em></h1>
-    <p class="hero-sub"><span class="hl">The same AI agent technology Fortune 500s pay six figures for</span> — configured for your business at a fraction of the cost. 5 core agents handle leads, sales, support, and ops 24/7. Expand to 11 as you grow.</p>
+    <div class="hero-tag"><span class="dot"></span> The AI Platform for Business</div>
+    <h1>One Platform to <em>Run Your Business</em> on AI</h1>
+    <p class="hero-sub"><span class="hl">Agents that sell, support, and operate — apps that automate everything else.</span> Enterprise-grade AI tools configured for your business, at a fraction of enterprise cost. Start with AI agents today. Expand as we build.</p>
     <div class="hero-actions">
-      <a href="#agents" class="btn-primary">See Your Agent Stack &#8594;</a>
+      <a href="#products" class="btn-primary">Explore the Platform &#8594;</a>
       <a href="compare/kazozo-vs-salesforce-agentforce.html" class="btn-outline">Compare to Salesforce</a>
     </div>
   </section>
@@ -1169,9 +1268,37 @@
     </div>
   </section>
 
+  <!-- PLATFORM PRODUCTS -->
+  <section class="platform-products fade-up" id="products">
+    <div style="text-align:center; margin-bottom:40px;">
+      <div class="section-eyebrow" style="color:var(--lavender);">The Kazozo Platform</div>
+      <h2 class="section-heading" style="text-align:center;">Everything your business needs. <em style="color:var(--lavender);">One platform.</em></h2>
+      <p class="section-sub" style="text-align:center; margin:0 auto;">Start with AI agents that handle sales, support, and ops today. Expand with agentic apps and new capabilities as we build them.</p>
+    </div>
+    <div class="platform-grid">
+      <a href="#agents" class="platform-card platform-card-active">
+        <div class="platform-card-tag" style="background:rgba(100,210,255,0.1); color:var(--sky);">Live</div>
+        <div class="platform-card-icon" style="background:rgba(100,210,255,0.1); border:1px solid rgba(100,210,255,0.15);">&#129302;</div>
+        <h3 style="color:var(--sky);">AI Agents</h3>
+        <p>5 autonomous agents that handle leads, sales, support, and operations 24/7. Pre-configured for 27 industries. Live in 1&ndash;2 weeks.</p>
+        <div class="platform-card-cta" style="color:var(--sky);">Explore AI Agents &#8594;</div>
+      </a>
+      <div class="platform-card platform-card-soon">
+        <div class="platform-card-tag" style="background:rgba(205,255,100,0.1); color:var(--lime);">Coming Soon</div>
+        <div class="platform-card-icon" style="background:rgba(205,255,100,0.1); border:1px solid rgba(205,255,100,0.15);">&#9889;</div>
+        <h3 style="color:var(--lime);">Agentic Apps</h3>
+        <p>AI-powered business applications that go beyond agents. Think: smart proposals, auto-generated reports, intelligent scheduling, and more.</p>
+        <div class="platform-card-cta" style="color:var(--muted);">Launching soon &middot; Stay tuned</div>
+      </div>
+    </div>
+  </section>
+
   <!-- PRODUCT VISUAL / HOW AGENTS WORK -->
   <section class="fade-up" style="max-width:1100px; margin:0 auto; padding:40px 24px 80px;">
     <div style="text-align:center; margin-bottom:48px;">
+      <div style="margin-bottom:8px;">
+        <span style="display:inline-flex; align-items:center; gap:8px; font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:2px; color:var(--sky); background:rgba(100,210,255,0.08); padding:6px 14px; border-radius:20px; border:1px solid rgba(100,210,255,0.15);">&#129302; AI Agents</span>
+      </div>
       <div class="section-eyebrow" style="color:var(--sky);">See It In Action</div>
       <h2 class="section-heading" style="text-align:center;">Your agents work while <em style="color:var(--sky);">you sleep.</em></h2>
       <p class="section-sub" style="text-align:center; margin:0 auto;">Here's what happens when a lead hits your site at 2 AM on a Tuesday.</p>
@@ -1253,6 +1380,9 @@
   <!-- CORE AGENTS -->
   <section class="agent-tiers fade-up" id="agents">
     <div class="tiers-header">
+      <div style="text-align:center; margin-bottom:8px;">
+        <span style="display:inline-flex; align-items:center; gap:8px; font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:2px; color:var(--sky); background:rgba(100,210,255,0.08); padding:6px 14px; border-radius:20px; border:1px solid rgba(100,210,255,0.15);">&#129302; AI Agents</span>
+      </div>
       <div class="section-eyebrow eyebrow-coral">Your Core Workforce</div>
       <h2 class="section-heading" style="text-align:center;">5 agents. One <em style="color:var(--coral);">revenue engine.</em></h2>
       <p class="section-sub" style="text-align:center;">From first contact to fulfillment — these agents cover the entire customer lifecycle. Start here.</p>
@@ -1808,7 +1938,7 @@
 
   <!-- CTA -->
   <section class="cta" id="cta">
-    <h2>Get your <em>agent stack</em></h2>
+    <h2>Get started on the <em>platform</em></h2>
     <p class="cta-sub">Tell Kaz your industry and biggest bottleneck. He'll recommend the right agents and show you what they cost.</p>
     <div style="margin-top:28px;">
       <button type="button" onclick="if(window.KazozoWidget){window.KazozoWidget.open()}else{alert('Chat loading — try again in a moment.')}" class="btn-primary" style="padding:16px 36px; font-size:16px; display:inline-flex; align-items:center; gap:10px;">Talk to Kaz &#8594;</button>
@@ -1821,12 +1951,12 @@
     <div class="footer-inner">
       <div class="footer-brand">
         <a href="index.html" class="footer-logo" style="text-decoration:none;">kazo<span>zo</span></a>
-        <p class="footer-tagline">AI agents for sales, support &amp; operations. Your 24/7 workforce.</p>
+        <p class="footer-tagline">The AI platform for business. Agents, apps, and automation.</p>
       </div>
       <div class="footer-nav">
         <div class="footer-col">
-          <h4>Platform</h4>
-          <a href="#agents">Agents</a>
+          <h4>Products</h4>
+          <a href="#agents">AI Agents</a>
           <a href="#pricing">Pricing</a>
           <a href="industries.html">Industries</a>
           <a href="live-demo.html">Simulation</a>
