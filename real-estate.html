@@ -101,8 +101,65 @@
 
   /* SECTIONS */
   .section { max-width:800px; margin:0 auto; padding:0 24px 80px; }
+  .section-wide { max-width:1100px; margin:0 auto; padding:0 24px 80px; }
   .section-label { display:inline-block; padding:6px 16px; font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:2px; border-radius:20px; margin-bottom:16px; }
   .section h2 { font-family:'Playfair Display',serif; font-size:clamp(24px,3.5vw,36px); font-weight:800; letter-spacing:-1px; margin-bottom:12px; }
+
+  /* PERSONAS */
+  .personas-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:20px; margin-top:32px; }
+  .persona-card { background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:28px; }
+  .persona-header { display:flex; gap:16px; margin-bottom:16px; }
+  .persona-avatar { width:48px; height:48px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:24px; flex-shrink:0; }
+  .persona-avatar.solo { background:rgba(255,107,90,0.08); }
+  .persona-avatar.team { background:rgba(184,169,255,0.08); }
+  .persona-avatar.luxury { background:rgba(255,184,77,0.08); }
+  .persona-avatar.pm { background:rgba(205,255,100,0.08); }
+  .persona-avatar.brand { background:rgba(100,210,255,0.08); }
+  .persona-name { font-family:'Space Grotesk',sans-serif; font-size:15px; font-weight:700; }
+  .persona-role { font-size:13px; color:var(--muted); margin-top:2px; }
+  .persona-pain { font-size:14px; color:var(--muted); line-height:1.6; margin-bottom:16px; }
+  .persona-agents { display:flex; flex-wrap:wrap; gap:8px; }
+  .persona-agent-tag { display:inline-block; padding:4px 12px; font-size:11px; font-weight:600; background:rgba(255,107,90,0.1); color:var(--coral); border-radius:12px; }
+
+  /* USE CASES / SCENARIOS */
+  .scenarios { display:flex; flex-direction:column; gap:60px; margin-top:48px; }
+  .scenario { display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:stretch; }
+  .scenario.reverse { direction:rtl; }
+  .scenario.reverse > * { direction:ltr; }
+  .scenario-num { display:inline-block; padding:4px 12px; font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; color:var(--coral); margin-bottom:8px; }
+  .scenario-agent-name { font-family:'Playfair Display',serif; font-size:clamp(20px,3vw,28px); font-weight:800; margin-bottom:8px; }
+  .scenario-persona { font-size:13px; color:var(--lavender); margin-bottom:16px; }
+  .scenario-context { font-size:14px; color:var(--muted); line-height:1.6; margin-bottom:24px; }
+  .before-after { display:flex; flex-direction:column; gap:16px; margin-bottom:24px; }
+  .ba-block { border-radius:12px; padding:16px; }
+  .ba-block.before { background:rgba(255,255,255,0.03); border:1px solid var(--border); }
+  .ba-block.after { background:rgba(255,107,90,0.06); border:1px solid rgba(255,107,90,0.12); }
+  .ba-label { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:var(--muted); margin-bottom:6px; }
+  .ba-text { font-size:13px; color:var(--text); line-height:1.6; }
+  .outcome { background:rgba(205,255,100,0.06); border:1px solid rgba(205,255,100,0.1); border-radius:12px; padding:12px 16px; display:flex; align-items:flex-start; gap:10px; }
+  .outcome-icon { color:var(--lime); font-weight:700; flex-shrink:0; }
+  .outcome-text { font-size:13px; color:var(--lime); }
+
+  /* CHAT PREVIEW */
+  .chat-preview { background:var(--surface); border:1px solid var(--border); border-radius:16px; overflow:hidden; display:flex; flex-direction:column; height:100%; }
+  .chat-header { display:flex; align-items:center; gap:8px; padding:12px 16px; border-bottom:1px solid var(--border); background:rgba(255,255,255,0.02); }
+  .chat-dot { width:8px; height:8px; border-radius:50%; background:#22c55e; }
+  .chat-header-text { font-size:12px; font-weight:600; color:var(--muted); }
+  .chat-body { display:flex; flex-direction:column; gap:12px; padding:16px; flex:1; overflow-y:auto; max-height:300px; }
+  .chat-msg { font-size:13px; line-height:1.5; border-radius:10px; padding:10px 14px; }
+  .chat-msg.user { background:var(--coral); color:#fff; align-self:flex-end; max-width:85%; }
+  .chat-msg.agent { background:rgba(255,255,255,0.06); color:var(--muted); align-self:flex-start; max-width:85%; }
+  .chat-msg strong { color:var(--text); }
+
+  /* END-TO-END FLOWS */
+  .flows-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:20px; margin-top:32px; }
+  .flow-card { background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:24px; }
+  .flow-icon { font-size:32px; margin-bottom:12px; }
+  .flow-title { font-family:'Space Grotesk',sans-serif; font-size:15px; font-weight:700; margin-bottom:8px; }
+  .flow-desc { font-size:13px; color:var(--muted); margin-bottom:16px; }
+  .flow-steps { list-style:none; }
+  .flow-steps li { font-size:13px; color:var(--text); padding:6px 0; padding-left:24px; position:relative; }
+  .flow-steps li:before { content:'→'; position:absolute; left:0; color:var(--coral); font-weight:700; }
 
   /* PACKAGES */
   .pkg { background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:32px; margin-bottom:20px; transition:border-color 0.3s; }
@@ -130,7 +187,12 @@
     .hero h1 { font-size:clamp(24px,7vw,36px); letter-spacing:-1px; }
     .hero p { font-size:15px; }
     .section { padding:0 16px 60px; }
+    .section-wide { padding:0 16px 60px; }
     .section h2 { font-size:clamp(20px,5vw,28px); }
+    .personas-grid { grid-template-columns:1fr; gap:16px; }
+    .scenario { grid-template-columns:1fr; gap:24px; }
+    .scenario.reverse { direction:ltr; }
+    .flows-grid { grid-template-columns:1fr; }
     .pkg { padding:20px 16px; }
     .pkg-name { font-size:16px; }
     .pkg-price { font-size:22px; }
@@ -176,6 +238,7 @@
       </div>
       <ul class="nav-links">
         <li><a href="index.html#agents">Agents</a></li>
+        <li><a href="#use-cases">Use Cases</a></li>
         <li><a href="index.html#pricing">Pricing</a></li>
         <li><a href="industries.html">Industries</a></li>
         <li><a href="live-demo.html">Simulation</a></li>
@@ -188,6 +251,7 @@
   <div class="mobile-nav" id="mobileNav">
     <span class="mobile-nav-label">Menu</span>
     <a href="index.html#agents" class="mobile-nav-link">Agents</a>
+    <a href="#use-cases" class="mobile-nav-link">Use Cases</a>
     <a href="index.html#pricing" class="mobile-nav-link">Pricing</a>
     <a href="industries.html" class="mobile-nav-link">Industries</a>
     <a href="live-demo.html" class="mobile-nav-link">Simulation</a>
@@ -205,13 +269,101 @@
     </div>
   </section>
 
+  <!-- PERSONAS -->
+  <section class="section-wide" id="personas">
+    <div class="section-label" style="background:rgba(255,107,90,0.1); color:var(--coral);">Who it's for</div>
+    <h2>Built for <em style="color:var(--coral);">how you actually work</em></h2>
+    <p style="color:var(--muted); font-size:15px; margin-bottom:32px;">Every role in real estate has a different bottleneck. Kazozo configures agents to match yours.</p>
+
+    <div class="personas-grid">
+      <div class="persona-card">
+        <div class="persona-header">
+          <div class="persona-avatar solo">🏡</div>
+          <div>
+            <div class="persona-name">Sarah Chen</div>
+            <div class="persona-role">Solo Agent · Miami Residential</div>
+          </div>
+        </div>
+        <p class="persona-pain">Handles 20 active buyers and 8 listings. Gets inquiries day and night from Zillow, Instagram, her website, and sign calls. Loses leads because she can't respond instantly — by morning, the buyer is already talking to someone else.</p>
+        <div class="persona-agents">
+          <span class="persona-agent-tag">Frontline Agent</span>
+          <span class="persona-agent-tag">Lead Qualifier</span>
+          <span class="persona-agent-tag">Sales Agent</span>
+        </div>
+      </div>
+
+      <div class="persona-card">
+        <div class="persona-header">
+          <div class="persona-avatar team">👥</div>
+          <div>
+            <div class="persona-name">David Morales</div>
+            <div class="persona-role">Team Lead · 12-Agent Brokerage</div>
+          </div>
+        </div>
+        <p class="persona-pain">300 internet leads per month but a small percentage are serious. His best closers are burning out on dead leads while the one serious buyer slips through because nobody called fast enough.</p>
+        <div class="persona-agents">
+          <span class="persona-agent-tag">Lead Qualifier</span>
+          <span class="persona-agent-tag">Weekly Report</span>
+          <span class="persona-agent-tag">Review Manager</span>
+        </div>
+      </div>
+
+      <div class="persona-card">
+        <div class="persona-header">
+          <div class="persona-avatar luxury">💎</div>
+          <div>
+            <div class="persona-name">Amanda Patel</div>
+            <div class="persona-role">Luxury Realtor · Palm Beach</div>
+          </div>
+        </div>
+        <p class="persona-pain">Works with affluent buyers who expect polished, immediate communication. They want curated follow-up and market insight — not generic drip emails. One missed touchpoint and they move on.</p>
+        <div class="persona-agents">
+          <span class="persona-agent-tag">Frontline Agent</span>
+          <span class="persona-agent-tag">Sales Agent</span>
+          <span class="persona-agent-tag">Content Agent</span>
+        </div>
+      </div>
+
+      <div class="persona-card">
+        <div class="persona-header">
+          <div class="persona-avatar pm">🏢</div>
+          <div>
+            <div class="persona-name">Mark Ellison</div>
+            <div class="persona-role">Property Manager · 180 Rental Units</div>
+          </div>
+        </div>
+        <p class="persona-pain">Office flooded with repetitive questions — rent due dates, maintenance requests, lease terms, pet policies, lockout requests. Staff spends most of their time on volume, not exceptions.</p>
+        <div class="persona-agents">
+          <span class="persona-agent-tag">Customer Support</span>
+          <span class="persona-agent-tag">Frontline Agent</span>
+        </div>
+      </div>
+
+      <div class="persona-card">
+        <div class="persona-header">
+          <div class="persona-avatar brand">📊</div>
+          <div>
+            <div class="persona-name">Jason Brooks</div>
+            <div class="persona-role">Broker/Owner · Regional Brokerage</div>
+          </div>
+        </div>
+        <p class="persona-pain">Wants his brokerage to look more sophisticated online, but his team is inconsistent with listing copy, newsletters, and social posts. Spends Friday afternoons assembling reports from three different systems.</p>
+        <div class="persona-agents">
+          <span class="persona-agent-tag">Content Agent</span>
+          <span class="persona-agent-tag">Weekly Report</span>
+          <span class="persona-agent-tag">Review Manager</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- WHAT'S INCLUDED -->
   <section class="section">
     <div class="section-label" style="background:rgba(205,255,100,0.1); color:var(--lime);">What's Included</div>
     <h2>Agents configured for <em style="color:var(--lime);">real estate</em></h2>
     <p style="color:var(--muted); font-size:15px; margin-bottom:32px;">Each agent is pre-trained for your industry. Connect your CRM and go live in 1&ndash;2 weeks.</p>
     <div style="background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:8px 32px;">
-      
+
       <div style="display:flex; justify-content:space-between; align-items:flex-start; padding:20px 0; border-bottom:1px solid var(--border);">
         <div style="flex:1;">
           <h4 style="font-family:'Space Grotesk',sans-serif; font-size:15px; font-weight:600; color:var(--text); margin-bottom:6px;">Frontline Agent</h4>
@@ -263,6 +415,311 @@
       </div>
     </div>
     <p style="font-size:13px; color:var(--muted); margin-top:16px; text-align:center;">Integrates with: Follow Up Boss &middot; KvCORE &middot; GoHighLevel &middot; Salesforce</p>
+  </section>
+
+  <!-- USE CASES -->
+  <section class="section-wide" id="use-cases" style="max-width:1000px;">
+    <div class="section-label" style="background:rgba(184,169,255,0.1); color:var(--lavender);">Use Cases</div>
+    <h2>See the agents in <em style="color:var(--lavender);">action</em></h2>
+    <p style="color:var(--muted); font-size:15px; margin-bottom:48px;">Real scenarios. Real agent behavior. This is what happens when a lead hits your pipeline.</p>
+
+    <div class="scenarios">
+      <!-- Scenario 1: Frontline Agent -->
+      <div class="scenario">
+        <div>
+          <div class="scenario-num">Agent 01</div>
+          <h3 class="scenario-agent-name">Frontline Agent</h3>
+          <div class="scenario-persona">Sarah Chen · Solo Agent</div>
+          <p class="scenario-context">A buyer visits Sarah's website at <strong>10:47 PM</strong> and asks about 3-bedroom homes in Brickell under $1.2M with low HOA. Sarah won't see it until morning. By then, the buyer may already be talking to another agent.</p>
+          <div class="before-after">
+            <div class="ba-block before">
+              <div class="ba-label">Without Kazozo</div>
+              <div class="ba-text">Sees the message at 8 AM. Manually responds, asks qualifying questions, sends options later that afternoon. Lead is cold.</div>
+            </div>
+            <div class="ba-block after">
+              <div class="ba-label">With Kazozo</div>
+              <div class="ba-text">Responds in under 10 seconds. Asks smart follow-ups — budget flexibility, financing status, timeline, parking needs. Suggests matching properties. Offers showing times. Captures the lead into CRM. Routes high-intent to Sarah by text.</div>
+            </div>
+          </div>
+          <div class="outcome"><span class="outcome-icon">✓</span><span class="outcome-text">Sarah looks responsive 24/7 without being online 24/7.</span></div>
+        </div>
+        <div class="chat-preview">
+          <div class="chat-header"><div class="chat-dot"></div><div class="chat-header-text">Kaz · Frontline Agent · 10:47 PM</div></div>
+          <div class="chat-body">
+            <div class="chat-msg user">Do you have any 3-bedroom homes in Brickell under $1.2M with low HOA?</div>
+            <div class="chat-msg agent">Absolutely — I can help with that. Are you looking for a <strong>primary residence, second home, or investment property?</strong> And are you already pre-approved?</div>
+            <div class="chat-msg user">Primary residence. Pre-approved up to $1.1M through Chase.</div>
+            <div class="chat-msg agent">Great — I'm pulling up 3BR options in Brickell under $1.1M with HOA under $800/mo. I see <strong>4 active listings</strong> that match. Want me to send details and schedule showings this weekend?</div>
+            <div class="chat-msg user">Yes, Saturday works.</div>
+            <div class="chat-msg agent">Done — I've sent you 4 listings by email and reserved <strong>Saturday 10 AM–1 PM</strong> for showings. Sarah will confirm in the morning. Anything else I can help with tonight?</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scenario 2: Lead Qualifier -->
+      <div class="scenario reverse">
+        <div>
+          <div class="scenario-num">Agent 02</div>
+          <h3 class="scenario-agent-name">Lead Qualifier</h3>
+          <div class="scenario-persona">David Morales · Team Lead</div>
+          <p class="scenario-context">A new lead comes in from a Facebook ad: <strong>"Interested in homes in Boca."</strong> That's not enough to prioritize. David's team would normally spend hours of ISA time calling, texting, and manually trying to determine budget, timeline, financing, and seriousness.</p>
+          <div class="before-after">
+            <div class="ba-block before">
+              <div class="ba-label">Without Kazozo</div>
+              <div class="ba-text">Junior agent calls, texts, follows up multiple times. Manually determines budget, timeline, financing, motivation. Takes 2–3 days. Most leads never respond.</div>
+            </div>
+            <div class="ba-block after">
+              <div class="ba-label">With Kazozo</div>
+              <div class="ba-text">Engages instantly. Qualifies on price range, buying timeline, motivation, financing readiness, prior homeownership, and whether they have another agent. Scores as hot, warm, or nurture. Routes hot leads to a live agent immediately.</div>
+            </div>
+          </div>
+          <div class="outcome"><span class="outcome-icon">✓</span><span class="outcome-text">David's team stops treating every lead the same and focuses agents on the highest-converting prospects.</span></div>
+        </div>
+        <div class="chat-preview">
+          <div class="chat-header"><div class="chat-dot"></div><div class="chat-header-text">Kaz · Lead Qualifier · Facebook Ad Lead</div></div>
+          <div class="chat-body">
+            <div class="chat-msg user">Interested in homes in Boca.</div>
+            <div class="chat-msg agent">Happy to help — are you hoping to buy in the <strong>next 30 days, 3–6 months, or just browsing</strong> for now?</div>
+            <div class="chat-msg user">Probably 2-3 months. We need to sell our place in Deerfield first.</div>
+            <div class="chat-msg agent">Got it — so you're buying and selling. Do you have a <strong>price range in mind</strong> for the new home, and are you already working with a lender?</div>
+            <div class="chat-msg user">Looking at $600-750K range. Not pre-approved yet.</div>
+            <div class="chat-msg agent"><strong>Lead scored: Warm</strong> — 3-month timeline, needs to sell first, no pre-approval yet. I've enrolled you in our Boca market updates. Want me to connect you with a lender who can get you pre-approved this week?</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scenario 3: Sales Agent -->
+      <div class="scenario">
+        <div>
+          <div class="scenario-num">Agent 03</div>
+          <h3 class="scenario-agent-name">Sales Agent</h3>
+          <div class="scenario-persona">Amanda Patel · Luxury Realtor</div>
+          <p class="scenario-context">A prospect toured a <strong>$6.8M waterfront property on North Lake Way</strong> but didn't commit. Amanda wants to stay top-of-mind without sounding pushy. The client expects white-glove communication, not a generic drip sequence.</p>
+          <div class="before-after">
+            <div class="ba-block before">
+              <div class="ba-label">Without Kazozo</div>
+              <div class="ba-text">Amanda sends a manual follow-up text, maybe an email with listing photos. Her assistant checks in a week later. No systematic nurture for a $6.8M opportunity.</div>
+            </div>
+            <div class="ba-block after">
+              <div class="ba-label">With Kazozo</div>
+              <div class="ba-text">Sends a personalized follow-up referencing the specific property details the buyer liked. Surfaces comparable waterfront properties with dock access. Shares a recent comparable sale at $7.1M to reinforce value. Detects rising intent from engagement.</div>
+            </div>
+          </div>
+          <div class="outcome"><span class="outcome-icon">✓</span><span class="outcome-text">Amanda gives a high-touch experience at scale — especially valuable in luxury.</span></div>
+        </div>
+        <div class="chat-preview">
+          <div class="chat-header"><div class="chat-dot"></div><div class="chat-header-text">Kaz · Sales Agent · Post-Showing Follow-Up</div></div>
+          <div class="chat-body">
+            <div class="chat-msg agent">Hi Michael — based on your interest in the <strong>North Lake Way waterfront with the 60-ft dock</strong>, I found two other properties with similar water frontage and updated boat lifts. The one on Flagler Drive also has the hurricane-rated impact glass you mentioned wanting. Want me to send a side-by-side comparison?</div>
+            <div class="chat-msg user">Yes, send those over. What did the North Lake Way property trade at compared to similar homes?</div>
+            <div class="chat-msg agent">The nearest comparable — a 5BR waterfront on Ibis Isle — <strong>closed at $7.1M last month</strong>, roughly $1,420/sqft. North Lake Way is listed at $1,340/sqft, which positions it well. I can prepare a <strong>full CMA</strong> if you'd like to discuss an offer strategy with Amanda.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scenario 4: Content Agent -->
+      <div class="scenario reverse">
+        <div>
+          <div class="scenario-num">Agent 04</div>
+          <h3 class="scenario-agent-name">Content Agent</h3>
+          <div class="scenario-persona">Jason Brooks · Broker/Owner</div>
+          <p class="scenario-context">A new listing comes in — <strong>4 bed / 3 bath, renovated kitchen, pool, top-rated schools, family-friendly neighborhood in Coral Gables</strong>. Jason wants polished marketing fast but his team is inconsistent and nobody has time for a market email.</p>
+          <div class="before-after">
+            <div class="ba-block before">
+              <div class="ba-label">Without Kazozo</div>
+              <div class="ba-text">Someone writes listing copy manually. Someone else creates Instagram captions. Nobody has time for a market email. Inconsistent quality, inconsistent brand.</div>
+            </div>
+            <div class="ba-block after">
+              <div class="ba-label">With Kazozo</div>
+              <div class="ba-text">Transforms raw property details into an MLS description, luxury website version, 3 Instagram captions, email blast copy, a short reel script, and a buyer brochure summary. All on-brand, all in minutes.</div>
+            </div>
+          </div>
+          <div class="outcome"><span class="outcome-icon">✓</span><span class="outcome-text">Jason's brokerage looks professional and consistent without adding a content team.</span></div>
+        </div>
+        <div class="chat-preview">
+          <div class="chat-header"><div class="chat-dot"></div><div class="chat-header-text">Kaz · Content Agent · New Listing</div></div>
+          <div class="chat-body">
+            <div class="chat-msg user">New listing: 4BR/3BA in Coral Gables, updated kitchen, pool, quiet street, near top schools. $1.1M.</div>
+            <div class="chat-msg agent"><strong>Listing package ready:</strong><br><br>📝 MLS description (280 words)<br>🌐 Website version (lifestyle-focused)<br>📸 3 Instagram caption options<br>📧 Email blast copy<br>🎬 Short reel script (15s)<br>📄 Buyer brochure summary<br><br>Want me to send these to your marketing coordinator, or post the social content directly?</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scenario 5: Customer Support -->
+      <div class="scenario">
+        <div>
+          <div class="scenario-num">Agent 05</div>
+          <h3 class="scenario-agent-name">Customer Support</h3>
+          <div class="scenario-persona">Mark Ellison · Property Manager</div>
+          <p class="scenario-context">A tenant texts at <strong>8:15 PM</strong>: "My AC is not cooling. Is this emergency maintenance?" Mark's office is closed. Someone has to read the message, decide urgency, look up the tenant, and route it manually — usually the next morning.</p>
+          <div class="before-after">
+            <div class="ba-block before">
+              <div class="ba-label">Without Kazozo</div>
+              <div class="ba-text">Tenant waits until morning. Staff reads the message, decides urgency, looks up the tenant and property, manually routes to the right vendor. Tenant is frustrated.</div>
+            </div>
+            <div class="ba-block after">
+              <div class="ba-label">With Kazozo</div>
+              <div class="ba-text">Identifies the tenant and property immediately. Asks structured follow-up questions to classify urgency. Creates a maintenance ticket. Routes to the right vendor. Updates the tenant on expected response time — all within minutes.</div>
+            </div>
+          </div>
+          <div class="outcome"><span class="outcome-icon">✓</span><span class="outcome-text">Mark's team reduces call volume and handles tenant issues consistently, even after hours.</span></div>
+        </div>
+        <div class="chat-preview">
+          <div class="chat-header"><div class="chat-dot"></div><div class="chat-header-text">Kaz · Customer Support · 8:15 PM</div></div>
+          <div class="chat-body">
+            <div class="chat-msg user">My AC is not cooling. Is this emergency maintenance?</div>
+            <div class="chat-msg agent">Sorry you're dealing with that. A few quick questions so I can route this correctly — is the unit <strong>completely without cooling</strong>, and do you have elderly residents, children, or anyone with health concerns in the home?</div>
+            <div class="chat-msg user">Yes, it's not cooling at all. I have a 2-year-old.</div>
+            <div class="chat-msg agent"><strong>Marking this as urgent.</strong> I've created a priority maintenance ticket and notified our on-call HVAC vendor. You should hear from them within <strong>2 hours</strong>. Ticket #4892 — I'll text you updates as they come in.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scenario 6: Review Manager -->
+      <div class="scenario reverse">
+        <div>
+          <div class="scenario-num">Agent 06</div>
+          <h3 class="scenario-agent-name">Review Manager</h3>
+          <div class="scenario-persona">Nicole Rivera · Closing Coordinator</div>
+          <p class="scenario-context">A transaction just closed. The buyer had a great experience, but <strong>no one follows up for a review</strong>. Nicole knows reviews matter for Google, Zillow, and Realtor.com — but after closing, agents get busy and forget.</p>
+          <div class="before-after">
+            <div class="ba-block before">
+              <div class="ba-label">Without Kazozo</div>
+              <div class="ba-text">Nicole sends a generic email days later — often too late. Many clients never respond. Negative experiences sometimes go to Google before anyone internally knows.</div>
+            </div>
+            <div class="ba-block after">
+              <div class="ba-label">With Kazozo</div>
+              <div class="ba-text">Detects the closed transaction from CRM. Sends a warm thank-you at the right moment. Routes happy clients to public review platforms. Flags unhappy clients for private recovery before they go public.</div>
+            </div>
+          </div>
+          <div class="outcome"><span class="outcome-icon">✓</span><span class="outcome-text">More 5-star reviews and fewer reputation surprises.</span></div>
+        </div>
+        <div class="chat-preview">
+          <div class="chat-header"><div class="chat-dot"></div><div class="chat-header-text">Kaz · Review Manager · Post-Closing</div></div>
+          <div class="chat-body">
+            <div class="chat-msg agent">Congratulations again on your new home, Emily! It was a pleasure helping you through the process. Would you be open to sharing a quick review of your experience? I can send the easiest link.</div>
+            <div class="chat-msg user">Of course! Sarah was amazing.</div>
+            <div class="chat-msg agent">So glad to hear that — Sarah will love the feedback. Here's a <strong>direct link to leave a Google review</strong> — takes about 30 seconds. We also have Zillow and Realtor.com if you prefer. Thank you, Emily!</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scenario 7: Weekly Report -->
+      <div class="scenario">
+        <div>
+          <div class="scenario-num">Agent 07</div>
+          <h3 class="scenario-agent-name">Weekly Report</h3>
+          <div class="scenario-persona">Lisa Grant · Managing Broker · 30-Agent Office</div>
+          <p class="scenario-context">Every Friday, Lisa needs answers: how many leads came in, how many showings happened, active listings, pending deals, pipeline value, response times, and which agents are converting best. Her ops person spends half a day pulling data from several systems.</p>
+          <div class="before-after">
+            <div class="ba-block before">
+              <div class="ba-label">Without Kazozo</div>
+              <div class="ba-text">Ops person pulls data from the CRM, MLS, and email manually. Assembles a spreadsheet. Often incomplete. Lisa gets it Monday instead of Friday.</div>
+            </div>
+            <div class="ba-block after">
+              <div class="ba-label">With Kazozo</div>
+              <div class="ba-text">Auto-compiles: total inquiries by source, lead-to-appointment conversion, showing activity, offer activity, pipeline value, closed volume, agent responsiveness, follow-up gaps, and underperforming segments. Delivered every Friday morning.</div>
+            </div>
+          </div>
+          <div class="outcome"><span class="outcome-icon">✓</span><span class="outcome-text">Broker-level visibility without manual reporting.</span></div>
+        </div>
+        <div class="chat-preview">
+          <div class="chat-header"><div class="chat-dot"></div><div class="chat-header-text">Kaz · Weekly Report · Friday 8:00 AM</div></div>
+          <div class="chat-body">
+            <div class="chat-msg agent"><strong>Weekly Brokerage Summary</strong><br><br>📊 142 new leads (↑18% vs last week)<br>🏠 26 showings booked<br>📝 8 offers submitted<br>🎉 5 closings · $4.2M volume<br>💰 $9.4M active pipeline<br><br>⚡ Fastest response: Team Alvarez<br>🏆 Highest conversion: Rachel Kim<br>⚠️ 31 leads had no follow-up within 15 minutes</div>
+            <div class="chat-msg user">Send a re-engagement sequence to the 31 leads with no follow-up.</div>
+            <div class="chat-msg agent"><strong>Done.</strong> Sales Agent is sending a 3-touch sequence (SMS + email) to all 31 leads. I'll report back on responses by Monday.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- END-TO-END FLOWS -->
+  <section class="section-wide">
+    <div class="section-label" style="background:rgba(100,210,255,0.1); color:var(--sky);">End-to-End</div>
+    <h2>Agents work together, <em style="color:var(--sky);">not in silos</em></h2>
+    <p style="color:var(--muted); font-size:15px; margin-bottom:32px;">The real power is when multiple agents handle a workflow from start to finish — no human in the loop.</p>
+
+    <div class="flows-grid">
+      <div class="flow-card">
+        <div class="flow-icon">🌐</div>
+        <div class="flow-title">New Buyer Lead from Website</div>
+        <div class="flow-desc">Visitor says "Interested in homes in Delray Beach" at 11 PM.</div>
+        <ul class="flow-steps">
+          <li>Frontline Agent responds in under 10 seconds</li>
+          <li>Asks budget, beds/baths, financing, timeline</li>
+          <li>Lead Qualifier scores and labels as hot</li>
+          <li>Sales Agent books a consultation</li>
+          <li>CRM updated, agent alerted by text</li>
+        </ul>
+      </div>
+
+      <div class="flow-card">
+        <div class="flow-icon">🏠</div>
+        <div class="flow-title">Open House Follow-Up</div>
+        <div class="flow-desc">34 attendees signed in. Agents forget to follow up.</div>
+        <ul class="flow-steps">
+          <li>Sales Agent sends personalized follow-up to all 34</li>
+          <li>Segments: buyers vs. neighbors vs. sellers</li>
+          <li>Lead Qualifier scores intent from responses</li>
+          <li>Books calls for serious prospects</li>
+          <li>Enrolls others in nurture sequence</li>
+        </ul>
+      </div>
+
+      <div class="flow-card">
+        <div class="flow-icon">🔑</div>
+        <div class="flow-title">Rental Inquiry Overflow</div>
+        <div class="flow-desc">20 inquiries on one unit in a single weekend.</div>
+        <ul class="flow-steps">
+          <li>Support Agent answers common questions instantly</li>
+          <li>Confirms move-in date, income, pet status, lease term</li>
+          <li>Schedules showings automatically</li>
+          <li>Declines unqualified applicants politely</li>
+          <li>Forwards top prospects to leasing staff</li>
+        </ul>
+      </div>
+
+      <div class="flow-card">
+        <div class="flow-icon">⭐</div>
+        <div class="flow-title">Post-Closing Review Campaign</div>
+        <div class="flow-desc">Buyer just closed and is happy — but no one asks for a review.</div>
+        <ul class="flow-steps">
+          <li>Review Manager sends warm thank-you at the right moment</li>
+          <li>Asks for feedback naturally</li>
+          <li>Happy clients → Google/Zillow review links</li>
+          <li>Unhappy clients → flagged for private recovery</li>
+          <li>Team gets more 5-star reviews, fewer surprises</li>
+        </ul>
+      </div>
+
+      <div class="flow-card">
+        <div class="flow-icon">📸</div>
+        <div class="flow-title">Listing Launch Content Package</div>
+        <div class="flow-desc">New property going live tomorrow morning.</div>
+        <ul class="flow-steps">
+          <li>Content Agent turns property facts into MLS description</li>
+          <li>Creates email blast and 3 social captions</li>
+          <li>Drafts open house invite copy</li>
+          <li>Prepares neighborhood lifestyle summary</li>
+          <li>Everything on-brand and ready to publish</li>
+        </ul>
+      </div>
+
+      <div class="flow-card">
+        <div class="flow-icon">📊</div>
+        <div class="flow-title">Friday Broker Intelligence</div>
+        <div class="flow-desc">Managing broker needs a clean weekly view without chasing agents.</div>
+        <ul class="flow-steps">
+          <li>Weekly Report pulls CRM, pipeline, and activity data</li>
+          <li>Identifies top performers and conversion gaps</li>
+          <li>Flags leads with no follow-up</li>
+          <li>Sales Agent re-engages cold leads on command</li>
+          <li>Broker gets visibility without manual assembly</li>
+        </ul>
+      </div>
+    </div>
   </section>
 
   <!-- PACKAGES -->
