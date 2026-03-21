@@ -36,7 +36,12 @@
   .nav-links a:hover { color:var(--text); }
   .btn-nav { background:var(--coral); color:#fff!important; padding:10px 22px; border-radius:10px; font-weight:600; transition:all 0.3s; }
   .btn-nav:hover { transform:translateY(-1px); box-shadow:0 6px 20px rgba(255,107,90,0.3); }
-  @media(max-width:768px) { .nav-links { display:none; } }
+  .nav-auth { display:flex; align-items:center; gap:16px; margin-left:24px; }
+  .nav-login { font-family:'Space Grotesk',sans-serif; color:rgba(228,225,230,0.6); text-decoration:none; font-size:14px; font-weight:500; transition:color 0.3s; }
+  .nav-login:hover { color:var(--text); }
+  .nav-signup { font-family:'Space Grotesk',sans-serif; color:#580c00; text-decoration:none; font-size:14px; font-weight:700; background:linear-gradient(135deg,#FFB4A4,#FF5733); padding:8px 20px; border-radius:10px; border:none; transition:all 0.3s; cursor:pointer; }
+  .nav-signup:hover { filter:brightness(1.1); transform:translateY(-1px); box-shadow:0 8px 24px rgba(255,87,51,0.25); }
+  @media(max-width:768px) { .nav-links { display:none; } .nav-auth { display:none; } }
   .cta-btn { display:inline-flex; align-items:center; gap:10px; padding:16px 36px; font-size:16px; background:var(--coral); color:#fff; border-radius:12px; text-decoration:none; font-weight:600; transition:all 0.3s; border:none; cursor:pointer; }
   .cta-btn:hover { transform:translateY(-2px); box-shadow:0 8px 30px rgba(255,107,90,0.4); }
 
@@ -150,21 +155,29 @@
         <li><a href="index.html#agents">Agents</a></li>
         <li><a href="index.html#pricing">Pricing</a></li>
         <li><a href="industries.html" style="color:var(--text);">Industries</a></li>
-        <li><a href="live-demo.html">Simulation</a></li>
-        <li><a href="javascript:void(0)" onclick="if(window.KazozoWidget){window.KazozoWidget.open()}else{document.getElementById('cta').scrollIntoView({behavior:'smooth'})}" class="btn-nav">Talk to Kaz</a></li>
+        <li><a href="simulation.html">Simulation</a></li>
+        <li><button type="button" onclick="if(window.KazozoWidget){window.KazozoWidget.open()}else{document.getElementById('cta').scrollIntoView({behavior:'smooth'})}" class="btn-nav" style="font-family:inherit;font-size:inherit;">Talk to Kaz</button></li>
       </ul>
+      <div class="nav-auth">
+        <a href="https://api.kazozo.com/customer-login.html" class="nav-login">Login</a>
+        <a href="https://api.kazozo.com/signup.html" class="nav-signup">Get Started</a>
+      </div>
     </div>
   </nav>
 
   <!-- MOBILE NAV -->
   <div class="mobile-nav-overlay" id="mobileOverlay"></div>
   <div class="mobile-nav" id="mobileNav">
-    <span class="mobile-nav-label">Menu</span>
+    <span class="mobile-nav-label">Navigate</span>
     <a href="index.html#agents" class="mobile-nav-link">Agents</a>
     <a href="index.html#pricing" class="mobile-nav-link">Pricing</a>
     <a href="industries.html" class="mobile-nav-link">Industries</a>
-    <a href="live-demo.html" class="mobile-nav-link">Simulation</a>
-    <a href="javascript:void(0)" onclick="if(window.KazozoWidget){window.KazozoWidget.open()}else{document.getElementById('cta').scrollIntoView({behavior:'smooth'})};closeMobileNav();" class="mobile-cta">Talk to Kaz &#8594;</a>
+    <a href="simulation.html" class="mobile-nav-link">Simulation</a>
+    <button type="button" onclick="if(window.KazozoWidget){window.KazozoWidget.open()}else{document.getElementById('cta').scrollIntoView({behavior:'smooth'})};closeMobileNav();" class="mobile-cta" style="font-family:inherit;cursor:pointer;margin-top:32px;">Talk to Kaz</button>
+    <div style="display:flex; gap:12px; margin-top:12px; padding:0 24px;">
+      <a href="https://api.kazozo.com/customer-login.html" class="mobile-nav-link" style="flex:1; text-align:center;">Login</a>
+      <a href="https://api.kazozo.com/signup.html" class="mobile-cta" style="flex:1; text-align:center; margin:0;">Get Started</a>
+    </div>
   </div>
 
   <section style="padding:140px 24px 40px; text-align:center; max-width:800px; margin:0 auto;">
@@ -445,7 +458,7 @@
           <a href="index.html#agents">Agents</a>
           <a href="index.html#pricing">Pricing</a>
           <a href="industries.html">Industries</a>
-          <a href="live-demo.html">Simulation</a>
+          <a href="simulation.html">Simulation</a>
         </div>
         <div class="footer-col">
           <h4>Connect</h4>
