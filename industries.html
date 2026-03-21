@@ -36,12 +36,7 @@
   .nav-links a:hover { color:var(--text); }
   .btn-nav { background:var(--coral); color:#fff!important; padding:10px 22px; border-radius:10px; font-weight:600; transition:all 0.3s; }
   .btn-nav:hover { transform:translateY(-1px); box-shadow:0 6px 20px rgba(255,107,90,0.3); }
-  .nav-auth { display:flex; align-items:center; gap:16px; margin-left:24px; }
-  .nav-login { font-family:'Space Grotesk',sans-serif; color:rgba(228,225,230,0.6); text-decoration:none; font-size:14px; font-weight:500; transition:color 0.3s; }
-  .nav-login:hover { color:var(--text); }
-  .nav-signup { font-family:'Space Grotesk',sans-serif; color:#580c00; text-decoration:none; font-size:14px; font-weight:700; background:linear-gradient(135deg,#FFB4A4,#FF5733); padding:8px 20px; border-radius:10px; border:none; transition:all 0.3s; cursor:pointer; }
-  .nav-signup:hover { filter:brightness(1.1); transform:translateY(-1px); box-shadow:0 8px 24px rgba(255,87,51,0.25); }
-  @media(max-width:768px) { .nav-links { display:none; } .nav-auth { display:none; } }
+  @media(max-width:768px) { .nav-links { display:none; } }
   .cta-btn { display:inline-flex; align-items:center; gap:10px; padding:16px 36px; font-size:16px; background:var(--coral); color:#fff; border-radius:12px; text-decoration:none; font-weight:600; transition:all 0.3s; border:none; cursor:pointer; }
   .cta-btn:hover { transform:translateY(-2px); box-shadow:0 8px 30px rgba(255,107,90,0.4); }
 
@@ -156,28 +151,20 @@
         <li><a href="index.html#pricing">Pricing</a></li>
         <li><a href="industries.html" style="color:var(--text);">Industries</a></li>
         <li><a href="simulation.html">Simulation</a></li>
-        <li><button type="button" onclick="if(window.KazozoWidget){window.KazozoWidget.open()}else{document.getElementById('cta').scrollIntoView({behavior:'smooth'})}" class="btn-nav" style="font-family:inherit;font-size:inherit;">Talk to Kaz</button></li>
+        <li><a href="javascript:void(0)" onclick="if(window.KazozoWidget){window.KazozoWidget.open()}else{document.getElementById('cta').scrollIntoView({behavior:'smooth'})}" class="btn-nav">Talk to Kaz</a></li>
       </ul>
-      <div class="nav-auth">
-        <a href="https://api.kazozo.com/customer-login.html" class="nav-login">Login</a>
-        <a href="https://api.kazozo.com/signup.html" class="nav-signup">Get Started</a>
-      </div>
     </div>
   </nav>
 
   <!-- MOBILE NAV -->
   <div class="mobile-nav-overlay" id="mobileOverlay"></div>
   <div class="mobile-nav" id="mobileNav">
-    <span class="mobile-nav-label">Navigate</span>
+    <span class="mobile-nav-label">Menu</span>
     <a href="index.html#agents" class="mobile-nav-link">Agents</a>
     <a href="index.html#pricing" class="mobile-nav-link">Pricing</a>
     <a href="industries.html" class="mobile-nav-link">Industries</a>
     <a href="simulation.html" class="mobile-nav-link">Simulation</a>
-    <button type="button" onclick="if(window.KazozoWidget){window.KazozoWidget.open()}else{document.getElementById('cta').scrollIntoView({behavior:'smooth'})};closeMobileNav();" class="mobile-cta" style="font-family:inherit;cursor:pointer;margin-top:32px;">Talk to Kaz</button>
-    <div style="display:flex; gap:12px; margin-top:12px; padding:0 24px;">
-      <a href="https://api.kazozo.com/customer-login.html" class="mobile-nav-link" style="flex:1; text-align:center;">Login</a>
-      <a href="https://api.kazozo.com/signup.html" class="mobile-cta" style="flex:1; text-align:center; margin:0;">Get Started</a>
-    </div>
+    <a href="javascript:void(0)" onclick="if(window.KazozoWidget){window.KazozoWidget.open()}else{document.getElementById('cta').scrollIntoView({behavior:'smooth'})};closeMobileNav();" class="mobile-cta">Talk to Kaz &#8594;</a>
   </div>
 
   <section style="padding:140px 24px 40px; text-align:center; max-width:800px; margin:0 auto;">
@@ -224,7 +211,7 @@
           <span style="font-size:12px; color:var(--muted);">6 agents &#8594;</span>
         </div>
       </a>
-      <a href="ecommerce.html" style="background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:28px; text-decoration:none; transition:all 0.3s; display:block;" onmouseover="this.style.borderColor='rgba(255,255,255,0.12)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='none'">
+      <a href="ecommerce-dtc.html" style="background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:28px; text-decoration:none; transition:all 0.3s; display:block;" onmouseover="this.style.borderColor='rgba(255,255,255,0.12)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='none'">
         <div style="font-size:32px; margin-bottom:12px;">🛒</div>
         <h3 style="font-family:'Space Grotesk',sans-serif; font-size:17px; font-weight:700; color:var(--text); margin-bottom:6px;">E-Commerce &amp; DTC</h3>
         <p style="font-size:12px; color:var(--muted); line-height:1.5; margin-bottom:12px;">Shopify &middot; Amazon &middot; DTC Brands &middot; Subscription Boxes &middot; Marketplaces</p>
@@ -260,7 +247,7 @@
           <span style="font-size:12px; color:var(--muted);">8 agents &#8594;</span>
         </div>
       </a>
-      <a href="legal.html" style="background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:28px; text-decoration:none; transition:all 0.3s; display:block;" onmouseover="this.style.borderColor='rgba(255,255,255,0.12)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='none'">
+      <a href="legal-services.html" style="background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:28px; text-decoration:none; transition:all 0.3s; display:block;" onmouseover="this.style.borderColor='rgba(255,255,255,0.12)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='none'">
         <div style="font-size:32px; margin-bottom:12px;">⚖️</div>
         <h3 style="font-family:'Space Grotesk',sans-serif; font-size:17px; font-weight:700; color:var(--text); margin-bottom:6px;">Legal Services</h3>
         <p style="font-size:12px; color:var(--muted); line-height:1.5; margin-bottom:12px;">Law Firms &middot; Solo Practitioners &middot; Legal Aid &middot; Paralegals</p>
@@ -278,7 +265,7 @@
           <span style="font-size:12px; color:var(--muted);">8 agents &#8594;</span>
         </div>
       </a>
-      <a href="education.html" style="background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:28px; text-decoration:none; transition:all 0.3s; display:block;" onmouseover="this.style.borderColor='rgba(255,255,255,0.12)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='none'">
+      <a href="education-training.html" style="background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:28px; text-decoration:none; transition:all 0.3s; display:block;" onmouseover="this.style.borderColor='rgba(255,255,255,0.12)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='none'">
         <div style="font-size:32px; margin-bottom:12px;">🎓</div>
         <h3 style="font-family:'Space Grotesk',sans-serif; font-size:17px; font-weight:700; color:var(--text); margin-bottom:6px;">Education &amp; Training</h3>
         <p style="font-size:12px; color:var(--muted); line-height:1.5; margin-bottom:12px;">Tutoring Centers &middot; Trade Schools &middot; Online Courses &middot; Corporate Training</p>
@@ -287,7 +274,7 @@
           <span style="font-size:12px; color:var(--muted);">6 agents &#8594;</span>
         </div>
       </a>
-      <a href="hospitality.html" style="background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:28px; text-decoration:none; transition:all 0.3s; display:block;" onmouseover="this.style.borderColor='rgba(255,255,255,0.12)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='none'">
+      <a href="hospitality-events.html" style="background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:28px; text-decoration:none; transition:all 0.3s; display:block;" onmouseover="this.style.borderColor='rgba(255,255,255,0.12)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='none'">
         <div style="font-size:32px; margin-bottom:12px;">🏨</div>
         <h3 style="font-family:'Space Grotesk',sans-serif; font-size:17px; font-weight:700; color:var(--text); margin-bottom:6px;">Hospitality &amp; Events</h3>
         <p style="font-size:12px; color:var(--muted); line-height:1.5; margin-bottom:12px;">Hotels &middot; Event Venues &middot; Caterers &middot; Wedding Planners &middot; Conference Centers</p>
@@ -296,7 +283,7 @@
           <span style="font-size:12px; color:var(--muted);">8 agents &#8594;</span>
         </div>
       </a>
-      <a href="construction.html" style="background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:28px; text-decoration:none; transition:all 0.3s; display:block;" onmouseover="this.style.borderColor='rgba(255,255,255,0.12)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='none'">
+      <a href="construction-trades.html" style="background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:28px; text-decoration:none; transition:all 0.3s; display:block;" onmouseover="this.style.borderColor='rgba(255,255,255,0.12)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='none'">
         <div style="font-size:32px; margin-bottom:12px;">🏗️</div>
         <h3 style="font-family:'Space Grotesk',sans-serif; font-size:17px; font-weight:700; color:var(--text); margin-bottom:6px;">Construction &amp; Trades</h3>
         <p style="font-size:12px; color:var(--muted); line-height:1.5; margin-bottom:12px;">General Contractors &middot; Specialty Trades &middot; Remodelers &middot; Restoration</p>
@@ -323,7 +310,7 @@
           <span style="font-size:12px; color:var(--muted);">6 agents &#8594;</span>
         </div>
       </a>
-      <a href="retail.html" style="background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:28px; text-decoration:none; transition:all 0.3s; display:block;" onmouseover="this.style.borderColor='rgba(255,255,255,0.12)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='none'">
+      <a href="retail-franchise.html" style="background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:28px; text-decoration:none; transition:all 0.3s; display:block;" onmouseover="this.style.borderColor='rgba(255,255,255,0.12)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='none'">
         <div style="font-size:32px; margin-bottom:12px;">🏪</div>
         <h3 style="font-family:'Space Grotesk',sans-serif; font-size:17px; font-weight:700; color:var(--text); margin-bottom:6px;">Retail &amp; Franchise</h3>
         <p style="font-size:12px; color:var(--muted); line-height:1.5; margin-bottom:12px;">Brick-and-Mortar &middot; Multi-Location &middot; Franchise Groups &middot; Specialty Retail</p>
@@ -350,7 +337,7 @@
           <span style="font-size:12px; color:var(--muted);">7 agents &#8594;</span>
         </div>
       </a>
-      <a href="restaurant.html" style="background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:28px; text-decoration:none; transition:all 0.3s; display:block;" onmouseover="this.style.borderColor='rgba(255,255,255,0.12)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='none'">
+      <a href="restaurant-food.html" style="background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:28px; text-decoration:none; transition:all 0.3s; display:block;" onmouseover="this.style.borderColor='rgba(255,255,255,0.12)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='none'">
         <div style="font-size:32px; margin-bottom:12px;">🍽️</div>
         <h3 style="font-family:'Space Grotesk',sans-serif; font-size:17px; font-weight:700; color:var(--text); margin-bottom:6px;">Restaurant &amp; Food Service</h3>
         <p style="font-size:12px; color:var(--muted); line-height:1.5; margin-bottom:12px;">Restaurants &middot; Catering &middot; Food Trucks &middot; Cloud Kitchens &middot; Bakeries</p>
@@ -368,7 +355,7 @@
           <span style="font-size:12px; color:var(--muted);">7 agents &#8594;</span>
         </div>
       </a>
-      <a href="cleaning.html" style="background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:28px; text-decoration:none; transition:all 0.3s; display:block;" onmouseover="this.style.borderColor='rgba(255,255,255,0.12)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='none'">
+      <a href="cleaning-services.html" style="background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:28px; text-decoration:none; transition:all 0.3s; display:block;" onmouseover="this.style.borderColor='rgba(255,255,255,0.12)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='none'">
         <div style="font-size:32px; margin-bottom:12px;">🧹</div>
         <h3 style="font-family:'Space Grotesk',sans-serif; font-size:17px; font-weight:700; color:var(--text); margin-bottom:6px;">Cleaning Services</h3>
         <p style="font-size:12px; color:var(--muted); line-height:1.5; margin-bottom:12px;">Residential Cleaning &middot; Commercial Janitorial &middot; Pressure Washing &middot; Window Cleaning</p>
@@ -413,7 +400,7 @@
           <span style="font-size:12px; color:var(--muted);">7 agents &#8594;</span>
         </div>
       </a>
-      <a href="chiropractic.html" style="background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:28px; text-decoration:none; transition:all 0.3s; display:block;" onmouseover="this.style.borderColor='rgba(255,255,255,0.12)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='none'">
+      <a href="chiropractic-wellness.html" style="background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:28px; text-decoration:none; transition:all 0.3s; display:block;" onmouseover="this.style.borderColor='rgba(255,255,255,0.12)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='none'">
         <div style="font-size:32px; margin-bottom:12px;">🦴</div>
         <h3 style="font-family:'Space Grotesk',sans-serif; font-size:17px; font-weight:700; color:var(--text); margin-bottom:6px;">Chiropractic &amp; Wellness</h3>
         <p style="font-size:12px; color:var(--muted); line-height:1.5; margin-bottom:12px;">Chiropractic &middot; Physical Therapy &middot; Acupuncture &middot; Functional Medicine</p>

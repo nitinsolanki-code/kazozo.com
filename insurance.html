@@ -4,1901 +4,715 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Insurance Agencies AI Agents — Kazozo</title>
-<meta name="description" content="AI agents built for insurance agencies. Respond to every inquiry in under 60 seconds, qualify leads, nurture prospects, and book appointments 24/7. Starting at $55/mo.">
-<meta name="robots" content="index, follow">
-<link rel="canonical" href="https://kazozo.com/insurance.html">
-
-<!-- Favicon -->
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230C0B12'/%3E%3Ctext x='3' y='23' font-family='system-ui,sans-serif' font-size='20' font-weight='700' fill='%23F0EFF4'%3Ek%3C/text%3E%3Ctext x='15' y='23' font-family='system-ui,sans-serif' font-size='20' font-weight='700' fill='%23FF6B5A'%3Ez%3C/text%3E%3C/svg%3E">
-<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Crect width='180' height='180' rx='40' fill='%230C0B12'/%3E%3Ctext x='16' y='130' font-family='system-ui,sans-serif' font-size='120' font-weight='700' fill='%23F0EFF4'%3Ek%3C/text%3E%3Ctext x='88' y='130' font-family='system-ui,sans-serif' font-size='120' font-weight='700' fill='%23FF6B5A'%3Ez%3C/text%3E%3C/svg%3E">
-
-<!-- Open Graph -->
-<meta property="og:title" content="Insurance Agencies AI Agents — Kazozo">
-<meta property="og:description" content="AI agents built for insurance agencies. Respond to every inquiry in under 60 seconds, qualify leads, nurture prospects, and book appointments 24/7. Starting at $55/mo.">
-<meta property="og:url" content="https://kazozo.com/insurance.html">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="Kazozo">
-<meta property="og:image" content="https://kazozo.com/og-image.png">
-
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Insurance Agencies AI Agents — Kazozo">
-<meta name="twitter:description" content="AI agents built for insurance agencies. Respond to every inquiry in under 60 seconds, qualify leads, nurture prospects, and book appointments 24/7. Starting at $55/mo.">
-<meta name="twitter:image" content="https://kazozo.com/og-image.png">
-
-<!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-
-
-* { margin: 0; padding: 0; box-sizing: border-box; }
-
-:root {
-  --bg: #131316;
-  --surface: #1b1b1e;
-  --card: #1f1f22;
-  --card-high: #2a2a2d;
-  --card-highest: #353438;
-  --coral: #FFB4A4;
-  --coral-vivid: #FF5733;
-  --lime: #46EAED;
-  --lavender: #46EAED;
-  --sky: #46EAED;
-  --amber: #EBC314;
-  --text: #E4E1E6;
-  --muted: #9e9ba5;
-  --border: rgba(228,225,230,0.06);
-  --green: #46EAED;
-  --outline: #AB8982;
-  --outline-variant: #5b403a;
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0a0a0f;--bg-card:#13131a;--bg-card-hover:#1a1a24;
+  --coral:#ff6b5a;--coral-dim:rgba(255,107,90,.12);
+  --purple:#b8a9ff;--purple-dim:rgba(184,169,255,.10);
+  --green:#4ade80;--green-dim:rgba(74,222,128,.10);
+  --yellow:#fbbf24;--yellow-dim:rgba(251,191,36,.10);
+  --blue:#60a5fa;--blue-dim:rgba(96,165,250,.10);
+  --red:#f87171;--red-dim:rgba(248,113,113,.10);
+  --text:#f0f0f5;--text-dim:#8a8a9a;--text-mid:#c0c0cc;
+  --border:rgba(255,255,255,.06);
+  --radius:16px;--radius-sm:10px;
+  --max-w:1140px;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
+.nav{position:sticky;top:0;z-index:100;background:rgba(10,10,15,.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0 24px}
+.nav-inner{max-width:var(--max-w);margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:60px}
+.nav-logo{font-weight:800;font-size:1.25rem;color:var(--text);text-decoration:none;letter-spacing:-.5px}
+.nav-logo span{color:var(--coral)}
+.nav-links{display:flex;gap:28px;align-items:center}
+.nav-links a{color:var(--text-dim);text-decoration:none;font-size:.875rem;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:var(--text)}
+.nav-cta{background:var(--coral);color:#fff;padding:8px 20px;border-radius:8px;font-weight:600;font-size:.875rem;text-decoration:none;transition:opacity .2s}
+.nav-cta:hover{opacity:.88}
+.container{max-width:var(--max-w);margin:0 auto;padding:0 24px}
+.section{padding:100px 0}
+.section-label{font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--coral);margin-bottom:12px}
+.section-title{font-size:2.5rem;font-weight:800;letter-spacing:-.5px;line-height:1.15;margin-bottom:16px}
+.section-sub{font-size:1.1rem;color:var(--text-dim);max-width:640px;line-height:1.7}
+.divider{border:0;border-top:1px solid var(--border);margin:0}
+.hero{padding:120px 0 80px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-200px;left:50%;transform:translateX(-50%);width:800px;height:800px;background:radial-gradient(circle,rgba(255,107,90,.06) 0%,transparent 70%);pointer-events:none}
+.hero .section-title{font-size:3.25rem;max-width:820px;margin:0 auto 20px}
+.hero .section-sub{margin:0 auto 40px;max-width:600px;font-size:1.15rem}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--coral-dim);color:var(--coral);padding:6px 16px;border-radius:100px;font-size:.8rem;font-weight:600;margin-bottom:24px;border:1px solid rgba(255,107,90,.15)}
+.hero-ctas{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:10px;font-weight:700;font-size:.95rem;text-decoration:none;transition:all .2s}
+.btn-primary{background:var(--coral);color:#fff}.btn-primary:hover{opacity:.88}
+.btn-secondary{background:transparent;color:var(--text-dim);border:1px solid var(--border)}.btn-secondary:hover{border-color:var(--text-dim);color:var(--text)}
+.stats-bar{display:flex;justify-content:center;gap:48px;margin-top:56px;flex-wrap:wrap}
+.stat{text-align:center}
+.stat-num{font-size:2.25rem;font-weight:800;letter-spacing:-.5px}
+.stat-num.bad{color:var(--red)}
+.stat-num.good{color:var(--green)}
+.stat-num.neutral{color:var(--coral)}
+.stat-label{font-size:.78rem;color:var(--text-dim);margin-top:4px;max-width:140px}
+.stat-source{font-size:.6rem;color:rgba(255,255,255,.2);margin-top:2px}
+.persona-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-top:48px}
+.persona-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;transition:border-color .3s}
+.persona-card:hover{border-color:rgba(184,169,255,.18)}
+.persona-emoji{font-size:1.8rem;margin-bottom:12px}
+.persona-name{font-size:1rem;font-weight:700;margin-bottom:2px}
+.persona-role{font-size:.78rem;color:var(--text-dim);margin-bottom:14px;line-height:1.4}
+.persona-pain{font-size:.82rem;color:var(--text-mid);line-height:1.55;margin-bottom:16px}
+.agent-tags{display:flex;flex-wrap:wrap;gap:6px}
+.agent-tag{padding:4px 10px;border-radius:6px;font-size:.7rem;font-weight:600;letter-spacing:.3px}
+.agent-tag.frontline{background:var(--coral-dim);color:var(--coral)}
+.agent-tag.qualifier{background:var(--purple-dim);color:var(--purple)}
+.agent-tag.sales{background:var(--green-dim);color:var(--green)}
+.agent-tag.content{background:var(--blue-dim);color:var(--blue)}
+.agent-tag.review{background:var(--yellow-dim);color:var(--yellow)}
+.agent-tag.support{background:rgba(255,255,255,.06);color:var(--text-mid)}
+.agent-tag.report{background:var(--red-dim);color:var(--red)}
+.agent-tag.scheduler{background:rgba(251,191,36,.10);color:var(--yellow)}
+.agent-tag.onboarding{background:var(--blue-dim);color:var(--blue)}
+.agent-tag.operations{background:rgba(251,191,36,.10);color:#fbbf24}
+.pain-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px;margin-top:48px}
+.pain-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:28px;transition:border-color .3s}
+.pain-card:hover{border-color:rgba(255,107,90,.18)}
+.pain-stat{font-size:1.8rem;font-weight:800;color:var(--red);margin-bottom:4px}
+.pain-headline{font-size:1.05rem;font-weight:700;margin-bottom:8px}
+.pain-text{font-size:.88rem;color:var(--text-mid);line-height:1.6;margin-bottom:14px}
+.pain-solve{font-size:.82rem;color:var(--green);font-weight:600;padding-top:12px;border-top:1px solid var(--border)}
+.agent-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;margin-top:48px}
+.agent-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;display:flex;flex-direction:column;transition:border-color .3s}
+.agent-card:hover{border-color:rgba(255,107,90,.18)}
+.agent-card-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px}
+.agent-card-name{font-size:1.05rem;font-weight:700}
+.agent-card-price{font-size:.82rem;font-weight:700;color:var(--coral);white-space:nowrap}
+.agent-card-desc{font-size:.85rem;color:var(--text-mid);line-height:1.6;flex:1}
+.agent-card .agent-tag{margin-top:12px;display:inline-block}
+.scenario{display:grid;grid-template-columns:1fr 1fr;gap:56px;padding:72px 0;align-items:start;border-bottom:1px solid var(--border)}
+.scenario:last-child{border-bottom:none}
+.scenario.reverse{direction:rtl}.scenario.reverse>*{direction:ltr}
+.scenario-num{font-size:.7rem;font-weight:700;color:var(--coral);letter-spacing:1px;text-transform:uppercase;margin-bottom:6px}
+.scenario-title{font-size:1.5rem;font-weight:800;letter-spacing:-.2px;margin-bottom:6px}
+.scenario-persona{font-size:.82rem;color:var(--purple);font-weight:600;margin-bottom:16px}
+.scenario-context{font-size:.9rem;color:var(--text-mid);line-height:1.7;margin-bottom:20px}
+.scenario-context strong{color:var(--text);font-weight:600}
+.before-after{display:flex;flex-direction:column;gap:12px}
+.ba-block{border-radius:var(--radius-sm);padding:18px 20px}
+.ba-block.before{background:rgba(255,255,255,.025);border:1px solid var(--border)}
+.ba-block.after{background:var(--coral-dim);border:1px solid rgba(255,107,90,.1)}
+.ba-label{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;margin-bottom:6px}
+.ba-block.before .ba-label{color:var(--text-dim)}
+.ba-block.after .ba-label{color:var(--coral)}
+.ba-text{font-size:.85rem;line-height:1.6}
+.ba-block.before .ba-text{color:var(--text-dim)}
+.ba-block.after .ba-text{color:var(--text)}
+.outcome{display:flex;align-items:center;gap:10px;margin-top:16px;padding:12px 16px;background:var(--green-dim);border-radius:var(--radius-sm);border:1px solid rgba(74,222,128,.08)}
+.outcome-text{font-size:.82rem;color:var(--green);font-weight:600}
+.chat-preview{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
+.chat-header{background:rgba(255,107,90,.06);padding:10px 18px;display:flex;align-items:center;gap:8px;border-bottom:1px solid var(--border)}
+.chat-dot{width:7px;height:7px;border-radius:50%;background:var(--green)}
+.chat-header-text{font-size:.75rem;font-weight:600;color:var(--text-dim)}
+.chat-body{padding:16px;display:flex;flex-direction:column;gap:10px}
+.chat-msg{max-width:86%;padding:10px 14px;border-radius:14px;font-size:.82rem;line-height:1.55}
+.chat-msg.user{background:var(--coral);color:#fff;align-self:flex-end;border-bottom-right-radius:4px}
+.chat-msg.agent{background:rgba(255,255,255,.05);color:var(--text-mid);align-self:flex-start;border-bottom-left-radius:4px}
+.chat-msg.agent strong{color:var(--text)}
+.e2e-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:20px;margin-top:48px}
+.e2e-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:28px;transition:border-color .3s}
+.e2e-card:hover{border-color:rgba(184,169,255,.18)}
+.e2e-icon{font-size:1.6rem;margin-bottom:12px}
+.e2e-title{font-size:1.05rem;font-weight:700;margin-bottom:12px}
+.e2e-steps{list-style:none;display:flex;flex-direction:column;gap:8px}
+.e2e-step{font-size:.82rem;color:var(--text-mid);line-height:1.5;padding-left:20px;position:relative}
+.e2e-step::before{content:'';position:absolute;left:0;top:7px;width:8px;height:8px;border-radius:50%;border:2px solid var(--coral);background:transparent}
+.e2e-step:not(:last-child)::after{content:'';position:absolute;left:3px;top:17px;width:2px;height:calc(100% + 2px);background:var(--border)}
+.e2e-step .step-agent{color:var(--coral);font-weight:600;font-size:.72rem;display:block;margin-top:1px}
+.pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:24px;margin-top:48px;max-width:760px;margin-left:auto;margin-right:auto}
+.pricing-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:36px;text-align:center;transition:border-color .3s}
+.pricing-card:hover{border-color:rgba(255,107,90,.18)}
+.pricing-card.featured{border-color:rgba(255,107,90,.25);position:relative}
+.pricing-card.featured::before{content:'Most Popular';position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--coral);color:#fff;font-size:.7rem;font-weight:700;padding:4px 14px;border-radius:100px;letter-spacing:.5px}
+.pricing-tier{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--text-dim);margin-bottom:8px}
+.pricing-price{font-size:2.5rem;font-weight:800;margin-bottom:4px}
+.pricing-price span{font-size:1rem;font-weight:500;color:var(--text-dim)}
+.pricing-desc{font-size:.88rem;color:var(--text-mid);margin-bottom:20px;line-height:1.5}
+.pricing-includes{font-size:.82rem;color:var(--text-dim);line-height:1.7;margin-bottom:24px;text-align:left;padding:0 12px}
+.pricing-note{font-size:.75rem;color:var(--text-dim);margin-top:12px}
+.integrations{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px;justify-content:center}
+.int-tag{background:var(--bg-card);border:1px solid var(--border);padding:8px 18px;border-radius:100px;font-size:.8rem;font-weight:500;color:var(--text-mid)}
+.omni-grid{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-top:36px}
+.omni-item{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-sm);padding:16px 28px;text-align:center;min-width:110px}
+.omni-icon{font-size:1.5rem;margin-bottom:6px}
+.omni-label{font-size:.78rem;font-weight:600;color:var(--text-mid)}
+.insight{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:48px;text-align:center;margin-top:56px}
+.insight-text{font-size:1.3rem;font-weight:700;line-height:1.5;max-width:680px;margin:0 auto}
+.insight-text em{color:var(--coral);font-style:normal}
+.insight-sub{font-size:.9rem;color:var(--text-dim);margin-top:14px;max-width:560px;margin-left:auto;margin-right:auto;line-height:1.6}
+.cta-section{text-align:center;padding:100px 0}
+.cta-title{font-size:2.25rem;font-weight:800;letter-spacing:-.3px;margin-bottom:14px}
+.cta-sub{font-size:1rem;color:var(--text-dim);margin-bottom:36px;max-width:520px;margin-left:auto;margin-right:auto;line-height:1.65}
+.footer{border-top:1px solid var(--border);padding:36px 0;text-align:center}
+.footer-text{font-size:.78rem;color:var(--text-dim)}
+.footer-text a{color:var(--coral);text-decoration:none}
+@media(max-width:1024px){.persona-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:768px){
+  .hero .section-title{font-size:2.15rem}
+  .stats-bar{gap:24px}
+  .scenario{grid-template-columns:1fr;gap:28px}
+  .scenario.reverse{direction:ltr}
+  .persona-grid{grid-template-columns:1fr}
+  .pain-grid,.agent-grid,.e2e-grid,.pricing-grid{grid-template-columns:1fr}
+  .section{padding:64px 0}
+  .nav-links{display:none}
 }
-
-:focus-visible {
-  outline: 2px solid var(--coral);
-  outline-offset: 2px;
-}
-a:focus-visible, button:focus-visible {
-  outline: 2px solid var(--coral);
-  outline-offset: 2px;
-  border-radius: 4px;
-}
-
-html { overflow-x: hidden; width: 100%; max-width: 100vw; }
-body {
-  font-family: 'Manrope', sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  overflow-x: hidden;
-  width: 100%;
-  max-width: 100vw;
-  -webkit-font-smoothing: antialiased;
-  position: relative;
-}
-
-.texture-bg {
-  position: fixed; top: 0; left: 0;
-  width: 100%; height: 100%; z-index: 0;
-  background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.015) 1px, transparent 0);
-  background-size: 32px 32px;
-}
-
-.content { position: relative; z-index: 1; overflow: hidden; overflow-x: hidden; width: 100%; max-width: 100vw; box-sizing: border-box; }
-
-.orb { position: absolute; border-radius: 50%; filter: blur(120px); pointer-events: none; }
-.orb-1 { width: 500px; height: 500px; top: -150px; right: -100px; background: conic-gradient(from 180deg, rgba(70,234,237,0.1), rgba(255,180,164,0.08), rgba(235,195,20,0.04), rgba(70,234,237,0.1)); animation: orbSpin 30s linear infinite; }
-.orb-2 { width: 350px; height: 350px; top: 3000px; left: -120px; background: radial-gradient(circle, rgba(255,87,51,0.08), rgba(70,234,237,0.04), transparent); animation: orbFloat 14s ease-in-out infinite; }
-.orb-3 { width: 280px; height: 280px; top: 5500px; right: -80px; background: radial-gradient(circle, rgba(70,234,237,0.08), rgba(255,180,164,0.04), transparent); animation: orbFloat 18s ease-in-out infinite; }
-
-@keyframes orbSpin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-@keyframes orbFloat { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-40px); } }
-
-/* ===== NAV ===== */
-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 12px 24px; }
-
-.nav-inner {
-  max-width: 1200px; margin: 0 auto;
-  display: flex; justify-content: space-between; align-items: center;
-  background: rgba(19,19,22,0.80); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
-  border: none; border-radius: 16px; padding: 14px 28px;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
-}
-
-.logo { font-family: 'Space Grotesk', sans-serif; font-size: 24px; font-weight: 700; color: var(--text); letter-spacing: -0.02em; }
-.logo span { color: var(--coral-vivid); }
-
-.nav-links { display: flex; gap: 24px; list-style: none; align-items: center; }
-.nav-links a, .nav-links .nav-dropdown-trigger { font-family: 'Space Grotesk', sans-serif; color: rgba(228,225,230,0.6); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.3s; cursor: pointer; letter-spacing: -0.01em; }
-.nav-links a:hover, .nav-links .nav-dropdown-trigger:hover { color: var(--text); }
-
-.btn-nav {
-  background: linear-gradient(135deg, #FFB4A4, #FF5733); color: #580c00 !important; padding: 10px 22px;
-  border-radius: 10px; font-weight: 700; transition: all 0.3s; font-family: 'Space Grotesk', sans-serif; border: none; cursor: pointer;
-}
-.btn-nav:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(255,87,51,0.25); filter: brightness(1.1); }
-
-.nav-auth {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  margin-left: 24px;
-}
-.nav-login {
-  font-family: 'Space Grotesk', sans-serif;
-  color: rgba(228,225,230,0.6);
-  text-decoration: none;
-  font-size: 14px;
-  font-weight: 500;
-  transition: color 0.3s;
-}
-.nav-login:hover { color: var(--text); }
-.nav-signup {
-  font-family: 'Space Grotesk', sans-serif;
-  color: #580c00;
-  text-decoration: none;
-  font-size: 14px;
-  font-weight: 700;
-  background: linear-gradient(135deg, #FFB4A4, #FF5733);
-  padding: 8px 20px;
-  border-radius: 10px;
-  border: none;
-  transition: all 0.3s;
-  cursor: pointer;
-}
-.nav-signup:hover {
-  filter: brightness(1.1);
-  transform: translateY(-1px);
-  box-shadow: 0 8px 24px rgba(255,87,51,0.25);
-}
-
-.hamburger {
-  display: flex; align-items: center; gap: 8px;
-  background: none; border: none; cursor: pointer; padding: 8px; z-index: 1001;
-}
-.hamburger-lines {
-  display: flex; flex-direction: column; justify-content: center;
-  width: 20px; height: 14px;
-}
-.hamburger-lines span {
-  display: block; width: 100%; height: 1.5px;
-  background: var(--text); transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-.hamburger-lines span:first-child { margin-bottom: 5px; }
-.hamburger-active .hamburger-lines span:first-child {
-  transform: rotate(45deg) translate(2.3px, 2.3px);
-}
-.hamburger-active .hamburger-lines span:last-child {
-  transform: rotate(-45deg) translate(2.3px, -2.3px);
-}
-.hamburger-label {
-  font-family: 'Space Grotesk', sans-serif; font-size: 10px; font-weight: 500;
-  letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted);
-}
-
-.mobile-nav-overlay {
-  position: fixed; top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(12,11,18,0.6); backdrop-filter: blur(4px);
-  z-index: 999; opacity: 0; pointer-events: none;
-  transition: opacity 0.3s ease;
-}
-.mobile-nav-overlay.active { opacity: 1; pointer-events: auto; }
-
-.mobile-nav {
-  position: fixed; top: 0; right: 0; bottom: 0;
-  width: 300px; max-width: 85vw;
-  background: var(--surface); border-left: 1px solid var(--border);
-  z-index: 1002; transform: translateX(100%);
-  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  display: flex; flex-direction: column; padding: 80px 32px 40px;
-}
-.mobile-nav.active { transform: translateX(0); }
-.mobile-nav-label {
-  font-size: 10px; font-weight: 600; letter-spacing: 2px;
-  text-transform: uppercase; color: var(--muted); margin-bottom: 24px;
-}
-.mobile-nav a {
-  display: block; color: var(--text); text-decoration: none;
-  font-size: 18px; font-weight: 500; padding: 14px 0;
-  border-bottom: 1px solid var(--border); transition: color 0.3s;
-}
-.mobile-nav a:hover { color: var(--coral); }
-.mobile-nav .mobile-cta {
-  margin-top: 32px; display: inline-flex; align-items: center;
-  justify-content: center; gap: 8px; padding: 14px 28px;
-  background: var(--coral); color: #fff; border-radius: 10px;
-  font-weight: 600; font-size: 15px; border: none;
-  text-decoration: none; transition: all 0.3s; cursor: pointer;
-}
-.mobile-nav .mobile-cta:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(255,107,90,0.3); }
-
-/* ===== LAYOUT ===== */
-.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
-
-section { padding: 80px 0; }
-section.hero { padding: 140px 0 80px; }
-
-hr.divider {
-  border: none;
-  border-top: 1px solid var(--border);
-  margin: 0;
-}
-
-/* ===== BUTTONS ===== */
-.btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 12px 28px;
-  border-radius: 10px;
-  font-family: 'Space Grotesk', sans-serif;
-  font-weight: 600;
-  font-size: 14px;
-  text-decoration: none;
-  transition: all 0.3s;
-  border: none;
-  cursor: pointer;
-}
-.btn-primary {
-  background: linear-gradient(135deg, #FFB4A4, #FF5733);
-  color: #580c00 !important;
-}
-.btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 32px rgba(255,87,51,0.3);
-  filter: brightness(1.08);
-}
-.btn-secondary {
-  background: var(--surface);
-  color: var(--text);
-  border: 1px solid var(--border);
-}
-.btn-secondary:hover {
-  background: var(--card);
-  border-color: rgba(255,180,164,0.2);
-}
-
-/* ===== SECTION STYLING ===== */
-.section-label {
-  font-size: 11px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  color: var(--coral);
-  background: rgba(255,180,164,0.06);
-  padding: 6px 14px;
-  border-radius: 20px;
-  border: 1px solid rgba(255,180,164,0.12);
-  display: inline-block;
-  margin-bottom: 24px;
-}
-.section-title {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: clamp(24px, 3.5vw, 42px);
-  font-weight: 700;
-  letter-spacing: -1.5px;
-  line-height: 1.1;
-  margin-bottom: 16px;
-}
-.section-sub {
-  font-size: 16px;
-  color: var(--muted);
-  line-height: 1.6;
-  max-width: 600px;
-  margin-bottom: 40px;
-}
-
-/* ===== HERO ===== */
-.hero {
-  text-align: center;
-}
-.hero-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: rgba(255,180,164,0.06);
-  color: var(--coral);
-  padding: 8px 16px;
-  border-radius: 100px;
-  font-size: 13px;
-  font-weight: 600;
-  margin-bottom: 24px;
-  border: 1px solid rgba(255,180,164,0.12);
-}
-.hero-ctas {
-  display: flex;
-  gap: 12px;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin: 40px 0;
-}
-.stats-bar {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 24px;
-  margin-top: 60px;
-  max-width: 900px;
-  margin-left: auto;
-  margin-right: auto;
-}
-.stat {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 24px;
-  text-align: center;
-}
-.stat-num {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 28px;
-  font-weight: 700;
-  margin-bottom: 8px;
-}
-.stat-num.bad { color: var(--coral-vivid); }
-.stat-num.good { color: var(--lime); }
-.stat-label {
-  font-size: 13px;
-  color: var(--text);
-  font-weight: 500;
-  margin-bottom: 6px;
-}
-.stat-source {
-  font-size: 11px;
-  color: var(--muted);
-}
-.see-use-cases {
-  display: inline-block;
-  margin-top: 24px;
-  font-size: 14px;
-  color: var(--coral);
-  cursor: pointer;
-  transition: all 0.3s;
-  border: none;
-  background: none;
-  padding: 8px 0;
-  text-decoration: underline;
-}
-.see-use-cases:hover { color: var(--lime); }
-
-/* ===== PERSONAS ===== */
-.persona-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 16px;
-  margin-top: 48px;
-}
-.persona-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 24px;
-  transition: all 0.3s;
-}
-.persona-card:hover {
-  background: var(--card);
-  border-color: rgba(255,180,164,0.12);
-}
-.persona-emoji {
-  font-size: 32px;
-  margin-bottom: 12px;
-}
-.persona-name {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 16px;
-  font-weight: 700;
-  margin-bottom: 4px;
-}
-.persona-role {
-  font-size: 12px;
-  color: var(--muted);
-  margin-bottom: 12px;
-}
-.persona-pain {
-  font-size: 13px;
-  color: var(--text);
-  line-height: 1.6;
-  margin-bottom: 16px;
-}
-
-/* ===== AGENT TAGS ===== */
-.agent-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-}
-.agent-tag {
-  padding: 4px 10px;
-  border-radius: 6px;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.3px;
-  background: rgba(255,180,164,0.08);
-  color: var(--coral);
-}
-.agent-tag.frontline { background: rgba(255,180,164,0.08); color: var(--coral); }
-.agent-tag.qualifier { background: rgba(235,195,26,0.08); color: var(--amber); }
-.agent-tag.sales { background: rgba(70,234,237,0.08); color: var(--lime); }
-.agent-tag.content { background: rgba(70,234,237,0.08); color: var(--lime); }
-.agent-tag.review { background: rgba(255,87,51,0.08); color: var(--coral-vivid); }
-.agent-tag.support { background: rgba(255,255,255,0.04); color: var(--muted); }
-.agent-tag.report { background: rgba(70,234,237,0.08); color: var(--lime); }
-
-/* ===== AGENT CATALOG ===== */
-.agent-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 16px;
-  margin-top: 48px;
-}
-.agent-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 24px;
-  display: flex;
-  flex-direction: column;
-  transition: all 0.3s;
-}
-.agent-card:hover {
-  background: var(--card);
-  border-color: rgba(255,180,164,0.12);
-}
-.agent-card-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 10px;
-}
-.agent-card-name {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 16px;
-  font-weight: 700;
-}
-.agent-card-price {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 13px;
-  font-weight: 700;
-  color: var(--coral);
-  white-space: nowrap;
-}
-.agent-card-desc {
-  font-size: 14px;
-  color: var(--muted);
-  line-height: 1.6;
-  flex: 1;
-  margin-bottom: 12px;
-}
-
-/* ===== INTEGRATIONS ===== */
-.integrations {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  align-items: center;
-  margin-top: 36px;
-}
-.int-tag {
-  background: var(--card);
-  color: var(--text);
-  padding: 6px 12px;
-  border-radius: 8px;
-  font-size: 12px;
-  border: 1px solid var(--border);
-}
-
-/* ===== PAIN SECTION ===== */
-.pain-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 20px;
-  margin-top: 48px;
-}
-.pain-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 28px;
-  transition: all 0.3s;
-}
-.pain-card:hover {
-  border-color: rgba(255,180,164,0.18);
-}
-.pain-stat {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 32px;
-  font-weight: 800;
-  color: var(--coral-vivid);
-  margin-bottom: 8px;
-}
-.pain-headline {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 17px;
-  font-weight: 700;
-  margin-bottom: 12px;
-}
-.pain-text {
-  font-size: 14px;
-  color: var(--muted);
-  line-height: 1.6;
-  margin-bottom: 16px;
-}
-.pain-solve {
-  font-size: 13px;
-  color: var(--lime);
-  font-weight: 600;
-  padding-top: 16px;
-  border-top: 1px solid var(--border);
-}
-
-/* ===== USE CASES ===== */
-.scenario {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
-  align-items: center;
-  margin-bottom: 80px;
-}
-.scenario.reverse {
-  grid-template-columns: 1fr 1fr;
-  direction: rtl;
-}
-.scenario.reverse > * {
-  direction: ltr;
-}
-.scenario-num {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 11px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  color: var(--coral);
-  margin-bottom: 12px;
-}
-.scenario-title {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 28px;
-  font-weight: 700;
-  line-height: 1.2;
-  margin-bottom: 16px;
-}
-.scenario-persona {
-  font-size: 13px;
-  color: var(--muted);
-  margin-bottom: 16px;
-}
-.scenario-context {
-  font-size: 14px;
-  color: var(--text);
-  line-height: 1.6;
-  margin-bottom: 24px;
-}
-.scenario-context strong {
-  color: var(--lime);
-}
-.before-after {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-  margin-bottom: 24px;
-}
-.ba-block {
-  border-radius: 12px;
-  padding: 20px;
-}
-.ba-block.before {
-  background: rgba(255,255,255,0.02);
-  border: 1px solid var(--border);
-}
-.ba-block.after {
-  background: rgba(255,180,164,0.04);
-  border: 1px solid rgba(255,180,164,0.08);
-}
-.ba-label {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 12px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  color: var(--muted);
-  margin-bottom: 8px;
-}
-.ba-text {
-  font-size: 13px;
-  color: var(--text);
-  line-height: 1.6;
-}
-.outcome {
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  background: rgba(70,234,237,0.04);
-  border: 1px solid rgba(70,234,237,0.08);
-  border-radius: 12px;
-  padding: 16px;
-}
-.outcome span:first-child {
-  color: var(--lime);
-  font-weight: 700;
-  flex-shrink: 0;
-}
-.outcome-text {
-  font-size: 13px;
-  color: var(--lime);
-}
-
-/* ===== CHAT PREVIEW ===== */
-.chat-preview {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  overflow: hidden;
-}
-.chat-header {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 16px;
-  background: rgba(255,180,164,0.04);
-  border-bottom: 1px solid var(--border);
-}
-.chat-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--lime);
-}
-.chat-header-text {
-  font-size: 12px;
-  color: var(--muted);
-  font-weight: 600;
-}
-.chat-body {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  padding: 16px;
-  max-height: 300px;
-  overflow-y: auto;
-}
-.chat-msg {
-  padding: 12px 16px;
-  border-radius: 12px;
-  font-size: 13px;
-  line-height: 1.5;
-}
-.chat-msg.user {
-  background: rgba(255,180,164,0.1);
-  color: var(--text);
-  align-self: flex-end;
-  max-width: 80%;
-  border-bottom-right-radius: 4px;
-}
-.chat-msg.agent {
-  background: rgba(255,255,255,0.04);
-  color: var(--muted);
-  align-self: flex-start;
-  max-width: 80%;
-  border-bottom-left-radius: 4px;
-}
-.chat-msg.agent strong {
-  color: var(--text);
-}
-
-/* ===== END-TO-END WORKFLOWS ===== */
-.e2e-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 24px;
-  margin-top: 48px;
-}
-.e2e-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 28px;
-  transition: all 0.3s;
-}
-.e2e-card:hover {
-  background: var(--card);
-  border-color: rgba(255,180,164,0.12);
-}
-.e2e-icon {
-  font-size: 36px;
-  margin-bottom: 16px;
-}
-.e2e-title {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 18px;
-  font-weight: 700;
-  margin-bottom: 20px;
-}
-.e2e-steps {
-  list-style: none;
-}
-.e2e-step {
-  font-size: 13px;
-  color: var(--text);
-  padding: 12px 0;
-  padding-left: 24px;
-  position: relative;
-  line-height: 1.6;
-}
-.e2e-step::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 16px;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--coral);
-  border: 2px solid var(--surface);
-}
-.e2e-step:not(:last-child)::after {
-  content: '';
-  position: absolute;
-  left: 3px;
-  top: 24px;
-  width: 2px;
-  height: 20px;
-  background: var(--border);
-}
-.e2e-step strong {
-  color: var(--lime);
-}
-.step-agent {
-  font-size: 10px;
-  color: var(--muted);
-  display: block;
-  margin-top: 2px;
-}
-
-/* ===== PRICING ===== */
-.pricing-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-  gap: 24px;
-  margin-top: 48px;
-  max-width: 760px;
-  margin-left: auto;
-  margin-right: auto;
-}
-.pricing-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 36px;
-  text-align: center;
-  transition: all 0.3s;
-  position: relative;
-}
-.pricing-card:hover {
-  background: var(--card);
-  border-color: rgba(255,180,164,0.18);
-}
-.pricing-card.featured {
-  border-color: rgba(255,180,164,0.25);
-  background: rgba(255,180,164,0.02);
-}
-.pricing-card.featured::before {
-  content: 'Most Popular';
-  position: absolute;
-  top: -12px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: var(--coral);
-  color: #fff;
-  font-size: 11px;
-  font-weight: 700;
-  padding: 4px 14px;
-  border-radius: 100px;
-  letter-spacing: 0.5px;
-}
-.pricing-tier {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 11px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  color: var(--muted);
-  margin-bottom: 12px;
-}
-.pricing-price {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 44px;
-  font-weight: 800;
-  margin-bottom: 8px;
-}
-.pricing-price span {
-  font-size: 16px;
-  font-weight: 500;
-  color: var(--muted);
-}
-.pricing-desc {
-  font-size: 14px;
-  color: var(--text);
-  margin-bottom: 20px;
-  line-height: 1.6;
-}
-.pricing-includes {
-  font-size: 13px;
-  color: var(--muted);
-  line-height: 1.8;
-  margin-bottom: 24px;
-  text-align: left;
-  padding: 0 12px;
-}
-.pricing-note {
-  font-size: 12px;
-  color: var(--muted);
-  margin-top: 16px;
-}
-
-/* ===== OMNICHANNEL ===== */
-.omni-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 16px;
-  margin-top: 48px;
-  max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
-}
-.omni-item {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 24px;
-  text-align: center;
-  transition: all 0.3s;
-}
-.omni-item:hover {
-  background: var(--card);
-  border-color: rgba(255,180,164,0.12);
-}
-.omni-icon {
-  font-size: 32px;
-  margin-bottom: 12px;
-}
-.omni-label {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--text);
-}
-
-.insight {
-  margin-top: 48px;
-  text-align: center;
-  padding: 32px 24px;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-}
-.insight-text {
-  font-size: 16px;
-  color: var(--text);
-  line-height: 1.7;
-  margin-bottom: 12px;
-}
-.insight-text em {
-  color: var(--lime);
-  font-style: normal;
-}
-.insight-sub {
-  font-size: 13px;
-  color: var(--muted);
-}
-
-/* ===== CTA SECTION ===== */
-.cta-section {
-  background: var(--surface);
-  padding: 80px 0;
-  text-align: center;
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-}
-.cta-title {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: clamp(24px, 3.5vw, 44px);
-  font-weight: 700;
-  letter-spacing: -1px;
-  line-height: 1.2;
-  margin-bottom: 12px;
-}
-.cta-sub {
-  font-size: 16px;
-  color: var(--muted);
-  margin-bottom: 32px;
-  max-width: 500px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* ===== FOOTER ===== */
-footer {
-  border-top: 1px solid rgba(228,225,230,0.05);
-  padding: 64px 24px 32px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-.footer-inner {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 32px;
-}
-.footer-brand {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-.footer-logo {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 20px;
-  font-weight: 700;
-  color: var(--text);
-  text-decoration: none;
-  letter-spacing: -0.02em;
-}
-.footer-logo span {
-  color: var(--coral-vivid);
-}
-.footer-tagline {
-  font-size: 13px;
-  color: rgba(228,225,230,0.5);
-  max-width: 280px;
-  line-height: 1.6;
-}
-.footer-nav {
-  display: flex;
-  gap: 48px;
-}
-.footer-col h4 {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--text);
-  margin-bottom: 16px;
-}
-.footer-col a {
-  display: block;
-  color: rgba(228,225,230,0.5);
-  text-decoration: none;
-  font-size: 14px;
-  padding: 4px 0;
-  transition: color 0.3s;
-}
-.footer-col a:hover {
-  color: var(--text);
-}
-.footer-col button {
-  display: block;
-  color: rgba(228,225,230,0.5);
-  text-decoration: none;
-  font-size: 14px;
-  padding: 4px 0;
-  transition: color 0.3s;
-  background: none;
-  border: none;
-  font: inherit;
-  cursor: pointer;
-}
-.footer-col button:hover {
-  color: var(--text);
-}
-.footer-divider {
-  border: none;
-  border-top: 1px solid rgba(228,225,230,0.05);
-  margin-bottom: 20px;
-}
-.footer-bottom {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.footer-credit {
-  font-size: 12px;
-  color: rgba(228,225,230,0.5);
-}
-.footer-socials {
-  display: flex;
-  gap: 16px;
-  align-items: center;
-}
-.footer-socials a {
-  color: var(--muted);
-  transition: color 0.3s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.footer-socials a:hover {
-  color: var(--text);
-}
-.footer-socials svg {
-  width: 18px;
-  height: 18px;
-}
-
-/* ===== STICKY CTA & SCROLL TO TOP ===== */
-.sticky-cta {
-  position: fixed; bottom: 0; left: 0; right: 0; z-index: 50;
-  background: linear-gradient(180deg, transparent, rgba(19,19,22,0.95));
-  padding: 24px 24px 16px;
-  display: none;
-  max-width: 100vw;
-}
-.sticky-cta.visible { display: block; }
-.sticky-cta button {
-  width: 100%; padding: 14px; border-radius: 10px;
-  background: linear-gradient(135deg, #FFB4A4, #FF5733);
-  color: #580c00; font-weight: 700; font-size: 15px;
-  border: none; cursor: pointer; transition: all 0.3s;
-}
-.sticky-cta button:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(255,87,51,0.25); }
-
-.scroll-top {
-  position: fixed; bottom: 32px; right: 32px; z-index: 100;
-  width: 48px; height: 48px; border-radius: 12px;
-  background: var(--surface); border: 1px solid var(--border);
-  display: flex; align-items: center; justify-content: center;
-  color: var(--text); cursor: pointer; transition: all 0.3s;
-  opacity: 0; pointer-events: none;
-}
-.scroll-top.visible { opacity: 1; pointer-events: auto; }
-.scroll-top:hover { background: var(--card); transform: translateY(-2px); }
-.scroll-top svg { width: 20px; height: 20px; }
-
-/* ===== RESPONSIVE ===== */
-img, iframe, video, embed, object, svg { max-width: 100%; }
-
-@media (max-width: 1100px) {
-  .persona-grid { grid-template-columns: repeat(3, 1fr); }
-  .scenario { grid-template-columns: 1fr; gap: 32px; }
-  .scenario.reverse { direction: ltr; }
-}
-
-@media (max-width: 900px) {
-  nav { padding: 12px 16px; }
-  .nav-inner { padding: 12px 20px; }
-  .nav-links { display: none; }
-  .nav-auth { display: none; }
-  section { padding: 60px 0; }
-  section.hero { padding: 120px 0 60px; }
-  .container { padding: 0 16px; }
-  .persona-grid { grid-template-columns: repeat(3, 1fr); gap: 12px; }
-  .agent-grid { grid-template-columns: repeat(2, 1fr); }
-  .pain-grid { grid-template-columns: 1fr; }
-  .e2e-grid { grid-template-columns: 1fr; }
-  .before-after { grid-template-columns: 1fr; }
-  .footer-nav { flex-direction: column; gap: 24px; }
-  .footer-inner { flex-direction: column; gap: 24px; }
-  .footer-bottom { flex-direction: column; gap: 12px; }
-  .scroll-top { bottom: 24px; right: 24px; }
-}
-
-@media (max-width: 600px) {
-  section { padding: 40px 16px 60px; }
-  section.hero { padding: 100px 16px 60px; }
-  .container { padding: 0 16px; }
-  .section-title { font-size: 28px; }
-  .section-sub { font-size: 14px; }
-  .persona-grid { grid-template-columns: 1fr; gap: 12px; }
-  .agent-grid { grid-template-columns: 1fr; }
-  .stats-bar { grid-template-columns: 1fr; gap: 16px; }
-  .hero-ctas { flex-direction: column; }
-  .btn { width: 100%; justify-content: center; }
-  .omni-grid { grid-template-columns: repeat(2, 1fr); }
-  .pricing-grid { grid-template-columns: 1fr; }
-  .cta-title { font-size: 24px; }
-  .footer-socials { flex-wrap: wrap; justify-content: center; }
-  .sticky-cta { padding: 16px 16px 12px; }
-}
-
-@media (max-width: 380px) {
-  section { padding: 32px 16px 48px; }
-  section.hero { padding: 80px 16px 48px; }
-  .section-title { font-size: 20px; }
-  .section-label { font-size: 10px; padding: 4px 10px; }
-  .stat-num { font-size: 24px; }
-  .omni-grid { grid-template-columns: 1fr; }
-}
-
-
 </style>
-
 </head>
 <body>
 
-<div class="texture-bg"></div>
-<div class="content">
-
-<div class="orb orb-1"></div>
-<div class="orb orb-2"></div>
-<div class="orb orb-3"></div>
-
-<nav>
-  <div class="nav-inner">
-    <div style="display:flex;align-items:center;gap:16px;">
-      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
-        <div class="hamburger-lines"><span></span><span></span></div>
-        <span class="hamburger-label">Menu</span>
-      </button>
-      <a href="index.html" class="logo" style="text-decoration:none;">kazo<span>zo</span></a>
-    </div>
-    <ul class="nav-links">
-      <li><a href="index.html#agents">Agents</a></li>
-      <li><a href="#pricing">Pricing</a></li>
-      <li><a href="industries.html">Industries</a></li>
-      <li><a href="simulation.html">Simulation</a></li>
-      <li><button type="button" onclick="if(window.KazozoWidget){window.KazozoWidget.open()}else{document.getElementById('cta').scrollIntoView({behavior:'smooth'})}" class="btn-nav" style="font-family:inherit;font-size:inherit;">Talk to Kaz</button></li>
-    </ul>
-    <div class="nav-auth">
-      <a href="https://api.kazozo.com/customer-login.html" class="nav-login">Login</a>
-      <a href="https://api.kazozo.com/signup.html" class="nav-signup">Get Started</a>
-    </div>
+<nav class="nav"><div class="nav-inner">
+  <a href="https://kazozo.com" class="nav-logo"><span>k</span>azozo</a>
+  <div class="nav-links">
+    <a href="https://kazozo.com/index.html#agents">Agents</a>
+    <a href="#use-cases">Use Cases</a>
+    <a href="https://kazozo.com/pricing.html">Pricing</a>
+    <a href="https://kazozo.com/industries.html">Industries</a>
+    <a href="https://kazozo.com/simulation.html">Simulation</a>
+    <a href="https://kazozo.com" class="nav-cta">Talk to Kaz &rarr;</a>
   </div>
-</nav>
-
-<div class="mobile-nav-overlay" id="mobileOverlay"></div>
-<div class="mobile-nav" id="mobileNav">
-  <span class="mobile-nav-label">Navigate</span>
-  <a href="index.html#agents" class="mobile-nav-link">Agents</a>
-  <a href="#pricing" class="mobile-nav-link">Pricing</a>
-  <a href="industries.html" class="mobile-nav-link">Industries</a>
-  <a href="simulation.html" class="mobile-nav-link">Simulation</a>
-  <button type="button" onclick="if(window.KazozoWidget){window.KazozoWidget.open()}else{document.getElementById('cta').scrollIntoView({behavior:'smooth'})};closeMobileNav();" class="mobile-cta" style="font-family:inherit;cursor:pointer;margin-top:32px;">Talk to Kaz</button>
-  <div style="display:flex; gap:12px; margin-top:12px; padding:0 24px;">
-    <a href="https://api.kazozo.com/customer-login.html" class="mobile-nav-link" style="flex:1; text-align:center;">Login</a>
-    <a href="https://api.kazozo.com/signup.html" class="mobile-cta" style="flex:1; text-align:center; margin:0;">Get Started</a>
-  </div>
-</div>
+</div></nav>
 
 <section class="hero">
-<div class="container">
-<div class="hero-badge">📋 AI Agents for Insurance Agencies</div>
-<h1 class="section-title">Insurance agents spend 14 hours per week on admin — Kazozo automates it all, instantly</h1>
-<p class="section-sub">AI agents handling quotes, policy renewals, claims triage, and compliance docs. Agents close more deals in less time.</p>
-<div class="hero-ctas">
-<button type="button" onclick="if(window.KazozoWidget){window.KazozoWidget.open()}else{document.getElementById('cta').scrollIntoView({behavior:'smooth'})}" class="btn btn-primary">Talk to Kaz</button>
-<a class="btn btn-secondary" href="simulation.html">Try a Simulation</a>
-</div>
-<div class="stats-bar">
-<div class="stat"><div class="stat-num bad">14 hrs</div><div class="stat-label">Agents spend per week on admin tasks</div><div class="stat-source">Insurance Journal 2024</div></div>
-<div class="stat"><div class="stat-num bad">35%</div><div class="stat-label">Of quotes go unfinalized due to follow-up friction</div><div class="stat-source">Agency Metrics Study</div></div>
-<div class="stat"><div class="stat-num bad">2.8 days</div><div class="stat-label">Average response time to policy questions</div><div class="stat-source">Industry Average</div></div>
-<div class="stat"><div class="stat-num good">&lt;60s</div><div class="stat-label">Kazozo response time</div></div>
-</div>
-</div>
+  <div class="container">
+    <div class="hero-badge">📋 AI Agents for Insurance Agencies</div>
+    <h1 class="section-title">Insurance agents spend 14 hours per week on admin — Kazozo automates it all, instantly</h1>
+    <p class="section-sub">AI agents handling quotes, policy renewals, claims triage, and compliance docs. Agents close more deals in less time.</p>
+    <div class="hero-ctas">
+      <a href="https://kazozo.com" class="btn btn-primary">Talk to Kaz &rarr;</a>
+      <a href="https://kazozo.com/simulation.html" class="btn btn-secondary">Try a Simulation</a>
+    </div>
+    <div class="stats-bar">
+      <div class="stat"><div class="stat-num bad">14 hrs</div><div class="stat-label">Agents spend per week on admin tasks</div><div class="stat-source">Insurance Journal 2024</div></div>
+      <div class="stat"><div class="stat-num bad">35%</div><div class="stat-label">Of quotes go unfinalized due to follow-up friction</div><div class="stat-source">Agency Metrics Study</div></div>
+      <div class="stat"><div class="stat-num bad">2.8 days</div><div class="stat-label">Average response time to policy questions</div><div class="stat-source">Industry Average</div></div>
+      <div class="stat"><div class="stat-num good"><60s</div><div class="stat-label">Kazozo response time</div></div>
+    </div>
+  </div>
 </section>
 
-<hr class="divider"/>
+<hr class="divider">
 
-<section id="who">
-<div class="container">
-<div class="section-label">Built for how you actually work</div>
-<h2 class="section-title">Who uses Kazozo in insurance</h2>
-<div class="persona-grid">
-<div class="persona-card">
-<div class="persona-emoji">👔</div>
-<div class="persona-name">Robert Martinez</div>
-<div class="persona-role">Independent P&amp;C Agent · 50+ Clients</div>
-<p class="persona-pain">Juggling calls, emails, and quotes from prospects and existing clients. Spends 3+ hours daily just fielding basic questions about deductibles, coverage, and renewal dates. Misses sales opportunities.</p>
-<div class="agent-tags">
-<span class="agent-tag frontline">Frontline Agent</span>
-<span class="agent-tag qualifier">Lead Qualifier</span>
-</div>
-</div>
-<div class="persona-card">
-<div class="persona-emoji">📋</div>
-<div class="persona-name">Angela Foster</div>
-<div class="persona-role">Benefits Broker · Mid-Size Firm</div>
-<p class="persona-pain">Employer clients call with payroll deduction questions, benefits explanations, and claims status inquiries. Administrative staff overwhelmed. Can't scale to new clients without hiring.</p>
-<div class="agent-tags">
-<span class="agent-tag support">Customer Support</span>
-<span class="agent-tag qualifier">Lead Qualifier</span>
-</div>
-</div>
-<div class="persona-card">
-<div class="persona-emoji">💼</div>
-<div class="persona-name">James Lin</div>
-<div class="persona-role">Life Insurance Agent · Solo Practice</div>
-<p class="persona-pain">Spends 6 hours/week on quote follow-ups and policy document explanations. Many prospects abandon after quote — no one to answer their midnight questions about terms.</p>
-<div class="agent-tags">
-<span class="agent-tag frontline">Frontline Agent</span>
-<span class="agent-tag report">Weekly Report</span>
-</div>
-</div>
-<div class="persona-card">
-<div class="persona-emoji">🏢</div>
-<div class="persona-name">Diana Vasquez</div>
-<div class="persona-role">Agency Manager · Regional Brokerage (25 Agents)</div>
-<p class="persona-pain">Manages a team spread across 3 offices. Clients call with questions; agents are with other clients. Missed callbacks damage relationships. Turnover in her agency is 22% annually.</p>
-<div class="agent-tags">
-<span class="agent-tag frontline">Frontline Agent</span>
-</div>
-</div>
-<div class="persona-card">
-<div class="persona-emoji">🔍</div>
-<div class="persona-name">Keith Thompson</div>
-<div class="persona-role">Claims Manager · Insurance Firm</div>
-<p class="persona-pain">Claim inquiries arrive via email, phone, portal, and mail. No intelligent triage. Some urgent claims sit in queue while routine inquiries get fast responses. Compliance risk.</p>
-<div class="agent-tags">
-<span class="agent-tag qualifier">Lead Qualifier</span>
-<span class="agent-tag support">Customer Support</span>
-</div>
-</div>
-</div>
-</div>
+<section class="section" id="who">
+  <div class="container">
+    <div class="section-label">Built for how you actually work</div>
+    <h2 class="section-title">Who uses Kazozo in insurance</h2>
+    <div class="persona-grid">
+
+      <div class="persona-card">
+        <div class="persona-emoji">👔</div>
+        <div class="persona-name">Robert Martinez</div>
+        <div class="persona-role">Independent P&C Agent · 50+ Clients</div>
+        <p class="persona-pain">Juggling calls, emails, and quotes from prospects and existing clients. Spends 3+ hours daily just fielding basic questions about deductibles, coverage, and renewal dates. Misses sales opportunities.</p>
+        <div class="agent-tags">
+          <span class="agent-tag frontline">Frontline Agent</span>
+          <span class="agent-tag qualifier">Lead Qualifier</span>
+        </div>
+      </div>
+
+      <div class="persona-card">
+        <div class="persona-emoji">📋</div>
+        <div class="persona-name">Angela Foster</div>
+        <div class="persona-role">Benefits Broker · Mid-Size Firm</div>
+        <p class="persona-pain">Employer clients call with payroll deduction questions, benefits explanations, and claims status inquiries. Administrative staff overwhelmed. Can't scale to new clients without hiring.</p>
+        <div class="agent-tags">
+          <span class="agent-tag support">Customer Support</span>
+          <span class="agent-tag qualifier">Lead Qualifier</span>
+        </div>
+      </div>
+
+      <div class="persona-card">
+        <div class="persona-emoji">💼</div>
+        <div class="persona-name">James Lin</div>
+        <div class="persona-role">Life Insurance Agent · Solo Practice</div>
+        <p class="persona-pain">Spends 6 hours/week on quote follow-ups and policy document explanations. Many prospects abandon after quote — no one to answer their midnight questions about terms.</p>
+        <div class="agent-tags">
+          <span class="agent-tag frontline">Frontline Agent</span>
+          <span class="agent-tag report">Weekly Report</span>
+        </div>
+      </div>
+
+      <div class="persona-card">
+        <div class="persona-emoji">🏢</div>
+        <div class="persona-name">Diana Vasquez</div>
+        <div class="persona-role">Agency Manager · Regional Brokerage (25 Agents)</div>
+        <p class="persona-pain">Manages a team spread across 3 offices. Clients call with questions; agents are with other clients. Missed callbacks damage relationships. Turnover in her agency is 22% annually.</p>
+        <div class="agent-tags">
+          <span class="agent-tag frontline">Frontline Agent</span>
+        </div>
+      </div>
+
+      <div class="persona-card">
+        <div class="persona-emoji">🔍</div>
+        <div class="persona-name">Keith Thompson</div>
+        <div class="persona-role">Claims Manager · Insurance Firm</div>
+        <p class="persona-pain">Claim inquiries arrive via email, phone, portal, and mail. No intelligent triage. Some urgent claims sit in queue while routine inquiries get fast responses. Compliance risk.</p>
+        <div class="agent-tags">
+          <span class="agent-tag qualifier">Lead Qualifier</span>
+          <span class="agent-tag support">Customer Support</span>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<hr class="divider"/>
+<hr class="divider">
 
-<section id="agents">
-<div class="container">
-<div class="section-label">What's included</div>
-<h2 class="section-title">Agents configured for insurance</h2>
-<p class="section-sub">All agents are fully compliant with state insurance regulations and HIPAA. Integrates with your CRM, carrier systems, and document repositories.</p>
-<div class="agent-grid">
-<div class="agent-card">
-<div class="agent-card-header">
-<div class="agent-card-name">Frontline Agent</div>
-<div class="agent-card-price">$0.12/res</div>
-</div>
-<p class="agent-card-desc">Responds to prospect and client inquiries about policies, coverage, and quotes instantly. Captures lead details and urgency level. Includes appointment scheduling — checks availability and books directly into your calendar.</p>
-<span class="agent-tag frontline">Speed-to-lead</span>
-</div>
-<div class="agent-card">
-<div class="agent-card-header">
-<div class="agent-card-name">Lead Qualifier</div>
-<div class="agent-card-price">$0.45/res</div>
-</div>
-<p class="agent-card-desc">Qualifies prospects based on needs (term life vs. whole, P&amp;C vs. benefits). Routes high-intent leads to agents for closing.</p>
-<span class="agent-tag qualifier">Conversion</span>
-</div>
-<div class="agent-card">
-<div class="agent-card-header">
-<div class="agent-card-name">Customer Support</div>
-<div class="agent-card-price">$0.28/res</div>
-</div>
-<p class="agent-card-desc">Handles policy questions, claims status, billing issues, and beneficiary updates. Reduces support calls by 65%.</p>
-<span class="agent-tag support">Retention</span>
-</div>
-<div class="agent-card">
-<div class="agent-card-header">
-<div class="agent-card-name">Service Operations</div>
-<div class="agent-card-price">$0.30/res</div>
-</div>
-<p class="agent-card-desc">Generates custom quotes, applies carrier rates, and sends auto-follow-ups. Finalizes 40% more quotes through automation.</p>
-<span class="agent-tag operations">Efficiency</span>
-</div>
-<div class="agent-card">
-<div class="agent-card-header">
-<div class="agent-card-name">Content Agent</div>
-<div class="agent-card-price">$0.95/res</div>
-</div>
-<p class="agent-card-desc">Auto-generates policy documents, disclosure forms, compliance letters, and enrollment summaries. Saves 4 hours/agent per week.</p>
-<span class="agent-tag content">Compliance</span>
-</div>
-</div>
-<div class="integrations" style="margin-top:36px">
-<span style="font-size:.78rem;color:var(--text-dim);font-weight:600;padding:8px 0">Integrates with:</span>
-<span class="int-tag">Salesforce</span>
-<span class="int-tag">Hubspot</span>
-<span class="int-tag">Applied Epic</span>
-<span class="int-tag">Carriers API</span>
-<span class="int-tag">DocuSign</span>
-<span class="int-tag">Stripe</span>
-<span class="int-tag">Gmail</span>
-<span class="int-tag">Twilio</span>
-</div>
-</div>
+<section class="section" id="agents">
+  <div class="container">
+    <div class="section-label">What's included</div>
+    <h2 class="section-title">Agents configured for insurance</h2>
+    <p class="section-sub">All agents are fully compliant with state insurance regulations and HIPAA. Integrates with your CRM, carrier systems, and document repositories.</p>
+    <div class="agent-grid">
+
+      <div class="agent-card">
+        <div class="agent-card-header">
+          <div class="agent-card-name">Frontline Agent</div>
+          <div class="agent-card-price">$0.12/res</div>
+        </div>
+        <p class="agent-card-desc">Responds to prospect and client inquiries about policies, coverage, and quotes instantly. Captures lead details and urgency level. Includes appointment scheduling — checks availability and books directly into your calendar.</p>
+        <span class="agent-tag frontline">Speed-to-lead</span>
+      </div>
+
+      <div class="agent-card">
+        <div class="agent-card-header">
+          <div class="agent-card-name">Lead Qualifier</div>
+          <div class="agent-card-price">$0.45/res</div>
+        </div>
+        <p class="agent-card-desc">Qualifies prospects based on needs (term life vs. whole, P&C vs. benefits). Routes high-intent leads to agents for closing.</p>
+        <span class="agent-tag qualifier">Conversion</span>
+      </div>
+
+      <div class="agent-card">
+        <div class="agent-card-header">
+          <div class="agent-card-name">Customer Support</div>
+          <div class="agent-card-price">$0.28/res</div>
+        </div>
+        <p class="agent-card-desc">Handles policy questions, claims status, billing issues, and beneficiary updates. Reduces support calls by 65%.</p>
+        <span class="agent-tag support">Retention</span>
+      </div>
+
+      <div class="agent-card">
+        <div class="agent-card-header">
+          <div class="agent-card-name">Service Operations</div>
+          <div class="agent-card-price">$0.30/res</div>
+        </div>
+        <p class="agent-card-desc">Generates custom quotes, applies carrier rates, and sends auto-follow-ups. Finalizes 40% more quotes through automation.</p>
+        <span class="agent-tag operations">Efficiency</span>
+      </div>
+
+      <div class="agent-card">
+        <div class="agent-card-header">
+          <div class="agent-card-name">Content Agent</div>
+          <div class="agent-card-price">$0.95/res</div>
+        </div>
+        <p class="agent-card-desc">Auto-generates policy documents, disclosure forms, compliance letters, and enrollment summaries. Saves 4 hours/agent per week.</p>
+        <span class="agent-tag content">Compliance</span>
+      </div>
+    </div>
+    <div class="integrations" style="margin-top:36px">
+      <span style="font-size:.78rem;color:var(--text-dim);font-weight:600;padding:8px 0">Integrates with:</span>
+      <span class="int-tag">Salesforce</span>
+      <span class="int-tag">Hubspot</span>
+      <span class="int-tag">Applied Epic</span>
+      <span class="int-tag">Carriers API</span>
+      <span class="int-tag">DocuSign</span>
+      <span class="int-tag">Stripe</span>
+      <span class="int-tag">Gmail</span>
+      <span class="int-tag">Twilio</span>
+    </div>
+  </div>
 </section>
 
-<hr class="divider"/>
+<hr class="divider">
 
-<section id="pain">
-<div class="container">
-<div class="section-label">The real problem</div>
-<h2 class="section-title">The insurance industry's silent killer: Manual admin work</h2>
-<p class="section-sub">Agents aren't selling — they're drowning in quotes, callbacks, and compliance paperwork.</p>
-<div class="pain-grid">
-<div class="pain-card">
-<div class="pain-stat">14 hrs</div>
-<div class="pain-headline">Wasted admin time per week per agent</div>
-<div class="pain-text">Insurance agents spend 14 hours every week on non-selling tasks: quote follow-ups, policy document requests, eligibility checks, and compliance paperwork. At $50/hour, that's $700/week per agent in lost productivity.</div>
-<div class="pain-solve">Kazozo handles 100% of these tasks. Agents focus on relationship-building and closing.</div>
-</div>
-<div class="pain-card">
-<div class="pain-stat">35%</div>
-<div class="pain-headline">Quotes abandoned due to friction</div>
-<div class="pain-text">35% of prospects don't finalize policies after receiving quotes. Main reason: lack of immediate clarification on terms, deductibles, or coverage gaps. No one to answer at 10 PM.</div>
-<div class="pain-solve">Support Agent answers policy questions instantly, any time. Quote-to-close rate jumps 28%.</div>
-</div>
-<div class="pain-card">
-<div class="pain-stat">2.8 days</div>
-<div class="pain-headline">Slow response on policy questions</div>
-<div class="pain-text">Average agency takes 2.8 days to respond to client questions about policy changes, claims status, or renewal details. Clients get frustrated and look elsewhere.</div>
-<div class="pain-solve">Kazozo responds in &lt;60 seconds. 78% of client questions resolved without agent involvement.</div>
-</div>
-<div class="pain-card">
-<div class="pain-stat">$8K/yr</div>
-<div class="pain-headline">Per-agent compliance and documentation cost</div>
-<div class="pain-text">Generating disclosure forms, compliance letters, enrollment documents, and policy summaries costs agencies $8,000–$12,000 per agent annually in staff time. High error risk.</div>
-<div class="pain-solve">Document Generator creates compliant, error-free documents in seconds. Integrates with DocuSign for e-signature.</div>
-</div>
-<div class="pain-card">
-<div class="pain-stat">22%</div>
-<div class="pain-headline">Agent turnover rate in regional agencies</div>
-<div class="pain-text">Agencies struggle with high turnover (22% annually) because agents are overwhelmed with administrative burden. Burnout rate is high; sales productivity is low.</div>
-<div class="pain-solve">Automate admin → agents focus on selling → happier, more productive teams → lower turnover.</div>
-</div>
-<div class="pain-card">
-<div class="pain-stat">40%</div>
-<div class="pain-headline">Claims processing delays without triage</div>
-<div class="pain-text">Insurance firms without intelligent triage route all claims the same way. Critical, time-sensitive claims sit in queue next to routine inquiries. Compliance risk and customer frustration.</div>
-<div class="pain-solve">Claims Triage Agent prioritizes by urgency, coverage type, and legal deadline. Critical claims seen within 1 hour.</div>
-</div>
-</div>
-</div>
+<section class="section" id="pain">
+  <div class="container">
+    <div class="section-label">The real problem</div>
+    <h2 class="section-title">The insurance industry's silent killer: Manual admin work</h2>
+    <p class="section-sub">Agents aren't selling — they're drowning in quotes, callbacks, and compliance paperwork.</p>
+    <div class="pain-grid">
+
+      <div class="pain-card">
+        <div class="pain-stat">14 hrs</div>
+        <div class="pain-headline">Wasted admin time per week per agent</div>
+        <div class="pain-text">Insurance agents spend 14 hours every week on non-selling tasks: quote follow-ups, policy document requests, eligibility checks, and compliance paperwork. At $50/hour, that's $700/week per agent in lost productivity.</div>
+        <div class="pain-solve">Kazozo handles 100% of these tasks. Agents focus on relationship-building and closing.</div>
+      </div>
+
+      <div class="pain-card">
+        <div class="pain-stat">35%</div>
+        <div class="pain-headline">Quotes abandoned due to friction</div>
+        <div class="pain-text">35% of prospects don't finalize policies after receiving quotes. Main reason: lack of immediate clarification on terms, deductibles, or coverage gaps. No one to answer at 10 PM.</div>
+        <div class="pain-solve">Support Agent answers policy questions instantly, any time. Quote-to-close rate jumps 28%.</div>
+      </div>
+
+      <div class="pain-card">
+        <div class="pain-stat">2.8 days</div>
+        <div class="pain-headline">Slow response on policy questions</div>
+        <div class="pain-text">Average agency takes 2.8 days to respond to client questions about policy changes, claims status, or renewal details. Clients get frustrated and look elsewhere.</div>
+        <div class="pain-solve">Kazozo responds in <60 seconds. 78% of client questions resolved without agent involvement.</div>
+      </div>
+
+      <div class="pain-card">
+        <div class="pain-stat">$8K/yr</div>
+        <div class="pain-headline">Per-agent compliance and documentation cost</div>
+        <div class="pain-text">Generating disclosure forms, compliance letters, enrollment documents, and policy summaries costs agencies $8,000–$12,000 per agent annually in staff time. High error risk.</div>
+        <div class="pain-solve">Document Generator creates compliant, error-free documents in seconds. Integrates with DocuSign for e-signature.</div>
+      </div>
+
+      <div class="pain-card">
+        <div class="pain-stat">22%</div>
+        <div class="pain-headline">Agent turnover rate in regional agencies</div>
+        <div class="pain-text">Agencies struggle with high turnover (22% annually) because agents are overwhelmed with administrative burden. Burnout rate is high; sales productivity is low.</div>
+        <div class="pain-solve">Automate admin → agents focus on selling → happier, more productive teams → lower turnover.</div>
+      </div>
+
+      <div class="pain-card">
+        <div class="pain-stat">40%</div>
+        <div class="pain-headline">Claims processing delays without triage</div>
+        <div class="pain-text">Insurance firms without intelligent triage route all claims the same way. Critical, time-sensitive claims sit in queue next to routine inquiries. Compliance risk and customer frustration.</div>
+        <div class="pain-solve">Claims Triage Agent prioritizes by urgency, coverage type, and legal deadline. Critical claims seen within 1 hour.</div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<hr class="divider"/>
+<hr class="divider">
 
-<section id="use-cases">
-<div class="container">
-<div class="section-label">Use cases</div>
-<h2 class="section-title">See the agents in action</h2>
-<p class="section-sub">Real scenarios. Real insurance workflows. This is what happens when a prospect hits your pipeline.</p>
-<div>
-<div class="scenario">
-<div>
-<div class="scenario-num">Agent 01 · Frontline Agent</div>
-<h3 class="scenario-title">Prospect texts 'How much is life insurance?' at 11 PM</h3>
-<div class="scenario-persona">James Lin · Life Insurance Agent</div>
-<p class="scenario-context">Prospect finds James's website, clicks live chat. James is offline. Prospect is price-shopping competitors.</p>
-<div class="before-after">
-<div class="ba-block before"><div class="ba-label">Without Kazozo</div><div class="ba-text">Chat sits unanswered until morning. Prospect books call with competitor. Lost opportunity.</div></div>
-<div class="ba-block after"><div class="ba-label">With Kazozo</div><div class="ba-text">Frontline Agent responds instantly with ballpark quotes, coverage explanation, and a time to chat with James.</div></div>
-</div>
-<div class="outcome"><span>✓</span><span class="outcome-text">42% of after-hours inquiries convert to calls with James (vs. 0% before). Close rate: 18%.</span></div>
-</div>
-<div class="chat-preview">
-<div class="chat-header"><div class="chat-dot"></div><div class="chat-header-text">Kaz · Frontline Agent · Quote Inquiry</div></div>
-<div class="chat-body">
-<div class="chat-msg user">How much is term life insurance for a 35-year-old?</div>
-<div class="chat-msg agent">Great question! <strong>$250K/20-year term: ~$15–25/mo</strong> (non-smoker, good health). <strong>$500K: ~$22–35/mo</strong>. Health details affect price. Can James call you tomorrow?</div>
-<div class="chat-msg user">Morning works. 9 AM?</div>
-<div class="chat-msg agent">Perfect! <strong>9 AM tomorrow</strong> — James will explain coverage options and custom quotes. Have a good night!</div>
-</div>
-</div>
-</div>
-<div class="scenario reverse">
-<div>
-<div class="scenario-num">Agent 02 · Lead Qualifier</div>
-<h3 class="scenario-title">Is this prospect ready to buy or just shopping? Know in 2 minutes</h3>
-<div class="scenario-persona">Robert Martinez · P&amp;C Agent</div>
-<p class="scenario-context">Robert gets 8 auto insurance inquiries per day. Some are serious; most are price-shopping.</p>
-<div class="before-after">
-<div class="ba-block before"><div class="ba-label">Without Kazozo</div><div class="ba-text">Robert calls everyone, wastes time on tire-kickers. Closes 12% of inquiries. Frustrated.</div></div>
-<div class="ba-block after"><div class="ba-label">With Kazozo</div><div class="ba-text">Qualifier asks 4 questions, scores intent, flags hot prospects for Robert to call first.</div></div>
-</div>
-<div class="outcome"><span>✓</span><span class="outcome-text">Robert closes 28% of hot leads (vs. 12% overall). Conversation quality higher. Less time wasted.</span></div>
-</div>
-<div class="chat-preview">
-<div class="chat-header"><div class="chat-dot"></div><div class="chat-header-text">Kaz · Lead Qualifier · Readiness Check</div></div>
-<div class="chat-body">
-<div class="chat-msg user">Need auto insurance quote</div>
-<div class="chat-msg agent">Got it. Quick questions: <strong>When do you need coverage to start — immediately, or within 30 days?</strong></div>
-<div class="chat-msg user">ASAP. Current policy expires in 2 days</div>
-<div class="chat-msg agent"><strong>URGENT FLAG.</strong> Does your current agent know you're switching? <span style="color:#ff6b5a">(HOT LEAD — Ready this week)</span></div>
-</div>
-</div>
-</div>
-<div class="scenario">
-<div>
-<div class="scenario-num">Agent 03 · Customer Support</div>
-<h3 class="scenario-title">Claim status question answered instantly — no callback loop</h3>
-<div class="scenario-persona">Angela Foster · Benefits Broker</div>
-<p class="scenario-context">Client calls asking about health claim status. It's 4 PM Friday. Staff are handling other clients. Claim was submitted 3 days ago.</p>
-<div class="before-after">
-<div class="ba-block before"><div class="ba-label">Without Kazozo</div><div class="ba-text">Client waits for callback Monday. Meanwhile, they email twice more. Frustration mounts.</div></div>
-<div class="ba-block after"><div class="ba-label">With Kazozo</div><div class="ba-text">Support Agent pulls claim status from carrier system, explains timeline, and confirms next steps.</div></div>
-</div>
-<div class="outcome"><span>✓</span><span class="outcome-text">Client gets answer in 2 minutes. No staff time spent. No follow-up emails needed.</span></div>
-</div>
-<div class="chat-preview">
-<div class="chat-header"><div class="chat-dot"></div><div class="chat-header-text">Kaz · Customer Support</div></div>
-<div class="chat-body">
-<div class="chat-msg user">I need help with this.</div>
-<div class="chat-msg agent"><strong>I can help.</strong> Let me get the details and route this to the right person immediately.</div>
-</div>
-</div>
-</div>
-<div class="scenario reverse">
-<div>
-<div class="scenario-num">Agent 04 · Service Operations</div>
-<h3 class="scenario-title">Quote to finalized policy in 24 hours — fully automated</h3>
-<div class="scenario-persona">Diana Vasquez · Agency Manager</div>
-<p class="scenario-context">New client requests quote for employee group health plan. Quote needs carrier rates, customization, and legal review.</p>
-<div class="before-after">
-<div class="ba-block before"><div class="ba-label">Without Kazozo</div><div class="ba-text">Process takes 3–5 days: agent gathers info → carrier quotes → agent reviews → sends to client → client asks questions → agent clarifies → loop again.</div></div>
-<div class="ba-block after"><div class="ba-label">With Kazozo</div><div class="ba-text">Quote Processor generates custom quote in 30 minutes, auto-sends with explanation, auto-follows up on Day 2 and 5.</div></div>
-</div>
-<div class="outcome"><span>✓</span><span class="outcome-text">70% of quotes finalized without agent involvement. Turnaround time: 24 hours (vs. 4 days).</span></div>
-</div>
-<div class="chat-preview">
-<div class="chat-header"><div class="chat-dot"></div><div class="chat-header-text">Kaz · Service Operations · Custom Quote</div></div>
-<div class="chat-body">
-<div class="chat-msg agent"><strong>Here's your custom group health quote:</strong> 100 employees, PPO + High-Deductible. Total monthly: $28,500. Per-employee cost: $285/mo.</div>
-<div class="chat-msg user">Can we see HMO instead?</div>
-<div class="chat-msg agent">Absolutely. <strong>HMO quote: $22,100/mo (100 employees)</strong>. Stricter network, lower out-of-pocket. Which fits better?</div>
-</div>
-</div>
-</div>
-<div class="scenario">
-<div>
-<div class="scenario-num">Agent 05 · Customer Support</div>
-<h3 class="scenario-title">Critical claim routed to adjuster in 15 minutes — not 2 days</h3>
-<div class="scenario-persona">Keith Thompson · Claims Manager</div>
-<p class="scenario-context">Incoming claim: auto accident with $45K in damage. Claimant requests same-day appraisal. Claim arrives via online portal at 9 AM.</p>
-<div class="before-after">
-<div class="ba-block before"><div class="ba-label">Without Kazozo</div><div class="ba-text">Generic triage: claim sits in queue with 200 others. Adjuster sees it 2 days later. Claimant calls, frustrated. Compliance risk.</div></div>
-<div class="ba-block after"><div class="ba-label">With Kazozo</div><div class="ba-text">Triage Agent identifies claim as urgent (high-value, time-sensitive), routes to available adjuster in 15 minutes.</div></div>
-</div>
-<div class="outcome"><span>✓</span><span class="outcome-text">Urgent claims routed within 1 hour (vs. 2 days). Claimant satisfaction +40%. Compliance risk eliminated.</span></div>
-</div>
-<div class="chat-preview">
-<div class="chat-header"><div class="chat-dot"></div><div class="chat-header-text">Kaz · Claims Triage · Routing</div></div>
-<div class="chat-body">
-<div class="chat-msg system"><strong>AUTO ACCIDENT CLAIM — URGENT.</strong> Damage: $45K. Appraisal requested same-day. Routed to Adjuster Maria Chen. ETA: 15 min.</div>
-<div class="chat-msg user">Great! Will someone call me?</div>
-<div class="chat-msg system"><strong>Yes.</strong> Maria will call within 1 hour to schedule appraisal. Her number: [XXX-XXX-XXXX].</div>
-</div>
-</div>
-</div>
-<div class="scenario reverse">
-<div>
-<div class="scenario-num">Agent 06 · Content Agent</div>
-<h3 class="scenario-title">Policy documents and compliance forms generated error-free in seconds</h3>
-<div class="scenario-persona">James Lin · Life Insurance Agent</div>
-<p class="scenario-context">James closes a $500K life insurance policy. Client needs: policy summary, beneficiary form, disclosure, and enrollment documents.</p>
-<div class="before-after">
-<div class="ba-block before"><div class="ba-label">Without Kazozo</div><div class="ba-text">James or admin staff manually populate 4 documents using templates. 45 minutes of work. Risk of errors (wrong client name, coverage details).</div></div>
-<div class="ba-block after"><div class="ba-label">With Kazozo</div><div class="ba-text">Document Generator auto-generates all 4 docs, pre-filled with client data, ready for e-signature.</div></div>
-</div>
-<div class="outcome"><span>✓</span><span class="outcome-text">4 documents generated and sent in 4 minutes. Zero errors. Client e-signs within 2 hours.</span></div>
-</div>
-<div class="chat-preview">
-<div class="chat-header"><div class="chat-dot"></div><div class="chat-header-text">Kaz · Document Gen · Policy Setup</div></div>
-<div class="chat-body">
-<div class="chat-msg agent">Your policy documents are ready! <strong>4 documents to e-sign:</strong> Policy Summary, Beneficiary Form, Disclosure, Enrollment. Click here: [link]</div>
-<div class="chat-msg user">Signed all! When does coverage start?</div>
-<div class="chat-msg agent"><strong>Coverage starts Monday.</strong> We've sent your welcome packet with payment instructions and emergency contact info. Welcome!</div>
-</div>
-</div>
-</div>
-<div class="scenario">
-<div>
-<div class="scenario-num">Agent 07 · Frontline Agent</div>
-<h3 class="scenario-title">Policy review meetings booked automatically — no calendar ping-pong</h3>
-<div class="scenario-persona">Robert Martinez · P&amp;C Agent</div>
-<p class="scenario-context">Client needs annual policy review. Robert's schedule is full for 2 weeks. Client's schedule is flexible.</p>
-<div class="before-after">
-<div class="ba-block before"><div class="ba-label">Without Kazozo</div><div class="ba-text">Robert texts client: 'When are you free?' Client texts back 3 times before they find a slot. 20 minutes of admin work.</div></div>
-<div class="ba-block after"><div class="ba-label">With Kazozo</div><div class="ba-text">Scheduler sends client available times. Client picks one. Calendar invite sent. Reminder sent 24 hours before.</div></div>
-</div>
-<div class="outcome"><span>✓</span><span class="outcome-text">Scheduling time eliminated. No missed appointments. Clients like the autonomy.</span></div>
-</div>
-<div class="chat-preview">
-<div class="chat-header"><div class="chat-dot"></div><div class="chat-header-text">Kaz · Scheduler · Review Manager Meeting</div></div>
-<div class="chat-body">
-<div class="chat-msg agent"><strong>Time for your annual policy review!</strong> Robert has these slots available: Tuesday 2 PM, Wednesday 10 AM, Friday 3 PM. What works?</div>
-<div class="chat-msg user">Wednesday 10</div>
-<div class="chat-msg agent"><strong>Perfect!</strong> Booked: Wednesday 10 AM with Robert. You'll get a reminder Tuesday evening. See you then!</div>
-</div>
-</div>
-</div>
-<div class="scenario reverse">
-<div>
-<div class="scenario-num">Agent 08 · Sales Agent</div>
-<h3 class="scenario-title">New policy holder set up in 12 hours — benefits explained, payments confirmed</h3>
-<div class="scenario-persona">Angela Foster · Benefits Broker</div>
-<p class="scenario-context">New employee in a group health plan. Needs: plan explanation, benefits setup, payment method, and portal login.</p>
-<div class="before-after">
-<div class="ba-block before"><div class="ba-label">Without Kazozo</div><div class="ba-text">New hire calls with basic questions. Admin staff spend 30 minutes explaining plan tiers, deductibles, and enrollment process.</div></div>
-<div class="ba-block after"><div class="ba-label">With Kazozo</div><div class="ba-text">Onboarding Specialist guides new hire through SMS. Explains benefits in plain language, walks through portal, confirms payment.</div></div>
-</div>
-<div class="outcome"><span>✓</span><span class="outcome-text">30-minute admin task automated. New hire feels supported. Portal adoption rate: 92% (vs. 60% before).</span></div>
-</div>
-<div class="chat-preview">
-<div class="chat-header"><div class="chat-dot"></div><div class="chat-header-text">Kaz · Onboarding · New Hire Setup</div></div>
-<div class="chat-body">
-<div class="chat-msg agent">Welcome to your new health plan! 🎉 I'll walk you through benefits. First: <strong>You have 3 plan options.</strong> Most popular: PPO + $1,500 deductible. Familiar with deductibles?</div>
-<div class="chat-msg user">Not really</div>
-<div class="chat-msg agent"><strong>Deductible:</strong> Amount you pay before insurance kicks in. $1,500 is common, covers most people's annual expenses. You have until [DATE] to choose. Questions?</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+<section class="section" id="use-cases">
+  <div class="container">
+    <div class="section-label">Use cases</div>
+    <h2 class="section-title">See the agents in action</h2>
+    <p class="section-sub">Real scenarios. Real insurance workflows. This is what happens when a prospect hits your pipeline.</p>
+    <div>
+
+      <div class="scenario">
+        <div>
+          <div class="scenario-num">Agent 01 · Frontline Agent</div>
+          <h3 class="scenario-title">Prospect texts 'How much is life insurance?' at 11 PM</h3>
+          <div class="scenario-persona">James Lin · Life Insurance Agent</div>
+          <p class="scenario-context">Prospect finds James's website, clicks live chat. James is offline. Prospect is price-shopping competitors.</p>
+          <div class="before-after">
+            <div class="ba-block before"><div class="ba-label">Without Kazozo</div><div class="ba-text">Chat sits unanswered until morning. Prospect books call with competitor. Lost opportunity.</div></div>
+            <div class="ba-block after"><div class="ba-label">With Kazozo</div><div class="ba-text">Frontline Agent responds instantly with ballpark quotes, coverage explanation, and a time to chat with James.</div></div>
+          </div>
+          <div class="outcome"><span>✓</span><span class="outcome-text">42% of after-hours inquiries convert to calls with James (vs. 0% before). Close rate: 18%.</span></div>
+        </div>
+        <div class="chat-preview">
+          <div class="chat-header"><div class="chat-dot"></div><div class="chat-header-text">Kaz · Frontline Agent · Quote Inquiry</div></div>
+          <div class="chat-body">
+            <div class="chat-msg user">How much is term life insurance for a 35-year-old?</div>
+            <div class="chat-msg agent">Great question! <strong>$250K/20-year term: ~$15–25/mo</strong> (non-smoker, good health). <strong>$500K: ~$22–35/mo</strong>. Health details affect price. Can James call you tomorrow?</div>
+            <div class="chat-msg user">Morning works. 9 AM?</div>
+            <div class="chat-msg agent">Perfect! <strong>9 AM tomorrow</strong> — James will explain coverage options and custom quotes. Have a good night!</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="scenario reverse">
+        <div>
+          <div class="scenario-num">Agent 02 · Lead Qualifier</div>
+          <h3 class="scenario-title">Is this prospect ready to buy or just shopping? Know in 2 minutes</h3>
+          <div class="scenario-persona">Robert Martinez · P&C Agent</div>
+          <p class="scenario-context">Robert gets 8 auto insurance inquiries per day. Some are serious; most are price-shopping.</p>
+          <div class="before-after">
+            <div class="ba-block before"><div class="ba-label">Without Kazozo</div><div class="ba-text">Robert calls everyone, wastes time on tire-kickers. Closes 12% of inquiries. Frustrated.</div></div>
+            <div class="ba-block after"><div class="ba-label">With Kazozo</div><div class="ba-text">Qualifier asks 4 questions, scores intent, flags hot prospects for Robert to call first.</div></div>
+          </div>
+          <div class="outcome"><span>✓</span><span class="outcome-text">Robert closes 28% of hot leads (vs. 12% overall). Conversation quality higher. Less time wasted.</span></div>
+        </div>
+        <div class="chat-preview">
+          <div class="chat-header"><div class="chat-dot"></div><div class="chat-header-text">Kaz · Lead Qualifier · Readiness Check</div></div>
+          <div class="chat-body">
+            <div class="chat-msg user">Need auto insurance quote</div>
+            <div class="chat-msg agent">Got it. Quick questions: <strong>When do you need coverage to start — immediately, or within 30 days?</strong></div>
+            <div class="chat-msg user">ASAP. Current policy expires in 2 days</div>
+            <div class="chat-msg agent"><strong>URGENT FLAG.</strong> Does your current agent know you're switching? <span style='color:#ff6b5a'>(HOT LEAD — Ready this week)</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="scenario">
+        <div>
+          <div class="scenario-num">Agent 03 · Customer Support</div>
+          <h3 class="scenario-title">Claim status question answered instantly — no callback loop</h3>
+          <div class="scenario-persona">Angela Foster · Benefits Broker</div>
+          <p class="scenario-context">Client calls asking about health claim status. It's 4 PM Friday. Staff are handling other clients. Claim was submitted 3 days ago.</p>
+          <div class="before-after">
+            <div class="ba-block before"><div class="ba-label">Without Kazozo</div><div class="ba-text">Client waits for callback Monday. Meanwhile, they email twice more. Frustration mounts.</div></div>
+            <div class="ba-block after"><div class="ba-label">With Kazozo</div><div class="ba-text">Support Agent pulls claim status from carrier system, explains timeline, and confirms next steps.</div></div>
+          </div>
+          <div class="outcome"><span>✓</span><span class="outcome-text">Client gets answer in 2 minutes. No staff time spent. No follow-up emails needed.</span></div>
+        </div>
+        <div class="chat-preview">
+          <div class="chat-header"><div class="chat-dot"></div><div class="chat-header-text">Kaz · Customer Support</div></div>
+          <div class="chat-body">
+
+            <div class="chat-msg user">I need help with this.</div>
+            <div class="chat-msg agent"><strong>I can help.</strong> Let me get the details and route this to the right person immediately.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="scenario reverse">
+        <div>
+          <div class="scenario-num">Agent 04 · Service Operations</div>
+          <h3 class="scenario-title">Quote to finalized policy in 24 hours — fully automated</h3>
+          <div class="scenario-persona">Diana Vasquez · Agency Manager</div>
+          <p class="scenario-context">New client requests quote for employee group health plan. Quote needs carrier rates, customization, and legal review.</p>
+          <div class="before-after">
+            <div class="ba-block before"><div class="ba-label">Without Kazozo</div><div class="ba-text">Process takes 3–5 days: agent gathers info → carrier quotes → agent reviews → sends to client → client asks questions → agent clarifies → loop again.</div></div>
+            <div class="ba-block after"><div class="ba-label">With Kazozo</div><div class="ba-text">Quote Processor generates custom quote in 30 minutes, auto-sends with explanation, auto-follows up on Day 2 and 5.</div></div>
+          </div>
+          <div class="outcome"><span>✓</span><span class="outcome-text">70% of quotes finalized without agent involvement. Turnaround time: 24 hours (vs. 4 days).</span></div>
+        </div>
+        <div class="chat-preview">
+          <div class="chat-header"><div class="chat-dot"></div><div class="chat-header-text">Kaz · Service Operations · Custom Quote</div></div>
+          <div class="chat-body">
+            <div class="chat-msg agent"><strong>Here's your custom group health quote:</strong> 100 employees, PPO + High-Deductible. Total monthly: $28,500. Per-employee cost: $285/mo.</div>
+            <div class="chat-msg user">Can we see HMO instead?</div>
+            <div class="chat-msg agent">Absolutely. <strong>HMO quote: $22,100/mo (100 employees)</strong>. Stricter network, lower out-of-pocket. Which fits better?</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="scenario">
+        <div>
+          <div class="scenario-num">Agent 05 · Customer Support</div>
+          <h3 class="scenario-title">Critical claim routed to adjuster in 15 minutes — not 2 days</h3>
+          <div class="scenario-persona">Keith Thompson · Claims Manager</div>
+          <p class="scenario-context">Incoming claim: auto accident with $45K in damage. Claimant requests same-day appraisal. Claim arrives via online portal at 9 AM.</p>
+          <div class="before-after">
+            <div class="ba-block before"><div class="ba-label">Without Kazozo</div><div class="ba-text">Generic triage: claim sits in queue with 200 others. Adjuster sees it 2 days later. Claimant calls, frustrated. Compliance risk.</div></div>
+            <div class="ba-block after"><div class="ba-label">With Kazozo</div><div class="ba-text">Triage Agent identifies claim as urgent (high-value, time-sensitive), routes to available adjuster in 15 minutes.</div></div>
+          </div>
+          <div class="outcome"><span>✓</span><span class="outcome-text">Urgent claims routed within 1 hour (vs. 2 days). Claimant satisfaction +40%. Compliance risk eliminated.</span></div>
+        </div>
+        <div class="chat-preview">
+          <div class="chat-header"><div class="chat-dot"></div><div class="chat-header-text">Kaz · Claims Triage · Routing</div></div>
+          <div class="chat-body">
+            <div class="chat-msg system"><strong>AUTO ACCIDENT CLAIM — URGENT.</strong> Damage: $45K. Appraisal requested same-day. Routed to Adjuster Maria Chen. ETA: 15 min.</div>
+            <div class="chat-msg user">Great! Will someone call me?</div>
+            <div class="chat-msg system"><strong>Yes.</strong> Maria will call within 1 hour to schedule appraisal. Her number: [XXX-XXX-XXXX].</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="scenario reverse">
+        <div>
+          <div class="scenario-num">Agent 06 · Content Agent</div>
+          <h3 class="scenario-title">Policy documents and compliance forms generated error-free in seconds</h3>
+          <div class="scenario-persona">James Lin · Life Insurance Agent</div>
+          <p class="scenario-context">James closes a $500K life insurance policy. Client needs: policy summary, beneficiary form, disclosure, and enrollment documents.</p>
+          <div class="before-after">
+            <div class="ba-block before"><div class="ba-label">Without Kazozo</div><div class="ba-text">James or admin staff manually populate 4 documents using templates. 45 minutes of work. Risk of errors (wrong client name, coverage details).</div></div>
+            <div class="ba-block after"><div class="ba-label">With Kazozo</div><div class="ba-text">Document Generator auto-generates all 4 docs, pre-filled with client data, ready for e-signature.</div></div>
+          </div>
+          <div class="outcome"><span>✓</span><span class="outcome-text">4 documents generated and sent in 4 minutes. Zero errors. Client e-signs within 2 hours.</span></div>
+        </div>
+        <div class="chat-preview">
+          <div class="chat-header"><div class="chat-dot"></div><div class="chat-header-text">Kaz · Document Gen · Policy Setup</div></div>
+          <div class="chat-body">
+            <div class="chat-msg agent">Your policy documents are ready! <strong>4 documents to e-sign:</strong> Policy Summary, Beneficiary Form, Disclosure, Enrollment. Click here: [link]</div>
+            <div class="chat-msg user">Signed all! When does coverage start?</div>
+            <div class="chat-msg agent"><strong>Coverage starts Monday.</strong> We've sent your welcome packet with payment instructions and emergency contact info. Welcome!</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="scenario">
+        <div>
+          <div class="scenario-num">Agent 07 · Frontline Agent</div>
+          <h3 class="scenario-title">Policy review meetings booked automatically — no calendar ping-pong</h3>
+          <div class="scenario-persona">Robert Martinez · P&C Agent</div>
+          <p class="scenario-context">Client needs annual policy review. Robert's schedule is full for 2 weeks. Client's schedule is flexible.</p>
+          <div class="before-after">
+            <div class="ba-block before"><div class="ba-label">Without Kazozo</div><div class="ba-text">Robert texts client: 'When are you free?' Client texts back 3 times before they find a slot. 20 minutes of admin work.</div></div>
+            <div class="ba-block after"><div class="ba-label">With Kazozo</div><div class="ba-text">Scheduler sends client available times. Client picks one. Calendar invite sent. Reminder sent 24 hours before.</div></div>
+          </div>
+          <div class="outcome"><span>✓</span><span class="outcome-text">Scheduling time eliminated. No missed appointments. Clients like the autonomy.</span></div>
+        </div>
+        <div class="chat-preview">
+          <div class="chat-header"><div class="chat-dot"></div><div class="chat-header-text">Kaz · Scheduler · Review Manager Meeting</div></div>
+          <div class="chat-body">
+            <div class="chat-msg agent"><strong>Time for your annual policy review!</strong> Robert has these slots available: Tuesday 2 PM, Wednesday 10 AM, Friday 3 PM. What works?</div>
+            <div class="chat-msg user">Wednesday 10</div>
+            <div class="chat-msg agent"><strong>Perfect!</strong> Booked: Wednesday 10 AM with Robert. You'll get a reminder Tuesday evening. See you then!</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="scenario reverse">
+        <div>
+          <div class="scenario-num">Agent 08 · Sales Agent</div>
+          <h3 class="scenario-title">New policy holder set up in 12 hours — benefits explained, payments confirmed</h3>
+          <div class="scenario-persona">Angela Foster · Benefits Broker</div>
+          <p class="scenario-context">New employee in a group health plan. Needs: plan explanation, benefits setup, payment method, and portal login.</p>
+          <div class="before-after">
+            <div class="ba-block before"><div class="ba-label">Without Kazozo</div><div class="ba-text">New hire calls with basic questions. Admin staff spend 30 minutes explaining plan tiers, deductibles, and enrollment process.</div></div>
+            <div class="ba-block after"><div class="ba-label">With Kazozo</div><div class="ba-text">Onboarding Specialist guides new hire through SMS. Explains benefits in plain language, walks through portal, confirms payment.</div></div>
+          </div>
+          <div class="outcome"><span>✓</span><span class="outcome-text">30-minute admin task automated. New hire feels supported. Portal adoption rate: 92% (vs. 60% before).</span></div>
+        </div>
+        <div class="chat-preview">
+          <div class="chat-header"><div class="chat-dot"></div><div class="chat-header-text">Kaz · Onboarding · New Hire Setup</div></div>
+          <div class="chat-body">
+            <div class="chat-msg agent">Welcome to your new health plan! 🎉 I'll walk you through benefits. First: <strong>You have 3 plan options.</strong> Most popular: PPO + $1,500 deductible. Familiar with deductibles?</div>
+            <div class="chat-msg user">Not really</div>
+            <div class="chat-msg agent"><strong>Deductible:</strong> Amount you pay before insurance kicks in. $1,500 is common, covers most people's annual expenses. You have until [DATE] to choose. Questions?</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<hr class="divider"/>
+<hr class="divider">
 
-<section id="workflows">
-<div class="container">
-<div class="section-label">End-to-end</div>
-<h2 class="section-title">Agents work together, not in silos</h2>
-<p class="section-sub">The real power is when multiple agents handle a workflow from start to finish.</p>
-<div class="e2e-grid">
-<div class="e2e-card">
-<div class="e2e-icon">🌐</div>
-<div class="e2e-title">Lead to Policy Issuance</div>
-<ul class="e2e-steps">
-<li class="e2e-step"><strong>Frontline Agent Agent</strong> captures prospect inquiry and initial needs<span class="step-agent">Frontline Agent</span></li>
-<li class="e2e-step"><strong>Lead Lead Qualifier</strong> assesses intent and prioritizes for agent follow-up<span class="step-agent">Lead Qualifier</span></li>
-<li class="e2e-step"><strong>Service Operations</strong> generates custom quote and auto-sends<span class="step-agent">Service Operations</span></li>
-<li class="e2e-step"><strong>Content Agent</strong> creates policy docs and enrollment forms for e-signature<span class="step-agent">Content Agent</span></li>
-<li class="e2e-step"><strong>Frontline Agent</strong> books final review call if needed<span class="step-agent">Frontline Agent</span></li>
-</ul>
-</div>
-<div class="e2e-card">
-<div class="e2e-icon">📋</div>
-<div class="e2e-title">Claims Intake &amp; Routing</div>
-<ul class="e2e-steps">
-<li class="e2e-step"><strong>Customer Support</strong> receives claim, assesses urgency and coverage type<span class="step-agent">Lead Qualifier</span></li>
-<li class="e2e-step"><strong>Content Agent</strong> auto-generates proof-of-loss form and sends to claimant<span class="step-agent">Content Agent</span></li>
-<li class="e2e-step"><strong>Customer Customer Support</strong> monitors claim status and provides updates to claimant<span class="step-agent">Customer Support</span></li>
-</ul>
-</div>
-<div class="e2e-card">
-<div class="e2e-icon">💼</div>
-<div class="e2e-title">Client Support &amp; Retention</div>
-<ul class="e2e-steps">
-<li class="e2e-step"><strong>Customer Customer Support</strong> answers policy questions, coverage clarifications, and claims status<span class="step-agent">Customer Support</span></li>
-<li class="e2e-step"><strong>Frontline Agent</strong> books renewal or policy review calls<span class="step-agent">Frontline Agent</span></li>
-<li class="e2e-step"><strong>Content Agent</strong> creates renewal documents or coverage change forms<span class="step-agent">Content Agent</span></li>
-</ul>
-</div>
-<div class="e2e-card">
-<div class="e2e-icon">🔄</div>
-<div class="e2e-title">Enrollment &amp; Onboarding</div>
-<ul class="e2e-steps">
-<li class="e2e-step"><strong>Sales Agent</strong> guides new client through plan options and benefits<span class="step-agent">Sales Agent</span></li>
-<li class="e2e-step"><strong>Content Agent</strong> creates enrollment docs, beneficiary forms, and disclosure statements<span class="step-agent">Content Agent</span></li>
-<li class="e2e-step"><strong>Customer Customer Support</strong> follows up on payment setup and portal access<span class="step-agent">Customer Support</span></li>
-</ul>
-</div>
-<div class="e2e-card">
-<div class="e2e-icon">📞</div>
-<div class="e2e-title">Group Benefits Administration</div>
-<ul class="e2e-steps">
-<li class="e2e-step"><strong>Service Operations</strong> generates custom group quotes with carrier rates<span class="step-agent">Service Operations</span></li>
-<li class="e2e-step"><strong>Content Agent</strong> creates group enrollment summaries and compliance docs<span class="step-agent">Content Agent</span></li>
-<li class="e2e-step"><strong>Frontline Agent</strong> books carrier meetings and benefits fairs<span class="step-agent">Frontline Agent</span></li>
-</ul>
-</div>
-<div class="e2e-card">
-<div class="e2e-icon">✅</div>
-<div class="e2e-title">Annual Renewal &amp; Compliance</div>
-<ul class="e2e-steps">
-<li class="e2e-step"><strong>Frontline Agent</strong> auto-books annual policy review meetings (30 days before renewal)<span class="step-agent">Frontline Agent</span></li>
-<li class="e2e-step"><strong>Content Agent</strong> creates renewal proposals and rate comparison documents<span class="step-agent">Content Agent</span></li>
-<li class="e2e-step"><strong>Customer Customer Support</strong> follows up on renewals and handles carrier communication<span class="step-agent">Customer Support</span></li>
-</ul>
-</div>
-</div>
-</div>
+<section class="section" id="workflows">
+  <div class="container">
+    <div class="section-label">End-to-end</div>
+    <h2 class="section-title">Agents work together, not in silos</h2>
+    <p class="section-sub">The real power is when multiple agents handle a workflow from start to finish.</p>
+    <div class="e2e-grid">
+
+      <div class="e2e-card">
+        <div class="e2e-icon">🌐</div>
+        <div class="e2e-title">Lead to Policy Issuance</div>
+        <ul class="e2e-steps">
+          <li class="e2e-step"><strong>Frontline Agent Agent</strong> captures prospect inquiry and initial needs<span class="step-agent">Frontline Agent</span></li>
+          <li class="e2e-step"><strong>Lead Lead Qualifier</strong> assesses intent and prioritizes for agent follow-up<span class="step-agent">Lead Qualifier</span></li>
+          <li class="e2e-step"><strong>Service Operations</strong> generates custom quote and auto-sends<span class="step-agent">Service Operations</span></li>
+          <li class="e2e-step"><strong>Content Agent</strong> creates policy docs and enrollment forms for e-signature<span class="step-agent">Content Agent</span></li>
+          <li class="e2e-step"><strong>Frontline Agent</strong> books final review call if needed<span class="step-agent">Frontline Agent</span></li>
+        </ul>
+      </div>
+
+      <div class="e2e-card">
+        <div class="e2e-icon">📋</div>
+        <div class="e2e-title">Claims Intake & Routing</div>
+        <ul class="e2e-steps">
+          <li class="e2e-step"><strong>Customer Support</strong> receives claim, assesses urgency and coverage type<span class="step-agent">Lead Qualifier</span></li>
+          <li class="e2e-step"><strong>Content Agent</strong> auto-generates proof-of-loss form and sends to claimant<span class="step-agent">Content Agent</span></li>
+          <li class="e2e-step"><strong>Customer Customer Support</strong> monitors claim status and provides updates to claimant<span class="step-agent">Customer Support</span></li>
+        </ul>
+      </div>
+
+      <div class="e2e-card">
+        <div class="e2e-icon">💼</div>
+        <div class="e2e-title">Client Support & Retention</div>
+        <ul class="e2e-steps">
+          <li class="e2e-step"><strong>Customer Customer Support</strong> answers policy questions, coverage clarifications, and claims status<span class="step-agent">Customer Support</span></li>
+          <li class="e2e-step"><strong>Frontline Agent</strong> books renewal or policy review calls<span class="step-agent">Frontline Agent</span></li>
+          <li class="e2e-step"><strong>Content Agent</strong> creates renewal documents or coverage change forms<span class="step-agent">Content Agent</span></li>
+        </ul>
+      </div>
+
+      <div class="e2e-card">
+        <div class="e2e-icon">🔄</div>
+        <div class="e2e-title">Enrollment & Onboarding</div>
+        <ul class="e2e-steps">
+          <li class="e2e-step"><strong>Sales Agent</strong> guides new client through plan options and benefits<span class="step-agent">Sales Agent</span></li>
+          <li class="e2e-step"><strong>Content Agent</strong> creates enrollment docs, beneficiary forms, and disclosure statements<span class="step-agent">Content Agent</span></li>
+          <li class="e2e-step"><strong>Customer Customer Support</strong> follows up on payment setup and portal access<span class="step-agent">Customer Support</span></li>
+        </ul>
+      </div>
+
+      <div class="e2e-card">
+        <div class="e2e-icon">📞</div>
+        <div class="e2e-title">Group Benefits Administration</div>
+        <ul class="e2e-steps">
+          <li class="e2e-step"><strong>Service Operations</strong> generates custom group quotes with carrier rates<span class="step-agent">Service Operations</span></li>
+          <li class="e2e-step"><strong>Content Agent</strong> creates group enrollment summaries and compliance docs<span class="step-agent">Content Agent</span></li>
+          <li class="e2e-step"><strong>Frontline Agent</strong> books carrier meetings and benefits fairs<span class="step-agent">Frontline Agent</span></li>
+        </ul>
+      </div>
+
+      <div class="e2e-card">
+        <div class="e2e-icon">✅</div>
+        <div class="e2e-title">Annual Renewal & Compliance</div>
+        <ul class="e2e-steps">
+          <li class="e2e-step"><strong>Frontline Agent</strong> auto-books annual policy review meetings (30 days before renewal)<span class="step-agent">Frontline Agent</span></li>
+          <li class="e2e-step"><strong>Content Agent</strong> creates renewal proposals and rate comparison documents<span class="step-agent">Content Agent</span></li>
+          <li class="e2e-step"><strong>Customer Customer Support</strong> follows up on renewals and handles carrier communication<span class="step-agent">Customer Support</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </section>
 
-<hr class="divider"/>
+<hr class="divider">
 
-<section id="pricing">
-<div class="container" style="text-align:center">
-<div class="section-label">Packages</div>
-<h2 class="section-title">Pick your package. Go live in days.</h2>
-<p class="section-sub" style="margin:0 auto">Start small or go all-in. Add agents anytime as your business grows.</p>
-<div class="pricing-grid">
-<div class="pricing-card">
-<div class="pricing-tier">Starter</div>
-<div class="pricing-price">$65<span>/mo</span></div>
-<p class="pricing-desc">3 agents — Frontline Agent + Lead Qualifier + Customer Support</p>
-<div class="pricing-includes">Monthly minimum covers light usage. Per-resolution billing above that. Add more agents anytime.</div>
-<button type="button" onclick="if(window.KazozoWidget){window.KazozoWidget.open()}else{document.getElementById('cta').scrollIntoView({behavior:'smooth'})}" class="btn btn-secondary" style="width:100%;justify-content:center">Talk to Kaz</button>
-</div>
-<div class="pricing-card featured">
-<div class="pricing-tier">Full Package</div>
-<div class="pricing-price">$126<span>/mo</span></div>
-<p class="pricing-desc">All 5 agents — complete insurance stack</p>
-<div class="pricing-includes">10% volume discount vs. individual pricing. Frontline Agent + Lead Qualifier + Customer Support + Service Operations + Content Agent.</div>
-<button type="button" onclick="if(window.KazozoWidget){window.KazozoWidget.open()}else{document.getElementById('cta').scrollIntoView({behavior:'smooth'})}" class="btn btn-primary">Talk to Kaz</button>
-</div>
-</div>
-</div>
+<section class="section" id="pricing">
+  <div class="container" style="text-align:center">
+    <div class="section-label">Packages</div>
+    <h2 class="section-title">Pick your package. Go live in days.</h2>
+    <p class="section-sub" style="margin:0 auto">Start small or go all-in. Add agents anytime as your business grows.</p>
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <div class="pricing-tier">Starter</div>
+        <div class="pricing-price">$65<span>/mo</span></div>
+        <p class="pricing-desc">3 agents — Frontline Agent + Lead Qualifier + Customer Support</p>
+        <div class="pricing-includes">Monthly minimum covers light usage. Per-resolution billing above that. Add more agents anytime.</div>
+        <a href="https://kazozo.com" class="btn btn-secondary" style="width:100%;justify-content:center">Talk to Kaz &rarr;</a>
+      </div>
+      <div class="pricing-card featured">
+        <div class="pricing-tier">Full Package</div>
+        <div class="pricing-price">$126<span>/mo</span></div>
+        <p class="pricing-desc">All 5 agents — complete insurance stack</p>
+        <div class="pricing-includes">10% volume discount vs. individual pricing. Frontline Agent + Lead Qualifier + Customer Support + Service Operations + Content Agent.</div>
+        <a href="https://kazozo.com" class="btn btn-primary" style="width:100%;justify-content:center">Talk to Kaz about insurance &rarr;</a>
+      </div>
+    </div>
+  </div>
 </section>
 
-<hr class="divider"/>
+<hr class="divider">
 
-<section>
-<div class="container" style="text-align:center">
-<div class="section-label">Omnichannel</div>
-<h2 class="section-title">Meet your customers where they are</h2>
-<div class="omni-grid">
-<div class="omni-item"><div class="omni-icon">💬</div><div class="omni-label">Web Chat</div></div>
-<div class="omni-item"><div class="omni-icon">📱</div><div class="omni-label">SMS</div></div>
-<div class="omni-item"><div class="omni-icon">📞</div><div class="omni-label">Voice</div></div>
-<div class="omni-item"><div class="omni-icon">💚</div><div class="omni-label">WhatsApp</div></div>
-<div class="omni-item"><div class="omni-icon">📧</div><div class="omni-label">Email</div></div>
-</div>
-<div class="insight">
-<p class="insight-text">Kazozo works alongside your <em>Salesforce, Applied Epic, and carrier systems</em> to turn administrative burden into automated workflows.</p>
-<p class="insight-sub">Not a replacement for your agents. The operations layer that makes your agents more productive and clients happier.</p>
-</div>
-</div>
+<section class="section">
+  <div class="container" style="text-align:center">
+    <div class="section-label">Omnichannel</div>
+    <h2 class="section-title">Meet your customers where they are</h2>
+    <div class="omni-grid">
+      <div class="omni-item"><div class="omni-icon">💬</div><div class="omni-label">Web Chat</div></div>
+      <div class="omni-item"><div class="omni-icon">📱</div><div class="omni-label">SMS</div></div>
+      <div class="omni-item"><div class="omni-icon">📞</div><div class="omni-label">Voice</div></div>
+      <div class="omni-item"><div class="omni-icon">💚</div><div class="omni-label">WhatsApp</div></div>
+      <div class="omni-item"><div class="omni-icon">📧</div><div class="omni-label">Email</div></div>
+    </div>
+    <div class="insight">
+      <p class="insight-text">Kazozo works alongside your <em>Salesforce, Applied Epic, and carrier systems</em> to turn administrative burden into automated workflows.</p>
+      <p class="insight-sub">Not a replacement for your agents. The operations layer that makes your agents more productive and clients happier.</p>
+    </div>
+  </div>
 </section>
 
-<hr class="divider"/>
+<hr class="divider">
 
 <section class="cta-section">
-<div class="container">
-<h2 class="cta-title">Automate your insurance agency for $65/mo</h2>
-<p class="cta-sub">State-compliant. HIPAA-ready. Live in 72 hours.</p>
-<div class="hero-ctas">
-<button type="button" onclick="if(window.KazozoWidget){window.KazozoWidget.open()}else{document.getElementById('cta').scrollIntoView({behavior:'smooth'})}" class="btn btn-primary">Talk to Kaz</button>
-<a class="btn btn-secondary" href="simulation.html">Try a Simulation</a>
-</div>
-</div>
+  <div class="container">
+    <h2 class="cta-title">Automate your insurance agency for $65/mo</h2>
+    <p class="cta-sub">State-compliant. HIPAA-ready. Live in 72 hours.</p>
+    <div class="hero-ctas">
+      <a href="https://kazozo.com" class="btn btn-primary">Talk to Kaz &rarr;</a>
+      <a href="https://kazozo.com/simulation.html" class="btn btn-secondary">Try a Simulation</a>
+    </div>
+  </div>
 </section>
 
-<!-- FOOTER -->
-<footer>
-  <div class="footer-inner">
-    <div class="footer-brand">
-      <a href="index.html" class="footer-logo" style="text-decoration:none;">kazo<span>zo</span></a>
-      <p class="footer-tagline">The AI platform for business. Agents, apps, and automation.</p>
-    </div>
-    <div class="footer-nav">
-      <div class="footer-col">
-        <h4>Products</h4>
-        <a href="index.html#agents">AI Agents</a>
-        <a href="#pricing">Pricing</a>
-        <a href="industries.html">Industries</a>
-        <a href="simulation.html">Simulation</a>
-      </div>
-      <div class="footer-col">
-        <h4>Resources</h4>
-        <a href="blog/">Blog</a>
-        <a href="mailto:hello@kazozo.com">hello@kazozo.com</a>
-        <button type="button" onclick="if(window.KazozoWidget){window.KazozoWidget.open()}" style="color:inherit;background:none;border:none;cursor:pointer;font:inherit;padding:0;text-align:left;">Talk to Kaz</button>
-      </div>
-    </div>
-  </div>
-  <hr class="footer-divider">
-  <div class="footer-bottom">
-    <div class="footer-credit">&copy; 2026 Kazozo &middot; <a href="https://solanki.co" target="_blank" rel="noopener" style="color:var(--muted);text-decoration:none;">A Solanki Co product</a> &middot; <a href="privacy.html" style="color:var(--muted);text-decoration:none;">Privacy</a> &middot; <a href="terms.html" style="color:var(--muted);text-decoration:none;">Terms</a></div>
-    <div class="footer-socials">
-      <a href="https://instagram.com/kazozo.ai" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg></a>
-      <a href="https://x.com/kazozo_ai" target="_blank" rel="noopener" aria-label="X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
-      <a href="https://linkedin.com/company/kazozo" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
-    </div>
-  </div>
-</footer>
-
-<!-- STICKY MOBILE CTA -->
-<div class="sticky-cta" id="stickyCta">
-  <button type="button" onclick="if(window.KazozoWidget){window.KazozoWidget.open()}else{document.getElementById('cta').scrollIntoView({behavior:'smooth'})}" style="font:inherit;color:inherit;background:none;border:none;cursor:pointer;width:100%;">Talk to Kaz</button>
-</div>
-
-<!-- SCROLL TO TOP -->
-<button class="scroll-top" id="scrollTop" aria-label="Scroll to top">
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
-</button>
-
-</div>
-
-</div>
-
-<!-- Chatbot widget mobile containment -->
-<style>
-
-  #kazozo-widget-container,
-  #kazozo-widget,
-  [id*="kazozo-widget"],
-  [class*="kazozo-chat"],
-  [class*="widget-chat"] {
-    max-width: 100vw !important;
-    overflow: hidden !important;
-    box-sizing: border-box !important;
-  }
-
-  #kazozo-widget-container *,
-  #kazozo-widget *,
-  [id*="kazozo-widget"] * {
-    max-width: 100vw !important;
-    box-sizing: border-box !important;
-  }
-
-  .kazozo-chat,
-  #kazozo-chat {
-    max-width: calc(100vw - 32px) !important;
-    box-sizing: border-box !important;
-  }
-
-  #kazozo-voice svg,
-  .kazozo-voice-btn svg,
-  .kazozo-chat button[aria-label*="oice"] svg {
-    width: 20px !important;
-    height: 20px !important;
-    min-width: 20px !important;
-    min-height: 20px !important;
-    display: block !important;
-  }
-
-  .kazozo-input-area {
-    width: 100% !important;
-    max-width: 100% !important;
-    box-sizing: border-box !important;
-    overflow: hidden !important;
-  }
-
-  #kazozo-send {
-    flex-shrink: 0 !important;
-    white-space: nowrap !important;
-    padding: 10px 14px !important;
-    max-width: 70px !important;
-    overflow: hidden !important;
-  }
-
-  #kazozo-chat,
-  .kazozo-chat {
-    overflow: hidden !important;
-  }
-
-  @media (max-width: 600px) {
-    .kazozo-chat,
-    #kazozo-chat {
-      right: 8px !important;
-      left: 8px !important;
-      bottom: 80px !important;
-      width: calc(100vw - 16px) !important;
-      max-width: calc(100vw - 16px) !important;
-      max-height: 70vh !important;
-    }
-    .kazozo-toggle,
-    #kazozo-toggle {
-      right: 12px !important;
-      bottom: 12px !important;
-      width: 52px !important;
-      height: 52px !important;
-    }
-    #kazozo-send {
-      padding: 8px 10px !important;
-      font-size: 0 !important;
-      width: 40px !important;
-      min-width: 40px !important;
-      max-width: 40px !important;
-      height: 40px !important;
-      border-radius: 50% !important;
-      display: flex !important;
-      align-items: center !important;
-      justify-content: center !important;
-      flex-shrink: 0 !important;
-      overflow: hidden !important;
-      position: relative !important;
-    }
-    #kazozo-send::after {
-      content: '➤' !important;
-      font-size: 18px !important;
-      color: #fff !important;
-      position: absolute !important;
-    }
-    .kazozo-input-area {
-      gap: 6px !important;
-      padding: 10px 8px !important;
-      max-width: 100% !important;
-      overflow: hidden !important;
-    }
-    #kazozo-input {
-      min-width: 0 !important;
-      flex: 1 1 0% !important;
-    }
-    .kazozo-chat button[aria-label*="voice"],
-    .kazozo-chat button[aria-label*="Voice"],
-    .kazozo-chat button[aria-label*="mic"],
-    .kazozo-chat button[aria-label*="Mic"],
-    .kazozo-chat .kazozo-voice-btn,
-    .kazozo-chat button svg[viewBox] {
-      color: #fff !important;
-      fill: #fff !important;
-      opacity: 1 !important;
-    }
-    #kazozo-voice,
-    .kazozo-voice-btn,
-    .kazozo-chat [class*="voice"],
-    .kazozo-chat [class*="mic"] {
-      background: #ff6b5a !important;
-      border-radius: 50% !important;
-      color: #fff !important;
-    }
-    #kazozo-voice svg,
-    .kazozo-voice-btn svg {
-      width: 20px !important;
-      height: 20px !important;
-      min-width: 20px !important;
-      fill: #fff !important;
-    }
-
-    #kazozo-widget-container,
-    #kazozo-widget,
-    [id*="kazozo-widget"] {
-      max-width: 100vw !important;
-    }
-    #kazozo-widget-container iframe,
-    [id*="kazozo-widget"] iframe {
-      max-width: calc(100vw - 16px) !important;
-      width: calc(100vw - 16px) !important;
-      max-height: 70vh !important;
-    }
-  }
-
-</style>
-
-<!-- Kazozo Frontline Agent Widget -->
-<script async
-  src="https://kazozo-platform-production.up.railway.app/widget/embed-loader.js"
-  data-tenant="kazozo-001"
-  data-api="https://kazozo-platform-production.up.railway.app"
-  data-bot-name="Kaz"
-  data-welcome="Hey! I'm Kaz, Kazozo's AI assistant. Ask me about our Insurance Agencies package, pricing, or get a demo."
-  data-color="#ff6b5a"
-  data-position="bottom-right"
-></script>
-
-<!-- Navigation & UX Scripts -->
-<script>
-// Hamburger menu
-const hamburger = document.getElementById('hamburger');
-const mobileNav = document.getElementById('mobileNav');
-const mobileOverlay = document.getElementById('mobileOverlay');
-
-function openMobileNav() {
-  hamburger.classList.add('hamburger-active');
-  hamburger.setAttribute('aria-expanded', 'true');
-  mobileNav.classList.add('active');
-  mobileOverlay.classList.add('active');
-  document.body.style.overflow = 'hidden';
-}
-function closeMobileNav() {
-  hamburger.classList.remove('hamburger-active');
-  hamburger.setAttribute('aria-expanded', 'false');
-  mobileNav.classList.remove('active');
-  mobileOverlay.classList.remove('active');
-  document.body.style.overflow = '';
-}
-hamburger.addEventListener('click', () => {
-  mobileNav.classList.contains('active') ? closeMobileNav() : openMobileNav();
-});
-mobileOverlay.addEventListener('click', closeMobileNav);
-document.querySelectorAll('.mobile-nav-link').forEach(link => {
-  link.addEventListener('click', closeMobileNav);
-});
-
-// Scroll to top + sticky CTA
-const scrollTopBtn = document.getElementById('scrollTop');
-const stickyCta = document.getElementById('stickyCta');
-window.addEventListener('scroll', () => {
-  const y = window.scrollY;
-  scrollTopBtn.classList.toggle('visible', y > 500);
-  if (stickyCta) stickyCta.classList.toggle('visible', y > 600);
-}, { passive: true });
-scrollTopBtn.addEventListener('click', () => {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-});
-</script>
+<footer class="footer"><div class="container">
+  <p class="footer-text"><a href="https://kazozo.com">kazozo</a> · AI agents for sales, support &amp; operations · A Solanki Co product · &copy; 2026</p>
+</div></footer>
 
 </body>
+</html>

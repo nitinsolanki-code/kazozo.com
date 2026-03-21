@@ -115,39 +115,6 @@
       color: var(--text);
     }
 
-    .nav-auth {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      margin-left: 24px;
-    }
-    .nav-login {
-      font-family: 'Space Grotesk', sans-serif;
-      color: rgba(228,225,230,0.6);
-      text-decoration: none;
-      font-size: 14px;
-      font-weight: 500;
-      transition: color 0.3s;
-    }
-    .nav-login:hover { color: var(--text); }
-    .nav-signup {
-      font-family: 'Space Grotesk', sans-serif;
-      color: #580c00;
-      text-decoration: none;
-      font-size: 14px;
-      font-weight: 700;
-      background: linear-gradient(135deg, #FFB4A4, #FF5733);
-      padding: 8px 20px;
-      border-radius: 10px;
-      border: none;
-      transition: all 0.3s;
-      cursor: pointer;
-    }
-    .nav-signup:hover {
-      filter: brightness(1.1);
-      transform: translateY(-1px);
-      box-shadow: 0 8px 24px rgba(255,87,51,0.25);
-    }
 
   /* ===== HAMBURGER MENU ===== */
   .hamburger {
@@ -258,7 +225,6 @@
 
   @media (max-width: 900px) {
     .nav-links { display: none; }
-    .nav-auth { display: none; }
     .footer-inner { flex-direction: column; gap: 24px; text-align: center; }
     .footer-nav { justify-content: center; }
     .footer-bottom { flex-direction: column; gap: 12px; }
@@ -1095,28 +1061,20 @@
           <li><a href="index.html#pricing">Pricing</a></li>
           <li><a href="industries.html">Industries</a></li>
           <li><a href="simulation.html" style="color:var(--text);">Simulation</a></li>
-          <li><button type="button" onclick="if(window.KazozoWidget){window.KazozoWidget.open()}else{document.getElementById('cta').scrollIntoView({behavior:'smooth'})}" class="btn-nav" style="font-family:inherit;font-size:inherit;">Talk to Kaz</button></li>
+          <li><a href="javascript:void(0)" onclick="if(window.KazozoWidget){window.KazozoWidget.open()}else{document.getElementById('cta').scrollIntoView({behavior:'smooth'})}" class="btn-nav" style="background:var(--coral);color:#fff!important;padding:10px 22px;border-radius:10px;font-weight:600;">Talk to Kaz</a></li>
         </ul>
-        <div class="nav-auth">
-          <a href="https://api.kazozo.com/customer-login.html" class="nav-login">Login</a>
-          <a href="https://api.kazozo.com/signup.html" class="nav-signup">Get Started</a>
-        </div>
       </div>
     </nav>
 
   <!-- MOBILE NAV -->
   <div class="mobile-nav-overlay" id="mobileOverlay"></div>
   <div class="mobile-nav" id="mobileNav">
-    <span class="mobile-nav-label">Navigate</span>
+    <span class="mobile-nav-label">Menu</span>
     <a href="index.html#agents" class="mobile-nav-link">Agents</a>
     <a href="index.html#pricing" class="mobile-nav-link">Pricing</a>
     <a href="industries.html" class="mobile-nav-link">Industries</a>
     <a href="simulation.html" class="mobile-nav-link">Simulation</a>
-    <button type="button" onclick="if(window.KazozoWidget){window.KazozoWidget.open()}else{document.getElementById('cta').scrollIntoView({behavior:'smooth'})};closeMobileNav();" class="mobile-cta" style="font-family:inherit;cursor:pointer;margin-top:32px;">Talk to Kaz</button>
-    <div style="display:flex; gap:12px; margin-top:12px; padding:0 24px;">
-      <a href="https://api.kazozo.com/customer-login.html" class="mobile-nav-link" style="flex:1; text-align:center;">Login</a>
-      <a href="https://api.kazozo.com/signup.html" class="mobile-cta" style="flex:1; text-align:center; margin:0;">Get Started</a>
-    </div>
+    <a href="javascript:void(0)" onclick="if(window.KazozoWidget){window.KazozoWidget.open()}else{document.getElementById('cta').scrollIntoView({behavior:'smooth'})};closeMobileNav();" class="mobile-cta">Talk to Kaz &#8594;</a>
   </div>
 
     <!-- Hero Section -->
