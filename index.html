@@ -485,6 +485,8 @@
   .ta-text p { font-size: 12px; color: var(--muted); line-height: 1.45; }
 
   /* ===== PRICING TABLE ===== */
+  details summary::-webkit-details-marker { display: none; }
+  details[open] .details-arrow { transform: rotate(45deg); }
   .pricing-section {
     max-width: 1000px; margin: 0 auto; padding: 0 24px 100px;
   }
@@ -1166,7 +1168,7 @@
       "name": "What exactly is a resolution?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A resolution is one completed interaction between an agent and a customer or lead. Simple interactions cost $0.10, complex ones cost $0.75. Your monthly plan includes a set number — overages are billed at your plan's per-resolution rate."
+        "text": "A resolution is one completed interaction between an agent and a customer or lead. Simple interactions cost $0.12, complex ones cost $0.95. Your monthly plan includes a set number — overages are billed at your plan's per-resolution rate."
       }
     },
     {
@@ -1333,7 +1335,7 @@
             <div style="font-family:'Space Grotesk',sans-serif; font-size:10px; letter-spacing:2px; text-transform:uppercase; color:var(--muted);">Faster Response</div>
           </div>
           <div style="text-align:right;">
-            <span style="font-family:'Space Grotesk',sans-serif; font-size:13px; color:var(--lime); font-weight:500;">5 Agents Active</span>
+            <span style="font-family:'Space Grotesk',sans-serif; font-size:13px; color:var(--lime); font-weight:500;">11 Agents Available</span>
           </div>
         </div>
       </div>
@@ -1352,7 +1354,7 @@
       <div class="proof-bar-label">More deals closed</div>
     </div>
     <div class="proof-bar-item">
-      <div class="proof-bar-num" style="color:var(--sky);">$0.10</div>
+      <div class="proof-bar-num" style="color:var(--sky);">$0.12</div>
       <div class="proof-bar-label">Starting cost/resolution</div>
     </div>
     <div class="proof-bar-item">
@@ -1568,7 +1570,7 @@
         <div class="tier-top">
           <div style="font-size:28px; margin-bottom:12px;">🛡️</div>
           <h3 style="color:var(--sky); font-size:20px;">Frontline Agent</h3>
-          <div class="tier-price-line"><strong style="color:var(--sky);">$0.10</strong> / resolution</div>
+          <div class="tier-price-line"><span style="font-size:12px; color:var(--sky); font-weight:600; background:rgba(70,234,237,0.08); padding:3px 10px; border-radius:20px;">Included in Starter</span></div>
         </div>
         <div class="tier-agents">
           <p style="font-size:13px; color:var(--muted); line-height:1.65;">Greets every visitor, understands intent, answers questions, and routes to the right agent — 24/7.</p>
@@ -1580,7 +1582,7 @@
         <div class="tier-top">
           <div style="font-size:28px; margin-bottom:12px;">🎯</div>
           <h3 style="color:var(--lime); font-size:20px;">Lead Qualifier</h3>
-          <div class="tier-price-line"><strong style="color:var(--lime);">$0.25</strong> / resolution</div>
+          <div class="tier-price-line"><span style="font-size:12px; color:var(--sky); font-weight:600; background:rgba(70,234,237,0.08); padding:3px 10px; border-radius:20px;">Included in Starter</span></div>
         </div>
         <div class="tier-agents">
           <p style="font-size:13px; color:var(--muted); line-height:1.65;">Scores inbound leads, enriches contact data, and routes hot prospects to sales within seconds.</p>
@@ -1592,7 +1594,7 @@
         <div class="tier-top">
           <div style="font-size:28px; margin-bottom:12px;">✉️</div>
           <h3 style="color:var(--lavender); font-size:20px;">Sales Agent</h3>
-          <div class="tier-price-line"><strong style="color:var(--lavender);">$0.30</strong> / resolution</div>
+          <div class="tier-price-line"><span style="font-size:12px; color:var(--sky); font-weight:600; background:rgba(70,234,237,0.08); padding:3px 10px; border-radius:20px;">Included in Starter</span></div>
         </div>
         <div class="tier-agents">
           <p style="font-size:13px; color:var(--muted); line-height:1.65;">Outreach sequences, follow-ups, proposals, and e-signatures — all logged to your CRM automatically.</p>
@@ -1604,7 +1606,7 @@
         <div class="tier-top">
           <div style="font-size:28px; margin-bottom:12px;">🎧</div>
           <h3 style="color:var(--amber); font-size:20px;">Customer Support</h3>
-          <div class="tier-price-line"><strong style="color:var(--amber);">$0.25</strong> / resolution</div>
+          <div class="tier-price-line"><span style="font-size:12px; color:var(--lime); font-weight:600; background:rgba(70,234,237,0.08); padding:3px 10px; border-radius:20px;">Growth plan</span></div>
         </div>
         <div class="tier-agents">
           <p style="font-size:13px; color:var(--muted); line-height:1.65;">Tickets, refunds, plan changes, and account actions — handled instantly with smart escalation.</p>
@@ -1616,7 +1618,7 @@
         <div class="tier-top">
           <div style="font-size:28px; margin-bottom:12px;">🔧</div>
           <h3 style="color:var(--coral); font-size:20px;">Service Ops</h3>
-          <div class="tier-price-line"><strong style="color:var(--coral);">$0.25</strong> / resolution</div>
+          <div class="tier-price-line"><span style="font-size:12px; color:var(--lime); font-weight:600; background:rgba(70,234,237,0.08); padding:3px 10px; border-radius:20px;">Growth plan</span></div>
         </div>
         <div class="tier-agents">
           <p style="font-size:13px; color:var(--muted); line-height:1.65;">Scheduling, dispatch, technician assignment, job tracking, and SLA monitoring after the sale.</p>
@@ -1647,7 +1649,7 @@
           <h4 style="font-family:'Space Grotesk',sans-serif; font-size:15px; font-weight:600;">Employee Agent</h4>
         </div>
         <p style="font-size:12px; color:var(--muted); line-height:1.6;">PTO, expense reports, HR lookups, onboarding Q&A.</p>
-        <div style="font-size:12px; color:var(--sky); font-weight:600; margin-top:10px;">$0.10/res</div>
+        <div style="font-size:11px; color:var(--lime); font-weight:600; margin-top:10px; background:rgba(70,234,237,0.06); display:inline-block; padding:2px 8px; border-radius:12px;">Growth plan</div>
       </div>
       <div style="background:var(--card); border:none; border-radius:16px; padding:24px; transition:all 0.3s;" onmouseover="this.style.background='var(--card-high)'" onmouseout="this.style.background='var(--card)'">
         <div style="display:flex; align-items:center; gap:12px; margin-bottom:10px;">
@@ -1655,7 +1657,7 @@
           <h4 style="font-family:'Space Grotesk',sans-serif; font-size:15px; font-weight:600;">IT Helpdesk</h4>
         </div>
         <p style="font-size:12px; color:var(--muted); line-height:1.6;">Password resets, access requests, basic troubleshooting.</p>
-        <div style="font-size:12px; color:var(--sky); font-weight:600; margin-top:10px;">$0.12/res</div>
+        <div style="font-size:11px; color:var(--lime); font-weight:600; margin-top:10px; background:rgba(70,234,237,0.06); display:inline-block; padding:2px 8px; border-radius:12px;">Growth plan</div>
       </div>
       <div style="background:var(--card); border:none; border-radius:16px; padding:24px; transition:all 0.3s;" onmouseover="this.style.background='var(--card-high)'" onmouseout="this.style.background='var(--card)'">
         <div style="display:flex; align-items:center; gap:12px; margin-bottom:10px;">
@@ -1663,7 +1665,7 @@
           <h4 style="font-family:'Space Grotesk',sans-serif; font-size:15px; font-weight:600;">Review Manager</h4>
         </div>
         <p style="font-size:12px; color:var(--muted); line-height:1.6;">Monitors and responds to online reviews automatically.</p>
-        <div style="font-size:12px; color:var(--sky); font-weight:600; margin-top:10px;">$0.15/res</div>
+        <div style="font-size:11px; color:var(--lime); font-weight:600; margin-top:10px; background:rgba(70,234,237,0.06); display:inline-block; padding:2px 8px; border-radius:12px;">Growth plan</div>
       </div>
       <div style="background:var(--card); border:none; border-radius:16px; padding:24px; transition:all 0.3s;" onmouseover="this.style.background='var(--card-high)'" onmouseout="this.style.background='var(--card)'">
         <div style="display:flex; align-items:center; gap:12px; margin-bottom:10px;">
@@ -1671,7 +1673,7 @@
           <h4 style="font-family:'Space Grotesk',sans-serif; font-size:15px; font-weight:600;">Finance Agent</h4>
         </div>
         <p style="font-size:12px; color:var(--muted); line-height:1.6;">Purchase orders, budget checks, invoice processing.</p>
-        <div style="font-size:12px; color:var(--coral); font-weight:600; margin-top:10px;">$0.75/res</div>
+        <div style="font-size:11px; color:var(--lavender); font-weight:600; margin-top:10px; background:rgba(70,234,237,0.06); display:inline-block; padding:2px 8px; border-radius:12px;">Pro plan</div>
       </div>
       <div style="background:var(--card); border:none; border-radius:16px; padding:24px; transition:all 0.3s;" onmouseover="this.style.background='var(--card-high)'" onmouseout="this.style.background='var(--card)'">
         <div style="display:flex; align-items:center; gap:12px; margin-bottom:10px;">
@@ -1679,7 +1681,7 @@
           <h4 style="font-family:'Space Grotesk',sans-serif; font-size:15px; font-weight:600;">Content Agent</h4>
         </div>
         <p style="font-size:12px; color:var(--muted); line-height:1.6;">Blog posts, social media, newsletters, email campaigns.</p>
-        <div style="font-size:12px; color:var(--coral); font-weight:600; margin-top:10px;">$0.50/res</div>
+        <div style="font-size:11px; color:var(--lavender); font-weight:600; margin-top:10px; background:rgba(70,234,237,0.06); display:inline-block; padding:2px 8px; border-radius:12px;">Pro plan</div>
       </div>
       <div style="background:var(--card); border:none; border-radius:16px; padding:24px; transition:all 0.3s;" onmouseover="this.style.background='var(--card-high)'" onmouseout="this.style.background='var(--card)'">
         <div style="display:flex; align-items:center; gap:12px; margin-bottom:10px;">
@@ -1687,7 +1689,7 @@
           <h4 style="font-family:'Space Grotesk',sans-serif; font-size:15px; font-weight:600;">Weekly Report</h4>
         </div>
         <p style="font-size:12px; color:var(--muted); line-height:1.6;">Executive summaries from CRM, revenue, and pipeline data.</p>
-        <div style="font-size:12px; color:var(--coral); font-weight:600; margin-top:10px;">$0.75/res</div>
+        <div style="font-size:11px; color:var(--lavender); font-weight:600; margin-top:10px; background:rgba(70,234,237,0.06); display:inline-block; padding:2px 8px; border-radius:12px;">Pro plan</div>
       </div>
     </div>
   </section>
@@ -1697,7 +1699,7 @@
     <div class="pricing-header">
       <div class="section-eyebrow eyebrow-amber">Transparent Pricing</div>
       <h2 class="section-heading" style="text-align:center;">Predictable monthly pricing. <em style="color:var(--amber);">Built for SMBs.</em></h2>
-      <p class="section-sub" style="text-align:center;">Hybrid plans with included resolutions. Overage billed per-resolution. No per-seat fees.</p>
+      <p class="section-sub" style="text-align:center;">Pick a plan, pick your agents, go live. No per-seat fees. No surprises.</p>
     </div>
 
     <div class="tiers-grid" style="margin-top:40px;">
@@ -1711,7 +1713,8 @@
           <ul style="list-style:none; padding:0; margin:0;">
             <li style="padding:8px 0; border-bottom: 1px solid var(--border);"><span style="color:var(--text);">500</span> included resolutions</li>
             <li style="padding:8px 0; border-bottom: 1px solid var(--border);">$0.25 overage/resolution</li>
-            <li style="padding:8px 0;">Up to 3 agents</li>
+            <li style="padding:8px 0; border-bottom: 1px solid var(--border);">3 core agents:</li>
+            <li style="padding:4px 0 4px 12px; font-size:12px; color:var(--text);">🛡️ Frontline &middot; 🎯 Lead Qualifier &middot; ✉️ Sales</li>
           </ul>
         </div>
       </div>
@@ -1726,7 +1729,8 @@
           <ul style="list-style:none; padding:0; margin:0;">
             <li style="padding:8px 0; border-bottom: 1px solid var(--border);"><span style="color:var(--text);">2,000</span> included resolutions</li>
             <li style="padding:8px 0; border-bottom: 1px solid var(--border);">$0.18 overage/resolution</li>
-            <li style="padding:8px 0;">Up to 6 agents</li>
+            <li style="padding:8px 0; border-bottom: 1px solid var(--border);">6 agents (Starter +3):</li>
+            <li style="padding:4px 0 4px 12px; font-size:12px; color:var(--text);">+ 🎧 Support &middot; 🔧 Service Ops &middot; ⭐ Reviews</li>
           </ul>
         </div>
       </div>
@@ -1740,7 +1744,8 @@
           <ul style="list-style:none; padding:0; margin:0;">
             <li style="padding:8px 0; border-bottom: 1px solid var(--border);"><span style="color:var(--text);">6,000</span> included resolutions</li>
             <li style="padding:8px 0; border-bottom: 1px solid var(--border);">$0.12 overage/resolution</li>
-            <li style="padding:8px 0;">Up to 12 agents (all agents)</li>
+            <li style="padding:8px 0; border-bottom: 1px solid var(--border);">All 11 agents (Growth +5):</li>
+            <li style="padding:4px 0 4px 12px; font-size:12px; color:var(--text);">+ 👤 Employee &middot; 🖥️ IT &middot; 💰 Finance &middot; 🎬 Content &middot; 📊 Reports</li>
           </ul>
         </div>
       </div>
@@ -1760,18 +1765,32 @@
       </div>
     </div>
 
-    <div style="margin-top:48px; padding:32px; background:var(--card); border:none; border-radius:16px;">
-      <h4 style="color:var(--text); font-size:16px; margin-bottom:20px; font-weight:600;">Per-Resolution Rates (Pay-As-You-Go)</h4>
-      <div style="display:grid; grid-template-columns:repeat(2, 1fr); gap:16px; font-size:14px; color:var(--muted);">
-        <div style="display:flex; justify-content:space-between; padding:8px 0; border-bottom:1px solid var(--border);"><span>Utility Agents</span><span style="color:var(--text); font-weight:600;">$0.10–$0.15/res</span></div>
-        <div style="display:flex; justify-content:space-between; padding:8px 0; border-bottom:1px solid var(--border);"><span>Workflow Agents</span><span style="color:var(--text); font-weight:600;">$0.25–$0.30/res</span></div>
-        <div style="display:flex; justify-content:space-between; padding:8px 0;"><span>Strategic Agents</span><span style="color:var(--text); font-weight:600;">$0.50–$0.75/res</span></div>
+    <details style="margin-top:48px; background:var(--card); border:none; border-radius:16px;">
+      <summary style="padding:24px 32px; cursor:pointer; color:var(--text); font-size:16px; font-weight:600; font-family:'Space Grotesk',sans-serif; list-style:none; display:flex; justify-content:space-between; align-items:center;">
+        Per-Resolution Breakdown (Transparency)
+        <span style="font-size:20px; color:var(--muted); transition:transform 0.2s;" class="details-arrow">+</span>
+      </summary>
+      <div style="padding:0 32px 32px;">
+        <p style="font-size:13px; color:var(--muted); margin-bottom:20px;">Your plan includes resolutions — you only pay per-resolution rates on overages. Here's exactly what each agent costs.</p>
+        <div style="display:grid; grid-template-columns:repeat(2, 1fr); gap:12px; font-size:14px; color:var(--muted);">
+          <div style="display:flex; justify-content:space-between; padding:8px 0; border-bottom:1px solid var(--border);"><span>🛡️ Frontline Agent</span><span style="color:var(--text); font-weight:600;">$0.12/res</span></div>
+          <div style="display:flex; justify-content:space-between; padding:8px 0; border-bottom:1px solid var(--border);"><span>🎯 Lead Qualifier</span><span style="color:var(--text); font-weight:600;">$0.45/res</span></div>
+          <div style="display:flex; justify-content:space-between; padding:8px 0; border-bottom:1px solid var(--border);"><span>✉️ Sales Agent</span><span style="color:var(--text); font-weight:600;">$0.35/res</span></div>
+          <div style="display:flex; justify-content:space-between; padding:8px 0; border-bottom:1px solid var(--border);"><span>🎧 Customer Support</span><span style="color:var(--text); font-weight:600;">$0.28/res</span></div>
+          <div style="display:flex; justify-content:space-between; padding:8px 0; border-bottom:1px solid var(--border);"><span>🔧 Service Ops</span><span style="color:var(--text); font-weight:600;">$0.30/res</span></div>
+          <div style="display:flex; justify-content:space-between; padding:8px 0; border-bottom:1px solid var(--border);"><span>👤 Employee Agent</span><span style="color:var(--text); font-weight:600;">$0.10/res</span></div>
+          <div style="display:flex; justify-content:space-between; padding:8px 0; border-bottom:1px solid var(--border);"><span>🖥️ IT Helpdesk</span><span style="color:var(--text); font-weight:600;">$0.12/res</span></div>
+          <div style="display:flex; justify-content:space-between; padding:8px 0; border-bottom:1px solid var(--border);"><span>⭐ Review Manager</span><span style="color:var(--text); font-weight:600;">$0.18/res</span></div>
+          <div style="display:flex; justify-content:space-between; padding:8px 0; border-bottom:1px solid var(--border);"><span>💰 Finance Agent</span><span style="color:var(--text); font-weight:600;">$0.25/res</span></div>
+          <div style="display:flex; justify-content:space-between; padding:8px 0; border-bottom:1px solid var(--border);"><span>🎬 Content Agent</span><span style="color:var(--text); font-weight:600;">$0.95/res</span></div>
+          <div style="display:flex; justify-content:space-between; padding:8px 0;"><span>📊 Weekly Report</span><span style="color:var(--text); font-weight:600;">$0.75/res</span></div>
+        </div>
       </div>
-    </div>
+    </details>
 
     <div class="pricing-note" style="margin-top:30px;">
       <strong>Volume discounts:</strong> 10% off at 4–6 agents &middot; 15% at 7–9 &middot; 20% at 10+<br>
-      Industry average per-resolution cost: <strong>$1.50–$2.00</strong>. Kazozo starts at <strong>$0.10</strong>.
+      Industry average per-resolution cost: <strong>$1.50–$2.00</strong>. Kazozo starts at <strong>$0.12</strong>.
     </div>
   </section>
 
@@ -1926,7 +1945,7 @@
           <div class="proof-label">Tools across 11 agents</div>
         </div>
         <div class="proof-stat">
-          <div class="proof-number">$0.10</div>
+          <div class="proof-number">$0.12</div>
           <div class="proof-label">Starting per resolution (vs $2.00 industry avg)</div>
         </div>
         <div class="proof-stat">
@@ -2011,7 +2030,7 @@
     <div style="text-align:center; margin-bottom:40px;">
       <div class="section-eyebrow eyebrow-coral">How We Compare</div>
       <h2 class="section-heading" style="text-align:center;">Enterprise tools. <em style="color:var(--coral);">Without enterprise complexity.</em></h2>
-      <p class="section-sub" style="text-align:center;">You shouldn't need a six-figure budget and a 6-month implementation to automate your sales and support.</p>
+      <p class="section-sub" style="text-align:center;">You shouldn't need a six-figure budget and a six-month implementation to automate your sales and support.</p>
     </div>
     <div style="background:var(--card); border:none; border-radius:20px; overflow:hidden;">
       <div class="table-scroll">
@@ -2065,7 +2084,7 @@
     <div class="faq-list">
       <div class="faq-item">
         <button class="faq-q">What exactly is a "resolution"?<span class="faq-arrow">+</span></button>
-        <div class="faq-a"><div class="faq-a-inner">A resolution is one completed interaction between an agent and a customer or lead. If your Frontline Agent answers a visitor's question, that's one resolution. If your Sales Agent sends a follow-up sequence, that's one resolution. Simple interactions cost less ($0.10), complex ones cost more ($0.75). Your monthly plan includes a set number — overages are billed at your plan's per-resolution rate.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">A resolution is one completed interaction between an agent and a customer or lead. If your Frontline Agent answers a visitor's question, that's one resolution. If your Sales Agent sends a follow-up sequence, that's one resolution. Simple interactions cost less ($0.12), complex ones cost more ($0.95). Your monthly plan includes a set number — overages are billed at your plan's per-resolution rate.</div></div>
       </div>
       <div class="faq-item">
         <button class="faq-q">Do I need a developer to set this up?<span class="faq-arrow">+</span></button>
