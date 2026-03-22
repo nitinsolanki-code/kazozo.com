@@ -153,64 +153,9 @@
 </script>
 </head>
 <body>
+<div id="site-nav"></div>
+<script src="nav.js"></script>
 
-  <nav>
-    <div class="nav-inner">
-      <div style="display:flex;align-items:center;gap:16px;">
-        <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
-          <div class="hamburger-lines"><span></span><span></span></div>
-          <span class="hamburger-label">Menu</span>
-        </button>
-        <a href="index.html" class="logo" style="text-decoration:none;">kazo<span>zo</span></a>
-      </div>
-      <ul class="nav-links">
-        <li class="nav-dropdown">
-          <button type="button" class="nav-dropdown-trigger">Products <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 4.5l3 3 3-3"/></svg></button>
-          <div class="nav-dropdown-menu">
-            <a href="index.html#agents">
-              <div class="nav-dropdown-icon" style="background:rgba(70,234,237,0.08); border:1px solid rgba(70,234,237,0.12);">&#129302;</div>
-              <div>
-                <div class="nav-dropdown-label">AI Agents</div>
-                <div class="nav-dropdown-desc">Sales, support &amp; ops on autopilot</div>
-              </div>
-            </a>
-            <a href="#" style="opacity:0.5; pointer-events:none;">
-              <div class="nav-dropdown-icon" style="background:rgba(70,234,237,0.08); border:1px solid rgba(70,234,237,0.12);">&#9889;</div>
-              <div>
-                <div class="nav-dropdown-label">Agentic Apps <span class="nav-dropdown-soon">Soon</span></div>
-                <div class="nav-dropdown-desc">AI-powered business applications</div>
-              </div>
-            </a>
-          </div>
-        </li>
-        <li><a href="index.html#pricing">Pricing</a></li>
-        <li><a href="industries.html" style="color:var(--text);">Industries</a></li>
-        <li><a href="simulation.html">Simulation</a></li>
-        <li><button type="button" onclick="if(window.KazozoWidget){window.KazozoWidget.open()}else{document.getElementById('cta').scrollIntoView({behavior:'smooth'})}" class="btn-nav" style="font-family:inherit;font-size:inherit;">Talk to Kaz</button></li>
-      </ul>
-      <div class="nav-auth">
-        <a href="https://api.kazozo.com/customer-login.html" class="nav-login">Login</a>
-        <a href="https://api.kazozo.com/signup.html" class="nav-signup">Get Started</a>
-      </div>
-    </div>
-  </nav>
-
-  <!-- MOBILE NAV -->
-  <div class="mobile-nav-overlay" id="mobileOverlay"></div>
-  <div class="mobile-nav" id="mobileNav">
-    <span class="mobile-nav-label">Products</span>
-    <a href="index.html#agents" class="mobile-nav-link">AI Agents</a>
-    <a href="#" class="mobile-nav-link" style="opacity:0.4; pointer-events:none;">Agentic Apps <span class="nav-dropdown-soon">Soon</span></a>
-    <span class="mobile-nav-label" style="margin-top:16px;">Navigate</span>
-    <a href="index.html#pricing" class="mobile-nav-link">Pricing</a>
-    <a href="industries.html" class="mobile-nav-link">Industries</a>
-    <a href="simulation.html" class="mobile-nav-link">Simulation</a>
-    <button type="button" onclick="if(window.KazozoWidget){window.KazozoWidget.open()}else{document.getElementById('cta').scrollIntoView({behavior:'smooth'})};closeMobileNav();" class="mobile-cta" style="font-family:inherit;cursor:pointer;">Talk to Kaz &#8594;</button>
-    <div style="display:flex; gap:12px; margin-top:12px; padding:0 24px;">
-      <a href="https://api.kazozo.com/customer-login.html" class="mobile-nav-link" style="flex:1; text-align:center;">Login</a>
-      <a href="https://api.kazozo.com/signup.html" class="mobile-cta" style="flex:1; text-align:center; margin:0;">Get Started</a>
-    </div>
-  </div>
 
   <section style="padding:140px 24px 40px; text-align:center; max-width:800px; margin:0 auto;">
     <h1 style="font-family:'Playfair Display',serif; font-size:clamp(32px,5vw,52px); font-weight:800; line-height:1.1; letter-spacing:-1.5px; margin-bottom:16px;">AI agents for <span style="color:var(--lime);">your industry</span></h1>
