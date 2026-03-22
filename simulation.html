@@ -103,18 +103,40 @@
       align-items: center;
     }
 
-    .nav-links a {
-      color: var(--muted);
+    .nav-links a, .nav-links .nav-dropdown-trigger {
+      font-family: 'Space Grotesk', sans-serif;
+      color: rgba(228,225,230,0.6);
       text-decoration: none;
       font-size: 14px;
       font-weight: 500;
       transition: color 0.3s;
+      cursor: pointer;
+      letter-spacing: -0.01em;
     }
 
-    .nav-links a:hover {
+    .nav-links a:hover, .nav-links .nav-dropdown-trigger:hover {
       color: var(--text);
     }
 
+    .nav-dropdown { position: relative; }
+    .nav-dropdown-trigger { background: none; border: none; padding: 0; display: inline-flex; align-items: center; gap: 4px; }
+    .nav-dropdown-trigger svg { width: 12px; height: 12px; transition: transform 0.2s; }
+    .nav-dropdown:hover .nav-dropdown-trigger svg { transform: rotate(180deg); }
+    .nav-dropdown-menu { position: absolute; top: 100%; left: -16px; min-width: 260px; padding: 12px; background: rgba(31,31,34,0.98); backdrop-filter: blur(20px); border: 1px solid var(--border, rgba(255,255,255,0.06)); border-radius: 14px; opacity: 0; visibility: hidden; transform: translateY(8px); transition: all 0.25s ease; z-index: 100; }
+    .nav-dropdown:hover .nav-dropdown-menu { opacity: 1; visibility: visible; transform: translateY(4px); }
+    .nav-dropdown-menu a { display: flex; align-items: center; gap: 12px; padding: 10px 12px; border-radius: 10px; transition: background 0.2s; }
+    .nav-dropdown-menu a:hover { background: rgba(255,255,255,0.04); }
+    .nav-dropdown-icon { width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+    .nav-dropdown-label { font-size: 13px; font-weight: 600; color: var(--text); }
+    .nav-dropdown-desc { font-size: 11px; color: var(--muted); margin-top: 1px; }
+    .nav-dropdown-soon { font-size: 9px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; background: rgba(255,180,164,0.1); color: var(--coral); padding: 2px 6px; border-radius: 4px; margin-left: 6px; }
+    .btn-nav { background: linear-gradient(135deg, #FF6B5A, #FF5733); color: #fff!important; padding: 10px 22px; border-radius: 10px; font-weight: 600; transition: all 0.3s; border: none; cursor: pointer; }
+    .btn-nav:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(255,87,51,0.25); filter: brightness(1.1); }
+    .nav-auth { display: flex; align-items: center; gap: 10px; }
+    .nav-login { font-family: 'Space Grotesk', sans-serif; font-size: 13px; font-weight: 500; color: rgba(228,225,230,0.5); text-decoration: none; padding: 8px 14px; border-radius: 8px; transition: all 0.2s; border: 1px solid transparent; letter-spacing: -0.01em; }
+    .nav-login:hover { color: var(--text); }
+    .nav-signup { font-family: 'Space Grotesk', sans-serif; font-size: 13px; font-weight: 600; color: #fff; text-decoration: none; padding: 8px 18px; border-radius: 8px; background: linear-gradient(135deg, #FF6B5A, #FF5733); transition: all 0.3s; letter-spacing: -0.01em; }
+    .nav-signup:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(255,87,51,0.25); filter: brightness(1.1); }
 
   /* ===== HAMBURGER MENU ===== */
   .hamburger {
@@ -225,6 +247,7 @@
 
   @media (max-width: 900px) {
     .nav-links { display: none; }
+    .nav-auth { display: none; }
     .footer-inner { flex-direction: column; gap: 24px; text-align: center; }
     .footer-nav { justify-content: center; }
     .footer-bottom { flex-direction: column; gap: 12px; }
@@ -1057,24 +1080,52 @@
           <a href="index.html" class="logo" style="text-decoration:none;">kazo<span>zo</span></a>
         </div>
         <ul class="nav-links">
-          <li><a href="index.html#agents">Agents</a></li>
+          <li class="nav-dropdown">
+            <button type="button" class="nav-dropdown-trigger">Products <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 4.5l3 3 3-3"/></svg></button>
+            <div class="nav-dropdown-menu">
+              <a href="index.html#agents">
+                <div class="nav-dropdown-icon" style="background:rgba(70,234,237,0.08); border:1px solid rgba(70,234,237,0.12);">&#129302;</div>
+                <div>
+                  <div class="nav-dropdown-label">AI Agents</div>
+                  <div class="nav-dropdown-desc">Sales, support &amp; ops on autopilot</div>
+                </div>
+              </a>
+              <a href="#" style="opacity:0.5; pointer-events:none;">
+                <div class="nav-dropdown-icon" style="background:rgba(70,234,237,0.08); border:1px solid rgba(70,234,237,0.12);">&#9889;</div>
+                <div>
+                  <div class="nav-dropdown-label">Agentic Apps <span class="nav-dropdown-soon">Soon</span></div>
+                  <div class="nav-dropdown-desc">AI-powered business applications</div>
+                </div>
+              </a>
+            </div>
+          </li>
           <li><a href="index.html#pricing">Pricing</a></li>
           <li><a href="industries.html">Industries</a></li>
           <li><a href="simulation.html" style="color:var(--text);">Simulation</a></li>
-          <li><a href="javascript:void(0)" onclick="if(window.KazozoWidget){window.KazozoWidget.open()}else{document.getElementById('cta').scrollIntoView({behavior:'smooth'})}" class="btn-nav" style="background:var(--coral);color:#fff!important;padding:10px 22px;border-radius:10px;font-weight:600;">Talk to Kaz</a></li>
+          <li><button type="button" onclick="if(window.KazozoWidget){window.KazozoWidget.open()}else{document.getElementById('cta').scrollIntoView({behavior:'smooth'})}" class="btn-nav" style="font-family:inherit;font-size:inherit;">Talk to Kaz</button></li>
         </ul>
+        <div class="nav-auth">
+          <a href="https://api.kazozo.com/customer-login.html" class="nav-login">Login</a>
+          <a href="https://api.kazozo.com/signup.html" class="nav-signup">Get Started</a>
+        </div>
       </div>
     </nav>
 
   <!-- MOBILE NAV -->
   <div class="mobile-nav-overlay" id="mobileOverlay"></div>
   <div class="mobile-nav" id="mobileNav">
-    <span class="mobile-nav-label">Menu</span>
-    <a href="index.html#agents" class="mobile-nav-link">Agents</a>
+    <span class="mobile-nav-label">Products</span>
+    <a href="index.html#agents" class="mobile-nav-link">AI Agents</a>
+    <a href="#" class="mobile-nav-link" style="opacity:0.4; pointer-events:none;">Agentic Apps <span class="nav-dropdown-soon">Soon</span></a>
+    <span class="mobile-nav-label" style="margin-top:16px;">Navigate</span>
     <a href="index.html#pricing" class="mobile-nav-link">Pricing</a>
     <a href="industries.html" class="mobile-nav-link">Industries</a>
     <a href="simulation.html" class="mobile-nav-link">Simulation</a>
-    <a href="javascript:void(0)" onclick="if(window.KazozoWidget){window.KazozoWidget.open()}else{document.getElementById('cta').scrollIntoView({behavior:'smooth'})};closeMobileNav();" class="mobile-cta">Talk to Kaz &#8594;</a>
+    <button type="button" onclick="if(window.KazozoWidget){window.KazozoWidget.open()}else{document.getElementById('cta').scrollIntoView({behavior:'smooth'})};closeMobileNav();" class="mobile-cta" style="font-family:inherit;cursor:pointer;">Talk to Kaz &#8594;</button>
+    <div style="display:flex; gap:12px; margin-top:12px; padding:0 24px;">
+      <a href="https://api.kazozo.com/customer-login.html" class="mobile-nav-link" style="flex:1; text-align:center;">Login</a>
+      <a href="https://api.kazozo.com/signup.html" class="mobile-cta" style="flex:1; text-align:center; margin:0;">Get Started</a>
+    </div>
   </div>
 
     <!-- Hero Section -->
@@ -1087,7 +1138,7 @@
         <div class="stat-label">Core Agents</div>
       </div>
       <div class="stat">
-        <div class="stat-number">87</div>
+        <div class="stat-number">70</div>
         <div class="stat-label">Tools</div>
       </div>
       <div class="stat">
@@ -1095,7 +1146,7 @@
         <div class="stat-label">Expansion Agents</div>
       </div>
       <div class="stat">
-        <div class="stat-number">$0.10</div>
+        <div class="stat-number">$0.12</div>
         <div class="stat-label">Starting Price</div>
       </div>
     </div>
@@ -1608,7 +1659,7 @@
       <div class="competitor-card kazozo-card">
         <div class="competitor-name">Kazozo</div>
         <div class="competitor-price">$0.10–0.75/res</div>
-        <p style="font-size: 0.9rem; color: var(--coral); font-weight: 600;">5 core agents, 87 tools, true autonomy</p>
+        <p style="font-size: 0.9rem; color: var(--coral); font-weight: 600;">5 core agents, 70 tools, true autonomy</p>
       </div>
     </div>
   </section>
