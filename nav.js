@@ -199,7 +199,7 @@
   .kz-nav-inner { padding: 10px 16px; border-radius: 12px; }\n\
 }\n\
 @media (min-width: 901px) {\n\
-  .kz-hamburger { display: none; }\n\
+  .kz-hamburger { display: flex; }\n\
 }\n\
 ';
 
