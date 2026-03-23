@@ -1119,7 +1119,7 @@
 
     <div class="agents-grid">
       <!-- 01 Frontline Agent -->
-      <div class="agent-card" style="border-top:3px solid var(--sky);">
+      <div class="agent-card" id="frontline" style="border-top:3px solid var(--sky);">
         <div class="agent-header">
           <div>
             <div style="font-size:0.75rem;color:var(--sky);font-weight:700;margin-bottom:4px;">01 FIRST CONTACT</div>
@@ -1149,7 +1149,7 @@
       </div>
 
       <!-- 02 Lead Qualifier -->
-      <div class="agent-card" style="border-top:3px solid var(--lime);">
+      <div class="agent-card" id="lead-qualifier" style="border-top:3px solid var(--lime);">
         <div class="agent-header">
           <div>
             <div style="font-size:0.75rem;color:var(--lime);font-weight:700;margin-bottom:4px;">02 QUALIFY</div>
@@ -1178,7 +1178,7 @@
       </div>
 
       <!-- 03 Sales Agent -->
-      <div class="agent-card" style="border-top:3px solid var(--lavender);">
+      <div class="agent-card" id="sales" style="border-top:3px solid var(--lavender);">
         <div class="agent-header">
           <div>
             <div style="font-size:0.75rem;color:var(--lavender);font-weight:700;margin-bottom:4px;">03 CLOSE</div>
@@ -1207,7 +1207,7 @@
       </div>
 
       <!-- 04 Customer Support -->
-      <div class="agent-card" style="border-top:3px solid var(--amber);">
+      <div class="agent-card" id="customer-support" style="border-top:3px solid var(--amber);">
         <div class="agent-header">
           <div>
             <div style="font-size:0.75rem;color:var(--amber);font-weight:700;margin-bottom:4px;">04 SUPPORT</div>
@@ -1237,7 +1237,7 @@
       </div>
 
       <!-- 05 Service Operations -->
-      <div class="agent-card" style="border-top:3px solid var(--coral);">
+      <div class="agent-card" id="service-ops" style="border-top:3px solid var(--coral);">
         <div class="agent-header">
           <div>
             <div style="font-size:0.75rem;color:var(--coral);font-weight:700;margin-bottom:4px;">05 FULFILLMENT</div>
@@ -1280,7 +1280,7 @@
     </div>
     <div class="agents-grid" style="grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));">
       <!-- Employee Agent -->
-      <div class="agent-card" style="opacity:0.85;">
+      <div class="agent-card" id="employee" style="opacity:0.85;">
         <div class="agent-header">
           <div>
             <div class="agent-icon">👤</div>
@@ -1299,7 +1299,7 @@
       </div>
 
       <!-- IT Helpdesk -->
-      <div class="agent-card" style="opacity:0.85;">
+      <div class="agent-card" id="it-helpdesk" style="opacity:0.85;">
         <div class="agent-header">
           <div>
             <div class="agent-icon">🖥️</div>
@@ -1318,7 +1318,7 @@
       </div>
 
       <!-- Review Manager -->
-      <div class="agent-card" style="opacity:0.85;">
+      <div class="agent-card" id="review-manager" style="opacity:0.85;">
         <div class="agent-header">
           <div>
             <div class="agent-icon">⭐</div>
@@ -1337,7 +1337,7 @@
       </div>
 
       <!-- Finance Agent -->
-      <div class="agent-card" style="opacity:0.85;">
+      <div class="agent-card" id="finance" style="opacity:0.85;">
         <div class="agent-header">
           <div>
             <div class="agent-icon">💰</div>
@@ -1356,7 +1356,7 @@
       </div>
 
       <!-- Content Agent -->
-      <div class="agent-card" style="opacity:0.85;">
+      <div class="agent-card" id="content" style="opacity:0.85;">
         <div class="agent-header">
           <div>
             <div class="agent-icon">🎬</div>
@@ -1375,7 +1375,7 @@
       </div>
 
       <!-- Weekly Report -->
-      <div class="agent-card" style="opacity:0.85;">
+      <div class="agent-card" id="weekly-report" style="opacity:0.85;">
         <div class="agent-header">
           <div>
             <div class="agent-icon">📊</div>
@@ -2350,6 +2350,27 @@
     }
   }
 </style>
+
+<!-- Hash-based agent deep linking -->
+<script>
+(function() {
+  var hash = window.location.hash.replace('#', '');
+  if (!hash) return;
+  var card = document.getElementById(hash);
+  if (!card || !card.classList.contains('agent-card')) return;
+  setTimeout(function() {
+    var y = card.getBoundingClientRect().top + window.pageYOffset - 100;
+    window.scrollTo({ top: y, behavior: 'smooth' });
+    card.style.transition = 'box-shadow 0.3s, transform 0.3s';
+    card.style.boxShadow = '0 0 0 2px var(--coral), 0 8px 32px rgba(255,180,164,0.2)';
+    card.style.transform = 'scale(1.02)';
+    setTimeout(function() {
+      card.style.boxShadow = '';
+      card.style.transform = '';
+    }, 2000);
+  }, 300);
+})();
+</script>
 
 <!-- Kazozo Frontline Agent Widget -->
 <script async
