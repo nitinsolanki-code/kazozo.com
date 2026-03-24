@@ -465,144 +465,109 @@
 
   html { scroll-behavior: smooth; }
 
-  /* ===== AGENT PIPELINE ANIMATION ===== */
-  .hero-pipeline {
-    margin-top: 60px;
-    max-width: 900px;
-    width: 100%;
-    position: relative;
+  /* ===== TEAM AT WORK ===== */
+  .team-at-work {
+    max-width: 1100px; margin: 0 auto; padding: 80px 24px 60px;
   }
-
-  .pipeline-track {
-    position: relative;
-    height: 2px;
-    background: linear-gradient(90deg,
-      rgba(70, 234, 237, 0.08) 0%,
-      rgba(123, 234, 142, 0.08) 20%,
-      rgba(196, 168, 255, 0.08) 40%,
-      rgba(235, 195, 20, 0.08) 60%,
-      rgba(255, 180, 164, 0.08) 80%,
-      rgba(255, 180, 164, 0.08) 100%);
-    margin-bottom: 40px;
+  .team-grid {
+    display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px;
   }
-
-  .pipeline-pulse {
-    position: absolute;
-    width: 8px;
-    height: 8px;
-    background: var(--sky);
-    border-radius: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    box-shadow: 0 0 12px var(--sky), 0 0 24px rgba(70, 234, 237, 0.5);
-    animation: pipeline-travel 6s infinite;
-  }
-
-  @keyframes pipeline-travel {
-    0% { left: 0%; background: var(--sky); box-shadow: 0 0 12px var(--sky), 0 0 24px rgba(70, 234, 237, 0.5); }
-    20% { left: 25%; background: var(--lime); box-shadow: 0 0 12px var(--lime), 0 0 24px rgba(123, 234, 142, 0.5); }
-    40% { left: 50%; background: var(--lavender); box-shadow: 0 0 12px var(--lavender), 0 0 24px rgba(196, 168, 255, 0.5); }
-    60% { left: 75%; background: var(--amber); box-shadow: 0 0 12px var(--amber), 0 0 24px rgba(235, 195, 20, 0.5); }
-    80% { left: 100%; background: var(--coral); box-shadow: 0 0 12px var(--coral), 0 0 24px rgba(255, 180, 164, 0.5); }
-    100% { left: 100%; background: var(--coral); box-shadow: 0 0 12px var(--coral), 0 0 24px rgba(255, 180, 164, 0.5); }
-  }
-
-  .pipeline-nodes {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 12px;
-    position: relative;
-  }
-
-  .pipeline-node {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-    flex: 1;
-    position: relative;
-  }
-
-  .pipeline-node-circle {
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    background: var(--card);
-    border: 2px solid transparent;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 24px;
+  .team-card {
+    background: var(--card); border-radius: 16px; padding: 24px 20px; position: relative; overflow: hidden;
     transition: all 0.3s ease;
-    animation: node-activate 6s infinite;
-    animation-delay: var(--delay);
+  }
+  .team-card:hover {
+    background: var(--card-high); transform: translateY(-2px);
+  }
+  .team-card-stripe {
+    height: 3px; margin: -24px -20px 16px; width: calc(100% + 40px);
+  }
+  .team-avatar {
+    width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center;
+    font-size: 20px; margin-bottom: 14px; position: relative;
+  }
+  .team-avatar::after {
+    content: ''; position: absolute; bottom: -2px; right: -2px;
+    width: 12px; height: 12px; border-radius: 50%;
+    background: var(--lime); border: 2px solid var(--card);
+    animation: statusPulse 2s ease-in-out infinite;
+  }
+  @keyframes statusPulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(123, 234, 142, 0.4); }
+    50% { box-shadow: 0 0 0 4px rgba(123, 234, 142, 0); }
+  }
+  .team-name {
+    font-family: 'Space Grotesk', sans-serif; font-size: 14px; font-weight: 600;
+    color: var(--text); margin-bottom: 2px;
+  }
+  .team-role {
+    font-size: 11px; color: var(--muted); margin-bottom: 16px;
+  }
+  .team-task-feed {
+    min-height: 52px; position: relative; overflow: hidden;
+  }
+  .team-task {
+    display: flex; align-items: flex-start; gap: 8px;
+    opacity: 0; position: absolute; top: 0; left: 0; right: 0;
+    animation: taskCycle 12s ease-in-out infinite;
+  }
+  .team-task:nth-child(2) { animation-delay: 4s; }
+  .team-task:nth-child(3) { animation-delay: 8s; }
+  @keyframes taskCycle {
+    0% { opacity: 0; transform: translateY(8px); }
+    5% { opacity: 1; transform: translateY(0); }
+    30% { opacity: 1; transform: translateY(0); }
+    33% { opacity: 0; transform: translateY(-8px); }
+    100% { opacity: 0; transform: translateY(-8px); }
+  }
+  .team-task-icon {
+    width: 6px; height: 6px; border-radius: 50%; margin-top: 5px; flex-shrink: 0;
+  }
+  .team-task-text {
+    font-size: 12px; color: var(--text); line-height: 1.5;
+  }
+  .team-task-text .highlight {
+    font-weight: 600;
+  }
+  .team-typing {
+    display: flex; align-items: center; gap: 6px; margin-top: 14px;
+    padding-top: 12px; border-top: 1px solid var(--border);
+  }
+  .team-typing-dots {
+    display: flex; gap: 3px;
+  }
+  .team-typing-dot {
+    width: 4px; height: 4px; border-radius: 50%; background: var(--muted);
+    animation: typingBounce 1.4s ease-in-out infinite;
+  }
+  .team-typing-dot:nth-child(2) { animation-delay: 0.2s; }
+  .team-typing-dot:nth-child(3) { animation-delay: 0.4s; }
+  @keyframes typingBounce {
+    0%, 60%, 100% { opacity: 0.3; transform: translateY(0); }
+    30% { opacity: 1; transform: translateY(-3px); }
+  }
+  .team-typing-label {
+    font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; font-weight: 600;
+  }
+  .team-stats-bar {
+    display: flex; align-items: center; gap: 8px; margin-top: 12px;
+  }
+  .team-stat {
+    font-size: 10px; color: var(--muted);
+  }
+  .team-stat strong {
+    font-weight: 700;
   }
 
-  @keyframes node-activate {
-    0% {
-      border-color: transparent;
-      box-shadow: 0 0 0 0 transparent;
-      transform: scale(1);
-    }
-    5% {
-      border-color: var(--node-color);
-      box-shadow: 0 0 12px var(--node-color), 0 0 24px rgba(70, 234, 237, 0.3);
-      transform: scale(1.15);
-    }
-    15% {
-      border-color: var(--node-color);
-      box-shadow: 0 0 8px var(--node-color), 0 0 16px rgba(70, 234, 237, 0.2);
-      transform: scale(1.08);
-    }
-    20% {
-      border-color: transparent;
-      box-shadow: 0 0 0 0 transparent;
-      transform: scale(1);
-    }
-    100% {
-      border-color: transparent;
-      box-shadow: 0 0 0 0 transparent;
-      transform: scale(1);
-    }
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .team-grid { grid-template-columns: repeat(3, 1fr); }
   }
-
-  .pipeline-node span {
-    font-size: 13px;
-    font-weight: 500;
-    color: rgba(255, 255, 255, 0.7);
-    text-align: center;
-    line-height: 1.3;
+  @media (max-width: 640px) {
+    .team-grid { grid-template-columns: repeat(2, 1fr); }
   }
-
-  @media (max-width: 768px) {
-    .hero-pipeline {
-      margin-top: 40px;
-    }
-
-    .pipeline-track {
-      margin-bottom: 32px;
-    }
-
-    .pipeline-node-circle {
-      width: 40px;
-      height: 40px;
-      font-size: 18px;
-    }
-
-    .pipeline-node span {
-      font-size: 11px;
-    }
-
-    .pipeline-nodes {
-      gap: 8px;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .hero-pipeline {
-      display: none;
-    }
+  @media (max-width: 420px) {
+    .team-grid { grid-template-columns: 1fr; }
   }
 
   /* ===== HERO ===== */
@@ -1530,35 +1495,6 @@
         <a href="#products" class="btn-primary">Explore the Platform &#8594;</a>
         <a href="compare/kazozo-vs-salesforce-agentforce.html" class="btn-outline">Compare to Salesforce &#8594;</a>
       </div>
-
-      <!-- Animated Agent Pipeline -->
-      <div class="hero-pipeline">
-        <div class="pipeline-track">
-          <div class="pipeline-pulse"></div>
-        </div>
-        <div class="pipeline-nodes">
-          <div class="pipeline-node" style="--node-color: var(--sky); --delay: 0s;">
-            <div class="pipeline-node-circle">💬</div>
-            <span>Lead Arrives</span>
-          </div>
-          <div class="pipeline-node" style="--node-color: var(--lime); --delay: 1.2s;">
-            <div class="pipeline-node-circle">🎯</div>
-            <span>Qualified</span>
-          </div>
-          <div class="pipeline-node" style="--node-color: var(--lavender); --delay: 2.4s;">
-            <div class="pipeline-node-circle">✉️</div>
-            <span>Follow-up Sent</span>
-          </div>
-          <div class="pipeline-node" style="--node-color: var(--amber); --delay: 3.6s;">
-            <div class="pipeline-node-circle">🎧</div>
-            <span>Supported</span>
-          </div>
-          <div class="pipeline-node" style="--node-color: var(--coral); --delay: 4.8s;">
-            <div class="pipeline-node-circle">📊</div>
-            <span>Reported</span>
-          </div>
-        </div>
-      </div>
     </div>
   </section>
 
@@ -1630,6 +1566,208 @@
       </div>
     </div>
   </div>
+
+  <!-- YOUR TEAM AT WORK -->
+  <section class="team-at-work fade-up">
+    <div style="text-align:center; margin-bottom:48px;">
+      <div style="margin-bottom:8px;">
+        <span style="display:inline-flex; align-items:center; gap:8px; font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:2px; color:var(--lime); background:rgba(123,234,142,0.06); padding:6px 14px; border-radius:20px; border:1px solid rgba(123,234,142,0.12);">&#9889; Live Activity</span>
+      </div>
+      <div class="section-eyebrow eyebrow-lime" style="color:var(--lime);">Your Team at Work</div>
+      <h2 class="section-heading" style="text-align:center;">5 agents. Always on. <em style="color:var(--lime);">Always working.</em></h2>
+      <p class="section-sub" style="text-align:center; margin:0 auto;">Right now, your AI employees are handling leads, closing deals, and supporting customers — no coffee breaks needed.</p>
+    </div>
+
+    <div class="team-grid">
+
+      <!-- FRONTLINE AGENT -->
+      <div class="team-card">
+        <div class="team-card-stripe" style="background:var(--sky);"></div>
+        <div class="team-avatar" style="background:rgba(70,234,237,0.1);">&#128737;&#65039;</div>
+        <div class="team-name" style="color:var(--sky);">Frontline Agent</div>
+        <div class="team-role">First Contact &middot; 24/7</div>
+        <div class="team-task-feed">
+          <div class="team-task">
+            <div class="team-task-icon" style="background:var(--sky);"></div>
+            <div class="team-task-text">Greeting visitor from <span class="highlight" style="color:var(--sky);">Google Ads</span></div>
+          </div>
+          <div class="team-task">
+            <div class="team-task-icon" style="background:var(--sky);"></div>
+            <div class="team-task-text">Answering FAQ: <span class="highlight" style="color:var(--sky);">"Do you serve my area?"</span></div>
+          </div>
+          <div class="team-task">
+            <div class="team-task-icon" style="background:var(--sky);"></div>
+            <div class="team-task-text">Routing <span class="highlight" style="color:var(--sky);">Sarah M.</span> to Sales</div>
+          </div>
+        </div>
+        <div class="team-typing">
+          <div class="team-typing-dots">
+            <div class="team-typing-dot" style="background:var(--sky);"></div>
+            <div class="team-typing-dot" style="background:var(--sky);"></div>
+            <div class="team-typing-dot" style="background:var(--sky);"></div>
+          </div>
+          <span class="team-typing-label">Processing...</span>
+        </div>
+        <div class="team-stats-bar">
+          <span class="team-stat"><strong style="color:var(--sky);">142</strong> chats today</span>
+          <span class="team-stat">&middot;</span>
+          <span class="team-stat"><strong style="color:var(--lime);">4s</strong> avg reply</span>
+        </div>
+      </div>
+
+      <!-- LEAD QUALIFIER -->
+      <div class="team-card">
+        <div class="team-card-stripe" style="background:var(--lime);"></div>
+        <div class="team-avatar" style="background:rgba(123,234,142,0.1);">&#127919;</div>
+        <div class="team-name" style="color:var(--lime);">Lead Qualifier</div>
+        <div class="team-role">Scoring &middot; Enrichment</div>
+        <div class="team-task-feed">
+          <div class="team-task">
+            <div class="team-task-icon" style="background:var(--lime);"></div>
+            <div class="team-task-text">Scored lead: <span class="highlight" style="color:var(--lime);">Jake R. &mdash; 92/100</span></div>
+          </div>
+          <div class="team-task">
+            <div class="team-task-icon" style="background:var(--lime);"></div>
+            <div class="team-task-text">Enriched contact from <span class="highlight" style="color:var(--lime);">LinkedIn</span></div>
+          </div>
+          <div class="team-task">
+            <div class="team-task-icon" style="background:var(--lime);"></div>
+            <div class="team-task-text">Flagged <span class="highlight" style="color:var(--lime);">hot prospect</span> for Sales</div>
+          </div>
+        </div>
+        <div class="team-typing">
+          <div class="team-typing-dots">
+            <div class="team-typing-dot" style="background:var(--lime);"></div>
+            <div class="team-typing-dot" style="background:var(--lime);"></div>
+            <div class="team-typing-dot" style="background:var(--lime);"></div>
+          </div>
+          <span class="team-typing-label">Scoring...</span>
+        </div>
+        <div class="team-stats-bar">
+          <span class="team-stat"><strong style="color:var(--lime);">38</strong> scored today</span>
+          <span class="team-stat">&middot;</span>
+          <span class="team-stat"><strong style="color:var(--sky);">87%</strong> accuracy</span>
+        </div>
+      </div>
+
+      <!-- SALES AGENT -->
+      <div class="team-card">
+        <div class="team-card-stripe" style="background:var(--lavender);"></div>
+        <div class="team-avatar" style="background:rgba(196,168,255,0.1);">&#9993;&#65039;</div>
+        <div class="team-name" style="color:var(--lavender);">Sales Agent</div>
+        <div class="team-role">Outreach &middot; Follow-ups</div>
+        <div class="team-task-feed">
+          <div class="team-task">
+            <div class="team-task-icon" style="background:var(--lavender);"></div>
+            <div class="team-task-text">Sent proposal to <span class="highlight" style="color:var(--lavender);">Apex Realty</span></div>
+          </div>
+          <div class="team-task">
+            <div class="team-task-icon" style="background:var(--lavender);"></div>
+            <div class="team-task-text">Follow-up #3 to <span class="highlight" style="color:var(--lavender);">Mike T.</span></div>
+          </div>
+          <div class="team-task">
+            <div class="team-task-icon" style="background:var(--lavender);"></div>
+            <div class="team-task-text">Booked demo: <span class="highlight" style="color:var(--lavender);">Thu 2:30 PM</span></div>
+          </div>
+        </div>
+        <div class="team-typing">
+          <div class="team-typing-dots">
+            <div class="team-typing-dot" style="background:var(--lavender);"></div>
+            <div class="team-typing-dot" style="background:var(--lavender);"></div>
+            <div class="team-typing-dot" style="background:var(--lavender);"></div>
+          </div>
+          <span class="team-typing-label">Drafting...</span>
+        </div>
+        <div class="team-stats-bar">
+          <span class="team-stat"><strong style="color:var(--lavender);">24</strong> emails sent</span>
+          <span class="team-stat">&middot;</span>
+          <span class="team-stat"><strong style="color:var(--lime);">$14.2k</strong> pipeline</span>
+        </div>
+      </div>
+
+      <!-- CUSTOMER SUPPORT -->
+      <div class="team-card">
+        <div class="team-card-stripe" style="background:var(--amber);"></div>
+        <div class="team-avatar" style="background:rgba(235,195,20,0.1);">&#127911;</div>
+        <div class="team-name" style="color:var(--amber);">Support Agent</div>
+        <div class="team-role">Tickets &middot; Resolutions</div>
+        <div class="team-task-feed">
+          <div class="team-task">
+            <div class="team-task-icon" style="background:var(--amber);"></div>
+            <div class="team-task-text">Resolved: <span class="highlight" style="color:var(--amber);">"Can't reset password"</span></div>
+          </div>
+          <div class="team-task">
+            <div class="team-task-icon" style="background:var(--amber);"></div>
+            <div class="team-task-text">Processing refund for <span class="highlight" style="color:var(--amber);">Order #4821</span></div>
+          </div>
+          <div class="team-task">
+            <div class="team-task-icon" style="background:var(--amber);"></div>
+            <div class="team-task-text">Escalated ticket to <span class="highlight" style="color:var(--amber);">human team</span></div>
+          </div>
+        </div>
+        <div class="team-typing">
+          <div class="team-typing-dots">
+            <div class="team-typing-dot" style="background:var(--amber);"></div>
+            <div class="team-typing-dot" style="background:var(--amber);"></div>
+            <div class="team-typing-dot" style="background:var(--amber);"></div>
+          </div>
+          <span class="team-typing-label">Resolving...</span>
+        </div>
+        <div class="team-stats-bar">
+          <span class="team-stat"><strong style="color:var(--amber);">47</strong> tickets closed</span>
+          <span class="team-stat">&middot;</span>
+          <span class="team-stat"><strong style="color:var(--lime);">98%</strong> CSAT</span>
+        </div>
+      </div>
+
+      <!-- SERVICE OPS -->
+      <div class="team-card">
+        <div class="team-card-stripe" style="background:var(--coral);"></div>
+        <div class="team-avatar" style="background:rgba(255,180,164,0.1);">&#128295;</div>
+        <div class="team-name" style="color:var(--coral);">Service Ops</div>
+        <div class="team-role">Scheduling &middot; Dispatch</div>
+        <div class="team-task-feed">
+          <div class="team-task">
+            <div class="team-task-icon" style="background:var(--coral);"></div>
+            <div class="team-task-text">Dispatched <span class="highlight" style="color:var(--coral);">Tech #12</span> to 4th St</div>
+          </div>
+          <div class="team-task">
+            <div class="team-task-icon" style="background:var(--coral);"></div>
+            <div class="team-task-text">Job complete: <span class="highlight" style="color:var(--coral);">HVAC install verified</span></div>
+          </div>
+          <div class="team-task">
+            <div class="team-task-icon" style="background:var(--coral);"></div>
+            <div class="team-task-text">SLA check: <span class="highlight" style="color:var(--coral);">all on track</span></div>
+          </div>
+        </div>
+        <div class="team-typing">
+          <div class="team-typing-dots">
+            <div class="team-typing-dot" style="background:var(--coral);"></div>
+            <div class="team-typing-dot" style="background:var(--coral);"></div>
+            <div class="team-typing-dot" style="background:var(--coral);"></div>
+          </div>
+          <span class="team-typing-label">Dispatching...</span>
+        </div>
+        <div class="team-stats-bar">
+          <span class="team-stat"><strong style="color:var(--coral);">18</strong> jobs today</span>
+          <span class="team-stat">&middot;</span>
+          <span class="team-stat"><strong style="color:var(--lime);">100%</strong> SLA met</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Summary bar -->
+    <div style="text-align:center; margin-top:32px;">
+      <div style="display:inline-flex; align-items:center; gap:24px; padding:12px 28px; background:var(--card); border-radius:12px; flex-wrap:wrap; justify-content:center;">
+        <span style="font-size:12px; color:var(--muted);">Right now: <strong style="color:var(--lime);">5 agents active</strong></span>
+        <span style="font-size:12px; color:var(--muted);">&middot;</span>
+        <span style="font-size:12px; color:var(--muted);"><strong style="color:var(--sky);">269</strong> tasks completed today</span>
+        <span style="font-size:12px; color:var(--muted);">&middot;</span>
+        <span style="font-size:12px; color:var(--muted);"><strong style="color:var(--coral);">$0</strong> overtime pay</span>
+      </div>
+    </div>
+  </section>
 
   <!-- SOCIAL PROOF -->
   <section class="fade-up" style="max-width:1000px; margin:0 auto; padding:60px 24px 40px;">
