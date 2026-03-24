@@ -71,6 +71,156 @@
   .text-glow-primary { text-shadow: 0 0 20px rgba(255, 180, 164, 0.3); }
   .glass-panel { backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
 
+  /* ===== VISUAL ENHANCEMENT SYSTEM ===== */
+
+  /* Text glow effects */
+  .glow-coral { text-shadow: 0 0 20px rgba(255, 87, 51, 0.4), 0 0 40px rgba(255, 87, 51, 0.1); }
+  .glow-sky { text-shadow: 0 0 20px rgba(70, 234, 237, 0.4), 0 0 40px rgba(70, 234, 237, 0.1); }
+  .glow-lime { text-shadow: 0 0 20px rgba(123, 234, 142, 0.4), 0 0 40px rgba(123, 234, 142, 0.1); }
+  .glow-lavender { text-shadow: 0 0 20px rgba(196, 168, 255, 0.4), 0 0 40px rgba(196, 168, 255, 0.1); }
+  .glow-amber { text-shadow: 0 0 20px rgba(235, 195, 20, 0.4), 0 0 40px rgba(235, 195, 20, 0.1); }
+
+  /* Glassmorphism */
+  .glass { background: rgba(31, 31, 34, 0.6); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
+
+  /* Animated hero background */
+  .hero-bg-visual {
+    position: absolute; inset: 0; overflow: hidden; z-index: 0; pointer-events: none;
+  }
+  .hero-bg-visual::before {
+    content: ''; position: absolute;
+    top: 50%; left: 50%; transform: translate(-50%, -50%);
+    width: 800px; height: 800px;
+    background: radial-gradient(circle, rgba(255,87,51,0.12) 0%, rgba(70,234,237,0.06) 40%, transparent 70%);
+    border-radius: 50%; filter: blur(80px);
+    animation: heroGlow 8s ease-in-out infinite;
+  }
+  .hero-bg-visual::after {
+    content: ''; position: absolute;
+    top: 50%; left: 50%; transform: translate(-50%, -50%);
+    width: 600px; height: 600px;
+    background: conic-gradient(from 0deg, rgba(70,234,237,0.08), rgba(255,180,164,0.06), rgba(196,168,255,0.04), rgba(123,234,142,0.06), rgba(70,234,237,0.08));
+    border-radius: 50%; filter: blur(100px);
+    animation: heroSpin 30s linear infinite;
+  }
+  @keyframes heroGlow {
+    0%, 100% { opacity: 0.6; transform: translate(-50%, -50%) scale(1); }
+    50% { opacity: 1; transform: translate(-50%, -50%) scale(1.15); }
+  }
+  @keyframes heroSpin { 0% { transform: translate(-50%,-50%) rotate(0deg); } 100% { transform: translate(-50%,-50%) rotate(360deg); } }
+
+  /* Grid lines overlay for hero */
+  .hero-grid-lines {
+    position: absolute; inset: 0; z-index: 0;
+    background-image:
+      linear-gradient(rgba(70,234,237,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(70,234,237,0.03) 1px, transparent 1px);
+    background-size: 80px 80px;
+    mask-image: radial-gradient(ellipse 60% 60% at 50% 50%, black 20%, transparent 70%);
+    -webkit-mask-image: radial-gradient(ellipse 60% 60% at 50% 50%, black 20%, transparent 70%);
+  }
+
+  /* Dashboard showcase */
+  .dashboard-showcase {
+    max-width: 1100px; margin: 0 auto; padding: 0 24px 80px; position: relative;
+  }
+  .dashboard-frame {
+    background: var(--surface); border-radius: 24px; padding: 24px;
+    border: 1px solid rgba(228,225,230,0.06);
+    box-shadow: 0 32px 80px rgba(0,0,0,0.4), 0 0 0 1px rgba(228,225,230,0.03);
+    position: relative; overflow: hidden;
+  }
+  .dashboard-frame::before {
+    content: ''; position: absolute; top: -80px; right: -80px;
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, rgba(70,234,237,0.08), transparent 70%);
+    border-radius: 50%; filter: blur(60px); pointer-events: none;
+  }
+  .dashboard-frame::after {
+    content: ''; position: absolute; bottom: -60px; left: -60px;
+    width: 250px; height: 250px;
+    background: radial-gradient(circle, rgba(255,87,51,0.06), transparent 70%);
+    border-radius: 50%; filter: blur(60px); pointer-events: none;
+  }
+  .dashboard-header {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 20px; padding: 0 8px;
+  }
+  .dashboard-dots { display: flex; gap: 6px; }
+  .dashboard-dots span {
+    width: 10px; height: 10px; border-radius: 50%;
+  }
+  .dashboard-label {
+    font-family: 'Space Grotesk', sans-serif; font-size: 10px;
+    letter-spacing: 3px; text-transform: uppercase; color: var(--lime);
+    display: flex; align-items: center; gap: 8px;
+  }
+  .dashboard-label::before {
+    content: ''; width: 6px; height: 6px; border-radius: 50%;
+    background: var(--lime); box-shadow: 0 0 8px var(--lime);
+    animation: pulse 2s infinite;
+  }
+  .dashboard-content {
+    background: var(--bg); border-radius: 16px; padding: 32px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+    min-height: 300px; position: relative; z-index: 1;
+  }
+  .dashboard-metric {
+    background: var(--card); border-radius: 14px; padding: 24px;
+    transition: transform 0.3s, background 0.3s;
+  }
+  .dashboard-metric:hover { transform: translateY(-2px); background: var(--card-high); }
+  .dashboard-metric-label {
+    font-family: 'Space Grotesk', sans-serif; font-size: 10px;
+    letter-spacing: 2px; text-transform: uppercase; color: var(--muted);
+    margin-bottom: 10px;
+  }
+  .dashboard-metric-value {
+    font-family: 'Space Grotesk', sans-serif; font-size: 32px;
+    font-weight: 700; margin-bottom: 8px;
+  }
+  .dashboard-metric-bar {
+    height: 4px; border-radius: 2px; overflow: hidden;
+    background: rgba(228,225,230,0.06);
+  }
+  .dashboard-metric-bar-fill {
+    height: 100%; border-radius: 2px; transition: width 1s ease;
+  }
+
+  /* Section tonal backgrounds */
+  .section-recessed { background: var(--surface); }
+  .section-elevated { background: var(--card); }
+
+  /* Agent card visual upgrade */
+  .tier-card-enhanced {
+    position: relative; overflow: hidden;
+  }
+  .tier-card-enhanced::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0;
+    height: 4px; border-radius: 2px 2px 0 0;
+  }
+  .tier-card-enhanced:hover { transform: translateY(-4px); }
+
+  /* Proof bar glow */
+  .proof-bar-num.glow { font-size: 36px; }
+
+  /* Progress bar for agents */
+  .agent-activity {
+    margin-top: 12px;
+  }
+  .agent-activity-bar {
+    height: 3px; border-radius: 2px; overflow: hidden;
+    background: rgba(228,225,230,0.06); margin-top: 6px;
+  }
+  .agent-activity-bar-fill {
+    height: 100%; border-radius: 2px;
+  }
+  .agent-activity-label {
+    font-family: 'Space Grotesk', sans-serif; font-size: 10px;
+    letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted);
+    display: flex; justify-content: space-between;
+  }
+
   html { overflow-x: hidden; width: 100%; max-width: 100vw; }
   body {
     font-family: 'Manrope', sans-serif;
@@ -262,7 +412,7 @@
 
   /* ===== PLATFORM PRODUCTS SHOWCASE ===== */
   .platform-products {
-    max-width: 1000px; margin: 0 auto; padding: 40px 24px 60px;
+    max-width: 1000px; margin: 0 auto; padding: 100px 24px 80px;
   }
   .platform-grid {
     display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
@@ -317,12 +467,12 @@
 
   /* ===== HERO ===== */
   .hero {
-    text-align: left; padding: 140px 24px 60px;
+    text-align: center; padding: 160px 24px 80px;
     max-width: 1200px; margin: 0 auto; position: relative;
-    display: grid; grid-template-columns: 1.2fr 1fr; gap: 48px; align-items: center;
+    display: flex; flex-direction: column; align-items: center;
   }
 
-  .hero-content { max-width: 640px; }
+  .hero-content { max-width: 800px; position: relative; z-index: 1; }
 
   .hero-tag {
     display: inline-flex; align-items: center; gap: 8px;
@@ -336,7 +486,7 @@
   @keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:0.4; } }
 
   h1 {
-    font-family: 'Space Grotesk', sans-serif; font-size: clamp(38px, 5vw, 64px);
+    font-family: 'Space Grotesk', sans-serif; font-size: clamp(48px, 7vw, 84px);
     font-weight: 700; line-height: 0.95; letter-spacing: -0.03em; margin-bottom: 28px;
   }
 
@@ -397,6 +547,7 @@
   /* ===== AGENT TIERS ===== */
   .agent-tiers {
     max-width: 1200px; margin: 0 auto; padding: 100px 24px 80px;
+    background: var(--surface);
   }
 
   .tiers-header { text-align: center; margin-bottom: 56px; }
@@ -488,7 +639,7 @@
   details summary::-webkit-details-marker { display: none; }
   details[open] .details-arrow { transform: rotate(45deg); }
   .pricing-section {
-    max-width: 1000px; margin: 0 auto; padding: 0 24px 100px;
+    max-width: 1000px; margin: 0 auto; padding: 100px 24px 100px;
   }
 
   .pricing-header { text-align: center; margin-bottom: 48px; }
@@ -939,8 +1090,8 @@
     .logo { font-size: 20px; }
 
     /* Hero mobile */
-    .hero { padding: 100px 16px 40px; }
-    .hero h1 { font-size: clamp(26px, 8vw, 38px); letter-spacing: -1px; }
+    .hero { padding: 120px 16px 60px; }
+    .hero h1 { font-size: clamp(28px, 8vw, 48px); letter-spacing: -1px; }
     .hero-sub { font-size: 15px; }
     .hero-actions { flex-direction: column; align-items: center; }
     .btn-primary, .btn-outline { width: 100%; max-width: 320px; text-align: center; justify-content: center; }
@@ -1100,7 +1251,7 @@
   /* ===== SOCIAL PROOF BAR ===== */
   .proof-bar {
     display: flex; flex-wrap: wrap; justify-content: center; gap: 32px;
-    padding: 20px 24px; margin: -20px auto 0; max-width: 1000px;
+    padding: 48px 24px 32px; margin: -20px auto 0; max-width: 1000px;
     background: var(--surface); border-radius: 20px;
   }
   .proof-bar-item {
@@ -1229,6 +1380,8 @@
 
   <!-- HERO -->
   <section class="hero">
+    <div class="hero-bg-visual"></div>
+    <div class="hero-grid-lines"></div>
     <div class="hero-content">
       <div class="hero-tag"><span class="dot"></span> The AI Platform for Business</div>
       <h1>One Platform to <em>Run Your Business</em> on AI</h1>
@@ -1238,78 +1391,75 @@
         <a href="compare/kazozo-vs-salesforce-agentforce.html" class="btn-outline">Compare to Salesforce &#8594;</a>
       </div>
     </div>
-    <!-- Simulation Card -->
-    <div class="hero-sim-card" style="position:relative;">
-      <div style="background:var(--card); border-radius:20px; padding:32px; position:relative; z-index:1; overflow:hidden; box-shadow: 0 24px 64px rgba(0,0,0,0.4);">
-        <div style="position:absolute; inset:0; background:linear-gradient(135deg, rgba(70,234,237,0.04), transparent); pointer-events:none;"></div>
-        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:32px;">
-          <div style="display:flex; gap:6px;">
-            <div style="width:10px; height:10px; border-radius:50%; background:rgba(255,180,164,0.4);"></div>
-            <div style="width:10px; height:10px; border-radius:50%; background:rgba(235,195,26,0.4);"></div>
-            <div style="width:10px; height:10px; border-radius:50%; background:rgba(70,234,237,0.4);"></div>
-          </div>
-          <span style="font-family:'Space Grotesk',sans-serif; font-size:10px; letter-spacing:3px; text-transform:uppercase; color:var(--lime);">Live Platform</span>
-        </div>
-        <div style="display:flex; flex-direction:column; gap:12px; margin-bottom:32px;">
-          <div style="display:flex; align-items:center; gap:12px; background:var(--surface); padding:14px 16px; border-radius:12px;">
-            <span style="font-size:20px;">&#129302;</span>
-            <div style="flex:1;">
-              <div style="height:8px; background:rgba(255,180,164,0.2); border-radius:4px; width:75%; margin-bottom:6px;"></div>
-              <div style="height:8px; background:rgba(255,180,164,0.1); border-radius:4px; width:50%;"></div>
-            </div>
-          </div>
-          <div style="display:flex; align-items:center; gap:12px; background:var(--card-highest); padding:14px 16px; border-radius:12px; transform:translateX(12px);">
-            <span style="font-size:20px;">&#9889;</span>
-            <div style="flex:1;">
-              <div style="height:8px; background:rgba(70,234,237,0.2); border-radius:4px; width:100%; margin-bottom:6px;"></div>
-              <div style="height:8px; background:rgba(70,234,237,0.1); border-radius:4px; width:66%;"></div>
-            </div>
-          </div>
-          <div style="display:flex; align-items:center; gap:12px; background:var(--surface); padding:14px 16px; border-radius:12px;">
-            <span style="font-size:20px;">&#128202;</span>
-            <div style="flex:1;">
-              <div style="height:8px; background:rgba(235,195,26,0.2); border-radius:4px; width:80%; margin-bottom:6px;"></div>
-              <div style="height:8px; background:rgba(235,195,26,0.1); border-radius:4px; width:40%;"></div>
-            </div>
-          </div>
-        </div>
-        <div style="padding-top:20px; border-top:1px solid rgba(228,225,230,0.06); display:flex; justify-content:space-between; align-items:flex-end;">
-          <div>
-            <div style="font-family:'Space Grotesk',sans-serif; font-size:28px; font-weight:700; color:var(--text);">93%</div>
-            <div style="font-family:'Space Grotesk',sans-serif; font-size:10px; letter-spacing:2px; text-transform:uppercase; color:var(--muted);">Faster Response</div>
-          </div>
-          <div style="text-align:right;">
-            <span style="font-family:'Space Grotesk',sans-serif; font-size:13px; color:var(--lime); font-weight:500;">11 Agents Available</span>
-          </div>
-        </div>
-      </div>
-      <div style="position:absolute; top:-40px; right:-40px; width:200px; height:200px; background:rgba(255,180,164,0.08); border-radius:50%; filter:blur(60px); pointer-events:none;"></div>
-    </div>
   </section>
 
   <!-- PROOF BAR -->
   <div class="proof-bar fade-up">
     <div class="proof-bar-item">
-      <div class="proof-bar-num" style="color:var(--coral);">93%</div>
+      <div class="proof-bar-num glow glow-coral" style="color:var(--coral);">93%</div>
       <div class="proof-bar-label">Faster lead response</div>
     </div>
     <div class="proof-bar-item">
-      <div class="proof-bar-num" style="color:var(--lime);">40%</div>
+      <div class="proof-bar-num glow glow-lime" style="color:var(--lime);">40%</div>
       <div class="proof-bar-label">More deals closed</div>
     </div>
     <div class="proof-bar-item">
-      <div class="proof-bar-num" style="color:var(--sky);">$0.12</div>
+      <div class="proof-bar-num glow glow-sky" style="color:var(--sky);">$0.12</div>
       <div class="proof-bar-label">Starting cost/resolution</div>
     </div>
     <div class="proof-bar-item">
-      <div class="proof-bar-num" style="color:var(--lavender);">24/7</div>
+      <div class="proof-bar-num glow glow-lavender" style="color:var(--lavender);">24/7</div>
       <div class="proof-bar-label">Always-on coverage</div>
     </div>
     <div class="proof-bar-item">
-      <div class="proof-bar-num" style="color:var(--amber);">1–2 wk</div>
+      <div class="proof-bar-num glow glow-amber" style="color:var(--amber);">1–2 wk</div>
       <div class="proof-bar-label">Go-live time</div>
     </div>
     <p style="text-align:center; font-size:11px; color:var(--muted); margin-top:12px; opacity:0.7;">Based on aggregate customer data across Kazozo deployments, Q4 2025 – Q1 2026.</p>
+  </div>
+
+  <!-- DASHBOARD SHOWCASE -->
+  <div class="dashboard-showcase fade-up">
+    <div style="text-align:center; margin-bottom:32px;">
+      <div class="section-eyebrow eyebrow-sky">Your Command Center</div>
+      <p style="font-size:15px; color:var(--muted); max-width:500px; margin:0 auto;">See what's happening across your entire business — agents, leads, and revenue in one view.</p>
+    </div>
+    <div class="dashboard-frame">
+      <div class="dashboard-header">
+        <div class="dashboard-dots">
+          <span style="background:rgba(255,180,164,0.5);"></span>
+          <span style="background:rgba(235,195,26,0.5);"></span>
+          <span style="background:rgba(70,234,237,0.5);"></span>
+        </div>
+        <div class="dashboard-label">Live Dashboard</div>
+      </div>
+      <div class="dashboard-content">
+        <div class="dashboard-metric">
+          <div class="dashboard-metric-label">Leads This Week</div>
+          <div class="dashboard-metric-value" style="color:var(--sky);">42</div>
+          <div style="font-size:12px; color:var(--lime); margin-bottom:10px;">↑ 18% vs last week</div>
+          <div class="dashboard-metric-bar"><div class="dashboard-metric-bar-fill" style="width:78%; background:var(--sky); box-shadow:0 0 8px rgba(70,234,237,0.4);"></div></div>
+        </div>
+        <div class="dashboard-metric">
+          <div class="dashboard-metric-label">Auto Follow-ups Sent</div>
+          <div class="dashboard-metric-value" style="color:var(--coral);">28</div>
+          <div style="font-size:12px; color:var(--muted); margin-bottom:10px;">3 booked calls</div>
+          <div class="dashboard-metric-bar"><div class="dashboard-metric-bar-fill" style="width:65%; background:linear-gradient(90deg, var(--coral), var(--coral-vivid)); box-shadow:0 0 8px rgba(255,87,51,0.3);"></div></div>
+        </div>
+        <div class="dashboard-metric">
+          <div class="dashboard-metric-label">Pipeline Moved</div>
+          <div class="dashboard-metric-value" style="color:var(--lime);">$14.2k</div>
+          <div style="font-size:12px; color:var(--muted); margin-bottom:10px;">to "proposal sent"</div>
+          <div class="dashboard-metric-bar"><div class="dashboard-metric-bar-fill" style="width:52%; background:var(--lime); box-shadow:0 0 8px rgba(123,234,142,0.3);"></div></div>
+        </div>
+        <div class="dashboard-metric">
+          <div class="dashboard-metric-label">Revenue Closed</div>
+          <div class="dashboard-metric-value" style="color:var(--amber);">$8.4k</div>
+          <div style="font-size:12px; color:var(--lime); margin-bottom:10px;">On track for $34k month</div>
+          <div class="dashboard-metric-bar"><div class="dashboard-metric-bar-fill" style="width:88%; background:var(--amber); box-shadow:0 0 8px rgba(235,195,20,0.3);"></div></div>
+        </div>
+      </div>
+    </div>
   </div>
 
   <!-- SOCIAL PROOF -->
@@ -1511,6 +1661,7 @@
 
       <!-- FRONTLINE AGENT -->
       <div class="tier-card">
+        <div style="height:3px; background:var(--sky); opacity:0.6; margin:-20px -24px 0; width:calc(100% + 48px);"></div>
         <div class="tier-top">
           <div style="font-size:28px; margin-bottom:12px;">🛡️</div>
           <h3 style="color:var(--sky); font-size:20px;">Frontline Agent</h3>
@@ -1520,11 +1671,21 @@
           <p style="font-size:13px; color:var(--muted); line-height:1.65;">Greets every visitor, understands intent, answers questions, and routes to the right agent — 24/7.</p>
           <a href="agents/frontline-agent.html" style="display:inline-block; margin-top:10px; font-size:12px; color:var(--sky); text-decoration:none; font-weight:600; transition:opacity 0.2s;">Learn more &rarr;</a>
           <a href="simulation.html#frontline" style="display:inline-block; margin-top:6px; font-size:11px; color:var(--muted); text-decoration:none; font-weight:500; transition:opacity 0.2s;">Try it live</a>
+          <div class="agent-activity">
+            <div class="agent-activity-label">
+              <span>Activity</span>
+              <span style="color:var(--sky);">Active</span>
+            </div>
+            <div class="agent-activity-bar">
+              <div class="agent-activity-bar-fill" style="width:92%; background:var(--sky); box-shadow:0 0 6px rgba(70,234,237,0.3);"></div>
+            </div>
+          </div>
         </div>
       </div>
 
       <!-- LEAD QUALIFIER -->
       <div class="tier-card">
+        <div style="height:3px; background:var(--lime); opacity:0.6; margin:-20px -24px 0; width:calc(100% + 48px);"></div>
         <div class="tier-top">
           <div style="font-size:28px; margin-bottom:12px;">🎯</div>
           <h3 style="color:var(--lime); font-size:20px;">Lead Qualifier</h3>
@@ -1534,11 +1695,21 @@
           <p style="font-size:13px; color:var(--muted); line-height:1.65;">Scores inbound leads, enriches contact data, and routes hot prospects to sales within seconds.</p>
           <a href="agents/lead-qualifier.html" style="display:inline-block; margin-top:10px; font-size:12px; color:var(--lime); text-decoration:none; font-weight:600; transition:opacity 0.2s;">Learn more &rarr;</a>
           <a href="simulation.html#lead-qualifier" style="display:inline-block; margin-top:6px; font-size:11px; color:var(--muted); text-decoration:none; font-weight:500; transition:opacity 0.2s;">Try it live</a>
+          <div class="agent-activity">
+            <div class="agent-activity-label">
+              <span>Activity</span>
+              <span style="color:var(--lime);">Active</span>
+            </div>
+            <div class="agent-activity-bar">
+              <div class="agent-activity-bar-fill" style="width:78%; background:var(--lime); box-shadow:0 0 6px rgba(123,234,142,0.3);"></div>
+            </div>
+          </div>
         </div>
       </div>
 
       <!-- SALES AGENT -->
       <div class="tier-card">
+        <div style="height:3px; background:var(--lavender); opacity:0.6; margin:-20px -24px 0; width:calc(100% + 48px);"></div>
         <div class="tier-top">
           <div style="font-size:28px; margin-bottom:12px;">✉️</div>
           <h3 style="color:var(--lavender); font-size:20px;">Sales Agent</h3>
@@ -1548,11 +1719,21 @@
           <p style="font-size:13px; color:var(--muted); line-height:1.65;">Outreach sequences, follow-ups, proposals, and e-signatures — all logged to your CRM automatically.</p>
           <a href="agents/sales-agent.html" style="display:inline-block; margin-top:10px; font-size:12px; color:var(--lavender); text-decoration:none; font-weight:600; transition:opacity 0.2s;">Learn more &rarr;</a>
           <a href="simulation.html#sales" style="display:inline-block; margin-top:6px; font-size:11px; color:var(--muted); text-decoration:none; font-weight:500; transition:opacity 0.2s;">Try it live</a>
+          <div class="agent-activity">
+            <div class="agent-activity-label">
+              <span>Activity</span>
+              <span style="color:var(--lavender);">Active</span>
+            </div>
+            <div class="agent-activity-bar">
+              <div class="agent-activity-bar-fill" style="width:65%; background:var(--lavender); box-shadow:0 0 6px rgba(196,168,255,0.3);"></div>
+            </div>
+          </div>
         </div>
       </div>
 
       <!-- CUSTOMER SUPPORT -->
       <div class="tier-card">
+        <div style="height:3px; background:var(--amber); opacity:0.6; margin:-20px -24px 0; width:calc(100% + 48px);"></div>
         <div class="tier-top">
           <div style="font-size:28px; margin-bottom:12px;">🎧</div>
           <h3 style="color:var(--amber); font-size:20px;">Customer Support</h3>
@@ -1562,11 +1743,21 @@
           <p style="font-size:13px; color:var(--muted); line-height:1.65;">Tickets, refunds, plan changes, and account actions — handled instantly with smart escalation.</p>
           <a href="agents/customer-support.html" style="display:inline-block; margin-top:10px; font-size:12px; color:var(--amber); text-decoration:none; font-weight:600; transition:opacity 0.2s;">Learn more &rarr;</a>
           <a href="simulation.html#customer-support" style="display:inline-block; margin-top:6px; font-size:11px; color:var(--muted); text-decoration:none; font-weight:500; transition:opacity 0.2s;">Try it live</a>
+          <div class="agent-activity">
+            <div class="agent-activity-label">
+              <span>Activity</span>
+              <span style="color:var(--amber);">Active</span>
+            </div>
+            <div class="agent-activity-bar">
+              <div class="agent-activity-bar-fill" style="width:88%; background:var(--amber); box-shadow:0 0 6px rgba(235,195,20,0.3);"></div>
+            </div>
+          </div>
         </div>
       </div>
 
       <!-- SERVICE OPERATIONS -->
       <div class="tier-card">
+        <div style="height:3px; background:var(--coral); opacity:0.6; margin:-20px -24px 0; width:calc(100% + 48px);"></div>
         <div class="tier-top">
           <div style="font-size:28px; margin-bottom:12px;">🔧</div>
           <h3 style="color:var(--coral); font-size:20px;">Service Ops</h3>
@@ -1576,6 +1767,15 @@
           <p style="font-size:13px; color:var(--muted); line-height:1.65;">Scheduling, dispatch, technician assignment, job tracking, and SLA monitoring after the sale.</p>
           <a href="agents/service-operations.html" style="display:inline-block; margin-top:10px; font-size:12px; color:var(--coral); text-decoration:none; font-weight:600; transition:opacity 0.2s;">Learn more &rarr;</a>
           <a href="simulation.html#service-ops" style="display:inline-block; margin-top:6px; font-size:11px; color:var(--muted); text-decoration:none; font-weight:500; transition:opacity 0.2s;">Try it live</a>
+          <div class="agent-activity">
+            <div class="agent-activity-label">
+              <span>Activity</span>
+              <span style="color:var(--coral);">Active</span>
+            </div>
+            <div class="agent-activity-bar">
+              <div class="agent-activity-bar-fill" style="width:71%; background:var(--coral); box-shadow:0 0 6px rgba(255,180,164,0.3);"></div>
+            </div>
+          </div>
         </div>
       </div>
 
