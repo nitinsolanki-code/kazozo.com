@@ -704,9 +704,130 @@
 
   .hero-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
 
-  /* ===== HERO LIVE CONSOLE ===== */
+  /* ===== HERO AGENT NETWORK ===== */
+  .hero-network {
+    margin-top: 56px; width: 100%; max-width: 800px; position: relative; z-index: 1;
+  }
+  .hero-network-container {
+    position: relative; width: 100%; aspect-ratio: 4 / 3;
+  }
+
+  /* SVG connection lines */
+  .hero-network-svg {
+    position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0;
+  }
+  .network-line {
+    stroke: rgba(255,255,255,0.06); stroke-width: 1.5; fill: none;
+  }
+  .network-particle {
+    r: 3; fill: var(--sky); filter: drop-shadow(0 0 4px var(--sky));
+  }
+
+  /* Center hub */
+  .network-hub {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 2;
+    width: 110px; height: 110px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(70,234,237,0.12) 0%, rgba(70,234,237,0.03) 60%, transparent 100%);
+    border: 1.5px solid rgba(70,234,237,0.2);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    box-shadow: 0 0 40px rgba(70,234,237,0.1), inset 0 0 30px rgba(70,234,237,0.05);
+  }
+  .network-hub-icon {
+    font-size: 28px; margin-bottom: 4px;
+  }
+  .network-hub-label {
+    font-family: 'Space Grotesk', sans-serif; font-size: 10px; font-weight: 700;
+    color: var(--sky); text-transform: uppercase; letter-spacing: 2px;
+  }
+  .network-hub-ring {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    width: 140px; height: 140px; border-radius: 50%;
+    border: 1px solid rgba(70,234,237,0.08);
+    animation: hubRotate 20s linear infinite;
+  }
+  .network-hub-ring::before {
+    content: ''; position: absolute; top: -3px; left: 50%;
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--sky); box-shadow: 0 0 8px var(--sky);
+  }
+  @keyframes hubRotate { 0% { transform: translate(-50%,-50%) rotate(0deg); } 100% { transform: translate(-50%,-50%) rotate(360deg); } }
+
+  /* Agent nodes */
+  .network-node {
+    position: absolute; z-index: 2; display: flex; flex-direction: column; align-items: center;
+    transform: translate(-50%, -50%);
+  }
+  .network-node-circle {
+    width: 68px; height: 68px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    font-size: 24px; position: relative; transition: all 0.3s;
+    border: 1.5px solid rgba(255,255,255,0.1);
+  }
+  .network-node:hover .network-node-circle {
+    transform: scale(1.1);
+  }
+  .network-node-circle::after {
+    content: ''; position: absolute; bottom: 2px; right: 2px;
+    width: 12px; height: 12px; border-radius: 50%;
+    background: var(--lime); border: 2px solid var(--bg);
+    animation: statusPulse 2s ease-in-out infinite;
+  }
+  .network-node-label {
+    font-family: 'Space Grotesk', sans-serif; font-size: 12px; font-weight: 700;
+    margin-top: 8px; white-space: nowrap;
+  }
+  .network-node-status {
+    font-size: 10px; color: var(--muted); margin-top: 2px; white-space: nowrap;
+    opacity: 0; animation: nodeStatusCycle 12s ease-in-out infinite;
+  }
+  .network-node:nth-child(2) .network-node-status { animation-delay: 1s; }
+  .network-node:nth-child(3) .network-node-status { animation-delay: 2s; }
+  .network-node:nth-child(4) .network-node-status { animation-delay: 3s; }
+  .network-node:nth-child(5) .network-node-status { animation-delay: 4s; }
+  @keyframes nodeStatusCycle {
+    0% { opacity: 0; }
+    8% { opacity: 1; }
+    25% { opacity: 1; }
+    33% { opacity: 0; }
+    100% { opacity: 0; }
+  }
+
+  /* Outer glow ring for the whole network */
+  .network-ambient {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    width: 90%; height: 90%; border-radius: 50%;
+    background: radial-gradient(circle, rgba(70,234,237,0.04) 0%, rgba(196,168,255,0.02) 30%, transparent 70%);
+    filter: blur(40px); pointer-events: none; z-index: 0;
+  }
+
+  /* Network footer stats */
+  .network-footer {
+    text-align: center; margin-top: 20px;
+  }
+  .network-footer span {
+    font-size: 12px; color: var(--muted); font-family: 'Space Grotesk', sans-serif;
+  }
+  .network-footer strong { font-weight: 700; }
+
+  @media (max-width: 768px) {
+    .hero-network { max-width: 100%; margin-top: 40px; }
+    .network-node-circle { width: 52px; height: 52px; font-size: 18px; }
+    .network-hub { width: 80px; height: 80px; }
+    .network-hub-icon { font-size: 22px; }
+    .network-hub-ring { width: 110px; height: 110px; }
+    .network-node-label { font-size: 10px; }
+  }
+  @media (max-width: 480px) {
+    .hero-network-container { aspect-ratio: 1 / 1; }
+    .network-node-circle { width: 44px; height: 44px; font-size: 16px; }
+    .network-hub { width: 64px; height: 64px; }
+    .network-hub-icon { font-size: 18px; }
+    .network-hub-label { font-size: 8px; }
+    .network-hub-ring { width: 90px; height: 90px; }
+    .network-node-status { display: none; }
+  }
+
   .hero-console {
-    margin-top: 56px; width: 100%; max-width: 720px; position: relative; z-index: 1;
+    margin-top: 56px; width: 100%; max-width: 720px; position: relative; z-index: 1; display: none;
   }
   .hero-console-window {
     background: rgba(19, 19, 22, 0.85); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
@@ -1705,106 +1826,122 @@
         <a href="compare/kazozo-vs-salesforce-agentforce.html" class="btn-outline">Compare to Salesforce &#8594;</a>
       </div>
 
-      <!-- HERO LIVE CONSOLE -->
-      <div class="hero-console">
-        <div class="hero-console-window">
-          <div class="hero-console-bar">
-            <div class="hero-console-dots">
-              <span style="background:rgba(255,95,87,0.7);"></span>
-              <span style="background:rgba(255,189,46,0.7);"></span>
-              <span style="background:rgba(39,201,63,0.7);"></span>
-            </div>
-            <div class="hero-console-title">
-              <div class="hero-console-live"></div>
-              Agent Ops — Live
-            </div>
-            <div class="hero-console-agents">
-              <div class="hero-console-agent-dot" style="background:rgba(70,234,237,0.15);" title="Frontline">&#128737;&#65039;</div>
-              <div class="hero-console-agent-dot" style="background:rgba(123,234,142,0.15);" title="Qualifier">&#127919;</div>
-              <div class="hero-console-agent-dot" style="background:rgba(196,168,255,0.15);" title="Sales">&#9993;&#65039;</div>
-              <div class="hero-console-agent-dot" style="background:rgba(235,195,20,0.15);" title="Support">&#127911;</div>
-              <div class="hero-console-agent-dot" style="background:rgba(255,180,164,0.15);" title="Ops">&#128295;</div>
-            </div>
+      <!-- HERO AGENT NETWORK -->
+      <div class="hero-network">
+        <div class="hero-network-container">
+          <div class="network-ambient"></div>
+
+          <!-- SVG Connection Lines + Animated Particles -->
+          <svg class="hero-network-svg" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid meet">
+            <!-- Lines from hub (400,300) to each node -->
+            <!-- Frontline: top (400, 60) -->
+            <line class="network-line" x1="400" y1="240" x2="400" y2="100" />
+            <!-- Qualifier: top-right (680, 180) -->
+            <line class="network-line" x1="440" y1="265" x2="630" y2="170" />
+            <!-- Sales: bottom-right (680, 440) -->
+            <line class="network-line" x1="440" y1="335" x2="630" y2="430" />
+            <!-- Support: bottom-left (120, 440) -->
+            <line class="network-line" x1="360" y1="335" x2="170" y2="430" />
+            <!-- Ops: top-left (120, 180) -->
+            <line class="network-line" x1="360" y1="265" x2="170" y2="170" />
+
+            <!-- Agent-to-agent connections (outer ring) -->
+            <line class="network-line" x1="400" y1="100" x2="630" y2="170" style="opacity:0.4;" />
+            <line class="network-line" x1="630" y1="170" x2="630" y2="430" style="opacity:0.4;" />
+            <line class="network-line" x1="630" y1="430" x2="170" y2="430" style="opacity:0.4;" />
+            <line class="network-line" x1="170" y1="430" x2="170" y2="170" style="opacity:0.4;" />
+            <line class="network-line" x1="170" y1="170" x2="400" y2="100" style="opacity:0.4;" />
+
+            <!-- Animated particles traveling hub → nodes -->
+            <circle class="network-particle" fill="#46EAED">
+              <animateMotion dur="3s" repeatCount="indefinite" path="M400,240 L400,100" />
+            </circle>
+            <circle class="network-particle" fill="#7BEA8E">
+              <animateMotion dur="3.5s" repeatCount="indefinite" begin="0.5s" path="M440,265 L630,170" />
+            </circle>
+            <circle class="network-particle" fill="#C4A8FF">
+              <animateMotion dur="3.2s" repeatCount="indefinite" begin="1s" path="M440,335 L630,430" />
+            </circle>
+            <circle class="network-particle" fill="#EBC314">
+              <animateMotion dur="3.8s" repeatCount="indefinite" begin="1.5s" path="M360,335 L170,430" />
+            </circle>
+            <circle class="network-particle" fill="#FFB4A4">
+              <animateMotion dur="3.3s" repeatCount="indefinite" begin="2s" path="M360,265 L170,170" />
+            </circle>
+
+            <!-- Return particles: nodes → hub -->
+            <circle class="network-particle" r="2" fill="#46EAED" opacity="0.6">
+              <animateMotion dur="4s" repeatCount="indefinite" begin="1.5s" path="M400,100 L400,240" />
+            </circle>
+            <circle class="network-particle" r="2" fill="#7BEA8E" opacity="0.6">
+              <animateMotion dur="4.2s" repeatCount="indefinite" begin="2s" path="M630,170 L440,265" />
+            </circle>
+            <circle class="network-particle" r="2" fill="#C4A8FF" opacity="0.6">
+              <animateMotion dur="3.8s" repeatCount="indefinite" begin="2.5s" path="M630,430 L440,335" />
+            </circle>
+            <circle class="network-particle" r="2" fill="#EBC314" opacity="0.6">
+              <animateMotion dur="4.5s" repeatCount="indefinite" begin="0.8s" path="M170,430 L360,335" />
+            </circle>
+            <circle class="network-particle" r="2" fill="#FFB4A4" opacity="0.6">
+              <animateMotion dur="4.1s" repeatCount="indefinite" begin="1.2s" path="M170,170 L360,265" />
+            </circle>
+
+            <!-- Ring particles: agent to agent -->
+            <circle class="network-particle" r="2" fill="#fff" opacity="0.3">
+              <animateMotion dur="8s" repeatCount="indefinite" path="M400,100 L630,170 L630,430 L170,430 L170,170 Z" />
+            </circle>
+            <circle class="network-particle" r="2" fill="#fff" opacity="0.3">
+              <animateMotion dur="8s" repeatCount="indefinite" begin="4s" path="M400,100 L170,170 L170,430 L630,430 L630,170 Z" />
+            </circle>
+          </svg>
+
+          <!-- Center Hub -->
+          <div class="network-hub">
+            <div class="network-hub-ring"></div>
+            <div class="network-hub-icon">&#9889;</div>
+            <div class="network-hub-label">Kazozo</div>
           </div>
 
-          <div class="hero-console-feed">
-            <div class="hc-msg">
-              <div class="hc-msg-icon" style="background:rgba(70,234,237,0.12);">&#128737;&#65039;</div>
-              <div class="hc-msg-content">
-                <div class="hc-msg-agent" style="color:var(--sky);">Frontline</div>
-                <div class="hc-msg-text">New visitor from <strong style="color:var(--sky);">Google Ads</strong> — "I need HVAC service." Captured as <strong>Sarah M.</strong> &#8594; routing to qualifier</div>
-              </div>
-              <div class="hc-msg-time">now</div>
-            </div>
-
-            <div class="hc-msg">
-              <div class="hc-msg-icon" style="background:rgba(123,234,142,0.12);">&#127919;</div>
-              <div class="hc-msg-content">
-                <div class="hc-msg-agent" style="color:var(--lime);">Lead Qualifier</div>
-                <div class="hc-msg-text">Sarah M. scored <strong style="color:var(--lime);">92/100</strong> — homeowner, high intent, in service area. Flagged <strong>HOT</strong> &#8594; sales</div>
-              </div>
-              <div class="hc-msg-time">3s</div>
-            </div>
-
-            <div class="hc-msg">
-              <div class="hc-msg-icon" style="background:rgba(196,168,255,0.12);">&#9993;&#65039;</div>
-              <div class="hc-msg-content">
-                <div class="hc-msg-agent" style="color:var(--lavender);">Sales Agent</div>
-                <div class="hc-msg-text">Proposal sent with <strong style="color:var(--lavender);">$89 diagnostic offer</strong>. SMS follow-up queued. Calendar link included.</div>
-              </div>
-              <div class="hc-msg-time">6s</div>
-            </div>
-
-            <div class="hc-msg">
-              <div class="hc-msg-icon" style="background:rgba(70,234,237,0.12);">&#128737;&#65039;</div>
-              <div class="hc-msg-content">
-                <div class="hc-msg-agent" style="color:var(--sky);">Frontline</div>
-                <div class="hc-msg-text">Sarah replied: <strong>"Thursday 10am works!"</strong> &#8594; confirming booking</div>
-              </div>
-              <div class="hc-msg-time">18s</div>
-            </div>
-
-            <div class="hc-msg">
-              <div class="hc-msg-icon" style="background:rgba(196,168,255,0.12);">&#9993;&#65039;</div>
-              <div class="hc-msg-content">
-                <div class="hc-msg-agent" style="color:var(--lavender);">Sales Agent</div>
-                <div class="hc-msg-text">Booking locked: <strong style="color:var(--lavender);">Thu 10:00 AM</strong>. Confirmation sent. &#8594; handing to service ops</div>
-              </div>
-              <div class="hc-msg-time">21s</div>
-            </div>
-
-            <div class="hc-msg">
-              <div class="hc-msg-icon" style="background:rgba(255,180,164,0.12);">&#128295;</div>
-              <div class="hc-msg-content">
-                <div class="hc-msg-agent" style="color:var(--coral);">Service Ops</div>
-                <div class="hc-msg-text">Dispatched <strong style="color:var(--coral);">Tech #7 (Mike)</strong> — 22 min travel, parts pre-ordered. SLA: on track.</div>
-              </div>
-              <div class="hc-msg-time">24s</div>
-            </div>
-
-            <div class="hc-msg">
-              <div class="hc-msg-icon" style="background:rgba(235,195,20,0.12);">&#127911;</div>
-              <div class="hc-msg-content">
-                <div class="hc-msg-agent" style="color:var(--amber);">Support</div>
-                <div class="hc-msg-text">Sent prep instructions + tech profile to Sarah. Gate code received: <strong style="color:var(--amber);">#4412</strong></div>
-              </div>
-              <div class="hc-msg-time">30s</div>
-            </div>
-
-            <div class="hc-msg">
-              <div class="hc-msg-icon" style="background:rgba(123,234,142,0.12);">&#11088;</div>
-              <div class="hc-msg-content">
-                <div class="hc-msg-agent" style="color:var(--lime);">All Agents</div>
-                <div class="hc-msg-text">Job complete. <strong style="color:var(--lime);">5-star review</strong> received. Invoice: $340. Lead &#8594; Revenue in <strong>18 hours</strong>.</div>
-              </div>
-              <div class="hc-msg-time">done</div>
-            </div>
+          <!-- Agent Nodes -->
+          <!-- Frontline: top center -->
+          <div class="network-node" style="top:14%; left:50%;">
+            <div class="network-node-circle" style="background:rgba(70,234,237,0.1); border-color:rgba(70,234,237,0.25);">&#128737;&#65039;</div>
+            <div class="network-node-label" style="color:var(--sky);">Frontline</div>
+            <div class="network-node-status">Greeting visitor...</div>
           </div>
 
-          <div class="hero-console-footer">
-            <span><strong style="color:var(--lime);">5 agents</strong> online<span class="hc-cursor"></span></span>
-            <span><strong style="color:var(--sky);">269</strong> tasks today &middot; <strong style="color:var(--coral);">$0</strong> overtime</span>
+          <!-- Qualifier: top-right -->
+          <div class="network-node" style="top:26%; left:82%;">
+            <div class="network-node-circle" style="background:rgba(123,234,142,0.1); border-color:rgba(123,234,142,0.25);">&#127919;</div>
+            <div class="network-node-label" style="color:var(--lime);">Qualifier</div>
+            <div class="network-node-status">Scoring lead 92/100</div>
           </div>
+
+          <!-- Sales: bottom-right -->
+          <div class="network-node" style="top:72%; left:82%;">
+            <div class="network-node-circle" style="background:rgba(196,168,255,0.1); border-color:rgba(196,168,255,0.25);">&#9993;&#65039;</div>
+            <div class="network-node-label" style="color:var(--lavender);">Sales</div>
+            <div class="network-node-status">Sending proposal...</div>
+          </div>
+
+          <!-- Support: bottom-left -->
+          <div class="network-node" style="top:72%; left:18%;">
+            <div class="network-node-circle" style="background:rgba(235,195,20,0.1); border-color:rgba(235,195,20,0.25);">&#127911;</div>
+            <div class="network-node-label" style="color:var(--amber);">Support</div>
+            <div class="network-node-status">Resolving ticket #47</div>
+          </div>
+
+          <!-- Ops: top-left -->
+          <div class="network-node" style="top:26%; left:18%;">
+            <div class="network-node-circle" style="background:rgba(255,180,164,0.1); border-color:rgba(255,180,164,0.25);">&#128295;</div>
+            <div class="network-node-label" style="color:var(--coral);">Service Ops</div>
+            <div class="network-node-status">Dispatching Tech #7</div>
+          </div>
+
+        </div>
+
+        <div class="network-footer">
+          <span><strong style="color:var(--lime);">5 agents</strong> connected &middot; <strong style="color:var(--sky);">269</strong> tasks today &middot; <strong style="color:var(--coral);">$0</strong> overtime &middot; <strong style="color:var(--amber);">24/7</strong></span>
         </div>
       </div>
 
