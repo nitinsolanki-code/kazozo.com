@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Frontline Agent — AI Receptionist & First Contact | Kazozo</title>
+<meta name="description" content="Your AI front desk. The Frontline Agent answers questions, books appointments, captures leads, checks order status, and routes customers — 24/7, in any language.">
+<link rel="canonical" href="https://kazozo.com/agents/frontline-agent.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Frontline Agent — AI Receptionist & First Contact | Kazozo">
+<meta property="og:description" content="Your AI front desk. Answers questions, books appointments, captures leads, checks order status, and routes customers — 24/7, in any language.">
+<meta property="og:url" content="https://kazozo.com/agents/frontline-agent.html">
+<meta property="og:image" content="https://kazozo.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Frontline Agent — AI Receptionist & First Contact | Kazozo">
+<meta name="twitter:description" content="Your AI front desk. Answers questions, books appointments, captures leads, checks order status, and routes customers — 24/7, in any language.">
+
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230C0B12'/%3E%3Ctext x='3' y='23' font-family='system-ui,sans-serif' font-size='20' font-weight='700' fill='%23F0EFF4'%3Ek%3C/text%3E%3Ctext x='15' y='23' font-family='system-ui,sans-serif' font-size='20' font-weight='700' fill='%23FF6B5A'%3Ez%3C/text%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root {
+  --bg: #131316;
+  --surface: #1b1b1e;
+  --card: #1f1f22;
+  --card-high: #2a2a2d;
+  --card-highest: #353438;
+  --coral: #FFB4A4;
+  --coral-vivid: #FF5733;
+  --lime: #7BEA8E;
+  --lavender: #C4A8FF;
+  --sky: #46EAED;
+  --amber: #EBC314;
+  --text: #E4E1E6;
+  --muted: #9e9ba5;
+  --border: rgba(228,225,230,0.06);
+}
+
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Manrope', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.6;
+}
+
+/* Texture */
+.texture-bg {
+  position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0;
+  background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.015) 1px, transparent 0);
+  background-size: 32px 32px;
+}
+.content { position: relative; z-index: 1; }
+
+/* Orbs */
+.orb { position: absolute; border-radius: 50%; filter: blur(120px); pointer-events: none; }
+.orb-1 { width: 500px; height: 500px; top: -150px; right: -100px; background: conic-gradient(from 180deg, rgba(70,234,237,0.1), rgba(255,180,164,0.08), rgba(235,195,20,0.04), rgba(70,234,237,0.1)); animation: orbSpin 30s linear infinite; }
+.orb-2 { width: 350px; height: 350px; top: 2000px; left: -120px; background: radial-gradient(circle, rgba(255,87,51,0.08), rgba(70,234,237,0.04), transparent); animation: orbFloat 14s ease-in-out infinite; }
+@keyframes orbSpin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+@keyframes orbFloat { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-40px); } }
+
+.container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+/* ===== HERO ===== */
+.hero {
+  padding: 140px 0 80px;
+  text-align: center;
+  position: relative;
+}
+.hero::before {
+  content: ''; position: absolute; top: -200px; left: 50%; transform: translateX(-50%);
+  width: 800px; height: 800px;
+  background: radial-gradient(circle, rgba(70,234,237,0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(70,234,237,0.08); color: var(--sky);
+  padding: 6px 16px; border-radius: 100px;
+  font-size: .8rem; font-weight: 600; margin-bottom: 24px;
+  border: 1px solid rgba(70,234,237,0.15);
+}
+.hero h1 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 3.5rem; font-weight: 700; letter-spacing: -0.03em;
+  line-height: 1.1; margin-bottom: 20px;
+  max-width: 700px; margin-left: auto; margin-right: auto;
+}
+.hero h1 em { font-style: normal; color: var(--sky); }
+.hero-sub {
+  font-size: 1.15rem; color: var(--muted); max-width: 600px;
+  margin: 0 auto 40px; line-height: 1.7;
+}
+.hero-ctas { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: linear-gradient(135deg, var(--coral), var(--coral-vivid));
+  color: #fff; padding: 14px 32px; border-radius: 10px;
+  font-weight: 700; font-size: .95rem; text-decoration: none; border: none; cursor: pointer;
+  transition: all 0.3s;
+}
+.btn-primary:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(255,87,51,0.3); filter: brightness(1.1); }
+.btn-outline {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: transparent; color: var(--muted); padding: 14px 32px;
+  border-radius: 10px; border: 1px solid var(--border);
+  font-weight: 600; font-size: .95rem; text-decoration: none;
+  transition: all 0.3s;
+}
+.btn-outline:hover { border-color: var(--muted); color: var(--text); }
+
+/* ===== STATS BAR ===== */
+.stats-bar { display: flex; justify-content: center; gap: 48px; margin-top: 56px; flex-wrap: wrap; }
+.stat { text-align: center; }
+.stat-num { font-family: 'Space Grotesk', sans-serif; font-size: 2.25rem; font-weight: 700; letter-spacing: -0.5px; color: var(--sky); }
+.stat-label { font-size: .78rem; color: var(--muted); margin-top: 4px; }
+
+/* ===== SECTIONS ===== */
+.section { padding: 80px 0; }
+.section-label { font-size: .75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: var(--sky); margin-bottom: 12px; }
+.section-title { font-family: 'Space Grotesk', sans-serif; font-size: 2rem; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 16px; }
+.section-sub { font-size: 1rem; color: var(--muted); max-width: 640px; line-height: 1.7; margin-bottom: 40px; }
+.divider { border: 0; border-top: 1px solid var(--border); margin: 0; }
+
+/* ===== CAPABILITY CARDS ===== */
+.cap-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.cap-card {
+  background: var(--card); border: 1px solid var(--border); border-radius: 16px;
+  padding: 28px; transition: border-color 0.3s;
+}
+.cap-card:hover { border-color: rgba(70,234,237,0.18); }
+.cap-icon { font-size: 1.6rem; margin-bottom: 14px; }
+.cap-title { font-family: 'Space Grotesk', sans-serif; font-size: 1rem; font-weight: 700; margin-bottom: 6px; }
+.cap-desc { font-size: .85rem; color: var(--muted); line-height: 1.6; }
+
+/* ===== HOW IT WORKS ===== */
+.flow-steps { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; margin-top: 16px; }
+.flow-step {
+  background: var(--card); border: 1px solid var(--border); border-radius: 14px;
+  padding: 24px 16px; text-align: center; position: relative;
+}
+.flow-step::after {
+  content: '→'; position: absolute; right: -10px; top: 50%; transform: translateY(-50%);
+  color: var(--muted); font-size: 16px;
+}
+.flow-step:last-child::after { display: none; }
+.flow-num {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 28px; height: 28px; border-radius: 50%;
+  background: rgba(70,234,237,0.1); color: var(--sky);
+  font-family: 'Space Grotesk', sans-serif; font-size: .8rem; font-weight: 700;
+  margin-bottom: 10px;
+}
+.flow-label { font-size: .82rem; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+.flow-desc { font-size: .72rem; color: var(--muted); line-height: 1.5; }
+
+/* ===== COMPARISON TABLE ===== */
+.compare-table { width: 100%; border-collapse: collapse; margin-top: 16px; }
+.compare-table th {
+  font-family: 'Space Grotesk', sans-serif; text-align: left;
+  padding: 14px 20px; font-size: .8rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 1px;
+  color: var(--muted); border-bottom: 1px solid var(--border);
+}
+.compare-table th:last-child { color: var(--sky); }
+.compare-table td {
+  padding: 14px 20px; font-size: .88rem; color: var(--muted);
+  border-bottom: 1px solid var(--border);
+}
+.compare-table td:last-child { color: var(--text); font-weight: 500; }
+.compare-table tr:hover td { background: rgba(70,234,237,0.02); }
+
+/* ===== CHANNEL + LANGUAGE ===== */
+.tag-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+.tag {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 8px 16px; border-radius: 10px;
+  background: var(--card); border: 1px solid var(--border);
+  font-size: .82rem; color: var(--text); font-weight: 500;
+}
+.tag-icon { font-size: 1rem; }
+
+/* ===== KPI GRID ===== */
+.kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.kpi-card {
+  background: var(--card); border: 1px solid var(--border); border-radius: 14px;
+  padding: 24px; text-align: center;
+}
+.kpi-value {
+  font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; font-weight: 700;
+  color: var(--sky); margin-bottom: 4px;
+}
+.kpi-label { font-size: .78rem; color: var(--muted); line-height: 1.4; }
+
+/* ===== VERTICALS ===== */
+.vert-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.vert-card {
+  background: var(--card); border: 1px solid var(--border); border-radius: 14px;
+  padding: 24px; transition: border-color 0.3s;
+}
+.vert-card:hover { border-color: rgba(70,234,237,0.18); }
+.vert-icon { font-size: 1.4rem; margin-bottom: 10px; }
+.vert-name { font-family: 'Space Grotesk', sans-serif; font-size: .95rem; font-weight: 700; margin-bottom: 4px; }
+.vert-desc { font-size: .78rem; color: var(--muted); line-height: 1.55; }
+
+/* ===== ROUTING MAP ===== */
+.route-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+.route-card {
+  display: flex; align-items: center; gap: 14px;
+  background: var(--card); border: 1px solid var(--border); border-radius: 12px;
+  padding: 16px 20px; transition: border-color 0.3s;
+}
+.route-card:hover { border-color: rgba(70,234,237,0.18); }
+.route-arrow { color: var(--sky); font-size: 1.2rem; flex-shrink: 0; }
+.route-intent { font-size: .82rem; color: var(--muted); flex: 1; }
+.route-target { font-family: 'Space Grotesk', sans-serif; font-size: .82rem; font-weight: 700; color: var(--text); white-space: nowrap; }
+
+/* ===== CTA ===== */
+.cta-section {
+  text-align: center; padding: 80px 0;
+  background: linear-gradient(180deg, transparent, rgba(70,234,237,0.03));
+}
+
+/* ===== FOOTER ===== */
+footer { border-top: 1px solid var(--border); padding: 48px 0 32px; }
+.footer-inner { max-width: 1100px; margin: 0 auto; padding: 0 24px; display: flex; justify-content: space-between; gap: 48px; flex-wrap: wrap; }
+.footer-brand { max-width: 260px; }
+.footer-logo { font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 700; color: var(--text); }
+.footer-logo span { color: var(--coral-vivid); }
+.footer-tagline { font-size: .82rem; color: var(--muted); margin-top: 8px; line-height: 1.6; }
+.footer-nav { display: flex; gap: 64px; }
+.footer-col { display: flex; flex-direction: column; gap: 8px; }
+.footer-col h4 { font-family: 'Space Grotesk', sans-serif; font-size: .8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); margin-bottom: 4px; }
+.footer-col a { font-size: .85rem; color: rgba(228,225,230,0.5); text-decoration: none; transition: color 0.3s; }
+.footer-col a:hover { color: var(--text); }
+.footer-bottom { max-width: 1100px; margin: 24px auto 0; padding: 16px 24px 0; border-top: 1px solid var(--border); font-size: .75rem; color: var(--muted); }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .hero h1 { font-size: 2.2rem; }
+  .cap-grid, .kpi-grid, .vert-grid { grid-template-columns: 1fr; }
+  .flow-steps { grid-template-columns: 1fr; }
+  .flow-step::after { display: none; }
+  .route-grid { grid-template-columns: 1fr; }
+  .stats-bar { gap: 24px; }
+  .footer-nav { gap: 32px; }
+}
+</style>
+</head>
+<body>
+
+<div class="texture-bg"></div>
+
+<!-- Shared nav -->
+<div id="site-nav"></div>
+<script src="../nav.js"></script>
+
+<div class="content">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-badge">🛡️ Customer-Facing Agent &middot; Included in Starter</div>
+      <h1>Your AI <em>front desk</em> — always on</h1>
+      <p class="hero-sub">The Frontline Agent is the first point of contact for every inbound interaction. It answers questions, books appointments, captures leads, checks order status, and routes customers to the right team — 24/7, in 10 languages.</p>
+      <div class="hero-ctas">
+        <a href="../simulation.html#frontline" class="btn-primary">Try it live &#8594;</a>
+        <a href="../index.html#pricing" class="btn-outline">See pricing</a>
+      </div>
+      <div class="stats-bar">
+        <div class="stat"><div class="stat-num">$0.15</div><div class="stat-label">per resolution</div></div>
+        <div class="stat"><div class="stat-num">&lt; 3s</div><div class="stat-label">first response</div></div>
+        <div class="stat"><div class="stat-num">21</div><div class="stat-label">integrated tools</div></div>
+        <div class="stat"><div class="stat-num">10</div><div class="stat-label">languages</div></div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ===== WHAT IT DOES ===== -->
+  <section class="section">
+    <div class="container">
+      <div class="section-label">Capabilities</div>
+      <h2 class="section-title">What the Frontline Agent does</h2>
+      <p class="section-sub">Not a chatbot. Not a decision tree. An AI agent that understands intent, takes action, and resolves interactions end-to-end.</p>
+
+      <div class="cap-grid">
+        <div class="cap-card">
+          <div class="cap-icon">💬</div>
+          <div class="cap-title">Answer Questions</div>
+          <div class="cap-desc">Instant FAQ matching with a fallback to deep knowledge base search. Pulls business hours, location info, and service details in real time.</div>
+        </div>
+        <div class="cap-card">
+          <div class="cap-icon">📅</div>
+          <div class="cap-title">Book Appointments</div>
+          <div class="cap-desc">Checks calendar availability, presents options, and books the appointment — complete with confirmation. No scheduling links, no back-and-forth.</div>
+        </div>
+        <div class="cap-card">
+          <div class="cap-icon">🎯</div>
+          <div class="cap-title">Capture Every Lead</div>
+          <div class="cap-desc">The moment a visitor shares any contact info — name, email, phone — a lead record is created in your CRM instantly. No lead left behind.</div>
+        </div>
+        <div class="cap-card">
+          <div class="cap-icon">📦</div>
+          <div class="cap-title">Check Order Status</div>
+          <div class="cap-desc">Looks up orders by ID or email, pulls real-time service status, and gives customers clear, specific answers about their orders.</div>
+        </div>
+        <div class="cap-card">
+          <div class="cap-icon">🔀</div>
+          <div class="cap-title">Smart Routing</div>
+          <div class="cap-desc">When it can't resolve in 3 turns, or the customer needs specialized help, it routes to the right agent with full conversation context and sentiment analysis.</div>
+        </div>
+        <div class="cap-card">
+          <div class="cap-icon">🌍</div>
+          <div class="cap-title">10 Languages</div>
+          <div class="cap-desc">Auto-detects language on first message and responds natively in English, Spanish, Portuguese, French, Russian, Chinese, Arabic, Italian, German, and Hebrew.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ===== HOW IT WORKS ===== -->
+  <section class="section">
+    <div class="container">
+      <div class="section-label">How it works</div>
+      <h2 class="section-title">Every message runs through a 5-step pipeline</h2>
+      <p class="section-sub">The agent doesn't just match keywords. It reasons through intent, selects tools dynamically, and chains multi-step workflows.</p>
+
+      <div class="flow-steps">
+        <div class="flow-step">
+          <div class="flow-num">1</div>
+          <div class="flow-label">Fast-path FAQ</div>
+          <div class="flow-desc">Instant match against your FAQ index. Sub-50ms, near-zero cost.</div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-num">2</div>
+          <div class="flow-label">Deep Search</div>
+          <div class="flow-desc">If no FAQ match, searches your full knowledge base across multiple layers.</div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-num">3</div>
+          <div class="flow-label">Live Lookup</div>
+          <div class="flow-desc">Hours, availability, order status, customer records — real-time system calls.</div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-num">4</div>
+          <div class="flow-label">Take Action</div>
+          <div class="flow-desc">Book appointments, create leads, submit tickets, send confirmations.</div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-num">5</div>
+          <div class="flow-label">Escalate</div>
+          <div class="flow-desc">Routes to a specialist with full context if it can't resolve.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ===== CHATBOT VS AGENT ===== -->
+  <section class="section">
+    <div class="container">
+      <div class="section-label">Not a chatbot</div>
+      <h2 class="section-title">Chatbots respond. This agent resolves.</h2>
+      <p class="section-sub">The difference is action. A chatbot talks. The Frontline Agent talks, decides, and acts.</p>
+
+      <table class="compare-table">
+        <thead>
+          <tr><th>Capability</th><th>Traditional Chatbot</th><th>Frontline Agent</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>FAQ Handling</td><td>Answers from a script</td><td>Answers, then takes action on the answer</td></tr>
+          <tr><td>Lead Capture</td><td>Collects a form</td><td>Creates CRM record mid-conversation, instantly</td></tr>
+          <tr><td>Scheduling</td><td>Shows a scheduling link</td><td>Checks availability, books it, sends confirmation</td></tr>
+          <tr><td>Routing</td><td>Sends to a queue</td><td>Routes to a specific specialist with full context</td></tr>
+          <tr><td>Languages</td><td>Basic translation widget</td><td>10 languages native, auto-detected, culturally adapted</td></tr>
+          <tr><td>Memory</td><td>None between sessions</td><td>VIP recognition, preferences, history</td></tr>
+          <tr><td>Intelligence</td><td>Fixed capability</td><td>Configurable AI tier — dial up for complex interactions</td></tr>
+          <tr><td>Audit</td><td>Chat logs</td><td>Full audit trail of every tool call and outcome</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ===== ROUTING ===== -->
+  <section class="section">
+    <div class="container">
+      <div class="section-label">Intelligent routing</div>
+      <h2 class="section-title">Knows when to hand off — and to whom</h2>
+      <p class="section-sub">When the Frontline Agent can't resolve, it doesn't just escalate. It routes to the right specialist with a full handoff package.</p>
+
+      <div class="route-grid">
+        <div class="route-card">
+          <div class="route-intent">Refund, billing, account changes</div>
+          <div class="route-arrow">→</div>
+          <div class="route-target">Customer Support</div>
+        </div>
+        <div class="route-card">
+          <div class="route-intent">Pricing inquiry with buying signals</div>
+          <div class="route-arrow">→</div>
+          <div class="route-target">Lead Qualifier</div>
+        </div>
+        <div class="route-card">
+          <div class="route-intent">Follow-up on existing opportunity</div>
+          <div class="route-arrow">→</div>
+          <div class="route-target">Sales Agent</div>
+        </div>
+        <div class="route-card">
+          <div class="route-intent">Repair, dispatch, technician needed</div>
+          <div class="route-arrow">→</div>
+          <div class="route-target">Service Ops</div>
+        </div>
+        <div class="route-card">
+          <div class="route-intent">HR questions, PTO, expenses</div>
+          <div class="route-arrow">→</div>
+          <div class="route-target">Employee Agent</div>
+        </div>
+        <div class="route-card">
+          <div class="route-intent">Password reset, system access</div>
+          <div class="route-arrow">→</div>
+          <div class="route-target">IT Helpdesk</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ===== CHANNELS & LANGUAGES ===== -->
+  <section class="section">
+    <div class="container">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;">
+        <div>
+          <div class="section-label">Channels</div>
+          <h2 class="section-title" style="font-size:1.5rem;">Meets customers where they are</h2>
+          <div class="tag-row">
+            <div class="tag"><span class="tag-icon">💬</span> Web Chat</div>
+            <div class="tag"><span class="tag-icon">📱</span> SMS</div>
+            <div class="tag"><span class="tag-icon">📲</span> WhatsApp</div>
+            <div class="tag"><span class="tag-icon">🍏</span> iMessage</div>
+          </div>
+        </div>
+        <div>
+          <div class="section-label">Languages</div>
+          <h2 class="section-title" style="font-size:1.5rem;">Native multilingual — not a translation plugin</h2>
+          <div class="tag-row">
+            <div class="tag">English</div>
+            <div class="tag">Spanish</div>
+            <div class="tag">Portuguese</div>
+            <div class="tag">French</div>
+            <div class="tag">Russian</div>
+            <div class="tag">Chinese</div>
+            <div class="tag">Arabic</div>
+            <div class="tag">Italian</div>
+            <div class="tag">German</div>
+            <div class="tag">Hebrew</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ===== KPIs ===== -->
+  <section class="section">
+    <div class="container">
+      <div class="section-label">Measurable results</div>
+      <h2 class="section-title">KPIs tracked in your dashboard</h2>
+      <p class="section-sub">Every deployment includes real-time metrics. Know exactly what the Frontline Agent is doing for your business.</p>
+
+      <div class="kpi-grid">
+        <div class="kpi-card">
+          <div class="kpi-value">&lt; 3s</div>
+          <div class="kpi-label">Average first response time</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-value">70%+</div>
+          <div class="kpi-label">Auto-resolution rate</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-value">4.2+</div>
+          <div class="kpi-label">CSAT score target</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-value">0</div>
+          <div class="kpi-label">Missed after-hours inquiries</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ===== BEST-FIT VERTICALS ===== -->
+  <section class="section">
+    <div class="container">
+      <div class="section-label">Best fit</div>
+      <h2 class="section-title">Industries where the Frontline Agent thrives</h2>
+      <p class="section-sub">Strongest when a business needs 24/7 responsiveness, inbound lead capture, and appointment booking — without adding headcount.</p>
+
+      <div class="vert-grid">
+        <div class="vert-card">
+          <div class="vert-icon">💆</div>
+          <div class="vert-name">Med Spas & Clinics</div>
+          <div class="vert-desc">Booking-heavy, after-hours inquiries, multilingual clientele, VIP concierge for high-spend patients.</div>
+        </div>
+        <div class="vert-card">
+          <div class="vert-icon">🏠</div>
+          <div class="vert-name">Home Services</div>
+          <div class="vert-desc">Emergency dispatch routing, order status checks, seasonal lead capture spikes.</div>
+        </div>
+        <div class="vert-card">
+          <div class="vert-icon">🏢</div>
+          <div class="vert-name">Real Estate</div>
+          <div class="vert-desc">Lead capture from listings, scheduling showings, multilingual buyers, luxury concierge mode.</div>
+        </div>
+        <div class="vert-card">
+          <div class="vert-icon">⛵</div>
+          <div class="vert-name">Yacht Brokerage</div>
+          <div class="vert-desc">VIP concierge mode, international clients, cross-vertical referrals, high-value lead capture.</div>
+        </div>
+        <div class="vert-card">
+          <div class="vert-icon">👔</div>
+          <div class="vert-name">Recruiting</div>
+          <div class="vert-desc">Candidate intake, interview scheduling, FAQ handling, multilingual candidates.</div>
+        </div>
+        <div class="vert-card">
+          <div class="vert-icon">🛒</div>
+          <div class="vert-name">E-commerce</div>
+          <div class="vert-desc">Order status lookups, FAQ deflection, lead capture from browse-to-buy intent.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ===== CTA ===== -->
+  <section class="cta-section">
+    <div class="container">
+      <h2 class="section-title" style="text-align:center;">See it in action</h2>
+      <p class="section-sub" style="text-align:center;margin-left:auto;margin-right:auto;">Try the Frontline Agent in our live simulation — ask it questions, book an appointment, test it in Spanish. No signup required.</p>
+      <div style="text-align:center;margin-top:32px;">
+        <a href="../simulation.html#frontline" class="btn-primary" style="padding:16px 40px;font-size:1rem;">Try it live &#8594;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="../index.html" class="footer-logo" style="text-decoration:none;">kazo<span>zo</span></a>
+        <p class="footer-tagline">The AI platform for business. Agents, apps, and automation.</p>
+      </div>
+      <div class="footer-nav">
+        <div class="footer-col">
+          <h4>Products</h4>
+          <a href="../index.html#agents">AI Agents</a>
+          <a href="../index.html#pricing">Pricing</a>
+          <a href="../industries.html">Industries</a>
+          <a href="../simulation.html">Simulation</a>
+        </div>
+        <div class="footer-col">
+          <h4>Compare</h4>
+          <a href="../compare/kazozo-vs-salesforce-agentforce.html">vs Salesforce</a>
+          <a href="../compare/kazozo-vs-lindy.html">vs Lindy.ai</a>
+          <a href="../compare/kazozo-vs-intercom.html">vs Intercom</a>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <a href="../blog/">Blog</a>
+          <a href="mailto:hello@kazozo.com">hello@kazozo.com</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2026 Kazozo &middot; <a href="https://solanki.co" target="_blank" rel="noopener" style="color:var(--muted);text-decoration:none;">A Solanki Co product</a> &middot; <a href="../privacy.html" style="color:var(--muted);text-decoration:none;">Privacy</a> &middot; <a href="../terms.html" style="color:var(--muted);text-decoration:none;">Terms</a>
+    </div>
+  </footer>
+
+</div>
+
+<!-- Kazozo Widget -->
+<script async src="https://kazozo-platform-production.up.railway.app/widget/embed-loader.js" data-tenant="kazozo-001"></script>
+
+</body>
+</html>

@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Service Operations — Dispatch, scheduling, and field operations | Kazozo</title>
+<meta name="description" content="The Service Operations agent assigns technicians to jobs, tracks job progress, checks parts availability, monitors SLA compliance, and manages your dispatc">
+<link rel="canonical" href="https://kazozo.com/agents/service-operations.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Service Operations — Dispatch, scheduling, and field operations | Kazozo">
+<meta property="og:description" content="The Service Operations agent assigns technicians to jobs, tracks job progress, checks parts availability, monitors SLA compliance, and manages your dispatc">
+<meta property="og:url" content="https://kazozo.com/agents/service-operations.html">
+<meta property="og:image" content="https://kazozo.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Service Operations — Dispatch, scheduling, and field operations | Kazozo">
+<meta name="twitter:description" content="The Service Operations agent assigns technicians to jobs, tracks job progress, checks parts availability, monitors SLA compliance, and manages your dispatc">
+
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230C0B12'/%3E%3Ctext x='3' y='23' font-family='system-ui,sans-serif' font-size='20' font-weight='700' fill='%23F0EFF4'%3Ek%3C/text%3E%3Ctext x='15' y='23' font-family='system-ui,sans-serif' font-size='20' font-weight='700' fill='%23FF6B5A'%3Ez%3C/text%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root {
+  --bg: #131316;
+  --surface: #1b1b1e;
+  --card: #1f1f22;
+  --card-high: #2a2a2d;
+  --card-highest: #353438;
+  --coral: #FFB4A4;
+  --coral-vivid: #FF5733;
+  --lime: #7BEA8E;
+  --lavender: #C4A8FF;
+  --sky: #46EAED;
+  --amber: #EBC314;
+  --text: #E4E1E6;
+  --muted: #9e9ba5;
+  --border: rgba(228,225,230,0.06);
+}
+
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Manrope', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.6;
+}
+
+/* Texture */
+.texture-bg {
+  position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0;
+  background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.015) 1px, transparent 0);
+  background-size: 32px 32px;
+}
+.content { position: relative; z-index: 1; }
+
+/* Orbs */
+.orb { position: absolute; border-radius: 50%; filter: blur(120px); pointer-events: none; }
+.orb-1 { width: 500px; height: 500px; top: -150px; right: -100px; background: conic-gradient(from 180deg, rgba(70,234,237,0.1), rgba(255,180,164,0.08), rgba(235,195,20,0.04), rgba(70,234,237,0.1)); animation: orbSpin 30s linear infinite; }
+.orb-2 { width: 350px; height: 350px; top: 2000px; left: -120px; background: radial-gradient(circle, rgba(255,87,51,0.08), rgba(70,234,237,0.04), transparent); animation: orbFloat 14s ease-in-out infinite; }
+@keyframes orbSpin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+@keyframes orbFloat { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-40px); } }
+
+.container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+/* ===== HERO ===== */
+.hero {
+  padding: 140px 0 80px;
+  text-align: center;
+  position: relative;
+}
+.hero::before {
+  content: ''; position: absolute; top: -200px; left: 50%; transform: translateX(-50%);
+  width: 800px; height: 800px;
+  background: radial-gradient(circle, rgba(70,234,237,0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(70,234,237,0.08); color: var(--accent);
+  padding: 6px 16px; border-radius: 100px;
+  font-size: .8rem; font-weight: 600; margin-bottom: 24px;
+  border: 1px solid rgba(70,234,237,0.15);
+}
+.hero h1 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 3.5rem; font-weight: 700; letter-spacing: -0.03em;
+  line-height: 1.1; margin-bottom: 20px;
+  max-width: 700px; margin-left: auto; margin-right: auto;
+}
+.hero h1 em { font-style: normal; color: var(--accent); }
+.hero-sub {
+  font-size: 1.15rem; color: var(--muted); max-width: 600px;
+  margin: 0 auto 40px; line-height: 1.7;
+}
+.hero-ctas { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: linear-gradient(135deg, var(--coral), var(--coral-vivid));
+  color: #fff; padding: 14px 32px; border-radius: 10px;
+  font-weight: 700; font-size: .95rem; text-decoration: none; border: none; cursor: pointer;
+  transition: all 0.3s;
+}
+.btn-primary:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(255,87,51,0.3); filter: brightness(1.1); }
+.btn-outline {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: transparent; color: var(--muted); padding: 14px 32px;
+  border-radius: 10px; border: 1px solid var(--border);
+  font-weight: 600; font-size: .95rem; text-decoration: none;
+  transition: all 0.3s;
+}
+.btn-outline:hover { border-color: var(--muted); color: var(--text); }
+
+/* ===== STATS BAR ===== */
+.stats-bar { display: flex; justify-content: center; gap: 48px; margin-top: 56px; flex-wrap: wrap; }
+.stat { text-align: center; }
+.stat-num { font-family: 'Space Grotesk', sans-serif; font-size: 2.25rem; font-weight: 700; letter-spacing: -0.5px; color: var(--accent); }
+.stat-label { font-size: .78rem; color: var(--muted); margin-top: 4px; }
+
+/* ===== SECTIONS ===== */
+.section { padding: 80px 0; }
+.section-label { font-size: .75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: var(--accent); margin-bottom: 12px; }
+.section-title { font-family: 'Space Grotesk', sans-serif; font-size: 2rem; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 16px; }
+.section-sub { font-size: 1rem; color: var(--muted); max-width: 640px; line-height: 1.7; margin-bottom: 40px; }
+.divider { border: 0; border-top: 1px solid var(--border); margin: 0; }
+
+/* ===== CAPABILITY CARDS ===== */
+.cap-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.cap-card {
+  background: var(--card); border: 1px solid var(--border); border-radius: 16px;
+  padding: 28px; transition: border-color 0.3s;
+}
+.cap-card:hover { border-color: rgba(70,234,237,0.18); }
+.cap-icon { font-size: 1.6rem; margin-bottom: 14px; }
+.cap-title { font-family: 'Space Grotesk', sans-serif; font-size: 1rem; font-weight: 700; margin-bottom: 6px; }
+.cap-desc { font-size: .85rem; color: var(--muted); line-height: 1.6; }
+
+/* ===== HOW IT WORKS ===== */
+.flow-steps { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; margin-top: 16px; }
+.flow-step {
+  background: var(--card); border: 1px solid var(--border); border-radius: 14px;
+  padding: 24px 16px; text-align: center; position: relative;
+}
+.flow-step::after {
+  content: '→'; position: absolute; right: -10px; top: 50%; transform: translateY(-50%);
+  color: var(--muted); font-size: 16px;
+}
+.flow-step:last-child::after { display: none; }
+.flow-num {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 28px; height: 28px; border-radius: 50%;
+  background: rgba(70,234,237,0.1); color: var(--accent);
+  font-family: 'Space Grotesk', sans-serif; font-size: .8rem; font-weight: 700;
+  margin-bottom: 10px;
+}
+.flow-label { font-size: .82rem; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+.flow-desc { font-size: .72rem; color: var(--muted); line-height: 1.5; }
+
+/* ===== COMPARISON TABLE ===== */
+.compare-table { width: 100%; border-collapse: collapse; margin-top: 16px; }
+.compare-table th {
+  font-family: 'Space Grotesk', sans-serif; text-align: left;
+  padding: 14px 20px; font-size: .8rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 1px;
+  color: var(--muted); border-bottom: 1px solid var(--border);
+}
+.compare-table th:last-child { color: var(--accent); }
+.compare-table td {
+  padding: 14px 20px; font-size: .88rem; color: var(--muted);
+  border-bottom: 1px solid var(--border);
+}
+.compare-table td:last-child { color: var(--text); font-weight: 500; }
+.compare-table tr:hover td { background: rgba(70,234,237,0.02); }
+
+/* ===== CHANNEL + LANGUAGE ===== */
+.tag-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+.tag {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 8px 16px; border-radius: 10px;
+  background: var(--card); border: 1px solid var(--border);
+  font-size: .82rem; color: var(--text); font-weight: 500;
+}
+.tag-icon { font-size: 1rem; }
+
+/* ===== KPI GRID ===== */
+.kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.kpi-card {
+  background: var(--card); border: 1px solid var(--border); border-radius: 14px;
+  padding: 24px; text-align: center;
+}
+.kpi-value {
+  font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; font-weight: 700;
+  color: var(--accent); margin-bottom: 4px;
+}
+.kpi-label { font-size: .78rem; color: var(--muted); line-height: 1.4; }
+
+/* ===== VERTICALS ===== */
+.vert-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.vert-card {
+  background: var(--card); border: 1px solid var(--border); border-radius: 14px;
+  padding: 24px; transition: border-color 0.3s;
+}
+.vert-card:hover { border-color: rgba(70,234,237,0.18); }
+.vert-icon { font-size: 1.4rem; margin-bottom: 10px; }
+.vert-name { font-family: 'Space Grotesk', sans-serif; font-size: .95rem; font-weight: 700; margin-bottom: 4px; }
+.vert-desc { font-size: .78rem; color: var(--muted); line-height: 1.55; }
+
+/* ===== ROUTING MAP ===== */
+.route-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+.route-card {
+  display: flex; align-items: center; gap: 14px;
+  background: var(--card); border: 1px solid var(--border); border-radius: 12px;
+  padding: 16px 20px; transition: border-color 0.3s;
+}
+.route-card:hover { border-color: rgba(70,234,237,0.18); }
+.route-arrow { color: var(--accent); font-size: 1.2rem; flex-shrink: 0; }
+.route-intent { font-size: .82rem; color: var(--muted); flex: 1; }
+.route-target { font-family: 'Space Grotesk', sans-serif; font-size: .82rem; font-weight: 700; color: var(--text); white-space: nowrap; }
+
+/* ===== CTA ===== */
+.cta-section {
+  text-align: center; padding: 80px 0;
+  background: linear-gradient(180deg, transparent, rgba(70,234,237,0.03));
+}
+
+/* ===== FOOTER ===== */
+footer { border-top: 1px solid var(--border); padding: 48px 0 32px; }
+.footer-inner { max-width: 1100px; margin: 0 auto; padding: 0 24px; display: flex; justify-content: space-between; gap: 48px; flex-wrap: wrap; }
+.footer-brand { max-width: 260px; }
+.footer-logo { font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 700; color: var(--text); }
+.footer-logo span { color: var(--coral-vivid); }
+.footer-tagline { font-size: .82rem; color: var(--muted); margin-top: 8px; line-height: 1.6; }
+.footer-nav { display: flex; gap: 64px; }
+.footer-col { display: flex; flex-direction: column; gap: 8px; }
+.footer-col h4 { font-family: 'Space Grotesk', sans-serif; font-size: .8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); margin-bottom: 4px; }
+.footer-col a { font-size: .85rem; color: rgba(228,225,230,0.5); text-decoration: none; transition: color 0.3s; }
+.footer-col a:hover { color: var(--text); }
+.footer-bottom { max-width: 1100px; margin: 24px auto 0; padding: 16px 24px 0; border-top: 1px solid var(--border); font-size: .75rem; color: var(--muted); }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .hero h1 { font-size: 2.2rem; }
+  .cap-grid, .kpi-grid, .vert-grid { grid-template-columns: 1fr; }
+  .flow-steps { grid-template-columns: 1fr; }
+  .flow-step::after { display: none; }
+  .route-grid { grid-template-columns: 1fr; }
+  .stats-bar { gap: 24px; }
+  .footer-nav { gap: 32px; }
+}
+
+:root { --accent: #FFB4A4; }
+.hero-badge { background: rgba(255,180,164,0.08); color: var(--accent); border-color: #FFB4A426; }
+.hero h1 em { color: var(--accent); }
+.stat-num { color: var(--accent); }
+.section-label { color: var(--accent); }
+.cap-card:hover { border-color: #FFB4A430; }
+.flow-num { background: rgba(255,180,164,0.08); color: var(--accent); }
+.compare-table th:last-child { color: var(--accent); }
+.compare-table tr:hover td { background: rgba(255,180,164,0.08); }
+.kpi-value { color: var(--accent); }
+.vert-card:hover { border-color: #FFB4A430; }
+.route-card:hover { border-color: #FFB4A430; }
+.route-arrow { color: var(--accent); }
+</style>
+</head>
+<body>
+
+<div class="texture-bg"></div>
+<div id="site-nav"></div>
+<script src="../nav.js"></script>
+
+<div class="content">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-badge">🔧 Workflow Agent · Internal Portal</div>
+      <h1>Service <em>Operations</em></h1>
+      <p class="hero-sub">The Service Operations agent assigns technicians to jobs, tracks job progress, checks parts availability, monitors SLA compliance, and manages your dispatch board. It keeps your field team running without a dispatcher.</p>
+      <div class="hero-ctas">
+        <a href="../simulation.html#service-ops" class="btn-primary">Try it live &#8594;</a>
+        <a href="../index.html#pricing" class="btn-outline">See pricing</a>
+      </div>
+      <div class="stats-bar">
+        <div class="stat"><div class="stat-num">$0.30</div><div class="stat-label">per resolution</div></div>
+        <div class="stat"><div class="stat-num">Gold</div><div class="stat-label">default tier</div></div>
+        <div class="stat"><div class="stat-num">14</div><div class="stat-label">integrated tools</div></div>
+        <div class="stat"><div class="stat-num">Real-time</div><div class="stat-label">dispatch board</div></div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <section class="section">
+    <div class="container">
+      <div class="section-label">Capabilities</div>
+      <h2 class="section-title">What the Service Operations does</h2>
+      <p class="section-sub">Dispatch, scheduling, and field operations — managed by AI</p>
+      <div class="cap-grid">
+        <div class="cap-card">
+          <div class="cap-icon">📋</div>
+          <div class="cap-title">Job Dispatch</div>
+          <div class="cap-desc">Assigns technicians based on skill, location, and availability. Optimizes routing to minimize drive time and maximize jobs per day.</div>
+        </div>
+        <div class="cap-card">
+          <div class="cap-icon">📍</div>
+          <div class="cap-title">Job Tracking</div>
+          <div class="cap-desc">Real-time status updates on every job — en route, in progress, completed. Customers and managers both get visibility.</div>
+        </div>
+        <div class="cap-card">
+          <div class="cap-icon">🔩</div>
+          <div class="cap-title">Parts Management</div>
+          <div class="cap-desc">Checks parts availability before dispatch. Alerts when inventory is low and tracks parts used per job for accurate billing.</div>
+        </div>
+        <div class="cap-card">
+          <div class="cap-icon">⏱️</div>
+          <div class="cap-title">SLA Monitoring</div>
+          <div class="cap-desc">Tracks SLA deadlines across all open jobs. Alerts when a breach is imminent so you can reprioritize before it happens.</div>
+        </div>
+        <div class="cap-card">
+          <div class="cap-icon">📊</div>
+          <div class="cap-title">Estimate to Work Order</div>
+          <div class="cap-desc">Converts approved estimates into work orders automatically. Job details, parts, and scheduling carry through without rekeying.</div>
+        </div>
+        <div class="cap-card">
+          <div class="cap-icon">📱</div>
+          <div class="cap-title">Field Communication</div>
+          <div class="cap-desc">Sends job details, schedule changes, and customer info to technicians via SMS. Updates the dispatch board in real time.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <section class="section">
+    <div class="container">
+      <div class="section-label">How it works</div>
+      <h2 class="section-title">End-to-end resolution pipeline</h2>
+      <div class="flow-steps">
+        <div class="flow-step">
+          <div class="flow-num">1</div>
+          <div class="flow-label">Job Created</div>
+          <div class="flow-desc">Service request from customer or internal</div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-num">2</div>
+          <div class="flow-label">Assign Tech</div>
+          <div class="flow-desc">Match by skill, location, availability</div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-num">3</div>
+          <div class="flow-label">Dispatch</div>
+          <div class="flow-desc">Send job details and route to technician</div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-num">4</div>
+          <div class="flow-label">Track</div>
+          <div class="flow-desc">Real-time status and SLA monitoring</div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-num">5</div>
+          <div class="flow-label">Complete</div>
+          <div class="flow-desc">Close job, update billing, notify customer</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <section class="section">
+    <div class="container">
+      <div class="section-label">Why it&rsquo;s different</div>
+      <h2 class="section-title">Manual process vs. Service Operations</h2>
+      <table class="compare-table">
+        <thead><tr><th>Capability</th><th>Manual Dispatch</th><th>Service Operations Agent</th></tr></thead>
+        <tbody>
+          <tr><td>Dispatch</td><td>Whiteboard and phone calls</td><td>Automated assignment by skill and proximity</td></tr>
+          <tr><td>Scheduling</td><td>Manual calendar juggling</td><td>Optimized routing and availability matching</td></tr>
+          <tr><td>Parts tracking</td><td>Technician calls the office</td><td>Real-time inventory check before dispatch</td></tr>
+          <tr><td>SLA compliance</td><td>Reactive — discovered after breach</td><td>Proactive alerts before deadline</td></tr>
+          <tr><td>Customer updates</td><td>Call back when we know more</td><td>Real-time status updates</td></tr>
+          <tr><td>Job costing</td><td>Estimated after the fact</td><td>Tracked in real time during the job</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <section class="section">
+    <div class="container">
+      <div class="section-label">Channels</div>
+      <h2 class="section-title" style="font-size:1.5rem;">Deployment</h2>
+      <div class="tag-row">
+            <div class="tag"><span class="tag-icon">🔌</span> API</div>
+            <div class="tag"><span class="tag-icon">💬</span> Web Chat</div>
+            <div class="tag"><span class="tag-icon">📱</span> SMS</div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <section class="section">
+    <div class="container">
+      <div class="section-label">Measurable results</div>
+      <h2 class="section-title">KPIs tracked in your dashboard</h2>
+      <div class="kpi-grid">
+        <div class="kpi-card">
+          <div class="kpi-value">< 15min</div>
+          <div class="kpi-label">Dispatch response time</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-value">95%+</div>
+          <div class="kpi-label">SLA compliance rate</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-value">+20%</div>
+          <div class="kpi-label">Jobs per technician per day</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-value">0</div>
+          <div class="kpi-label">Missed SLA deadlines</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <section class="section">
+    <div class="container">
+      <div class="section-label">Best fit</div>
+      <h2 class="section-title">Industries where the Service Operations thrives</h2>
+      <div class="vert-grid">
+        <div class="vert-card">
+          <div class="vert-icon">🏠</div>
+          <div class="vert-name">Home Services</div>
+          <div class="vert-desc">HVAC, plumbing, electrical — emergency dispatch, seasonal scheduling, parts management.</div>
+        </div>
+        <div class="vert-card">
+          <div class="vert-icon">🔧</div>
+          <div class="vert-name">Construction</div>
+          <div class="vert-desc">Subcontractor scheduling, job tracking, materials management.</div>
+        </div>
+        <div class="vert-card">
+          <div class="vert-icon">🚗</div>
+          <div class="vert-name">Automotive</div>
+          <div class="vert-desc">Service bay scheduling, parts ordering, warranty claim tracking.</div>
+        </div>
+        <div class="vert-card">
+          <div class="vert-icon">🧹</div>
+          <div class="vert-name">Cleaning Services</div>
+          <div class="vert-desc">Team dispatch, recurring schedule management, quality tracking.</div>
+        </div>
+        <div class="vert-card">
+          <div class="vert-icon">⚡</div>
+          <div class="vert-name">Electrical/Solar</div>
+          <div class="vert-desc">Installation scheduling, inspection tracking, permit management.</div>
+        </div>
+        <div class="vert-card">
+          <div class="vert-icon">🌳</div>
+          <div class="vert-name">Landscaping</div>
+          <div class="vert-desc">Crew dispatch, seasonal routing, equipment tracking.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <section class="cta-section">
+    <div class="container">
+      <h2 class="section-title" style="text-align:center;">See it in action</h2>
+      <p class="section-sub" style="text-align:center;margin-left:auto;margin-right:auto;">Try the Service Operations in our live simulation. No signup required.</p>
+      <div style="text-align:center;margin-top:32px;">
+        <a href="../simulation.html#service-ops" class="btn-primary" style="padding:16px 40px;font-size:1rem;">Try it live &#8594;</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="../index.html" class="footer-logo" style="text-decoration:none;">kazo<span>zo</span></a>
+        <p class="footer-tagline">The AI platform for business. Agents, apps, and automation.</p>
+      </div>
+      <div class="footer-nav">
+        <div class="footer-col">
+          <h4>Products</h4>
+          <a href="../index.html#agents">AI Agents</a>
+          <a href="../index.html#pricing">Pricing</a>
+          <a href="../industries.html">Industries</a>
+          <a href="../simulation.html">Simulation</a>
+        </div>
+        <div class="footer-col">
+          <h4>Compare</h4>
+          <a href="../compare/kazozo-vs-salesforce-agentforce.html">vs Salesforce</a>
+          <a href="../compare/kazozo-vs-lindy.html">vs Lindy.ai</a>
+          <a href="../compare/kazozo-vs-intercom.html">vs Intercom</a>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <a href="../blog/">Blog</a>
+          <a href="mailto:hello@kazozo.com">hello@kazozo.com</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2026 Kazozo &middot; <a href="https://solanki.co" target="_blank" rel="noopener" style="color:var(--muted);text-decoration:none;">A Solanki Co product</a> &middot; <a href="../privacy.html" style="color:var(--muted);text-decoration:none;">Privacy</a> &middot; <a href="../terms.html" style="color:var(--muted);text-decoration:none;">Terms</a>
+    </div>
+  </footer>
+
+</div>
+
+<script async src="https://kazozo-platform-production.up.railway.app/widget/embed-loader.js" data-tenant="kazozo-001"></script>
+</body>
+</html>
