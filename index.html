@@ -465,6 +465,104 @@
 
   html { scroll-behavior: smooth; }
 
+  /* ===== LIVE OPS FEED ===== */
+  .ops-feed-section {
+    max-width: 900px; margin: 0 auto; padding: 20px 24px 80px;
+  }
+  .ops-feed-container {
+    background: var(--card); border-radius: 20px; overflow: hidden; position: relative;
+  }
+  .ops-feed-header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 20px 28px; border-bottom: 1px solid var(--border);
+  }
+  .ops-feed-title {
+    display: flex; align-items: center; gap: 10px;
+    font-family: 'Space Grotesk', sans-serif; font-size: 14px; font-weight: 600; color: var(--text);
+  }
+  .ops-feed-live-dot {
+    width: 8px; height: 8px; border-radius: 50%; background: #ef4444;
+    animation: livePulse 1.5s ease-in-out infinite;
+  }
+  @keyframes livePulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.6); }
+    50% { box-shadow: 0 0 0 6px rgba(239, 68, 68, 0); }
+  }
+  .ops-feed-status {
+    font-size: 11px; color: var(--lime); font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px;
+  }
+  .ops-feed-scroll {
+    height: 420px; overflow: hidden; position: relative;
+  }
+  .ops-feed-track {
+    display: flex; flex-direction: column; gap: 0;
+    animation: feedScroll 36s linear infinite;
+  }
+  @keyframes feedScroll {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-50%); }
+  }
+  .ops-feed-scroll:hover .ops-feed-track {
+    animation-play-state: paused;
+  }
+  .ops-msg {
+    display: flex; align-items: flex-start; gap: 14px; padding: 16px 28px;
+    border-bottom: 1px solid var(--border); transition: background 0.2s;
+  }
+  .ops-msg:hover {
+    background: rgba(255,255,255,0.02);
+  }
+  .ops-msg-avatar {
+    width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center;
+    font-size: 16px; flex-shrink: 0; position: relative;
+  }
+  .ops-msg-avatar::after {
+    content: ''; position: absolute; bottom: -1px; right: -1px;
+    width: 10px; height: 10px; border-radius: 50%;
+    background: var(--lime); border: 2px solid var(--card);
+  }
+  .ops-msg-body {
+    flex: 1; min-width: 0;
+  }
+  .ops-msg-header {
+    display: flex; align-items: center; gap: 8px; margin-bottom: 4px;
+  }
+  .ops-msg-name {
+    font-family: 'Space Grotesk', sans-serif; font-size: 13px; font-weight: 700;
+  }
+  .ops-msg-arrow {
+    font-size: 11px; color: var(--muted);
+  }
+  .ops-msg-target {
+    font-size: 12px; font-weight: 600; color: var(--muted);
+  }
+  .ops-msg-time {
+    font-size: 10px; color: var(--muted); margin-left: auto; flex-shrink: 0; font-weight: 500;
+  }
+  .ops-msg-text {
+    font-size: 13px; color: var(--text); line-height: 1.55; opacity: 0.9;
+  }
+  .ops-msg-text strong {
+    font-weight: 700;
+  }
+  .ops-msg-tag {
+    display: inline-block; font-size: 10px; font-weight: 700; padding: 2px 8px;
+    border-radius: 10px; margin-top: 6px; text-transform: uppercase; letter-spacing: 0.5px;
+  }
+  .ops-feed-gradient-top {
+    position: absolute; top: 0; left: 0; right: 0; height: 40px; z-index: 2;
+    background: linear-gradient(to bottom, var(--card), transparent); pointer-events: none;
+  }
+  .ops-feed-gradient-bottom {
+    position: absolute; bottom: 0; left: 0; right: 0; height: 60px; z-index: 2;
+    background: linear-gradient(to top, var(--card), transparent); pointer-events: none;
+  }
+  @media (max-width: 640px) {
+    .ops-feed-scroll { height: 320px; }
+    .ops-msg { padding: 12px 16px; gap: 10px; }
+    .ops-msg-avatar { width: 30px; height: 30px; font-size: 14px; }
+  }
+
   /* ===== TEAM AT WORK ===== */
   .team-at-work {
     max-width: 1100px; margin: 0 auto; padding: 80px 24px 60px;
@@ -1766,6 +1864,386 @@
         <span style="font-size:12px; color:var(--muted);">&middot;</span>
         <span style="font-size:12px; color:var(--muted);"><strong style="color:var(--coral);">$0</strong> overtime pay</span>
       </div>
+    </div>
+  </section>
+
+  <!-- LIVE OPS FEED -->
+  <section class="ops-feed-section fade-up">
+    <div style="text-align:center; margin-bottom:32px;">
+      <h2 class="section-heading" style="text-align:center; font-size:clamp(28px,4vw,44px);">Watch them <em style="color:var(--sky);">collaborate.</em></h2>
+      <p class="section-sub" style="text-align:center; margin:0 auto;">A live look at your AI team passing work, sharing context, and closing the loop — together.</p>
+    </div>
+
+    <div class="ops-feed-container">
+      <div class="ops-feed-header">
+        <div class="ops-feed-title">
+          <div class="ops-feed-live-dot"></div>
+          <span>Agent Operations Feed</span>
+        </div>
+        <div class="ops-feed-status">All Systems Online</div>
+      </div>
+
+      <div class="ops-feed-scroll">
+        <div class="ops-feed-gradient-top"></div>
+        <div class="ops-feed-track">
+
+          <!-- Message 1: Frontline captures -->
+          <div class="ops-msg">
+            <div class="ops-msg-avatar" style="background:rgba(70,234,237,0.1);">&#128737;&#65039;</div>
+            <div class="ops-msg-body">
+              <div class="ops-msg-header">
+                <span class="ops-msg-name" style="color:var(--sky);">Frontline</span>
+                <span class="ops-msg-arrow">&rarr;</span>
+                <span class="ops-msg-target">Lead Qualifier</span>
+                <span class="ops-msg-time">Just now</span>
+              </div>
+              <div class="ops-msg-text">New visitor from <strong style="color:var(--sky);">Google Ads</strong> — asked about HVAC service pricing. Captured as <strong>Sarah M.</strong> Handing off for scoring.</div>
+              <span class="ops-msg-tag" style="background:rgba(70,234,237,0.1); color:var(--sky);">New Lead</span>
+            </div>
+          </div>
+
+          <!-- Message 2: Lead Qualifier scores -->
+          <div class="ops-msg">
+            <div class="ops-msg-avatar" style="background:rgba(123,234,142,0.1);">&#127919;</div>
+            <div class="ops-msg-body">
+              <div class="ops-msg-header">
+                <span class="ops-msg-name" style="color:var(--lime);">Lead Qualifier</span>
+                <span class="ops-msg-arrow">&rarr;</span>
+                <span class="ops-msg-target">Sales Agent</span>
+                <span class="ops-msg-time">12s ago</span>
+              </div>
+              <div class="ops-msg-text">Sarah M. scored <strong style="color:var(--lime);">92/100</strong>. Homeowner, high intent, service area match. Flagging as <strong>hot prospect</strong> — routing to Sales now.</div>
+              <span class="ops-msg-tag" style="background:rgba(123,234,142,0.1); color:var(--lime);">Hot Lead</span>
+            </div>
+          </div>
+
+          <!-- Message 3: Sales picks up -->
+          <div class="ops-msg">
+            <div class="ops-msg-avatar" style="background:rgba(196,168,255,0.1);">&#9993;&#65039;</div>
+            <div class="ops-msg-body">
+              <div class="ops-msg-header">
+                <span class="ops-msg-name" style="color:var(--lavender);">Sales Agent</span>
+                <span class="ops-msg-arrow">&rarr;</span>
+                <span class="ops-msg-target">Sarah M.</span>
+                <span class="ops-msg-time">28s ago</span>
+              </div>
+              <div class="ops-msg-text">Drafted personalized proposal with <strong style="color:var(--lavender);">$89 diagnostic offer</strong>. Email sent. SMS follow-up queued for 9 AM tomorrow. Calendar link included.</div>
+              <span class="ops-msg-tag" style="background:rgba(196,168,255,0.1); color:var(--lavender);">Proposal Sent</span>
+            </div>
+          </div>
+
+          <!-- Message 4: Sarah replies -->
+          <div class="ops-msg">
+            <div class="ops-msg-avatar" style="background:rgba(70,234,237,0.1);">&#128737;&#65039;</div>
+            <div class="ops-msg-body">
+              <div class="ops-msg-header">
+                <span class="ops-msg-name" style="color:var(--sky);">Frontline</span>
+                <span class="ops-msg-arrow">&rarr;</span>
+                <span class="ops-msg-target">Sales Agent</span>
+                <span class="ops-msg-time">1m ago</span>
+              </div>
+              <div class="ops-msg-text">Sarah replied: <strong>"Thursday at 10 works!"</strong> — passing to Sales for booking confirmation.</div>
+              <span class="ops-msg-tag" style="background:rgba(70,234,237,0.1); color:var(--sky);">Reply Received</span>
+            </div>
+          </div>
+
+          <!-- Message 5: Sales confirms + hands to Service Ops -->
+          <div class="ops-msg">
+            <div class="ops-msg-avatar" style="background:rgba(196,168,255,0.1);">&#9993;&#65039;</div>
+            <div class="ops-msg-body">
+              <div class="ops-msg-header">
+                <span class="ops-msg-name" style="color:var(--lavender);">Sales Agent</span>
+                <span class="ops-msg-arrow">&rarr;</span>
+                <span class="ops-msg-target">Service Ops</span>
+                <span class="ops-msg-time">1m ago</span>
+              </div>
+              <div class="ops-msg-text">Booking confirmed: <strong style="color:var(--lavender);">Thu 10:00 AM</strong>. Sent confirmation to Sarah. Handing off to Service Ops for technician dispatch.</div>
+              <span class="ops-msg-tag" style="background:rgba(196,168,255,0.1); color:var(--lavender);">Booked</span>
+            </div>
+          </div>
+
+          <!-- Message 6: Service Ops dispatches -->
+          <div class="ops-msg">
+            <div class="ops-msg-avatar" style="background:rgba(255,180,164,0.1);">&#128295;</div>
+            <div class="ops-msg-body">
+              <div class="ops-msg-header">
+                <span class="ops-msg-name" style="color:var(--coral);">Service Ops</span>
+                <span class="ops-msg-arrow">&rarr;</span>
+                <span class="ops-msg-target">Team</span>
+                <span class="ops-msg-time">2m ago</span>
+              </div>
+              <div class="ops-msg-text">Assigned <strong style="color:var(--coral);">Technician #7 (Mike)</strong> for Thursday 10 AM. Travel time: 22 min. Parts pre-ordered. SLA: on track.</div>
+              <span class="ops-msg-tag" style="background:rgba(255,180,164,0.1); color:var(--coral);">Dispatched</span>
+            </div>
+          </div>
+
+          <!-- Message 7: Support follows up -->
+          <div class="ops-msg">
+            <div class="ops-msg-avatar" style="background:rgba(235,195,20,0.1);">&#127911;</div>
+            <div class="ops-msg-body">
+              <div class="ops-msg-header">
+                <span class="ops-msg-name" style="color:var(--amber);">Support</span>
+                <span class="ops-msg-arrow">&rarr;</span>
+                <span class="ops-msg-target">Sarah M.</span>
+                <span class="ops-msg-time">3m ago</span>
+              </div>
+              <div class="ops-msg-text">Sent pre-appointment reminder with <strong style="color:var(--amber);">prep instructions</strong> and technician profile. Asked for gate code — received: <strong>#4412</strong>.</div>
+              <span class="ops-msg-tag" style="background:rgba(235,195,20,0.1); color:var(--amber);">Prepped</span>
+            </div>
+          </div>
+
+          <!-- Message 8: Service Ops job complete -->
+          <div class="ops-msg">
+            <div class="ops-msg-avatar" style="background:rgba(255,180,164,0.1);">&#128295;</div>
+            <div class="ops-msg-body">
+              <div class="ops-msg-header">
+                <span class="ops-msg-name" style="color:var(--coral);">Service Ops</span>
+                <span class="ops-msg-arrow">&rarr;</span>
+                <span class="ops-msg-target">All Agents</span>
+                <span class="ops-msg-time">5m ago</span>
+              </div>
+              <div class="ops-msg-text">Job complete. Technician Mike marked <strong style="color:var(--lime);">HVAC repair successful</strong>. Invoice generated: <strong>$340</strong>. Customer satisfaction survey sent.</div>
+              <span class="ops-msg-tag" style="background:rgba(123,234,142,0.1); color:var(--lime);">Completed</span>
+            </div>
+          </div>
+
+          <!-- Message 9: Support gets review -->
+          <div class="ops-msg">
+            <div class="ops-msg-avatar" style="background:rgba(235,195,20,0.1);">&#127911;</div>
+            <div class="ops-msg-body">
+              <div class="ops-msg-header">
+                <span class="ops-msg-name" style="color:var(--amber);">Support</span>
+                <span class="ops-msg-arrow">&rarr;</span>
+                <span class="ops-msg-target">Team</span>
+                <span class="ops-msg-time">8m ago</span>
+              </div>
+              <div class="ops-msg-text">Sarah left a <strong style="color:var(--amber);">5-star review</strong>: "Fastest service I've ever had. Booked online at midnight, fixed by noon!" Auto-posted to Google Business.</div>
+              <span class="ops-msg-tag" style="background:rgba(235,195,20,0.1); color:var(--amber);">&#11088; 5-Star Review</span>
+            </div>
+          </div>
+
+          <!-- Message 10: New cycle starts -->
+          <div class="ops-msg">
+            <div class="ops-msg-avatar" style="background:rgba(70,234,237,0.1);">&#128737;&#65039;</div>
+            <div class="ops-msg-body">
+              <div class="ops-msg-header">
+                <span class="ops-msg-name" style="color:var(--sky);">Frontline</span>
+                <span class="ops-msg-arrow">&rarr;</span>
+                <span class="ops-msg-target">Lead Qualifier</span>
+                <span class="ops-msg-time">10m ago</span>
+              </div>
+              <div class="ops-msg-text">Another one — <strong style="color:var(--sky);">Dave K.</strong> just landed from Facebook. Needs plumbing estimate. Routing for scoring...</div>
+              <span class="ops-msg-tag" style="background:rgba(70,234,237,0.1); color:var(--sky);">New Lead</span>
+            </div>
+          </div>
+
+          <!-- Message 11: Qualifier on Dave -->
+          <div class="ops-msg">
+            <div class="ops-msg-avatar" style="background:rgba(123,234,142,0.1);">&#127919;</div>
+            <div class="ops-msg-body">
+              <div class="ops-msg-header">
+                <span class="ops-msg-name" style="color:var(--lime);">Lead Qualifier</span>
+                <span class="ops-msg-arrow">&rarr;</span>
+                <span class="ops-msg-target">Sales Agent</span>
+                <span class="ops-msg-time">11m ago</span>
+              </div>
+              <div class="ops-msg-text">Dave K. scored <strong style="color:var(--lime);">78/100</strong>. Renter, moderate intent. Recommended: <strong>nurture sequence</strong> instead of hard sell. Routing accordingly.</div>
+              <span class="ops-msg-tag" style="background:rgba(123,234,142,0.1); color:var(--lime);">Warm Lead</span>
+            </div>
+          </div>
+
+          <!-- Message 12: Sales nurtures -->
+          <div class="ops-msg">
+            <div class="ops-msg-avatar" style="background:rgba(196,168,255,0.1);">&#9993;&#65039;</div>
+            <div class="ops-msg-body">
+              <div class="ops-msg-header">
+                <span class="ops-msg-name" style="color:var(--lavender);">Sales Agent</span>
+                <span class="ops-msg-arrow">&rarr;</span>
+                <span class="ops-msg-target">Dave K.</span>
+                <span class="ops-msg-time">12m ago</span>
+              </div>
+              <div class="ops-msg-text">Added to <strong style="color:var(--lavender);">7-day nurture drip</strong>. Email #1 sent: "Here's what to know before calling a plumber." Soft CTA only.</div>
+              <span class="ops-msg-tag" style="background:rgba(196,168,255,0.1); color:var(--lavender);">Nurturing</span>
+            </div>
+          </div>
+
+          <!-- DUPLICATE SET FOR SEAMLESS LOOP -->
+
+          <div class="ops-msg">
+            <div class="ops-msg-avatar" style="background:rgba(70,234,237,0.1);">&#128737;&#65039;</div>
+            <div class="ops-msg-body">
+              <div class="ops-msg-header">
+                <span class="ops-msg-name" style="color:var(--sky);">Frontline</span>
+                <span class="ops-msg-arrow">&rarr;</span>
+                <span class="ops-msg-target">Lead Qualifier</span>
+                <span class="ops-msg-time">Just now</span>
+              </div>
+              <div class="ops-msg-text">New visitor from <strong style="color:var(--sky);">Google Ads</strong> — asked about HVAC service pricing. Captured as <strong>Sarah M.</strong> Handing off for scoring.</div>
+              <span class="ops-msg-tag" style="background:rgba(70,234,237,0.1); color:var(--sky);">New Lead</span>
+            </div>
+          </div>
+
+          <div class="ops-msg">
+            <div class="ops-msg-avatar" style="background:rgba(123,234,142,0.1);">&#127919;</div>
+            <div class="ops-msg-body">
+              <div class="ops-msg-header">
+                <span class="ops-msg-name" style="color:var(--lime);">Lead Qualifier</span>
+                <span class="ops-msg-arrow">&rarr;</span>
+                <span class="ops-msg-target">Sales Agent</span>
+                <span class="ops-msg-time">12s ago</span>
+              </div>
+              <div class="ops-msg-text">Sarah M. scored <strong style="color:var(--lime);">92/100</strong>. Homeowner, high intent, service area match. Flagging as <strong>hot prospect</strong> — routing to Sales now.</div>
+              <span class="ops-msg-tag" style="background:rgba(123,234,142,0.1); color:var(--lime);">Hot Lead</span>
+            </div>
+          </div>
+
+          <div class="ops-msg">
+            <div class="ops-msg-avatar" style="background:rgba(196,168,255,0.1);">&#9993;&#65039;</div>
+            <div class="ops-msg-body">
+              <div class="ops-msg-header">
+                <span class="ops-msg-name" style="color:var(--lavender);">Sales Agent</span>
+                <span class="ops-msg-arrow">&rarr;</span>
+                <span class="ops-msg-target">Sarah M.</span>
+                <span class="ops-msg-time">28s ago</span>
+              </div>
+              <div class="ops-msg-text">Drafted personalized proposal with <strong style="color:var(--lavender);">$89 diagnostic offer</strong>. Email sent. SMS follow-up queued for 9 AM tomorrow. Calendar link included.</div>
+              <span class="ops-msg-tag" style="background:rgba(196,168,255,0.1); color:var(--lavender);">Proposal Sent</span>
+            </div>
+          </div>
+
+          <div class="ops-msg">
+            <div class="ops-msg-avatar" style="background:rgba(70,234,237,0.1);">&#128737;&#65039;</div>
+            <div class="ops-msg-body">
+              <div class="ops-msg-header">
+                <span class="ops-msg-name" style="color:var(--sky);">Frontline</span>
+                <span class="ops-msg-arrow">&rarr;</span>
+                <span class="ops-msg-target">Sales Agent</span>
+                <span class="ops-msg-time">1m ago</span>
+              </div>
+              <div class="ops-msg-text">Sarah replied: <strong>"Thursday at 10 works!"</strong> — passing to Sales for booking confirmation.</div>
+              <span class="ops-msg-tag" style="background:rgba(70,234,237,0.1); color:var(--sky);">Reply Received</span>
+            </div>
+          </div>
+
+          <div class="ops-msg">
+            <div class="ops-msg-avatar" style="background:rgba(196,168,255,0.1);">&#9993;&#65039;</div>
+            <div class="ops-msg-body">
+              <div class="ops-msg-header">
+                <span class="ops-msg-name" style="color:var(--lavender);">Sales Agent</span>
+                <span class="ops-msg-arrow">&rarr;</span>
+                <span class="ops-msg-target">Service Ops</span>
+                <span class="ops-msg-time">1m ago</span>
+              </div>
+              <div class="ops-msg-text">Booking confirmed: <strong style="color:var(--lavender);">Thu 10:00 AM</strong>. Sent confirmation to Sarah. Handing off to Service Ops for technician dispatch.</div>
+              <span class="ops-msg-tag" style="background:rgba(196,168,255,0.1); color:var(--lavender);">Booked</span>
+            </div>
+          </div>
+
+          <div class="ops-msg">
+            <div class="ops-msg-avatar" style="background:rgba(255,180,164,0.1);">&#128295;</div>
+            <div class="ops-msg-body">
+              <div class="ops-msg-header">
+                <span class="ops-msg-name" style="color:var(--coral);">Service Ops</span>
+                <span class="ops-msg-arrow">&rarr;</span>
+                <span class="ops-msg-target">Team</span>
+                <span class="ops-msg-time">2m ago</span>
+              </div>
+              <div class="ops-msg-text">Assigned <strong style="color:var(--coral);">Technician #7 (Mike)</strong> for Thursday 10 AM. Travel time: 22 min. Parts pre-ordered. SLA: on track.</div>
+              <span class="ops-msg-tag" style="background:rgba(255,180,164,0.1); color:var(--coral);">Dispatched</span>
+            </div>
+          </div>
+
+          <div class="ops-msg">
+            <div class="ops-msg-avatar" style="background:rgba(235,195,20,0.1);">&#127911;</div>
+            <div class="ops-msg-body">
+              <div class="ops-msg-header">
+                <span class="ops-msg-name" style="color:var(--amber);">Support</span>
+                <span class="ops-msg-arrow">&rarr;</span>
+                <span class="ops-msg-target">Sarah M.</span>
+                <span class="ops-msg-time">3m ago</span>
+              </div>
+              <div class="ops-msg-text">Sent pre-appointment reminder with <strong style="color:var(--amber);">prep instructions</strong> and technician profile. Asked for gate code — received: <strong>#4412</strong>.</div>
+              <span class="ops-msg-tag" style="background:rgba(235,195,20,0.1); color:var(--amber);">Prepped</span>
+            </div>
+          </div>
+
+          <div class="ops-msg">
+            <div class="ops-msg-avatar" style="background:rgba(255,180,164,0.1);">&#128295;</div>
+            <div class="ops-msg-body">
+              <div class="ops-msg-header">
+                <span class="ops-msg-name" style="color:var(--coral);">Service Ops</span>
+                <span class="ops-msg-arrow">&rarr;</span>
+                <span class="ops-msg-target">All Agents</span>
+                <span class="ops-msg-time">5m ago</span>
+              </div>
+              <div class="ops-msg-text">Job complete. Technician Mike marked <strong style="color:var(--lime);">HVAC repair successful</strong>. Invoice generated: <strong>$340</strong>. Customer satisfaction survey sent.</div>
+              <span class="ops-msg-tag" style="background:rgba(123,234,142,0.1); color:var(--lime);">Completed</span>
+            </div>
+          </div>
+
+          <div class="ops-msg">
+            <div class="ops-msg-avatar" style="background:rgba(235,195,20,0.1);">&#127911;</div>
+            <div class="ops-msg-body">
+              <div class="ops-msg-header">
+                <span class="ops-msg-name" style="color:var(--amber);">Support</span>
+                <span class="ops-msg-arrow">&rarr;</span>
+                <span class="ops-msg-target">Team</span>
+                <span class="ops-msg-time">8m ago</span>
+              </div>
+              <div class="ops-msg-text">Sarah left a <strong style="color:var(--amber);">5-star review</strong>: "Fastest service I've ever had. Booked online at midnight, fixed by noon!" Auto-posted to Google Business.</div>
+              <span class="ops-msg-tag" style="background:rgba(235,195,20,0.1); color:var(--amber);">&#11088; 5-Star Review</span>
+            </div>
+          </div>
+
+          <div class="ops-msg">
+            <div class="ops-msg-avatar" style="background:rgba(70,234,237,0.1);">&#128737;&#65039;</div>
+            <div class="ops-msg-body">
+              <div class="ops-msg-header">
+                <span class="ops-msg-name" style="color:var(--sky);">Frontline</span>
+                <span class="ops-msg-arrow">&rarr;</span>
+                <span class="ops-msg-target">Lead Qualifier</span>
+                <span class="ops-msg-time">10m ago</span>
+              </div>
+              <div class="ops-msg-text">Another one — <strong style="color:var(--sky);">Dave K.</strong> just landed from Facebook. Needs plumbing estimate. Routing for scoring...</div>
+              <span class="ops-msg-tag" style="background:rgba(70,234,237,0.1); color:var(--sky);">New Lead</span>
+            </div>
+          </div>
+
+          <div class="ops-msg">
+            <div class="ops-msg-avatar" style="background:rgba(123,234,142,0.1);">&#127919;</div>
+            <div class="ops-msg-body">
+              <div class="ops-msg-header">
+                <span class="ops-msg-name" style="color:var(--lime);">Lead Qualifier</span>
+                <span class="ops-msg-arrow">&rarr;</span>
+                <span class="ops-msg-target">Sales Agent</span>
+                <span class="ops-msg-time">11m ago</span>
+              </div>
+              <div class="ops-msg-text">Dave K. scored <strong style="color:var(--lime);">78/100</strong>. Renter, moderate intent. Recommended: <strong>nurture sequence</strong> instead of hard sell. Routing accordingly.</div>
+              <span class="ops-msg-tag" style="background:rgba(123,234,142,0.1); color:var(--lime);">Warm Lead</span>
+            </div>
+          </div>
+
+          <div class="ops-msg">
+            <div class="ops-msg-avatar" style="background:rgba(196,168,255,0.1);">&#9993;&#65039;</div>
+            <div class="ops-msg-body">
+              <div class="ops-msg-header">
+                <span class="ops-msg-name" style="color:var(--lavender);">Sales Agent</span>
+                <span class="ops-msg-arrow">&rarr;</span>
+                <span class="ops-msg-target">Dave K.</span>
+                <span class="ops-msg-time">12m ago</span>
+              </div>
+              <div class="ops-msg-text">Added to <strong style="color:var(--lavender);">7-day nurture drip</strong>. Email #1 sent: "Here's what to know before calling a plumber." Soft CTA only.</div>
+              <span class="ops-msg-tag" style="background:rgba(196,168,255,0.1); color:var(--lavender);">Nurturing</span>
+            </div>
+          </div>
+
+        </div>
+        <div class="ops-feed-gradient-bottom"></div>
+      </div>
+    </div>
+
+    <div style="text-align:center; margin-top:24px;">
+      <p style="font-size:13px; color:var(--muted);">Lead &rarr; Qualified &rarr; Proposal &rarr; Booked &rarr; Dispatched &rarr; Completed &rarr; 5-Star Review. <strong style="color:var(--text);">Zero humans required.</strong></p>
     </div>
   </section>
 
