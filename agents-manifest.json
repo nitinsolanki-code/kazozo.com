@@ -1,5 +1,5 @@
 {
-  "generated": "2026-03-25T15:34:27.103Z",
+  "generated": "2026-03-25T18:35:41.691Z",
   "version": 1,
   "agents": [
     {
@@ -10,7 +10,7 @@
       "description": "Advanced customer support agent — resolves tickets, processes refunds, applies credits, changes plans, and handles escalations. Includes case wrap-up with auto-classification, CRM updates, and satisfaction follow-ups. Designed for Tier 2 support where the frontline agent has already triaged.",
       "model": "claude-sonnet-4-20250514",
       "costPerResolution": 0.28,
-      "toolCount": 14,
+      "toolCount": 16,
       "tools": [
         {
           "id": "crm/lookup-customer",
@@ -80,6 +80,16 @@
         {
           "id": "support/smart-escalation",
           "description": "Intelligently determine whether a support ticket should be escalated. Considers customer lifetime value, sentiment, complexity, and context to recommend escalation path and priority level.",
+          "isNewFeature": true
+        },
+        {
+          "id": "support/csat-auto-survey",
+          "description": "Automatically trigger and manage customer satisfaction surveys after service interactions. Analyzes responses, identifies trends, and flags accounts needing attention.",
+          "isNewFeature": true
+        },
+        {
+          "id": "support/self-service-kb",
+          "description": "Manage and optimize the customer self-service knowledge base. Identifies content gaps from ticket analysis, suggests new articles, tracks deflection rates, and recommends improvements.",
           "isNewFeature": true
         }
       ],
@@ -426,7 +436,7 @@
       "description": "Generates executive performance summaries from CRM and metrics data. Aggregates KPIs, pipeline status, revenue trends, agent performance, and competitive intelligence into actionable weekly reports delivered automatically.",
       "model": "claude-sonnet-4-20250514",
       "costPerResolution": 0.75,
-      "toolCount": 7,
+      "toolCount": 8,
       "tools": [
         {
           "id": "content/generate-report",
@@ -456,6 +466,11 @@
         {
           "id": "reports/pipeline-forecast",
           "description": "Generate revenue pipeline forecast using historical conversion rates. Returns forecast amounts at each confidence level, deal breakdown, historical accuracy, and risk factors.",
+          "isNewFeature": true
+        },
+        {
+          "id": "reports/custom-kpi-dashboard",
+          "description": "Generate custom KPI dashboards with configurable metrics, time comparisons, and goal tracking. Supports sales, support, marketing, and operations KPIs.",
           "isNewFeature": true
         },
         {
@@ -692,7 +707,7 @@
       "description": "Online reputation management — monitors reviews across Google, Yelp, Facebook, and industry sites. Analyzes sentiment trends, drafts personalized responses, flags urgent reviews, solicits new reviews after service, and tracks NPS over time.",
       "model": "claude-haiku-4-5-20251001",
       "costPerResolution": 0.18,
-      "toolCount": 11,
+      "toolCount": 12,
       "tools": [
         {
           "id": "reviews/fetch-reviews",
@@ -722,6 +737,11 @@
         {
           "id": "reviews/personalized-response",
           "description": "Generates review responses personalized with customer history and conversation context",
+          "isNewFeature": true
+        },
+        {
+          "id": "reviews/generation-campaigns",
+          "description": "Automate review solicitation campaigns. Identify satisfied customers, generate personalized review requests, schedule multi-channel outreach (email, SMS, in-app), and track conversion rates.",
           "isNewFeature": true
         },
         {
@@ -784,7 +804,7 @@
       "description": "Finance and procurement assistant — approves purchase orders, checks budgets, processes invoices, tracks vendor spend, generates financial summaries, and manages expense approvals. The back-office brain for your business finances.",
       "model": "claude-sonnet-4-20250514",
       "costPerResolution": 0.25,
-      "toolCount": 14,
+      "toolCount": 15,
       "tools": [
         {
           "id": "finance/approve-po",
@@ -834,6 +854,11 @@
         {
           "id": "finance/invoice-processor",
           "description": "Automatically process invoices by extracting vendor data, matching against purchase orders, flagging duplicates, and routing for approval. Returns structured invoice data and routing recommendations.",
+          "isNewFeature": true
+        },
+        {
+          "id": "finance/ar-aging-alerts",
+          "description": "Monitor accounts receivable aging and generate proactive alerts. Identifies at-risk invoices, suggests collection actions, and predicts cash flow impact.",
           "isNewFeature": true
         },
         {
@@ -898,7 +923,7 @@
       "description": "Autonomous lead qualification agent — researches, scores, and routes inbound leads using BANT criteria. Enriches leads from 6+ external data providers (Apollo, LinkedIn, PeopleDataLabs, FullContact, Twilio, Google Places) via waterfall enrichment. Calculates affluence/affordability scores to help small businesses prioritize leads worth their time and investment.",
       "model": "claude-sonnet-4-20250514",
       "costPerResolution": 0.45,
-      "toolCount": 19,
+      "toolCount": 20,
       "tools": [
         {
           "id": "crm/get-lead-record",
@@ -963,6 +988,11 @@
         {
           "id": "enrichment/deep-enrich",
           "description": "Enhanced lead enrichment beyond firmographics with multi-source data integration",
+          "isNewFeature": true
+        },
+        {
+          "id": "enrichment/lead-source-attribution",
+          "description": "Track and attribute lead sources across marketing channels. Provides first-touch, last-touch, and multi-touch attribution with ROI by channel.",
           "isNewFeature": true
         },
         {
@@ -1042,7 +1072,7 @@
       "description": "Personalized outreach sequences, follow-ups, proposal generation, e-signatures, meeting scheduling, and CRM logging. Combines sales prospecting with proposal writing. Manages deal pipeline progression and competitive positioning.",
       "model": "claude-sonnet-4-20250514",
       "costPerResolution": 0.35,
-      "toolCount": 20,
+      "toolCount": 21,
       "tools": [
         {
           "id": "crm/lookup-customer",
@@ -1117,6 +1147,11 @@
         {
           "id": "sales/battlecard-lookup",
           "description": "Retrieves competitive battlecards with strengths, weaknesses, and objection handling strategies",
+          "isNewFeature": true
+        },
+        {
+          "id": "sales/crm-auto-logging",
+          "description": "Automatically log sales activities to CRM. Captures calls, emails, meetings, and deal updates without manual entry. Suggests next actions based on deal stage and buyer signals.",
           "isNewFeature": true
         },
         {
@@ -1198,7 +1233,7 @@
       "description": "Dispatch and field operations management. Assigns technicians to jobs, tracks job progress, checks parts availability, monitors SLA compliance, manages the dispatch board, converts estimates to work orders, and handles real-time field coordination.",
       "model": "claude-sonnet-4-20250514",
       "costPerResolution": 0.3,
-      "toolCount": 20,
+      "toolCount": 21,
       "tools": [
         {
           "id": "service/dispatch-job",
@@ -1298,6 +1333,11 @@
         {
           "id": "service/technician-performance",
           "description": "Technician performance metrics and analytics with team comparisons",
+          "isNewFeature": true
+        },
+        {
+          "id": "service/route-optimization",
+          "description": "Optimize technician routes and scheduling for field service operations. Minimizes drive time, maximizes daily job capacity, and accounts for skill matching and priority.",
           "isNewFeature": true
         }
       ],
