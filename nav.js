@@ -47,6 +47,9 @@
   var industriesHref = prefix + 'industries.html';
   var simulationHref = prefix + 'simulation.html';
   var homeHref     = prefix + 'index.html';
+  var aboutHref    = prefix + 'about.html';
+  var contactHref  = prefix + 'contact.html';
+  var faqHref      = prefix + 'faq.html';
 
   /* ------------------------------------------------------------------ */
   /*  2.  Scoped CSS                                                     */
@@ -263,6 +266,10 @@
   <a href="' + pricingHref + '" class="kz-mobile-link">Pricing</a>\
   <a href="' + industriesHref + '" class="kz-mobile-link">Industries</a>\
   <a href="' + simulationHref + '" class="kz-mobile-link">Simulation</a>\
+  <span class="kz-mobile-label" style="margin-top:16px;">Company</span>\
+  <a href="' + aboutHref + '" class="kz-mobile-link">About</a>\
+  <a href="' + faqHref + '" class="kz-mobile-link">FAQ</a>\
+  <a href="' + contactHref + '" class="kz-mobile-link">Contact</a>\
   <button type="button" onclick="' + talkToKaz + ';kzCloseMobile();" class="kz-mobile-cta">Talk to Kaz &#8594;</button>\
   <div style="display:flex; gap:12px; margin-top:12px;">\
     <a href="https://api.kazozo.com/customer-login.html" class="kz-mobile-link" style="flex:1; text-align:center;">Login</a>\

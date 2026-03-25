@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Kazozo — Talk to Us</title>
+<meta name="description" content="Get in touch with Kazozo. Talk to Kaz, our AI front desk, for instant answers about pricing, agents, and how AI operations can work for your business.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://kazozo.com/contact.html">
+
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230C0B12'/%3E%3Ctext x='3' y='23' font-family='system-ui,sans-serif' font-size='20' font-weight='700' fill='%23F0EFF4'%3Ek%3C/text%3E%3Ctext x='15' y='23' font-family='system-ui,sans-serif' font-size='20' font-weight='700' fill='%23FF6B5A'%3Ez%3C/text%3E%3C/svg%3E">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Contact Kazozo — Talk to Us">
+<meta property="og:description" content="Get in touch with Kazozo. Talk to Kaz for instant answers about pricing, agents, and AI operations.">
+<meta property="og:url" content="https://kazozo.com/contact.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Kazozo">
+<meta property="og:image" content="https://kazozo.com/og-image.png">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Contact Kazozo — Talk to Us">
+<meta name="twitter:description" content="Get in touch with Kazozo. Talk to Kaz for instant answers about pricing, agents, and AI operations.">
+<meta name="twitter:image" content="https://kazozo.com/og-image.png">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg: #131316;
+    --surface: #1b1b1e;
+    --card: #1f1f22;
+    --card-high: #2a2a2d;
+    --coral: #FFB4A4;
+    --coral-vivid: #FF5733;
+    --lime: #7BEA8E;
+    --sky: #46EAED;
+    --lavender: #C4A8FF;
+    --text: #E4E1E6;
+    --muted: #9e9ba5;
+    --border: rgba(228,225,230,0.06);
+  }
+
+  :focus-visible { outline: 2px solid var(--coral); outline-offset: 2px; }
+
+  body {
+    background: var(--bg); color: var(--text);
+    font-family: 'Manrope', sans-serif; font-size: 16px;
+    line-height: 1.6; -webkit-font-smoothing: antialiased;
+  }
+
+  /* ===== PAGE HERO ===== */
+  .page-hero {
+    padding: 140px 24px 60px;
+    text-align: center;
+    position: relative; overflow: hidden;
+  }
+  .page-hero::before {
+    content: '';
+    position: absolute;
+    top: -200px; left: 50%; transform: translateX(-50%);
+    width: 800px; height: 600px;
+    background: radial-gradient(ellipse, rgba(70,234,237,0.05) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .page-hero-inner {
+    max-width: 600px; margin: 0 auto;
+    position: relative; z-index: 1;
+  }
+  .page-hero .overline {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 12px; font-weight: 600;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--sky); margin-bottom: 20px;
+  }
+  .page-hero h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(36px, 5vw, 52px);
+    font-weight: 700; letter-spacing: -0.03em;
+    line-height: 1.08; margin-bottom: 20px;
+  }
+  .page-hero h1 em { font-style: normal; color: var(--coral-vivid); }
+  .page-hero .lead {
+    font-size: 17px; color: var(--muted);
+    line-height: 1.7; max-width: 480px; margin: 0 auto;
+  }
+
+  /* ===== CONTACT CARDS ===== */
+  .contact-section {
+    max-width: 800px; margin: 0 auto;
+    padding: 20px 24px 80px;
+  }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 48px;
+  }
+  .contact-card {
+    background: var(--surface);
+    border-radius: 16px;
+    padding: 36px 32px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.2s;
+  }
+  .contact-card:hover { transform: translateY(-2px); }
+  .contact-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px; border-radius: 16px 16px 0 0;
+  }
+  .contact-card:nth-child(1)::before { background: var(--coral-vivid); }
+  .contact-card:nth-child(2)::before { background: var(--sky); }
+
+  .contact-icon {
+    width: 56px; height: 56px;
+    border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 24px;
+    margin: 0 auto 20px;
+  }
+  .contact-card:nth-child(1) .contact-icon { background: rgba(255,87,51,0.1); }
+  .contact-card:nth-child(2) .contact-icon { background: rgba(70,234,237,0.1); }
+
+  .contact-card h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 20px; font-weight: 600;
+    margin-bottom: 10px;
+  }
+  .contact-card p {
+    font-size: 14px; color: var(--muted);
+    line-height: 1.6; margin-bottom: 24px;
+  }
+  .contact-card .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 12px 28px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 14px; font-weight: 600;
+    border: none; border-radius: 10px;
+    cursor: pointer; text-decoration: none;
+    transition: opacity 0.3s;
+  }
+  .contact-card .btn:hover { opacity: 0.9; }
+  .btn-coral { color: #fff; background: var(--coral-vivid); }
+  .btn-sky { color: #131316; background: var(--sky); }
+
+  .contact-detail {
+    font-size: 12px; color: rgba(228,225,230,0.35);
+    margin-top: 14px;
+  }
+
+  /* ===== WHAT TO EXPECT ===== */
+  .expect-section {
+    max-width: 800px; margin: 0 auto;
+    padding: 0 24px 80px;
+  }
+  .expect-header {
+    text-align: center; margin-bottom: 36px;
+  }
+  .expect-header h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(24px, 3vw, 32px);
+    font-weight: 700; letter-spacing: -0.02em;
+  }
+  .expect-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .expect-card {
+    background: var(--surface);
+    border-radius: 14px;
+    padding: 28px 24px;
+    text-align: center;
+  }
+  .expect-num {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 32px; font-weight: 700;
+    color: var(--coral-vivid);
+    margin-bottom: 8px;
+  }
+  .expect-card h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 15px; font-weight: 600;
+    margin-bottom: 6px;
+  }
+  .expect-card p {
+    font-size: 13px; color: var(--muted); line-height: 1.5;
+  }
+
+  /* ===== FOLLOW ===== */
+  .follow-section {
+    text-align: center;
+    padding: 48px 24px 80px;
+    border-top: 1px solid var(--border);
+    max-width: 800px; margin: 0 auto;
+  }
+  .follow-section h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 24px; font-weight: 700;
+    letter-spacing: -0.02em; margin-bottom: 12px;
+  }
+  .follow-section p {
+    font-size: 15px; color: var(--muted);
+    margin-bottom: 24px;
+  }
+  .follow-link {
+    display: inline-flex; align-items: center; gap: 10px;
+    color: var(--text); text-decoration: none;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 16px; font-weight: 600;
+    padding: 14px 28px;
+    background: var(--surface);
+    border-radius: 12px;
+    transition: background 0.3s;
+  }
+  .follow-link:hover { background: var(--card); }
+  .follow-link svg { width: 20px; height: 20px; }
+
+  /* ===== FOOTER ===== */
+  footer {
+    border-top: 1px solid rgba(228,225,230,0.05); padding: 64px 24px 32px;
+    max-width: 1200px; margin: 0 auto;
+  }
+  .footer-inner { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 32px; }
+  .footer-brand { display: flex; flex-direction: column; gap: 12px; }
+  .footer-logo { font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 700; color: var(--text); text-decoration: none; letter-spacing: -0.02em; }
+  .footer-logo span { color: var(--coral-vivid); }
+  .footer-tagline { font-size: 13px; color: rgba(228,225,230,0.5); max-width: 280px; line-height: 1.6; }
+  .footer-nav { display: flex; gap: 48px; }
+  .footer-col h4 { font-family: 'Space Grotesk', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--text); margin-bottom: 16px; }
+  .footer-col a { display: block; color: rgba(228,225,230,0.5); text-decoration: none; font-size: 14px; padding: 4px 0; transition: color 0.3s; }
+  .footer-col a:hover { color: var(--text); }
+  .footer-divider { border: none; border-top: 1px solid rgba(228,225,230,0.05); margin-bottom: 20px; }
+  .footer-bottom { display: flex; justify-content: space-between; align-items: center; }
+  .footer-credit { font-size: 12px; color: rgba(228,225,230,0.5); }
+  .footer-socials { display: flex; gap: 16px; align-items: center; }
+  .footer-socials a { color: var(--muted); transition: color 0.3s; display: flex; align-items: center; justify-content: center; }
+  .footer-socials a:hover { color: var(--text); }
+  .footer-socials svg { width: 18px; height: 18px; }
+
+  @media (max-width: 900px) {
+    .footer-inner { flex-direction: column; gap: 24px; text-align: center; }
+    .footer-bottom { flex-direction: column; gap: 12px; }
+  }
+  @media (max-width: 600px) {
+    footer { padding: 32px 16px 24px; }
+    .footer-nav { flex-direction: column; gap: 24px; }
+    .contact-grid { grid-template-columns: 1fr; }
+    .expect-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<script src="nav.js?v=2"></script>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <div class="overline">Contact</div>
+    <h1>Let's <em>talk.</em></h1>
+    <p class="lead">Whether you're exploring AI agents for the first time or ready to get started, we're here.</p>
+  </div>
+</section>
+
+<!-- CONTACT METHODS -->
+<div class="contact-section">
+  <div class="contact-grid">
+    <div class="contact-card">
+      <div class="contact-icon">💬</div>
+      <h2>Talk to Kaz</h2>
+      <p>Our AI front desk agent can answer questions about pricing, features, and which agents fit your business — instantly, 24/7.</p>
+      <button type="button" onclick="if(window.KazozoWidget){window.KazozoWidget.open()}else{window.location.href='index.html#cta'}" class="btn btn-coral">Start a conversation &#8594;</button>
+      <div class="contact-detail">Typical response: under 2 seconds</div>
+    </div>
+    <div class="contact-card">
+      <div class="contact-icon">📧</div>
+      <h2>Email Us</h2>
+      <p>For partnerships, press inquiries, or anything that needs a human touch — reach out directly.</p>
+      <a href="mailto:hello@kazozo.com" class="btn btn-sky">hello@kazozo.com</a>
+      <div class="contact-detail">We'll get back to you within 24 hours</div>
+    </div>
+  </div>
+</div>
+
+<!-- WHAT TO EXPECT -->
+<div class="expect-section">
+  <div class="expect-header">
+    <h2>What happens next?</h2>
+  </div>
+  <div class="expect-grid">
+    <div class="expect-card">
+      <div class="expect-num">1</div>
+      <h3>Quick conversation</h3>
+      <p>Tell Kaz your industry, team size, and biggest bottleneck. Takes about 60 seconds.</p>
+    </div>
+    <div class="expect-card">
+      <div class="expect-num">2</div>
+      <h3>Custom recommendation</h3>
+      <p>You'll get a tailored agent lineup and pricing based on your actual needs — no generic demo.</p>
+    </div>
+    <div class="expect-card">
+      <div class="expect-num">3</div>
+      <h3>Live in 1–2 weeks</h3>
+      <p>Once you're in, we configure and deploy your agents. Most businesses are operational within days.</p>
+    </div>
+  </div>
+</div>
+
+<!-- FOLLOW -->
+<div class="follow-section">
+  <h2>Follow along</h2>
+  <p>Product updates, AI ops insights, and behind-the-scenes builds.</p>
+  <a href="https://instagram.com/kazozo.ai" target="_blank" rel="noopener" class="follow-link">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+    @kazozo.ai
+  </a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="footer-logo" style="text-decoration:none;">kazo<span>zo</span></a>
+        <p class="footer-tagline">The AI platform for business. Agents, apps, and automation.</p>
+      </div>
+      <div class="footer-nav">
+        <div class="footer-col">
+          <h4>Products</h4>
+          <a href="index.html#agents">AI Agents</a>
+          <a href="index.html#pricing">Pricing</a>
+          <a href="industries.html">Industries</a>
+          <a href="simulation.html">Simulation</a>
+        </div>
+        <div class="footer-col">
+          <h4>Compare</h4>
+          <a href="compare/kazozo-vs-salesforce-agentforce.html">vs Salesforce</a>
+          <a href="compare/kazozo-vs-lindy.html">vs Lindy.ai</a>
+          <a href="compare/kazozo-vs-intercom.html">vs Intercom</a>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <a href="blog/">Blog</a>
+          <a href="mailto:hello@kazozo.com">hello@kazozo.com</a>
+          <button type="button" onclick="if(window.KazozoWidget){window.KazozoWidget.open()}" style="color:inherit;background:none;border:none;cursor:pointer;font:inherit;padding:0;">Talk to Kaz</button>
+        </div>
+      </div>
+    </div>
+    <hr class="footer-divider">
+    <div class="footer-bottom">
+      <div class="footer-credit">&copy; 2026 Kazozo &middot; <a href="https://solanki.co" target="_blank" rel="noopener" style="color:var(--muted);text-decoration:none;">A Solanki Co product</a> &middot; <a href="privacy.html" style="color:var(--muted);text-decoration:none;">Privacy</a> &middot; <a href="terms.html" style="color:var(--muted);text-decoration:none;">Terms</a></div>
+      <div class="footer-socials">
+        <a href="https://instagram.com/kazozo.ai" target="_blank" rel="noopener" aria-label="Follow Kazozo on Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg></a>
+      </div>
+    </div>
+  </footer>
+
+<!-- Kazozo Widget -->
+<script async src="https://app.kazozo.com/widget/frontline-widget.js"
+  data-tenant-id="d4182074-fe70-4bac-8e14-9ab6e47ca458"
+  data-api-url="https://app.kazozo.com"
+  data-bot-name="Kaz"
+  data-primary-color="#FF5733"
+  data-position="right"></script>
+
+</body>
+</html>

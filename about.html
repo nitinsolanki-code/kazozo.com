@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Kazozo — The Story Behind the AI Platform</title>
+<meta name="description" content="Kazozo is a Solanki Co product — an AI platform built to give every business access to enterprise-grade agents for sales, support, and operations.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://kazozo.com/about.html">
+
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230C0B12'/%3E%3Ctext x='3' y='23' font-family='system-ui,sans-serif' font-size='20' font-weight='700' fill='%23F0EFF4'%3Ek%3C/text%3E%3Ctext x='15' y='23' font-family='system-ui,sans-serif' font-size='20' font-weight='700' fill='%23FF6B5A'%3Ez%3C/text%3E%3C/svg%3E">
+
+<!-- Open Graph -->
+<meta property="og:title" content="About Kazozo — The Story Behind the AI Platform">
+<meta property="og:description" content="A domain bought 20 years ago. An AI platform built for today. The story of Kazozo.">
+<meta property="og:url" content="https://kazozo.com/about.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Kazozo">
+<meta property="og:image" content="https://kazozo.com/og-image.png">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="About Kazozo — The Story Behind the AI Platform">
+<meta name="twitter:description" content="A domain bought 20 years ago. An AI platform built for today. The story of Kazozo.">
+<meta name="twitter:image" content="https://kazozo.com/og-image.png">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg: #131316;
+    --surface: #1b1b1e;
+    --card: #1f1f22;
+    --card-high: #2a2a2d;
+    --coral: #FFB4A4;
+    --coral-vivid: #FF5733;
+    --lime: #7BEA8E;
+    --sky: #46EAED;
+    --lavender: #C4A8FF;
+    --text: #E4E1E6;
+    --muted: #9e9ba5;
+    --border: rgba(228,225,230,0.06);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--coral);
+    outline-offset: 2px;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Manrope', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ===== PAGE LAYOUT ===== */
+  .page-hero {
+    padding: 140px 24px 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .page-hero::before {
+    content: '';
+    position: absolute;
+    top: -200px; left: 50%; transform: translateX(-50%);
+    width: 800px; height: 600px;
+    background: radial-gradient(ellipse, rgba(255,87,51,0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .page-hero-inner {
+    max-width: 680px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+  .page-hero .overline {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 12px; font-weight: 600;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--coral); margin-bottom: 20px;
+  }
+  .page-hero h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(36px, 5vw, 56px);
+    font-weight: 700; letter-spacing: -0.03em;
+    line-height: 1.08; margin-bottom: 20px;
+  }
+  .page-hero h1 em { font-style: normal; color: var(--coral-vivid); }
+  .page-hero .lead {
+    font-size: 18px; color: var(--muted);
+    line-height: 1.7; max-width: 560px; margin: 0 auto;
+  }
+
+  /* ===== CONTENT SECTIONS ===== */
+  .content-section {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 24px 80px;
+  }
+
+  .story-block {
+    padding: 48px 0;
+    border-top: 1px solid var(--border);
+  }
+  .story-block:first-child { border-top: none; }
+
+  .story-block h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(24px, 3vw, 32px);
+    font-weight: 700; letter-spacing: -0.02em;
+    margin-bottom: 20px; line-height: 1.15;
+  }
+  .story-block h2 em { font-style: normal; color: var(--coral-vivid); }
+
+  .story-block p {
+    font-size: 16px; color: rgba(228,225,230,0.7);
+    line-height: 1.75; margin-bottom: 16px;
+    max-width: 640px;
+  }
+  .story-block p:last-child { margin-bottom: 0; }
+
+  .story-block .highlight {
+    color: var(--text);
+    font-weight: 500;
+  }
+
+  /* ===== STATS ROW ===== */
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    padding: 48px 0;
+    border-top: 1px solid var(--border);
+  }
+  .stat-item { text-align: center; }
+  .stat-item .num {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 36px; font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 4px;
+  }
+  .stat-item:nth-child(1) .num { color: var(--coral-vivid); }
+  .stat-item:nth-child(2) .num { color: var(--sky); }
+  .stat-item:nth-child(3) .num { color: var(--lime); }
+  .stat-item:nth-child(4) .num { color: var(--lavender); }
+  .stat-item .label {
+    font-size: 13px; color: var(--muted);
+  }
+
+  /* ===== VALUES ===== */
+  .values-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding: 32px 0 0;
+  }
+  .value-card {
+    background: var(--surface);
+    border-radius: 14px;
+    padding: 28px;
+  }
+  .value-card h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 17px; font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .value-card p {
+    font-size: 14px; color: var(--muted);
+    line-height: 1.6; margin-bottom: 0;
+  }
+
+  /* ===== CTA SECTION ===== */
+  .page-cta {
+    text-align: center;
+    padding: 64px 24px 80px;
+    border-top: 1px solid var(--border);
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .page-cta h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(28px, 4vw, 40px);
+    font-weight: 700; letter-spacing: -0.03em;
+    margin-bottom: 16px;
+  }
+  .page-cta h2 em { font-style: normal; color: var(--coral-vivid); }
+  .page-cta p {
+    font-size: 16px; color: var(--muted);
+    margin-bottom: 28px; line-height: 1.6;
+  }
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 14px 32px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 15px; font-weight: 600;
+    color: #fff; background: var(--coral-vivid);
+    border: none; border-radius: 10px;
+    cursor: pointer; text-decoration: none;
+    transition: opacity 0.3s;
+  }
+  .btn-primary:hover { opacity: 0.9; }
+
+  /* ===== FOOTER ===== */
+  footer {
+    border-top: 1px solid rgba(228,225,230,0.05); padding: 64px 24px 32px;
+    max-width: 1200px; margin: 0 auto;
+  }
+  .footer-inner {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    margin-bottom: 32px;
+  }
+  .footer-brand { display: flex; flex-direction: column; gap: 12px; }
+  .footer-logo { font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 700; color: var(--text); text-decoration: none; letter-spacing: -0.02em; }
+  .footer-logo span { color: var(--coral-vivid); }
+  .footer-tagline { font-size: 13px; color: rgba(228,225,230,0.5); max-width: 280px; line-height: 1.6; }
+  .footer-nav { display: flex; gap: 48px; }
+  .footer-col h4 { font-family: 'Space Grotesk', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--text); margin-bottom: 16px; }
+  .footer-col a { display: block; color: rgba(228,225,230,0.5); text-decoration: none; font-size: 14px; padding: 4px 0; transition: color 0.3s; }
+  .footer-col a:hover { color: var(--text); }
+  .footer-divider { border: none; border-top: 1px solid rgba(228,225,230,0.05); margin-bottom: 20px; }
+  .footer-bottom { display: flex; justify-content: space-between; align-items: center; }
+  .footer-credit { font-size: 12px; color: rgba(228,225,230,0.5); }
+  .footer-socials { display: flex; gap: 16px; align-items: center; }
+  .footer-socials a { color: var(--muted); transition: color 0.3s; display: flex; align-items: center; justify-content: center; }
+  .footer-socials a:hover { color: var(--text); }
+  .footer-socials svg { width: 18px; height: 18px; }
+
+  @media (max-width: 900px) {
+    .footer-inner { flex-direction: column; gap: 24px; text-align: center; }
+    .footer-bottom { flex-direction: column; gap: 12px; }
+    .stats-row { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+  }
+  @media (max-width: 600px) {
+    footer { padding: 32px 16px 24px; }
+    .footer-nav { flex-direction: column; gap: 24px; }
+    .values-grid { grid-template-columns: 1fr; }
+    .stats-row { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<script src="nav.js?v=2"></script>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <div class="overline">About Kazozo</div>
+    <h1>A 20-year-old domain.<br>A brand new <em>mission.</em></h1>
+    <p class="lead">Kazozo is a word borrowed from Zambia. We bought the domain two decades ago without a plan. Then AI agents became real — and Kazozo found its purpose.</p>
+  </div>
+</section>
+
+<!-- CONTENT -->
+<div class="content-section">
+
+  <!-- Origin story -->
+  <div class="story-block">
+    <h2>The name came <em>first.</em></h2>
+    <p>Over twenty years ago, we came across the word "kazozo" — a term used in Zambia — and bought the domain on instinct. It was short, memorable, and had energy. For a long time, it just sat there. A domain waiting for the right idea.</p>
+    <p>That idea arrived when AI agents matured enough to actually run business operations. Not chatbots that deflect questions — <span class="highlight">real agents that qualify leads, close deals, handle support tickets, and coordinate service delivery.</span> The kind of capability that used to require a team of five, now packaged into software that works around the clock.</p>
+    <p>Kazozo became the platform to deliver that capability to businesses that can't afford a six-figure AI buildout but need enterprise-grade results.</p>
+  </div>
+
+  <!-- What we do -->
+  <div class="story-block">
+    <h2>What we <em>build.</em></h2>
+    <p>Kazozo is an AI operations platform. We deploy specialized agents — for sales, support, and operations — that work together as a coordinated team. They qualify leads, respond to customers in seconds, schedule appointments, manage pipelines, and generate real-time analytics.</p>
+    <p>Every agent is pre-configured for your industry. We're live across 35+ verticals, from home services to healthcare to hospitality. <span class="highlight">Most businesses are fully operational within one to two weeks.</span></p>
+  </div>
+
+  <!-- Stats -->
+  <div class="stats-row">
+    <div class="stat-item">
+      <div class="num">35+</div>
+      <div class="label">Industries</div>
+    </div>
+    <div class="stat-item">
+      <div class="num">11</div>
+      <div class="label">AI Agents</div>
+    </div>
+    <div class="stat-item">
+      <div class="num">1.8s</div>
+      <div class="label">Avg Response</div>
+    </div>
+    <div class="stat-item">
+      <div class="num">24/7</div>
+      <div class="label">Always On</div>
+    </div>
+  </div>
+
+  <!-- Who's behind it -->
+  <div class="story-block">
+    <h2>A <em>Solanki Co</em> product.</h2>
+    <p>Kazozo is built by <a href="https://solanki.co" target="_blank" rel="noopener" style="color: var(--coral); text-decoration: none;">Solanki Co</a> — a product studio focused on AI-powered tools for businesses. We build, ship, and operate the entire stack — from the agent intelligence layer to the customer-facing interfaces.</p>
+    <p>We're not a consulting firm. We're not reselling someone else's platform. Every agent, every workflow, every integration is built and maintained by our team.</p>
+  </div>
+
+  <!-- Values -->
+  <div class="story-block">
+    <h2>What we believe.</h2>
+    <div class="values-grid">
+      <div class="value-card">
+        <h3>Ship, don't pitch.</h3>
+        <p>We'd rather show you a working agent than a 40-slide deck. If it doesn't run in production, it doesn't count.</p>
+      </div>
+      <div class="value-card">
+        <h3>Enterprise results, startup speed.</h3>
+        <p>Big companies shouldn't be the only ones with AI agents. We build for businesses that move fast and can't wait 6 months.</p>
+      </div>
+      <div class="value-card">
+        <h3>Agents, not chatbots.</h3>
+        <p>Chatbots answer questions. Agents take action. There's a difference, and it matters for your bottom line.</p>
+      </div>
+      <div class="value-card">
+        <h3>Transparent by default.</h3>
+        <p>You'll see exactly what your agents are doing, how they're performing, and what they cost. No black boxes.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="page-cta">
+  <h2>Want to see what Kazozo can do for <em>your business?</em></h2>
+  <p>Talk to Kaz — our AI front desk — and get a personalized recommendation in under a minute.</p>
+  <button type="button" onclick="if(window.KazozoWidget){window.KazozoWidget.open()}else{window.location.href='index.html#cta'}" class="btn-primary">Talk to Kaz &#8594;</button>
+</div>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="footer-logo" style="text-decoration:none;">kazo<span>zo</span></a>
+        <p class="footer-tagline">The AI platform for business. Agents, apps, and automation.</p>
+      </div>
+      <div class="footer-nav">
+        <div class="footer-col">
+          <h4>Products</h4>
+          <a href="index.html#agents">AI Agents</a>
+          <a href="index.html#pricing">Pricing</a>
+          <a href="industries.html">Industries</a>
+          <a href="simulation.html">Simulation</a>
+        </div>
+        <div class="footer-col">
+          <h4>Compare</h4>
+          <a href="compare/kazozo-vs-salesforce-agentforce.html">vs Salesforce</a>
+          <a href="compare/kazozo-vs-lindy.html">vs Lindy.ai</a>
+          <a href="compare/kazozo-vs-intercom.html">vs Intercom</a>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <a href="blog/">Blog</a>
+          <a href="mailto:hello@kazozo.com">hello@kazozo.com</a>
+          <button type="button" onclick="if(window.KazozoWidget){window.KazozoWidget.open()}" style="color:inherit;background:none;border:none;cursor:pointer;font:inherit;padding:0;">Talk to Kaz</button>
+        </div>
+      </div>
+    </div>
+    <hr class="footer-divider">
+    <div class="footer-bottom">
+      <div class="footer-credit">&copy; 2026 Kazozo &middot; <a href="https://solanki.co" target="_blank" rel="noopener" style="color:var(--muted);text-decoration:none;">A Solanki Co product</a> &middot; <a href="privacy.html" style="color:var(--muted);text-decoration:none;">Privacy</a> &middot; <a href="terms.html" style="color:var(--muted);text-decoration:none;">Terms</a></div>
+      <div class="footer-socials">
+        <a href="https://instagram.com/kazozo.ai" target="_blank" rel="noopener" aria-label="Follow Kazozo on Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg></a>
+      </div>
+    </div>
+  </footer>
+
+<!-- Kazozo Widget -->
+<script async src="https://app.kazozo.com/widget/frontline-widget.js"
+  data-tenant-id="d4182074-fe70-4bac-8e14-9ab6e47ca458"
+  data-api-url="https://app.kazozo.com"
+  data-bot-name="Kaz"
+  data-primary-color="#FF5733"
+  data-position="right"></script>
+
+</body>
+</html>
