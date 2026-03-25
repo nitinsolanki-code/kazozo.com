@@ -1422,6 +1422,103 @@
 
   .cta-buttons { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
 
+  /* ===== EMAIL CAPTURE ===== */
+  .email-capture {
+    padding: 80px 24px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .email-capture::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 50%; transform: translateX(-50%);
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(255,87,51,0.04) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .email-capture-inner {
+    max-width: 560px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+  .email-capture-overline {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 11px; font-weight: 600;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--coral); margin-bottom: 16px;
+  }
+  .email-capture h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(28px, 4vw, 40px); font-weight: 700;
+    letter-spacing: -0.03em; line-height: 1.1;
+    color: var(--text); margin-bottom: 12px;
+  }
+  .email-capture .capture-sub {
+    font-size: 15px; color: var(--muted);
+    line-height: 1.6; margin-bottom: 32px;
+  }
+  .capture-form {
+    display: flex; gap: 10px;
+    max-width: 480px; margin: 0 auto;
+  }
+  .capture-form input[type="email"] {
+    flex: 1; min-width: 0;
+    padding: 14px 18px;
+    font-family: 'Manrope', sans-serif;
+    font-size: 15px; color: var(--text);
+    background: rgba(228,225,230,0.06);
+    border: 1px solid rgba(228,225,230,0.1);
+    border-radius: 10px;
+    outline: none;
+    transition: border-color 0.3s, background 0.3s;
+  }
+  .capture-form input[type="email"]::placeholder {
+    color: rgba(228,225,230,0.35);
+  }
+  .capture-form input[type="email"]:focus {
+    border-color: var(--coral);
+    background: rgba(228,225,230,0.08);
+  }
+  .capture-form button {
+    padding: 14px 28px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 15px; font-weight: 600;
+    color: #fff; background: var(--coral-vivid);
+    border: none; border-radius: 10px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: opacity 0.3s, transform 0.15s;
+  }
+  .capture-form button:hover { opacity: 0.9; }
+  .capture-form button:active { transform: scale(0.97); }
+  .capture-form button:disabled {
+    opacity: 0.5; cursor: not-allowed;
+  }
+  .capture-note {
+    font-size: 12px; color: rgba(228,225,230,0.35);
+    margin-top: 14px;
+  }
+  .capture-success {
+    display: none;
+    padding: 16px 24px;
+    background: rgba(123,234,142,0.08);
+    border: 1px solid rgba(123,234,142,0.2);
+    border-radius: 10px;
+    color: var(--lime, #7BEA8E);
+    font-size: 15px; font-weight: 500;
+  }
+  .capture-error {
+    display: none;
+    font-size: 13px; color: #FF4444;
+    margin-top: 10px;
+  }
+  @media (max-width: 480px) {
+    .capture-form { flex-direction: column; }
+    .capture-form button { width: 100%; }
+  }
+
   /* ===== FOOTER ===== */
   footer {
     border-top: 1px solid rgba(228,225,230,0.05); padding: 64px 24px 32px;
@@ -3413,6 +3510,22 @@
     </div>
   </section>
 
+  <!-- EMAIL CAPTURE -->
+  <section class="email-capture fade-up" id="email-capture">
+    <div class="email-capture-inner">
+      <div class="email-capture-overline">Stay in the loop</div>
+      <h2>Get AI ops insights — no spam, ever.</h2>
+      <p class="capture-sub">One email when it matters. New agents, platform updates, and real playbooks from businesses running AI ops.</p>
+      <form class="capture-form" id="captureForm" onsubmit="return handleCapture(event)">
+        <input type="email" name="email" placeholder="you@company.com" required autocomplete="email" aria-label="Email address">
+        <button type="submit" id="captureBtn">Get Updates</button>
+      </form>
+      <div class="capture-success" id="captureSuccess">You're in. We'll be in touch when it matters.</div>
+      <div class="capture-error" id="captureError"></div>
+      <p class="capture-note">No spam. Unsubscribe anytime. We respect your inbox.</p>
+    </div>
+  </section>
+
   <!-- CTA -->
   <section class="cta" id="cta">
     <h2>Get started on the <em>platform</em></h2>
@@ -3672,6 +3785,51 @@ document.querySelectorAll('.faq-q').forEach(btn => {
     if (!wasOpen) item.classList.add('open');
   });
 });
+
+// Email capture
+const CAPTURE_ENDPOINT = 'https://kazozo-capture.YOUR_SUBDOMAIN.workers.dev';
+
+function handleCapture(e) {
+  e.preventDefault();
+  const form = document.getElementById('captureForm');
+  const btn = document.getElementById('captureBtn');
+  const successEl = document.getElementById('captureSuccess');
+  const errorEl = document.getElementById('captureError');
+  const email = form.querySelector('input[name="email"]').value.trim();
+
+  if (!email) return false;
+
+  btn.disabled = true;
+  btn.textContent = 'Sending…';
+  errorEl.style.display = 'none';
+
+  fetch(CAPTURE_ENDPOINT, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      email: email,
+      source: 'Email Capture',
+      page: window.location.pathname
+    })
+  })
+  .then(res => {
+    if (!res.ok) throw new Error('Network error');
+    return res.json();
+  })
+  .then(() => {
+    form.style.display = 'none';
+    successEl.style.display = 'block';
+    document.querySelector('.capture-note').style.display = 'none';
+  })
+  .catch(() => {
+    errorEl.textContent = 'Something went wrong. Please try again.';
+    errorEl.style.display = 'block';
+    btn.disabled = false;
+    btn.textContent = 'Get Updates';
+  });
+
+  return false;
+}
 </script>
 
 </body>
