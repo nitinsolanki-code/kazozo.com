@@ -251,7 +251,7 @@
       <li><button type="button" onclick="' + talkToKaz + '" class="kz-btn-nav">Talk to Kaz</button></li>\
     </ul>\
     <div class="kz-auth">\
-      <a href="https://api.kazozo.com/customer-login.html" class="kz-login">Login</a>\
+      <a href="https://api.kazozo.com/login.html?role=customer" class="kz-login">Login</a>\
       <a href="https://api.kazozo.com/signup.html" class="kz-signup">Get Started</a>\
     </div>\
   </div>\
@@ -272,7 +272,7 @@
   <a href="' + contactHref + '" class="kz-mobile-link">Contact</a>\
   <button type="button" onclick="' + talkToKaz + ';kzCloseMobile();" class="kz-mobile-cta">Talk to Kaz &#8594;</button>\
   <div style="display:flex; gap:12px; margin-top:12px;">\
-    <a href="https://api.kazozo.com/customer-login.html" class="kz-mobile-link" style="flex:1; text-align:center;">Login</a>\
+    <a href="https://api.kazozo.com/login.html?role=customer" class="kz-mobile-link" style="flex:1; text-align:center;">Login</a>\
     <a href="https://api.kazozo.com/signup.html" class="kz-mobile-cta" style="flex:1; text-align:center; margin:0;">Get Started</a>\
   </div>\
 </div>';
