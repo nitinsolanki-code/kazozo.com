@@ -1,0 +1,1351 @@
+{
+  "generated": "2026-03-25T15:34:27.103Z",
+  "version": 1,
+  "agents": [
+    {
+      "id": "customer-facing/customer-support",
+      "name": "Customer Support",
+      "customerFacingName": "Support Agent",
+      "tier": "customer-facing",
+      "description": "Advanced customer support agent — resolves tickets, processes refunds, applies credits, changes plans, and handles escalations. Includes case wrap-up with auto-classification, CRM updates, and satisfaction follow-ups. Designed for Tier 2 support where the frontline agent has already triaged.",
+      "model": "claude-sonnet-4-20250514",
+      "costPerResolution": 0.28,
+      "toolCount": 14,
+      "tools": [
+        {
+          "id": "crm/lookup-customer",
+          "description": "Look up a customer by name, email, phone, or customer ID. Returns profile, account details, and recent activity.",
+          "isNewFeature": false
+        },
+        {
+          "id": "crm/update-record",
+          "description": "Update a customer record in the CRM. Can update plan, status, notes, tags, or custom fields. Provide the record ID from a previous lookup.",
+          "isNewFeature": false
+        },
+        {
+          "id": "crm/create-ticket",
+          "description": "Create a support ticket or case in the CRM with priority, category, and description. Links to a customer record.",
+          "isNewFeature": false
+        },
+        {
+          "id": "crm/search-contacts",
+          "description": "Search CRM contacts by name, company, email, or phone. Returns matching contact list.",
+          "isNewFeature": false
+        },
+        {
+          "id": "billing/process-refund",
+          "description": "Process a refund for a customer. Amounts over $100 require manager approval. Returns refund ID and status.",
+          "isNewFeature": false
+        },
+        {
+          "id": "billing/apply-credit",
+          "description": "Apply a goodwill credit to a customer",
+          "isNewFeature": false
+        },
+        {
+          "id": "billing/change-plan",
+          "description": "Change a customer",
+          "isNewFeature": false
+        },
+        {
+          "id": "billing/get-invoice-history",
+          "description": "Tool",
+          "isNewFeature": false
+        },
+        {
+          "id": "kb/search-knowledge-base",
+          "description": "Search the full knowledge base for information relevant to a customer question. Use this when kb/quick-answers returns no match. Returns the most relevant passages from company documentation, policies, FAQs, service details, and procedures.",
+          "isNewFeature": false
+        },
+        {
+          "id": "kb/quick-answers",
+          "description": "Check if a customer question matches a frequently asked question with a pre-cached answer. Returns instant responses for common questions (hours, pricing, policies, etc.) without needing a full knowledge base search. If no match, returns null so you should fall back to kb/search-knowledge-base.",
+          "isNewFeature": false
+        },
+        {
+          "id": "comms/send-email",
+          "description": "Send an email to a customer, lead, or team member. Supports plain text and HTML body. Requires SMTP configuration in environment variables (SMTP_HOST, SMTP_USER, SMTP_PASS) or SENDGRID_API_KEY.",
+          "isNewFeature": false
+        },
+        {
+          "id": "support/customer-health-score",
+          "description": "Calculate a customer health score (0-100) based on ticket frequency, sentiment, usage trends, and NPS. Identifies at-risk customers and provides recommended actions for account management.",
+          "isNewFeature": true
+        },
+        {
+          "id": "support/ticket-theme-analysis",
+          "description": "Analyze recent support tickets to identify common themes and issues. Groups tickets by topic, severity, and trend to surface product gaps and customer pain points.",
+          "isNewFeature": true
+        },
+        {
+          "id": "support/smart-escalation",
+          "description": "Intelligently determine whether a support ticket should be escalated. Considers customer lifetime value, sentiment, complexity, and context to recommend escalation path and priority level.",
+          "isNewFeature": true
+        }
+      ],
+      "capabilities": [
+        {
+          "icon": "👥",
+          "title": "CRM Integration",
+          "description": "Customer lookup, record updates, lead capture",
+          "isNew": false
+        },
+        {
+          "icon": "💳",
+          "title": "Billing Management",
+          "description": "Refunds, credits, plan changes, invoicing",
+          "isNew": false
+        },
+        {
+          "icon": "🧠",
+          "title": "Knowledge Base Search",
+          "description": "Fast FAQ lookup and deep knowledge base search",
+          "isNew": false
+        },
+        {
+          "icon": "💬",
+          "title": "Communications",
+          "description": "Email and SMS messaging",
+          "isNew": false
+        },
+        {
+          "icon": "🆘",
+          "title": "Support Optimization",
+          "description": "Customer health scoring, ticket analysis, smart escalation",
+          "isNew": true
+        }
+      ],
+      "channels": [
+        "web-chat",
+        "sms",
+        "api"
+      ],
+      "maxTurns": 12,
+      "escalatesTo": "human-agent"
+    },
+    {
+      "id": "customer-facing/frontline-agent",
+      "name": "Frontline Agent",
+      "customerFacingName": "Frontline Agent",
+      "tier": "customer-facing",
+      "description": "AI receptionist and VIP concierge — the first point of contact across all channels. Answers questions, books appointments, looks up status, captures leads, routes to specialists. Supports multi-language conversations natively. In concierge mode, pulls client preferences, adapts tone for luxury/HNW clients, offers proactive suggestions, and manages cross-vertical referral introductions.",
+      "model": "claude-haiku-4-5-20251001",
+      "costPerResolution": 0.12,
+      "toolCount": 20,
+      "tools": [
+        {
+          "id": "kb/quick-answers",
+          "description": "Check if a customer question matches a frequently asked question with a pre-cached answer. Returns instant responses for common questions (hours, pricing, policies, etc.) without needing a full knowledge base search. If no match, returns null so you should fall back to kb/search-knowledge-base.",
+          "isNewFeature": false
+        },
+        {
+          "id": "kb/search-knowledge-base",
+          "description": "Search the full knowledge base for information relevant to a customer question. Use this when kb/quick-answers returns no match. Returns the most relevant passages from company documentation, policies, FAQs, service details, and procedures.",
+          "isNewFeature": false
+        },
+        {
+          "id": "crm/lookup-customer",
+          "description": "Look up a customer by name, email, phone, or customer ID. Returns profile, account details, and recent activity.",
+          "isNewFeature": false
+        },
+        {
+          "id": "scheduling/check-availability",
+          "description": "Check available appointment or booking slots for a given date, service type, or location. Returns a list of open time slots. Use this when a customer asks about availability or wants to schedule something.",
+          "isNewFeature": false
+        },
+        {
+          "id": "scheduling/create-booking",
+          "description": "Book an appointment or service call for a customer. Creates a booking in the scheduling system and returns a confirmation. Always check availability first with scheduling/check-availability.",
+          "isNewFeature": false
+        },
+        {
+          "id": "orders/lookup-order",
+          "description": "Look up an order, service request, or job by order number, customer email, phone, or customer ID. Returns order status, tracking info, and timeline. Use when a customer asks ",
+          "isNewFeature": false
+        },
+        {
+          "id": "orders/get-service-status",
+          "description": "Get detailed status of a specific service job, work order, or fulfillment. Returns technician info, timeline, completion estimate, and notes. Use for home-services verticals or any job-based workflow.",
+          "isNewFeature": false
+        },
+        {
+          "id": "company/get-hours",
+          "description": "Get business hours, current open/closed status, holiday schedule, and next available time. Use when a customer asks ",
+          "isNewFeature": false
+        },
+        {
+          "id": "company/get-location-info",
+          "description": "Get business location info — address, phone, directions, service area. Use when a customer asks ",
+          "isNewFeature": false
+        },
+        {
+          "id": "crm/create-lead",
+          "description": "Create a new Lead record in the CRM. Use this when a prospect doesn",
+          "isNewFeature": false
+        },
+        {
+          "id": "crm/search-contacts",
+          "description": "Search CRM contacts by name, company, email, or phone. Returns matching contact list.",
+          "isNewFeature": false
+        },
+        {
+          "id": "crm/create-ticket",
+          "description": "Create a support ticket or case in the CRM with priority, category, and description. Links to a customer record.",
+          "isNewFeature": false
+        },
+        {
+          "id": "comms/send-email",
+          "description": "Send an email to a customer, lead, or team member. Supports plain text and HTML body. Requires SMTP configuration in environment variables (SMTP_HOST, SMTP_USER, SMTP_PASS) or SENDGRID_API_KEY.",
+          "isNewFeature": false
+        },
+        {
+          "id": "nlp/detect-language",
+          "description": "Detect the language of a customer message. Returns the detected language code, name, and confidence. Use when a message appears to be in a non-English language to decide if translation is needed.",
+          "isNewFeature": false
+        },
+        {
+          "id": "nlp/translate",
+          "description": "Translate text from one language to another. Use to translate customer messages to English for processing, and to translate responses back to the customer",
+          "isNewFeature": false
+        },
+        {
+          "id": "crm/get-client-preferences",
+          "description": "Get a client",
+          "isNewFeature": false
+        },
+        {
+          "id": "crm/update-record",
+          "description": "Update a customer record in the CRM. Can update plan, status, notes, tags, or custom fields. Provide the record ID from a previous lookup.",
+          "isNewFeature": false
+        },
+        {
+          "id": "referrals/get-partners",
+          "description": "Search the referral partner registry by vertical, location, or specialization. ",
+          "isNewFeature": false
+        },
+        {
+          "id": "frontline/faq-learning",
+          "description": "Track conversation outcomes and suggest FAQ updates based on patterns. Identifies frequently unresolved topics and low-confidence areas for FAQ improvement.",
+          "isNewFeature": true
+        },
+        {
+          "id": "frontline/smart-routing",
+          "description": "Intelligently route messages to the best agent/channel based on intent, customer history, and availability. Returns routing recommendation with target agent, confidence, reasoning, and wait time.",
+          "isNewFeature": true
+        }
+      ],
+      "capabilities": [
+        {
+          "icon": "🧠",
+          "title": "Knowledge Base Search",
+          "description": "Fast FAQ lookup and deep knowledge base search",
+          "isNew": false
+        },
+        {
+          "icon": "👥",
+          "title": "CRM Integration",
+          "description": "Customer lookup, record updates, lead capture",
+          "isNew": false
+        },
+        {
+          "icon": "📅",
+          "title": "Scheduling",
+          "description": "Check availability and create bookings",
+          "isNew": false
+        },
+        {
+          "icon": "📦",
+          "title": "Order Management",
+          "description": "Order lookup and service status",
+          "isNew": false
+        },
+        {
+          "icon": "🏢",
+          "title": "Company Info",
+          "description": "Hours, locations, and business information",
+          "isNew": false
+        },
+        {
+          "icon": "💬",
+          "title": "Communications",
+          "description": "Email and SMS messaging",
+          "isNew": false
+        },
+        {
+          "icon": "🌐",
+          "title": "Language Support",
+          "description": "Multi-language detection and translation",
+          "isNew": false
+        },
+        {
+          "icon": "🤝",
+          "title": "Referral Network",
+          "description": "Partner integrations and referral tracking",
+          "isNew": false
+        },
+        {
+          "icon": "🚀",
+          "title": "Frontline Routing",
+          "description": "Smart message routing and FAQ learning",
+          "isNew": true
+        }
+      ],
+      "channels": [
+        "web-chat",
+        "sms",
+        "whatsapp",
+        "imessage"
+      ],
+      "maxTurns": 8,
+      "escalatesTo": "workflow/customer-support"
+    },
+    {
+      "id": "strategic/content-agent",
+      "name": "Content Agent",
+      "customerFacingName": "Content Writer",
+      "tier": "strategic",
+      "description": "All-in-one content creation — blog posts, social media, newsletters, email campaigns, ad copy, video scripts, captions, SEO-optimized articles, and posting schedules. Maintains brand voice consistency across all channels.",
+      "model": "claude-sonnet-4-20250514",
+      "costPerResolution": 0.95,
+      "toolCount": 15,
+      "tools": [
+        {
+          "id": "content/generate-draft",
+          "description": "Generate a content draft — blog post, social media copy, article, or thought leadership piece. Returns structured draft with meta tags and formatting.",
+          "isNewFeature": false
+        },
+        {
+          "id": "content/generate-newsletter",
+          "description": "Generate newsletter content with subject line variations and personalization.",
+          "isNewFeature": false
+        },
+        {
+          "id": "content/generate-ad-copy",
+          "description": "Generate ad copy variations for paid campaigns — Google, Meta, LinkedIn. Returns multiple copy variations for A/B testing.",
+          "isNewFeature": false
+        },
+        {
+          "id": "content/generate-social-post",
+          "description": "Tool",
+          "isNewFeature": false
+        },
+        {
+          "id": "content/get-content-calendar",
+          "description": "Tool",
+          "isNewFeature": false
+        },
+        {
+          "id": "content/schedule-post",
+          "description": "Tool",
+          "isNewFeature": false
+        },
+        {
+          "id": "kb/search-knowledge-base",
+          "description": "Search the full knowledge base for information relevant to a customer question. Use this when kb/quick-answers returns no match. Returns the most relevant passages from company documentation, policies, FAQs, service details, and procedures.",
+          "isNewFeature": false
+        },
+        {
+          "id": "crm/lookup-customer",
+          "description": "Look up a customer by name, email, phone, or customer ID. Returns profile, account details, and recent activity.",
+          "isNewFeature": false
+        },
+        {
+          "id": "crm/search-contacts",
+          "description": "Search CRM contacts by name, company, email, or phone. Returns matching contact list.",
+          "isNewFeature": false
+        },
+        {
+          "id": "comms/send-email",
+          "description": "Send an email to a customer, lead, or team member. Supports plain text and HTML body. Requires SMTP configuration in environment variables (SMTP_HOST, SMTP_USER, SMTP_PASS) or SENDGRID_API_KEY.",
+          "isNewFeature": false
+        },
+        {
+          "id": "content/syndicate-listing",
+          "description": "Syndicate a luxury listing to multiple marketplace platforms simultaneously. ",
+          "isNewFeature": false
+        },
+        {
+          "id": "content/social-calendar",
+          "description": "Plans, views, and schedules social media content across multiple platforms with posting optimization",
+          "isNewFeature": true
+        },
+        {
+          "id": "content/seo-brief",
+          "description": "Generates comprehensive SEO content briefs with keyword research, competitor analysis, and content recommendations",
+          "isNewFeature": true
+        },
+        {
+          "id": "content/repurpose",
+          "description": "Repurposes content across multiple formats and channels for maximum reach and engagement",
+          "isNewFeature": true
+        },
+        {
+          "id": "content/ad-variants",
+          "description": "Generates A/B testing ad copy variants with different tones and CTAs for campaign optimization",
+          "isNewFeature": true
+        }
+      ],
+      "capabilities": [
+        {
+          "icon": "✍️",
+          "title": "Content Generation",
+          "description": "Social media calendar, SEO briefs, ad variants, content repurposing",
+          "isNew": true
+        },
+        {
+          "icon": "🧠",
+          "title": "Knowledge Base Search",
+          "description": "Fast FAQ lookup and deep knowledge base search",
+          "isNew": false
+        },
+        {
+          "icon": "👥",
+          "title": "CRM Integration",
+          "description": "Customer lookup, record updates, lead capture",
+          "isNew": false
+        },
+        {
+          "icon": "💬",
+          "title": "Communications",
+          "description": "Email and SMS messaging",
+          "isNew": false
+        }
+      ],
+      "channels": [
+        "api",
+        "web-chat"
+      ],
+      "maxTurns": 10,
+      "escalatesTo": "human-agent"
+    },
+    {
+      "id": "strategic/weekly-report",
+      "name": "Weekly Report",
+      "customerFacingName": "Business Intelligence",
+      "tier": "strategic",
+      "description": "Generates executive performance summaries from CRM and metrics data. Aggregates KPIs, pipeline status, revenue trends, agent performance, and competitive intelligence into actionable weekly reports delivered automatically.",
+      "model": "claude-sonnet-4-20250514",
+      "costPerResolution": 0.75,
+      "toolCount": 7,
+      "tools": [
+        {
+          "id": "content/generate-report",
+          "description": "Generate a weekly executive performance report. Pulls metrics from CRM, support, sales, and operations data. Returns structured report with KPIs, trends, and insights.",
+          "isNewFeature": false
+        },
+        {
+          "id": "content/get-report-history",
+          "description": "Tool",
+          "isNewFeature": false
+        },
+        {
+          "id": "crm/lookup-customer",
+          "description": "Look up a customer by name, email, phone, or customer ID. Returns profile, account details, and recent activity.",
+          "isNewFeature": false
+        },
+        {
+          "id": "crm/search-contacts",
+          "description": "Search CRM contacts by name, company, email, or phone. Returns matching contact list.",
+          "isNewFeature": false
+        },
+        {
+          "id": "comms/send-email",
+          "description": "Send an email to a customer, lead, or team member. Supports plain text and HTML body. Requires SMTP configuration in environment variables (SMTP_HOST, SMTP_USER, SMTP_PASS) or SENDGRID_API_KEY.",
+          "isNewFeature": false
+        },
+        {
+          "id": "reports/pipeline-forecast",
+          "description": "Generate revenue pipeline forecast using historical conversion rates. Returns forecast amounts at each confidence level, deal breakdown, historical accuracy, and risk factors.",
+          "isNewFeature": true
+        },
+        {
+          "id": "referrals/get-partners",
+          "description": "Search the referral partner registry by vertical, location, or specialization. ",
+          "isNewFeature": false
+        }
+      ],
+      "capabilities": [
+        {
+          "icon": "✍️",
+          "title": "Content Generation",
+          "description": "Social media calendar, SEO briefs, ad variants, content repurposing",
+          "isNew": false
+        },
+        {
+          "icon": "👥",
+          "title": "CRM Integration",
+          "description": "Customer lookup, record updates, lead capture",
+          "isNew": false
+        },
+        {
+          "icon": "💬",
+          "title": "Communications",
+          "description": "Email and SMS messaging",
+          "isNew": false
+        },
+        {
+          "icon": "📈",
+          "title": "Reporting",
+          "description": "Pipeline forecasting and analytics",
+          "isNew": true
+        },
+        {
+          "icon": "🤝",
+          "title": "Referral Network",
+          "description": "Partner integrations and referral tracking",
+          "isNew": false
+        }
+      ],
+      "channels": [
+        "api"
+      ],
+      "maxTurns": 6,
+      "escalatesTo": "human-agent"
+    },
+    {
+      "id": "utility/employee-agent",
+      "name": "Employee Agent",
+      "customerFacingName": "HR Assistant",
+      "tier": "utility",
+      "description": "Internal HR and policy Q&A for staff — handles PTO requests, expense submissions, benefits questions, onboarding guidance, org chart lookups, and company policy inquiries. The always-available HR self-service assistant.",
+      "model": "claude-haiku-4-5-20251001",
+      "costPerResolution": 0.1,
+      "toolCount": 10,
+      "tools": [
+        {
+          "id": "hr/submit-pto",
+          "description": "Submit a PTO (paid time off) request for an employee. Checks available balance and submits for manager approval.",
+          "isNewFeature": false
+        },
+        {
+          "id": "hr/submit-expense",
+          "description": "Submit an expense report for reimbursement. Amounts over $500 require VP approval. Validates category and attaches receipt.",
+          "isNewFeature": false
+        },
+        {
+          "id": "hr/lookup-employee",
+          "description": "Look up employee information — name, department, title, manager, contact info, and start date. Use for org chart questions, finding colleagues, or verifying employee details.",
+          "isNewFeature": false
+        },
+        {
+          "id": "hr/get-pto-balance",
+          "description": "Tool",
+          "isNewFeature": false
+        },
+        {
+          "id": "hr/get-benefits-info",
+          "description": "Tool",
+          "isNewFeature": false
+        },
+        {
+          "id": "kb/search-knowledge-base",
+          "description": "Search the full knowledge base for information relevant to a customer question. Use this when kb/quick-answers returns no match. Returns the most relevant passages from company documentation, policies, FAQs, service details, and procedures.",
+          "isNewFeature": false
+        },
+        {
+          "id": "kb/quick-answers",
+          "description": "Check if a customer question matches a frequently asked question with a pre-cached answer. Returns instant responses for common questions (hours, pricing, policies, etc.) without needing a full knowledge base search. If no match, returns null so you should fall back to kb/search-knowledge-base.",
+          "isNewFeature": false
+        },
+        {
+          "id": "comms/send-email",
+          "description": "Send an email to a customer, lead, or team member. Supports plain text and HTML body. Requires SMTP configuration in environment variables (SMTP_HOST, SMTP_USER, SMTP_PASS) or SENDGRID_API_KEY.",
+          "isNewFeature": false
+        },
+        {
+          "id": "hr/pto-tracker",
+          "description": "Track PTO balances, accrual rates, and team availability. Check personal balances, submit requests, view team calendar, and forecast future accruals.",
+          "isNewFeature": true
+        },
+        {
+          "id": "hr/onboarding-checklist",
+          "description": "New hire onboarding management with progress tracking and task assignment",
+          "isNewFeature": true
+        }
+      ],
+      "capabilities": [
+        {
+          "icon": "👔",
+          "title": "HR Operations",
+          "description": "PTO tracking and onboarding",
+          "isNew": true
+        },
+        {
+          "icon": "🧠",
+          "title": "Knowledge Base Search",
+          "description": "Fast FAQ lookup and deep knowledge base search",
+          "isNew": false
+        },
+        {
+          "icon": "💬",
+          "title": "Communications",
+          "description": "Email and SMS messaging",
+          "isNew": false
+        }
+      ],
+      "channels": [
+        "web-chat",
+        "api"
+      ],
+      "maxTurns": 6,
+      "escalatesTo": "human-agent"
+    },
+    {
+      "id": "utility/it-helpdesk",
+      "name": "IT Helpdesk",
+      "customerFacingName": "IT Support",
+      "tier": "utility",
+      "description": "Resolves basic tech support tickets — password resets, VPN troubleshooting, software provisioning, access requests, system status checks, and 2FA setup. First-line IT support that handles 80% of common issues instantly.",
+      "model": "claude-haiku-4-5-20251001",
+      "costPerResolution": 0.12,
+      "toolCount": 10,
+      "tools": [
+        {
+          "id": "it/password-reset",
+          "description": "Initiate a password reset for an employee",
+          "isNewFeature": false
+        },
+        {
+          "id": "it/check-system-status",
+          "description": "Check the status of internal systems, services, and infrastructure. Returns uptime, latency, and recent incidents. Use when someone asks ",
+          "isNewFeature": false
+        },
+        {
+          "id": "it/lookup-asset",
+          "description": "Look up IT assets assigned to an employee — laptops, monitors, software licenses, peripherals. Use when onboarding, offboarding, or when someone asks about their assigned equipment.",
+          "isNewFeature": false
+        },
+        {
+          "id": "it/provision-software",
+          "description": "Tool",
+          "isNewFeature": false
+        },
+        {
+          "id": "it/check-access",
+          "description": "Tool",
+          "isNewFeature": false
+        },
+        {
+          "id": "crm/create-ticket",
+          "description": "Create a support ticket or case in the CRM with priority, category, and description. Links to a customer record.",
+          "isNewFeature": false
+        },
+        {
+          "id": "crm/lookup-customer",
+          "description": "Look up a customer by name, email, phone, or customer ID. Returns profile, account details, and recent activity.",
+          "isNewFeature": false
+        },
+        {
+          "id": "kb/search-knowledge-base",
+          "description": "Search the full knowledge base for information relevant to a customer question. Use this when kb/quick-answers returns no match. Returns the most relevant passages from company documentation, policies, FAQs, service details, and procedures.",
+          "isNewFeature": false
+        },
+        {
+          "id": "kb/quick-answers",
+          "description": "Check if a customer question matches a frequently asked question with a pre-cached answer. Returns instant responses for common questions (hours, pricing, policies, etc.) without needing a full knowledge base search. If no match, returns null so you should fall back to kb/search-knowledge-base.",
+          "isNewFeature": false
+        },
+        {
+          "id": "comms/send-email",
+          "description": "Send an email to a customer, lead, or team member. Supports plain text and HTML body. Requires SMTP configuration in environment variables (SMTP_HOST, SMTP_USER, SMTP_PASS) or SENDGRID_API_KEY.",
+          "isNewFeature": false
+        }
+      ],
+      "capabilities": [
+        {
+          "icon": "💻",
+          "title": "IT Support",
+          "description": "Technical support and issue resolution",
+          "isNew": false
+        },
+        {
+          "icon": "👥",
+          "title": "CRM Integration",
+          "description": "Customer lookup, record updates, lead capture",
+          "isNew": false
+        },
+        {
+          "icon": "🧠",
+          "title": "Knowledge Base Search",
+          "description": "Fast FAQ lookup and deep knowledge base search",
+          "isNew": false
+        },
+        {
+          "icon": "💬",
+          "title": "Communications",
+          "description": "Email and SMS messaging",
+          "isNew": false
+        }
+      ],
+      "channels": [
+        "web-chat",
+        "api"
+      ],
+      "maxTurns": 8,
+      "escalatesTo": "human-agent"
+    },
+    {
+      "id": "utility/review-manager",
+      "name": "Review Manager",
+      "customerFacingName": "Review Manager",
+      "tier": "utility",
+      "description": "Online reputation management — monitors reviews across Google, Yelp, Facebook, and industry sites. Analyzes sentiment trends, drafts personalized responses, flags urgent reviews, solicits new reviews after service, and tracks NPS over time.",
+      "model": "claude-haiku-4-5-20251001",
+      "costPerResolution": 0.18,
+      "toolCount": 11,
+      "tools": [
+        {
+          "id": "reviews/fetch-reviews",
+          "description": "Fetch recent customer reviews from Google Business, Yelp, Facebook, or other review platforms. Use when monitoring reputation, preparing a review summary, or checking for new reviews.",
+          "isNewFeature": false
+        },
+        {
+          "id": "reviews/analyze-sentiment",
+          "description": "Analyze sentiment across recent reviews — extract common themes, identify trends, and highlight areas for improvement. Use for weekly review summaries or before management meetings.",
+          "isNewFeature": false
+        },
+        {
+          "id": "reviews/flag-urgent",
+          "description": "Flag a negative or urgent review for immediate team follow-up. Creates an internal ticket and optionally notifies the manager. Use for 1-2 star reviews or reviews mentioning safety/legal issues.",
+          "isNewFeature": false
+        },
+        {
+          "id": "reviews/request-review",
+          "description": "Tool",
+          "isNewFeature": false
+        },
+        {
+          "id": "reviews/sentiment-dashboard",
+          "description": "Aggregates review sentiment trends across platforms with optional competitor comparison",
+          "isNewFeature": true
+        },
+        {
+          "id": "reviews/personalized-response",
+          "description": "Generates review responses personalized with customer history and conversation context",
+          "isNewFeature": true
+        },
+        {
+          "id": "comms/post-review-reply",
+          "description": "Post a reply to an online review (Google, Yelp, Facebook). Requires review platform integration in tenant config.",
+          "isNewFeature": false
+        },
+        {
+          "id": "crm/lookup-customer",
+          "description": "Look up a customer by name, email, phone, or customer ID. Returns profile, account details, and recent activity.",
+          "isNewFeature": false
+        },
+        {
+          "id": "crm/search-contacts",
+          "description": "Search CRM contacts by name, company, email, or phone. Returns matching contact list.",
+          "isNewFeature": false
+        },
+        {
+          "id": "comms/send-email",
+          "description": "Send an email to a customer, lead, or team member. Supports plain text and HTML body. Requires SMTP configuration in environment variables (SMTP_HOST, SMTP_USER, SMTP_PASS) or SENDGRID_API_KEY.",
+          "isNewFeature": false
+        },
+        {
+          "id": "reviews/fetch-platform-reviews",
+          "description": "Tool",
+          "isNewFeature": false
+        }
+      ],
+      "capabilities": [
+        {
+          "icon": "⭐",
+          "title": "Review Management",
+          "description": "Sentiment analysis and personalized responses",
+          "isNew": true
+        },
+        {
+          "icon": "💬",
+          "title": "Communications",
+          "description": "Email and SMS messaging",
+          "isNew": false
+        },
+        {
+          "icon": "👥",
+          "title": "CRM Integration",
+          "description": "Customer lookup, record updates, lead capture",
+          "isNew": false
+        }
+      ],
+      "channels": [
+        "api"
+      ],
+      "maxTurns": 7,
+      "escalatesTo": "human-agent"
+    },
+    {
+      "id": "workflow/finance-agent",
+      "name": "Finance Agent",
+      "customerFacingName": "Finance Assistant",
+      "tier": "workflow",
+      "description": "Finance and procurement assistant — approves purchase orders, checks budgets, processes invoices, tracks vendor spend, generates financial summaries, and manages expense approvals. The back-office brain for your business finances.",
+      "model": "claude-sonnet-4-20250514",
+      "costPerResolution": 0.25,
+      "toolCount": 14,
+      "tools": [
+        {
+          "id": "finance/approve-po",
+          "description": "Review and approve or reject a purchase order",
+          "isNewFeature": false
+        },
+        {
+          "id": "finance/check-budget",
+          "description": "Check budget status for a department, project, or cost category",
+          "isNewFeature": false
+        },
+        {
+          "id": "finance/process-invoice",
+          "description": "Process, validate, and queue a vendor invoice for payment",
+          "isNewFeature": false
+        },
+        {
+          "id": "finance/lookup-vendor",
+          "description": "Look up vendor information, payment history, and contract status",
+          "isNewFeature": false
+        },
+        {
+          "id": "finance/track-spend",
+          "description": "Track and analyze spending patterns by category, vendor, or time period",
+          "isNewFeature": false
+        },
+        {
+          "id": "finance/generate-financial-summary",
+          "description": "Generate a financial summary report for a specified period",
+          "isNewFeature": false
+        },
+        {
+          "id": "finance/get-expense-report",
+          "description": "Tool",
+          "isNewFeature": false
+        },
+        {
+          "id": "finance/expense-automation",
+          "description": "Automatically process expense reports by parsing receipts, categorizing expenses, and checking against company policy. Returns categorized expenses, policy violations, and approval routing.",
+          "isNewFeature": true
+        },
+        {
+          "id": "finance/budget-vs-actuals",
+          "description": "Analyze budget vs. actual spending to identify variances, trends, and forecast. Returns detailed variance analysis by department, category, or project with visual insights.",
+          "isNewFeature": true
+        },
+        {
+          "id": "finance/invoice-processor",
+          "description": "Automatically process invoices by extracting vendor data, matching against purchase orders, flagging duplicates, and routing for approval. Returns structured invoice data and routing recommendations.",
+          "isNewFeature": true
+        },
+        {
+          "id": "crm/lookup-customer",
+          "description": "Look up a customer by name, email, phone, or customer ID. Returns profile, account details, and recent activity.",
+          "isNewFeature": false
+        },
+        {
+          "id": "crm/update-record",
+          "description": "Update a customer record in the CRM. Can update plan, status, notes, tags, or custom fields. Provide the record ID from a previous lookup.",
+          "isNewFeature": false
+        },
+        {
+          "id": "comms/send-email",
+          "description": "Send an email to a customer, lead, or team member. Supports plain text and HTML body. Requires SMTP configuration in environment variables (SMTP_HOST, SMTP_USER, SMTP_PASS) or SENDGRID_API_KEY.",
+          "isNewFeature": false
+        },
+        {
+          "id": "referrals/log-commission",
+          "description": "Log or update a referral commission record. Tracks commission obligations from referral deals — ",
+          "isNewFeature": false
+        }
+      ],
+      "capabilities": [
+        {
+          "icon": "📊",
+          "title": "Financial Operations",
+          "description": "Expense automation, budget tracking, invoice processing",
+          "isNew": true
+        },
+        {
+          "icon": "👥",
+          "title": "CRM Integration",
+          "description": "Customer lookup, record updates, lead capture",
+          "isNew": false
+        },
+        {
+          "icon": "💬",
+          "title": "Communications",
+          "description": "Email and SMS messaging",
+          "isNew": false
+        },
+        {
+          "icon": "🤝",
+          "title": "Referral Network",
+          "description": "Partner integrations and referral tracking",
+          "isNew": false
+        }
+      ],
+      "channels": [
+        "api",
+        "web-chat"
+      ],
+      "maxTurns": 8,
+      "escalatesTo": "human-agent"
+    },
+    {
+      "id": "workflow/lead-qualifier",
+      "name": "Lead Qualifier",
+      "customerFacingName": "Lead Qualifier",
+      "tier": "workflow",
+      "description": "Autonomous lead qualification agent — researches, scores, and routes inbound leads using BANT criteria. Enriches leads from 6+ external data providers (Apollo, LinkedIn, PeopleDataLabs, FullContact, Twilio, Google Places) via waterfall enrichment. Calculates affluence/affordability scores to help small businesses prioritize leads worth their time and investment.",
+      "model": "claude-sonnet-4-20250514",
+      "costPerResolution": 0.45,
+      "toolCount": 19,
+      "tools": [
+        {
+          "id": "crm/get-lead-record",
+          "description": "Get the full CRM record for a lead by name, email, or company. Returns all available fields including company info, lead source, status, description, and engagement notes. Use this as your FIRST action when asked about any lead.",
+          "isNewFeature": false
+        },
+        {
+          "id": "crm/search-contacts",
+          "description": "Search CRM contacts by name, company, email, or phone. Returns matching contact list.",
+          "isNewFeature": false
+        },
+        {
+          "id": "sales/qualify-lead",
+          "description": "Qualify and score a lead using BANT criteria (Budget, Authority, Need, Timeline) plus firmographic data. Returns a score (0-100), qualification tier, routing recommendation, and detailed breakdown. Pass ALL known information about the lead.",
+          "isNewFeature": false
+        },
+        {
+          "id": "sales/enrich-lead",
+          "description": "Deep-enrich a lead by pulling all available CRM data: lead record, account info, related contacts (buying committee), activity history, and open opportunities. Returns a comprehensive 360-degree profile. Use this AFTER finding a lead to build a full picture before scoring.",
+          "isNewFeature": false
+        },
+        {
+          "id": "enrichment/waterfall-enrich",
+          "description": "Run a waterfall enrichment across multiple providers to build a complete lead profile. ",
+          "isNewFeature": false
+        },
+        {
+          "id": "enrichment/apollo-enrich",
+          "description": "Enrich a lead using Apollo.io — returns company firmographics (size, revenue, industry, funding), ",
+          "isNewFeature": false
+        },
+        {
+          "id": "enrichment/proxycurl-linkedin",
+          "description": "Enrich a lead",
+          "isNewFeature": false
+        },
+        {
+          "id": "enrichment/peopledatalabs-enrich",
+          "description": "Enrich a lead using People Data Labs (1.5B+ person records). Returns personal info, ",
+          "isNewFeature": false
+        },
+        {
+          "id": "enrichment/fullcontact-enrich",
+          "description": "Resolve and enrich a lead",
+          "isNewFeature": false
+        },
+        {
+          "id": "enrichment/twilio-lookup",
+          "description": "Validate and enrich a phone number using Twilio Lookup v2. Returns line type ",
+          "isNewFeature": false
+        },
+        {
+          "id": "enrichment/google-places-enrich",
+          "description": "Enrich location data via Google Places. For businesses: verifies address, returns ratings, ",
+          "isNewFeature": false
+        },
+        {
+          "id": "enrichment/affluence-score",
+          "description": "Score a lead",
+          "isNewFeature": false
+        },
+        {
+          "id": "enrichment/deep-enrich",
+          "description": "Enhanced lead enrichment beyond firmographics with multi-source data integration",
+          "isNewFeature": true
+        },
+        {
+          "id": "crm/update-lead",
+          "description": "Update a Lead record in the CRM. Use this to save lead scores, change status, add notes, or update any field. Provide the record ID from a previous CRM lookup.",
+          "isNewFeature": false
+        },
+        {
+          "id": "crm/create-lead",
+          "description": "Create a new Lead record in the CRM. Use this when a prospect doesn",
+          "isNewFeature": false
+        },
+        {
+          "id": "crm/create-task",
+          "description": "Create a follow-up task in the CRM (e.g., ",
+          "isNewFeature": false
+        },
+        {
+          "id": "comms/send-email",
+          "description": "Send an email to a customer, lead, or team member. Supports plain text and HTML body. Requires SMTP configuration in environment variables (SMTP_HOST, SMTP_USER, SMTP_PASS) or SENDGRID_API_KEY.",
+          "isNewFeature": false
+        },
+        {
+          "id": "referrals/log-referral",
+          "description": "Log a referral event linking a referring partner/client with the referred lead. ",
+          "isNewFeature": false
+        },
+        {
+          "id": "crm/get-client-preferences",
+          "description": "Get a client",
+          "isNewFeature": false
+        }
+      ],
+      "capabilities": [
+        {
+          "icon": "👥",
+          "title": "CRM Integration",
+          "description": "Customer lookup, record updates, lead capture",
+          "isNew": false
+        },
+        {
+          "icon": "💼",
+          "title": "Sales Automation",
+          "description": "Proposals, deal tracking, win-loss analysis, follow-up sequences",
+          "isNew": false
+        },
+        {
+          "icon": "🔍",
+          "title": "Data Enrichment",
+          "description": "Deep prospecting and account intelligence",
+          "isNew": true
+        },
+        {
+          "icon": "💬",
+          "title": "Communications",
+          "description": "Email and SMS messaging",
+          "isNew": false
+        },
+        {
+          "icon": "🤝",
+          "title": "Referral Network",
+          "description": "Partner integrations and referral tracking",
+          "isNew": false
+        }
+      ],
+      "channels": [
+        "api"
+      ],
+      "maxTurns": 10,
+      "escalatesTo": "human-agent"
+    },
+    {
+      "id": "workflow/sales-agent",
+      "name": "Sales Agent",
+      "customerFacingName": "Sales Agent",
+      "tier": "workflow",
+      "description": "Personalized outreach sequences, follow-ups, proposal generation, e-signatures, meeting scheduling, and CRM logging. Combines sales prospecting with proposal writing. Manages deal pipeline progression and competitive positioning.",
+      "model": "claude-sonnet-4-20250514",
+      "costPerResolution": 0.35,
+      "toolCount": 20,
+      "tools": [
+        {
+          "id": "crm/lookup-customer",
+          "description": "Look up a customer by name, email, phone, or customer ID. Returns profile, account details, and recent activity.",
+          "isNewFeature": false
+        },
+        {
+          "id": "crm/update-record",
+          "description": "Update a customer record in the CRM. Can update plan, status, notes, tags, or custom fields. Provide the record ID from a previous lookup.",
+          "isNewFeature": false
+        },
+        {
+          "id": "crm/search-contacts",
+          "description": "Search CRM contacts by name, company, email, or phone. Returns matching contact list.",
+          "isNewFeature": false
+        },
+        {
+          "id": "crm/create-task",
+          "description": "Create a follow-up task in the CRM (e.g., ",
+          "isNewFeature": false
+        },
+        {
+          "id": "comms/send-email",
+          "description": "Send an email to a customer, lead, or team member. Supports plain text and HTML body. Requires SMTP configuration in environment variables (SMTP_HOST, SMTP_USER, SMTP_PASS) or SENDGRID_API_KEY.",
+          "isNewFeature": false
+        },
+        {
+          "id": "comms/send-sms",
+          "description": "Send an SMS message to a phone number. Uses the tenant",
+          "isNewFeature": false
+        },
+        {
+          "id": "content/generate-proposal",
+          "description": "Generate a customized sales proposal for a prospect. Includes pricing, scope, timeline, and ROI projections based on their industry and needs.",
+          "isNewFeature": false
+        },
+        {
+          "id": "sales/create-opportunity",
+          "description": "Create a sales opportunity or deal in the CRM pipeline. Links to a contact or lead record.",
+          "isNewFeature": false
+        },
+        {
+          "id": "sales/update-deal-stage",
+          "description": "Tool",
+          "isNewFeature": false
+        },
+        {
+          "id": "scheduling/check-availability",
+          "description": "Check available appointment or booking slots for a given date, service type, or location. Returns a list of open time slots. Use this when a customer asks about availability or wants to schedule something.",
+          "isNewFeature": false
+        },
+        {
+          "id": "scheduling/create-booking",
+          "description": "Book an appointment or service call for a customer. Creates a booking in the scheduling system and returns a confirmation. Always check availability first with scheduling/check-availability.",
+          "isNewFeature": false
+        },
+        {
+          "id": "sales/smart-proposal-generator",
+          "description": "Generates branded proposals with pricing, scope, and timeline information for sales deals",
+          "isNewFeature": true
+        },
+        {
+          "id": "sales/follow-up-sequence",
+          "description": "Creates multi-touch follow-up sequences with branching logic for sales outreach",
+          "isNewFeature": true
+        },
+        {
+          "id": "sales/win-loss-analysis",
+          "description": "Analyzes closed deals to identify patterns in wins and losses with actionable insights",
+          "isNewFeature": true
+        },
+        {
+          "id": "sales/battlecard-lookup",
+          "description": "Retrieves competitive battlecards with strengths, weaknesses, and objection handling strategies",
+          "isNewFeature": true
+        },
+        {
+          "id": "referrals/get-partners",
+          "description": "Search the referral partner registry by vertical, location, or specialization. ",
+          "isNewFeature": false
+        },
+        {
+          "id": "referrals/generate-warm-intro",
+          "description": "Generate a personalized warm introduction email connecting a luxury client with a referral partner. ",
+          "isNewFeature": false
+        },
+        {
+          "id": "referrals/log-referral",
+          "description": "Log a referral event linking a referring partner/client with the referred lead. ",
+          "isNewFeature": false
+        },
+        {
+          "id": "referrals/log-commission",
+          "description": "Log or update a referral commission record. Tracks commission obligations from referral deals — ",
+          "isNewFeature": false
+        },
+        {
+          "id": "crm/get-client-preferences",
+          "description": "Get a client",
+          "isNewFeature": false
+        }
+      ],
+      "capabilities": [
+        {
+          "icon": "👥",
+          "title": "CRM Integration",
+          "description": "Customer lookup, record updates, lead capture",
+          "isNew": false
+        },
+        {
+          "icon": "💬",
+          "title": "Communications",
+          "description": "Email and SMS messaging",
+          "isNew": false
+        },
+        {
+          "icon": "✍️",
+          "title": "Content Generation",
+          "description": "Social media calendar, SEO briefs, ad variants, content repurposing",
+          "isNew": false
+        },
+        {
+          "icon": "💼",
+          "title": "Sales Automation",
+          "description": "Proposals, deal tracking, win-loss analysis, follow-up sequences",
+          "isNew": true
+        },
+        {
+          "icon": "📅",
+          "title": "Scheduling",
+          "description": "Check availability and create bookings",
+          "isNew": false
+        },
+        {
+          "icon": "🤝",
+          "title": "Referral Network",
+          "description": "Partner integrations and referral tracking",
+          "isNew": false
+        }
+      ],
+      "channels": [
+        "api",
+        "web-chat"
+      ],
+      "maxTurns": 10,
+      "escalatesTo": "human-agent"
+    },
+    {
+      "id": "workflow/service-operations",
+      "name": "Service Operations",
+      "customerFacingName": "Operations Agent",
+      "tier": "workflow",
+      "description": "Dispatch and field operations management. Assigns technicians to jobs, tracks job progress, checks parts availability, monitors SLA compliance, manages the dispatch board, converts estimates to work orders, and handles real-time field coordination.",
+      "model": "claude-sonnet-4-20250514",
+      "costPerResolution": 0.3,
+      "toolCount": 20,
+      "tools": [
+        {
+          "id": "service/dispatch-job",
+          "description": "Assign a technician to a job with optional auto-dispatch based on availability and skill match",
+          "isNewFeature": false
+        },
+        {
+          "id": "service/update-job-status",
+          "description": "Update job status with validation and auto-triggering of downstream actions like invoice generation",
+          "isNewFeature": false
+        },
+        {
+          "id": "service/check-parts",
+          "description": "AC capacitor for HVAC compressor",
+          "isNewFeature": false
+        },
+        {
+          "id": "service/get-technician-schedule",
+          "description": "View technician schedule with utilization metrics, travel time, and daily overview",
+          "isNewFeature": false
+        },
+        {
+          "id": "service/job-summary",
+          "description": "Daily dispatch board overview with job status counts, SLA tracking, and performance metrics",
+          "isNewFeature": false
+        },
+        {
+          "id": "service/estimate-to-job",
+          "description": "Compressor replacement",
+          "isNewFeature": false
+        },
+        {
+          "id": "orders/get-service-status",
+          "description": "Get detailed status of a specific service job, work order, or fulfillment. Returns technician info, timeline, completion estimate, and notes. Use for home-services verticals or any job-based workflow.",
+          "isNewFeature": false
+        },
+        {
+          "id": "orders/lookup-order",
+          "description": "Look up an order, service request, or job by order number, customer email, phone, or customer ID. Returns order status, tracking info, and timeline. Use when a customer asks ",
+          "isNewFeature": false
+        },
+        {
+          "id": "scheduling/check-availability",
+          "description": "Check available appointment or booking slots for a given date, service type, or location. Returns a list of open time slots. Use this when a customer asks about availability or wants to schedule something.",
+          "isNewFeature": false
+        },
+        {
+          "id": "crm/lookup-customer",
+          "description": "Look up a customer by name, email, phone, or customer ID. Returns profile, account details, and recent activity.",
+          "isNewFeature": false
+        },
+        {
+          "id": "crm/update-record",
+          "description": "Update a customer record in the CRM. Can update plan, status, notes, tags, or custom fields. Provide the record ID from a previous lookup.",
+          "isNewFeature": false
+        },
+        {
+          "id": "crm/create-ticket",
+          "description": "Create a support ticket or case in the CRM with priority, category, and description. Links to a customer record.",
+          "isNewFeature": false
+        },
+        {
+          "id": "comms/send-email",
+          "description": "Send an email to a customer, lead, or team member. Supports plain text and HTML body. Requires SMTP configuration in environment variables (SMTP_HOST, SMTP_USER, SMTP_PASS) or SENDGRID_API_KEY.",
+          "isNewFeature": false
+        },
+        {
+          "id": "comms/send-sms",
+          "description": "Send an SMS message to a phone number. Uses the tenant",
+          "isNewFeature": false
+        },
+        {
+          "id": "referrals/trigger-post-close",
+          "description": "Trigger the post-close referral workflow after a luxury deal closes. ",
+          "isNewFeature": false
+        },
+        {
+          "id": "referrals/get-partners",
+          "description": "Search the referral partner registry by vertical, location, or specialization. ",
+          "isNewFeature": false
+        },
+        {
+          "id": "referrals/update-partner",
+          "description": "Update a referral partner",
+          "isNewFeature": false
+        },
+        {
+          "id": "referrals/log-commission",
+          "description": "Log or update a referral commission record. Tracks commission obligations from referral deals — ",
+          "isNewFeature": false
+        },
+        {
+          "id": "service/sla-alerting",
+          "description": "Proactive SLA monitoring and alerting for service jobs with breach predictions",
+          "isNewFeature": true
+        },
+        {
+          "id": "service/technician-performance",
+          "description": "Technician performance metrics and analytics with team comparisons",
+          "isNewFeature": true
+        }
+      ],
+      "capabilities": [
+        {
+          "icon": "🔧",
+          "title": "Service Operations",
+          "description": "SLA monitoring and technician performance",
+          "isNew": true
+        },
+        {
+          "icon": "📦",
+          "title": "Order Management",
+          "description": "Order lookup and service status",
+          "isNew": false
+        },
+        {
+          "icon": "📅",
+          "title": "Scheduling",
+          "description": "Check availability and create bookings",
+          "isNew": false
+        },
+        {
+          "icon": "👥",
+          "title": "CRM Integration",
+          "description": "Customer lookup, record updates, lead capture",
+          "isNew": false
+        },
+        {
+          "icon": "💬",
+          "title": "Communications",
+          "description": "Email and SMS messaging",
+          "isNew": false
+        },
+        {
+          "icon": "🤝",
+          "title": "Referral Network",
+          "description": "Partner integrations and referral tracking",
+          "isNew": false
+        }
+      ],
+      "channels": [
+        "api",
+        "web-chat",
+        "sms"
+      ],
+      "maxTurns": 10,
+      "escalatesTo": "human-agent"
+    }
+  ]
+}
