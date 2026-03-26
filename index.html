@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kazozo — The AI Platform for Business</title>
-<meta name="description" content="The AI platform that runs your business. AI agents for sales, support &amp; ops. Agentic apps coming soon. Enterprise-grade tools at SMB prices, from $149/mo.">
+<meta name="description" content="The AI platform that runs your business. AI agents for sales, support &amp; ops. Agentic apps coming soon. Enterprise-grade tools at SMB-friendly pricing.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://kazozo.com/">
 
@@ -1422,103 +1422,6 @@
 
   .cta-buttons { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
 
-  /* ===== EMAIL CAPTURE ===== */
-  .email-capture {
-    padding: 80px 24px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-  .email-capture::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 50%; transform: translateX(-50%);
-    width: 600px; height: 600px;
-    background: radial-gradient(circle, rgba(255,87,51,0.04) 0%, transparent 70%);
-    pointer-events: none;
-  }
-  .email-capture-inner {
-    max-width: 560px;
-    margin: 0 auto;
-    position: relative;
-    z-index: 1;
-  }
-  .email-capture-overline {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 11px; font-weight: 600;
-    letter-spacing: 0.12em; text-transform: uppercase;
-    color: var(--coral); margin-bottom: 16px;
-  }
-  .email-capture h2 {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: clamp(28px, 4vw, 40px); font-weight: 700;
-    letter-spacing: -0.03em; line-height: 1.1;
-    color: var(--text); margin-bottom: 12px;
-  }
-  .email-capture .capture-sub {
-    font-size: 15px; color: var(--muted);
-    line-height: 1.6; margin-bottom: 32px;
-  }
-  .capture-form {
-    display: flex; gap: 10px;
-    max-width: 480px; margin: 0 auto;
-  }
-  .capture-form input[type="email"] {
-    flex: 1; min-width: 0;
-    padding: 14px 18px;
-    font-family: 'Manrope', sans-serif;
-    font-size: 15px; color: var(--text);
-    background: rgba(228,225,230,0.06);
-    border: 1px solid rgba(228,225,230,0.1);
-    border-radius: 10px;
-    outline: none;
-    transition: border-color 0.3s, background 0.3s;
-  }
-  .capture-form input[type="email"]::placeholder {
-    color: rgba(228,225,230,0.35);
-  }
-  .capture-form input[type="email"]:focus {
-    border-color: var(--coral);
-    background: rgba(228,225,230,0.08);
-  }
-  .capture-form button {
-    padding: 14px 28px;
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 15px; font-weight: 600;
-    color: #fff; background: var(--coral-vivid);
-    border: none; border-radius: 10px;
-    cursor: pointer;
-    white-space: nowrap;
-    transition: opacity 0.3s, transform 0.15s;
-  }
-  .capture-form button:hover { opacity: 0.9; }
-  .capture-form button:active { transform: scale(0.97); }
-  .capture-form button:disabled {
-    opacity: 0.5; cursor: not-allowed;
-  }
-  .capture-note {
-    font-size: 12px; color: rgba(228,225,230,0.35);
-    margin-top: 14px;
-  }
-  .capture-success {
-    display: none;
-    padding: 16px 24px;
-    background: rgba(123,234,142,0.08);
-    border: 1px solid rgba(123,234,142,0.2);
-    border-radius: 10px;
-    color: var(--lime, #7BEA8E);
-    font-size: 15px; font-weight: 500;
-  }
-  .capture-error {
-    display: none;
-    font-size: 13px; color: #FF4444;
-    margin-top: 10px;
-  }
-  @media (max-width: 480px) {
-    .capture-form { flex-direction: column; }
-    .capture-form button { width: 100%; }
-  }
-
   /* ===== FOOTER ===== */
   footer {
     border-top: 1px solid rgba(228,225,230,0.05); padding: 64px 24px 32px;
@@ -1851,7 +1754,7 @@
       "name": "What exactly is a resolution?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A resolution is one completed interaction between an agent and a customer or lead. Simple interactions cost $0.12, complex ones cost $0.95. Your monthly plan includes a set number — overages are billed at your plan's per-resolution rate."
+        "text": "A resolution is one completed interaction between an agent and a customer or lead. Costs vary by agent complexity — simple interactions cost pennies. Your monthly plan includes a set number of resolutions, and overages are billed at affordable per-resolution rates. Ask Kaz for a detailed breakdown."
       }
     },
     {
@@ -2056,8 +1959,8 @@
       <div class="proof-bar-label">More deals closed</div>
     </div>
     <div class="proof-bar-item">
-      <div class="proof-bar-num glow glow-sky" style="color:var(--sky);">$0.12</div>
-      <div class="proof-bar-label">Starting cost/resolution</div>
+      <div class="proof-bar-num glow glow-sky" style="color:var(--sky);">Pennies</div>
+      <div class="proof-bar-label">Per resolution</div>
     </div>
     <div class="proof-bar-item">
       <div class="proof-bar-num glow glow-lavender" style="color:var(--lavender);">24/7</div>
@@ -3108,12 +3011,12 @@
         <div class="tier-top">
           <div class="tier-badge">Starter</div>
           <h3 style="margin-bottom:8px; font-size:22px;">Starter</h3>
-          <div class="tier-price-line" style="font-size:32px; margin-bottom:8px;"><strong style="color:var(--sky);">$149</strong><span style="font-size:16px; color:var(--muted);">/mo</span></div>
+          <div class="tier-price-line" style="font-size:24px; margin-bottom:8px;"><strong style="color:var(--sky);">SMB-Friendly</strong></div>
         </div>
         <div style="padding:24px 20px; color:var(--muted); font-size:14px; line-height:1.8; text-align:left;">
           <ul style="list-style:none; padding:0; margin:0;">
-            <li style="padding:8px 0; border-bottom: 1px solid var(--border);"><span style="color:var(--text);">500</span> included resolutions</li>
-            <li style="padding:8px 0; border-bottom: 1px solid var(--border);">$0.25 overage/resolution</li>
+            <li style="padding:8px 0; border-bottom: 1px solid var(--border);">Included resolutions each month</li>
+            <li style="padding:8px 0; border-bottom: 1px solid var(--border);">Pay-as-you-go overages</li>
             <li style="padding:8px 0; border-bottom: 1px solid var(--border);">3 agents:</li>
             <li style="padding:4px 0 4px 12px; font-size:12px; color:var(--text);">🛡️ Frontline &middot; 🎧 Customer Support &middot; 🎯 Lead Qualifier</li>
           </ul>
@@ -3124,12 +3027,12 @@
         <div class="tier-top">
           <div class="tier-badge">Growth</div>
           <h3 style="margin-bottom:8px; font-size:22px;">Growth</h3>
-          <div class="tier-price-line" style="font-size:32px; margin-bottom:8px;"><strong style="color:var(--lime);">$399</strong><span style="font-size:16px; color:var(--muted);">/mo</span></div>
+          <div class="tier-price-line" style="font-size:24px; margin-bottom:8px;"><strong style="color:var(--lime);">Best Value</strong></div>
         </div>
         <div style="padding:24px 20px; color:var(--muted); font-size:14px; line-height:1.8; text-align:left;">
           <ul style="list-style:none; padding:0; margin:0;">
-            <li style="padding:8px 0; border-bottom: 1px solid var(--border);"><span style="color:var(--text);">2,000</span> included resolutions</li>
-            <li style="padding:8px 0; border-bottom: 1px solid var(--border);">$0.18 overage/resolution</li>
+            <li style="padding:8px 0; border-bottom: 1px solid var(--border);">More resolutions included</li>
+            <li style="padding:8px 0; border-bottom: 1px solid var(--border);">Lower overage rates</li>
             <li style="padding:8px 0; border-bottom: 1px solid var(--border);">6 agents (Starter +3):</li>
             <li style="padding:4px 0 4px 12px; font-size:12px; color:var(--text);">+ ✉️ Sales &middot; ⭐ Review Manager &middot; 🎬 Content</li>
           </ul>
@@ -3139,12 +3042,12 @@
         <div class="tier-top">
           <div class="tier-badge">Pro</div>
           <h3 style="margin-bottom:8px; font-size:22px;">Pro</h3>
-          <div class="tier-price-line" style="font-size:32px; margin-bottom:8px;"><strong style="color:var(--lavender);">$899</strong><span style="font-size:16px; color:var(--muted);">/mo</span></div>
+          <div class="tier-price-line" style="font-size:24px; margin-bottom:8px;"><strong style="color:var(--lavender);">Full Platform</strong></div>
         </div>
         <div style="padding:24px 20px; color:var(--muted); font-size:14px; line-height:1.8; text-align:left;">
           <ul style="list-style:none; padding:0; margin:0;">
-            <li style="padding:8px 0; border-bottom: 1px solid var(--border);"><span style="color:var(--text);">6,000</span> included resolutions</li>
-            <li style="padding:8px 0; border-bottom: 1px solid var(--border);">$0.12 overage/resolution</li>
+            <li style="padding:8px 0; border-bottom: 1px solid var(--border);">Highest resolution volume</li>
+            <li style="padding:8px 0; border-bottom: 1px solid var(--border);">Lowest overage rates</li>
             <li style="padding:8px 0; border-bottom: 1px solid var(--border);">All 11 agents (Growth +5):</li>
             <li style="padding:4px 0 4px 12px; font-size:12px; color:var(--text);">+ 👤 Employee &middot; 🖥️ IT Helpdesk &middot; 🔧 Service Ops &middot; 💰 Finance &middot; 📊 Weekly Report</li>
           </ul>
@@ -3166,32 +3069,15 @@
       </div>
     </div>
 
-    <details style="margin-top:48px; background:var(--card); border:none; border-radius:16px;">
-      <summary style="padding:24px 32px; cursor:pointer; color:var(--text); font-size:16px; font-weight:600; font-family:'Space Grotesk',sans-serif; list-style:none; display:flex; justify-content:space-between; align-items:center;">
-        Per-Resolution Breakdown (Transparency)
-        <span style="font-size:20px; color:var(--muted); transition:transform 0.2s;" class="details-arrow">+</span>
-      </summary>
-      <div style="padding:0 32px 32px;">
-        <p style="font-size:13px; color:var(--muted); margin-bottom:20px;">Your plan includes resolutions — you only pay per-resolution rates on overages. Here's exactly what each agent costs.</p>
-        <div style="display:grid; grid-template-columns:repeat(2, 1fr); gap:12px; font-size:14px; color:var(--muted);">
-          <div style="display:flex; justify-content:space-between; padding:8px 0; border-bottom:1px solid var(--border);"><span>🛡️ Frontline Agent</span><span style="color:var(--text); font-weight:600;">$0.12/res</span></div>
-          <div style="display:flex; justify-content:space-between; padding:8px 0; border-bottom:1px solid var(--border);"><span>🎯 Lead Qualifier</span><span style="color:var(--text); font-weight:600;">$0.45/res</span></div>
-          <div style="display:flex; justify-content:space-between; padding:8px 0; border-bottom:1px solid var(--border);"><span>✉️ Sales Agent</span><span style="color:var(--text); font-weight:600;">$0.35/res</span></div>
-          <div style="display:flex; justify-content:space-between; padding:8px 0; border-bottom:1px solid var(--border);"><span>🎧 Customer Support</span><span style="color:var(--text); font-weight:600;">$0.28/res</span></div>
-          <div style="display:flex; justify-content:space-between; padding:8px 0; border-bottom:1px solid var(--border);"><span>🔧 Service Ops</span><span style="color:var(--text); font-weight:600;">$0.30/res</span></div>
-          <div style="display:flex; justify-content:space-between; padding:8px 0; border-bottom:1px solid var(--border);"><span>👤 Employee Agent</span><span style="color:var(--text); font-weight:600;">$0.10/res</span></div>
-          <div style="display:flex; justify-content:space-between; padding:8px 0; border-bottom:1px solid var(--border);"><span>🖥️ IT Helpdesk</span><span style="color:var(--text); font-weight:600;">$0.12/res</span></div>
-          <div style="display:flex; justify-content:space-between; padding:8px 0; border-bottom:1px solid var(--border);"><span>⭐ Review Manager</span><span style="color:var(--text); font-weight:600;">$0.18/res</span></div>
-          <div style="display:flex; justify-content:space-between; padding:8px 0; border-bottom:1px solid var(--border);"><span>💰 Finance Agent</span><span style="color:var(--text); font-weight:600;">$0.25/res</span></div>
-          <div style="display:flex; justify-content:space-between; padding:8px 0; border-bottom:1px solid var(--border);"><span>🎬 Content Agent</span><span style="color:var(--text); font-weight:600;">$0.95/res</span></div>
-          <div style="display:flex; justify-content:space-between; padding:8px 0;"><span>📊 Weekly Report</span><span style="color:var(--text); font-weight:600;">$0.75/res</span></div>
-        </div>
-      </div>
-    </details>
+    <div style="margin-top:48px; background:var(--card); border:none; border-radius:16px; padding:32px; text-align:center;">
+      <p style="font-size:16px; font-weight:600; font-family:'Space Grotesk',sans-serif; color:var(--text); margin-bottom:8px;">Want the full per-agent breakdown?</p>
+      <p style="font-size:14px; color:var(--muted); margin-bottom:20px;">Ask Kaz — our AI agent will walk you through pricing for your specific use case, volume, and industry.</p>
+      <button onclick="document.querySelector('[id*=kazozo-widget]')?.click();" style="background:var(--coral); color:#fff; border:none; padding:14px 32px; border-radius:12px; font-size:15px; font-weight:600; font-family:'Space Grotesk',sans-serif; cursor:pointer; transition:opacity 0.2s;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">Talk to Kaz About Pricing</button>
+    </div>
 
     <div class="pricing-note" style="margin-top:30px;">
       <strong>Volume discounts:</strong> 10% off at 4–6 agents &middot; 15% at 7–9 &middot; 20% at 10+<br>
-      Industry average per-resolution cost: <strong>$1.50–$2.00</strong>. Kazozo starts at <strong>$0.12</strong>.
+      Resolution costs are a fraction of industry average — ask Kaz for a custom quote.
     </div>
   </section>
 
@@ -3217,7 +3103,7 @@
           <li><span class="vert-check">&#10003;</span> Weekly revenue and pipeline report every Monday</li>
         </ul>
         <div class="vert-meta">
-          <div class="vert-price">$149<span>/mo</span></div>
+          <div class="vert-price">Plans available</div>
           <div class="vert-crm">ServiceTitan &middot; Housecall Pro &middot; Jobber</div>
         </div>
       </a>
@@ -3235,7 +3121,7 @@
           <li><span class="vert-check">&#10003;</span> Weekly production report — showings, offers, closings</li>
         </ul>
         <div class="vert-meta">
-          <div class="vert-price">$149<span>/mo</span></div>
+          <div class="vert-price">Plans available</div>
           <div class="vert-crm">Follow Up Boss &middot; KvCORE &middot; GoHighLevel</div>
         </div>
       </a>
@@ -3253,7 +3139,7 @@
           <li><span class="vert-check">&#10003;</span> Weekly report — deliverables, revenue, utilization, pipeline</li>
         </ul>
         <div class="vert-meta">
-          <div class="vert-price">$149<span>/mo</span></div>
+          <div class="vert-price">Plans available</div>
           <div class="vert-crm">HubSpot &middot; Salesforce &middot; Monday.com</div>
         </div>
       </a>
@@ -3273,7 +3159,7 @@
           <li><span class="vert-check">&#10003;</span> Weekly report — submittals, interviews, placements, revenue</li>
         </ul>
         <div class="vert-meta">
-          <div class="vert-price">$149<span>/mo</span></div>
+          <div class="vert-price">Plans available</div>
           <div class="vert-crm">Bullhorn &middot; JobAdder &middot; Greenhouse</div>
         </div>
       </a>
@@ -3291,7 +3177,7 @@
           <li><span class="vert-check">&#10003;</span> Weekly report — revenue, AOV, top products, ROAS</li>
         </ul>
         <div class="vert-meta">
-          <div class="vert-price">$149<span>/mo</span></div>
+          <div class="vert-price">Plans available</div>
           <div class="vert-crm">Shopify &middot; Klaviyo &middot; Gorgias</div>
         </div>
       </a>
@@ -3346,8 +3232,8 @@
           <div class="proof-label">Tools across 11 agents</div>
         </div>
         <div class="proof-stat">
-          <div class="proof-number">$0.12</div>
-          <div class="proof-label">Starting per resolution (vs $2.00 industry avg)</div>
+          <div class="proof-number">90%</div>
+          <div class="proof-label">Less than industry avg per resolution</div>
         </div>
         <div class="proof-stat">
           <div class="proof-number">1–2 wks</div>
@@ -3440,7 +3326,7 @@
           <tr><th></th><th class="col-kaz">Kazozo</th><th>Salesforce Agentforce</th><th>Intercom Fin</th><th>Drift</th></tr>
         </thead>
         <tbody>
-          <tr><td>Starting price</td><td class="col-kaz">$149/mo</td><td>$2/conversation</td><td>$0.99/resolution</td><td>$2,500/mo</td></tr>
+          <tr><td>Starting price</td><td class="col-kaz">SMB-friendly</td><td>$2/conversation</td><td>$0.99/resolution</td><td>$2,500/mo</td></tr>
           <tr><td>Setup time</td><td class="col-kaz">1&#8211;2 weeks</td><td>3&#8211;6 months</td><td>2&#8211;4 weeks</td><td>4&#8211;8 weeks</td></tr>
           <tr><td>Agents included</td><td class="col-kaz">Up to 11</td><td>1 (customize yourself)</td><td>1 (support only)</td><td>1 (chat only)</td></tr>
           <tr><td>Sales + Support + Ops</td><td class="col-kaz">&#10003; All-in-one</td><td>Support focus</td><td>Support only</td><td>Sales focus</td></tr>
@@ -3485,7 +3371,7 @@
     <div class="faq-list">
       <div class="faq-item">
         <button class="faq-q">What exactly is a "resolution"?<span class="faq-arrow">+</span></button>
-        <div class="faq-a"><div class="faq-a-inner">A resolution is one completed interaction between an agent and a customer or lead. If your Frontline Agent answers a visitor's question, that's one resolution. If your Sales Agent sends a follow-up sequence, that's one resolution. Simple interactions cost less ($0.12), complex ones cost more ($0.95). Your monthly plan includes a set number — overages are billed at your plan's per-resolution rate.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">A resolution is one completed interaction between an agent and a customer or lead. If your Frontline Agent answers a visitor's question, that's one resolution. If your Sales Agent sends a follow-up sequence, that's one resolution. Costs vary by agent complexity — simple interactions cost pennies. Your monthly plan includes a set number of resolutions, and overages are billed at affordable per-resolution rates. Ask Kaz for a detailed breakdown.</div></div>
       </div>
       <div class="faq-item">
         <button class="faq-q">Do I need a developer to set this up?<span class="faq-arrow">+</span></button>
@@ -3507,22 +3393,6 @@
         <button class="faq-q">How does Kazozo compare to Salesforce Agentforce?<span class="faq-arrow">+</span></button>
         <div class="faq-a"><div class="faq-a-inner">Salesforce Agentforce is built for enterprises with dedicated Salesforce admins. Kazozo delivers the same AI agent capabilities — lead qualification, sales automation, customer support, service ops — pre-configured for your industry, at a fraction of the cost, with zero technical setup. We're live in 1–2 weeks; Agentforce takes 3–6 months.</div></div>
       </div>
-    </div>
-  </section>
-
-  <!-- EMAIL CAPTURE -->
-  <section class="email-capture fade-up" id="email-capture">
-    <div class="email-capture-inner">
-      <div class="email-capture-overline">Stay in the loop</div>
-      <h2>Get AI ops insights — no spam, ever.</h2>
-      <p class="capture-sub">One email when it matters. New agents, platform updates, and real playbooks from businesses running AI ops.</p>
-      <form class="capture-form" id="captureForm" onsubmit="return handleCapture(event)">
-        <input type="email" name="email" placeholder="you@company.com" required autocomplete="email" aria-label="Email address">
-        <button type="submit" id="captureBtn">Get Updates</button>
-      </form>
-      <div class="capture-success" id="captureSuccess">You're in. We'll be in touch when it matters.</div>
-      <div class="capture-error" id="captureError"></div>
-      <p class="capture-note">No spam. Unsubscribe anytime. We respect your inbox.</p>
     </div>
   </section>
 
@@ -3784,50 +3654,7 @@ document.querySelectorAll('.faq-q').forEach(btn => {
   });
 });
 
-// Email capture
-const CAPTURE_ENDPOINT = 'https://kazozo-capture.YOUR_SUBDOMAIN.workers.dev';
 
-function handleCapture(e) {
-  e.preventDefault();
-  const form = document.getElementById('captureForm');
-  const btn = document.getElementById('captureBtn');
-  const successEl = document.getElementById('captureSuccess');
-  const errorEl = document.getElementById('captureError');
-  const email = form.querySelector('input[name="email"]').value.trim();
-
-  if (!email) return false;
-
-  btn.disabled = true;
-  btn.textContent = 'Sending…';
-  errorEl.style.display = 'none';
-
-  fetch(CAPTURE_ENDPOINT, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      email: email,
-      source: 'Email Capture',
-      page: window.location.pathname
-    })
-  })
-  .then(res => {
-    if (!res.ok) throw new Error('Network error');
-    return res.json();
-  })
-  .then(() => {
-    form.style.display = 'none';
-    successEl.style.display = 'block';
-    document.querySelector('.capture-note').style.display = 'none';
-  })
-  .catch(() => {
-    errorEl.textContent = 'Something went wrong. Please try again.';
-    errorEl.style.display = 'block';
-    btn.disabled = false;
-    btn.textContent = 'Get Updates';
-  });
-
-  return false;
-}
 </script>
 
 </body>
