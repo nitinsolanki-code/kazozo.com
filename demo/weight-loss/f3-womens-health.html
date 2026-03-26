@@ -248,6 +248,17 @@ footer{padding:56px 24px 28px;max-width:var(--max-w);margin:0 auto}
 .ft-legal a{font-size:12px;color:var(--text-muted)}
 .ft-legal a:hover{color:var(--text)}
 
+/* ===== MOBILE NAV DRAWER ===== */
+.mobile-overlay{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.4);backdrop-filter:blur(4px);z-index:200;opacity:0;pointer-events:none;transition:opacity .3s}
+.mobile-overlay.active{opacity:1;pointer-events:auto}
+.mobile-drawer{position:fixed;top:0;right:0;bottom:0;width:280px;max-width:85vw;background:#fff;z-index:201;transform:translateX(100%);transition:transform .35s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column;padding:80px 28px 40px;box-shadow:-8px 0 40px rgba(0,0,0,.1)}
+.mobile-drawer.active{transform:translateX(0)}
+.mobile-drawer a{display:block;font-size:17px;font-weight:500;color:var(--dark);padding:14px 0;border-bottom:1px solid var(--border-light);font-family:var(--font);text-decoration:none;transition:color .2s}
+.mobile-drawer a:hover{color:var(--accent)}
+.mobile-drawer .mob-cta{display:block;margin-top:24px;background:var(--dark);color:#fff;padding:14px 24px;border-radius:var(--radius-pill);text-align:center;font-weight:600;font-size:15px;border-bottom:none}
+.mobile-drawer .mob-cta:hover{background:var(--dark-mid);color:#fff}
+.mob-close{position:absolute;top:20px;right:20px;background:none;border:none;cursor:pointer;padding:8px;color:var(--text-mid);font-size:24px;line-height:1}
+
 /* ===== RESPONSIVE ===== */
 @media(max-width:1024px){
   .hero-card{flex:0 0 280px}
@@ -258,22 +269,73 @@ footer{padding:56px 24px 28px;max-width:var(--max-w);margin:0 auto}
   .cat-grid{grid-template-columns:1fr 1fr}
 }
 @media(max-width:768px){
-  .headline-sec h1{font-size:36px;letter-spacing:-1.5px}
+  /* Typography */
+  .headline-sec h1{font-size:32px;letter-spacing:-1.5px}
+  .headline-sec{padding:48px 0 40px}
+  .products-sec h2,.categories h2,.how-header h2{font-size:28px;letter-spacing:-1px}
+  .ai-text h2{font-size:26px}
+  .cta-sec h2{font-size:28px}
+  .cap-header h2,.experts-header h2{font-size:26px}
+
+  /* Nav */
   .nav-links{display:none}
   .hamburger{display:block}
-  .hero-card{flex:0 0 260px}
+
+  /* Hero cards — snap scrolling */
+  .hero-card{flex:0 0 80vw;max-width:300px}
+  .hero-cards-inner{scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
+  .hero-card{scroll-snap-align:start}
+
+  /* Product cards */
   .product-track{grid-template-columns:1fr}
-  .pcard{max-width:400px;margin:0 auto;width:100%}
-  .review{flex:0 0 300px}
+  .pcard{max-width:100%;width:100%}
+
+  /* Grids go single-column */
   .how-grid,.experts-grid,.cap-grid,.cat-grid{grid-template-columns:1fr}
-  .sp-stats{gap:32px}
-  .sp-stat-val{font-size:36px}
+
+  /* Reviews — tighter cards */
+  .review{flex:0 0 85vw;max-width:320px}
+
+  /* Stats */
+  .sp-stats{gap:24px}
+  .sp-stat-val{font-size:32px}
+  .sp-stat-label{font-size:12px}
+
+  /* Section padding tightened */
+  .how-sec,.experts-sec,.social-proof,.ai-sec,.cap-sec,.cta-sec{padding:56px 0}
+  .categories{padding:48px 0}
+
+  /* AI section chat demo */
+  .chat-demo{margin-top:8px}
+  .cd-body{max-height:340px}
+
+  /* Buttons — wider on mobile */
+  .btn{width:100%;justify-content:center;padding:16px 24px}
+  .pcard-actions{flex-direction:column}
+  .pcard-actions a{width:100%;text-align:center;padding:12px 20px}
+  .ai-cta{flex-direction:column;align-items:stretch}
+  .ai-cta .btn{width:100%}
+  .ai-cta .powered{text-align:center}
+
+  /* Footer */
   .ft-grid{grid-template-columns:1fr 1fr;gap:28px}
-  .ai-text h2{font-size:28px}
-  .cta-sec h2{font-size:28px}
+
+  /* Expert badges wrap better */
+  .expert-badges{gap:20px}
+  .trust-logos{gap:16px}
+  .trust-logo{padding:10px 16px;font-size:11px}
 }
 @media(max-width:480px){
+  .headline-sec h1{font-size:28px;letter-spacing:-1px}
+  .promo{font-size:12.5px;padding:10px 16px}
   .ft-grid{grid-template-columns:1fr}
+  .ft-bottom{flex-direction:column;text-align:center}
+  .ft-legal{justify-content:center}
+  .sp-stats{flex-direction:column;gap:20px;align-items:center}
+  .container{padding:0 16px}
+  .hero-cards-inner{padding:0 16px 24px}
+  .cat-card-inner{padding:24px 20px;min-height:auto}
+  .how-card{padding:16px 8px}
 }
 </style>
 </head>
@@ -315,11 +377,22 @@ footer{padding:56px 24px 28px;max-width:var(--max-w);margin:0 auto}
       <a href="#ai">AI Assistant</a>
       <a href="#" class="nav-cta" onclick="event.preventDefault();if(window.KazozoWidget)window.KazozoWidget.open()">Get Started</a>
     </div>
-    <button class="hamburger" onclick="event.preventDefault();if(window.KazozoWidget)window.KazozoWidget.open()" aria-label="Menu">
+    <button class="hamburger" onclick="document.getElementById('mobOverlay').classList.add('active');document.getElementById('mobDrawer').classList.add('active');document.body.style.overflow='hidden'" aria-label="Menu">
       <span></span><span></span><span></span>
     </button>
   </div>
 </nav>
+
+<!-- Mobile Drawer -->
+<div class="mobile-overlay" id="mobOverlay" onclick="this.classList.remove('active');document.getElementById('mobDrawer').classList.remove('active');document.body.style.overflow=''"></div>
+<div class="mobile-drawer" id="mobDrawer">
+  <button class="mob-close" onclick="document.getElementById('mobOverlay').classList.remove('active');this.parentElement.classList.remove('active');document.body.style.overflow=''" aria-label="Close menu">&times;</button>
+  <a href="#products" onclick="document.getElementById('mobOverlay').classList.remove('active');document.getElementById('mobDrawer').classList.remove('active');document.body.style.overflow=''">Weight Loss</a>
+  <a href="#how" onclick="document.getElementById('mobOverlay').classList.remove('active');document.getElementById('mobDrawer').classList.remove('active');document.body.style.overflow=''">How It Works</a>
+  <a href="#experts" onclick="document.getElementById('mobOverlay').classList.remove('active');document.getElementById('mobDrawer').classList.remove('active');document.body.style.overflow=''">Our Providers</a>
+  <a href="#ai" onclick="document.getElementById('mobOverlay').classList.remove('active');document.getElementById('mobDrawer').classList.remove('active');document.body.style.overflow=''">AI Assistant</a>
+  <a href="#" class="mob-cta" onclick="event.preventDefault();document.getElementById('mobOverlay').classList.remove('active');document.getElementById('mobDrawer').classList.remove('active');document.body.style.overflow='';if(window.KazozoWidget)window.KazozoWidget.open()">Get Started</a>
+</div>
 
 <!-- ===== HERO CARDS (Ro-style scrollable promos) ===== -->
 <div class="hero-cards">
