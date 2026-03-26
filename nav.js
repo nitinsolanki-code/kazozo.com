@@ -187,12 +187,12 @@
 .kz-mobile-cta {\n\
   margin-top: 32px; display: inline-flex; align-items: center;\n\
   justify-content: center; gap: 8px; padding: 14px 28px;\n\
-  background: #FFB4A4; color: #fff; border-radius: 10px;\n\
-  font-weight: 600; font-size: 15px; border: none;\n\
+  background: linear-gradient(135deg, #FFB4A4, #FF5733); color: #580c00; border-radius: 10px;\n\
+  font-weight: 700; font-size: 15px; border: none;\n\
   text-decoration: none; transition: all 0.3s; cursor: pointer;\n\
   font-family: "Space Grotesk", sans-serif;\n\
 }\n\
-.kz-mobile-cta:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(255,107,90,0.3); }\n\
+.kz-mobile-cta:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(255,87,51,0.25); filter: brightness(1.1); }\n\
 \n\
 /* Responsive */\n\
 @media (max-width: 900px) {\n\
