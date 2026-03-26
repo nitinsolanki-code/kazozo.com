@@ -85,10 +85,9 @@ img{max-width:100%;display:block}
 .products-sec{padding:56px 0 32px}
 .products-sec h2{font-size:36px;font-weight:800;letter-spacing:-1.5px;margin-bottom:8px}
 .products-sec .sec-sub{font-size:16px;color:var(--text-mid);margin-bottom:32px;max-width:520px}
-.product-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding-bottom:8px}
-.product-scroll::-webkit-scrollbar{display:none}
-.product-track{display:flex;gap:16px;padding:0 24px}
-.pcard{flex:0 0 280px;background:var(--white);border:1px solid var(--border-light);border-radius:var(--radius);overflow:hidden;transition:all .3s}
+.product-scroll{overflow-x:visible;padding-bottom:8px;max-width:var(--max-w);margin:0 auto;padding-left:24px;padding-right:24px}
+.product-track{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.pcard{background:var(--white);border:1px solid var(--border-light);border-radius:var(--radius);overflow:hidden;transition:all .3s}
 .pcard:hover{box-shadow:0 12px 40px rgba(0,0,0,.06);transform:translateY(-2px)}
 .pcard-img{height:200px;display:flex;align-items:center;justify-content:center;position:relative}
 .pcard-img.pi1{background:linear-gradient(135deg,#FFF0E8,#FFE0D3)}
@@ -263,7 +262,8 @@ footer{padding:56px 24px 28px;max-width:var(--max-w);margin:0 auto}
   .nav-links{display:none}
   .hamburger{display:block}
   .hero-card{flex:0 0 260px}
-  .pcard{flex:0 0 260px}
+  .product-track{grid-template-columns:1fr}
+  .pcard{max-width:400px;margin:0 auto;width:100%}
   .review{flex:0 0 300px}
   .how-grid,.experts-grid,.cap-grid,.cat-grid{grid-template-columns:1fr}
   .sp-stats{gap:32px}
