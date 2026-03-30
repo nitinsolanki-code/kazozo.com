@@ -83,7 +83,7 @@
   background: none; border: none; font: inherit; padding: 0;\n\
 }\n\
 .kz-dropdown-trigger svg { width: 12px; height: 12px; transition: transform 0.2s; }\n\
-.kz-dropdown:hover .kz-dropdown-trigger svg { transform: rotate(180deg); }\n\
+\n\
 .kz-dropdown-menu {\n\
   position: absolute; top: calc(100% + 12px); left: -16px;\n\
   background: #1f1f22; border: none;\n\
@@ -92,7 +92,11 @@
   transition: all 0.2s ease; z-index: 1001;\n\
   box-shadow: 0 16px 48px rgba(0,0,0,0.5);\n\
 }\n\
-.kz-dropdown:hover .kz-dropdown-menu { opacity: 1; pointer-events: auto; transform: translateY(0); }\n\
+.kz-dropdown-menu::before {\n\
+  content: ""; position: absolute; top: -16px; left: 0; right: 0; height: 16px;\n\
+}\n\
+.kz-dropdown.kz-dropdown-open .kz-dropdown-menu { opacity: 1; pointer-events: auto; transform: translateY(0); }\n\
+.kz-dropdown.kz-dropdown-open .kz-dropdown-trigger svg { transform: rotate(180deg); }\n\
 .kz-dropdown-menu a {\n\
   display: flex; align-items: center; gap: 12px;\n\
   padding: 12px 14px; border-radius: 8px; transition: background 0.15s; color: rgba(228,225,230,0.6) !important;\n\
@@ -320,5 +324,22 @@
   mobileOverlay.addEventListener('click', kzCloseMobile);
   document.querySelectorAll('.kz-mobile-link').forEach(function (link) {
     link.addEventListener('click', kzCloseMobile);
+  });
+
+  /* Dropdown: JS-controlled hover with close delay (prevents gap-crossing flicker) */
+  document.querySelectorAll('.kz-dropdown').forEach(function (dd) {
+    var closeTimer = null;
+    dd.addEventListener('mouseenter', function () {
+      if (closeTimer) { clearTimeout(closeTimer); closeTimer = null; }
+      dd.classList.add('kz-dropdown-open');
+    });
+    dd.addEventListener('mouseleave', function () {
+      closeTimer = setTimeout(function () { dd.classList.remove('kz-dropdown-open'); }, 250);
+    });
+    /* Also support click/tap for touch devices */
+    dd.querySelector('.kz-dropdown-trigger').addEventListener('click', function (e) {
+      e.preventDefault();
+      dd.classList.toggle('kz-dropdown-open');
+    });
   });
 })();
