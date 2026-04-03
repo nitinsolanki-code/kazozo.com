@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mora Sol Yachting — Purchase. Charter. Experience.</title>
+<meta name="description" content="Full-service luxury yacht brokerage in South Florida and the Mediterranean. Purchase, charter, and management — with a concierge that never sleeps.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{overflow-x:hidden;width:100%}
+body{overflow-x:hidden;width:100%;position:relative}
+
+/* ===== DESIGN SYSTEM (Aman/Janu inspired) ===== */
+/* 60-20-15-5 color ratio | 8px spacing unit | serif+sans pairing | 0px border-radius buttons */
+:root{
+  /* 60% — Primary background */
+  --bg:#F3EEE7;
+  --bg-warm:#EDE6DC;
+  --bg-ivory:#FCFAF7;
+  /* 20% — Secondary */
+  --sand:#D4C4B0;
+  --stone:#E2DBD6;
+  --stone-light:#EDE8E3;
+  /* 15% — Text */
+  --text:#313131;
+  --text-mid:#555555;
+  --text-light:#777777;
+  --text-muted:#999999;
+  /* 5% — Accent */
+  --accent:#8B7355;
+  --accent-hover:#7A6548;
+  --accent-light:rgba(139,115,85,.08);
+  /* Dark (footer, hero overlay) */
+  --dark:#2B2B2B;
+  --dark-deep:#1A1A1A;
+  /* Functional */
+  --white:#fff;
+  --border:rgba(0,0,0,.08);
+  --border-light:rgba(0,0,0,.05);
+  /* System */
+  --max-w:1200px;
+  --font:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  --serif:'Playfair Display',Georgia,'Times New Roman',serif;
+  /* Spacing (8px base) */
+  --sp-1:8px;--sp-2:16px;--sp-3:24px;--sp-4:32px;--sp-5:40px;--sp-6:48px;--sp-8:64px;--sp-10:80px;--sp-12:96px;--sp-16:128px;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased;letter-spacing:0.01em}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.container{max-width:var(--max-w);margin:0 auto;padding:0 var(--sp-5)}
+
+/* ===== TYPOGRAPHY SYSTEM ===== */
+.serif{font-family:var(--serif)}
+.uppercase{text-transform:uppercase;letter-spacing:0.15em}
+.label{font-size:12px;text-transform:uppercase;letter-spacing:0.15em;font-weight:500;color:var(--text-mid)}
+
+/* ===== PROMO BAR ===== */
+.promo{background:var(--dark);color:rgba(255,255,255,.75);text-align:center;padding:var(--sp-2) var(--sp-3);font-size:13px;font-weight:400;letter-spacing:0.04em}
+.promo a{color:var(--sand);text-decoration:underline;text-underline-offset:3px;font-weight:500;margin-left:6px;transition:color .2s}
+.promo a:hover{color:#fff}
+
+/* ===== TRUST MARQUEE ===== */
+.marquee{overflow:hidden;background:var(--bg-warm);border-bottom:1px solid var(--border);padding:14px 0;max-width:100vw}
+.marquee-track{display:flex;gap:var(--sp-6);animation:scroll 50s linear infinite;width:max-content}
+.mq{display:flex;align-items:center;gap:var(--sp-1);white-space:nowrap;font-size:12px;font-weight:500;color:var(--text-mid);text-transform:uppercase;letter-spacing:0.08em}
+.mq svg{flex-shrink:0}
+@keyframes scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* ===== NAV ===== */
+.nav{position:sticky;top:0;z-index:100;background:rgba(243,238,231,.97);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:var(--max-w);margin:0 auto;padding:0 var(--sp-5);display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-family:var(--serif);font-size:20px;font-weight:500;letter-spacing:0.02em;color:var(--text)}
+.logo em{font-style:italic;color:var(--accent)}
+.nav-links{display:flex;align-items:center;gap:var(--sp-4)}
+.nav-links a{font-size:11px;font-weight:500;color:var(--text-mid);text-transform:uppercase;letter-spacing:0.15em;transition:color .2s}
+.nav-links a:hover{color:var(--text)}
+.nav-cta{background:var(--dark);color:#fff!important;padding:12px 24px;font-size:11px!important;font-weight:600!important;letter-spacing:0.12em!important;text-transform:uppercase!important;transition:background .2s;border:none}
+.nav-cta:hover{background:var(--text)}
+.hamburger{display:none;background:none;border:none;cursor:pointer;padding:var(--sp-1)}
+.hamburger span{display:block;width:20px;height:2px;background:var(--text);margin:5px 0;transition:all .3s}
+
+/* ===== HERO ===== */
+.hero{background:var(--dark-deep);padding:var(--sp-16) 0 var(--sp-12);position:relative;overflow:hidden;min-height:85vh;display:flex;align-items:center}
+.hero::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(26,26,26,.3) 0%,rgba(26,26,26,.6) 100%);pointer-events:none}
+.hero-bg{position:absolute;inset:0;background:linear-gradient(135deg,#1a2a3a 0%,#0d1b2a 40%,#1a1a2e 100%);opacity:.9}
+.hero-inner{position:relative;z-index:1;text-align:center;max-width:800px;margin:0 auto}
+.hero-label{font-size:11px;text-transform:uppercase;letter-spacing:0.2em;font-weight:500;color:var(--sand);margin-bottom:var(--sp-4);display:inline-block}
+.hero h1{font-family:var(--serif);font-size:64px;font-weight:400;letter-spacing:-0.02em;line-height:1.15;color:#fff;margin-bottom:var(--sp-3)}
+.hero h1 em{font-style:italic;color:var(--sand)}
+.hero-sub{font-size:17px;color:rgba(255,255,255,.5);line-height:1.7;margin-bottom:var(--sp-6);max-width:560px;margin-left:auto;margin-right:auto}
+.hero-actions{display:flex;gap:var(--sp-2);align-items:center;justify-content:center;flex-wrap:wrap}
+
+/* ===== BUTTONS (0px radius, uppercase, architectural) ===== */
+.btn{display:inline-flex;align-items:center;gap:var(--sp-1);padding:14px 28px;font-weight:500;font-size:12px;border:none;cursor:pointer;transition:all .25s;text-decoration:none;font-family:var(--font);text-transform:uppercase;letter-spacing:0.12em;border-radius:0}
+.btn-solid{background:var(--dark);color:#fff}
+.btn-solid:hover{background:var(--text);transform:translateY(-2px)}
+.btn-outline-light{background:transparent;color:rgba(255,255,255,.7);border:1px solid rgba(255,255,255,.2)}
+.btn-outline-light:hover{border-color:rgba(255,255,255,.5);color:#fff}
+.btn-accent{background:var(--accent);color:#fff}
+.btn-accent:hover{background:var(--accent-hover);transform:translateY(-2px)}
+.btn-outline{background:transparent;color:var(--text);border:1px solid var(--border)}
+.btn-outline:hover{border-color:var(--text-mid);color:var(--text)}
+.btn-white{background:#fff;color:var(--dark)}
+.btn-white:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.15)}
+.btn-arrow::after{content:'→';margin-left:8px;transition:transform .2s}
+.btn-arrow:hover::after{transform:translateX(3px)}
+
+/* ===== SERVICES ===== */
+.services-sec{padding:var(--sp-12) 0 var(--sp-10)}
+.sec-header{text-align:center;margin-bottom:var(--sp-8);max-width:640px;margin-left:auto;margin-right:auto}
+.sec-header .label{margin-bottom:var(--sp-2);display:block}
+.sec-header h2{font-family:var(--serif);font-size:42px;font-weight:400;letter-spacing:-0.02em;line-height:1.2;margin-bottom:var(--sp-2)}
+.sec-header p{font-size:16px;color:var(--text-mid);line-height:1.7}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--sp-3)}
+.svc-card{background:var(--white);border:1px solid var(--border);overflow:hidden;transition:all .4s cubic-bezier(.4,0,.2,1)}
+.svc-card:hover{box-shadow:0 16px 48px rgba(0,0,0,.06);transform:translateY(-3px)}
+.svc-card:hover .svc-img-icon{transform:scale(1.05)}
+.svc-img{height:220px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.svc-img.si1{background:linear-gradient(135deg,#DDD5CA,#C9BFB0)}
+.svc-img.si2{background:linear-gradient(135deg,#D5DDD5,#BFCBBF)}
+.svc-img.si3{background:linear-gradient(135deg,#DDD8CA,#C9C0A8)}
+.svc-img-icon{font-size:56px;opacity:.7;transition:transform .4s cubic-bezier(.4,0,.2,1)}
+.svc-badge{position:absolute;top:var(--sp-2);left:var(--sp-2);font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:0.12em;color:var(--accent);background:rgba(255,255,255,.9);padding:6px 14px;backdrop-filter:blur(8px)}
+.svc-body{padding:var(--sp-3)}
+.svc-card h3{font-family:var(--serif);font-size:22px;font-weight:500;letter-spacing:-0.01em;margin-bottom:4px}
+.svc-type{font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:var(--sp-2)}
+.svc-desc{font-size:14px;color:var(--text-mid);line-height:1.65;margin-bottom:var(--sp-3)}
+.svc-actions{display:flex;gap:var(--sp-1)}
+.svc-actions a{padding:10px 20px;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;transition:all .2s;border-radius:0}
+.svc-actions .sa-primary{background:var(--dark);color:#fff}
+.svc-actions .sa-primary:hover{background:var(--text)}
+.svc-actions .sa-ghost{color:var(--text-mid);border:1px solid var(--border)}
+.svc-actions .sa-ghost:hover{border-color:var(--text-mid)}
+
+/* ===== REGIONS ===== */
+.regions-sec{padding:var(--sp-8) 0 var(--sp-10);background:var(--bg-ivory)}
+.reg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--sp-2);max-width:960px;margin:0 auto}
+.reg-card{overflow:hidden;cursor:pointer;transition:all .4s cubic-bezier(.4,0,.2,1)}
+.reg-card:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(0,0,0,.06)}
+.reg-card:hover .reg-inner{border-color:var(--sand)}
+.reg-inner{padding:var(--sp-5) var(--sp-3);display:flex;flex-direction:column;align-items:flex-start;gap:var(--sp-2);border:1px solid var(--border);background:var(--white);min-height:180px;transition:border-color .3s}
+.reg-icon{font-size:32px;opacity:.7}
+.reg-card h3{font-family:var(--serif);font-size:20px;font-weight:500}
+.reg-card p{font-size:13px;color:var(--text-mid);line-height:1.6}
+
+/* ===== HOW IT WORKS ===== */
+.how-sec{background:var(--white);padding:var(--sp-10) 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.how-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--sp-3)}
+.how-card{text-align:center;padding:var(--sp-3) var(--sp-2)}
+.how-num{width:48px;height:48px;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:20px;font-weight:400;color:var(--accent);margin:0 auto var(--sp-3);border:1px solid var(--sand)}
+.how-card h3{font-size:15px;font-weight:600;margin-bottom:var(--sp-1);letter-spacing:0.01em}
+.how-card p{font-size:13px;color:var(--text-light);line-height:1.65}
+
+/* ===== SOCIAL PROOF ===== */
+.social-proof{padding:var(--sp-10) 0;text-align:center}
+.sp-stats{display:flex;justify-content:center;gap:var(--sp-10);margin-bottom:var(--sp-8);flex-wrap:wrap}
+.sp-stat-val{font-family:var(--serif);font-size:52px;font-weight:400;letter-spacing:-0.02em;line-height:1;color:var(--text)}
+.sp-stat-label{font-size:12px;color:var(--text-mid);margin-top:var(--sp-1);text-transform:uppercase;letter-spacing:0.1em}
+.reviews-scroll{overflow:hidden;padding-bottom:var(--sp-1);max-width:100vw}
+.reviews-track{display:flex;gap:var(--sp-2);padding:0 var(--sp-3);justify-content:center;flex-wrap:wrap}
+.review{flex:0 0 340px;max-width:380px;background:var(--white);border:1px solid var(--border);padding:var(--sp-4);text-align:left}
+.review-stars{color:var(--accent);font-size:12px;letter-spacing:3px;margin-bottom:var(--sp-2)}
+.review-text{font-size:15px;color:var(--text);line-height:1.65;margin-bottom:var(--sp-3)}
+.review-author{display:flex;align-items:center;gap:var(--sp-2)}
+.review-avatar{width:40px;height:40px;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-weight:500;font-size:16px;background:var(--stone-light);color:var(--accent)}
+.review-name{font-size:14px;font-weight:600}
+.review-role{font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.06em}
+
+/* ===== TEAM ===== */
+.team-sec{background:var(--bg-ivory);padding:var(--sp-10) 0;border-top:1px solid var(--border)}
+.team-badges{display:flex;justify-content:center;gap:var(--sp-5);flex-wrap:wrap;padding:var(--sp-4) 0;margin-bottom:var(--sp-4)}
+.team-badge{display:flex;align-items:center;gap:var(--sp-1);font-size:12px;color:var(--text-mid);font-weight:500;text-transform:uppercase;letter-spacing:0.06em}
+.team-badge-icon{width:36px;height:36px;display:flex;align-items:center;justify-content:center;border:1px solid var(--border)}
+.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--sp-3);max-width:960px;margin:0 auto}
+.team-member{background:var(--white);border:1px solid var(--border);padding:var(--sp-4);text-align:center}
+.tm-photo{width:80px;height:80px;margin:0 auto var(--sp-2);display:flex;align-items:center;justify-content:center;font-size:28px;background:var(--stone-light)}
+.team-member h3{font-family:var(--serif);font-size:17px;font-weight:500;margin-bottom:2px}
+.tm-title{font-size:11px;color:var(--accent);font-weight:600;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:var(--sp-1)}
+.tm-bio{font-size:13px;color:var(--text-light);line-height:1.6}
+.trust-logos{display:flex;justify-content:center;gap:var(--sp-3);align-items:center;padding:var(--sp-4) 0;flex-wrap:wrap}
+.trust-logo{background:var(--white);border:1px solid var(--border);padding:10px 20px;font-size:11px;font-weight:600;color:var(--text-mid);letter-spacing:0.06em;text-transform:uppercase}
+
+/* ===== AI CONCIERGE SHOWCASE ===== */
+.ai-sec{background:var(--dark-deep);padding:var(--sp-12) 0;position:relative;overflow:hidden;max-width:100vw}
+.ai-sec::before{content:'';position:absolute;top:-200px;right:-200px;width:600px;height:600px;background:radial-gradient(circle,rgba(139,115,85,.06) 0%,transparent 70%);pointer-events:none}
+.ai-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-8);align-items:center}
+.ai-text .label{color:var(--sand);margin-bottom:var(--sp-3);display:block}
+.ai-text h2{font-family:var(--serif);font-size:42px;font-weight:400;letter-spacing:-0.02em;color:#fff;line-height:1.15;margin-bottom:var(--sp-2)}
+.ai-text>p{font-size:16px;color:rgba(255,255,255,.45);line-height:1.7;margin-bottom:var(--sp-5)}
+.ai-features{display:flex;flex-direction:column;gap:var(--sp-3)}
+.aif{display:flex;gap:var(--sp-2);align-items:flex-start}
+.aif-icon{width:40px;height:40px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:18px;border:1px solid rgba(255,255,255,.06);background:rgba(255,255,255,.03)}
+.aif h4{font-size:14px;font-weight:600;color:#fff;margin-bottom:2px;letter-spacing:0.01em}
+.aif p{font-size:13px;color:rgba(255,255,255,.35);line-height:1.6}
+.ai-cta{margin-top:var(--sp-5);display:flex;gap:var(--sp-2);align-items:center;flex-wrap:wrap}
+.ai-cta .powered{font-size:11px;color:rgba(255,255,255,.25);font-weight:400;text-transform:uppercase;letter-spacing:0.08em}
+.ai-cta .powered a{color:rgba(255,255,255,.4);text-decoration:underline;text-underline-offset:3px}
+
+/* Chat demo */
+.chat-demo{background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.05);overflow:hidden}
+.cd-top{background:rgba(255,255,255,.03);padding:14px 20px;display:flex;align-items:center;gap:10px;border-bottom:1px solid rgba(255,255,255,.05)}
+.cd-avatar{width:32px;height:32px;display:flex;align-items:center;justify-content:center;background:var(--accent);color:#fff;font-family:var(--serif);font-weight:500;font-size:11px}
+.cd-name{font-size:12px;font-weight:600;color:#fff;text-transform:uppercase;letter-spacing:0.08em}
+.cd-status{margin-left:auto;display:flex;align-items:center;gap:5px;font-size:10px;color:#6EE7A0;font-weight:500;text-transform:uppercase;letter-spacing:0.06em}
+.cd-status::before{content:'';width:6px;height:6px;border-radius:50%;background:#6EE7A0}
+.cd-body{padding:var(--sp-2) 20px;display:flex;flex-direction:column;gap:10px;max-height:420px;overflow-y:auto}
+.cb{max-width:88%;padding:12px 16px;font-size:13px;line-height:1.6}
+.cb-bot{background:rgba(255,255,255,.04);color:rgba(255,255,255,.75);align-self:flex-start}
+.cb-user{background:var(--accent);color:#fff;align-self:flex-end}
+.cb-bot strong{color:#fff;font-weight:600}
+.cd-input{padding:12px 20px;border-top:1px solid rgba(255,255,255,.05);display:flex;align-items:center;gap:10px}
+.cd-input-field{flex:1;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);padding:10px 16px;font-size:12px;color:rgba(255,255,255,.25);font-family:var(--font);letter-spacing:0.02em}
+.cd-send{width:36px;height:36px;background:var(--accent);border:none;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .2s}
+.cd-send:hover{background:var(--accent-hover)}
+
+/* ===== CAPABILITIES GRID ===== */
+.cap-sec{padding:var(--sp-10) 0;background:var(--dark)}
+.cap-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--sp-2)}
+.cap-card{background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.05);padding:var(--sp-4);transition:border-color .3s}
+.cap-card:hover{border-color:rgba(139,115,85,.2)}
+.cap-icon{font-size:24px;margin-bottom:var(--sp-2);opacity:.7}
+.cap-card h3{font-size:15px;font-weight:600;color:#fff;margin-bottom:var(--sp-1);letter-spacing:0.01em}
+.cap-card p{font-size:13px;color:rgba(255,255,255,.35);line-height:1.65}
+
+/* ===== CTA ===== */
+.cta-sec{padding:var(--sp-12) 0;background:var(--dark-deep);text-align:center}
+.cta-sec h2{font-family:var(--serif);font-size:44px;font-weight:400;letter-spacing:-0.02em;color:#fff;margin-bottom:var(--sp-2);line-height:1.15}
+.cta-sec .container>p{font-size:16px;color:rgba(255,255,255,.4);max-width:480px;margin:0 auto var(--sp-5);line-height:1.7}
+
+/* ===== FOOTER (Aman-style dark) ===== */
+footer{background:var(--dark);padding:var(--sp-8) var(--sp-5) var(--sp-4);color:rgba(255,255,255,.6)}
+.ft-inner{max-width:var(--max-w);margin:0 auto}
+.ft-grid{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr;gap:var(--sp-5);margin-bottom:var(--sp-5)}
+.ft-brand{font-family:var(--serif);font-size:18px;font-weight:500;margin-bottom:var(--sp-1);color:rgba(255,255,255,.85)}
+.ft-brand em{font-style:italic;color:var(--sand)}
+.ft-tagline{font-size:13px;color:rgba(255,255,255,.4);line-height:1.6;max-width:260px;margin-bottom:var(--sp-2)}
+.ft-powered{font-size:11px;color:rgba(255,255,255,.3)}
+.ft-powered a{color:var(--sand);font-weight:500}
+.ft-col h4{font-size:10px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:var(--sp-2)}
+.ft-col a{display:block;color:rgba(255,255,255,.4);font-size:14px;padding:3px 0;transition:color .2s}
+.ft-col a:hover{color:rgba(255,255,255,.7)}
+.ft-bottom{border-top:1px solid rgba(255,255,255,.06);padding-top:var(--sp-3);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.ft-copy{font-size:11px;color:rgba(255,255,255,.3)}
+.ft-copy a{color:var(--sand)}
+.ft-legal{display:flex;gap:var(--sp-3)}
+.ft-legal a{font-size:11px;color:rgba(255,255,255,.3);text-transform:uppercase;letter-spacing:0.06em}
+.ft-legal a:hover{color:rgba(255,255,255,.5)}
+
+/* ===== MOBILE NAV ===== */
+.mobile-overlay{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.4);backdrop-filter:blur(4px);z-index:200;opacity:0;pointer-events:none;transition:opacity .3s}
+.mobile-overlay.active{opacity:1;pointer-events:auto}
+.mobile-drawer{position:fixed;top:0;right:0;bottom:0;width:320px;max-width:85vw;background:var(--bg);z-index:201;transform:translateX(100%);transition:transform .4s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column;padding:var(--sp-10) var(--sp-4) var(--sp-5);box-shadow:-8px 0 40px rgba(0,0,0,.08)}
+.mobile-drawer.active{transform:translateX(0)}
+.mobile-drawer a{display:block;font-size:14px;font-weight:500;color:var(--text);padding:var(--sp-2) 0;border-bottom:1px solid var(--border);font-family:var(--font);text-decoration:none;text-transform:uppercase;letter-spacing:0.1em;transition:color .2s}
+.mobile-drawer a:hover{color:var(--accent)}
+.mobile-drawer .mob-cta{display:block;margin-top:var(--sp-3);background:var(--dark);color:#fff;padding:14px 24px;text-align:center;font-weight:600;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;border-bottom:none}
+.mob-close{position:absolute;top:var(--sp-3);right:var(--sp-3);background:none;border:none;cursor:pointer;padding:var(--sp-1);color:var(--text-mid);font-size:24px;line-height:1}
+
+/* ===== SCROLL REVEAL ANIMATION ===== */
+.reveal{opacity:0;transform:translateY(40px);transition:opacity .6s cubic-bezier(0,0,.2,1),transform .6s cubic-bezier(0,0,.2,1)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:1024px){
+  .hero-inner{max-width:600px}
+  .hero h1{font-size:48px}
+  .ai-grid{grid-template-columns:1fr;gap:var(--sp-5)}
+  .how-grid{grid-template-columns:1fr 1fr}
+  .team-grid{grid-template-columns:1fr 1fr}
+  .cap-grid{grid-template-columns:1fr 1fr}
+  .reg-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:768px){
+  .nav,.promo,.hero,.services-sec,.regions-sec,.how-sec,.social-proof,.team-sec,.cap-sec,.cta-sec,footer{overflow-x:hidden}
+
+  .hero h1{font-size:36px}
+  .hero{min-height:70vh;padding:var(--sp-10) 0 var(--sp-8)}
+  .hero-sub{font-size:15px}
+  .sec-header h2{font-size:32px}
+  .ai-text h2{font-size:30px}
+  .cta-sec h2{font-size:30px}
+
+  .nav-links{display:none}
+  .hamburger{display:block}
+
+  .svc-grid{grid-template-columns:1fr}
+  .svc-card{max-width:100%;width:100%}
+  .how-grid,.team-grid,.cap-grid,.reg-grid{grid-template-columns:1fr}
+
+  .reviews-track{justify-content:center;padding:0 var(--sp-2)}
+  .review{flex:0 1 340px;max-width:100%}
+
+  .sp-stats{gap:var(--sp-4)}
+  .sp-stat-val{font-size:36px}
+
+  .how-sec,.team-sec,.social-proof,.ai-sec,.cap-sec,.cta-sec{padding:var(--sp-8) 0}
+  .regions-sec{padding:var(--sp-6) 0}
+
+  .chat-demo{margin-top:var(--sp-1)}
+  .cd-body{max-height:340px}
+
+  .btn{width:100%;justify-content:center}
+  .hero-actions{flex-direction:column;align-items:stretch}
+  .svc-actions{flex-direction:column}
+  .svc-actions a{width:100%;text-align:center;padding:12px 20px}
+  .ai-cta{flex-direction:column;align-items:stretch}
+  .ai-cta .btn{width:100%}
+  .ai-cta .powered{text-align:center}
+
+  .ft-grid{grid-template-columns:1fr 1fr;gap:var(--sp-4)}
+  .team-badges{gap:var(--sp-2)}
+  .trust-logos{gap:var(--sp-2)}
+}
+@media(max-width:480px){
+  .hero h1{font-size:30px}
+  .promo{font-size:11.5px;padding:10px var(--sp-2)}
+
+  .reviews-track{flex-direction:column;align-items:center;padding:0 var(--sp-2)}
+  .review{flex:0 0 auto;width:100%;max-width:100%}
+
+  .ft-grid{grid-template-columns:1fr}
+  .ft-bottom{flex-direction:column;text-align:center}
+  .ft-legal{justify-content:center}
+  .sp-stats{flex-direction:column;gap:var(--sp-3);align-items:center}
+  .container{padding:0 var(--sp-2)}
+  .reg-inner{padding:var(--sp-3) var(--sp-3);min-height:auto}
+  .how-card{padding:var(--sp-2) var(--sp-1)}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== PROMO BAR ===== -->
+<div class="promo">
+  South Florida &middot; New England &middot; Mediterranean
+  <a href="#" onclick="event.preventDefault();if(window.KazozoWidget)window.KazozoWidget.open()">Speak with a concierge &rarr;</a>
+</div>
+
+<!-- ===== TRUST MARQUEE ===== -->
+<div class="marquee">
+  <div class="marquee-track">
+    <div class="mq"><svg width="14" height="14" fill="none" viewBox="0 0 16 16"><circle cx="8" cy="8" r="7" stroke="#8B7355" stroke-width="1.2"/><path d="M5 8l2 2 4-4" stroke="#8B7355" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Established 2012</div>
+    <div class="mq"><svg width="14" height="14" fill="none" viewBox="0 0 16 16"><circle cx="8" cy="8" r="7" stroke="#8B7355" stroke-width="1.2"/><path d="M5 8l2 2 4-4" stroke="#8B7355" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>IYBA &amp; FYBA Certified</div>
+    <div class="mq"><svg width="14" height="14" fill="none" viewBox="0 0 16 16"><circle cx="8" cy="8" r="7" stroke="#8B7355" stroke-width="1.2"/><path d="M5 8l2 2 4-4" stroke="#8B7355" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>AI Concierge Available 24/7</div>
+    <div class="mq"><svg width="14" height="14" fill="none" viewBox="0 0 16 16"><circle cx="8" cy="8" r="7" stroke="#8B7355" stroke-width="1.2"/><path d="M5 8l2 2 4-4" stroke="#8B7355" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Charter &amp; Sales Worldwide</div>
+    <div class="mq"><svg width="14" height="14" fill="none" viewBox="0 0 16 16"><circle cx="8" cy="8" r="7" stroke="#8B7355" stroke-width="1.2"/><path d="M5 8l2 2 4-4" stroke="#8B7355" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>200+ Transactions Closed</div>
+    <div class="mq"><svg width="14" height="14" fill="none" viewBox="0 0 16 16"><circle cx="8" cy="8" r="7" stroke="#8B7355" stroke-width="1.2"/><path d="M5 8l2 2 4-4" stroke="#8B7355" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Full Vessel Management</div>
+    <!-- dupe for infinite loop -->
+    <div class="mq"><svg width="14" height="14" fill="none" viewBox="0 0 16 16"><circle cx="8" cy="8" r="7" stroke="#8B7355" stroke-width="1.2"/><path d="M5 8l2 2 4-4" stroke="#8B7355" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Established 2012</div>
+    <div class="mq"><svg width="14" height="14" fill="none" viewBox="0 0 16 16"><circle cx="8" cy="8" r="7" stroke="#8B7355" stroke-width="1.2"/><path d="M5 8l2 2 4-4" stroke="#8B7355" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>IYBA &amp; FYBA Certified</div>
+    <div class="mq"><svg width="14" height="14" fill="none" viewBox="0 0 16 16"><circle cx="8" cy="8" r="7" stroke="#8B7355" stroke-width="1.2"/><path d="M5 8l2 2 4-4" stroke="#8B7355" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>AI Concierge Available 24/7</div>
+    <div class="mq"><svg width="14" height="14" fill="none" viewBox="0 0 16 16"><circle cx="8" cy="8" r="7" stroke="#8B7355" stroke-width="1.2"/><path d="M5 8l2 2 4-4" stroke="#8B7355" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Charter &amp; Sales Worldwide</div>
+    <div class="mq"><svg width="14" height="14" fill="none" viewBox="0 0 16 16"><circle cx="8" cy="8" r="7" stroke="#8B7355" stroke-width="1.2"/><path d="M5 8l2 2 4-4" stroke="#8B7355" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>200+ Transactions Closed</div>
+    <div class="mq"><svg width="14" height="14" fill="none" viewBox="0 0 16 16"><circle cx="8" cy="8" r="7" stroke="#8B7355" stroke-width="1.2"/><path d="M5 8l2 2 4-4" stroke="#8B7355" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Full Vessel Management</div>
+  </div>
+</div>
+
+<!-- ===== NAV ===== -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#" class="logo">Mora <em>Sol</em> Yachting</a>
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#how">Process</a>
+      <a href="#team">Team</a>
+      <a href="#ai">Concierge</a>
+      <a href="#" class="nav-cta" onclick="event.preventDefault();if(window.KazozoWidget)window.KazozoWidget.open()">Inquire</a>
+    </div>
+    <button class="hamburger" onclick="document.getElementById('mobOverlay').classList.add('active');document.getElementById('mobDrawer').classList.add('active');document.body.style.overflow='hidden'" aria-label="Open navigation">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile Drawer -->
+<div class="mobile-overlay" id="mobOverlay" onclick="this.classList.remove('active');document.getElementById('mobDrawer').classList.remove('active');document.body.style.overflow=''"></div>
+<div class="mobile-drawer" id="mobDrawer">
+  <button class="mob-close" onclick="document.getElementById('mobOverlay').classList.remove('active');this.parentElement.classList.remove('active');document.body.style.overflow=''" aria-label="Close navigation">&times;</button>
+  <a href="#services" onclick="document.getElementById('mobOverlay').classList.remove('active');document.getElementById('mobDrawer').classList.remove('active');document.body.style.overflow=''">Services</a>
+  <a href="#how" onclick="document.getElementById('mobOverlay').classList.remove('active');document.getElementById('mobDrawer').classList.remove('active');document.body.style.overflow=''">Process</a>
+  <a href="#team" onclick="document.getElementById('mobOverlay').classList.remove('active');document.getElementById('mobDrawer').classList.remove('active');document.body.style.overflow=''">Team</a>
+  <a href="#ai" onclick="document.getElementById('mobOverlay').classList.remove('active');document.getElementById('mobDrawer').classList.remove('active');document.body.style.overflow=''">Concierge</a>
+  <a href="#" class="mob-cta" onclick="event.preventDefault();document.getElementById('mobOverlay').classList.remove('active');document.getElementById('mobDrawer').classList.remove('active');document.body.style.overflow='';if(window.KazozoWidget)window.KazozoWidget.open()">Inquire</a>
+</div>
+
+<!-- ===== HERO (Aman-style: centered, serif, generous space) ===== -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-label">Full-Service Yacht Brokerage</div>
+      <h1>Find your next vessel.<br><em>We handle the rest.</em></h1>
+      <p class="hero-sub">Purchase, charter, and yacht management from Fort Lauderdale to the Mediterranean. One team, every detail covered.</p>
+      <div class="hero-actions">
+        <a href="#" class="btn btn-accent btn-arrow" onclick="event.preventDefault();if(window.KazozoWidget)window.KazozoWidget.open()">Speak with a concierge</a>
+        <a href="#services" class="btn btn-outline-light">Explore services</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SERVICES ===== -->
+<section class="services-sec" id="services">
+  <div class="container">
+    <div class="sec-header reveal">
+      <div class="label">What We Do</div>
+      <h2>Purchase. Charter. Manage.</h2>
+      <p>Whether you're acquiring your first yacht or managing a fleet, we bring the same care to every engagement.</p>
+    </div>
+    <div class="svc-grid">
+      <div class="svc-card reveal">
+        <div class="svc-img si1">
+          <div class="svc-badge">Sales &amp; Acquisition</div>
+          <div class="svc-img-icon">&#128674;</div>
+        </div>
+        <div class="svc-body">
+          <h3>Yacht Purchase &amp; Sales</h3>
+          <div class="svc-type">Brokerage &middot; Acquisition &middot; Negotiation</div>
+          <p class="svc-desc">Market intelligence, vessel sourcing, survey coordination, and closing. We represent buyers and sellers from 40ft center consoles to 200ft+ motoryachts.</p>
+          <div class="svc-actions">
+            <a href="#" class="sa-primary" onclick="event.preventDefault();if(window.KazozoWidget)window.KazozoWidget.open()">Inquire</a>
+            <a href="#services" class="sa-ghost">Details</a>
+          </div>
+        </div>
+      </div>
+      <div class="svc-card reveal">
+        <div class="svc-img si2">
+          <div class="svc-badge">Charter</div>
+          <div class="svc-img-icon">&#127754;</div>
+        </div>
+        <div class="svc-body">
+          <h3>Luxury Charter</h3>
+          <div class="svc-type">Crewed &middot; Bareboat &middot; Worldwide</div>
+          <p class="svc-desc">Curated charter experiences from the Bahamas to the Amalfi Coast. Crewed or bareboat, day trips to multi-week voyages. Itineraries built around you.</p>
+          <div class="svc-actions">
+            <a href="#" class="sa-primary" onclick="event.preventDefault();if(window.KazozoWidget)window.KazozoWidget.open()">Plan a Charter</a>
+            <a href="#services" class="sa-ghost">Destinations</a>
+          </div>
+        </div>
+      </div>
+      <div class="svc-card reveal">
+        <div class="svc-img si3">
+          <div class="svc-badge">Management</div>
+          <div class="svc-img-icon">&#9875;</div>
+        </div>
+        <div class="svc-body">
+          <h3>Yacht Management</h3>
+          <div class="svc-type">Crew &middot; Maintenance &middot; Compliance</div>
+          <p class="svc-desc">Full operational oversight: crew hiring, maintenance scheduling, flag state compliance, insurance, dockage, and financial reporting. Show up and enjoy.</p>
+          <div class="svc-actions">
+            <a href="#" class="sa-primary" onclick="event.preventDefault();if(window.KazozoWidget)window.KazozoWidget.open()">Get Started</a>
+            <a href="#services" class="sa-ghost">Details</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== REGIONS ===== -->
+<section class="regions-sec">
+  <div class="container">
+    <div class="sec-header reveal">
+      <div class="label">Destinations</div>
+      <h2>Where we operate</h2>
+    </div>
+    <div class="reg-grid">
+      <a href="#" class="reg-card reveal" onclick="event.preventDefault();if(window.KazozoWidget)window.KazozoWidget.open()">
+        <div class="reg-inner">
+          <div class="reg-icon">&#127965;</div>
+          <h3>South Florida</h3>
+          <p>Fort Lauderdale, Miami, Palm Beach. Home base and primary marina network.</p>
+        </div>
+      </a>
+      <a href="#" class="reg-card reveal" onclick="event.preventDefault();if(window.KazozoWidget)window.KazozoWidget.open()">
+        <div class="reg-inner">
+          <div class="reg-icon">&#127795;</div>
+          <h3>New England</h3>
+          <p>Newport, Nantucket, Martha's Vineyard. Summer season charters and dockage.</p>
+        </div>
+      </a>
+      <a href="#" class="reg-card reveal" onclick="event.preventDefault();if(window.KazozoWidget)window.KazozoWidget.open()">
+        <div class="reg-inner">
+          <div class="reg-icon">&#127774;</div>
+          <h3>Mediterranean</h3>
+          <p>French Riviera, Amalfi Coast, Greek Islands, Croatia. Charter and delivery support.</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== HOW IT WORKS ===== -->
+<section class="how-sec" id="how">
+  <div class="container">
+    <div class="sec-header reveal">
+      <div class="label">Our Process</div>
+      <h2>From first conversation to open water</h2>
+      <p>A straightforward process, whether you're buying, chartering, or handing us the keys.</p>
+    </div>
+    <div class="how-grid">
+      <div class="how-card reveal">
+        <div class="how-num">1</div>
+        <h3>Start a conversation</h3>
+        <p>Tell our concierge what you're looking for. Vessel type, budget, dates, destinations. Get matched instantly.</p>
+      </div>
+      <div class="how-card reveal">
+        <div class="how-num">2</div>
+        <h3>We build your shortlist</h3>
+        <p>Our brokers curate options based on your requirements, market conditions, and availability. Only relevant vessels.</p>
+      </div>
+      <div class="how-card reveal">
+        <div class="how-num">3</div>
+        <h3>Tour, inspect, decide</h3>
+        <p>Virtual walkthroughs, in-person showings, marine surveys, and sea trials. Every step of due diligence coordinated.</p>
+      </div>
+      <div class="how-card reveal">
+        <div class="how-num">4</div>
+        <h3>Close and enjoy</h3>
+        <p>Contract negotiation, escrow, title, flagging, insurance, and delivery. You arrive to a vessel that's ready.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SOCIAL PROOF ===== -->
+<section class="social-proof">
+  <div class="container">
+    <div class="sp-stats reveal">
+      <div>
+        <div class="sp-stat-val">$340M+</div>
+        <div class="sp-stat-label">Transactions Closed</div>
+      </div>
+      <div>
+        <div class="sp-stat-val">200+</div>
+        <div class="sp-stat-label">Vessels Bought &amp; Sold</div>
+      </div>
+      <div>
+        <div class="sp-stat-val">14</div>
+        <div class="sp-stat-label">Years in Operation</div>
+      </div>
+    </div>
+    <div class="reviews-scroll">
+      <div class="reviews-track">
+        <div class="review reveal">
+          <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="review-text">"The concierge had three charter options ready before I finished my morning coffee. Dates, specs, pricing &mdash; all matched exactly what I described."</p>
+          <div class="review-author"><div class="review-avatar">J</div><div><div class="review-name">James K.</div><div class="review-role">Repeat Charter Client</div></div></div>
+        </div>
+        <div class="review reveal">
+          <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="review-text">"Sold our 72' Viking through Mora Sol. They handled everything from listing to closing. The concierge kept us updated at every step without us having to ask."</p>
+          <div class="review-author"><div class="review-avatar">R</div><div><div class="review-name">Robert &amp; Ellen S.</div><div class="review-role">Seller, 72' Viking</div></div></div>
+        </div>
+        <div class="review reveal">
+          <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="review-text">"We chartered a 90' Ferretti for a week in Croatia. The itinerary, crew, provisioning &mdash; every detail was handled. We just showed up and lived."</p>
+          <div class="review-author"><div class="review-avatar">M</div><div><div class="review-name">Michael T.</div><div class="review-role">Charter Client, Med</div></div></div>
+        </div>
+        <div class="review reveal">
+          <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="review-text">"Their management team runs our 65' Azimut like clockwork. Maintenance, crew, insurance &mdash; I get monthly reports and the boat is always ready when I am."</p>
+          <div class="review-author"><div class="review-avatar">D</div><div><div class="review-name">David L.</div><div class="review-role">Managed Vessel Owner</div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TEAM ===== -->
+<section class="team-sec" id="team">
+  <div class="container">
+    <div class="sec-header reveal">
+      <div class="label">Our Team</div>
+      <h2>The people behind the helm</h2>
+      <p>Licensed brokers, seasoned captains, and marine industry veterans. We know these waters because we live on them.</p>
+    </div>
+    <div class="team-badges reveal">
+      <div class="team-badge">
+        <div class="team-badge-icon"><svg width="16" height="16" fill="none" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="#555" stroke-width="1.5"/></svg></div>
+        IYBA Certified
+      </div>
+      <div class="team-badge">
+        <div class="team-badge-icon"><svg width="16" height="16" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="#555" stroke-width="1.5"/><path d="M9 12l2 2 4-4" stroke="#555" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+        USCG Licensed Captains
+      </div>
+      <div class="team-badge">
+        <div class="team-badge-icon"><svg width="16" height="16" fill="none" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z" stroke="#555" stroke-width="1.5"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z" stroke="#555" stroke-width="1.5"/></svg></div>
+        60+ Years Combined
+      </div>
+    </div>
+    <div class="team-grid">
+      <div class="team-member reveal">
+        <div class="tm-photo">&#9875;</div>
+        <h3>Marco Reyes</h3>
+        <div class="tm-title">Managing Broker</div>
+        <p class="tm-bio">IYBA-certified broker with 20+ years in South Florida yachting. Specializes in motoryacht acquisitions and international transactions.</p>
+      </div>
+      <div class="team-member reveal">
+        <div class="tm-photo">&#128674;</div>
+        <h3>Capt. Sarah Whitfield</h3>
+        <div class="tm-title">Charter Director</div>
+        <p class="tm-bio">USCG 100-ton master license. 15 years managing charter fleets across the Caribbean and Mediterranean.</p>
+      </div>
+      <div class="team-member reveal">
+        <div class="tm-photo">&#128295;</div>
+        <h3>David Chen</h3>
+        <div class="tm-title">Head of Management</div>
+        <p class="tm-bio">Marine engineering background. Oversees vessel maintenance, crew operations, compliance, and financial reporting.</p>
+      </div>
+    </div>
+    <div class="trust-logos reveal">
+      <div class="trust-logo">IYBA Member</div>
+      <div class="trust-logo">FYBA Member</div>
+      <div class="trust-logo">MYBA Affiliate</div>
+      <div class="trust-logo">Insured &amp; Bonded</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== AI CONCIERGE SHOWCASE ===== -->
+<section class="ai-sec" id="ai">
+  <div class="container">
+    <div class="ai-grid">
+      <div class="ai-text">
+        <div class="label">Powered by Kazozo</div>
+        <h2>Your yacht concierge<br>never sleeps</h2>
+        <p>Available around the clock to answer questions, surface fleet options, build itineraries, and connect you with the right broker. Instant, informed, and always on.</p>
+        <div class="ai-features">
+          <div class="aif">
+            <div class="aif-icon">&#128674;</div>
+            <div>
+              <h4>Fleet search and matching</h4>
+              <p>Describe what you want. Size, budget, region, dates. The concierge returns matching vessels with specs and availability in seconds.</p>
+            </div>
+          </div>
+          <div class="aif">
+            <div class="aif-icon">&#128205;</div>
+            <div>
+              <h4>Custom itinerary planning</h4>
+              <p>Mediterranean week? Bahamas weekend? Routes, ports, provisioning, and activities tailored to your party.</p>
+            </div>
+          </div>
+          <div class="aif">
+            <div class="aif-icon">&#129309;</div>
+            <div>
+              <h4>Seamless broker handoff</h4>
+              <p>When you're ready to move forward, the concierge connects you with a licensed broker. Full context included, nothing repeated.</p>
+            </div>
+          </div>
+          <div class="aif">
+            <div class="aif-icon">&#128221;</div>
+            <div>
+              <h4>Transaction updates</h4>
+              <p>Track surveys, inspections, contract milestones, and closing steps. Ask anytime for a status update on your deal.</p>
+            </div>
+          </div>
+        </div>
+        <div class="ai-cta">
+          <a href="#" class="btn btn-accent btn-arrow" onclick="event.preventDefault();if(window.KazozoWidget)window.KazozoWidget.open()">Try the concierge</a>
+          <span class="powered">Built on <a href="https://kazozo.com">Kazozo</a></span>
+        </div>
+      </div>
+      <div class="chat-demo">
+        <div class="cd-top">
+          <div class="cd-avatar">MS</div>
+          <div class="cd-name">Mora Sol Concierge</div>
+          <div class="cd-status">Online</div>
+        </div>
+        <div class="cd-body">
+          <div class="cb cb-bot">Welcome to Mora Sol Yachting. I can help you find a vessel to purchase or charter, plan an itinerary, or answer questions about yacht ownership. <strong>What can I help you with?</strong></div>
+          <div class="cb cb-user">We're looking for a crewed charter in the Mediterranean for 8 people, last two weeks of July.</div>
+          <div class="cb cb-bot">July is peak Med season. A few questions to narrow things down: <strong>Do you have a preferred region?</strong> Popular options for that period are the Amalfi Coast, Greek Islands, or the French Riviera. And do you have a budget range in mind?</div>
+          <div class="cb cb-user">Greek Islands, around $80-120K for two weeks</div>
+          <div class="cb cb-bot">For 8 guests in the Greek Islands at that range, I'd suggest <strong>motor yachts in the 85&ndash;110ft range</strong> with 4 cabins and full crew. We have three vessels with late July availability. Would you like specs and photos, or shall I connect you with our charter director?</div>
+        </div>
+        <div class="cd-input">
+          <div class="cd-input-field">Ask about charters, vessels, or ownership...</div>
+          <button class="cd-send" onclick="if(window.KazozoWidget)window.KazozoWidget.open()" aria-label="Send">
+            <svg width="14" height="14" fill="none" viewBox="0 0 24 24"><path d="M22 2L11 13" stroke="#fff" stroke-width="2" stroke-linecap="round"/><path d="M22 2L15 22l-4-9-9-4 20-7z" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CAPABILITIES GRID ===== -->
+<section class="cap-sec">
+  <div class="container">
+    <div class="sec-header" style="margin-bottom:var(--sp-6)">
+      <div class="label" style="color:var(--sand)">Capabilities</div>
+      <h2 style="color:#fff">What the concierge can do</h2>
+      <p style="color:rgba(255,255,255,.4)">Powered by Kazozo's Frontline Agent technology.</p>
+    </div>
+    <div class="cap-grid">
+      <div class="cap-card">
+        <div class="cap-icon">&#128172;</div>
+        <h3>Answer any question</h3>
+        <p>Vessel specs, charter pricing, port information, ownership costs &mdash; answered in seconds, not business days.</p>
+      </div>
+      <div class="cap-card">
+        <div class="cap-icon">&#128269;</div>
+        <h3>Search available fleet</h3>
+        <p>Filter by size, type, region, budget, and dates. Matching vessels surfaced from our network in real time.</p>
+      </div>
+      <div class="cap-card">
+        <div class="cap-icon">&#128205;</div>
+        <h3>Build itineraries</h3>
+        <p>Route planning, port suggestions, provisioning, water activities. A complete voyage plan, personalized.</p>
+      </div>
+      <div class="cap-card">
+        <div class="cap-icon">&#128197;</div>
+        <h3>Coordinate logistics</h3>
+        <p>Provisioning, crew arrangements, marina reservations, airport transfers. Every detail handled before arrival.</p>
+      </div>
+      <div class="cap-card">
+        <div class="cap-icon">&#129309;</div>
+        <h3>Route to the right broker</h3>
+        <p>Qualified inquiries routed to the best-fit broker with full context. No repeat conversations.</p>
+      </div>
+      <div class="cap-card">
+        <div class="cap-icon">&#128274;</div>
+        <h3>Secure and private</h3>
+        <p>Client data encrypted end-to-end. Financial details protected. Every interaction logged and auditable.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="cta-sec">
+  <div class="container">
+    <h2>Ready to get on the water?</h2>
+    <p>Tell us what you're looking for. Our concierge will have options ready in minutes.</p>
+    <a href="#" class="btn btn-white btn-arrow" onclick="event.preventDefault();if(window.KazozoWidget)window.KazozoWidget.open()">Start a conversation</a>
+  </div>
+</section>
+
+<!-- ===== FOOTER (Aman-style dark) ===== -->
+<footer>
+  <div class="ft-inner">
+    <div class="ft-grid">
+      <div>
+        <div class="ft-brand">Mora <em>Sol</em> Yachting</div>
+        <p class="ft-tagline">Full-service yacht brokerage. Purchase, charter, and management &mdash; South Florida to the Mediterranean.</p>
+        <p class="ft-powered">AI concierge by <a href="https://kazozo.com">Kazozo</a></p>
+      </div>
+      <div class="ft-col">
+        <h4>Services</h4>
+        <a href="#">Purchase &amp; Sales</a>
+        <a href="#">Charter</a>
+        <a href="#">Management</a>
+        <a href="#">Dockage</a>
+        <a href="#">Delivery</a>
+      </div>
+      <div class="ft-col">
+        <h4>Destinations</h4>
+        <a href="#">South Florida</a>
+        <a href="#">New England</a>
+        <a href="#">Caribbean</a>
+        <a href="#">Mediterranean</a>
+      </div>
+      <div class="ft-col">
+        <h4>Company</h4>
+        <a href="#">About</a>
+        <a href="#">Our Team</a>
+        <a href="#">Testimonials</a>
+        <a href="#">Contact</a>
+      </div>
+    </div>
+    <div class="ft-bottom">
+      <div class="ft-copy">&copy; 2026 Mora Sol Yachting, a <a href="https://solanki.co">Solanki Co</a> company.</div>
+      <div class="ft-legal">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">Disclaimer</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<p style="text-align:center;font-size:11px;color:var(--text-muted);padding:var(--sp-2) var(--sp-3);line-height:1.6;background:var(--bg-warm);border-top:1px solid var(--border)">
+  <em>This is a demonstration site built to showcase AI concierge capabilities powered by <a href="https://kazozo.com" style="color:var(--accent);font-weight:500">Kazozo</a>. All team member names, client stories, and transaction figures are fictional. Mora Sol Yachting is a brand of <a href="https://solanki.co" style="color:var(--accent);font-weight:500">Solanki Co</a>.</em>
+</p>
+
+<!-- Scroll reveal animation -->
+<script>
+(function(){
+  var els=document.querySelectorAll('.reveal');
+  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('visible')});return}
+  var obs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})
+  },{threshold:0.15,rootMargin:'0px 0px -40px 0px'});
+  els.forEach(function(e){obs.observe(e)});
+})();
+</script>
+
+<!-- Kazozo Frontline Agent Widget -->
+<script src="https://api.kazozo.com/widget/embed-loader.js"
+  data-tenant="mora-sol-yachting"
+  data-api="https://api.kazozo.com"
+  data-bot-name="Mora Sol Concierge"
+  data-color="#8B7355"
+  data-position="bottom-right"></script>
+
+</body>
+</html>

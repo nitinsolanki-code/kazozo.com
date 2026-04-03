@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mora Sol Real Estate — Palm Beach Luxury Residential Brokerage</title>
+<meta name="description" content="Boutique luxury real estate brokerage in Palm Beach, Florida. Buyer and seller representation for estates, waterfront homes, and luxury condominiums.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{overflow-x:hidden;width:100%}
+body{overflow-x:hidden;width:100%;position:relative}
+
+/* ===== DESIGN SYSTEM (Aman/Janu inspired) ===== */
+/* 60-20-15-5 color ratio | 8px spacing unit | serif+sans pairing | 0px border-radius buttons */
+:root{
+  /* 60% — Primary background */
+  --bg:#F3EEE7;
+  --bg-warm:#EDE6DC;
+  --bg-ivory:#FCFAF7;
+  /* 20% — Secondary */
+  --sand:#D4C4B0;
+  --stone:#E2DBD6;
+  --stone-light:#EDE8E3;
+  /* 15% — Text */
+  --text:#313131;
+  --text-mid:#555555;
+  --text-light:#777777;
+  --text-muted:#999999;
+  /* 5% — Accent */
+  --accent:#8B7355;
+  --accent-hover:#7A6548;
+  --accent-light:rgba(139,115,85,.08);
+  /* Dark (footer, hero overlay) */
+  --dark:#2B2B2B;
+  --dark-deep:#1A1A1A;
+  /* Functional */
+  --white:#fff;
+  --border:rgba(0,0,0,.08);
+  --border-light:rgba(0,0,0,.05);
+  /* System */
+  --max-w:1200px;
+  --font:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  --serif:'Playfair Display',Georgia,'Times New Roman',serif;
+  /* Spacing (8px base) */
+  --sp-1:8px;--sp-2:16px;--sp-3:24px;--sp-4:32px;--sp-5:40px;--sp-6:48px;--sp-8:64px;--sp-10:80px;--sp-12:96px;--sp-16:128px;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased;letter-spacing:0.01em}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.container{max-width:var(--max-w);margin:0 auto;padding:0 var(--sp-5)}
+
+/* ===== TYPOGRAPHY SYSTEM ===== */
+.serif{font-family:var(--serif)}
+.uppercase{text-transform:uppercase;letter-spacing:0.15em}
+.label{font-size:12px;text-transform:uppercase;letter-spacing:0.15em;font-weight:500;color:var(--text-mid)}
+
+/* ===== PROMO BAR ===== */
+.promo{background:var(--dark);color:rgba(255,255,255,.75);text-align:center;padding:var(--sp-2) var(--sp-3);font-size:13px;font-weight:400;letter-spacing:0.04em}
+.promo a{color:var(--sand);text-decoration:underline;text-underline-offset:3px;font-weight:500;margin-left:6px;transition:color .2s}
+.promo a:hover{color:#fff}
+
+/* ===== TRUST MARQUEE ===== */
+.marquee{overflow:hidden;background:var(--bg-warm);border-bottom:1px solid var(--border);padding:14px 0;max-width:100vw}
+.marquee-track{display:flex;gap:var(--sp-6);animation:scroll 50s linear infinite;width:max-content}
+.mq{display:flex;align-items:center;gap:var(--sp-1);white-space:nowrap;font-size:12px;font-weight:500;color:var(--text-mid);text-transform:uppercase;letter-spacing:0.08em}
+.mq svg{flex-shrink:0}
+@keyframes scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* ===== NAV ===== */
+.nav{position:sticky;top:0;z-index:100;background:rgba(243,238,231,.97);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:var(--max-w);margin:0 auto;padding:0 var(--sp-5);display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-family:var(--serif);font-size:20px;font-weight:500;letter-spacing:0.02em;color:var(--text)}
+.logo em{font-style:italic;color:var(--accent)}
+.nav-links{display:flex;align-items:center;gap:var(--sp-4)}
+.nav-links a{font-size:11px;font-weight:500;color:var(--text-mid);text-transform:uppercase;letter-spacing:0.15em;transition:color .2s}
+.nav-links a:hover{color:var(--text)}
+.nav-cta{background:var(--dark);color:#fff!important;padding:12px 24px;font-size:11px!important;font-weight:600!important;letter-spacing:0.12em!important;text-transform:uppercase!important;transition:background .2s;border:none}
+.nav-cta:hover{background:var(--text)}
+.hamburger{display:none;background:none;border:none;cursor:pointer;padding:var(--sp-1)}
+.hamburger span{display:block;width:20px;height:2px;background:var(--text);margin:5px 0;transition:all .3s}
+
+/* ===== HERO ===== */
+.hero{background:var(--dark-deep);padding:var(--sp-16) 0 var(--sp-12);position:relative;overflow:hidden;min-height:85vh;display:flex;align-items:center}
+.hero::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(26,26,26,.3) 0%,rgba(26,26,26,.6) 100%);pointer-events:none}
+.hero-bg{position:absolute;inset:0;background:linear-gradient(135deg,#1a2a3a 0%,#0d1b2a 40%,#1a1a2e 100%);opacity:.9}
+.hero-inner{position:relative;z-index:1;text-align:center;max-width:800px;margin:0 auto}
+.hero-label{font-size:11px;text-transform:uppercase;letter-spacing:0.2em;font-weight:500;color:var(--sand);margin-bottom:var(--sp-4);display:inline-block}
+.hero h1{font-family:var(--serif);font-size:64px;font-weight:400;letter-spacing:-0.02em;line-height:1.15;color:#fff;margin-bottom:var(--sp-3)}
+.hero h1 em{font-style:italic;color:var(--sand)}
+.hero-sub{font-size:17px;color:rgba(255,255,255,.5);line-height:1.7;margin-bottom:var(--sp-6);max-width:560px;margin-left:auto;margin-right:auto}
+.hero-actions{display:flex;gap:var(--sp-2);align-items:center;justify-content:center;flex-wrap:wrap}
+
+/* ===== BUTTONS (0px radius, uppercase, architectural) ===== */
+.btn{display:inline-flex;align-items:center;gap:var(--sp-1);padding:14px 28px;font-weight:500;font-size:12px;border:none;cursor:pointer;transition:all .25s;text-decoration:none;font-family:var(--font);text-transform:uppercase;letter-spacing:0.12em;border-radius:0}
+.btn-solid{background:var(--dark);color:#fff}
+.btn-solid:hover{background:var(--text);transform:translateY(-2px)}
+.btn-outline-light{background:transparent;color:rgba(255,255,255,.7);border:1px solid rgba(255,255,255,.2)}
+.btn-outline-light:hover{border-color:rgba(255,255,255,.5);color:#fff}
+.btn-accent{background:var(--accent);color:#fff}
+.btn-accent:hover{background:var(--accent-hover);transform:translateY(-2px)}
+.btn-outline{background:transparent;color:var(--text);border:1px solid var(--border)}
+.btn-outline:hover{border-color:var(--text-mid);color:var(--text)}
+.btn-white{background:#fff;color:var(--dark)}
+.btn-white:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.15)}
+.btn-arrow::after{content:'→';margin-left:8px;transition:transform .2s}
+.btn-arrow:hover::after{transform:translateX(3px)}
+
+/* ===== SERVICES ===== */
+.services-sec{padding:var(--sp-12) 0 var(--sp-10)}
+.sec-header{text-align:center;margin-bottom:var(--sp-8);max-width:640px;margin-left:auto;margin-right:auto}
+.sec-header .label{margin-bottom:var(--sp-2);display:block}
+.sec-header h2{font-family:var(--serif);font-size:42px;font-weight:400;letter-spacing:-0.02em;line-height:1.2;margin-bottom:var(--sp-2)}
+.sec-header p{font-size:16px;color:var(--text-mid);line-height:1.7}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--sp-3)}
+.svc-card{background:var(--white);border:1px solid var(--border);overflow:hidden;transition:all .4s cubic-bezier(.4,0,.2,1)}
+.svc-card:hover{box-shadow:0 16px 48px rgba(0,0,0,.06);transform:translateY(-3px)}
+.svc-card:hover .svc-img-icon{transform:scale(1.05)}
+.svc-img{height:220px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.svc-img.si1{background:linear-gradient(135deg,#DDD5CA,#C9BFB0)}
+.svc-img.si2{background:linear-gradient(135deg,#D5DDD5,#BFCBBF)}
+.svc-img.si3{background:linear-gradient(135deg,#DDD8CA,#C9C0A8)}
+.svc-img-icon{font-size:56px;opacity:.7;transition:transform .4s cubic-bezier(.4,0,.2,1)}
+.svc-badge{position:absolute;top:var(--sp-2);left:var(--sp-2);font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:0.12em;color:var(--accent);background:rgba(255,255,255,.9);padding:6px 14px;backdrop-filter:blur(8px)}
+.svc-body{padding:var(--sp-3)}
+.svc-card h3{font-family:var(--serif);font-size:22px;font-weight:500;letter-spacing:-0.01em;margin-bottom:4px}
+.svc-type{font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:var(--sp-2)}
+.svc-desc{font-size:14px;color:var(--text-mid);line-height:1.65;margin-bottom:var(--sp-3)}
+.svc-actions{display:flex;gap:var(--sp-1)}
+.svc-actions a{padding:10px 20px;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;transition:all .2s;border-radius:0}
+.svc-actions .sa-primary{background:var(--dark);color:#fff}
+.svc-actions .sa-primary:hover{background:var(--text)}
+.svc-actions .sa-ghost{color:var(--text-mid);border:1px solid var(--border)}
+.svc-actions .sa-ghost:hover{border-color:var(--text-mid)}
+
+/* ===== NEIGHBORHOODS ===== */
+.neighborhoods-sec{padding:var(--sp-8) 0 var(--sp-10);background:var(--bg-ivory)}
+.nb-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--sp-3);max-width:960px;margin:0 auto}
+.nb-card{overflow:hidden;cursor:pointer;transition:all .4s cubic-bezier(.4,0,.2,1)}
+.nb-card:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(0,0,0,.06)}
+.nb-card:hover .nb-inner{border-color:var(--sand)}
+.nb-inner{padding:var(--sp-5) var(--sp-3);display:flex;flex-direction:column;align-items:flex-start;gap:var(--sp-2);border:1px solid var(--border);background:var(--white);min-height:220px;transition:border-color .3s}
+.nb-icon{font-size:32px;opacity:.7}
+.nb-card h3{font-family:var(--serif);font-size:20px;font-weight:500}
+.nb-card p{font-size:13px;color:var(--text-mid);line-height:1.6}
+
+/* ===== HOW IT WORKS ===== */
+.how-sec{background:var(--white);padding:var(--sp-10) 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.how-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--sp-3)}
+.how-card{text-align:center;padding:var(--sp-3) var(--sp-2)}
+.how-num{width:48px;height:48px;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:20px;font-weight:400;color:var(--accent);margin:0 auto var(--sp-3);border:1px solid var(--sand)}
+.how-card h3{font-size:15px;font-weight:600;margin-bottom:var(--sp-1);letter-spacing:0.01em}
+.how-card p{font-size:13px;color:var(--text-light);line-height:1.65}
+
+/* ===== SOCIAL PROOF ===== */
+.social-proof{padding:var(--sp-10) 0;text-align:center}
+.sp-stats{display:flex;justify-content:center;gap:var(--sp-10);margin-bottom:var(--sp-8);flex-wrap:wrap}
+.sp-stat-val{font-family:var(--serif);font-size:52px;font-weight:400;letter-spacing:-0.02em;line-height:1;color:var(--text)}
+.sp-stat-label{font-size:12px;color:var(--text-mid);margin-top:var(--sp-1);text-transform:uppercase;letter-spacing:0.1em}
+
+/* ===== TEAM ===== */
+.team-sec{background:var(--bg-ivory);padding:var(--sp-10) 0;border-top:1px solid var(--border)}
+.team-badges{display:flex;justify-content:center;gap:var(--sp-5);flex-wrap:wrap;padding:var(--sp-4) 0;margin-bottom:var(--sp-4)}
+.team-badge{display:flex;align-items:center;gap:var(--sp-1);font-size:12px;color:var(--text-mid);font-weight:500;text-transform:uppercase;letter-spacing:0.06em}
+.team-badge-icon{width:36px;height:36px;display:flex;align-items:center;justify-content:center;border:1px solid var(--border)}
+.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--sp-3);max-width:960px;margin:0 auto}
+.team-member{background:var(--white);border:1px solid var(--border);padding:var(--sp-4);text-align:center}
+.tm-photo{width:80px;height:80px;margin:0 auto var(--sp-2);display:flex;align-items:center;justify-content:center;font-size:28px;background:var(--stone-light)}
+.team-member h3{font-family:var(--serif);font-size:17px;font-weight:500;margin-bottom:2px}
+.tm-title{font-size:11px;color:var(--accent);font-weight:600;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:var(--sp-1)}
+.tm-bio{font-size:13px;color:var(--text-light);line-height:1.6}
+
+/* ===== AI CONCIERGE SHOWCASE ===== */
+.ai-sec{background:var(--dark-deep);padding:var(--sp-12) 0;position:relative;overflow:hidden;max-width:100vw}
+.ai-sec::before{content:'';position:absolute;top:-200px;right:-200px;width:600px;height:600px;background:radial-gradient(circle,rgba(139,115,85,.06) 0%,transparent 70%);pointer-events:none}
+.ai-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-8);align-items:center}
+.ai-text .label{color:var(--sand);margin-bottom:var(--sp-3);display:block}
+.ai-text h2{font-family:var(--serif);font-size:42px;font-weight:400;letter-spacing:-0.02em;color:#fff;line-height:1.15;margin-bottom:var(--sp-2)}
+.ai-text>p{font-size:16px;color:rgba(255,255,255,.45);line-height:1.7;margin-bottom:var(--sp-5)}
+.ai-features{display:flex;flex-direction:column;gap:var(--sp-3)}
+.aif{display:flex;gap:var(--sp-2);align-items:flex-start}
+.aif-icon{width:40px;height:40px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:18px;border:1px solid rgba(255,255,255,.06);background:rgba(255,255,255,.03)}
+.aif h4{font-size:14px;font-weight:600;color:#fff;margin-bottom:2px;letter-spacing:0.01em}
+.aif p{font-size:13px;color:rgba(255,255,255,.35);line-height:1.6}
+.ai-cta{margin-top:var(--sp-5);display:flex;gap:var(--sp-2);align-items:center;flex-wrap:wrap}
+.ai-cta .powered{font-size:11px;color:rgba(255,255,255,.25);font-weight:400;text-transform:uppercase;letter-spacing:0.08em}
+.ai-cta .powered a{color:rgba(255,255,255,.4);text-decoration:underline;text-underline-offset:3px}
+
+/* Chat demo */
+.chat-demo{background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.05);overflow:hidden}
+.cd-top{background:rgba(255,255,255,.03);padding:14px 20px;display:flex;align-items:center;gap:10px;border-bottom:1px solid rgba(255,255,255,.05)}
+.cd-avatar{width:32px;height:32px;display:flex;align-items:center;justify-content:center;background:var(--accent);color:#fff;font-family:var(--serif);font-weight:500;font-size:11px}
+.cd-name{font-size:12px;font-weight:600;color:#fff;text-transform:uppercase;letter-spacing:0.08em}
+.cd-status{margin-left:auto;display:flex;align-items:center;gap:5px;font-size:10px;color:#6EE7A0;font-weight:500;text-transform:uppercase;letter-spacing:0.06em}
+.cd-status::before{content:'';width:6px;height:6px;border-radius:50%;background:#6EE7A0}
+.cd-body{padding:var(--sp-2) 20px;display:flex;flex-direction:column;gap:10px;max-height:420px;overflow-y:auto}
+.cb{max-width:88%;padding:12px 16px;font-size:13px;line-height:1.6}
+.cb-bot{background:rgba(255,255,255,.04);color:rgba(255,255,255,.75);align-self:flex-start}
+.cb-user{background:var(--accent);color:#fff;align-self:flex-end}
+.cb-bot strong{color:#fff;font-weight:600}
+.cd-input{padding:12px 20px;border-top:1px solid rgba(255,255,255,.05);display:flex;align-items:center;gap:10px}
+.cd-input-field{flex:1;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);padding:10px 16px;font-size:12px;color:rgba(255,255,255,.25);font-family:var(--font);letter-spacing:0.02em}
+.cd-send{width:36px;height:36px;background:var(--accent);border:none;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .2s}
+.cd-send:hover{background:var(--accent-hover)}
+
+/* ===== CAPABILITIES GRID ===== */
+.cap-sec{padding:var(--sp-10) 0;background:var(--dark)}
+.cap-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--sp-2)}
+.cap-card{background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.05);padding:var(--sp-4);transition:border-color .3s}
+.cap-card:hover{border-color:rgba(139,115,85,.2)}
+.cap-icon{font-size:24px;margin-bottom:var(--sp-2);opacity:.7}
+.cap-card h3{font-size:15px;font-weight:600;color:#fff;margin-bottom:var(--sp-1);letter-spacing:0.01em}
+.cap-card p{font-size:13px;color:rgba(255,255,255,.35);line-height:1.65}
+
+/* ===== CTA ===== */
+.cta-sec{padding:var(--sp-12) 0;background:var(--dark-deep);text-align:center}
+.cta-sec h2{font-family:var(--serif);font-size:44px;font-weight:400;letter-spacing:-0.02em;color:#fff;margin-bottom:var(--sp-2);line-height:1.15}
+.cta-sec .container>p{font-size:16px;color:rgba(255,255,255,.4);max-width:480px;margin:0 auto var(--sp-5);line-height:1.7}
+
+/* ===== FOOTER (Aman-style dark) ===== */
+footer{background:var(--dark);padding:var(--sp-8) var(--sp-5) var(--sp-4);color:rgba(255,255,255,.6)}
+.ft-inner{max-width:var(--max-w);margin:0 auto}
+.ft-grid{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr;gap:var(--sp-5);margin-bottom:var(--sp-5)}
+.ft-brand{font-family:var(--serif);font-size:18px;font-weight:500;margin-bottom:var(--sp-1);color:rgba(255,255,255,.85)}
+.ft-brand em{font-style:italic;color:var(--sand)}
+.ft-tagline{font-size:13px;color:rgba(255,255,255,.4);line-height:1.6;max-width:260px;margin-bottom:var(--sp-2)}
+.ft-powered{font-size:11px;color:rgba(255,255,255,.3)}
+.ft-powered a{color:var(--sand);font-weight:500}
+.ft-col h4{font-size:10px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:var(--sp-2)}
+.ft-col a{display:block;color:rgba(255,255,255,.4);font-size:14px;padding:3px 0;transition:color .2s}
+.ft-col a:hover{color:rgba(255,255,255,.7)}
+.ft-bottom{border-top:1px solid rgba(255,255,255,.06);padding-top:var(--sp-3);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.ft-copy{font-size:11px;color:rgba(255,255,255,.3)}
+.ft-copy a{color:var(--sand)}
+.ft-legal{display:flex;gap:var(--sp-3)}
+.ft-legal a{font-size:11px;color:rgba(255,255,255,.3);text-transform:uppercase;letter-spacing:0.06em}
+.ft-legal a:hover{color:rgba(255,255,255,.5)}
+
+/* ===== MOBILE NAV ===== */
+.mobile-overlay{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.4);backdrop-filter:blur(4px);z-index:200;opacity:0;pointer-events:none;transition:opacity .3s}
+.mobile-overlay.active{opacity:1;pointer-events:auto}
+.mobile-drawer{position:fixed;top:0;right:0;bottom:0;width:320px;max-width:85vw;background:var(--bg);z-index:201;transform:translateX(100%);transition:transform .4s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column;padding:var(--sp-10) var(--sp-4) var(--sp-5);box-shadow:-8px 0 40px rgba(0,0,0,.08)}
+.mobile-drawer.active{transform:translateX(0)}
+.mobile-drawer a{display:block;font-size:14px;font-weight:500;color:var(--text);padding:var(--sp-2) 0;border-bottom:1px solid var(--border);font-family:var(--font);text-decoration:none;text-transform:uppercase;letter-spacing:0.1em;transition:color .2s}
+.mobile-drawer a:hover{color:var(--accent)}
+.mobile-drawer .mob-cta{display:block;margin-top:var(--sp-3);background:var(--dark);color:#fff;padding:14px 24px;text-align:center;font-weight:600;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;border-bottom:none}
+.mob-close{position:absolute;top:var(--sp-3);right:var(--sp-3);background:none;border:none;cursor:pointer;padding:var(--sp-1);color:var(--text-mid);font-size:24px;line-height:1}
+
+/* ===== SCROLL REVEAL ANIMATION ===== */
+.reveal{opacity:0;transform:translateY(40px);transition:opacity .6s cubic-bezier(0,0,.2,1),transform .6s cubic-bezier(0,0,.2,1)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:1024px){
+  .hero-inner{max-width:600px}
+  .hero h1{font-size:48px}
+  .ai-grid{grid-template-columns:1fr;gap:var(--sp-5)}
+  .how-grid{grid-template-columns:1fr 1fr}
+  .team-grid{grid-template-columns:1fr 1fr}
+  .cap-grid{grid-template-columns:1fr 1fr}
+  .nb-grid{grid-template-columns:1fr}
+}
+@media(max-width:768px){
+  .nav,.promo,.hero,.services-sec,.neighborhoods-sec,.how-sec,.social-proof,.team-sec,.cap-sec,.cta-sec,footer{overflow-x:hidden}
+
+  .hero h1{font-size:36px}
+  .hero{min-height:70vh;padding:var(--sp-10) 0 var(--sp-8)}
+  .hero-sub{font-size:15px}
+  .sec-header h2{font-size:32px}
+  .ai-text h2{font-size:30px}
+  .cta-sec h2{font-size:30px}
+
+  .nav-links{display:none}
+  .hamburger{display:block}
+
+  .svc-grid{grid-template-columns:1fr}
+  .svc-card{max-width:100%;width:100%}
+  .how-grid,.team-grid,.cap-grid,.nb-grid{grid-template-columns:1fr}
+
+  .sp-stats{gap:var(--sp-4)}
+  .sp-stat-val{font-size:36px}
+
+  .how-sec,.team-sec,.social-proof,.ai-sec,.cap-sec,.cta-sec{padding:var(--sp-8) 0}
+  .neighborhoods-sec{padding:var(--sp-6) 0}
+
+  .chat-demo{margin-top:var(--sp-1)}
+  .cd-body{max-height:340px}
+
+  .btn{width:100%;justify-content:center}
+  .hero-actions{flex-direction:column;align-items:stretch}
+  .svc-actions{flex-direction:column}
+  .svc-actions a{width:100%;text-align:center;padding:12px 20px}
+  .ai-cta{flex-direction:column;align-items:stretch}
+  .ai-cta .btn{width:100%}
+  .ai-cta .powered{text-align:center}
+
+  .ft-grid{grid-template-columns:1fr 1fr;gap:var(--sp-4)}
+  .team-badges{gap:var(--sp-2)}
+}
+@media(max-width:480px){
+  .hero h1{font-size:30px}
+  .promo{font-size:11.5px;padding:10px var(--sp-2)}
+
+  .ft-grid{grid-template-columns:1fr}
+  .ft-bottom{flex-direction:column;text-align:center}
+  .ft-legal{justify-content:center}
+  .sp-stats{flex-direction:column;gap:var(--sp-3);align-items:center}
+  .container{padding:0 var(--sp-2)}
+  .nb-inner{padding:var(--sp-3) var(--sp-3);min-height:auto}
+  .how-card{padding:var(--sp-2) var(--sp-1)}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== PROMO BAR ===== -->
+<div class="promo">
+  Complimentary market analysis for Palm Beach homeowners
+  <a href="#" onclick="event.preventDefault();if(window.KazozoWidget)window.KazozoWidget.open()">Schedule consultation &rarr;</a>
+</div>
+
+<!-- ===== TRUST MARQUEE ===== -->
+<div class="marquee">
+  <div class="marquee-track">
+    <div class="mq"><svg width="14" height="14" fill="none" viewBox="0 0 16 16"><circle cx="8" cy="8" r="7" stroke="#8B7355" stroke-width="1.2"/><path d="M5 8l2 2 4-4" stroke="#8B7355" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Licensed Brokerage</div>
+    <div class="mq"><svg width="14" height="14" fill="none" viewBox="0 0 16 16"><circle cx="8" cy="8" r="7" stroke="#8B7355" stroke-width="1.2"/><path d="M5 8l2 2 4-4" stroke="#8B7355" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>$340M+ Closed</div>
+    <div class="mq"><svg width="14" height="14" fill="none" viewBox="0 0 16 16"><circle cx="8" cy="8" r="7" stroke="#8B7355" stroke-width="1.2"/><path d="M5 8l2 2 4-4" stroke="#8B7355" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Palm Beach Specialists</div>
+    <div class="mq"><svg width="14" height="14" fill="none" viewBox="0 0 16 16"><circle cx="8" cy="8" r="7" stroke="#8B7355" stroke-width="1.2"/><path d="M5 8l2 2 4-4" stroke="#8B7355" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Waterfront Experts</div>
+    <div class="mq"><svg width="14" height="14" fill="none" viewBox="0 0 16 16"><circle cx="8" cy="8" r="7" stroke="#8B7355" stroke-width="1.2"/><path d="M5 8l2 2 4-4" stroke="#8B7355" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Confidential Transactions</div>
+    <div class="mq"><svg width="14" height="14" fill="none" viewBox="0 0 16 16"><circle cx="8" cy="8" r="7" stroke="#8B7355" stroke-width="1.2"/><path d="M5 8l2 2 4-4" stroke="#8B7355" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Member RPBMLS</div>
+    <!-- dupe for infinite loop -->
+    <div class="mq"><svg width="14" height="14" fill="none" viewBox="0 0 16 16"><circle cx="8" cy="8" r="7" stroke="#8B7355" stroke-width="1.2"/><path d="M5 8l2 2 4-4" stroke="#8B7355" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Licensed Brokerage</div>
+    <div class="mq"><svg width="14" height="14" fill="none" viewBox="0 0 16 16"><circle cx="8" cy="8" r="7" stroke="#8B7355" stroke-width="1.2"/><path d="M5 8l2 2 4-4" stroke="#8B7355" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>$340M+ Closed</div>
+    <div class="mq"><svg width="14" height="14" fill="none" viewBox="0 0 16 16"><circle cx="8" cy="8" r="7" stroke="#8B7355" stroke-width="1.2"/><path d="M5 8l2 2 4-4" stroke="#8B7355" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Palm Beach Specialists</div>
+    <div class="mq"><svg width="14" height="14" fill="none" viewBox="0 0 16 16"><circle cx="8" cy="8" r="7" stroke="#8B7355" stroke-width="1.2"/><path d="M5 8l2 2 4-4" stroke="#8B7355" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Waterfront Experts</div>
+    <div class="mq"><svg width="14" height="14" fill="none" viewBox="0 0 16 16"><circle cx="8" cy="8" r="7" stroke="#8B7355" stroke-width="1.2"/><path d="M5 8l2 2 4-4" stroke="#8B7355" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Confidential Transactions</div>
+    <div class="mq"><svg width="14" height="14" fill="none" viewBox="0 0 16 16"><circle cx="8" cy="8" r="7" stroke="#8B7355" stroke-width="1.2"/><path d="M5 8l2 2 4-4" stroke="#8B7355" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Member RPBMLS</div>
+  </div>
+</div>
+
+<!-- ===== NAV ===== -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#" class="logo">Mora <em>Sol</em> Real Estate</a>
+    <div class="nav-links">
+      <a href="#properties">Properties</a>
+      <a href="#neighborhoods">Neighborhoods</a>
+      <a href="#services">Services</a>
+      <a href="#how">Process</a>
+      <a href="#team">Team</a>
+      <a href="#" class="nav-cta" onclick="event.preventDefault();if(window.KazozoWidget)window.KazozoWidget.open()">Schedule Consultation</a>
+    </div>
+    <button class="hamburger" onclick="document.getElementById('mobOverlay').classList.add('active');document.getElementById('mobDrawer').classList.add('active');document.body.style.overflow='hidden'" aria-label="Open navigation">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile Drawer -->
+<div class="mobile-overlay" id="mobOverlay" onclick="this.classList.remove('active');document.getElementById('mobDrawer').classList.remove('active');document.body.style.overflow=''"></div>
+<div class="mobile-drawer" id="mobDrawer">
+  <button class="mob-close" onclick="document.getElementById('mobOverlay').classList.remove('active');this.parentElement.classList.remove('active');document.body.style.overflow=''" aria-label="Close navigation">&times;</button>
+  <a href="#properties" onclick="document.getElementById('mobOverlay').classList.remove('active');document.getElementById('mobDrawer').classList.remove('active');document.body.style.overflow=''">Properties</a>
+  <a href="#neighborhoods" onclick="document.getElementById('mobOverlay').classList.remove('active');document.getElementById('mobDrawer').classList.remove('active');document.body.style.overflow=''">Neighborhoods</a>
+  <a href="#services" onclick="document.getElementById('mobOverlay').classList.remove('active');document.getElementById('mobDrawer').classList.remove('active');document.body.style.overflow=''">Services</a>
+  <a href="#how" onclick="document.getElementById('mobOverlay').classList.remove('active');document.getElementById('mobDrawer').classList.remove('active');document.body.style.overflow=''">Process</a>
+  <a href="#team" onclick="document.getElementById('mobOverlay').classList.remove('active');document.getElementById('mobDrawer').classList.remove('active');document.body.style.overflow=''">Team</a>
+  <a href="#" class="mob-cta" onclick="event.preventDefault();document.getElementById('mobOverlay').classList.remove('active');document.getElementById('mobDrawer').classList.remove('active');document.body.style.overflow='';if(window.KazozoWidget)window.KazozoWidget.open()">Schedule Consultation</a>
+</div>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-label">Palm Beach Luxury Real Estate</div>
+      <h1>Where every address tells a <em>story</em></h1>
+      <p class="hero-sub">Boutique residential brokerage on Palm Beach Island. Buyer and seller representation for estates, waterfront homes, and luxury condominiums. Substance over spectacle.</p>
+      <div class="hero-actions">
+        <a href="#" class="btn btn-accent btn-arrow" onclick="event.preventDefault();if(window.KazozoWidget)window.KazozoWidget.open()">View Properties</a>
+        <a href="#services" class="btn btn-outline-light">Sell With Us</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SERVICES ===== -->
+<section class="services-sec" id="services">
+  <div class="container">
+    <div class="sec-header reveal">
+      <div class="label">How We Help</div>
+      <h2>Specialized Services</h2>
+      <p>From market analysis to closing day, we handle every detail with care and expertise.</p>
+    </div>
+    <div class="svc-grid">
+      <div class="svc-card reveal">
+        <div class="svc-img si1">
+          <div class="svc-badge">Buyers</div>
+          <div class="svc-img-icon">🔍</div>
+        </div>
+        <div class="svc-body">
+          <h3>Buyer Representation</h3>
+          <p class="svc-type">Acquisition Strategy</p>
+          <p class="svc-desc">Off-market sourcing, private showings, skilled negotiation, and closing coordination.</p>
+          <div class="svc-actions">
+            <a href="#" class="sa-primary" onclick="event.preventDefault();if(window.KazozoWidget)window.KazozoWidget.open()">Learn More</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="svc-card reveal">
+        <div class="svc-img si2">
+          <div class="svc-badge">Sellers</div>
+          <div class="svc-img-icon">📊</div>
+        </div>
+        <div class="svc-body">
+          <h3>Seller Advisory</h3>
+          <p class="svc-type">Market Strategy</p>
+          <p class="svc-desc">Comparative market analysis, pricing strategy, targeted marketing, and transaction management.</p>
+          <div class="svc-actions">
+            <a href="#" class="sa-primary" onclick="event.preventDefault();if(window.KazozoWidget)window.KazozoWidget.open()">Learn More</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="svc-card reveal">
+        <div class="svc-img si1">
+          <div class="svc-badge">Luxury</div>
+          <div class="svc-img-icon">🏗</div>
+        </div>
+        <div class="svc-body">
+          <h3>New Construction</h3>
+          <p class="svc-type">Development Access</p>
+          <p class="svc-desc">Pre-construction opportunities, developer relationships, and custom build advisory.</p>
+          <div class="svc-actions">
+            <a href="#" class="sa-primary" onclick="event.preventDefault();if(window.KazozoWidget)window.KazozoWidget.open()">Learn More</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="svc-card reveal">
+        <div class="svc-img si3">
+          <div class="svc-badge">Specialty</div>
+          <div class="svc-img-icon">🌊</div>
+        </div>
+        <div class="svc-body">
+          <h3>Waterfront Specialists</h3>
+          <p class="svc-type">Oceanfront & Intracoastal</p>
+          <p class="svc-desc">Oceanfront estates, Intracoastal properties, lakefront homes. Deep knowledge of waterfront considerations.</p>
+          <div class="svc-actions">
+            <a href="#" class="sa-primary" onclick="event.preventDefault();if(window.KazozoWidget)window.KazozoWidget.open()">Learn More</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="svc-card reveal">
+        <div class="svc-img si2">
+          <div class="svc-badge">Investors</div>
+          <div class="svc-img-icon">💼</div>
+        </div>
+        <div class="svc-body">
+          <h3>Investment Advisory</h3>
+          <p class="svc-type">Portfolio Strategy</p>
+          <p class="svc-desc">Portfolio strategy, rental analysis, 1031 exchanges, and market timing insights.</p>
+          <div class="svc-actions">
+            <a href="#" class="sa-primary" onclick="event.preventDefault();if(window.KazozoWidget)window.KazozoWidget.open()">Learn More</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="svc-card reveal">
+        <div class="svc-img si1">
+          <div class="svc-badge">Relocation</div>
+          <div class="svc-img-icon">✈️</div>
+        </div>
+        <div class="svc-body">
+          <h3>Relocation Services</h3>
+          <p class="svc-type">Concierge Transition</p>
+          <p class="svc-desc">Out-of-state buyers, lifestyle matching, school and club guidance, concierge transition support.</p>
+          <div class="svc-actions">
+            <a href="#" class="sa-primary" onclick="event.preventDefault();if(window.KazozoWidget)window.KazozoWidget.open()">Learn More</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== NEIGHBORHOODS ===== -->
+<section class="neighborhoods-sec" id="neighborhoods">
+  <div class="container">
+    <div class="sec-header reveal">
+      <div class="label">Where We Specialize</div>
+      <h2>Palm Beach County's Finest Addresses</h2>
+      <p>We know every neighborhood, every oceanfront lot, every development opportunity.</p>
+    </div>
+    <div class="nb-grid">
+      <div class="nb-card reveal">
+        <div class="nb-inner">
+          <div class="nb-icon">🏝</div>
+          <h3>Palm Beach Island</h3>
+          <p>Estate Section, North End, Midtown, South End. Oceanfront estates from $5M to $100M+. Historic homes and contemporary masterpieces.</p>
+        </div>
+      </div>
+
+      <div class="nb-card reveal">
+        <div class="nb-inner">
+          <div class="nb-icon">🏙</div>
+          <h3>West Palm Beach</h3>
+          <p>Downtown, SoSo, Northwood, Flagler corridor. Luxury condos and waterfront properties from $1M to $30M+. Urban sophistication meets Florida lifestyle.</p>
+        </div>
+      </div>
+
+      <div class="nb-card reveal">
+        <div class="nb-inner">
+          <div class="nb-icon">🌴</div>
+          <h3>Manalapan & Gulf Stream</h3>
+          <p>Ultra-private oceanfront-to-Intracoastal estates from $8M to $50M+. Exclusive communities with 24/7 security and private beaches.</p>
+        </div>
+      </div>
+
+      <div class="nb-card reveal">
+        <div class="nb-inner">
+          <div class="nb-icon">⛵</div>
+          <h3>Jupiter Island & North County</h3>
+          <p>Jupiter Island, Hobe Sound, Palm Beach Gardens. Waterfront estates from $3M to $40M+. Golf, clubs, and riverside living.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== HOW IT WORKS ===== -->
+<section class="how-sec" id="how">
+  <div class="container">
+    <div class="sec-header reveal" style="margin-bottom:var(--sp-6)">
+      <div class="label">Our Process</div>
+      <h2>Four Steps to Your Dream Home</h2>
+    </div>
+    <div class="how-grid">
+      <div class="how-card reveal">
+        <div class="how-num">1</div>
+        <h3>Consult</h3>
+        <p>Share your goals, timeline, and preferences. We listen before we advise.</p>
+      </div>
+      <div class="how-card reveal">
+        <div class="how-num">2</div>
+        <h3>Strategize</h3>
+        <p>Receive a tailored plan: market analysis for sellers, curated options for buyers.</p>
+      </div>
+      <div class="how-card reveal">
+        <div class="how-num">3</div>
+        <h3>Execute</h3>
+        <p>Private showings, skilled negotiation, and seamless coordination through closing.</p>
+      </div>
+      <div class="how-card reveal">
+        <div class="how-num">4</div>
+        <h3>Close</h3>
+        <p>Every detail handled. Keys in hand. Relationship continues.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SOCIAL PROOF ===== -->
+<section class="social-proof">
+  <div class="container">
+    <div class="sp-stats reveal">
+      <div>
+        <div class="sp-stat-val">$340M+</div>
+        <div class="sp-stat-label">Closed Transactions</div>
+      </div>
+      <div>
+        <div class="sp-stat-val">120+</div>
+        <div class="sp-stat-label">Properties Sold</div>
+      </div>
+      <div>
+        <div class="sp-stat-val">18</div>
+        <div class="sp-stat-label">Years in Palm Beach</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TEAM ===== -->
+<section class="team-sec" id="team">
+  <div class="container">
+    <div class="sec-header reveal">
+      <div class="label">Meet the Team</div>
+      <h2>Experts You Can Trust</h2>
+      <p>Dedicated professionals with deep roots in Palm Beach real estate.</p>
+    </div>
+    <div class="team-grid">
+      <div class="team-member reveal">
+        <div class="tm-photo">👔</div>
+        <h3>Catherine Waverly</h3>
+        <p class="tm-title">Managing Broker</p>
+        <p class="tm-bio">20+ years in Palm Beach luxury real estate. Specializes in estate transactions and seller advisory. Known for integrity and market knowledge.</p>
+      </div>
+      <div class="team-member reveal">
+        <div class="tm-photo">🏠</div>
+        <h3>Marcus Oconner</h3>
+        <p class="tm-title">Senior Associate</p>
+        <p class="tm-bio">Waterfront and new construction specialist. Builds relationships that last beyond closing. Fluent in four languages.</p>
+      </div>
+      <div class="team-member reveal">
+        <div class="tm-photo">🎯</div>
+        <h3>Sophia Reeves</h3>
+        <p class="tm-title">Client Relations Director</p>
+        <p class="tm-bio">Relocation and buyer concierge. Specializes in helping out-of-state buyers navigate Palm Beach. Hospitality focused, detail oriented.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== AI CONCIERGE SHOWCASE ===== -->
+<section class="ai-sec" id="ai">
+  <div class="container">
+    <div class="ai-grid">
+      <div class="ai-text reveal">
+        <div class="label">Availability 24/7</div>
+        <h2>Meet Mora Sol Concierge</h2>
+        <p>Instant insights on neighborhoods, market data, and property values. Connect to an agent whenever you're ready.</p>
+        <div class="ai-features">
+          <div class="aif">
+            <div class="aif-icon">💬</div>
+            <div>
+              <h4>Real-Time Market Data</h4>
+              <p>Current pricing, inventory, and neighborhood trends at your fingertips.</p>
+            </div>
+          </div>
+          <div class="aif">
+            <div class="aif-icon">🎯</div>
+            <div>
+              <h4>Personalized Search</h4>
+              <p>Describe your ideal home and get curated recommendations.</p>
+            </div>
+          </div>
+          <div class="aif">
+            <div class="aif-icon">🤝</div>
+            <div>
+              <h4>Direct Agent Connection</h4>
+              <p>Seamlessly connect with a team member for deeper consultation.</p>
+            </div>
+          </div>
+        </div>
+        <div class="ai-cta">
+          <a href="#" class="btn btn-accent btn-arrow" onclick="event.preventDefault();if(window.KazozoWidget)window.KazozoWidget.open()">Start a Conversation</a>
+          <div class="powered">Powered by <a href="#">Kazozo</a></div>
+        </div>
+      </div>
+
+      <div class="chat-demo reveal">
+        <div class="cd-top">
+          <div class="cd-avatar">MC</div>
+          <div class="cd-name">Mora Sol Concierge</div>
+          <div class="cd-status">Online</div>
+        </div>
+        <div class="cd-body">
+          <div class="cb cb-user">What's the market like for waterfront homes on the North End right now?</div>
+          <div class="cb cb-bot"><strong>Mora Sol Concierge:</strong> The North End has seen strong interest in oceanfront estates. Current inventory: 8 properties listed from $8.2M to $24.5M. Average days on market: 47 days. Interest rates have stabilized, bringing confident buyers. Would you like details on specific listings or current market data?</div>
+          <div class="cb cb-user">Tell me about pricing trends.</div>
+          <div class="cb cb-bot"><strong>Mora Sol Concierge:</strong> Oceanfront estates on the North End have appreciated 3.2% YoY. Price per square foot: $3,200–$4,100. Waterfront premium: 35–45% above comparable inland properties. Ready to connect with our waterfront specialist?</div>
+        </div>
+        <div class="cd-input">
+          <input type="text" class="cd-input-field" placeholder="Type your question...">
+          <button class="cd-send">→</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CAPABILITIES GRID ===== -->
+<section class="cap-sec">
+  <div class="container">
+    <div class="cap-grid">
+      <div class="cap-card reveal">
+        <div class="cap-icon">🔍</div>
+        <h3>Search Properties</h3>
+        <p>Browse our full inventory and saved searches personalized to you.</p>
+      </div>
+      <div class="cap-card reveal">
+        <div class="cap-icon">📊</div>
+        <h3>Get Market Data</h3>
+        <p>Real-time pricing, trends, and neighborhood insights on demand.</p>
+      </div>
+      <div class="cap-card reveal">
+        <div class="cap-icon">🗺</div>
+        <h3>Learn Neighborhoods</h3>
+        <p>Discover schools, clubs, restaurants, and lifestyle in each area.</p>
+      </div>
+      <div class="cap-card reveal">
+        <div class="cap-icon">💰</div>
+        <h3>Explore Pricing</h3>
+        <p>Comparative analysis and valuation estimates for any property.</p>
+      </div>
+      <div class="cap-card reveal">
+        <div class="cap-icon">👤</div>
+        <h3>Connect to an Agent</h3>
+        <p>Schedule a consultation or ask to speak with a specialist.</p>
+      </div>
+      <div class="cap-card reveal">
+        <div class="cap-icon">🔒</div>
+        <h3>Confidential & Secure</h3>
+        <p>Your privacy is our priority. All transactions handled with discretion.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="cta-sec">
+  <div class="container">
+    <h2 class="reveal">Ready to Find Your Palm Beach Home?</h2>
+    <p class="reveal">Let's start the conversation. Schedule a consultation or ask Mora Sol Concierge a question.</p>
+    <a href="#" class="btn btn-accent btn-arrow reveal" onclick="event.preventDefault();if(window.KazozoWidget)window.KazozoWidget.open()">Schedule Consultation</a>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="ft-inner">
+    <div class="ft-grid">
+      <div>
+        <div class="ft-brand">Mora <em>Sol</em> Real Estate</div>
+        <div class="ft-tagline">Boutique luxury residential brokerage in Palm Beach, Florida. Buyer and seller representation for estates, waterfront homes, and condominiums.</div>
+        <div class="ft-powered">Concierge powered by <a href="#">Kazozo</a></div>
+      </div>
+      <div class="ft-col">
+        <h4>Services</h4>
+        <a href="#services">Buyer Representation</a>
+        <a href="#services">Seller Advisory</a>
+        <a href="#services">Waterfront Specialists</a>
+        <a href="#services">Investment Advisory</a>
+      </div>
+      <div class="ft-col">
+        <h4>Neighborhoods</h4>
+        <a href="#neighborhoods">Palm Beach Island</a>
+        <a href="#neighborhoods">West Palm Beach</a>
+        <a href="#neighborhoods">Manalapan & Gulf Stream</a>
+        <a href="#neighborhoods">Jupiter Island</a>
+      </div>
+      <div class="ft-col">
+        <h4>Company</h4>
+        <a href="#team">Team</a>
+        <a href="#" onclick="event.preventDefault();if(window.KazozoWidget)window.KazozoWidget.open()">Contact</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Use</a>
+      </div>
+    </div>
+    <div class="ft-bottom">
+      <div class="ft-copy">&copy; 2026 Mora Sol Real Estate. All rights reserved. | <a href="#">Privacy</a></div>
+      <div class="ft-legal">
+        <a href="#">Florida Real Estate Commission License</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ===== KAZOZO WIDGET ===== -->
+<script async src="https://widget.kazozo.com/embed.js"
+  data-tenant="mora-sol-real-estate"
+  data-bot-name="Mora Sol Concierge"
+  data-color="#8B7355">
+</script>
+
+<!-- ===== SCROLL REVEAL ===== -->
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, {
+  threshold: 0.1,
+  rootMargin: '0px 0px -80px 0px'
+});
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
