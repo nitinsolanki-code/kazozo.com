@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ivory &amp; Oak Events — Luxury Wedding Planning</title>
+<meta name="description" content="Full-service luxury wedding planning and design. From intimate ceremonies to grand celebrations — we turn your vision into an unforgettable day.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{overflow-x:hidden;width:100%;scroll-behavior:smooth}
+body{overflow-x:hidden;width:100%;position:relative;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#fff;color:#1A1F3C;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+
+:root{
+  --navy:#1A1F3C;
+  --navy-mid:#2C3258;
+  --gold:#C9A96E;
+  --gold-light:#E8D5A8;
+  --gold-pale:#FAF5EB;
+  --cream:#FDFAF5;
+  --warm:#F7F2EA;
+  --warm-dark:#EDE5D8;
+  --border:#E8E0D0;
+  --border-light:#F0EAE0;
+  --text:#1A1F3C;
+  --text-mid:#4A5073;
+  --text-light:#7A7E99;
+  --text-muted:#9EA3BC;
+  --white:#fff;
+  --radius:14px;
+  --radius-sm:10px;
+  --radius-lg:20px;
+  --radius-pill:100px;
+  --max-w:1200px;
+  --serif:'Playfair Display',Georgia,serif;
+}
+
+.container{max-width:var(--max-w);margin:0 auto;padding:0 24px}
+
+/* ===== PROMO BAR ===== */
+.promo{background:var(--navy);color:#fff;text-align:center;padding:12px 24px;font-size:13.5px;font-weight:500;letter-spacing:.1px}
+.promo a{color:var(--gold-light);text-decoration:underline;text-underline-offset:2px;font-weight:600;margin-left:4px}
+
+/* ===== MARQUEE ===== */
+.marquee{overflow:hidden;background:var(--warm);border-bottom:1px solid var(--border-light);padding:12px 0;max-width:100vw}
+.marquee-track{display:flex;gap:40px;animation:scroll 50s linear infinite;width:max-content}
+.mq{display:flex;align-items:center;gap:8px;white-space:nowrap;font-size:13px;font-weight:500;color:var(--text-mid)}
+.mq-dot{color:var(--gold);font-size:10px}
+@keyframes scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* ===== NAV ===== */
+.nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.95);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--border-light)}
+.nav-inner{max-width:var(--max-w);margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{display:flex;align-items:center;gap:10px}
+.logo-icon{width:36px;height:36px;background:var(--navy);border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--gold);font-family:var(--serif);font-style:italic;font-size:18px;font-weight:600}
+.logo-text{font-size:17px;font-weight:700;letter-spacing:-.3px;color:var(--navy)}
+.logo-text span{color:var(--gold)}
+.nav-links{display:flex;align-items:center;gap:28px}
+.nav-links a{font-size:14px;font-weight:500;color:var(--text-mid);transition:color .2s}
+.nav-links a:hover{color:var(--navy)}
+.nav-cta{background:var(--navy);color:#fff!important;padding:10px 22px;border-radius:var(--radius-pill);font-size:14px!important;font-weight:600!important;transition:all .2s}
+.nav-cta:hover{background:var(--navy-mid);transform:translateY(-1px)}
+@media(max-width:768px){.nav-links{display:none}}
+
+/* ===== HERO CARDS ===== */
+.hero-cards{padding:36px 0 0;overflow:hidden}
+.hero-cards-inner{display:flex;gap:16px;padding:0 24px 36px;max-width:var(--max-w);margin:0 auto;justify-content:center;flex-wrap:wrap}
+.hero-card{flex:0 0 260px;border-radius:var(--radius-lg);overflow:hidden;cursor:pointer;transition:transform .3s,box-shadow .3s;background:var(--white);border:1px solid var(--border-light)}
+.hero-card:hover{transform:translateY(-4px);box-shadow:0 16px 48px rgba(26,31,60,.1)}
+.hero-card-img{height:200px;display:flex;align-items:center;justify-content:center;position:relative}
+.hc1{background:linear-gradient(135deg,#F9F2E4,#F0E0C0)}
+.hc2{background:linear-gradient(135deg,#EEF0F8,#D8DCEE)}
+.hc3{background:linear-gradient(135deg,#F5EEF0,#E8D4D8)}
+.hc4{background:linear-gradient(135deg,#EEF5EE,#D4E8D4)}
+.hero-card-label{position:absolute;top:14px;left:14px;background:rgba(255,255,255,.9);backdrop-filter:blur(8px);padding:5px 12px;border-radius:var(--radius-pill);font-size:11px;font-weight:700;color:var(--navy);letter-spacing:.3px;text-transform:uppercase}
+.hero-card-icon{font-size:54px;opacity:.85}
+.hero-card-content{padding:20px}
+.hero-card h3{font-size:17px;font-weight:700;letter-spacing:-.2px;margin-bottom:4px;color:var(--navy)}
+.hero-card p{font-size:13px;color:var(--text-light);line-height:1.5}
+
+/* ===== HEADLINE ===== */
+.headline-sec{padding:72px 0 56px;text-align:center}
+.eyebrow{display:inline-block;background:var(--gold-pale);color:var(--gold);padding:7px 18px;border-radius:var(--radius-pill);font-size:11.5px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;margin-bottom:24px;border:1px solid var(--gold-light)}
+.headline-sec h1{font-family:var(--serif);font-size:54px;font-weight:700;letter-spacing:-.5px;line-height:1.08;max-width:720px;margin:0 auto 20px;color:var(--navy)}
+.headline-sec h1 em{color:var(--gold);font-style:italic}
+.headline-sec p{font-size:18px;color:var(--text-mid);max-width:540px;margin:0 auto 36px;line-height:1.65}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:15px 32px;border-radius:var(--radius-pill);font-weight:600;font-size:15.5px;border:none;cursor:pointer;transition:all .25s;text-decoration:none;font-family:'Inter',sans-serif}
+.btn-navy{background:var(--navy);color:#fff}
+.btn-navy:hover{background:var(--navy-mid);transform:translateY(-1px);box-shadow:0 8px 24px rgba(26,31,60,.2)}
+.btn-gold{background:var(--gold);color:#fff}
+.btn-gold:hover{background:#b8904f;transform:translateY(-1px)}
+.btn-ghost{background:transparent;color:var(--text-mid);border:1.5px solid var(--border)}
+.btn-ghost:hover{border-color:var(--text-light);color:var(--navy)}
+.btn-white{background:#fff;color:var(--navy)}
+.btn-white:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(0,0,0,.12)}
+.cta-row{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap}
+.cta-note{font-size:13px;color:var(--text-muted)}
+
+/* ===== SERVICES ===== */
+.services-sec{padding:56px 0 48px}
+.sec-header{text-align:center;margin-bottom:40px}
+.sec-header h2{font-family:var(--serif);font-size:38px;font-weight:700;letter-spacing:-.3px;color:var(--navy);margin-bottom:10px}
+.sec-header p{font-size:16px;color:var(--text-mid);max-width:520px;margin:0 auto}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:var(--max-w);margin:0 auto;padding:0 24px}
+.scard{background:var(--white);border:1px solid var(--border-light);border-radius:var(--radius);overflow:hidden;transition:all .3s}
+.scard:hover{box-shadow:0 12px 40px rgba(26,31,60,.07);transform:translateY(-3px)}
+.scard-img{height:190px;display:flex;align-items:center;justify-content:center;position:relative}
+.si1{background:linear-gradient(135deg,#FAF4E4,#F0E0B8)}
+.si2{background:linear-gradient(135deg,#EEF0F8,#D8DCEE)}
+.si3{background:linear-gradient(135deg,#F8F4F0,#ECDED4)}
+.scard-badge{position:absolute;top:12px;left:12px;display:inline-flex;align-items:center;gap:5px;background:rgba(26,31,60,.08);color:var(--navy);padding:4px 12px;border-radius:var(--radius-pill);font-size:10.5px;font-weight:700;letter-spacing:.5px;text-transform:uppercase}
+.scard-icon{font-size:48px;opacity:.85}
+.scard-body{padding:22px}
+.scard-label{font-size:10.5px;font-weight:700;color:var(--gold);letter-spacing:1.8px;text-transform:uppercase;margin-bottom:8px}
+.scard h3{font-size:20px;font-weight:700;letter-spacing:-.3px;color:var(--navy);margin-bottom:6px}
+.scard .price{font-size:13px;color:var(--text-muted);font-style:italic;margin-bottom:12px}
+.scard-desc{font-size:13.5px;color:var(--text-mid);line-height:1.6;margin-bottom:18px;min-height:64px}
+.scard-actions{display:flex;gap:10px;align-items:center}
+.scard-actions a{padding:10px 20px;border-radius:var(--radius-pill);font-size:13px;font-weight:600;transition:all .2s}
+.sa-primary{background:var(--navy);color:#fff}
+.sa-primary:hover{background:var(--navy-mid)}
+.sa-ghost{color:var(--text-mid);border:1.5px solid var(--border)}
+.sa-ghost:hover{border-color:var(--text-light);color:var(--navy)}
+
+/* ===== STYLES / CATEGORIES ===== */
+.styles-sec{padding:64px 0;background:var(--warm)}
+.styles-sec h2{font-family:var(--serif);font-size:32px;font-weight:700;letter-spacing:-.2px;margin-bottom:32px;text-align:center;color:var(--navy)}
+.style-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:960px;margin:0 auto}
+.style-card{border-radius:var(--radius);overflow:hidden;cursor:pointer;transition:all .3s;border:1px solid var(--border-light)}
+.style-card:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(26,31,60,.08)}
+.style-inner{padding:36px 28px;display:flex;flex-direction:column;gap:12px;min-height:160px}
+.sc1{background:linear-gradient(135deg,#FAF4E4,#F2E6C8)}
+.sc2{background:linear-gradient(135deg,#F5EEF0,#EAD8DC)}
+.sc3{background:linear-gradient(135deg,#EEF0F8,#D8DCEE)}
+.sc4{background:linear-gradient(135deg,#EEF5EE,#D4E8D4)}
+.sc5{background:linear-gradient(135deg,#F8F4F0,#EBE0D5)}
+.sc6{background:linear-gradient(135deg,#F2EFFA,#E0D8F0)}
+.style-icon{font-size:28px}
+.style-card h3{font-size:17px;font-weight:700;letter-spacing:-.2px;color:var(--navy)}
+.style-card p{font-size:13px;color:var(--text-mid);line-height:1.5}
+
+/* ===== HOW IT WORKS ===== */
+.how-sec{background:var(--navy);padding:80px 0}
+.how-header{text-align:center;margin-bottom:52px}
+.how-header h2{font-family:var(--serif);font-size:38px;font-weight:700;color:#fff;margin-bottom:10px;letter-spacing:-.2px}
+.how-header p{font-size:16px;color:rgba(255,255,255,.5)}
+.how-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:32px}
+.how-card{text-align:center;padding:8px 8px}
+.how-num{width:48px;height:48px;border-radius:50%;background:var(--gold);color:#fff;display:flex;align-items:center;justify-content:center;font-size:17px;font-weight:700;margin:0 auto 20px}
+.how-card h3{font-size:16px;font-weight:700;color:#fff;margin-bottom:8px}
+.how-card p{font-size:13.5px;color:rgba(255,255,255,.45);line-height:1.6}
+.how-divider{display:none}
+@media(min-width:768px){.how-grid{position:relative}.how-divider{display:block;position:absolute;top:24px;left:0;right:0;height:1px;background:rgba(255,255,255,.08);z-index:0}}
+
+/* ===== SOCIAL PROOF ===== */
+.social-proof{padding:80px 0;text-align:center}
+.sp-stats{display:flex;justify-content:center;gap:64px;margin-bottom:52px;flex-wrap:wrap}
+.sp-stat-val{font-family:var(--serif);font-size:52px;font-weight:700;color:var(--navy);letter-spacing:-.5px;line-height:1}
+.sp-stat-val.gold{color:var(--gold)}
+.sp-stat-label{font-size:13.5px;color:var(--text-mid);margin-top:6px}
+.reviews-track{display:flex;gap:16px;padding:0 24px;justify-content:center;flex-wrap:wrap;max-width:var(--max-w);margin:0 auto}
+.review{flex:0 0 320px;max-width:360px;background:var(--white);border:1px solid var(--border-light);border-radius:var(--radius);padding:28px;text-align:left}
+.review-stars{color:var(--gold);font-size:13px;letter-spacing:2px;margin-bottom:14px}
+.review-text{font-size:14.5px;color:var(--text);line-height:1.65;margin-bottom:20px;font-style:italic}
+.review-author{display:flex;align-items:center;gap:12px}
+.review-avatar{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px}
+.ra1{background:var(--gold-pale);color:var(--gold)}
+.ra2{background:#EEF0F8;color:var(--navy)}
+.ra3{background:#F5EEF0;color:#8B4A5A}
+.ra4{background:#EEF5EE;color:#3A6B3A}
+.ra5{background:#F2EFFA;color:#5B4A8B}
+.ra6{background:#F8F4F0;color:#8B6A3A}
+.review-name{font-size:14px;font-weight:600;color:var(--navy)}
+.review-role{font-size:12px;color:var(--text-muted)}
+
+/* ===== TEAM ===== */
+.team-sec{background:var(--warm);padding:80px 0}
+.team-intro{text-align:center;margin-bottom:48px}
+.team-intro h2{font-family:var(--serif);font-size:32px;font-weight:700;color:var(--navy);margin-bottom:12px}
+.team-intro p{font-size:15px;color:var(--text-mid);max-width:580px;margin:0 auto;line-height:1.65}
+.team-badges{display:flex;justify-content:center;gap:36px;flex-wrap:wrap;padding:24px 0 40px}
+.team-badge{display:flex;align-items:center;gap:9px;font-size:13px;color:var(--text-mid);font-weight:500}
+.tb-icon{width:34px;height:34px;border-radius:8px;background:rgba(26,31,60,.05);display:flex;align-items:center;justify-content:center;font-size:16px}
+.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:860px;margin:0 auto}
+.team-member{background:var(--white);border:1px solid var(--border-light);border-radius:var(--radius);padding:28px;text-align:center}
+.tm-photo{width:80px;height:80px;border-radius:50%;margin:0 auto 16px;display:flex;align-items:center;justify-content:center;font-size:26px}
+.tp1{background:linear-gradient(135deg,#FAF4E4,#F0E0B8)}
+.tp2{background:linear-gradient(135deg,#EEF0F8,#D8DCEE)}
+.tp3{background:linear-gradient(135deg,#F5EEF0,#EAD8DC)}
+.team-member h3{font-size:16px;font-weight:700;color:var(--navy);margin-bottom:2px}
+.tm-title{font-size:11.5px;color:var(--gold);font-weight:700;text-transform:uppercase;letter-spacing:.8px;margin-bottom:8px}
+.tm-bio{font-size:13px;color:var(--text-light);line-height:1.55}
+.trust-bar{display:flex;justify-content:center;gap:24px;align-items:center;padding:32px 0;flex-wrap:wrap}
+.trust-chip{background:var(--white);border:1px solid var(--border-light);padding:10px 20px;border-radius:var(--radius-sm);font-size:12px;font-weight:600;color:var(--text-mid);letter-spacing:.3px}
+
+/* ===== AI SHOWCASE ===== */
+.ai-sec{background:var(--navy);padding:96px 0;position:relative;overflow:hidden}
+.ai-sec::before{content:'';position:absolute;top:-200px;right:-200px;width:700px;height:700px;background:radial-gradient(circle,rgba(201,169,110,.07) 0%,transparent 70%);pointer-events:none}
+.ai-sec::after{content:'';position:absolute;bottom:-100px;left:-100px;width:400px;height:400px;background:radial-gradient(circle,rgba(201,169,110,.05) 0%,transparent 70%);pointer-events:none}
+.ai-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.ai-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(201,169,110,.1);border:1px solid rgba(201,169,110,.2);color:var(--gold-light);padding:7px 16px;border-radius:var(--radius-pill);font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:24px}
+.ai-text h2{font-family:var(--serif);font-size:38px;font-weight:700;color:#fff;line-height:1.1;margin-bottom:16px;letter-spacing:-.2px}
+.ai-text>p{font-size:15.5px;color:rgba(255,255,255,.48);line-height:1.65;margin-bottom:36px}
+.ai-features{display:flex;flex-direction:column;gap:22px}
+.aif{display:flex;gap:16px;align-items:flex-start}
+.aif-icon{width:40px;height:40px;border-radius:10px;background:rgba(255,255,255,.05);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:18px}
+.aif h4{font-size:15px;font-weight:600;color:#fff;margin-bottom:3px}
+.aif p{font-size:13px;color:rgba(255,255,255,.38);line-height:1.55}
+.ai-cta{margin-top:36px;display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.ai-cta .powered{font-size:12px;color:rgba(255,255,255,.3);font-weight:500}
+.ai-cta .powered a{color:rgba(255,255,255,.5);text-decoration:underline;text-underline-offset:2px}
+
+/* Chat window */
+.chat-demo{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:var(--radius-lg);overflow:hidden}
+.cd-top{background:rgba(255,255,255,.04);padding:14px 20px;display:flex;align-items:center;gap:10px;border-bottom:1px solid rgba(255,255,255,.05)}
+.cd-avatar{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,var(--gold),#b8904f);display:flex;align-items:center;justify-content:center;color:#fff;font-family:var(--serif);font-style:italic;font-size:14px;font-weight:700}
+.cd-name{font-size:13px;font-weight:600;color:#fff}
+.cd-status{margin-left:auto;display:flex;align-items:center;gap:5px;font-size:11px;color:#6EE7A0;font-weight:500}
+.cd-status::before{content:'';width:6px;height:6px;border-radius:50%;background:#6EE7A0}
+.cd-body{padding:16px 20px;display:flex;flex-direction:column;gap:10px;max-height:420px;overflow-y:auto}
+.cb{max-width:92%;padding:11px 15px;border-radius:16px;font-size:13px;line-height:1.55}
+.cb-bot{background:rgba(255,255,255,.05);color:rgba(255,255,255,.8);align-self:flex-start;border-bottom-left-radius:4px}
+.cb-user{background:var(--gold);color:#fff;align-self:flex-end;border-bottom-right-radius:4px;opacity:.95}
+.cb-bot strong{color:#fff;font-weight:600}
+.cd-input{padding:12px 20px;border-top:1px solid rgba(255,255,255,.05);display:flex;align-items:center;gap:10px}
+.cd-input-field{flex:1;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:var(--radius-pill);padding:10px 16px;font-size:13px;color:rgba(255,255,255,.3);font-family:'Inter',sans-serif}
+.cd-send{width:36px;height:36px;border-radius:50%;background:var(--gold);border:none;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .2s;flex-shrink:0}
+.cd-send:hover{background:#b8904f}
+
+/* ===== CAPABILITIES ===== */
+.cap-sec{background:#23284A;padding:80px 0}
+.cap-header{text-align:center;margin-bottom:48px}
+.cap-header h2{font-family:var(--serif);font-size:32px;font-weight:700;color:#fff;margin-bottom:8px}
+.cap-header p{font-size:15px;color:rgba(255,255,255,.4);max-width:520px;margin:0 auto}
+.cap-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.cap-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:var(--radius);padding:28px}
+.cap-icon{font-size:28px;margin-bottom:14px}
+.cap-card h3{font-size:15.5px;font-weight:700;color:#fff;margin-bottom:6px}
+.cap-card p{font-size:13px;color:rgba(255,255,255,.38);line-height:1.6}
+
+/* ===== CTA ===== */
+.cta-sec{background:linear-gradient(135deg,var(--gold-pale),var(--warm-dark));padding:96px 0;text-align:center}
+.cta-sec h2{font-family:var(--serif);font-size:44px;font-weight:700;color:var(--navy);letter-spacing:-.3px;margin-bottom:14px;line-height:1.1}
+.cta-sec h2 em{color:var(--gold);font-style:italic}
+.cta-sec p{font-size:17px;color:var(--text-mid);max-width:520px;margin:0 auto 36px;line-height:1.65}
+
+/* ===== FOOTER ===== */
+footer{background:var(--navy);padding:60px 0 0}
+.ft-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;max-width:var(--max-w);margin:0 auto;padding:0 24px 48px}
+.ft-brand{font-family:var(--serif);font-size:22px;font-weight:700;color:#fff;margin-bottom:10px}
+.ft-brand span{color:var(--gold)}
+.ft-tagline{font-size:13.5px;color:rgba(255,255,255,.38);line-height:1.6;margin-bottom:12px;max-width:280px}
+.ft-powered{font-size:12px;color:rgba(255,255,255,.3)}
+.ft-powered a{color:var(--gold-light);text-decoration:underline;text-underline-offset:2px}
+.ft-col h4{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:rgba(255,255,255,.4);margin-bottom:16px}
+.ft-col a{display:block;font-size:13.5px;color:rgba(255,255,255,.55);margin-bottom:10px;transition:color .2s}
+.ft-col a:hover{color:#fff}
+.ft-bottom{border-top:1px solid rgba(255,255,255,.07);padding:20px 24px;max-width:var(--max-w);margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.ft-copy{font-size:12.5px;color:rgba(255,255,255,.3)}
+.ft-copy a{color:var(--gold-light)}
+.ft-legal{display:flex;gap:20px}
+.ft-legal a{font-size:12.5px;color:rgba(255,255,255,.3);transition:color .2s}
+.ft-legal a:hover{color:rgba(255,255,255,.6)}
+
+/* ===== DEMO NOTICE ===== */
+.demo-bar{background:rgba(201,169,110,.12);border-top:1px solid rgba(201,169,110,.2);padding:16px 24px;text-align:center;font-size:12.5px;color:var(--text-mid);line-height:1.6}
+.demo-bar em{color:var(--text-light)}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:900px){
+  .services-grid,.how-grid,.team-grid,.cap-grid{grid-template-columns:1fr 1fr}
+  .ai-grid{grid-template-columns:1fr;gap:40px}
+  .ft-grid{grid-template-columns:1fr 1fr;gap:32px}
+  .style-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:600px){
+  .headline-sec h1{font-size:38px}
+  .services-grid,.how-grid,.team-grid,.cap-grid,.style-grid{grid-template-columns:1fr}
+  .sp-stats{gap:36px}
+  .sp-stat-val{font-size:40px}
+  .ft-grid{grid-template-columns:1fr}
+  .cta-sec h2{font-size:32px}
+  .hero-cards-inner{padding:0 16px 24px}
+}
+</style>
+</head>
+<body>
+
+<!-- PROMO BAR -->
+<div class="promo">
+  Now booking 2026 &amp; 2027 weddings &mdash; limited peak-season dates available.
+  <a href="#" onclick="event.preventDefault();if(window.KazozoWidget)window.KazozoWidget.open()">Check your date &rarr;</a>
+</div>
+
+<!-- TRUST MARQUEE -->
+<div class="marquee">
+  <div class="marquee-track">
+    <span class="mq"><span class="mq-dot">✦</span> 500+ Weddings Planned</span>
+    <span class="mq"><span class="mq-dot">✦</span> 4.9★ Average Rating</span>
+    <span class="mq"><span class="mq-dot">✦</span> South Florida</span>
+    <span class="mq"><span class="mq-dot">✦</span> Palm Beach</span>
+    <span class="mq"><span class="mq-dot">✦</span> New York</span>
+    <span class="mq"><span class="mq-dot">✦</span> Destination Worldwide</span>
+    <span class="mq"><span class="mq-dot">✦</span> The Knot Best of Weddings</span>
+    <span class="mq"><span class="mq-dot">✦</span> 15 Years of Experience</span>
+    <span class="mq"><span class="mq-dot">✦</span> 500+ Weddings Planned</span>
+    <span class="mq"><span class="mq-dot">✦</span> 4.9★ Average Rating</span>
+    <span class="mq"><span class="mq-dot">✦</span> South Florida</span>
+    <span class="mq"><span class="mq-dot">✦</span> Palm Beach</span>
+    <span class="mq"><span class="mq-dot">✦</span> New York</span>
+    <span class="mq"><span class="mq-dot">✦</span> Destination Worldwide</span>
+    <span class="mq"><span class="mq-dot">✦</span> The Knot Best of Weddings</span>
+    <span class="mq"><span class="mq-dot">✦</span> 15 Years of Experience</span>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="logo">
+      <div class="logo-icon">I</div>
+      <div class="logo-text">Ivory &amp; <span>Oak</span> Events</div>
+    </div>
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#styles">Gallery</a>
+      <a href="#team">About</a>
+      <a href="#how">Process</a>
+      <a href="#" class="nav-cta" onclick="event.preventDefault();if(window.KazozoWidget)window.KazozoWidget.open()">Start Planning</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO CARDS -->
+<section class="hero-cards">
+  <div class="hero-cards-inner">
+    <div class="hero-card" onclick="if(window.KazozoWidget)window.KazozoWidget.open()">
+      <div class="hero-card-img hc1">
+        <div class="hero-card-label">Full-Service</div>
+        <div class="hero-card-icon">💍</div>
+      </div>
+      <div class="hero-card-content">
+        <h3>Full-Service Planning</h3>
+        <p>We handle everything, start to finish. Your only job is to show up and celebrate.</p>
+      </div>
+    </div>
+    <div class="hero-card" onclick="if(window.KazozoWidget)window.KazozoWidget.open()">
+      <div class="hero-card-img hc2">
+        <div class="hero-card-label">Design</div>
+        <div class="hero-card-icon">🌸</div>
+      </div>
+      <div class="hero-card-content">
+        <h3>Floral &amp; Design</h3>
+        <p>Custom floral installations, tablescapes, and venue styling that tell your story.</p>
+      </div>
+    </div>
+    <div class="hero-card" onclick="if(window.KazozoWidget)window.KazozoWidget.open()">
+      <div class="hero-card-img hc3">
+        <div class="hero-card-label">Day-Of</div>
+        <div class="hero-card-icon">🥂</div>
+      </div>
+      <div class="hero-card-content">
+        <h3>Day-Of Coordination</h3>
+        <p>You've planned it. We'll make sure every detail unfolds exactly as envisioned.</p>
+      </div>
+    </div>
+    <div class="hero-card" onclick="if(window.KazozoWidget)window.KazozoWidget.open()">
+      <div class="hero-card-img hc4">
+        <div class="hero-card-label">Destination</div>
+        <div class="hero-card-icon">✈️</div>
+      </div>
+      <div class="hero-card-content">
+        <h3>Destination Weddings</h3>
+        <p>Europe, the Caribbean, Mexico — we manage every detail across borders and time zones.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HEADLINE -->
+<section class="headline-sec">
+  <div class="container">
+    <div class="eyebrow">Luxury Wedding Planners</div>
+    <h1>Where love stories<br>become <em>legendary.</em></h1>
+    <p>Ivory &amp; Oak Events designs and plans weddings that feel effortless, breathtaking, and unmistakably you — from the first consultation to the last dance.</p>
+    <div class="cta-row">
+      <a href="#" class="btn btn-navy" onclick="event.preventDefault();if(window.KazozoWidget)window.KazozoWidget.open()">Start planning with Ella &rarr;</a>
+      <a href="#services" class="btn btn-ghost">See our packages</a>
+    </div>
+    <p class="cta-note" style="margin-top:16px">Free consultation · 2026 &amp; 2027 dates available</p>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services-sec" id="services">
+  <div class="container">
+    <div class="sec-header">
+      <h2>Wedding planning packages</h2>
+      <p>Choose the level of support that fits your vision and your peace of mind.</p>
+    </div>
+  </div>
+  <div class="services-grid">
+    <div class="scard">
+      <div class="scard-img si1">
+        <div class="scard-badge">Most Popular</div>
+        <div class="scard-icon">👑</div>
+      </div>
+      <div class="scard-body">
+        <div class="scard-label">Full-Service</div>
+        <h3>Grand Celebration</h3>
+        <div class="price">Starting at $8,500</div>
+        <p class="scard-desc">End-to-end planning from venue selection to vendor coordination, design, rehearsal, and day-of execution. Our most comprehensive package — you simply enjoy the journey.</p>
+        <div class="scard-actions">
+          <a href="#" class="sa-primary" onclick="event.preventDefault();if(window.KazozoWidget)window.KazozoWidget.open()">Get started</a>
+          <a href="#" class="sa-ghost">Learn more</a>
+        </div>
+      </div>
+    </div>
+    <div class="scard">
+      <div class="scard-img si2">
+        <div class="scard-badge">Best Value</div>
+        <div class="scard-icon">🌿</div>
+      </div>
+      <div class="scard-body">
+        <div class="scard-label">Partial Planning</div>
+        <h3>Curated Elegance</h3>
+        <div class="price">Starting at $4,200</div>
+        <p class="scard-desc">You've started the planning — we take over, fill the gaps, and ensure a cohesive, polished experience. Design direction, vendor sourcing, and day-of management included.</p>
+        <div class="scard-actions">
+          <a href="#" class="sa-primary" onclick="event.preventDefault();if(window.KazozoWidget)window.KazozoWidget.open()">Get started</a>
+          <a href="#" class="sa-ghost">Learn more</a>
+        </div>
+      </div>
+    </div>
+    <div class="scard">
+      <div class="scard-img si3">
+        <div class="scard-badge">Peace of Mind</div>
+        <div class="scard-icon">🕊️</div>
+      </div>
+      <div class="scard-body">
+        <div class="scard-label">Day-Of</div>
+        <h3>Flawless Execution</h3>
+        <div class="price">Starting at $1,800</div>
+        <p class="scard-desc">Your vision, perfectly executed. We take over 6 weeks out, confirm all vendors, build your run-of-show, and manage every moment so you're fully present on your day.</p>
+        <div class="scard-actions">
+          <a href="#" class="sa-primary" onclick="event.preventDefault();if(window.KazozoWidget)window.KazozoWidget.open()">Get started</a>
+          <a href="#" class="sa-ghost">Learn more</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STYLES -->
+<section class="styles-sec" id="styles">
+  <div class="container">
+    <h2>Every style, every vision</h2>
+    <div class="style-grid">
+      <a href="#" class="style-card" onclick="event.preventDefault();if(window.KazozoWidget)window.KazozoWidget.open()">
+        <div class="style-inner sc1">
+          <div class="style-icon">🌾</div>
+          <h3>Garden Romance</h3>
+          <p>Lush florals, candlelight, and organic textures in outdoor or greenhouse settings.</p>
+        </div>
+      </a>
+      <a href="#" class="style-card" onclick="event.preventDefault();if(window.KazozoWidget)window.KazozoWidget.open()">
+        <div class="style-inner sc2">
+          <div class="style-icon">✨</div>
+          <h3>Black Tie Glamour</h3>
+          <p>Ballroom-scale elegance with crystal, silk, and architectural floral drama.</p>
+        </div>
+      </a>
+      <a href="#" class="style-card" onclick="event.preventDefault();if(window.KazozoWidget)window.KazozoWidget.open()">
+        <div class="style-inner sc3">
+          <div class="style-icon">🏛️</div>
+          <h3>Modern Minimalist</h3>
+          <p>Clean lines, monochromatic palettes, and statement architectural installations.</p>
+        </div>
+      </a>
+      <a href="#" class="style-card" onclick="event.preventDefault();if(window.KazozoWidget)window.KazozoWidget.open()">
+        <div class="style-inner sc4">
+          <div class="style-icon">🌿</div>
+          <h3>Destination Escape</h3>
+          <p>Tropical, vineyard, villa, or castle — we plan seamlessly wherever love leads you.</p>
+        </div>
+      </a>
+      <a href="#" class="style-card" onclick="event.preventDefault();if(window.KazozoWidget)window.KazozoWidget.open()">
+        <div class="style-inner sc5">
+          <div class="style-inner sc5" style="background:none;padding:0">
+          <div class="style-icon">🪷</div>
+          <h3>Cultural Celebrations</h3>
+          <p>South Asian, Jewish, Caribbean, Nigerian, and fusion ceremonies — honored beautifully.</p>
+          </div>
+        </div>
+      </a>
+      <a href="#" class="style-card" onclick="event.preventDefault();if(window.KazozoWidget)window.KazozoWidget.open()">
+        <div class="style-inner sc6">
+          <div class="style-icon">🌙</div>
+          <h3>Intimate &amp; Micro</h3>
+          <p>Under 50 guests, maximum intentionality. Every detail amplified for a small guest list.</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-sec" id="how">
+  <div class="container">
+    <div class="how-header">
+      <h2>Your planning journey</h2>
+      <p>A clear, stress-free process from first conversation to last dance.</p>
+    </div>
+    <div class="how-grid">
+      <div class="how-card">
+        <div class="how-num">1</div>
+        <h3>Chat with Ella</h3>
+        <p>Our AI assistant gathers the basics — date, guest count, vision — and answers your initial questions, any time of day.</p>
+      </div>
+      <div class="how-card">
+        <div class="how-num">2</div>
+        <h3>Design consultation</h3>
+        <p>Your lead planner reviews your vision and crafts a bespoke proposal with initial design concepts and a tailored package.</p>
+      </div>
+      <div class="how-card">
+        <div class="how-num">3</div>
+        <h3>We handle everything</h3>
+        <p>Venue, vendors, timeline, florals, logistics — managed by your dedicated planning team. Regular updates, no surprises.</p>
+      </div>
+      <div class="how-card">
+        <div class="how-num">4</div>
+        <h3>Your perfect day</h3>
+        <p>On-site coordination from setup to farewell. You're fully present — we're everywhere making sure it's flawless.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOCIAL PROOF -->
+<section class="social-proof">
+  <div class="container">
+    <div class="sp-stats">
+      <div>
+        <div class="sp-stat-val gold">500+</div>
+        <div class="sp-stat-label">weddings planned</div>
+      </div>
+      <div>
+        <div class="sp-stat-val">4.9★</div>
+        <div class="sp-stat-label">average rating</div>
+      </div>
+      <div>
+        <div class="sp-stat-val gold">15</div>
+        <div class="sp-stat-label">years of experience</div>
+      </div>
+      <div>
+        <div class="sp-stat-val">98%</div>
+        <div class="sp-stat-label">would recommend us</div>
+      </div>
+    </div>
+    <div class="reviews-track">
+      <div class="review">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Ivory &amp; Oak turned our vague Pinterest board into the most breathtaking evening of our lives. Every single detail was considered. We didn't stress once."</p>
+        <div class="review-author">
+          <div class="review-avatar ra1">S</div>
+          <div>
+            <div class="review-name">Sofia &amp; James R.</div>
+            <div class="review-role">Garden ceremony · Palm Beach, FL</div>
+          </div>
+        </div>
+      </div>
+      <div class="review">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"They handled our 340-person black tie wedding without a single hiccup. The florals alone had guests in tears. Worth every penny — and then some."</p>
+        <div class="review-author">
+          <div class="review-avatar ra2">P</div>
+          <div>
+            <div class="review-name">Priya &amp; Marcus L.</div>
+            <div class="review-role">Black tie ballroom · Miami, FL</div>
+          </div>
+        </div>
+      </div>
+      <div class="review">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"We planned a destination wedding in Tuscany and were terrified of the logistics. Our planner was incredible — three countries, four vendors, zero stress."</p>
+        <div class="review-author">
+          <div class="review-avatar ra3">A</div>
+          <div>
+            <div class="review-name">Amara &amp; Tom F.</div>
+            <div class="review-role">Destination · Tuscany, Italy</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="team-sec" id="team">
+  <div class="container">
+    <div class="team-intro">
+      <h2>Meet your planning team</h2>
+      <p>Every Ivory &amp; Oak wedding is led by a senior planner with over a decade of experience. You'll work with the same team from first meeting to farewell.</p>
+    </div>
+    <div class="team-badges">
+      <div class="team-badge"><div class="tb-icon">🏆</div> The Knot Best of Weddings 2024</div>
+      <div class="team-badge"><div class="tb-icon">🌸</div> WeddingWire Couples' Choice</div>
+      <div class="team-badge"><div class="tb-icon">📰</div> Featured in Vogue Weddings</div>
+      <div class="team-badge"><div class="tb-icon">🌍</div> Licensed in FL, NY &amp; Internationally</div>
+    </div>
+    <div class="team-grid">
+      <div class="team-member">
+        <div class="tm-photo tp1">👩</div>
+        <h3>Claire Whitmore</h3>
+        <div class="tm-title">Founder &amp; Lead Planner</div>
+        <p class="tm-bio">15 years of luxury event design. Former Director of Events at The Breakers Palm Beach. Specializes in grand ballroom and destination celebrations.</p>
+      </div>
+      <div class="team-member">
+        <div class="tm-photo tp2">👨</div>
+        <h3>Nate Villanueva</h3>
+        <div class="tm-title">Creative Director</div>
+        <p class="tm-bio">Award-winning floral and installation designer. Featured in Martha Stewart Weddings, Brides, and The Knot. Specializes in bespoke floral environments.</p>
+      </div>
+      <div class="team-member">
+        <div class="tm-photo tp3">👩</div>
+        <h3>Diana Park</h3>
+        <div class="tm-title">Senior Event Coordinator</div>
+        <p class="tm-bio">Cultural ceremony specialist with expertise in South Asian, Korean, Jewish, and fusion weddings. Trilingual. 200+ events coordinated.</p>
+      </div>
+    </div>
+    <div class="trust-bar">
+      <div class="trust-chip">Licensed &amp; Insured</div>
+      <div class="trust-chip">The Knot Best of Weddings</div>
+      <div class="trust-chip">WeddingWire Couples' Choice</div>
+      <div class="trust-chip">Featured in Vogue Weddings</div>
+      <div class="trust-chip">Destination-Certified</div>
+    </div>
+  </div>
+</section>
+
+<!-- AI SHOWCASE -->
+<section class="ai-sec">
+  <div class="container">
+    <div class="ai-grid">
+      <div class="ai-text">
+        <div class="ai-eyebrow">✦ Powered by Kazozo AI</div>
+        <h2>Meet Ella, your AI wedding concierge</h2>
+        <p>Ella is available 24/7 to answer questions, check availability, share inspiration, and capture your details so your planner has everything they need before the first call.</p>
+        <div class="ai-features">
+          <div class="aif">
+            <div class="aif-icon">💬</div>
+            <div>
+              <h4>Answer any question, instantly</h4>
+              <p>Package details, pricing, availability, what to expect — answered in seconds, not days.</p>
+            </div>
+          </div>
+          <div class="aif">
+            <div class="aif-icon">📅</div>
+            <div>
+              <h4>Check date availability</h4>
+              <p>Real-time calendar lookup so you know right away if your date is open before you even speak to a planner.</p>
+            </div>
+          </div>
+          <div class="aif">
+            <div class="aif-icon">🎨</div>
+            <div>
+              <h4>Capture your vision</h4>
+              <p>Ella gathers your style preferences, guest count, venue ideas, and budget so your planner arrives fully prepared.</p>
+            </div>
+          </div>
+          <div class="aif">
+            <div class="aif-icon">📞</div>
+            <div>
+              <h4>Seamless planner handoff</h4>
+              <p>When you're ready to talk, Ella books your consultation with full context passed to your lead planner — no repeat intake forms.</p>
+            </div>
+          </div>
+        </div>
+        <div class="ai-cta">
+          <a href="#" class="btn btn-gold" onclick="event.preventDefault();if(window.KazozoWidget)window.KazozoWidget.open()">Chat with Ella &rarr;</a>
+          <span class="powered">Built on <a href="https://kazozo.com">Kazozo</a></span>
+        </div>
+      </div>
+
+      <div class="chat-demo">
+        <div class="cd-top">
+          <div class="cd-avatar">E</div>
+          <div class="cd-name">Ella — Ivory &amp; Oak</div>
+          <div class="cd-status">Online now</div>
+        </div>
+        <div class="cd-body">
+          <div class="cb cb-bot">Hi! I'm Ella, your planning assistant at Ivory &amp; Oak Events. I can help with availability, package details, or just chat about your vision. <strong>When's the big day?</strong></div>
+          <div class="cb cb-user">We're thinking October 2026, maybe the 10th or 17th.</div>
+          <div class="cb cb-bot">Exciting! October is our most popular month &mdash; I'll check both dates for you. While I do that: <strong>are you envisioning an indoor ballroom, outdoor garden, or something else?</strong></div>
+          <div class="cb cb-user">Outdoor ceremony, indoor reception. Probably in Palm Beach.</div>
+          <div class="cb cb-bot">Perfect. October 10th is <strong>available</strong> &mdash; October 17th we have a hold, but it may open up. For a Palm Beach outdoor-to-indoor wedding, our <strong>Grand Celebration</strong> package is the most popular. Roughly how many guests are you thinking?</div>
+          <div class="cb cb-user">Around 180 people.</div>
+          <div class="cb cb-bot">180 guests in Palm Beach — that's a beautiful size. Our Grand Celebration starts at $8,500 for venue &amp; vendor coordination, design, and day-of management. Would you like me to set up a <strong>free consultation with Claire</strong>, our founder? She specializes in Palm Beach weddings.</div>
+        </div>
+        <div class="cd-input">
+          <div class="cd-input-field">Ask about packages, pricing, availability...</div>
+          <button class="cd-send" onclick="if(window.KazozoWidget)window.KazozoWidget.open()" aria-label="Send">
+            <svg width="16" height="16" fill="none" viewBox="0 0 24 24"><path d="M22 2L11 13" stroke="#fff" stroke-width="2" stroke-linecap="round"/><path d="M22 2L15 22l-4-9-9-4 20-7z" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CAPABILITIES -->
+<section class="cap-sec">
+  <div class="container">
+    <div class="cap-header">
+      <h2>What Ella can do for your business</h2>
+      <p>Powered by Kazozo's Frontline Agent — built for hospitality &amp; events companies.</p>
+    </div>
+    <div class="cap-grid">
+      <div class="cap-card">
+        <div class="cap-icon">🗓️</div>
+        <h3>Real-time availability</h3>
+        <p>Live calendar lookups — prospects know instantly if their date is open, reducing back-and-forth by 80%.</p>
+      </div>
+      <div class="cap-card">
+        <div class="cap-icon">💬</div>
+        <h3>24/7 lead capture</h3>
+        <p>Inquiries at midnight, on weekends, during events — every lead captured and qualified automatically.</p>
+      </div>
+      <div class="cap-card">
+        <div class="cap-icon">📋</div>
+        <h3>Intake &amp; qualification</h3>
+        <p>Date, guest count, budget, style, venue — gathered before the first human conversation. Planners arrive prepared.</p>
+      </div>
+      <div class="cap-card">
+        <div class="cap-icon">📍</div>
+        <h3>Venue &amp; vendor FAQs</h3>
+        <p>Pricing, policies, preferred vendors, travel fees — answered instantly from your knowledge base.</p>
+      </div>
+      <div class="cap-card">
+        <div class="cap-icon">📞</div>
+        <h3>Consultation booking</h3>
+        <p>Books discovery calls directly on your calendar. Sends confirmations and reminders automatically.</p>
+      </div>
+      <div class="cap-card">
+        <div class="cap-icon">🤝</div>
+        <h3>Seamless handoff to planners</h3>
+        <p>Full lead context passed to your team in CRM. No lost notes, no repeat intake forms, no dropped leads.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-sec">
+  <div class="container">
+    <h2>Your wedding deserves<br><em>perfect planning.</em></h2>
+    <p>Chat with Ella now — check your date, explore packages, and take the first step toward your extraordinary day.</p>
+    <a href="#" class="btn btn-navy" onclick="event.preventDefault();if(window.KazozoWidget)window.KazozoWidget.open()">Start with Ella &rarr;</a>
+  </div>
+</section>
+
+<!-- DEMO NOTICE -->
+<div class="demo-bar">
+  <em>This is a demonstration site built to showcase Kazozo AI capabilities for the hospitality &amp; events industry. All planner names, statistics, and client stories are fictional. &mdash; <a href="https://kazozo.com" style="color:var(--gold);text-decoration:underline">Learn more about Kazozo</a></em>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ft-grid">
+    <div>
+      <div class="ft-brand">Ivory &amp; <span>Oak</span> Events</div>
+      <p class="ft-tagline">Where love stories become legendary. Luxury wedding planning &amp; event design.</p>
+      <p class="ft-powered">AI assistant by <a href="https://kazozo.com">Kazozo</a></p>
+    </div>
+    <div class="ft-col">
+      <h4>Services</h4>
+      <a href="#">Grand Celebration</a>
+      <a href="#">Curated Elegance</a>
+      <a href="#">Flawless Execution</a>
+      <a href="#">Floral Design</a>
+      <a href="#">Destination Weddings</a>
+    </div>
+    <div class="ft-col">
+      <h4>About</h4>
+      <a href="#">Our Story</a>
+      <a href="#">Meet the Team</a>
+      <a href="#">Real Weddings</a>
+      <a href="#">Press</a>
+      <a href="#">Careers</a>
+    </div>
+    <div class="ft-col">
+      <h4>Connect</h4>
+      <a href="#">Contact Us</a>
+      <a href="#">Instagram</a>
+      <a href="#">FAQ</a>
+      <a href="#">Blog</a>
+    </div>
+  </div>
+  <div class="ft-bottom">
+    <div class="ft-copy">&copy; 2026 Ivory &amp; Oak Events &middot; Demo by <a href="https://kazozo.com">Kazozo</a></div>
+    <div class="ft-legal">
+      <a href="#">Terms</a>
+      <a href="#">Privacy</a>
+    </div>
+  </div>
+</footer>
+
+<!-- Kazozo Frontline Agent Widget — Ivory & Oak Events Demo -->
+<script src="https://api.kazozo.com/widget/embed-loader.js"
+  data-tenant="ivory-oak-events"
+  data-api="https://api.kazozo.com"
+  data-color="#C9A96E"
+  data-position="bottom-right"></script>
+
+</body>
+</html>
