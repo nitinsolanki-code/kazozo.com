@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mora Sol Wellness — Aesthetics. Longevity. Renewal.</title>
+<meta name="description" content="Advanced medical aesthetics and longevity treatments in Palm Beach. Injectables, skin rejuvenation, body contouring, hormone therapy, and IV wellness — guided by AI concierge.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{overflow-x:hidden;width:100%}
+body{overflow-x:hidden;width:100%;position:relative}
+
+/* ===== DESIGN SYSTEM (Aman/Janu inspired — Mora Sol family) ===== */
+:root{
+  --bg:#F3EEE7;
+  --bg-warm:#EDE6DC;
+  --bg-ivory:#FCFAF7;
+  --sand:#D4C4B0;
+  --stone:#E2DBD6;
+  --stone-light:#EDE8E3;
+  --text:#313131;
+  --text-mid:#555555;
+  --text-light:#777777;
+  --text-muted:#999999;
+  --accent:#8B7355;
+  --accent-hover:#7A6548;
+  --accent-light:rgba(139,115,85,.08);
+  --dark:#2B2B2B;
+  --dark-deep:#1A1A1A;
+  --white:#fff;
+  --border:rgba(0,0,0,.08);
+  --border-light:rgba(0,0,0,.05);
+  --max-w:1200px;
+  --font:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  --serif:'Playfair Display',Georgia,'Times New Roman',serif;
+  --sp-1:8px;--sp-2:16px;--sp-3:24px;--sp-4:32px;--sp-5:40px;--sp-6:48px;--sp-8:64px;--sp-10:80px;--sp-12:96px;--sp-16:128px;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased;letter-spacing:0.01em}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.container{max-width:var(--max-w);margin:0 auto;padding:0 var(--sp-5)}
+.label{font-size:12px;text-transform:uppercase;letter-spacing:0.15em;font-weight:500;color:var(--text-mid)}
+
+/* ===== PROMO BAR ===== */
+.promo{background:var(--dark);color:rgba(255,255,255,.75);text-align:center;padding:var(--sp-2) var(--sp-3);font-size:13px;font-weight:400;letter-spacing:0.04em}
+.promo a{color:var(--sand);text-decoration:underline;text-underline-offset:3px;font-weight:500;margin-left:6px;transition:color .2s}
+.promo a:hover{color:#fff}
+
+/* ===== TRUST MARQUEE ===== */
+.marquee{overflow:hidden;background:var(--bg-warm);border-bottom:1px solid var(--border);padding:14px 0;max-width:100vw}
+.marquee-track{display:flex;gap:var(--sp-6);animation:scroll 50s linear infinite;width:max-content}
+.mq{display:flex;align-items:center;gap:var(--sp-1);white-space:nowrap;font-size:12px;font-weight:500;color:var(--text-mid);text-transform:uppercase;letter-spacing:0.08em}
+.mq svg{flex-shrink:0}
+@keyframes scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* ===== NAV ===== */
+.nav{position:sticky;top:0;z-index:100;background:rgba(243,238,231,.97);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:var(--max-w);margin:0 auto;padding:0 var(--sp-5);display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-family:var(--serif);font-size:20px;font-weight:500;letter-spacing:0.02em;color:var(--text)}
+.logo em{font-style:italic;color:var(--accent)}
+.nav-links{display:flex;align-items:center;gap:var(--sp-4)}
+.nav-links a{font-size:11px;font-weight:500;color:var(--text-mid);text-transform:uppercase;letter-spacing:0.15em;transition:color .2s}
+.nav-links a:hover{color:var(--text)}
+.nav-cta{background:var(--dark);color:#fff!important;padding:12px 24px;font-size:11px!important;font-weight:600!important;letter-spacing:0.12em!important;text-transform:uppercase!important;transition:background .2s;border:none}
+.nav-cta:hover{background:var(--text)}
+.hamburger{display:none;background:none;border:none;cursor:pointer;padding:var(--sp-1)}
+.hamburger span{display:block;width:20px;height:2px;background:var(--text);margin:5px 0;transition:all .3s}
+
+/* ===== HERO ===== */
+.hero{background:var(--dark-deep);padding:var(--sp-16) 0 var(--sp-12);position:relative;overflow:hidden;min-height:85vh;display:flex;align-items:center}
+.hero-bg{position:absolute;inset:0;background:linear-gradient(135deg,#1a1a1a 0%,#2a2018 40%,#1a1a1a 100%);opacity:.9}
+.hero::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 30% 50%,rgba(212,196,176,.06) 0%,transparent 60%);pointer-events:none;z-index:1}
+.hero-inner{position:relative;z-index:2;text-align:center;max-width:760px;margin:0 auto}
+.hero-label{font-size:11px;text-transform:uppercase;letter-spacing:0.2em;font-weight:500;color:var(--sand);margin-bottom:var(--sp-4);display:inline-block}
+.hero h1{font-family:var(--serif);font-size:60px;font-weight:400;letter-spacing:-0.02em;line-height:1.15;color:#fff;margin-bottom:var(--sp-3)}
+.hero h1 em{font-style:italic;color:var(--sand)}
+.hero-sub{font-size:17px;color:rgba(255,255,255,.5);line-height:1.7;margin-bottom:var(--sp-6);max-width:540px;margin-left:auto;margin-right:auto}
+.hero-actions{display:flex;gap:var(--sp-2);align-items:center;justify-content:center;flex-wrap:wrap}
+
+/* ===== BUTTONS ===== */
+.btn{display:inline-flex;align-items:center;gap:var(--sp-1);padding:14px 28px;font-weight:500;font-size:12px;border:none;cursor:pointer;transition:all .25s;text-decoration:none;font-family:var(--font);text-transform:uppercase;letter-spacing:0.12em;border-radius:0}
+.btn-solid{background:var(--dark);color:#fff}
+.btn-solid:hover{background:var(--text);transform:translateY(-2px)}
+.btn-outline-light{background:transparent;color:rgba(255,255,255,.7);border:1px solid rgba(255,255,255,.2)}
+.btn-outline-light:hover{border-color:rgba(255,255,255,.5);color:#fff}
+.btn-accent{background:var(--accent);color:#fff}
+.btn-accent:hover{background:var(--accent-hover);transform:translateY(-2px)}
+.btn-outline{background:transparent;color:var(--text);border:1px solid var(--border)}
+.btn-outline:hover{border-color:var(--text-mid)}
+.btn-white{background:#fff;color:var(--dark)}
+.btn-white:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.15)}
+.btn-arrow::after{content:'→';margin-left:8px;transition:transform .2s}
+.btn-arrow:hover::after{transform:translateX(3px)}
+
+/* ===== SERVICES ===== */
+.services-sec{padding:var(--sp-12) 0 var(--sp-10)}
+.sec-header{text-align:center;margin-bottom:var(--sp-8);max-width:640px;margin-left:auto;margin-right:auto}
+.sec-header .label{margin-bottom:var(--sp-2);display:block}
+.sec-header h2{font-family:var(--serif);font-size:42px;font-weight:400;letter-spacing:-0.02em;line-height:1.2;margin-bottom:var(--sp-2)}
+.sec-header p{font-size:16px;color:var(--text-mid);line-height:1.7}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--sp-3)}
+.svc-card{background:var(--white);border:1px solid var(--border);overflow:hidden;transition:all .4s cubic-bezier(.4,0,.2,1)}
+.svc-card:hover{box-shadow:0 16px 48px rgba(0,0,0,.06);transform:translateY(-3px)}
+.svc-card:hover .svc-img-icon{transform:scale(1.05)}
+.svc-img{height:200px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.svc-img.si1{background:linear-gradient(135deg,#EDE6DC,#D4C4B0)}
+.svc-img.si2{background:linear-gradient(135deg,#E8DDD2,#D0C0AC)}
+.svc-img.si3{background:linear-gradient(135deg,#DDD5CA,#C9BFB0)}
+.svc-img.si4{background:linear-gradient(135deg,#E2DBD6,#CFC5B8)}
+.svc-img.si5{background:linear-gradient(135deg,#E8E0D6,#D4CABF)}
+.svc-img.si6{background:linear-gradient(135deg,#DED6CC,#C8BDB0)}
+.svc-img-icon{font-size:48px;opacity:.65;transition:transform .4s cubic-bezier(.4,0,.2,1)}
+.svc-badge{position:absolute;top:var(--sp-2);left:var(--sp-2);font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:0.12em;color:var(--accent);background:rgba(255,255,255,.9);padding:6px 14px;backdrop-filter:blur(8px)}
+.svc-body{padding:var(--sp-3)}
+.svc-card h3{font-family:var(--serif);font-size:20px;font-weight:500;letter-spacing:-0.01em;margin-bottom:4px}
+.svc-type{font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:var(--sp-2)}
+.svc-desc{font-size:14px;color:var(--text-mid);line-height:1.65;margin-bottom:var(--sp-3)}
+.svc-actions{display:flex;gap:var(--sp-1)}
+.svc-actions a{padding:10px 20px;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;transition:all .2s;border-radius:0}
+.svc-actions .sa-primary{background:var(--dark);color:#fff}
+.svc-actions .sa-primary:hover{background:var(--text)}
+.svc-actions .sa-ghost{color:var(--text-mid);border:1px solid var(--border)}
+.svc-actions .sa-ghost:hover{border-color:var(--text-mid)}
+
+/* ===== APPROACH SECTION (Bespoke-inspired) ===== */
+.approach-sec{padding:var(--sp-10) 0;background:var(--bg-ivory);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.approach-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-8);align-items:center;max-width:1000px;margin:0 auto}
+.approach-text .label{margin-bottom:var(--sp-2);display:block}
+.approach-text h2{font-family:var(--serif);font-size:36px;font-weight:400;letter-spacing:-0.02em;line-height:1.2;margin-bottom:var(--sp-2)}
+.approach-text p{font-size:15px;color:var(--text-mid);line-height:1.7;margin-bottom:var(--sp-2)}
+.approach-text p:last-of-type{margin-bottom:var(--sp-4)}
+.approach-visual{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-2)}
+.av-card{padding:var(--sp-3);border:1px solid var(--border);background:var(--white);text-align:center}
+.av-card .av-num{font-family:var(--serif);font-size:28px;font-weight:400;color:var(--accent);margin-bottom:var(--sp-1)}
+.av-card h4{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:4px}
+.av-card p{font-size:12px;color:var(--text-light);line-height:1.5}
+
+/* ===== HOW IT WORKS ===== */
+.how-sec{background:var(--white);padding:var(--sp-10) 0;border-bottom:1px solid var(--border)}
+.how-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--sp-3)}
+.how-card{text-align:center;padding:var(--sp-3) var(--sp-2)}
+.how-num{width:48px;height:48px;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:20px;font-weight:400;color:var(--accent);margin:0 auto var(--sp-3);border:1px solid var(--sand)}
+.how-card h3{font-size:15px;font-weight:600;margin-bottom:var(--sp-1);letter-spacing:0.01em}
+.how-card p{font-size:13px;color:var(--text-light);line-height:1.65}
+
+/* ===== SOCIAL PROOF ===== */
+.social-proof{padding:var(--sp-10) 0;text-align:center}
+.sp-stats{display:flex;justify-content:center;gap:var(--sp-10);margin-bottom:var(--sp-8);flex-wrap:wrap}
+.sp-stat-val{font-family:var(--serif);font-size:52px;font-weight:400;letter-spacing:-0.02em;line-height:1;color:var(--text)}
+.sp-stat-label{font-size:12px;color:var(--text-mid);margin-top:var(--sp-1);text-transform:uppercase;letter-spacing:0.1em}
+.reviews-scroll{overflow:hidden;max-width:100vw}
+.reviews-track{display:flex;gap:var(--sp-2);padding:0 var(--sp-3);justify-content:center;flex-wrap:wrap}
+.review{flex:0 0 340px;max-width:380px;background:var(--white);border:1px solid var(--border);padding:var(--sp-4);text-align:left}
+.review-stars{color:var(--accent);font-size:12px;letter-spacing:3px;margin-bottom:var(--sp-2)}
+.review-text{font-size:15px;color:var(--text);line-height:1.65;margin-bottom:var(--sp-3)}
+.review-author{display:flex;align-items:center;gap:var(--sp-2)}
+.review-avatar{width:40px;height:40px;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-weight:500;font-size:16px;background:var(--stone-light);color:var(--accent)}
+.review-name{font-size:14px;font-weight:600}
+.review-role{font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.06em}
+
+/* ===== TEAM ===== */
+.team-sec{background:var(--bg-ivory);padding:var(--sp-10) 0;border-top:1px solid var(--border)}
+.team-badges{display:flex;justify-content:center;gap:var(--sp-5);flex-wrap:wrap;padding:var(--sp-4) 0;margin-bottom:var(--sp-4)}
+.team-badge{display:flex;align-items:center;gap:var(--sp-1);font-size:12px;color:var(--text-mid);font-weight:500;text-transform:uppercase;letter-spacing:0.06em}
+.team-badge-icon{width:36px;height:36px;display:flex;align-items:center;justify-content:center;border:1px solid var(--border)}
+.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--sp-3);max-width:960px;margin:0 auto}
+.team-member{background:var(--white);border:1px solid var(--border);padding:var(--sp-4);text-align:center}
+.tm-photo{width:80px;height:80px;margin:0 auto var(--sp-2);display:flex;align-items:center;justify-content:center;font-size:28px;background:var(--stone-light)}
+.team-member h3{font-family:var(--serif);font-size:17px;font-weight:500;margin-bottom:2px}
+.tm-title{font-size:11px;color:var(--accent);font-weight:600;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:var(--sp-1)}
+.tm-bio{font-size:13px;color:var(--text-light);line-height:1.6}
+.trust-logos{display:flex;justify-content:center;gap:var(--sp-3);align-items:center;padding:var(--sp-4) 0;flex-wrap:wrap}
+.trust-logo{background:var(--white);border:1px solid var(--border);padding:10px 20px;font-size:11px;font-weight:600;color:var(--text-mid);letter-spacing:0.06em;text-transform:uppercase}
+
+/* ===== AI CONCIERGE ===== */
+.ai-sec{background:var(--dark-deep);padding:var(--sp-12) 0;position:relative;overflow:hidden;max-width:100vw}
+.ai-sec::before{content:'';position:absolute;top:-200px;right:-200px;width:600px;height:600px;background:radial-gradient(circle,rgba(139,115,85,.06) 0%,transparent 70%);pointer-events:none}
+.ai-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-8);align-items:center}
+.ai-text .label{color:var(--sand);margin-bottom:var(--sp-3);display:block}
+.ai-text h2{font-family:var(--serif);font-size:42px;font-weight:400;letter-spacing:-0.02em;color:#fff;line-height:1.15;margin-bottom:var(--sp-2)}
+.ai-text>p{font-size:16px;color:rgba(255,255,255,.45);line-height:1.7;margin-bottom:var(--sp-5)}
+.ai-features{display:flex;flex-direction:column;gap:var(--sp-3)}
+.aif{display:flex;gap:var(--sp-2);align-items:flex-start}
+.aif-icon{width:40px;height:40px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:18px;border:1px solid rgba(255,255,255,.06);background:rgba(255,255,255,.03)}
+.aif h4{font-size:14px;font-weight:600;color:#fff;margin-bottom:2px;letter-spacing:0.01em}
+.aif p{font-size:13px;color:rgba(255,255,255,.35);line-height:1.6}
+.ai-cta{margin-top:var(--sp-5);display:flex;gap:var(--sp-2);align-items:center;flex-wrap:wrap}
+.ai-cta .powered{font-size:11px;color:rgba(255,255,255,.25);font-weight:400;text-transform:uppercase;letter-spacing:0.08em}
+.ai-cta .powered a{color:rgba(255,255,255,.4);text-decoration:underline;text-underline-offset:3px}
+
+/* Chat demo */
+.chat-demo{background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.05);overflow:hidden}
+.cd-top{background:rgba(255,255,255,.03);padding:14px 20px;display:flex;align-items:center;gap:10px;border-bottom:1px solid rgba(255,255,255,.05)}
+.cd-avatar{width:32px;height:32px;display:flex;align-items:center;justify-content:center;background:var(--accent);color:#fff;font-family:var(--serif);font-weight:500;font-size:11px}
+.cd-name{font-size:12px;font-weight:600;color:#fff;text-transform:uppercase;letter-spacing:0.08em}
+.cd-status{margin-left:auto;display:flex;align-items:center;gap:5px;font-size:10px;color:#6EE7A0;font-weight:500;text-transform:uppercase;letter-spacing:0.06em}
+.cd-status::before{content:'';width:6px;height:6px;border-radius:50%;background:#6EE7A0}
+.cd-body{padding:var(--sp-2) 20px;display:flex;flex-direction:column;gap:10px;max-height:420px;overflow-y:auto}
+.cb{max-width:88%;padding:12px 16px;font-size:13px;line-height:1.6}
+.cb-bot{background:rgba(255,255,255,.04);color:rgba(255,255,255,.75);align-self:flex-start}
+.cb-user{background:var(--accent);color:#fff;align-self:flex-end}
+.cb-bot strong{color:#fff;font-weight:600}
+.cd-input{padding:12px 20px;border-top:1px solid rgba(255,255,255,.05);display:flex;align-items:center;gap:10px}
+.cd-input-field{flex:1;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);padding:10px 16px;font-size:12px;color:rgba(255,255,255,.25);font-family:var(--font);letter-spacing:0.02em}
+.cd-send{width:36px;height:36px;background:var(--accent);border:none;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .2s}
+.cd-send:hover{background:var(--accent-hover)}
+
+/* ===== CAPABILITIES ===== */
+.cap-sec{padding:var(--sp-10) 0;background:var(--dark)}
+.cap-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--sp-2)}
+.cap-card{background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.05);padding:var(--sp-4);transition:border-color .3s}
+.cap-card:hover{border-color:rgba(139,115,85,.2)}
+.cap-icon{font-size:24px;margin-bottom:var(--sp-2);opacity:.7}
+.cap-card h3{font-size:15px;font-weight:600;color:#fff;margin-bottom:var(--sp-1);letter-spacing:0.01em}
+.cap-card p{font-size:13px;color:rgba(255,255,255,.35);line-height:1.65}
+
+/* ===== CTA ===== */
+.cta-sec{padding:var(--sp-12) 0;background:var(--dark-deep);text-align:center}
+.cta-sec h2{font-family:var(--serif);font-size:44px;font-weight:400;letter-spacing:-0.02em;color:#fff;margin-bottom:var(--sp-2);line-height:1.15}
+.cta-sec .container>p{font-size:16px;color:rgba(255,255,255,.4);max-width:480px;margin:0 auto var(--sp-5);line-height:1.7}
+
+/* ===== FOOTER ===== */
+footer{background:var(--dark);padding:var(--sp-8) var(--sp-5) var(--sp-4);color:rgba(255,255,255,.6)}
+.ft-inner{max-width:var(--max-w);margin:0 auto}
+.ft-grid{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr;gap:var(--sp-5);margin-bottom:var(--sp-5)}
+.ft-brand{font-family:var(--serif);font-size:18px;font-weight:500;margin-bottom:var(--sp-1);color:rgba(255,255,255,.85)}
+.ft-brand em{font-style:italic;color:var(--sand)}
+.ft-tagline{font-size:13px;color:rgba(255,255,255,.4);line-height:1.6;max-width:260px;margin-bottom:var(--sp-2)}
+.ft-powered{font-size:11px;color:rgba(255,255,255,.3)}
+.ft-powered a{color:var(--sand);font-weight:500}
+.ft-col h4{font-size:10px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:var(--sp-2)}
+.ft-col a{display:block;color:rgba(255,255,255,.4);font-size:14px;padding:3px 0;transition:color .2s}
+.ft-col a:hover{color:rgba(255,255,255,.7)}
+.ft-bottom{border-top:1px solid rgba(255,255,255,.06);padding-top:var(--sp-3);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.ft-copy{font-size:11px;color:rgba(255,255,255,.3)}
+.ft-copy a{color:var(--sand)}
+.ft-legal{display:flex;gap:var(--sp-3)}
+.ft-legal a{font-size:11px;color:rgba(255,255,255,.3);text-transform:uppercase;letter-spacing:0.06em}
+.ft-legal a:hover{color:rgba(255,255,255,.5)}
+
+/* ===== MOBILE NAV ===== */
+.mobile-overlay{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.4);backdrop-filter:blur(4px);z-index:200;opacity:0;pointer-events:none;transition:opacity .3s}
+.mobile-overlay.active{opacity:1;pointer-events:auto}
+.mobile-drawer{position:fixed;top:0;right:0;bottom:0;width:320px;max-width:85vw;background:var(--bg);z-index:201;transform:translateX(100%);transition:transform .4s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column;padding:var(--sp-10) var(--sp-4) var(--sp-5)}
+.mobile-drawer.active{transform:translateX(0)}
+.mobile-drawer a{display:block;font-size:14px;font-weight:500;color:var(--text);padding:var(--sp-2) 0;border-bottom:1px solid var(--border);text-transform:uppercase;letter-spacing:0.1em;transition:color .2s}
+.mobile-drawer a:hover{color:var(--accent)}
+.mobile-drawer .mob-cta{display:block;margin-top:var(--sp-3);background:var(--dark);color:#fff;padding:14px 24px;text-align:center;font-weight:600;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;border-bottom:none}
+.mob-close{position:absolute;top:var(--sp-3);right:var(--sp-3);background:none;border:none;cursor:pointer;padding:var(--sp-1);color:var(--text-mid);font-size:24px;line-height:1}
+
+/* ===== SCROLL REVEAL ===== */
+.reveal{opacity:0;transform:translateY(40px);transition:opacity .6s cubic-bezier(0,0,.2,1),transform .6s cubic-bezier(0,0,.2,1)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:1024px){
+  .hero-inner{max-width:600px}
+  .hero h1{font-size:48px}
+  .ai-grid{grid-template-columns:1fr;gap:var(--sp-5)}
+  .approach-grid{grid-template-columns:1fr;gap:var(--sp-5)}
+  .how-grid{grid-template-columns:1fr 1fr}
+  .team-grid{grid-template-columns:1fr 1fr}
+  .cap-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:768px){
+  .nav,.promo,.hero,.services-sec,.approach-sec,.how-sec,.social-proof,.team-sec,.cap-sec,.cta-sec,footer{overflow-x:hidden}
+  .hero h1{font-size:36px}
+  .hero{min-height:70vh;padding:var(--sp-10) 0 var(--sp-8)}
+  .sec-header h2,.approach-text h2{font-size:32px}
+  .ai-text h2{font-size:30px}
+  .cta-sec h2{font-size:30px}
+  .nav-links{display:none}
+  .hamburger{display:block}
+  .svc-grid{grid-template-columns:1fr}
+  .how-grid,.team-grid,.cap-grid{grid-template-columns:1fr}
+  .approach-visual{grid-template-columns:1fr 1fr}
+  .reviews-track{justify-content:center;padding:0 var(--sp-2)}
+  .review{flex:0 1 340px;max-width:100%}
+  .sp-stats{gap:var(--sp-4)}
+  .sp-stat-val{font-size:36px}
+  .how-sec,.team-sec,.social-proof,.ai-sec,.cap-sec,.cta-sec{padding:var(--sp-8) 0}
+  .btn{width:100%;justify-content:center}
+  .hero-actions{flex-direction:column;align-items:stretch}
+  .svc-actions{flex-direction:column}
+  .svc-actions a{width:100%;text-align:center;padding:12px 20px}
+  .ai-cta{flex-direction:column;align-items:stretch}
+  .ai-cta .btn{width:100%}
+  .ai-cta .powered{text-align:center}
+  .ft-grid{grid-template-columns:1fr 1fr;gap:var(--sp-4)}
+}
+@media(max-width:480px){
+  .hero h1{font-size:30px}
+  .promo{font-size:11.5px;padding:10px var(--sp-2)}
+  .approach-visual{grid-template-columns:1fr}
+  .reviews-track{flex-direction:column;align-items:center;padding:0 var(--sp-2)}
+  .review{flex:0 0 auto;width:100%;max-width:100%}
+  .ft-grid{grid-template-columns:1fr}
+  .ft-bottom{flex-direction:column;text-align:center}
+  .ft-legal{justify-content:center}
+  .sp-stats{flex-direction:column;gap:var(--sp-3);align-items:center}
+  .container{padding:0 var(--sp-2)}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== PROMO BAR ===== -->
+<div class="promo">
+  New patient consultations now available &mdash; complimentary skin assessment included.
+  <a href="#" onclick="event.preventDefault();if(window.KazozoWidget)window.KazozoWidget.open()">Book yours &rarr;</a>
+</div>
+
+<!-- ===== TRUST MARQUEE ===== -->
+<div class="marquee">
+  <div class="marquee-track">
+    <div class="mq"><svg width="14" height="14" fill="none" viewBox="0 0 16 16"><circle cx="8" cy="8" r="7" stroke="#8B7355" stroke-width="1.2"/><path d="M5 8l2 2 4-4" stroke="#8B7355" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Board-Certified Providers</div>
+    <div class="mq"><svg width="14" height="14" fill="none" viewBox="0 0 16 16"><circle cx="8" cy="8" r="7" stroke="#8B7355" stroke-width="1.2"/><path d="M5 8l2 2 4-4" stroke="#8B7355" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>AI Concierge Available 24/7</div>
+    <div class="mq"><svg width="14" height="14" fill="none" viewBox="0 0 16 16"><circle cx="8" cy="8" r="7" stroke="#8B7355" stroke-width="1.2"/><path d="M5 8l2 2 4-4" stroke="#8B7355" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Palm Beach &amp; West Palm Beach</div>
+    <div class="mq"><svg width="14" height="14" fill="none" viewBox="0 0 16 16"><circle cx="8" cy="8" r="7" stroke="#8B7355" stroke-width="1.2"/><path d="M5 8l2 2 4-4" stroke="#8B7355" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Medical-Grade Treatments</div>
+    <div class="mq"><svg width="14" height="14" fill="none" viewBox="0 0 16 16"><circle cx="8" cy="8" r="7" stroke="#8B7355" stroke-width="1.2"/><path d="M5 8l2 2 4-4" stroke="#8B7355" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Aesthetics &amp; Longevity</div>
+    <div class="mq"><svg width="14" height="14" fill="none" viewBox="0 0 16 16"><circle cx="8" cy="8" r="7" stroke="#8B7355" stroke-width="1.2"/><path d="M5 8l2 2 4-4" stroke="#8B7355" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Payment Plans Available</div>
+    <!-- dupe for loop -->
+    <div class="mq"><svg width="14" height="14" fill="none" viewBox="0 0 16 16"><circle cx="8" cy="8" r="7" stroke="#8B7355" stroke-width="1.2"/><path d="M5 8l2 2 4-4" stroke="#8B7355" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Board-Certified Providers</div>
+    <div class="mq"><svg width="14" height="14" fill="none" viewBox="0 0 16 16"><circle cx="8" cy="8" r="7" stroke="#8B7355" stroke-width="1.2"/><path d="M5 8l2 2 4-4" stroke="#8B7355" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>AI Concierge Available 24/7</div>
+    <div class="mq"><svg width="14" height="14" fill="none" viewBox="0 0 16 16"><circle cx="8" cy="8" r="7" stroke="#8B7355" stroke-width="1.2"/><path d="M5 8l2 2 4-4" stroke="#8B7355" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Palm Beach &amp; West Palm Beach</div>
+    <div class="mq"><svg width="14" height="14" fill="none" viewBox="0 0 16 16"><circle cx="8" cy="8" r="7" stroke="#8B7355" stroke-width="1.2"/><path d="M5 8l2 2 4-4" stroke="#8B7355" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Medical-Grade Treatments</div>
+    <div class="mq"><svg width="14" height="14" fill="none" viewBox="0 0 16 16"><circle cx="8" cy="8" r="7" stroke="#8B7355" stroke-width="1.2"/><path d="M5 8l2 2 4-4" stroke="#8B7355" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Aesthetics &amp; Longevity</div>
+    <div class="mq"><svg width="14" height="14" fill="none" viewBox="0 0 16 16"><circle cx="8" cy="8" r="7" stroke="#8B7355" stroke-width="1.2"/><path d="M5 8l2 2 4-4" stroke="#8B7355" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Payment Plans Available</div>
+  </div>
+</div>
+
+<!-- ===== NAV ===== -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#" class="logo">Mora <em>Sol</em> Wellness</a>
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#approach">Approach</a>
+      <a href="#team">Providers</a>
+      <a href="#ai">Concierge</a>
+      <a href="#" class="nav-cta" onclick="event.preventDefault();if(window.KazozoWidget)window.KazozoWidget.open()">Book Now</a>
+    </div>
+    <button class="hamburger" onclick="document.getElementById('mobOverlay').classList.add('active');document.getElementById('mobDrawer').classList.add('active');document.body.style.overflow='hidden'" aria-label="Open navigation">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile Drawer -->
+<div class="mobile-overlay" id="mobOverlay" onclick="this.classList.remove('active');document.getElementById('mobDrawer').classList.remove('active');document.body.style.overflow=''"></div>
+<div class="mobile-drawer" id="mobDrawer">
+  <button class="mob-close" onclick="document.getElementById('mobOverlay').classList.remove('active');this.parentElement.classList.remove('active');document.body.style.overflow=''" aria-label="Close navigation">&times;</button>
+  <a href="#services" onclick="document.getElementById('mobOverlay').classList.remove('active');document.getElementById('mobDrawer').classList.remove('active');document.body.style.overflow=''">Services</a>
+  <a href="#approach" onclick="document.getElementById('mobOverlay').classList.remove('active');document.getElementById('mobDrawer').classList.remove('active');document.body.style.overflow=''">Approach</a>
+  <a href="#team" onclick="document.getElementById('mobOverlay').classList.remove('active');document.getElementById('mobDrawer').classList.remove('active');document.body.style.overflow=''">Providers</a>
+  <a href="#ai" onclick="document.getElementById('mobOverlay').classList.remove('active');document.getElementById('mobDrawer').classList.remove('active');document.body.style.overflow=''">Concierge</a>
+  <a href="#" class="mob-cta" onclick="event.preventDefault();document.getElementById('mobOverlay').classList.remove('active');document.getElementById('mobDrawer').classList.remove('active');document.body.style.overflow='';if(window.KazozoWidget)window.KazozoWidget.open()">Book Now</a>
+</div>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-label">Advanced Aesthetics &amp; Longevity</div>
+      <h1>Where science meets <em>renewal</em></h1>
+      <p class="hero-sub">Medical aesthetics, regenerative treatments, and longevity medicine. Board-certified providers, personalized plans, results that age with you.</p>
+      <div class="hero-actions">
+        <a href="#" class="btn btn-accent btn-arrow" onclick="event.preventDefault();if(window.KazozoWidget)window.KazozoWidget.open()">Book a consultation</a>
+        <a href="#services" class="btn btn-outline-light">Explore treatments</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SERVICES ===== -->
+<section class="services-sec" id="services">
+  <div class="container">
+    <div class="sec-header reveal">
+      <div class="label">Treatments</div>
+      <h2>Aesthetics. Longevity. Wellness.</h2>
+      <p>Thoughtfully designed care to enhance natural features, optimize health, and support long-term vitality.</p>
+    </div>
+    <div class="svc-grid">
+      <div class="svc-card reveal">
+        <div class="svc-img si1">
+          <div class="svc-badge">Injectables</div>
+          <div class="svc-img-icon">&#128137;</div>
+        </div>
+        <div class="svc-body">
+          <h3>Wrinkle Relaxers &amp; Fillers</h3>
+          <div class="svc-type">Botox &middot; Dysport &middot; Dermal Fillers</div>
+          <p class="svc-desc">Strategic placement, never overdone. Botox, Dysport, Xeomin for wrinkle relaxation. Hyaluronic acid and collagen-stimulating fillers for volume and contour.</p>
+          <div class="svc-actions">
+            <a href="#" class="sa-primary" onclick="event.preventDefault();if(window.KazozoWidget)window.KazozoWidget.open()">Learn More</a>
+            <a href="#" class="sa-ghost" onclick="event.preventDefault();if(window.KazozoWidget)window.KazozoWidget.open()">Pricing</a>
+          </div>
+        </div>
+      </div>
+      <div class="svc-card reveal">
+        <div class="svc-img si2">
+          <div class="svc-badge">Skin</div>
+          <div class="svc-img-icon">&#10024;</div>
+        </div>
+        <div class="svc-body">
+          <h3>Skin Rejuvenation</h3>
+          <div class="svc-type">BBL &middot; Microneedling &middot; Peels &middot; Facials</div>
+          <p class="svc-desc">Treat texture, tone, and clarity at every layer. BBL phototherapy, microneedling with PRP, medical-grade peels, and custom HydraFacials.</p>
+          <div class="svc-actions">
+            <a href="#" class="sa-primary" onclick="event.preventDefault();if(window.KazozoWidget)window.KazozoWidget.open()">Learn More</a>
+            <a href="#" class="sa-ghost" onclick="event.preventDefault();if(window.KazozoWidget)window.KazozoWidget.open()">Pricing</a>
+          </div>
+        </div>
+      </div>
+      <div class="svc-card reveal">
+        <div class="svc-img si3">
+          <div class="svc-badge">Body</div>
+          <div class="svc-img-icon">&#128170;</div>
+        </div>
+        <div class="svc-body">
+          <h3>Body Contouring</h3>
+          <div class="svc-type">Sculpting &middot; Tightening &middot; Morpheus8</div>
+          <p class="svc-desc">Non-invasive fat reduction, skin tightening, and cellulite treatment. Morpheus8 RF microneedling, truSculpt, and body-focused laser protocols.</p>
+          <div class="svc-actions">
+            <a href="#" class="sa-primary" onclick="event.preventDefault();if(window.KazozoWidget)window.KazozoWidget.open()">Learn More</a>
+            <a href="#" class="sa-ghost" onclick="event.preventDefault();if(window.KazozoWidget)window.KazozoWidget.open()">Pricing</a>
+          </div>
+        </div>
+      </div>
+      <div class="svc-card reveal">
+        <div class="svc-img si4">
+          <div class="svc-badge">Longevity</div>
+          <div class="svc-img-icon">&#127793;</div>
+        </div>
+        <div class="svc-body">
+          <h3>Hormone &amp; Peptide Therapy</h3>
+          <div class="svc-type">HRT &middot; TRT &middot; Peptides &middot; Optimization</div>
+          <p class="svc-desc">Targeted hormone optimization for energy, metabolism, and vitality. Bioidentical hormones, peptide protocols, and comprehensive bloodwork panels.</p>
+          <div class="svc-actions">
+            <a href="#" class="sa-primary" onclick="event.preventDefault();if(window.KazozoWidget)window.KazozoWidget.open()">Learn More</a>
+            <a href="#" class="sa-ghost" onclick="event.preventDefault();if(window.KazozoWidget)window.KazozoWidget.open()">Pricing</a>
+          </div>
+        </div>
+      </div>
+      <div class="svc-card reveal">
+        <div class="svc-img si5">
+          <div class="svc-badge">Regenerative</div>
+          <div class="svc-img-icon">&#128300;</div>
+        </div>
+        <div class="svc-body">
+          <h3>IV Therapy &amp; Regenerative</h3>
+          <div class="svc-type">IV Drips &middot; Exosomes &middot; PRP &middot; HBOT</div>
+          <p class="svc-desc">IV vitamin infusions for energy and recovery. Exosome therapy for cellular repair. PRP for hair restoration and skin renewal. Hyperbaric oxygen therapy.</p>
+          <div class="svc-actions">
+            <a href="#" class="sa-primary" onclick="event.preventDefault();if(window.KazozoWidget)window.KazozoWidget.open()">Learn More</a>
+            <a href="#" class="sa-ghost" onclick="event.preventDefault();if(window.KazozoWidget)window.KazozoWidget.open()">Pricing</a>
+          </div>
+        </div>
+      </div>
+      <div class="svc-card reveal">
+        <div class="svc-img si6">
+          <div class="svc-badge">Weight Loss</div>
+          <div class="svc-img-icon">&#9878;&#65039;</div>
+        </div>
+        <div class="svc-body">
+          <h3>Medical Weight Loss</h3>
+          <div class="svc-type">GLP-1 &middot; Semaglutide &middot; Tirzepatide</div>
+          <p class="svc-desc">Medically guided weight management with GLP-1 medications, metabolic optimization, nutritional coaching, and ongoing provider support.</p>
+          <div class="svc-actions">
+            <a href="#" class="sa-primary" onclick="event.preventDefault();if(window.KazozoWidget)window.KazozoWidget.open()">Learn More</a>
+            <a href="#" class="sa-ghost" onclick="event.preventDefault();if(window.KazozoWidget)window.KazozoWidget.open()">Pricing</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== APPROACH (Bespoke-inspired planning philosophy) ===== -->
+<section class="approach-sec" id="approach">
+  <div class="container">
+    <div class="approach-grid">
+      <div class="approach-text reveal">
+        <div class="label">Our Approach</div>
+        <h2>The right treatments, in the right order</h2>
+        <p>Your face and body change in layers &mdash; skin, volume, muscle, bone. Treating one dimension at a time leads to results that look unnatural or don't last.</p>
+        <p>We take a planning-based approach. Every new patient starts with a comprehensive evaluation. From there, we map a personalized treatment plan that addresses what matters most now and builds toward long-term results.</p>
+        <p>It's not about doing more. It's about doing the right things, strategically.</p>
+        <a href="#" class="btn btn-solid btn-arrow" onclick="event.preventDefault();if(window.KazozoWidget)window.KazozoWidget.open()">Book a consultation</a>
+      </div>
+      <div class="approach-visual reveal">
+        <div class="av-card">
+          <div class="av-num">01</div>
+          <h4>Assess</h4>
+          <p>Full-face and body evaluation with your provider</p>
+        </div>
+        <div class="av-card">
+          <div class="av-num">02</div>
+          <h4>Plan</h4>
+          <p>Custom treatment roadmap built around your goals</p>
+        </div>
+        <div class="av-card">
+          <div class="av-num">03</div>
+          <h4>Treat</h4>
+          <p>Layered treatments timed for optimal results</p>
+        </div>
+        <div class="av-card">
+          <div class="av-num">04</div>
+          <h4>Maintain</h4>
+          <p>Ongoing care plan that evolves with you</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== HOW IT WORKS ===== -->
+<section class="how-sec" id="how">
+  <div class="container">
+    <div class="sec-header reveal">
+      <div class="label">Getting Started</div>
+      <h2>Your first visit</h2>
+      <p>Simple, thorough, and entirely on your terms.</p>
+    </div>
+    <div class="how-grid">
+      <div class="how-card reveal">
+        <div class="how-num">1</div>
+        <h3>Chat with our concierge</h3>
+        <p>Tell our AI concierge what you're looking for. Get treatment recommendations, pricing, and availability instantly.</p>
+      </div>
+      <div class="how-card reveal">
+        <div class="how-num">2</div>
+        <h3>Consultation with a provider</h3>
+        <p>A board-certified provider evaluates your skin, health history, and goals. Together you build a personalized plan.</p>
+      </div>
+      <div class="how-card reveal">
+        <div class="how-num">3</div>
+        <h3>Begin treatment</h3>
+        <p>Start with what matters most. Many treatments are same-day. Others are scheduled for optimal timing and results.</p>
+      </div>
+      <div class="how-card reveal">
+        <div class="how-num">4</div>
+        <h3>Ongoing care</h3>
+        <p>Your concierge handles follow-ups, reminders, skincare guidance, and rebooking. Your provider adjusts your plan as you progress.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SOCIAL PROOF ===== -->
+<section class="social-proof">
+  <div class="container">
+    <div class="sp-stats reveal">
+      <div>
+        <div class="sp-stat-val">4.9</div>
+        <div class="sp-stat-label">Average Rating</div>
+      </div>
+      <div>
+        <div class="sp-stat-val">3,200+</div>
+        <div class="sp-stat-label">Patients Treated</div>
+      </div>
+      <div>
+        <div class="sp-stat-val">8</div>
+        <div class="sp-stat-label">Years in Palm Beach</div>
+      </div>
+    </div>
+    <div class="reviews-scroll">
+      <div class="reviews-track">
+        <div class="review reveal">
+          <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="review-text">"The AI concierge answered my questions about Botox vs. Dysport at 10pm. By morning I had an appointment booked. The provider was exactly as knowledgeable as the concierge promised."</p>
+          <div class="review-author"><div class="review-avatar">L</div><div><div class="review-name">Lauren M.</div><div class="review-role">Injectable Patient</div></div></div>
+        </div>
+        <div class="review reveal">
+          <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="review-text">"Started with a longevity consult and now I'm on a full hormone optimization protocol. Energy levels are back, sleep is better, and the team monitors everything monthly."</p>
+          <div class="review-author"><div class="review-avatar">R</div><div><div class="review-name">Richard T.</div><div class="review-role">Longevity Patient</div></div></div>
+        </div>
+        <div class="review reveal">
+          <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="review-text">"I've been to three med spas in Palm Beach. Mora Sol is the first one that built an actual plan instead of just selling me the treatment of the month. My skin has never looked better."</p>
+          <div class="review-author"><div class="review-avatar">S</div><div><div class="review-name">Sofia D.</div><div class="review-role">Skin Rejuvenation</div></div></div>
+        </div>
+        <div class="review reveal">
+          <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="review-text">"The weight loss program changed my life. Semaglutide combined with their metabolic support &mdash; down 38 pounds in five months. The concierge made managing everything seamless."</p>
+          <div class="review-author"><div class="review-avatar">A</div><div><div class="review-name">Amanda K.</div><div class="review-role">Weight Loss Patient</div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TEAM ===== -->
+<section class="team-sec" id="team">
+  <div class="container">
+    <div class="sec-header reveal">
+      <div class="label">Our Providers</div>
+      <h2>Board-certified. Experienced. Deliberate.</h2>
+      <p>Our team brings decades of combined experience in aesthetic medicine, regenerative health, and functional longevity.</p>
+    </div>
+    <div class="team-badges reveal">
+      <div class="team-badge">
+        <div class="team-badge-icon"><svg width="16" height="16" fill="none" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="#555" stroke-width="1.5"/></svg></div>
+        Board-Certified
+      </div>
+      <div class="team-badge">
+        <div class="team-badge-icon"><svg width="16" height="16" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="#555" stroke-width="1.5"/><path d="M9 12l2 2 4-4" stroke="#555" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+        20+ Years Combined
+      </div>
+      <div class="team-badge">
+        <div class="team-badge-icon"><svg width="16" height="16" fill="none" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z" stroke="#555" stroke-width="1.5"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z" stroke="#555" stroke-width="1.5"/></svg></div>
+        Continuing Education
+      </div>
+    </div>
+    <div class="team-grid">
+      <div class="team-member reveal">
+        <div class="tm-photo">&#128105;&#8205;&#9877;&#65039;</div>
+        <h3>Dr. Elena Vargas, MD</h3>
+        <div class="tm-title">Medical Director</div>
+        <p class="tm-bio">Board-certified in Internal Medicine and Aesthetic Medicine. 15+ years specializing in injectables, skin rejuvenation, and integrative wellness.</p>
+      </div>
+      <div class="team-member reveal">
+        <div class="tm-photo">&#128104;&#8205;&#9877;&#65039;</div>
+        <h3>Joseph Sinclair, PA-C</h3>
+        <div class="tm-title">Longevity &amp; Regenerative</div>
+        <p class="tm-bio">Physician assistant specializing in hormone optimization, peptide therapy, and regenerative medicine. Functional approach to aging well.</p>
+      </div>
+      <div class="team-member reveal">
+        <div class="tm-photo">&#128105;&#8205;&#9877;&#65039;</div>
+        <h3>Cristina Reyes, PA-C</h3>
+        <div class="tm-title">Aesthetics Lead</div>
+        <p class="tm-bio">Expert in strategic injectable planning. Known for natural results that enhance without overcorrecting. Patients trust her judgment.</p>
+      </div>
+    </div>
+    <div class="trust-logos reveal">
+      <div class="trust-logo">ABIM Certified</div>
+      <div class="trust-logo">AAAM Member</div>
+      <div class="trust-logo">HIPAA Compliant</div>
+      <div class="trust-logo">Allergan Partner</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== AI CONCIERGE ===== -->
+<section class="ai-sec" id="ai">
+  <div class="container">
+    <div class="ai-grid">
+      <div class="ai-text">
+        <div class="label">Powered by Kazozo</div>
+        <h2>Your wellness concierge, always available</h2>
+        <p>Questions about treatments, pricing, recovery, or what's right for your skin? The concierge answers instantly and books your appointment when you're ready.</p>
+        <div class="ai-features">
+          <div class="aif">
+            <div class="aif-icon">&#128137;</div>
+            <div>
+              <h4>Treatment recommendations</h4>
+              <p>Describe your concerns and goals. The concierge explains options, compares treatments, and suggests what's most appropriate for you.</p>
+            </div>
+          </div>
+          <div class="aif">
+            <div class="aif-icon">&#128176;</div>
+            <div>
+              <h4>Transparent pricing</h4>
+              <p>Get pricing for any treatment, package options, and payment plan details. No surprises, no hidden fees.</p>
+            </div>
+          </div>
+          <div class="aif">
+            <div class="aif-icon">&#129309;</div>
+            <div>
+              <h4>Provider matching</h4>
+              <p>The concierge routes you to the right provider based on your treatment type. Full context transferred, nothing repeated.</p>
+            </div>
+          </div>
+          <div class="aif">
+            <div class="aif-icon">&#128197;</div>
+            <div>
+              <h4>Follow-up and care</h4>
+              <p>Post-treatment check-ins, skincare guidance, appointment reminders, and rebooking. Ongoing support between visits.</p>
+            </div>
+          </div>
+        </div>
+        <div class="ai-cta">
+          <a href="#" class="btn btn-accent btn-arrow" onclick="event.preventDefault();if(window.KazozoWidget)window.KazozoWidget.open()">Try the concierge</a>
+          <span class="powered">Built on <a href="https://kazozo.com">Kazozo</a></span>
+        </div>
+      </div>
+      <div class="chat-demo">
+        <div class="cd-top">
+          <div class="cd-avatar">MS</div>
+          <div class="cd-name">Mora Sol Concierge</div>
+          <div class="cd-status">Online</div>
+        </div>
+        <div class="cd-body">
+          <div class="cb cb-bot">Welcome to Mora Sol Wellness. I can help you explore treatments, understand pricing, or book a consultation. <strong>What brings you in today?</strong></div>
+          <div class="cb cb-user">I'm interested in Botox but I've never had it done. I'm worried about looking frozen.</div>
+          <div class="cb cb-bot">That's a common concern, and a good one to raise. At Mora Sol, we take a conservative approach &mdash; the goal is to soften lines while keeping natural expression. <strong>Which areas are you most concerned about?</strong> Forehead lines, crow's feet, and the "11" lines between the brows are the most common starting points.</div>
+          <div class="cb cb-user">Mostly the forehead and the 11s between my eyes</div>
+          <div class="cb cb-bot">Those are ideal areas for a first treatment. A typical session takes about 15 minutes with minimal downtime. Results appear in <strong>3&ndash;5 days</strong> and last 3&ndash;4 months. Pricing starts at <strong>$12&ndash;14 per unit</strong>, and forehead + glabella (the 11s) typically requires 30&ndash;40 units. Would you like me to book a consultation with one of our providers?</div>
+        </div>
+        <div class="cd-input">
+          <div class="cd-input-field">Ask about treatments, pricing, or availability...</div>
+          <button class="cd-send" onclick="if(window.KazozoWidget)window.KazozoWidget.open()" aria-label="Send">
+            <svg width="14" height="14" fill="none" viewBox="0 0 24 24"><path d="M22 2L11 13" stroke="#fff" stroke-width="2" stroke-linecap="round"/><path d="M22 2L15 22l-4-9-9-4 20-7z" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CAPABILITIES ===== -->
+<section class="cap-sec">
+  <div class="container">
+    <div class="sec-header" style="margin-bottom:var(--sp-6)">
+      <div class="label" style="color:var(--sand)">Capabilities</div>
+      <h2 style="color:#fff">What the concierge can do</h2>
+      <p style="color:rgba(255,255,255,.4)">Powered by Kazozo's Frontline Agent technology.</p>
+    </div>
+    <div class="cap-grid">
+      <div class="cap-card">
+        <div class="cap-icon">&#128172;</div>
+        <h3>Answer treatment questions</h3>
+        <p>What's the difference between Botox and Dysport? How long does Morpheus8 recovery take? Answered instantly, accurately.</p>
+      </div>
+      <div class="cap-card">
+        <div class="cap-icon">&#128176;</div>
+        <h3>Share pricing transparently</h3>
+        <p>Per-unit costs, package pricing, membership options, and payment plans. No guessing, no call-to-find-out.</p>
+      </div>
+      <div class="cap-card">
+        <div class="cap-icon">&#128203;</div>
+        <h3>Recommend treatments</h3>
+        <p>Based on your concerns, skin type, age, and goals. The concierge suggests appropriate treatments and explains why.</p>
+      </div>
+      <div class="cap-card">
+        <div class="cap-icon">&#128197;</div>
+        <h3>Book appointments</h3>
+        <p>Check provider availability and schedule consultations or treatments. Same-day booking when openings exist.</p>
+      </div>
+      <div class="cap-card">
+        <div class="cap-icon">&#129309;</div>
+        <h3>Route to the right provider</h3>
+        <p>Injectables to the aesthetics lead, longevity to the regenerative specialist. Full context transferred, zero repeat intake.</p>
+      </div>
+      <div class="cap-card">
+        <div class="cap-icon">&#128274;</div>
+        <h3>HIPAA-compliant</h3>
+        <p>All conversations encrypted. Health information handled securely. Audit trails for every interaction.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="cta-sec">
+  <div class="container">
+    <h2>Ready to begin?</h2>
+    <p>Talk to our concierge. Get answers, explore treatments, and book your consultation &mdash; all in one conversation.</p>
+    <a href="#" class="btn btn-white btn-arrow" onclick="event.preventDefault();if(window.KazozoWidget)window.KazozoWidget.open()">Start a conversation</a>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="ft-inner">
+    <div class="ft-grid">
+      <div>
+        <div class="ft-brand">Mora <em>Sol</em> Wellness</div>
+        <p class="ft-tagline">Advanced medical aesthetics and longevity treatments. Board-certified providers in Palm Beach.</p>
+        <p class="ft-powered">AI concierge by <a href="https://kazozo.com">Kazozo</a></p>
+      </div>
+      <div class="ft-col">
+        <h4>Aesthetics</h4>
+        <a href="#">Injectables</a>
+        <a href="#">Skin Rejuvenation</a>
+        <a href="#">Body Contouring</a>
+        <a href="#">Hair Restoration</a>
+      </div>
+      <div class="ft-col">
+        <h4>Longevity</h4>
+        <a href="#">Hormone Therapy</a>
+        <a href="#">Peptide Therapy</a>
+        <a href="#">IV Infusions</a>
+        <a href="#">Weight Loss</a>
+      </div>
+      <div class="ft-col">
+        <h4>Company</h4>
+        <a href="#">About</a>
+        <a href="#">Our Providers</a>
+        <a href="#">Reviews</a>
+        <a href="#">Contact</a>
+      </div>
+    </div>
+    <div class="ft-bottom">
+      <div class="ft-copy">&copy; 2026 Mora Sol Wellness, a <a href="https://solanki.co">Solanki Co</a> company.</div>
+      <div class="ft-legal">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">Disclaimer</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<p style="text-align:center;font-size:11px;color:var(--text-muted);padding:var(--sp-2) var(--sp-3);line-height:1.6;background:var(--bg-warm);border-top:1px solid var(--border)">
+  <em>This is a demonstration site built to showcase AI concierge capabilities powered by <a href="https://kazozo.com" style="color:var(--accent);font-weight:500">Kazozo</a>. All provider names, patient stories, and statistics are fictional. Mora Sol Wellness is a brand of <a href="https://solanki.co" style="color:var(--accent);font-weight:500">Solanki Co</a>.</em>
+</p>
+
+<!-- Scroll reveal -->
+<script>
+(function(){
+  var els=document.querySelectorAll('.reveal');
+  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('visible')});return}
+  var obs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})
+  },{threshold:0.15,rootMargin:'0px 0px -40px 0px'});
+  els.forEach(function(e){obs.observe(e)});
+})();
+</script>
+
+<!-- Kazozo Frontline Agent Widget -->
+<script src="https://api.kazozo.com/widget/embed-loader.js"
+  data-tenant="kazozo-001"
+  data-api="https://api.kazozo.com"
+  data-bot-name="Mora Sol Concierge"
+  data-color="#8B7355"
+  data-position="bottom-right"></script>
+
+</body>
+</html>

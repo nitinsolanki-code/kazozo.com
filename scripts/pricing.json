@@ -1,0 +1,30 @@
+{
+  "plans": {
+    "starter": {
+      "monthly": 149,
+      "display": "$149",
+      "overage": "$0.28"
+    },
+    "growth": {
+      "monthly": 499,
+      "display": "$499"
+    },
+    "pro": {
+      "monthly": 999,
+      "display": "$999"
+    }
+  },
+  "range": {
+    "display": "$149–$999"
+  },
+  "agents": {
+    "frontline": {
+      "rate": 0.18,
+      "display": "$0.18"
+    },
+    "voice": {
+      "rate": 1.10,
+      "display": "$1.10"
+    }
+  }
+}

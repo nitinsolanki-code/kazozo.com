@@ -1,5 +1,5 @@
 {
-  "generated": "2026-03-25T19:26:27.408Z",
+  "generated": "2026-03-25T15:34:27.103Z",
   "version": 1,
   "agents": [
     {
@@ -10,7 +10,7 @@
       "description": "Advanced customer support agent — resolves tickets, processes refunds, applies credits, changes plans, and handles escalations. Includes case wrap-up with auto-classification, CRM updates, and satisfaction follow-ups. Designed for Tier 2 support where the frontline agent has already triaged.",
       "model": "claude-sonnet-4-20250514",
       "costPerResolution": 0.28,
-      "toolCount": 16,
+      "toolCount": 14,
       "tools": [
         {
           "id": "crm/lookup-customer",
@@ -81,16 +81,6 @@
           "id": "support/smart-escalation",
           "description": "Intelligently determine whether a support ticket should be escalated. Considers customer lifetime value, sentiment, complexity, and context to recommend escalation path and priority level.",
           "isNewFeature": true
-        },
-        {
-          "id": "support/csat-auto-survey",
-          "description": "Automatically trigger and manage customer satisfaction surveys after service interactions. Analyzes responses, identifies trends, and flags accounts needing attention.",
-          "isNewFeature": true
-        },
-        {
-          "id": "support/self-service-kb",
-          "description": "Manage and optimize the customer self-service knowledge base. Identifies content gaps from ticket analysis, suggests new articles, tracks deflection rates, and recommends improvements.",
-          "isNewFeature": true
         }
       ],
       "capabilities": [
@@ -141,7 +131,7 @@
       "description": "AI receptionist and VIP concierge — the first point of contact across all channels. Answers questions, books appointments, looks up status, captures leads, routes to specialists. Supports multi-language conversations natively. In concierge mode, pulls client preferences, adapts tone for luxury/HNW clients, offers proactive suggestions, and manages cross-vertical referral introductions.",
       "model": "claude-haiku-4-5-20251001",
       "costPerResolution": 0.12,
-      "toolCount": 22,
+      "toolCount": 20,
       "tools": [
         {
           "id": "kb/quick-answers",
@@ -242,16 +232,6 @@
           "id": "frontline/smart-routing",
           "description": "Intelligently route messages to the best agent/channel based on intent, customer history, and availability. Returns routing recommendation with target agent, confidence, reasoning, and wait time.",
           "isNewFeature": true
-        },
-        {
-          "id": "frontline/booking-management",
-          "description": "Manage appointment booking lifecycle. Check availability, create bookings, reschedule, or cancel appointments. Returns available time slots, booking confirmations with IDs, and cancellation confirmations.",
-          "isNewFeature": true
-        },
-        {
-          "id": "frontline/visitor-intent",
-          "description": "Predict visitor intent from browsing behavior and message context. Analyzes page URL, session duration, pages visited, referrer source, and message text to determine if visitor is browsing, ready to purchase, seeking support, checking pricing, or scheduling a booking.",
-          "isNewFeature": true
         }
       ],
       "capabilities": [
@@ -327,7 +307,7 @@
       "description": "All-in-one content creation — blog posts, social media, newsletters, email campaigns, ad copy, video scripts, captions, SEO-optimized articles, and posting schedules. Maintains brand voice consistency across all channels.",
       "model": "claude-sonnet-4-20250514",
       "costPerResolution": 0.95,
-      "toolCount": 16,
+      "toolCount": 15,
       "tools": [
         {
           "id": "content/generate-draft",
@@ -403,11 +383,6 @@
           "id": "content/ad-variants",
           "description": "Generates A/B testing ad copy variants with different tones and CTAs for campaign optimization",
           "isNewFeature": true
-        },
-        {
-          "id": "content/brand-voice-check",
-          "description": "Score content against brand guidelines and suggest fixes. Analyzes content for tone, messaging consistency, readability, and voice alignment. Returns overall score (0-100), identified issues with severity/location/suggestions, tone analysis, readability metrics, and corrected content.",
-          "isNewFeature": true
         }
       ],
       "capabilities": [
@@ -451,7 +426,7 @@
       "description": "Generates executive performance summaries from CRM and metrics data. Aggregates KPIs, pipeline status, revenue trends, agent performance, and competitive intelligence into actionable weekly reports delivered automatically.",
       "model": "claude-sonnet-4-20250514",
       "costPerResolution": 0.75,
-      "toolCount": 9,
+      "toolCount": 7,
       "tools": [
         {
           "id": "content/generate-report",
@@ -481,16 +456,6 @@
         {
           "id": "reports/pipeline-forecast",
           "description": "Generate revenue pipeline forecast using historical conversion rates. Returns forecast amounts at each confidence level, deal breakdown, historical accuracy, and risk factors.",
-          "isNewFeature": true
-        },
-        {
-          "id": "reports/custom-kpi-dashboard",
-          "description": "Generate custom KPI dashboards with configurable metrics, time comparisons, and goal tracking. Supports sales, support, marketing, and operations KPIs.",
-          "isNewFeature": true
-        },
-        {
-          "id": "reports/trend-anomaly-detection",
-          "description": "Detect trends and anomalies in business metrics. Analyzes revenue, leads, tickets, reviews, conversions, or expenses over specified periods with configurable sensitivity. Returns trend direction/magnitude, identified anomalies with deviations, forecasted values, and alerts.",
           "isNewFeature": true
         },
         {
@@ -545,7 +510,7 @@
       "description": "Internal HR and policy Q&A for staff — handles PTO requests, expense submissions, benefits questions, onboarding guidance, org chart lookups, and company policy inquiries. The always-available HR self-service assistant.",
       "model": "claude-haiku-4-5-20251001",
       "costPerResolution": 0.1,
-      "toolCount": 11,
+      "toolCount": 10,
       "tools": [
         {
           "id": "hr/submit-pto",
@@ -596,11 +561,6 @@
           "id": "hr/onboarding-checklist",
           "description": "New hire onboarding management with progress tracking and task assignment",
           "isNewFeature": true
-        },
-        {
-          "id": "hr/benefits-faq",
-          "description": "Answer employee benefits questions from knowledge base. Provides answers to health, dental, vision, 401k, PTO, life insurance, disability, and FSA/HSA questions with enrollment deadlines, related questions, and contact information.",
-          "isNewFeature": true
         }
       ],
       "capabilities": [
@@ -638,7 +598,7 @@
       "description": "Resolves basic tech support tickets — password resets, VPN troubleshooting, software provisioning, access requests, system status checks, and 2FA setup. First-line IT support that handles 80% of common issues instantly.",
       "model": "claude-haiku-4-5-20251001",
       "costPerResolution": 0.12,
-      "toolCount": 12,
+      "toolCount": 10,
       "tools": [
         {
           "id": "it/password-reset",
@@ -689,16 +649,6 @@
           "id": "comms/send-email",
           "description": "Send an email to a customer, lead, or team member. Supports plain text and HTML body. Requires SMTP configuration in environment variables (SMTP_HOST, SMTP_USER, SMTP_PASS) or SENDGRID_API_KEY.",
           "isNewFeature": false
-        },
-        {
-          "id": "it/license-tracker",
-          "description": "Track software licenses, renewals, usage, and costs. Monitor license inventory, forecast renewals, track seat utilization, and analyze licensing costs by department. Returns licenses with renewal dates, usage data, and cost summaries.",
-          "isNewFeature": true
-        },
-        {
-          "id": "it/security-alerts",
-          "description": "Generate and manage security awareness alerts. Create phishing, password, software update, data breach, and policy reminder alerts targeted to specific employee groups. Returns active threats, compliance scores, recent alerts, recommended actions, and training status.",
-          "isNewFeature": true
         }
       ],
       "capabilities": [
@@ -706,7 +656,7 @@
           "icon": "💻",
           "title": "IT Support",
           "description": "Technical support and issue resolution",
-          "isNew": true
+          "isNew": false
         },
         {
           "icon": "👥",
@@ -742,7 +692,7 @@
       "description": "Online reputation management — monitors reviews across Google, Yelp, Facebook, and industry sites. Analyzes sentiment trends, drafts personalized responses, flags urgent reviews, solicits new reviews after service, and tracks NPS over time.",
       "model": "claude-haiku-4-5-20251001",
       "costPerResolution": 0.18,
-      "toolCount": 12,
+      "toolCount": 11,
       "tools": [
         {
           "id": "reviews/fetch-reviews",
@@ -772,11 +722,6 @@
         {
           "id": "reviews/personalized-response",
           "description": "Generates review responses personalized with customer history and conversation context",
-          "isNewFeature": true
-        },
-        {
-          "id": "reviews/generation-campaigns",
-          "description": "Automate review solicitation campaigns. Identify satisfied customers, generate personalized review requests, schedule multi-channel outreach (email, SMS, in-app), and track conversion rates.",
           "isNewFeature": true
         },
         {
@@ -839,7 +784,7 @@
       "description": "Finance and procurement assistant — approves purchase orders, checks budgets, processes invoices, tracks vendor spend, generates financial summaries, and manages expense approvals. The back-office brain for your business finances.",
       "model": "claude-sonnet-4-20250514",
       "costPerResolution": 0.25,
-      "toolCount": 16,
+      "toolCount": 14,
       "tools": [
         {
           "id": "finance/approve-po",
@@ -889,16 +834,6 @@
         {
           "id": "finance/invoice-processor",
           "description": "Automatically process invoices by extracting vendor data, matching against purchase orders, flagging duplicates, and routing for approval. Returns structured invoice data and routing recommendations.",
-          "isNewFeature": true
-        },
-        {
-          "id": "finance/ar-aging-alerts",
-          "description": "Monitor accounts receivable aging and generate proactive alerts. Identifies at-risk invoices, suggests collection actions, and predicts cash flow impact.",
-          "isNewFeature": true
-        },
-        {
-          "id": "finance/bank-reconciliation",
-          "description": "Match bank transactions to invoices and flag discrepancies. Reconciles account transactions for specified period, identifies unmatched items, and provides reconciliation summary with totals and discrepancies.",
           "isNewFeature": true
         },
         {
@@ -963,7 +898,7 @@
       "description": "Autonomous lead qualification agent — researches, scores, and routes inbound leads using BANT criteria. Enriches leads from 6+ external data providers (Apollo, LinkedIn, PeopleDataLabs, FullContact, Twilio, Google Places) via waterfall enrichment. Calculates affluence/affordability scores to help small businesses prioritize leads worth their time and investment.",
       "model": "claude-sonnet-4-20250514",
       "costPerResolution": 0.45,
-      "toolCount": 21,
+      "toolCount": 19,
       "tools": [
         {
           "id": "crm/get-lead-record",
@@ -1028,16 +963,6 @@
         {
           "id": "enrichment/deep-enrich",
           "description": "Enhanced lead enrichment beyond firmographics with multi-source data integration",
-          "isNewFeature": true
-        },
-        {
-          "id": "enrichment/lead-source-attribution",
-          "description": "Track and attribute lead sources across marketing channels. Provides first-touch, last-touch, and multi-touch attribution with ROI by channel.",
-          "isNewFeature": true
-        },
-        {
-          "id": "enrichment/duplicate-detection",
-          "description": "Detect and merge duplicate leads and contacts. Scans database for similar records based on email, phone, company name using configurable similarity threshold. Returns duplicate clusters with match scores, field-by-field comparisons, and recommended merge actions.",
           "isNewFeature": true
         },
         {
@@ -1117,7 +1042,7 @@
       "description": "Personalized outreach sequences, follow-ups, proposal generation, e-signatures, meeting scheduling, and CRM logging. Combines sales prospecting with proposal writing. Manages deal pipeline progression and competitive positioning.",
       "model": "claude-sonnet-4-20250514",
       "costPerResolution": 0.35,
-      "toolCount": 21,
+      "toolCount": 20,
       "tools": [
         {
           "id": "crm/lookup-customer",
@@ -1192,11 +1117,6 @@
         {
           "id": "sales/battlecard-lookup",
           "description": "Retrieves competitive battlecards with strengths, weaknesses, and objection handling strategies",
-          "isNewFeature": true
-        },
-        {
-          "id": "sales/crm-auto-logging",
-          "description": "Automatically log sales activities to CRM. Captures calls, emails, meetings, and deal updates without manual entry. Suggests next actions based on deal stage and buyer signals.",
           "isNewFeature": true
         },
         {
@@ -1278,7 +1198,7 @@
       "description": "Dispatch and field operations management. Assigns technicians to jobs, tracks job progress, checks parts availability, monitors SLA compliance, manages the dispatch board, converts estimates to work orders, and handles real-time field coordination.",
       "model": "claude-sonnet-4-20250514",
       "costPerResolution": 0.3,
-      "toolCount": 21,
+      "toolCount": 20,
       "tools": [
         {
           "id": "service/dispatch-job",
@@ -1378,11 +1298,6 @@
         {
           "id": "service/technician-performance",
           "description": "Technician performance metrics and analytics with team comparisons",
-          "isNewFeature": true
-        },
-        {
-          "id": "service/route-optimization",
-          "description": "Optimize technician routes and scheduling for field service operations. Minimizes drive time, maximizes daily job capacity, and accounts for skill matching and priority.",
           "isNewFeature": true
         }
       ],
