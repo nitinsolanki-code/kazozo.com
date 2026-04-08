@@ -7,7 +7,7 @@
       "name": "Customer Support",
       "customerFacingName": "Support Agent",
       "tier": "customer-facing",
-      "description": "Advanced customer support agent — resolves tickets, processes refunds, applies credits, changes plans, and handles escalations. Includes case wrap-up with auto-classification, CRM updates, and satisfaction follow-ups. Designed for Tier 2 support where the frontline agent has already triaged.",
+      "description": "Advanced customer support agent \u2014 resolves tickets, processes refunds, applies credits, changes plans, and handles escalations. Includes case wrap-up with auto-classification, CRM updates, and satisfaction follow-ups. Designed for Tier 2 support where the frontline agent has already triaged.",
       "model": "claude-sonnet-4-20250514",
       "costPerResolution": 0.28,
       "toolCount": 14,
@@ -85,31 +85,31 @@
       ],
       "capabilities": [
         {
-          "icon": "👥",
+          "icon": "\ud83d\udc65",
           "title": "CRM Integration",
           "description": "Customer lookup, record updates, lead capture",
           "isNew": false
         },
         {
-          "icon": "💳",
+          "icon": "\ud83d\udcb3",
           "title": "Billing Management",
           "description": "Refunds, credits, plan changes, invoicing",
           "isNew": false
         },
         {
-          "icon": "🧠",
+          "icon": "\ud83e\udde0",
           "title": "Knowledge Base Search",
           "description": "Fast FAQ lookup and deep knowledge base search",
           "isNew": false
         },
         {
-          "icon": "💬",
+          "icon": "\ud83d\udcac",
           "title": "Communications",
           "description": "Email and SMS messaging",
           "isNew": false
         },
         {
-          "icon": "🆘",
+          "icon": "\ud83c\udd98",
           "title": "Support Optimization",
           "description": "Customer health scoring, ticket analysis, smart escalation",
           "isNew": true
@@ -128,7 +128,7 @@
       "name": "Frontline Agent",
       "customerFacingName": "Frontline Agent",
       "tier": "customer-facing",
-      "description": "AI receptionist and VIP concierge — the first point of contact across all channels. Answers questions, books appointments, looks up status, captures leads, routes to specialists. Supports multi-language conversations natively. In concierge mode, pulls client preferences, adapts tone for luxury/HNW clients, offers proactive suggestions, and manages cross-vertical referral introductions.",
+      "description": "AI receptionist and VIP concierge \u2014 the first point of contact across all channels. Answers questions, books appointments, looks up status, captures leads, routes to specialists. Supports multi-language conversations natively. In concierge mode, pulls client preferences, adapts tone for luxury/HNW clients, offers proactive suggestions, and manages cross-vertical referral introductions.",
       "model": "claude-haiku-4-5-20251001",
       "costPerResolution": 0.12,
       "toolCount": 20,
@@ -175,7 +175,7 @@
         },
         {
           "id": "company/get-location-info",
-          "description": "Get business location info — address, phone, directions, service area. Use when a customer asks ",
+          "description": "Get business location info \u2014 address, phone, directions, service area. Use when a customer asks ",
           "isNewFeature": false
         },
         {
@@ -236,55 +236,55 @@
       ],
       "capabilities": [
         {
-          "icon": "🧠",
+          "icon": "\ud83e\udde0",
           "title": "Knowledge Base Search",
           "description": "Fast FAQ lookup and deep knowledge base search",
           "isNew": false
         },
         {
-          "icon": "👥",
+          "icon": "\ud83d\udc65",
           "title": "CRM Integration",
           "description": "Customer lookup, record updates, lead capture",
           "isNew": false
         },
         {
-          "icon": "📅",
+          "icon": "\ud83d\udcc5",
           "title": "Scheduling",
           "description": "Check availability and create bookings",
           "isNew": false
         },
         {
-          "icon": "📦",
+          "icon": "\ud83d\udce6",
           "title": "Order Management",
           "description": "Order lookup and service status",
           "isNew": false
         },
         {
-          "icon": "🏢",
+          "icon": "\ud83c\udfe2",
           "title": "Company Info",
           "description": "Hours, locations, and business information",
           "isNew": false
         },
         {
-          "icon": "💬",
+          "icon": "\ud83d\udcac",
           "title": "Communications",
           "description": "Email and SMS messaging",
           "isNew": false
         },
         {
-          "icon": "🌐",
+          "icon": "\ud83c\udf10",
           "title": "Language Support",
           "description": "Multi-language detection and translation",
           "isNew": false
         },
         {
-          "icon": "🤝",
+          "icon": "\ud83e\udd1d",
           "title": "Referral Network",
           "description": "Partner integrations and referral tracking",
           "isNew": false
         },
         {
-          "icon": "🚀",
+          "icon": "\ud83d\ude80",
           "title": "Frontline Routing",
           "description": "Smart message routing and FAQ learning",
           "isNew": true
@@ -304,14 +304,14 @@
       "name": "Content Agent",
       "customerFacingName": "Content Writer",
       "tier": "strategic",
-      "description": "All-in-one content creation — blog posts, social media, newsletters, email campaigns, ad copy, video scripts, captions, SEO-optimized articles, and posting schedules. Maintains brand voice consistency across all channels.",
+      "description": "All-in-one content creation \u2014 blog posts, social media, newsletters, email campaigns, ad copy, video scripts, captions, SEO-optimized articles, and posting schedules. Maintains brand voice consistency across all channels.",
       "model": "claude-sonnet-4-20250514",
       "costPerResolution": 0.95,
       "toolCount": 15,
       "tools": [
         {
           "id": "content/generate-draft",
-          "description": "Generate a content draft — blog post, social media copy, article, or thought leadership piece. Returns structured draft with meta tags and formatting.",
+          "description": "Generate a content draft \u2014 blog post, social media copy, article, or thought leadership piece. Returns structured draft with meta tags and formatting.",
           "isNewFeature": false
         },
         {
@@ -321,7 +321,7 @@
         },
         {
           "id": "content/generate-ad-copy",
-          "description": "Generate ad copy variations for paid campaigns — Google, Meta, LinkedIn. Returns multiple copy variations for A/B testing.",
+          "description": "Generate ad copy variations for paid campaigns \u2014 Google, Meta, LinkedIn. Returns multiple copy variations for A/B testing.",
           "isNewFeature": false
         },
         {
@@ -387,25 +387,25 @@
       ],
       "capabilities": [
         {
-          "icon": "✍️",
+          "icon": "\u270d\ufe0f",
           "title": "Content Generation",
           "description": "Social media calendar, SEO briefs, ad variants, content repurposing",
           "isNew": true
         },
         {
-          "icon": "🧠",
+          "icon": "\ud83e\udde0",
           "title": "Knowledge Base Search",
           "description": "Fast FAQ lookup and deep knowledge base search",
           "isNew": false
         },
         {
-          "icon": "👥",
+          "icon": "\ud83d\udc65",
           "title": "CRM Integration",
           "description": "Customer lookup, record updates, lead capture",
           "isNew": false
         },
         {
-          "icon": "💬",
+          "icon": "\ud83d\udcac",
           "title": "Communications",
           "description": "Email and SMS messaging",
           "isNew": false
@@ -466,31 +466,31 @@
       ],
       "capabilities": [
         {
-          "icon": "✍️",
+          "icon": "\u270d\ufe0f",
           "title": "Content Generation",
           "description": "Social media calendar, SEO briefs, ad variants, content repurposing",
           "isNew": false
         },
         {
-          "icon": "👥",
+          "icon": "\ud83d\udc65",
           "title": "CRM Integration",
           "description": "Customer lookup, record updates, lead capture",
           "isNew": false
         },
         {
-          "icon": "💬",
+          "icon": "\ud83d\udcac",
           "title": "Communications",
           "description": "Email and SMS messaging",
           "isNew": false
         },
         {
-          "icon": "📈",
+          "icon": "\ud83d\udcc8",
           "title": "Reporting",
           "description": "Pipeline forecasting and analytics",
           "isNew": true
         },
         {
-          "icon": "🤝",
+          "icon": "\ud83e\udd1d",
           "title": "Referral Network",
           "description": "Partner integrations and referral tracking",
           "isNew": false
@@ -507,7 +507,7 @@
       "name": "Employee Agent",
       "customerFacingName": "HR Assistant",
       "tier": "utility",
-      "description": "Internal HR and policy Q&A for staff — handles PTO requests, expense submissions, benefits questions, onboarding guidance, org chart lookups, and company policy inquiries. The always-available HR self-service assistant.",
+      "description": "Internal HR and policy Q&A for staff \u2014 handles PTO requests, expense submissions, benefits questions, onboarding guidance, org chart lookups, and company policy inquiries. The always-available HR self-service assistant.",
       "model": "claude-haiku-4-5-20251001",
       "costPerResolution": 0.1,
       "toolCount": 10,
@@ -524,7 +524,7 @@
         },
         {
           "id": "hr/lookup-employee",
-          "description": "Look up employee information — name, department, title, manager, contact info, and start date. Use for org chart questions, finding colleagues, or verifying employee details.",
+          "description": "Look up employee information \u2014 name, department, title, manager, contact info, and start date. Use for org chart questions, finding colleagues, or verifying employee details.",
           "isNewFeature": false
         },
         {
@@ -565,19 +565,19 @@
       ],
       "capabilities": [
         {
-          "icon": "👔",
+          "icon": "\ud83d\udc54",
           "title": "HR Operations",
           "description": "PTO tracking and onboarding",
           "isNew": true
         },
         {
-          "icon": "🧠",
+          "icon": "\ud83e\udde0",
           "title": "Knowledge Base Search",
           "description": "Fast FAQ lookup and deep knowledge base search",
           "isNew": false
         },
         {
-          "icon": "💬",
+          "icon": "\ud83d\udcac",
           "title": "Communications",
           "description": "Email and SMS messaging",
           "isNew": false
@@ -591,105 +591,11 @@
       "escalatesTo": "human-agent"
     },
     {
-      "id": "utility/it-helpdesk",
-      "name": "IT Helpdesk",
-      "customerFacingName": "IT Support",
-      "tier": "utility",
-      "description": "Resolves basic tech support tickets — password resets, VPN troubleshooting, software provisioning, access requests, system status checks, and 2FA setup. First-line IT support that handles 80% of common issues instantly.",
-      "model": "claude-haiku-4-5-20251001",
-      "costPerResolution": 0.12,
-      "toolCount": 10,
-      "tools": [
-        {
-          "id": "it/password-reset",
-          "description": "Initiate a password reset for an employee",
-          "isNewFeature": false
-        },
-        {
-          "id": "it/check-system-status",
-          "description": "Check the status of internal systems, services, and infrastructure. Returns uptime, latency, and recent incidents. Use when someone asks ",
-          "isNewFeature": false
-        },
-        {
-          "id": "it/lookup-asset",
-          "description": "Look up IT assets assigned to an employee — laptops, monitors, software licenses, peripherals. Use when onboarding, offboarding, or when someone asks about their assigned equipment.",
-          "isNewFeature": false
-        },
-        {
-          "id": "it/provision-software",
-          "description": "Tool",
-          "isNewFeature": false
-        },
-        {
-          "id": "it/check-access",
-          "description": "Tool",
-          "isNewFeature": false
-        },
-        {
-          "id": "crm/create-ticket",
-          "description": "Create a support ticket or case in the CRM with priority, category, and description. Links to a customer record.",
-          "isNewFeature": false
-        },
-        {
-          "id": "crm/lookup-customer",
-          "description": "Look up a customer by name, email, phone, or customer ID. Returns profile, account details, and recent activity.",
-          "isNewFeature": false
-        },
-        {
-          "id": "kb/search-knowledge-base",
-          "description": "Search the full knowledge base for information relevant to a customer question. Use this when kb/quick-answers returns no match. Returns the most relevant passages from company documentation, policies, FAQs, service details, and procedures.",
-          "isNewFeature": false
-        },
-        {
-          "id": "kb/quick-answers",
-          "description": "Check if a customer question matches a frequently asked question with a pre-cached answer. Returns instant responses for common questions (hours, pricing, policies, etc.) without needing a full knowledge base search. If no match, returns null so you should fall back to kb/search-knowledge-base.",
-          "isNewFeature": false
-        },
-        {
-          "id": "comms/send-email",
-          "description": "Send an email to a customer, lead, or team member. Supports plain text and HTML body. Requires SMTP configuration in environment variables (SMTP_HOST, SMTP_USER, SMTP_PASS) or SENDGRID_API_KEY.",
-          "isNewFeature": false
-        }
-      ],
-      "capabilities": [
-        {
-          "icon": "💻",
-          "title": "IT Support",
-          "description": "Technical support and issue resolution",
-          "isNew": false
-        },
-        {
-          "icon": "👥",
-          "title": "CRM Integration",
-          "description": "Customer lookup, record updates, lead capture",
-          "isNew": false
-        },
-        {
-          "icon": "🧠",
-          "title": "Knowledge Base Search",
-          "description": "Fast FAQ lookup and deep knowledge base search",
-          "isNew": false
-        },
-        {
-          "icon": "💬",
-          "title": "Communications",
-          "description": "Email and SMS messaging",
-          "isNew": false
-        }
-      ],
-      "channels": [
-        "web-chat",
-        "api"
-      ],
-      "maxTurns": 8,
-      "escalatesTo": "human-agent"
-    },
-    {
       "id": "utility/review-manager",
       "name": "Review Manager",
       "customerFacingName": "Review Manager",
       "tier": "utility",
-      "description": "Online reputation management — monitors reviews across Google, Yelp, Facebook, and industry sites. Analyzes sentiment trends, drafts personalized responses, flags urgent reviews, solicits new reviews after service, and tracks NPS over time.",
+      "description": "Online reputation management \u2014 monitors reviews across Google, Yelp, Facebook, and industry sites. Analyzes sentiment trends, drafts personalized responses, flags urgent reviews, solicits new reviews after service, and tracks NPS over time.",
       "model": "claude-haiku-4-5-20251001",
       "costPerResolution": 0.18,
       "toolCount": 11,
@@ -701,7 +607,7 @@
         },
         {
           "id": "reviews/analyze-sentiment",
-          "description": "Analyze sentiment across recent reviews — extract common themes, identify trends, and highlight areas for improvement. Use for weekly review summaries or before management meetings.",
+          "description": "Analyze sentiment across recent reviews \u2014 extract common themes, identify trends, and highlight areas for improvement. Use for weekly review summaries or before management meetings.",
           "isNewFeature": false
         },
         {
@@ -752,19 +658,19 @@
       ],
       "capabilities": [
         {
-          "icon": "⭐",
+          "icon": "\u2b50",
           "title": "Review Management",
           "description": "Sentiment analysis and personalized responses",
           "isNew": true
         },
         {
-          "icon": "💬",
+          "icon": "\ud83d\udcac",
           "title": "Communications",
           "description": "Email and SMS messaging",
           "isNew": false
         },
         {
-          "icon": "👥",
+          "icon": "\ud83d\udc65",
           "title": "CRM Integration",
           "description": "Customer lookup, record updates, lead capture",
           "isNew": false
@@ -781,7 +687,7 @@
       "name": "Finance Agent",
       "customerFacingName": "Finance Assistant",
       "tier": "workflow",
-      "description": "Finance and procurement assistant — approves purchase orders, checks budgets, processes invoices, tracks vendor spend, generates financial summaries, and manages expense approvals. The back-office brain for your business finances.",
+      "description": "Finance and procurement assistant \u2014 approves purchase orders, checks budgets, processes invoices, tracks vendor spend, generates financial summaries, and manages expense approvals. The back-office brain for your business finances.",
       "model": "claude-sonnet-4-20250514",
       "costPerResolution": 0.25,
       "toolCount": 14,
@@ -853,31 +759,31 @@
         },
         {
           "id": "referrals/log-commission",
-          "description": "Log or update a referral commission record. Tracks commission obligations from referral deals — ",
+          "description": "Log or update a referral commission record. Tracks commission obligations from referral deals \u2014 ",
           "isNewFeature": false
         }
       ],
       "capabilities": [
         {
-          "icon": "📊",
+          "icon": "\ud83d\udcca",
           "title": "Financial Operations",
           "description": "Expense automation, budget tracking, invoice processing",
           "isNew": true
         },
         {
-          "icon": "👥",
+          "icon": "\ud83d\udc65",
           "title": "CRM Integration",
           "description": "Customer lookup, record updates, lead capture",
           "isNew": false
         },
         {
-          "icon": "💬",
+          "icon": "\ud83d\udcac",
           "title": "Communications",
           "description": "Email and SMS messaging",
           "isNew": false
         },
         {
-          "icon": "🤝",
+          "icon": "\ud83e\udd1d",
           "title": "Referral Network",
           "description": "Partner integrations and referral tracking",
           "isNew": false
@@ -895,7 +801,7 @@
       "name": "Lead Qualifier",
       "customerFacingName": "Lead Qualifier",
       "tier": "workflow",
-      "description": "Autonomous lead qualification agent — researches, scores, and routes inbound leads using BANT criteria. Enriches leads from 6+ external data providers (Apollo, LinkedIn, PeopleDataLabs, FullContact, Twilio, Google Places) via waterfall enrichment. Calculates affluence/affordability scores to help small businesses prioritize leads worth their time and investment.",
+      "description": "Autonomous lead qualification agent \u2014 researches, scores, and routes inbound leads using BANT criteria. Enriches leads from 6+ external data providers (Apollo, LinkedIn, PeopleDataLabs, FullContact, Twilio, Google Places) via waterfall enrichment. Calculates affluence/affordability scores to help small businesses prioritize leads worth their time and investment.",
       "model": "claude-sonnet-4-20250514",
       "costPerResolution": 0.45,
       "toolCount": 19,
@@ -927,7 +833,7 @@
         },
         {
           "id": "enrichment/apollo-enrich",
-          "description": "Enrich a lead using Apollo.io — returns company firmographics (size, revenue, industry, funding), ",
+          "description": "Enrich a lead using Apollo.io \u2014 returns company firmographics (size, revenue, industry, funding), ",
           "isNewFeature": false
         },
         {
@@ -998,31 +904,31 @@
       ],
       "capabilities": [
         {
-          "icon": "👥",
+          "icon": "\ud83d\udc65",
           "title": "CRM Integration",
           "description": "Customer lookup, record updates, lead capture",
           "isNew": false
         },
         {
-          "icon": "💼",
+          "icon": "\ud83d\udcbc",
           "title": "Sales Automation",
           "description": "Proposals, deal tracking, win-loss analysis, follow-up sequences",
           "isNew": false
         },
         {
-          "icon": "🔍",
+          "icon": "\ud83d\udd0d",
           "title": "Data Enrichment",
           "description": "Deep prospecting and account intelligence",
           "isNew": true
         },
         {
-          "icon": "💬",
+          "icon": "\ud83d\udcac",
           "title": "Communications",
           "description": "Email and SMS messaging",
           "isNew": false
         },
         {
-          "icon": "🤝",
+          "icon": "\ud83e\udd1d",
           "title": "Referral Network",
           "description": "Partner integrations and referral tracking",
           "isNew": false
@@ -1136,7 +1042,7 @@
         },
         {
           "id": "referrals/log-commission",
-          "description": "Log or update a referral commission record. Tracks commission obligations from referral deals — ",
+          "description": "Log or update a referral commission record. Tracks commission obligations from referral deals \u2014 ",
           "isNewFeature": false
         },
         {
@@ -1147,37 +1053,37 @@
       ],
       "capabilities": [
         {
-          "icon": "👥",
+          "icon": "\ud83d\udc65",
           "title": "CRM Integration",
           "description": "Customer lookup, record updates, lead capture",
           "isNew": false
         },
         {
-          "icon": "💬",
+          "icon": "\ud83d\udcac",
           "title": "Communications",
           "description": "Email and SMS messaging",
           "isNew": false
         },
         {
-          "icon": "✍️",
+          "icon": "\u270d\ufe0f",
           "title": "Content Generation",
           "description": "Social media calendar, SEO briefs, ad variants, content repurposing",
           "isNew": false
         },
         {
-          "icon": "💼",
+          "icon": "\ud83d\udcbc",
           "title": "Sales Automation",
           "description": "Proposals, deal tracking, win-loss analysis, follow-up sequences",
           "isNew": true
         },
         {
-          "icon": "📅",
+          "icon": "\ud83d\udcc5",
           "title": "Scheduling",
           "description": "Check availability and create bookings",
           "isNew": false
         },
         {
-          "icon": "🤝",
+          "icon": "\ud83e\udd1d",
           "title": "Referral Network",
           "description": "Partner integrations and referral tracking",
           "isNew": false
@@ -1287,7 +1193,7 @@
         },
         {
           "id": "referrals/log-commission",
-          "description": "Log or update a referral commission record. Tracks commission obligations from referral deals — ",
+          "description": "Log or update a referral commission record. Tracks commission obligations from referral deals \u2014 ",
           "isNewFeature": false
         },
         {
@@ -1303,37 +1209,37 @@
       ],
       "capabilities": [
         {
-          "icon": "🔧",
+          "icon": "\ud83d\udd27",
           "title": "Service Operations",
           "description": "SLA monitoring and technician performance",
           "isNew": true
         },
         {
-          "icon": "📦",
+          "icon": "\ud83d\udce6",
           "title": "Order Management",
           "description": "Order lookup and service status",
           "isNew": false
         },
         {
-          "icon": "📅",
+          "icon": "\ud83d\udcc5",
           "title": "Scheduling",
           "description": "Check availability and create bookings",
           "isNew": false
         },
         {
-          "icon": "👥",
+          "icon": "\ud83d\udc65",
           "title": "CRM Integration",
           "description": "Customer lookup, record updates, lead capture",
           "isNew": false
         },
         {
-          "icon": "💬",
+          "icon": "\ud83d\udcac",
           "title": "Communications",
           "description": "Email and SMS messaging",
           "isNew": false
         },
         {
-          "icon": "🤝",
+          "icon": "\ud83e\udd1d",
           "title": "Referral Network",
           "description": "Partner integrations and referral tracking",
           "isNew": false
