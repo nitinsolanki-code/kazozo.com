@@ -1,21 +1,29 @@
 {
   "plans": {
     "starter": {
-      "monthly": 149,
-      "display": "$149",
-      "overage": "$0.28"
+      "monthly": 249,
+      "display": "$249",
+      "conversations": 500,
+      "agents": 3,
+      "overage": "$0.40"
     },
     "growth": {
       "monthly": 499,
-      "display": "$499"
+      "display": "$499",
+      "conversations": 2000,
+      "agents": 6,
+      "overage": "$0.30"
     },
     "pro": {
       "monthly": 999,
-      "display": "$999"
+      "display": "$999",
+      "conversations": 6000,
+      "agents": 11,
+      "overage": "$0.22"
     }
   },
   "range": {
-    "display": "$149–$999"
+    "display": "$249–$999"
   },
   "agents": {
     "frontline": {
