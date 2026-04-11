@@ -3,23 +3,23 @@
     "starter": {
       "monthly": 249,
       "display": "$249",
-      "conversations": 500,
+      "ai_responses": 500,
       "agents": 3,
-      "overage": "$0.40"
+      "overage": "$0.40 / AI response"
     },
     "growth": {
       "monthly": 499,
       "display": "$499",
-      "conversations": 2000,
+      "ai_responses": 2000,
       "agents": 6,
-      "overage": "$0.30"
+      "overage": "$0.30 / AI response"
     },
     "pro": {
       "monthly": 999,
       "display": "$999",
-      "conversations": 6000,
+      "ai_responses": 6000,
       "agents": 11,
-      "overage": "$0.22"
+      "overage": "$0.22 / AI response"
     }
   },
   "range": {
