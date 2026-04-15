@@ -1,15 +1,7 @@
 User-agent: *
 Allow: /
 
-Disallow: /option-b-light.html
-Disallow: /option-c-neon.html
-Disallow: /option-d-inspired.html
-Disallow: /option-e-platform.html
-Disallow: /option-f-platform.html
-Disallow: /kazozo-landing.html
-Disallow: /case-study.html
-Disallow: /demo.html
+# Prospect-specific demo pages — not for indexing
 Disallow: /demo/
-Disallow: /index%202.html
 
 Sitemap: https://kazozo.com/sitemap.xml
