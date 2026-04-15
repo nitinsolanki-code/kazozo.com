@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Changelog — What's New in Kazozo</title>
+<meta name="description" content="Release notes and product updates for Kazozo AI agents. New integrations, agent capabilities, pricing changes, security updates, and more.">
+<meta name="keywords" content="Kazozo changelog, Kazozo release notes, Kazozo updates, Kazozo product updates">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://kazozo.com/changelog.html">
+
+<meta property="og:title" content="Changelog — What's New in Kazozo">
+<meta property="og:description" content="Release notes and product updates for Kazozo AI agents.">
+<meta property="og:url" content="https://kazozo.com/changelog.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Kazozo">
+<meta property="og:image" content="https://kazozo.com/og-image.png">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Changelog — What's New in Kazozo">
+<meta name="twitter:description" content="Release notes and product updates for Kazozo AI agents.">
+<meta name="twitter:image" content="https://kazozo.com/og-image.png">
+
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230C0B12'/%3E%3Ctext x='3' y='23' font-family='system-ui,sans-serif' font-size='20' font-weight='700' fill='%23F0EFF4'%3Ek%3C/text%3E%3Ctext x='15' y='23' font-family='system-ui,sans-serif' font-size='20' font-weight='700' fill='%23FF6B5A'%3Ez%3C/text%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --bg: #131316;
+    --surface: #1b1b1e;
+    --surface-2: #17161f;
+    --border: rgba(228,225,230,0.08);
+    --border-strong: rgba(228,225,230,0.14);
+    --text: #f0eff4;
+    --muted: #9a99a5;
+    --coral: #FF5733;
+    --green: #3ddc97;
+    --amber: #EBC314;
+    --sky: #46EAED;
+    --lavender: #C4A8FF;
+  }
+  html, body { background: var(--bg); color: var(--text); font-family: 'Manrope', system-ui, sans-serif; -webkit-font-smoothing: antialiased; line-height: 1.6; }
+  a { color: inherit; }
+
+  .page-hero { padding: 120px 24px 40px; text-align: center; }
+  .page-hero-inner { max-width: 780px; margin: 0 auto; }
+  .overline { display: inline-block; padding: 6px 14px; border: 1px solid var(--border); border-radius: 999px; color: var(--coral); font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 20px; }
+  h1 { font-family: 'Space Grotesk', sans-serif; font-size: clamp(34px, 5.5vw, 52px); font-weight: 600; letter-spacing: -0.02em; line-height: 1.08; margin-bottom: 18px; }
+  h1 em { color: var(--coral); font-style: normal; }
+  .lead { color: var(--muted); font-size: clamp(16px, 2vw, 19px); max-width: 640px; margin: 0 auto; line-height: 1.6; }
+
+  .timeline { max-width: 780px; margin: 48px auto; padding: 0 24px; position: relative; }
+  .timeline::before { content: ''; position: absolute; left: 24px; top: 0; bottom: 0; width: 1px; background: var(--border); }
+  @media (min-width: 720px) {
+    .timeline::before { left: 150px; }
+  }
+
+  .release { display: grid; grid-template-columns: 1fr; gap: 8px; margin-bottom: 44px; position: relative; padding-left: 48px; }
+  @media (min-width: 720px) {
+    .release { grid-template-columns: 130px 1fr; gap: 32px; padding-left: 0; }
+  }
+  .release::before { content: ''; position: absolute; left: 20px; top: 10px; width: 9px; height: 9px; border-radius: 50%; background: var(--coral); border: 2px solid var(--bg); box-shadow: 0 0 0 4px rgba(255,87,51,0.12); }
+  @media (min-width: 720px) {
+    .release::before { left: 146px; }
+  }
+
+  .release-date { font-family: 'Space Grotesk', sans-serif; font-size: 13px; color: var(--muted); letter-spacing: 0.04em; text-transform: uppercase; font-weight: 600; padding-top: 10px; }
+  .release-body { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 24px 26px; }
+  .release-body h3 { font-family: 'Space Grotesk', sans-serif; font-size: 19px; font-weight: 600; letter-spacing: -0.01em; margin-bottom: 10px; color: var(--text); }
+  .release-body .tag-row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px; }
+  .tag { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; padding: 4px 8px; border-radius: 6px; }
+  .tag.added { background: rgba(61,220,151,0.12); color: var(--green); }
+  .tag.improved { background: rgba(70,234,237,0.10); color: var(--sky); }
+  .tag.security { background: rgba(196,168,255,0.10); color: var(--lavender); }
+  .tag.fix { background: rgba(235,195,20,0.10); color: var(--amber); }
+
+  .release-body ul { list-style: none; padding: 0; margin: 0; }
+  .release-body li { padding: 6px 0 6px 20px; position: relative; color: var(--text); font-size: 15px; line-height: 1.6; }
+  .release-body li::before { content: '→'; position: absolute; left: 0; top: 6px; color: var(--coral); font-weight: 700; }
+  .release-body li a { color: var(--coral); text-decoration: none; border-bottom: 1px dashed rgba(255,87,51,0.4); }
+  .release-body li a:hover { opacity: 0.8; }
+
+  .final-cta { max-width: 780px; margin: 60px auto 80px; padding: 36px 28px; background: var(--surface); border: 1px solid var(--border); border-radius: 16px; text-align: center; }
+  .final-cta h2 { font-family: 'Space Grotesk', sans-serif; font-size: 22px; margin-bottom: 10px; letter-spacing: -0.01em; }
+  .final-cta p { color: var(--muted); margin-bottom: 22px; font-size: 15px; }
+  .btn { display: inline-flex; align-items: center; justify-content: center; padding: 12px 22px; border-radius: 10px; font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 14px; text-decoration: none; background: var(--coral); color: #fff; transition: transform 0.15s ease, box-shadow 0.15s ease; }
+  .btn:hover { transform: translateY(-1px); box-shadow: 0 10px 24px rgba(255,87,51,0.3); }
+
+  footer { border-top: 1px solid var(--border); padding: 48px 24px 32px; color: var(--muted); font-size: 14px; }
+  .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 32px; }
+  .footer-brand { font-family: 'Space Grotesk', sans-serif; font-weight: 700; color: var(--text); font-size: 18px; }
+  .footer-nav { display: flex; flex-direction: column; gap: 10px; }
+  .footer-nav h4 { font-size: 12px; font-weight: 600; color: var(--text); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 4px; }
+  .footer-nav a { color: var(--muted); text-decoration: none; }
+  .footer-nav a:hover { color: var(--coral); }
+  .footer-copy { width: 100%; text-align: center; padding-top: 24px; border-top: 1px solid var(--border); margin-top: 32px; color: #5a5965; font-size: 13px; }
+</style>
+</head>
+<body>
+
+<script src="nav.js?v=3"></script>
+
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <div class="overline">Changelog</div>
+    <h1>What's <em>new</em> in Kazozo</h1>
+    <p class="lead">Product updates, new integrations, agent capabilities, and security improvements — shipped weekly. Subscribe via RSS or check back here.</p>
+  </div>
+</section>
+
+<div class="timeline">
+
+  <div class="release">
+    <div class="release-date">Apr 15, 2026</div>
+    <div class="release-body">
+      <div class="tag-row">
+        <span class="tag added">New</span>
+        <span class="tag improved">SEO</span>
+      </div>
+      <h3>HubSpot comparison &amp; integrations hub</h3>
+      <ul>
+        <li>New comparison page: <a href="compare/kazozo-vs-hubspot.html">Kazozo vs HubSpot</a> — how to layer AI on top of free/Starter CRM without the Service Hub Pro upgrade.</li>
+        <li>New <a href="integrations.html">integrations page</a> with 32 integrations across CRM, scheduling, messaging, reviews, commerce, data, voice, and helpdesk.</li>
+        <li>New blog post: <a href="blog/hubspot-ai-without-service-hub-pro.html">How to Add AI to HubSpot Without Upgrading to Service Hub Pro</a>.</li>
+        <li>BreadcrumbList schema added to all compare and blog pages for Google rich results.</li>
+        <li>SoftwareApplication JSON-LD added to the homepage with plan offers and full agent feature list.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="release">
+    <div class="release-date">Apr 14, 2026</div>
+    <div class="release-body">
+      <div class="tag-row">
+        <span class="tag added">New</span>
+      </div>
+      <h3>ROI calculator, Trust &amp; Security page, comparison hub</h3>
+      <ul>
+        <li>New <a href="roi-calculator.html">ROI calculator</a>: estimate your lead-leak from slow response and the monthly return on an always-on agent.</li>
+        <li>New <a href="trust.html">Trust &amp; Security page</a>: encryption, retention, isolation, prompt-injection handling, and our honest SOC 2 / HIPAA BAA status.</li>
+        <li>New <a href="compare/">comparison hub</a> consolidating Kazozo vs Intercom / Lindy / Salesforce Agentforce / Drift / ChatGPT / HubSpot.</li>
+        <li>Industries page gained a live filter bar — type to narrow down the 27 industry pages.</li>
+        <li>Homepage hero CTA swap: "Book a demo" is now the primary action.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="release">
+    <div class="release-date">Apr 12, 2026</div>
+    <div class="release-body">
+      <div class="tag-row">
+        <span class="tag added">New</span>
+        <span class="tag security">Security</span>
+      </div>
+      <h3>Enrichment add-on ops &amp; billing lifecycle</h3>
+      <ul>
+        <li>Full enrichment add-on lifecycle shipped: entitlement gating, Stripe billing, 3-tier escalation ladder, retry / waive / downgrade actions, and billing history log.</li>
+        <li>Billing surface audit passed — plan entitlements reconciled against Stripe subscriptions on every run.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="release">
+    <div class="release-date">Apr 11, 2026</div>
+    <div class="release-body">
+      <div class="tag-row">
+        <span class="tag fix">Fixed</span>
+        <span class="tag improved">Stability</span>
+      </div>
+      <h3>Flow bypass stability</h3>
+      <ul>
+        <li>Regression suite green (4/4 scenarios) for conversation flow bypass bug fixed earlier this week.</li>
+        <li>Platform ready for tenant expansion after the mid-March incident response.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="release">
+    <div class="release-date">Apr 10, 2026</div>
+    <div class="release-body">
+      <div class="tag-row">
+        <span class="tag improved">Model</span>
+      </div>
+      <h3>Model routing v2: cascade architecture</h3>
+      <ul>
+        <li>New 3-tier cascade: deterministic → fast model → policy-based premium. Tenants running Frontline now route the majority of replies to the fast model with the same conversational quality, freeing the premium tier for hard cases.</li>
+        <li>No change in customer-facing quality; roughly 30–40% cost reduction on the LLM bill at steady state.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="release">
+    <div class="release-date">Mar 29, 2026</div>
+    <div class="release-body">
+      <div class="tag-row">
+        <span class="tag added">New</span>
+      </div>
+      <h3>Unified messaging &amp; handoff</h3>
+      <ul>
+        <li>Website widget conversations now handoff seamlessly to SMS, WhatsApp, or iMessage without losing context.</li>
+        <li>Local-presence phone number provisioning baked in for all plans.</li>
+        <li>Routing config: tenants can choose per-agent which handoff channel to use by lead segment.</li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+
+<div class="final-cta">
+  <h2>Want to see this running on your business?</h2>
+  <p>20-minute demo. No sales pressure. Same-day go-live.</p>
+  <a href="book-a-demo.html" class="btn">Book a demo →</a>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">Kazozo</div>
+      <p style="margin-top:8px;max-width:280px;font-size:13px;line-height:1.5;">AI agents for small businesses. Premium AI on every plan.</p>
+    </div>
+    <div class="footer-nav">
+      <h4>Product</h4>
+      <a href="agents.html">AI Agents</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="industries.html">Industries</a>
+      <a href="integrations.html">Integrations</a>
+      <a href="simulation.html">Simulation</a>
+    </div>
+    <div class="footer-nav">
+      <h4>Compare</h4>
+      <a href="compare/kazozo-vs-intercom.html">vs Intercom</a>
+      <a href="compare/kazozo-vs-lindy.html">vs Lindy.ai</a>
+      <a href="compare/kazozo-vs-salesforce-agentforce.html">vs Salesforce Agentforce</a>
+      <a href="compare/kazozo-vs-drift.html">vs Drift</a>
+      <a href="compare/kazozo-vs-chatgpt.html">vs ChatGPT</a>
+      <a href="compare/kazozo-vs-hubspot.html">vs HubSpot</a>
+    </div>
+    <div class="footer-nav">
+      <h4>Company</h4>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="blog/">Blog</a>
+      <a href="changelog.html" aria-current="page">Changelog</a>
+      <a href="book-a-demo.html">Book a demo</a>
+      <a href="roi-calculator.html">ROI Calculator</a>
+      <a href="trust.html">Trust &amp; Security</a>
+    </div>
+  </div>
+  <div class="footer-copy">© 2026 Kazozo. All rights reserved.</div>
+</footer>
+
+<script src="https://api.kazozo.com/widget/embed-loader.js"
+  data-tenant="kazozo-001"
+  data-position="bottom-right"></script>
+
+<script src="scripts/sticky-cta.js" defer></script>
+<script src="scripts/analytics.js" defer></script>
+
+</body>
+</html>
