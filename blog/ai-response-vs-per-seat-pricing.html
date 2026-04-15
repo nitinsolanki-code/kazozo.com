@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Response vs Per-Seat Pricing: What Your AI Really Costs in 2026</title>
+    <meta name="description" content="Per-seat AI pricing hides your real bill behind seat minimums. Per-resolution pricing hides it behind definitions of &quot;resolution.&quot; Here's how AI response billing actually works — and what to look for.">
+    <meta property="og:title" content="AI Response vs Per-Seat Pricing: What Your AI Really Costs in 2026">
+    <meta property="og:description" content="Per-seat AI pricing hides your real bill behind seat minimums. Per-resolution pricing hides it behind definitions of &quot;resolution.&quot; Here's how AI response billing actually works.">
+    <meta property="og:image" content="https://kazozo.com/og-image.png">
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2026-04-16T00:00:00Z">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AI Response vs Per-Seat Pricing: What Your AI Really Costs in 2026">
+    <meta name="twitter:description" content="Per-seat AI pricing hides your real bill behind seat minimums. Per-resolution pricing hides it behind definitions of 'resolution.' Here's how AI response billing actually works.">
+    <link rel="canonical" href="https://kazozo.com/blog/ai-response-vs-per-seat-pricing.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700;1,800&family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #0C0B12;
+            --surface: #13121D;
+            --card: #1A192A;
+            --coral: #FF6B5A;
+            --lime: #CDFF64;
+            --lavender: #B8A9FF;
+            --sky: #64D2FF;
+            --amber: #FFB84D;
+            --text: #F0EFF4;
+            --muted: #7D7A8C;
+            --border: rgba(255,255,255,0.06);
+            --green: #34d399;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        /* Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(12, 11, 18, 0.95);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 2rem;
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-decoration: none;
+            color: var(--text);
+        }
+
+        .logo span {
+            color: var(--coral);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            color: var(--coral);
+        }
+
+        .cta-button {
+            background: var(--coral);
+            color: #fff;
+            padding: 0.6rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background 0.3s;
+        }
+
+        .cta-button:hover {
+            background: #ff5549;
+        }
+
+        /* Main Content */
+        main {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .back-link {
+            color: var(--coral);
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            display: inline-block;
+            transition: color 0.3s;
+        }
+
+        .back-link:hover {
+            color: var(--lime);
+        }
+
+        .article-header {
+            margin-bottom: 3rem;
+        }
+
+        .article-meta {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        .article-category {
+            background: rgba(255, 107, 90, 0.15);
+            color: var(--coral);
+            padding: 0.35rem 1rem;
+            border-radius: 20px;
+            font-weight: 600;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.8rem;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+            line-height: 1.2;
+        }
+
+        .article-summary {
+            font-size: 1.1rem;
+            color: var(--muted);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        /* Article Content */
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin: 2rem 0 1rem 0;
+            font-weight: 700;
+        }
+
+        h3 {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.3rem;
+            margin: 1.5rem 0 0.75rem 0;
+            font-weight: 700;
+            color: var(--lime);
+        }
+
+        p {
+            margin-bottom: 1.25rem;
+            color: var(--text);
+        }
+
+        strong {
+            color: var(--lime);
+            font-weight: 700;
+        }
+
+        a {
+            color: var(--coral);
+            text-decoration: underline;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: var(--lime);
+        }
+
+        ul, ol {
+            margin: 1.25rem 0 1.25rem 2rem;
+            color: var(--text);
+        }
+
+        li {
+            margin-bottom: 0.75rem;
+        }
+
+        .highlight {
+            background: rgba(205, 255, 100, 0.1);
+            padding: 1.5rem;
+            border-left: 3px solid var(--lime);
+            border-radius: 4px;
+            margin: 1.5rem 0;
+        }
+
+        .highlight p {
+            margin-bottom: 0;
+        }
+
+        /* Related Posts */
+        .related-posts {
+            margin-top: 4rem;
+            padding-top: 3rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .related-posts h3 {
+            color: var(--text);
+            margin-bottom: 1.5rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+        }
+
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .related-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 1.25rem;
+            text-decoration: none;
+            color: inherit;
+            transition: border-color 0.3s;
+        }
+
+        .related-card:hover {
+            border-color: var(--coral);
+        }
+
+        .related-card h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--text);
+        }
+
+        .related-card p {
+            color: var(--muted);
+            font-size: 0.9rem;
+            margin-bottom: 0;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--surface);
+            border-top: 1px solid var(--border);
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+        }
+
+        footer .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        footer h3 {
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        footer ul {
+            list-style: none;
+            margin: 0;
+        }
+
+        footer li {
+            margin-bottom: 0.75rem;
+        }
+
+        footer a {
+            color: var(--muted);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        footer a:hover {
+            color: var(--coral);
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            h2 {
+                font-size: 1.3rem;
+            }
+
+            .related-grid {
+                grid-template-columns: 1fr;
+            }
+
+            nav ul {
+                gap: 1rem;
+                font-size: 0.85rem;
+            }
+        }
+    
+/* ===== FOOTER ===== */
+  footer {
+    border-top: 1px solid rgba(228,225,230,0.05); padding: 64px 24px 32px;
+    max-width: 1200px; margin: 0 auto;
+  }
+  .footer-inner {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    margin-bottom: 32px;
+  }
+  .footer-brand { display: flex; flex-direction: column; gap: 12px; }
+  .footer-logo { font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 700; color: var(--text); text-decoration: none; letter-spacing: -0.02em; }
+  .footer-logo span { color: var(--coral-vivid, #FF5733); }
+  .footer-tagline { font-size: 13px; color: rgba(228,225,230,0.5); max-width: 280px; line-height: 1.6; }
+  .footer-nav { display: flex; gap: 48px; }
+  .footer-col h4 { font-family: 'Space Grotesk', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--text, #E4E1E6); margin-bottom: 16px; }
+  .footer-col a { display: block; color: rgba(228,225,230,0.5); text-decoration: none; font-size: 14px; padding: 4px 0; transition: color 0.3s; }
+  .footer-col a:hover { color: var(--text, #E4E1E6); }
+  .footer-divider { border: none; border-top: 1px solid rgba(228,225,230,0.05); margin-bottom: 20px; }
+  .footer-bottom {
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .footer-credit { font-size: 12px; color: rgba(228,225,230,0.5); }
+  .footer-socials { display: flex; gap: 16px; align-items: center; }
+  .footer-socials a {
+    color: var(--muted, rgba(228,225,230,0.5)); transition: color 0.3s;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .footer-socials a:hover { color: var(--text, #E4E1E6); }
+  .footer-socials svg { width: 18px; height: 18px; }
+  @media (max-width: 900px) {
+    .footer-inner { flex-direction: column; gap: 24px; text-align: center; }
+    .footer-bottom { flex-direction: column; gap: 12px; }
+  }
+  @media (max-width: 600px) {
+    footer { padding: 32px 16px 24px; }
+    .footer-nav { flex-direction: column; gap: 24px; }
+  }
+  </style>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "AI Response vs Per-Seat Pricing: What Your AI Really Costs in 2026",
+        "description": "Per-seat AI pricing hides your real bill behind seat minimums. Per-resolution pricing hides it behind definitions of 'resolution.' Here's how AI response billing actually works — and what to look for.",
+        "image": "https://kazozo.com/og-image.png",
+        "author": {
+            "@type": "Organization",
+            "name": "Kazozo"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Kazozo",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://kazozo.com/og-image.png"
+            }
+        },
+        "datePublished": "2026-04-16T00:00:00Z",
+        "dateModified": "2026-04-16T00:00:00Z"
+    }
+    </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://kazozo.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog",
+      "item": "https://kazozo.com/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "AI Response vs Per-Seat Pricing",
+      "item": "https://kazozo.com/blog/ai-response-vs-per-seat-pricing.html"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="/" class="logo">kazo<span>zo</span></a>
+            <ul>
+                <li><a href="/#agents">Agents</a></li>
+                <li><a href="/#pricing">Pricing</a></li>
+                <li><a href="/industries.html">Industries</a>
+      <a href="../integrations.html">Integrations</a></li>
+                <li><a href="/simulation.html">Simulation</a></li>
+                <li><a href="#contact" class="cta-button">Talk to Kaz</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <a href="/blog/" class="back-link">← Back to Blog</a>
+
+        <article class="article-header">
+            <div class="article-meta">
+                <span class="article-category">Pricing</span>
+                <span>9 min read</span>
+                <span>Apr 16, 2026</span>
+            </div>
+            <h1>AI Response vs Per-Seat Pricing: What Your AI Really Costs in 2026</h1>
+            <p class="article-summary">Per-seat AI pricing hides your real bill behind seat minimums. Per-resolution pricing hides it behind definitions of "resolution." AI response pricing is cleaner — but only if you understand what counts. Here's how each model actually works, and which one aligns cost with value.</p>
+        </article>
+
+        <h2>Three pricing models, three very different bills</h2>
+        <p>If you've been shopping AI platforms in the last year, you've probably seen quotes that don't look anything like each other. That's because vendors are using three fundamentally different billing units, and the cheap-looking number at the top of the page can balloon fast depending on which one you pick.</p>
+
+        <p>The three you'll run into:</p>
+        <ul>
+            <li><strong>Per-seat.</strong> You pay per human who logs into the dashboard. Think Intercom, HubSpot Service Hub, Drift, Salesforce Service Cloud.</li>
+            <li><strong>Per-resolution.</strong> You pay every time the AI "resolves" a conversation. Think Intercom Fin, Ada, Breeze Agent, Salesforce Agentforce.</li>
+            <li><strong>Per AI response.</strong> You pay per AI reply the agent generates. That's the model Kazozo uses.</li>
+        </ul>
+        <p>None of these is secretly evil. But each one aligns cost with a different thing, and mismatches produce ugly surprises at renewal.</p>
+
+        <h2>Per-seat pricing: the seat-minimum trap</h2>
+        <p>Per-seat is the familiar SaaS model — $X per user per month. The pitch is clean: you only pay for the team members who need access. The trap is two-fold:</p>
+        <p><strong>Seat minimums.</strong> Many vendors require 3, 5, or 10 seats to unlock the tier that has the AI. A 5-seat minimum at $90/seat is $450/mo whether you have two people or five. If your goal is "get an AI on my website" — a customer-facing capability, not an internal one — per-seat is asking you to pay for people who don't need dashboard access to deliver the feature you want.</p>
+        <p><strong>The AI isn't the seat feature.</strong> When you buy a seat on an old-school support tool, the seat is the thing. When you buy a seat on an AI-ified support tool, you're paying for the seat <em>and</em> usage fees on top. The seat math looks cheap compared to per-response pricing, right up until you realize the AI resolutions are billed separately.</p>
+        <p>Per-seat makes sense when your actual job is giving your team access to a shared CRM. It stops making sense when the job is "put a conversational AI on my website and phone."</p>
+
+        <h2>Per-resolution pricing: the definition problem</h2>
+        <p>Per-resolution pricing sounds value-aligned — you pay when the AI actually solves something. In practice, "resolution" is defined by the vendor, and the definition matters a lot.</p>
+        <p>Common definitions seen in the wild:</p>
+        <ul>
+            <li>A conversation the AI handled without escalating to a human (even if the customer left without an answer)</li>
+            <li>A conversation where the customer clicked "resolved" (but most customers never click)</li>
+            <li>A conversation that didn't create a support ticket in the next 7 days (proxy for deflection)</li>
+            <li>Any conversation with at least one AI reply, regardless of outcome</li>
+        </ul>
+        <p>Pricing ranges from roughly $0.50 to $1.50+ per resolution. The spread matters. A site doing 3,000 qualified conversations a month at $0.99/resolution is $2,970 — before seats.</p>
+        <p>The subtle kicker: resolution-based pricing rewards the vendor when the AI doesn't escalate. That's usually fine, but it can nudge product decisions toward "keep the customer in the AI" rather than "hand off cleanly." Always ask: what happens on escalation? Is that conversation still a billable resolution? You'd be surprised how often the answer is "yes."</p>
+
+        <h2>Per AI response pricing: what it is and what to check</h2>
+        <p>Per-AI-response is cleaner: the agent generates a reply, you pay for that reply. One AI reply = one billable unit. It's the model Kazozo uses.</p>
+        <p>The advantages:</p>
+        <ul>
+            <li><strong>Unambiguous.</strong> A response is a response. There's no definitional fuzziness.</li>
+            <li><strong>Aligned with the work.</strong> You're paying for the AI to do its job, not for humans who aren't using it.</li>
+            <li><strong>Predictable from volume.</strong> If you know your monthly conversation volume, you can estimate cost without calling sales.</li>
+        </ul>
+        <p>Things to check before signing any per-response contract:</p>
+        <ul>
+            <li><strong>What counts as "the AI responded"?</strong> An AI reply with text, yes. An auto-greeting? Usually no. Make sure the vendor answers this in writing.</li>
+            <li><strong>Are responses capped, metered, or included?</strong> On Kazozo: Starter includes 500 AI responses/mo at <a href="../pricing.html">$249</a>, Growth includes 2,500 at $499, Pro includes 10,000 at $999. Overages are predictable and cheap.</li>
+            <li><strong>Does the agent still respond when you hit the cap?</strong> It should — no one wants a hard stop on customer conversations. Confirm overage behavior.</li>
+            <li><strong>Are internal-user responses billable?</strong> If someone on your team triggers an AI reply during testing, does that count against your allotment? Usually not, but verify.</li>
+        </ul>
+
+        <h2>Cost comparison: a realistic 5-person SMB scenario</h2>
+        <p>Imagine a home-services business doing 1,500 website conversations a month and 300 inbound phone inquiries. You want AI handling both. Here's how the three models shake out:</p>
+
+        <h3>Per-seat (Intercom-style)</h3>
+        <ul>
+            <li>5 seats × ~$99/mo = <strong>~$495/mo</strong> just to unlock the AI tier</li>
+            <li>Plus per-resolution fees on the AI conversations layered on top</li>
+            <li>Typical all-in: <strong>$1,500–$3,000/mo</strong> at that volume</li>
+        </ul>
+
+        <h3>Per-resolution only (Ada-style, no seats)</h3>
+        <ul>
+            <li>1,500 conversations × $0.99/resolution = <strong>$1,485/mo</strong> on chat alone</li>
+            <li>Voice typically billed separately at $1–$2/answered call</li>
+            <li>Definitions vary; escalated-but-not-resolved conversations may still bill</li>
+        </ul>
+
+        <h3>Per AI response (Kazozo)</h3>
+        <ul>
+            <li>Growth plan: <strong>$499/mo flat</strong>, 2,500 AI responses included</li>
+            <li>No seat minimums; no separate AI reply credits; <a href="../agents/voice-agent.html">Voice Agent</a> is Pro plan</li>
+            <li>If you bust the included responses, overages are pennies per reply</li>
+        </ul>
+
+        <p>At this volume, per-AI-response is 2–6× cheaper than per-seat with resolution overlays, and it's the only one where the bill is obvious before renewal. The <a href="../roi-calculator.html">ROI calculator</a> lets you plug in your actual volume.</p>
+
+        <h2>How to audit your AI bill (or a quote you're evaluating)</h2>
+        <p>Before you sign any AI platform contract, get five things on paper:</p>
+        <ol>
+            <li><strong>The billing unit, defined precisely.</strong> "Conversation," "resolution," "response," and "message" all mean different things to different vendors.</li>
+            <li><strong>What doesn't count.</strong> Auto-greetings, template replies, human-agent messages, internal team traffic — get the exclusions in writing.</li>
+            <li><strong>Seat minimums and billing tier thresholds.</strong> If the AI lives behind a higher tier, the real floor is "tier × min-seats" not "$X per seat."</li>
+            <li><strong>Overage pricing.</strong> If you exceed the included amount, what's the per-unit cost? Is it tiered? Does it reset monthly?</li>
+            <li><strong>Escalation behavior.</strong> When the AI hands off to a human, does the conversation keep billing? Stop billing? Get bundled? This affects your total more than you'd expect.</li>
+        </ol>
+        <p>If the sales team can't answer any of these in a single email, that's your answer: the pricing model isn't clean enough for an SMB budget.</p>
+
+        <h2>When per-seat is still the right call</h2>
+        <p>Being fair: per-seat isn't always the enemy. If your entire team lives inside a shared CRM — SDRs working the pipeline, reps running sequences, managers pulling reports — per-seat charges for the thing you're actually using. Intercom, HubSpot Service Hub, and Salesforce are all good CRMs; their per-seat models make sense if the CRM is the product.</p>
+        <p>What doesn't make sense is paying a per-seat premium to unlock a customer-facing AI feature. That's a mismatch between billing unit and the job to be done.</p>
+
+        <h2>The bottom line</h2>
+        <p>AI response pricing isn't automatically the cheapest — it's the most <em>legible</em>. You can read your bill and know exactly why it's what it is. Per-seat and per-resolution models can work out fine, but only when you've asked the five audit questions above and written the answers into the contract.</p>
+
+        <p>If you want to see per-response pricing running on your actual volume — for both chat and voice — <a href="../book-a-demo.html">book a 20-minute demo</a>. We'll pull your real traffic numbers and show you what the monthly bill would look like on Starter, Growth, and Pro.</p>
+
+        <div class="related-posts">
+            <h3>Related Reading</h3>
+            <div class="related-grid">
+                <a href="hubspot-ai-without-service-hub-pro.html" class="related-card">
+                    <h4>AI on HubSpot Without Service Hub Pro</h4>
+                    <p>Why the per-seat upgrade doesn't deliver what SMBs actually want from AI.</p>
+                </a>
+                <a href="ai-agents-roi-small-business.html" class="related-card">
+                    <h4>ROI of AI Agents for SMBs</h4>
+                    <p>Realistic payback math across chat, voice, and follow-up.</p>
+                </a>
+                <a href="ai-agents-vs-chatbots.html" class="related-card">
+                    <h4>AI Agents vs Chatbots</h4>
+                    <p>Why natural-language agents beat rule-based flows regardless of vendor.</p>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="../index.html" class="footer-logo" style="text-decoration:none;">kazo<span>zo</span></a>
+        <p class="footer-tagline">The AI platform for business. Agents, apps, and automation.</p>
+      </div>
+      <div class="footer-nav">
+        <div class="footer-col">
+          <h4>Products</h4>
+          <a href="../agents.html">AI Agents</a>
+          <a href="../pricing.html">Pricing</a>
+          <a href="../industries.html">Industries</a>
+          <a href="../simulation.html">Simulation</a>
+        </div>
+        <div class="footer-col">
+          <h4>Compare</h4>
+          <a href="../compare/kazozo-vs-salesforce-agentforce.html">vs Salesforce</a>
+          <a href="../compare/kazozo-vs-lindy.html">vs Lindy.ai</a>
+          <a href="../compare/kazozo-vs-intercom.html">vs Intercom</a>
+          <a href="../compare/kazozo-vs-drift.html">vs Drift</a>
+      <a href="../compare/kazozo-vs-chatgpt.html">vs ChatGPT</a>
+      <a href="../compare/kazozo-vs-hubspot.html">vs HubSpot</a>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <a href="../blog/">Blog</a>
+          <a href="../book-a-demo.html">Book a demo</a>
+      <a href="../roi-calculator.html">ROI Calculator</a>
+      <a href="../trust.html">Trust &amp; Security</a>
+        <a href="../changelog.html">Changelog</a>
+          <a href="mailto:hello@kazozo.com">hello@kazozo.com</a>
+          <button type="button" onclick="if(window.KazozoWidget){window.KazozoWidget.open()}" style="color:inherit;background:none;border:none;cursor:pointer;font:inherit;padding:0;">Talk to Kaz</button>
+        </div>
+      </div>
+    </div>
+    <hr class="footer-divider">
+    <div class="footer-bottom">
+      <div class="footer-credit">&copy; 2026 Kazozo &middot; <a href="https://solanki.co" target="_blank" rel="noopener" style="color:var(--muted);text-decoration:none;">A Solanki Co product</a> &middot; <a href="../privacy.html" style="color:var(--muted);text-decoration:none;">Privacy</a> &middot; <a href="../terms.html" style="color:var(--muted);text-decoration:none;">Terms</a></div>
+      <div class="footer-socials">
+        <a href="https://instagram.com/kazozo.ai" target="_blank" rel="noopener" aria-label="Follow Kazozo on Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg></a>
+      </div>
+    </div>
+  </footer>
+<!-- Kazozo Frontline Agent Widget -->
+<script async src="https://api.kazozo.com/widget/frontline-widget.js"
+  data-tenant-id="d4182074-fe70-4bac-8e14-9ab6e47ca458"
+  data-api-url="https://api.kazozo.com"
+  data-bot-name="Kaz"
+  data-primary-color="#FF5733"
+  data-position="right"></script>
+<script src="../scripts/sticky-cta.js" defer></script>
+<script src="../scripts/analytics.js" defer></script>
+</body>
+</html>
