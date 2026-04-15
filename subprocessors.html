@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Subprocessors — Kazozo</title>
+<link rel="canonical" href="https://kazozo.com/subprocessors.html">
+<meta name="description" content="The third-party vendors Kazozo uses to process customer data, including hosting, model infrastructure, email delivery, payments, and analytics.">
+<meta property="og:title" content="Subprocessors — Kazozo">
+<meta property="og:description" content="The vendors Kazozo uses to process customer data on behalf of our customers.">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230C0B12'/%3E%3Ctext x='3' y='23' font-family='system-ui,sans-serif' font-size='20' font-weight='700' fill='%23F0EFF4'%3Ek%3C/text%3E%3Ctext x='15' y='23' font-family='system-ui,sans-serif' font-size='20' font-weight='700' fill='%23FF6B5A'%3Ez%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  :root {
+    --bg: #131316;
+    --surface: #1b1b1e;
+    --card: #1f1f22;
+    --card-high: #2a2a2d;
+    --coral: #FFB4A4;
+    --coral-vivid: #FF5733;
+    --text: #E4E1E6;
+    --muted: #9e9ba5;
+    --border: rgba(228,225,230,0.08);
+  }
+  html { overflow-x:hidden; scroll-behavior:smooth; }
+  body { font-family:'Manrope',sans-serif; background:var(--bg); color:var(--text); line-height:1.7; }
+  a { color:var(--coral); text-decoration:none; }
+  a:hover { color:var(--coral-vivid); }
+  nav { position:fixed; top:0; left:0; right:0; z-index:1000; padding:12px 24px; }
+  .content { max-width:960px; margin:0 auto; padding:140px 24px 80px; }
+  h1 { font-family:'Space Grotesk',sans-serif; font-size:clamp(32px,5vw,48px); font-weight:800; margin-bottom:12px; letter-spacing:-1.5px; }
+  h2 { font-family:'Space Grotesk',sans-serif; font-size:22px; font-weight:600; margin:48px 0 16px; }
+  .updated { font-size:13px; color:var(--muted); margin-bottom:8px; }
+  .lead { font-size:17px; color:var(--muted); margin-bottom:32px; max-width:720px; line-height:1.6; }
+  p { color:var(--muted); margin-bottom:14px; font-size:15px; }
+  .table-wrap { overflow-x:auto; border:1px solid var(--border); border-radius:14px; background:var(--card); margin:24px 0; }
+  table { width:100%; border-collapse:collapse; font-size:14px; min-width:720px; }
+  th, td { padding:14px 18px; text-align:left; border-bottom:1px solid var(--border); vertical-align:top; }
+  th { font-family:'Space Grotesk',sans-serif; font-weight:600; color:var(--text); font-size:12px; text-transform:uppercase; letter-spacing:0.08em; background:var(--card-high); }
+  td { color:var(--muted); }
+  td strong { color:var(--text); font-weight:600; }
+  tr:last-child td { border-bottom:none; }
+  .notice { background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:24px; margin:32px 0; }
+  .notice h3 { font-family:'Space Grotesk',sans-serif; font-size:16px; font-weight:600; margin-bottom:10px; color:var(--text); }
+  .notice p { font-size:14px; margin-bottom:8px; }
+  .crumbs { font-size:13px; color:var(--muted); margin-bottom:24px; }
+  .crumbs a { color:var(--muted); }
+  .crumbs a:hover { color:var(--coral); }
+  footer { border-top:1px solid var(--border); padding:48px 24px 32px; max-width:1200px; margin:0 auto; color:var(--muted); font-size:14px; }
+  .footer-inner { display:flex; flex-wrap:wrap; justify-content:space-between; gap:32px; margin-bottom:32px; }
+  .footer-brand { font-family:'Space Grotesk',sans-serif; font-weight:700; color:var(--text); font-size:18px; }
+  .footer-nav { display:flex; flex-direction:column; gap:10px; }
+  .footer-nav h4 { font-size:12px; font-weight:600; color:var(--text); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:4px; }
+  .footer-nav a { color:var(--muted); text-decoration:none; }
+  .footer-nav a:hover { color:var(--coral); }
+  .footer-copy { text-align:center; padding-top:24px; border-top:1px solid var(--border); margin-top:32px; color:#5a5965; font-size:13px; }
+  @media(max-width:600px) {
+    .content { padding:100px 16px 48px; }
+    nav { padding:8px 12px; }
+    th, td { padding:12px 14px; font-size:13px; }
+  }
+</style>
+</head>
+<body>
+<div id="site-nav"></div>
+<script src="nav.js?v=3"></script>
+
+<div class="content">
+  <div class="crumbs"><a href="legal.html">Legal</a> / Subprocessors</div>
+  <h1>Subprocessors</h1>
+  <p class="updated">Last updated: April 15, 2026</p>
+  <p class="lead">Kazozo engages a small set of third-party vendors ("subprocessors") to help deliver our service. These vendors process customer data strictly under our instruction, under written agreements that require them to meet data-protection and security standards at least as strong as ours.</p>
+
+  <h2>Infrastructure &amp; hosting</h2>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Subprocessor</th><th>Role</th><th>Data processed</th><th>Location</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Amazon Web Services</strong></td><td>Primary cloud hosting, database storage, object storage, backups</td><td>All customer data at rest and in transit</td><td>United States (us-east-1, us-west-2)</td></tr>
+        <tr><td><strong>Cloudflare</strong></td><td>CDN, DDoS protection, edge compute for widgets</td><td>IP address, request metadata, widget payloads in transit</td><td>Global edge network</td></tr>
+        <tr><td><strong>GitHub</strong></td><td>Source code hosting, static site deployment</td><td>No customer conversation data; public marketing site only</td><td>United States</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>AI model infrastructure</h2>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Subprocessor</th><th>Role</th><th>Data processed</th><th>Location</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Anthropic</strong></td><td>LLM inference (Claude Haiku, Claude Sonnet) for agent responses</td><td>Conversation messages during inference; not retained for training per zero-data-retention agreement</td><td>United States</td></tr>
+        <tr><td><strong>OpenAI</strong></td><td>Fallback LLM inference (GPT-4o-mini) during Anthropic outages</td><td>Conversation messages during inference; zero-retention API endpoint</td><td>United States</td></tr>
+        <tr><td><strong>Deepgram</strong></td><td>Speech-to-text for voice agents</td><td>Audio streams during active voice calls; not retained</td><td>United States</td></tr>
+        <tr><td><strong>ElevenLabs</strong></td><td>Text-to-speech for voice agents</td><td>Agent response text and generated audio</td><td>United States</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Communications &amp; delivery</h2>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Subprocessor</th><th>Role</th><th>Data processed</th><th>Location</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Twilio</strong></td><td>SMS, voice call routing, number provisioning (local presence)</td><td>Phone numbers, message bodies, call audio routing</td><td>United States</td></tr>
+        <tr><td><strong>Postmark</strong></td><td>Transactional email delivery</td><td>Email addresses, email content</td><td>United States</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Billing &amp; payments</h2>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Subprocessor</th><th>Role</th><th>Data processed</th><th>Location</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Stripe</strong></td><td>Payment processing, subscription billing, invoicing</td><td>Customer name, billing address, payment method token. Card numbers never touch Kazozo servers.</td><td>United States</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Product &amp; analytics</h2>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Subprocessor</th><th>Role</th><th>Data processed</th><th>Location</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>PostHog</strong></td><td>Product analytics, feature flags, session replay (admin UI only)</td><td>Admin user events and IP; customer conversation content is excluded</td><td>United States (self-hosted)</td></tr>
+        <tr><td><strong>Sentry</strong></td><td>Error and exception monitoring</td><td>Stack traces, request IDs; message content is scrubbed before transmission</td><td>United States</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="notice">
+    <h3>Notification of changes</h3>
+    <p>We notify customers at least 30 days before engaging a new subprocessor or materially changing the role of an existing one. Customers can subscribe to subprocessor updates by emailing <a href="mailto:legal@kazozo.com?subject=Subscribe%20to%20subprocessor%20updates">legal@kazozo.com</a> with the subject "Subscribe to subprocessor updates."</p>
+    <p>If a customer has a reasonable, documented objection to a new subprocessor (for example, a compliance conflict), they may raise it during the notice period and we'll work in good faith to resolve it — up to and including an orderly exit if no alternative exists.</p>
+  </div>
+
+  <div class="notice">
+    <h3>International data transfers</h3>
+    <p>Where Kazozo or a subprocessor processes personal data of individuals in the EEA, UK, or Switzerland, transfers to the United States are made under the EU Standard Contractual Clauses (2021/914), the UK International Data Transfer Addendum, and — where applicable — the EU–US Data Privacy Framework. The current list of active frameworks is maintained as part of our DPA.</p>
+  </div>
+
+  <p style="margin-top:40px;">Questions about this list? Email <a href="mailto:legal@kazozo.com">legal@kazozo.com</a>.</p>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">Kazozo</div>
+      <p style="margin-top:8px;max-width:280px;font-size:13px;line-height:1.5;">The AI platform for business. Agents, apps, and automation.</p>
+    </div>
+    <div class="footer-nav">
+      <h4>Product</h4>
+      <a href="agents.html">AI Agents</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="industries.html">Industries</a>
+      <a href="integrations.html">Integrations</a>
+    </div>
+    <div class="footer-nav">
+      <h4>Legal</h4>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="dpa.html">DPA</a>
+      <a href="subprocessors.html">Subprocessors</a>
+      <a href="trust.html">Trust &amp; Security</a>
+    </div>
+    <div class="footer-nav">
+      <h4>Company</h4>
+      <a href="blog/">Blog</a>
+      <a href="book-a-demo.html">Book a demo</a>
+      <a href="roi-calculator.html">ROI Calculator</a>
+      <a href="changelog.html">Changelog</a>
+    </div>
+  </div>
+  <div class="footer-copy">© 2026 Kazozo. All rights reserved.</div>
+</footer>
+
+<script src="https://api.kazozo.com/widget/embed-loader.js"
+  data-tenant="kazozo-001"
+  data-api="https://api.kazozo.com"
+  data-bot-name="Kaz"
+  data-color="#FF5733"
+  data-position="bottom-right"></script>
+<script src="scripts/sticky-cta.js" defer></script>
+<script src="scripts/analytics.js" defer></script>
+</body>
+</html>

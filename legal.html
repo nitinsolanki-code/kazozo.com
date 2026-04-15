@@ -3,23 +3,154 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="refresh" content="0; url=legal-services.html">
-<link rel="canonical" href="https://kazozo.com/legal-services.html">
-<title>Redirecting...</title>
+<title>Legal &amp; Compliance — Kazozo</title>
+<link rel="canonical" href="https://kazozo.com/legal.html">
+<meta name="description" content="Kazozo legal documents — Privacy Policy, Terms of Service, Data Processing Agreement, subprocessor list, and trust &amp; security overview.">
+<meta property="og:title" content="Legal &amp; Compliance — Kazozo">
+<meta property="og:description" content="All Kazozo legal documents in one place: Privacy, Terms, DPA, subprocessors, trust &amp; security.">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230C0B12'/%3E%3Ctext x='3' y='23' font-family='system-ui,sans-serif' font-size='20' font-weight='700' fill='%23F0EFF4'%3Ek%3C/text%3E%3Ctext x='15' y='23' font-family='system-ui,sans-serif' font-size='20' font-weight='700' fill='%23FF6B5A'%3Ez%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  :root {
+    --bg: #131316;
+    --surface: #1b1b1e;
+    --card: #1f1f22;
+    --card-high: #2a2a2d;
+    --coral: #FFB4A4;
+    --coral-vivid: #FF5733;
+    --text: #E4E1E6;
+    --muted: #9e9ba5;
+    --border: rgba(228,225,230,0.08);
+  }
+  html { overflow-x:hidden; scroll-behavior:smooth; }
+  body { font-family:'Manrope',sans-serif; background:var(--bg); color:var(--text); line-height:1.7; }
+  a { color:var(--coral); text-decoration:none; }
+  a:hover { color:var(--coral-vivid); }
+  nav { position:fixed; top:0; left:0; right:0; z-index:1000; padding:12px 24px; }
+  .content { max-width:920px; margin:0 auto; padding:140px 24px 80px; }
+  h1 { font-family:'Space Grotesk',sans-serif; font-size:clamp(32px,5vw,48px); font-weight:800; margin-bottom:12px; letter-spacing:-1.5px; }
+  .lead { font-size:17px; color:var(--muted); margin-bottom:48px; max-width:620px; line-height:1.6; }
+  .doc-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:16px; margin-bottom:56px; }
+  .doc-card { background:var(--card); border:1px solid var(--border); border-radius:14px; padding:24px; transition:transform 0.15s ease, border-color 0.15s ease; display:block; color:inherit; }
+  .doc-card:hover { transform:translateY(-2px); border-color:var(--coral-vivid); color:inherit; }
+  .doc-card h2 { font-family:'Space Grotesk',sans-serif; font-size:18px; font-weight:600; margin-bottom:8px; color:var(--text); }
+  .doc-card p { font-size:14px; color:var(--muted); line-height:1.6; }
+  .doc-card .arrow { display:inline-block; margin-top:14px; font-size:14px; color:var(--coral); font-weight:500; }
+  .contact-block { background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:28px; }
+  .contact-block h2 { font-family:'Space Grotesk',sans-serif; font-size:20px; font-weight:600; margin-bottom:12px; }
+  .contact-block p { color:var(--muted); font-size:15px; margin-bottom:10px; }
+  footer { border-top:1px solid var(--border); padding:48px 24px 32px; max-width:1200px; margin:0 auto; color:var(--muted); font-size:14px; }
+  .footer-inner { display:flex; flex-wrap:wrap; justify-content:space-between; gap:32px; margin-bottom:32px; }
+  .footer-brand { font-family:'Space Grotesk',sans-serif; font-weight:700; color:var(--text); font-size:18px; }
+  .footer-nav { display:flex; flex-direction:column; gap:10px; }
+  .footer-nav h4 { font-size:12px; font-weight:600; color:var(--text); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:4px; }
+  .footer-nav a { color:var(--muted); text-decoration:none; }
+  .footer-nav a:hover { color:var(--coral); }
+  .footer-copy { text-align:center; padding-top:24px; border-top:1px solid var(--border); margin-top:32px; color:#5a5965; font-size:13px; }
+  @media(max-width:600px) {
+    .content { padding:100px 16px 48px; }
+    nav { padding:8px 12px; }
+  }
+</style>
 </head>
 <body>
 <div id="site-nav"></div>
 <script src="nav.js?v=3"></script>
 
-<p>This page has moved to <a href="legal-services.html">legal-services.html</a>.</p>
-<!-- Kazozo Frontline Agent Widget -->
+<div class="content">
+  <h1>Legal &amp; Compliance</h1>
+  <p class="lead">Everything a procurement team, DPO, or legal reviewer needs to evaluate Kazozo. If something isn't here that you need, email <a href="mailto:legal@kazozo.com">legal@kazozo.com</a> and we'll get it to you within one business day.</p>
+
+  <div class="doc-grid">
+    <a href="privacy.html" class="doc-card">
+      <h2>Privacy Policy</h2>
+      <p>What we collect, why, how we use it, and the rights you have over your data. Covers GDPR and CCPA specifically.</p>
+      <span class="arrow">Read →</span>
+    </a>
+
+    <a href="terms.html" class="doc-card">
+      <h2>Terms of Service</h2>
+      <p>The agreement between Kazozo and paying customers. Billing, acceptable use, liability, termination, and governing law.</p>
+      <span class="arrow">Read →</span>
+    </a>
+
+    <a href="dpa.html" class="doc-card">
+      <h2>Data Processing Agreement</h2>
+      <p>Our GDPR Article 28 DPA. Signed under mutual NDA for paying customers; inline terms available for review.</p>
+      <span class="arrow">Read →</span>
+    </a>
+
+    <a href="subprocessors.html" class="doc-card">
+      <h2>Subprocessors</h2>
+      <p>The vendors that process customer data on our behalf — hosting, model infrastructure, email delivery, analytics — and what role each plays.</p>
+      <span class="arrow">Read →</span>
+    </a>
+
+    <a href="trust.html" class="doc-card">
+      <h2>Trust &amp; Security</h2>
+      <p>How we handle encryption, tenant isolation, retention, audit logs, and AI-specific risks like prompt injection. What we're not yet (SOC 2, HIPAA) and what we're working toward.</p>
+      <span class="arrow">Read →</span>
+    </a>
+
+    <a href="mailto:security@kazozo.com?subject=Kazozo%20security%20questionnaire" class="doc-card">
+      <h2>Security Questionnaire</h2>
+      <p>Completing a SIG Lite, CAIQ, or custom vendor questionnaire? Send it over — we'll return it within three business days.</p>
+      <span class="arrow">Request →</span>
+    </a>
+  </div>
+
+  <div class="contact-block">
+    <h2>Who to contact</h2>
+    <p><strong>Privacy &amp; data subject requests:</strong> <a href="mailto:privacy@kazozo.com">privacy@kazozo.com</a> — access, correction, deletion, export, objection, and portability requests.</p>
+    <p><strong>Contracts &amp; procurement:</strong> <a href="mailto:legal@kazozo.com">legal@kazozo.com</a> — MSAs, DPAs, BAAs (if/when HIPAA-ready), redlines, and custom legal terms.</p>
+    <p><strong>Security &amp; incidents:</strong> <a href="mailto:security@kazozo.com">security@kazozo.com</a> — vulnerabilities, security questionnaires, and suspected incidents.</p>
+    <p><strong>Abuse &amp; acceptable-use:</strong> <a href="mailto:abuse@kazozo.com">abuse@kazozo.com</a> — reports of spam, phishing, or other policy violations.</p>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">Kazozo</div>
+      <p style="margin-top:8px;max-width:280px;font-size:13px;line-height:1.5;">The AI platform for business. Agents, apps, and automation.</p>
+    </div>
+    <div class="footer-nav">
+      <h4>Product</h4>
+      <a href="agents.html">AI Agents</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="industries.html">Industries</a>
+      <a href="integrations.html">Integrations</a>
+    </div>
+    <div class="footer-nav">
+      <h4>Legal</h4>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="dpa.html">DPA</a>
+      <a href="subprocessors.html">Subprocessors</a>
+      <a href="trust.html">Trust &amp; Security</a>
+    </div>
+    <div class="footer-nav">
+      <h4>Company</h4>
+      <a href="blog/">Blog</a>
+      <a href="book-a-demo.html">Book a demo</a>
+      <a href="roi-calculator.html">ROI Calculator</a>
+      <a href="changelog.html">Changelog</a>
+    </div>
+  </div>
+  <div class="footer-copy">© 2026 Kazozo. All rights reserved.</div>
+</footer>
+
 <script src="https://api.kazozo.com/widget/embed-loader.js"
   data-tenant="kazozo-001"
   data-api="https://api.kazozo.com"
   data-bot-name="Kaz"
   data-color="#FF5733"
   data-position="bottom-right"></script>
+<script src="scripts/sticky-cta.js" defer></script>
 <script src="scripts/analytics.js" defer></script>
-
 </body>
 </html>
