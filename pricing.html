@@ -88,6 +88,16 @@
       "@type": "Question",
       "name": "Can I switch plans later?",
       "acceptedAnswer": { "@type": "Answer", "text": "Yes, any time. Upgrades take effect immediately with a prorated credit. Downgrades take effect at the next billing cycle." }
+    },
+    {
+      "@type": "Question",
+      "name": "How does per-response pricing compare to per-seat or per-resolution pricing?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Per-seat billing charges for dashboard users regardless of AI usage and often has seat minimums. Per-resolution billing is vendor-defined — silent exits and escalations may still count as billable resolutions. Per AI response is the cleanest of the three: a response is an observable unit, there are no seat floors, and escalated conversations stop billing when a human takes over." }
+    },
+    {
+      "@type": "Question",
+      "name": "Are there any seat minimums on Kazozo?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No. Kazozo plans have no seat minimums and no per-user charges. You pay a flat monthly base plus AI-response overages if you exceed the included pool. Internal team members accessing the admin dashboard don't add to your bill." }
     }
   ]
 }
@@ -563,6 +573,34 @@
   </table>
 </div>
 
+<!-- PRICING MODEL COMPARISON -->
+<div class="compare-wrap">
+  <div class="compare-header">
+    <h2>How AI pricing models compare</h2>
+    <p>Three common billing models. Only one aligns cost with work done — the others hide the real bill behind definitions and seat floors.</p>
+  </div>
+  <table class="compare-table">
+    <thead>
+      <tr>
+        <th>Model</th>
+        <th>Per-seat</th>
+        <th>Per-resolution</th>
+        <th>Per AI response</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><th>Examples</th><td>Intercom, HubSpot, Salesforce</td><td>Intercom Fin, Ada, Agentforce</td><td>Kazozo</td></tr>
+      <tr><th>Billing unit</th><td>Dashboard user / seat</td><td>Vendor-defined "resolution"</td><td>One AI-generated reply</td></tr>
+      <tr><th>Seat minimums</th><td>Usually 3–5 seat floor</td><td>Often sits on a per-seat tier</td><td><span class="check">No minimums</span></td></tr>
+      <tr><th>Silent exits bill?</th><td>n/a</td><td>Usually yes (counted as resolved)</td><td><span class="check">No — response must exist</span></td></tr>
+      <tr><th>Escalation keeps billing?</th><td>n/a</td><td>Often yes, depending on contract</td><td><span class="check">No — human replies don't bill</span></td></tr>
+      <tr><th>Predictable from volume?</th><td>Yes, but the AI is extra</td><td>Rate × conversations (with fine print)</td><td><span class="check">Yes — responses × rate</span></td></tr>
+      <tr><th>Best for</th><td>Teams living in a shared CRM</td><td>High-volume support deflection</td><td><span class="check">SMBs buying the AI as the product</span></td></tr>
+    </tbody>
+  </table>
+  <p class="tier-foot" style="margin-top:24px;">Want the full breakdown? Read <a href="blog/ai-response-vs-per-seat-pricing.html">AI Response vs Per-Seat Pricing</a> or the 7-minute <a href="blog/5-questions-before-signing-ai-contract.html">5 questions to ask before signing any AI contract</a>.</p>
+</div>
+
 <!-- FAQ -->
 <div class="faq-wrap">
   <div class="faq-header">
@@ -595,6 +633,14 @@
   <details class="faq-item">
     <summary>Can I switch plans later?</summary>
     <div class="faq-answer">Yes, any time. Upgrades take effect immediately with a prorated credit. Downgrades take effect at the next billing cycle.</div>
+  </details>
+  <details class="faq-item">
+    <summary>How does per-response pricing compare to per-seat or per-resolution pricing?</summary>
+    <div class="faq-answer">Per-seat billing charges for dashboard users regardless of AI usage and often has seat minimums. Per-resolution billing is vendor-defined — silent exits and escalations may still count as billable resolutions. Per AI response is the cleanest of the three: a response is an observable unit, there are no seat floors, and escalated conversations stop billing when a human takes over. Full breakdown in <a href="blog/ai-response-vs-per-seat-pricing.html">AI Response vs Per-Seat Pricing</a>.</div>
+  </details>
+  <details class="faq-item">
+    <summary>Are there any seat minimums on Kazozo?</summary>
+    <div class="faq-answer">No. Kazozo plans have no seat minimums and no per-user charges. You pay a flat monthly base plus AI-response overages if you exceed the included pool. Internal team members accessing the admin dashboard don't add to your bill.</div>
   </details>
 </div>
 
