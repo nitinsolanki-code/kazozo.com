@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Agent ROI Calculator — See What Missed Leads Cost You | Kazozo</title>
+<meta name="description" content="Plug in your lead volume, response time, and average ticket. See how much revenue you're leaking to slow follow-up — and what Kazozo's AI agents would return per month.">
+<meta name="keywords" content="AI agent ROI calculator, chatbot ROI, lead response time calculator, AI for small business ROI">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://kazozo.com/roi-calculator.html">
+
+<meta property="og:title" content="AI Agent ROI Calculator — Kazozo">
+<meta property="og:description" content="See what slow lead response is costing your business per month. Built-in Kazozo ROI breakdown.">
+<meta property="og:url" content="https://kazozo.com/roi-calculator.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Kazozo">
+<meta property="og:image" content="https://kazozo.com/og-image.png">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AI Agent ROI Calculator — Kazozo">
+<meta name="twitter:description" content="See what slow lead response is costing your business per month.">
+<meta name="twitter:image" content="https://kazozo.com/og-image.png">
+
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230C0B12'/%3E%3Ctext x='3' y='23' font-family='system-ui,sans-serif' font-size='20' font-weight='700' fill='%23F0EFF4'%3Ek%3C/text%3E%3Ctext x='15' y='23' font-family='system-ui,sans-serif' font-size='20' font-weight='700' fill='%23FF6B5A'%3Ez%3C/text%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --bg: #131316;
+    --surface: #1b1b1e;
+    --surface-2: #17161f;
+    --card: #1f1f22;
+    --border: rgba(228,225,230,0.08);
+    --border-strong: rgba(228,225,230,0.14);
+    --text: #f0eff4;
+    --muted: #9a99a5;
+    --coral: #FF5733;
+    --coral-soft: #FFB4A4;
+    --green: #3ddc97;
+    --red: #ff6b6b;
+  }
+  html, body { background: var(--bg); color: var(--text); font-family: 'Manrope', system-ui, sans-serif; -webkit-font-smoothing: antialiased; line-height: 1.6; }
+  a { color: inherit; }
+
+  .page-hero { padding: 96px 24px 32px; text-align: center; }
+  .page-hero-inner { max-width: 780px; margin: 0 auto; }
+  .overline { display: inline-block; padding: 6px 14px; border: 1px solid var(--border); border-radius: 999px; color: var(--coral); font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 20px; }
+  h1 { font-family: 'Space Grotesk', sans-serif; font-size: clamp(34px, 5.5vw, 52px); font-weight: 600; letter-spacing: -0.02em; line-height: 1.08; margin-bottom: 18px; }
+  h1 em { color: var(--coral); font-style: normal; }
+  .lead { color: var(--muted); font-size: clamp(16px, 2vw, 19px); max-width: 640px; margin: 0 auto; line-height: 1.6; }
+
+  /* Calculator */
+  .calc-wrap { max-width: 1080px; margin: 48px auto 0; padding: 0 24px; }
+  .calc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  @media (max-width: 840px) { .calc-grid { grid-template-columns: 1fr; } }
+
+  .panel { background: var(--surface); border: 1px solid var(--border); border-radius: 20px; padding: 32px; }
+  .panel h3 { font-family: 'Space Grotesk', sans-serif; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--coral); margin-bottom: 20px; }
+
+  .field { margin-bottom: 22px; }
+  .field label { display: block; font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 8px; }
+  .field .help { font-size: 12px; color: var(--muted); margin-bottom: 10px; line-height: 1.5; }
+  .input-row { display: flex; align-items: center; gap: 12px; }
+  .input-prefix { color: var(--muted); font-size: 16px; min-width: 14px; }
+  .input-suffix { color: var(--muted); font-size: 14px; }
+  .field input[type="range"] { flex: 1; accent-color: var(--coral); }
+  .field input[type="number"] { width: 110px; padding: 10px 12px; background: var(--surface-2); border: 1px solid var(--border-strong); border-radius: 8px; color: var(--text); font-family: 'Manrope', sans-serif; font-size: 15px; font-weight: 600; text-align: right; }
+  .field input[type="number"]:focus { outline: none; border-color: var(--coral); }
+
+  /* Results */
+  .results { background: linear-gradient(180deg, rgba(255,87,51,0.06), transparent); border: 1px solid rgba(255,87,51,0.25); }
+  .metric { padding: 18px 0; border-bottom: 1px solid var(--border); }
+  .metric:last-child { border-bottom: 0; }
+  .metric .m-label { font-size: 13px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px; }
+  .metric .m-value { font-family: 'Space Grotesk', sans-serif; font-size: clamp(26px, 4vw, 36px); font-weight: 600; letter-spacing: -0.02em; color: var(--text); }
+  .metric .m-sub { font-size: 13px; color: var(--muted); margin-top: 4px; }
+  .metric.hero-leak .m-value { color: var(--red); }
+  .metric.hero-savings .m-value { color: var(--green); }
+
+  .result-cta { margin-top: 24px; display: flex; gap: 10px; flex-wrap: wrap; }
+  .btn { display: inline-flex; align-items: center; justify-content: center; padding: 14px 22px; border-radius: 12px; font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 15px; text-decoration: none; border: none; cursor: pointer; transition: transform 0.15s ease, box-shadow 0.15s ease; }
+  .btn-coral { background: var(--coral); color: #fff; }
+  .btn-coral:hover { transform: translateY(-1px); box-shadow: 0 12px 32px rgba(255,87,51,0.32); }
+  .btn-ghost { background: transparent; color: var(--text); border: 1px solid var(--border-strong); }
+  .btn-ghost:hover { border-color: var(--coral); color: var(--coral); }
+
+  /* Assumptions */
+  .assumptions { max-width: 1080px; margin: 48px auto 0; padding: 0 24px; }
+  .assumptions-inner { background: var(--surface-2); border: 1px solid var(--border); border-radius: 16px; padding: 24px 28px; }
+  .assumptions-inner h4 { font-size: 13px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 12px; }
+  .assumptions-inner p { font-size: 14px; color: var(--muted); line-height: 1.7; }
+
+  /* Below */
+  section.wrap { max-width: 1080px; margin: 0 auto; padding: 72px 24px 24px; }
+  h2 { font-family: 'Space Grotesk', sans-serif; font-size: clamp(26px, 3.5vw, 36px); letter-spacing: -0.02em; margin-bottom: 14px; }
+  .section-sub { color: var(--muted); font-size: 16px; max-width: 640px; margin-bottom: 36px; }
+
+  .reasons { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  @media (max-width: 840px) { .reasons { grid-template-columns: 1fr; } }
+  .reason-card { padding: 24px; background: var(--surface); border: 1px solid var(--border); border-radius: 16px; }
+  .reason-card h4 { font-family: 'Space Grotesk', sans-serif; font-size: 18px; margin-bottom: 10px; }
+  .reason-card p { color: var(--muted); font-size: 14px; line-height: 1.6; }
+
+  /* Final CTA */
+  .final-cta { max-width: 900px; margin: 72px auto 80px; padding: 48px 32px; background: var(--surface); border: 1px solid var(--border); border-radius: 20px; text-align: center; }
+  .final-cta h2 { font-family: 'Space Grotesk', sans-serif; font-size: clamp(24px, 3vw, 32px); margin-bottom: 12px; }
+  .final-cta p { color: var(--muted); margin-bottom: 26px; font-size: 16px; }
+  .cta-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+  /* Footer */
+  footer { border-top: 1px solid var(--border); padding: 48px 24px 32px; color: var(--muted); font-size: 14px; }
+  .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 32px; }
+  .footer-brand { font-family: 'Space Grotesk', sans-serif; font-weight: 700; color: var(--text); font-size: 18px; }
+  .footer-nav { display: flex; flex-direction: column; gap: 10px; }
+  .footer-nav h4 { font-size: 12px; font-weight: 600; color: var(--text); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 4px; }
+  .footer-nav a { color: var(--muted); text-decoration: none; }
+  .footer-nav a:hover { color: var(--coral); }
+  .footer-copy { width: 100%; text-align: center; padding-top: 24px; border-top: 1px solid var(--border); margin-top: 32px; color: #5a5965; font-size: 13px; }
+</style>
+</head>
+<body>
+
+<script src="nav.js?v=3"></script>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <div class="overline">ROI Calculator</div>
+    <h1>How much are slow replies <em>costing you?</em></h1>
+    <p class="lead">The leads you don't answer within 5 minutes convert at a fraction of the rate. Plug in your numbers below to see the monthly leak — and what closing it would return.</p>
+  </div>
+</section>
+
+<!-- CALCULATOR -->
+<div class="calc-wrap">
+  <div class="calc-grid">
+
+    <!-- INPUTS -->
+    <div class="panel">
+      <h3>Your business</h3>
+
+      <div class="field">
+        <label for="leads">Monthly inbound leads</label>
+        <div class="help">Website forms + chat conversations + missed calls that leave a message.</div>
+        <div class="input-row">
+          <input id="leadsRange" type="range" min="10" max="2000" step="10" value="200">
+          <input id="leads" type="number" min="0" max="10000" step="10" value="200">
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="ticket">Average deal value ($)</label>
+        <div class="help">The revenue from a typical won customer over their first engagement.</div>
+        <div class="input-row">
+          <span class="input-prefix">$</span>
+          <input id="ticketRange" type="range" min="100" max="20000" step="50" value="1500">
+          <input id="ticket" type="number" min="0" max="500000" step="50" value="1500">
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="closeRate">Close rate on quick responses (%)</label>
+        <div class="help">Leads you answer within 5 minutes convert at this rate. Industry benchmarks land around 20–35%.</div>
+        <div class="input-row">
+          <input id="closeRange" type="range" min="5" max="60" step="1" value="25">
+          <input id="closeRate" type="number" min="0" max="100" step="1" value="25">
+          <span class="input-suffix">%</span>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="missedPct">% of leads missed or answered slowly</label>
+        <div class="help">After-hours, busy periods, voicemails that go stale. For most SMBs this is 30–60%.</div>
+        <div class="input-row">
+          <input id="missedRange" type="range" min="0" max="100" step="1" value="45">
+          <input id="missedPct" type="number" min="0" max="100" step="1" value="45">
+          <span class="input-suffix">%</span>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="plan">Kazozo plan</label>
+        <div class="help">Starter $249 (500 responses) · Growth $499 (2,500) · Pro $999 (7,500).</div>
+        <div class="input-row">
+          <select id="plan" style="width:100%;padding:12px;background:var(--surface-2);border:1px solid var(--border-strong);border-radius:8px;color:var(--text);font-family:'Manrope',sans-serif;font-size:15px;font-weight:600;">
+            <option value="249">Starter — $249/mo</option>
+            <option value="499" selected>Growth — $499/mo</option>
+            <option value="999">Pro — $999/mo</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- RESULTS -->
+    <div class="panel results">
+      <h3>Your monthly result</h3>
+
+      <div class="metric hero-leak">
+        <div class="m-label">Revenue leaking to slow response</div>
+        <div class="m-value" id="leakValue">$33,750</div>
+        <div class="m-sub" id="leakSub">Missed leads × close rate × deal value</div>
+      </div>
+
+      <div class="metric">
+        <div class="m-label">Missed-lead count</div>
+        <div class="m-value" id="missedCount">90</div>
+        <div class="m-sub">Leads that don't get a fast, qualified response</div>
+      </div>
+
+      <div class="metric">
+        <div class="m-label">Kazozo plan cost</div>
+        <div class="m-value" id="planCost">$499</div>
+        <div class="m-sub">Billed monthly, no seat counts, no minimums</div>
+      </div>
+
+      <div class="metric hero-savings">
+        <div class="m-label">Estimated net return</div>
+        <div class="m-value" id="netReturn">$33,251</div>
+        <div class="m-sub" id="netSub">Recovered revenue minus plan cost</div>
+      </div>
+
+      <div class="result-cta">
+        <a href="book-a-demo.html" class="btn btn-coral">See this in your demo →</a>
+        <a href="pricing.html" class="btn btn-ghost">Compare plans</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="assumptions">
+    <div class="assumptions-inner">
+      <h4>How this is calculated</h4>
+      <p><strong>Leak</strong> = monthly leads × missed % × close rate × deal value. This is a directional number, not a contract — your actual results depend on your traffic quality, sales process, and how fast you staff your team today. Most SMBs recover <strong>60–80%</strong> of the "missed" bucket by switching on an always-on AI agent, so treat the leak number as an upper bound of recoverable revenue. Kazozo's Voice Agent (Pro) handles after-hours calls at $1.10 per answered call; that's on top of the plan price and not included in the comparison above.</p>
+    </div>
+  </div>
+</div>
+
+<!-- WHY THIS MATTERS -->
+<section class="wrap">
+  <h2>Why the 5-minute window matters</h2>
+  <p class="section-sub">The longer a lead waits, the more the conversion curve collapses. It's the single highest-leverage thing most SMBs can fix.</p>
+
+  <div class="reasons">
+    <div class="reason-card">
+      <h4>5 min → 30 min</h4>
+      <p>Conversion rates drop by roughly 10× when response time stretches past the first half hour. After-hours leads often wait until morning — if they're followed up at all.</p>
+    </div>
+    <div class="reason-card">
+      <h4>Your team can't be on at 2am</h4>
+      <p>But your competitors' AI can. Every lead that hits your site outside business hours is effectively gone unless something picks it up in the moment.</p>
+    </div>
+    <div class="reason-card">
+      <h4>Qualification matters more than speed alone</h4>
+      <p>Speed without qualification just means faster noise. Kazozo's Lead Qualifier agent asks the right questions, scores the lead, and hands you only the ones worth your time.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<div class="final-cta">
+  <h2>Want your real number in a 20-minute walk-through?</h2>
+  <p>We'll plug your website into Kazozo and show you exactly what would happen when a lead hit it tonight at 11:30pm.</p>
+  <div class="cta-row">
+    <a href="book-a-demo.html" class="btn btn-coral">Book a demo →</a>
+    <a href="agents.html" class="btn btn-ghost">See the 11 agents</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">Kazozo</div>
+      <p style="margin-top:8px;max-width:280px;font-size:13px;line-height:1.5;">AI agents for small businesses. Premium AI on every plan.</p>
+    </div>
+    <div class="footer-nav">
+      <h4>Product</h4>
+      <a href="agents.html">AI Agents</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="industries.html">Industries</a>
+      <a href="simulation.html">Simulation</a>
+    </div>
+    <div class="footer-nav">
+      <h4>Compare</h4>
+      <a href="compare/kazozo-vs-intercom.html">vs Intercom</a>
+      <a href="compare/kazozo-vs-lindy.html">vs Lindy.ai</a>
+      <a href="compare/kazozo-vs-salesforce-agentforce.html">vs Salesforce Agentforce</a>
+      <a href="compare/kazozo-vs-drift.html">vs Drift</a>
+      <a href="compare/kazozo-vs-chatgpt.html">vs ChatGPT</a>
+    </div>
+    <div class="footer-nav">
+      <h4>Company</h4>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="blog/">Blog</a>
+      <a href="book-a-demo.html">Book a demo</a>
+      <a href="roi-calculator.html">ROI Calculator</a>
+    </div>
+  </div>
+  <div class="footer-copy">© 2026 Kazozo. All rights reserved.</div>
+</footer>
+
+<!-- Kazozo Widget -->
+<script src="https://api.kazozo.com/widget/embed-loader.js"
+  data-tenant="kazozo-001"
+  data-position="bottom-right"></script>
+
+<script src="scripts/sticky-cta.js" defer></script>
+<script src="scripts/analytics.js" defer></script>
+
+<script>
+(function() {
+  var fmt = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 });
+  var fmtInt = new Intl.NumberFormat('en-US', { maximumFractionDigits: 0 });
+
+  function $(id) { return document.getElementById(id); }
+  function num(id) { var v = parseFloat($(id).value); return isNaN(v) ? 0 : v; }
+
+  // Two-way binding between range and number inputs
+  function bind(rangeId, numId) {
+    var r = $(rangeId), n = $(numId);
+    r.addEventListener('input', function() { n.value = r.value; compute(); });
+    n.addEventListener('input', function() {
+      // clamp to range bounds when possible
+      var v = parseFloat(n.value);
+      if (!isNaN(v)) {
+        var rmin = parseFloat(r.min), rmax = parseFloat(r.max);
+        if (v >= rmin && v <= rmax) r.value = v;
+      }
+      compute();
+    });
+  }
+  bind('leadsRange', 'leads');
+  bind('ticketRange', 'ticket');
+  bind('closeRange', 'closeRate');
+  bind('missedRange', 'missedPct');
+  $('plan').addEventListener('change', compute);
+
+  function compute() {
+    var leads = num('leads');
+    var ticket = num('ticket');
+    var closeRate = num('closeRate') / 100;
+    var missedPct = num('missedPct') / 100;
+    var plan = num('plan');
+
+    var missed = Math.round(leads * missedPct);
+    // Assume 70% of missed leads are recoverable by always-on response.
+    var recoverable = missed * 0.7;
+    var leak = recoverable * closeRate * ticket;
+    var net = Math.max(leak - plan, 0);
+
+    $('missedCount').textContent = fmtInt.format(missed);
+    $('leakValue').textContent = fmt.format(leak);
+    $('planCost').textContent = fmt.format(plan);
+    $('netReturn').textContent = fmt.format(net);
+
+    $('leakSub').textContent = fmtInt.format(missed) + ' missed × 70% recoverable × ' + (closeRate * 100).toFixed(0) + '% close × ' + fmt.format(ticket);
+    $('netSub').textContent = 'Recovered revenue (' + fmt.format(leak) + ') minus plan (' + fmt.format(plan) + ')';
+  }
+
+  compute();
+})();
+</script>
+
+</body>
+</html>

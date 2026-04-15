@@ -9,6 +9,7 @@
   <url><loc>https://kazozo.com/faq.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://kazozo.com/industries.html</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>https://kazozo.com/simulation.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://kazozo.com/roi-calculator.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <!-- Agent Pages -->
   <url><loc>https://kazozo.com/agents/frontline-agent.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://kazozo.com/agents/customer-support.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
