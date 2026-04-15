@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Integrations — Kazozo AI Agents for the Tools You Already Use</title>
+<meta name="description" content="Kazozo AI agents connect to HubSpot, Salesforce, Calendly, Google Sheets, Notion, Shopify, Stripe, QuickBooks, Slack, Google Business Profile, Zapier, Make, and more. Keep the stack you have; add AI that runs it.">
+<meta name="keywords" content="Kazozo integrations, AI agent HubSpot, AI agent Calendly, AI agent Google Sheets, AI agent Shopify, AI agent Zapier, AI agent Stripe">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://kazozo.com/integrations.html">
+
+<meta property="og:title" content="Integrations — Kazozo AI Agents">
+<meta property="og:description" content="Kazozo plugs into the CRM, scheduling, messaging, and commerce tools you already use — no migration required.">
+<meta property="og:url" content="https://kazozo.com/integrations.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Kazozo">
+<meta property="og:image" content="https://kazozo.com/og-image.png">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Integrations — Kazozo AI Agents">
+<meta name="twitter:description" content="Kazozo plugs into the CRM, scheduling, messaging, and commerce tools you already use.">
+<meta name="twitter:image" content="https://kazozo.com/og-image.png">
+
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230C0B12'/%3E%3Ctext x='3' y='23' font-family='system-ui,sans-serif' font-size='20' font-weight='700' fill='%23F0EFF4'%3Ek%3C/text%3E%3Ctext x='15' y='23' font-family='system-ui,sans-serif' font-size='20' font-weight='700' fill='%23FF6B5A'%3Ez%3C/text%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --bg: #131316;
+    --surface: #1b1b1e;
+    --surface-2: #17161f;
+    --card: #1f1f22;
+    --border: rgba(228,225,230,0.08);
+    --border-strong: rgba(228,225,230,0.14);
+    --text: #f0eff4;
+    --muted: #9a99a5;
+    --coral: #FF5733;
+    --coral-soft: #FFB4A4;
+    --green: #3ddc97;
+    --amber: #EBC314;
+  }
+  html, body { background: var(--bg); color: var(--text); font-family: 'Manrope', system-ui, sans-serif; -webkit-font-smoothing: antialiased; line-height: 1.6; }
+  a { color: inherit; }
+
+  .page-hero { padding: 120px 24px 40px; text-align: center; }
+  .page-hero-inner { max-width: 780px; margin: 0 auto; }
+  .overline { display: inline-block; padding: 6px 14px; border: 1px solid var(--border); border-radius: 999px; color: var(--coral); font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 20px; }
+  h1 { font-family: 'Space Grotesk', sans-serif; font-size: clamp(34px, 5.5vw, 52px); font-weight: 600; letter-spacing: -0.02em; line-height: 1.08; margin-bottom: 18px; }
+  h1 em { color: var(--coral); font-style: normal; }
+  .lead { color: var(--muted); font-size: clamp(16px, 2vw, 19px); max-width: 640px; margin: 0 auto; line-height: 1.6; }
+
+  section.wrap { max-width: 1100px; margin: 0 auto; padding: 56px 24px 16px; }
+
+  .cat-header { display: flex; align-items: baseline; gap: 14px; margin-bottom: 24px; }
+  .cat-header h2 { font-family: 'Space Grotesk', sans-serif; font-size: 26px; letter-spacing: -0.015em; font-weight: 600; }
+  .cat-header .cat-count { font-size: 13px; color: var(--muted); }
+
+  .int-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 14px; }
+  .int-card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 22px; transition: border-color 0.15s ease, transform 0.15s ease; }
+  .int-card:hover { border-color: rgba(255,87,51,0.3); transform: translateY(-2px); }
+  .int-card .row { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+  .int-logo { width: 40px; height: 40px; border-radius: 10px; background: var(--surface-2); display: flex; align-items: center; justify-content: center; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 16px; color: var(--text); border: 1px solid var(--border); flex-shrink: 0; }
+  .int-card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 600; letter-spacing: -0.005em; }
+  .int-card p { color: var(--muted); font-size: 14px; line-height: 1.55; }
+  .int-card .via { margin-top: 10px; font-size: 11px; color: var(--amber); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; }
+  .int-card .via.native { color: var(--green); }
+
+  .hub-section { max-width: 900px; margin: 60px auto 0; padding: 0 24px; }
+  .hub-inner { background: linear-gradient(180deg, rgba(255,87,51,0.05), transparent); border: 1px solid rgba(255,87,51,0.25); border-radius: 20px; padding: 36px; }
+  .hub-inner h2 { font-family: 'Space Grotesk', sans-serif; font-size: 22px; margin-bottom: 12px; letter-spacing: -0.01em; }
+  .hub-inner p { color: var(--muted); font-size: 15px; line-height: 1.7; margin-bottom: 14px; }
+  .hub-inner strong { color: var(--text); font-weight: 600; }
+
+  .final-cta { max-width: 900px; margin: 72px auto 80px; padding: 48px 32px; background: var(--surface); border: 1px solid var(--border); border-radius: 20px; text-align: center; }
+  .final-cta h2 { font-family: 'Space Grotesk', sans-serif; font-size: clamp(24px, 3vw, 32px); margin-bottom: 12px; }
+  .final-cta p { color: var(--muted); margin-bottom: 26px; font-size: 16px; }
+  .cta-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .btn { display: inline-flex; align-items: center; justify-content: center; padding: 14px 26px; border-radius: 12px; font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 15px; text-decoration: none; cursor: pointer; transition: transform 0.15s ease, box-shadow 0.15s ease; }
+  .btn-coral { background: var(--coral); color: #fff; }
+  .btn-coral:hover { transform: translateY(-1px); box-shadow: 0 12px 32px rgba(255,87,51,0.32); }
+  .btn-ghost { background: transparent; color: var(--text); border: 1px solid var(--border-strong); }
+  .btn-ghost:hover { border-color: var(--coral); color: var(--coral); }
+
+  footer { border-top: 1px solid var(--border); padding: 48px 24px 32px; color: var(--muted); font-size: 14px; }
+  .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 32px; }
+  .footer-brand { font-family: 'Space Grotesk', sans-serif; font-weight: 700; color: var(--text); font-size: 18px; }
+  .footer-nav { display: flex; flex-direction: column; gap: 10px; }
+  .footer-nav h4 { font-size: 12px; font-weight: 600; color: var(--text); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 4px; }
+  .footer-nav a { color: var(--muted); text-decoration: none; }
+  .footer-nav a:hover { color: var(--coral); }
+  .footer-copy { width: 100%; text-align: center; padding-top: 24px; border-top: 1px solid var(--border); margin-top: 32px; color: #5a5965; font-size: 13px; }
+</style>
+</head>
+<body>
+
+<script src="nav.js?v=3"></script>
+
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <div class="overline">Integrations</div>
+    <h1>Keep your stack. <em>Add AI on top.</em></h1>
+    <p class="lead">Kazozo plugs into the CRM, scheduling, messaging, and commerce tools you already use. No migration, no rip-and-replace. Qualified leads, booked calls, and customer context flow into the systems your team already lives in.</p>
+  </div>
+</section>
+
+<!-- CRM -->
+<section class="wrap">
+  <div class="cat-header"><h2>CRM &amp; deal pipeline</h2><span class="cat-count">5 integrations</span></div>
+  <div class="int-grid">
+    <div class="int-card"><div class="row"><div class="int-logo">Hs</div><h3>HubSpot</h3></div><p>Push qualified leads, conversation transcripts, and lead scores into HubSpot contacts and deals. Free CRM works.</p><div class="via native">Native</div></div>
+    <div class="int-card"><div class="row"><div class="int-logo">Sf</div><h3>Salesforce</h3></div><p>Write leads and opportunities into Lead, Contact, or custom objects. Full conversation history in notes.</p><div class="via native">Native</div></div>
+    <div class="int-card"><div class="row"><div class="int-logo">Pd</div><h3>Pipedrive</h3></div><p>Create deals at the right stage with source, AI qualification score, and handoff context.</p><div class="via native">Native</div></div>
+    <div class="int-card"><div class="row"><div class="int-logo">Zh</div><h3>Zoho CRM</h3></div><p>Qualified leads flow into Zoho with full conversation context via webhook.</p><div class="via">Webhook / Zapier</div></div>
+    <div class="int-card"><div class="row"><div class="int-logo">No</div><h3>Notion</h3></div><p>Most common SMB CRM. Push leads and notes into any Notion database you point us at.</p><div class="via native">Native</div></div>
+  </div>
+</section>
+
+<!-- Scheduling -->
+<section class="wrap">
+  <div class="cat-header"><h2>Scheduling &amp; calendars</h2><span class="cat-count">4 integrations</span></div>
+  <div class="int-grid">
+    <div class="int-card"><div class="row"><div class="int-logo">Ca</div><h3>Calendly</h3></div><p>Agents book appointments directly on your Calendly, round-robin across your team, with confirmation and reminders.</p><div class="via native">Native</div></div>
+    <div class="int-card"><div class="row"><div class="int-logo">C.</div><h3>Cal.com</h3></div><p>Open-source Calendly alternative, fully supported — agents can read availability and create bookings.</p><div class="via native">Native</div></div>
+    <div class="int-card"><div class="row"><div class="int-logo">Gc</div><h3>Google Calendar</h3></div><p>Check availability across multiple team calendars and create booked events with call notes.</p><div class="via native">Native</div></div>
+    <div class="int-card"><div class="row"><div class="int-logo">Ol</div><h3>Outlook / Microsoft 365</h3></div><p>Same as Google Calendar but for Microsoft-shop teams. Works with delegated calendars.</p><div class="via native">Native</div></div>
+  </div>
+</section>
+
+<!-- Messaging -->
+<section class="wrap">
+  <div class="cat-header"><h2>Messaging &amp; handoff</h2><span class="cat-count">5 integrations</span></div>
+  <div class="int-grid">
+    <div class="int-card"><div class="row"><div class="int-logo">Sl</div><h3>Slack</h3></div><p>Route hot leads, escalations, and agent alerts to any Slack channel with one-click customer context.</p><div class="via native">Native</div></div>
+    <div class="int-card"><div class="row"><div class="int-logo">Ms</div><h3>Microsoft Teams</h3></div><p>Send hot-lead and escalation alerts into Teams channels with full transcript link.</p><div class="via native">Native</div></div>
+    <div class="int-card"><div class="row"><div class="int-logo">Sm</div><h3>SMS</h3></div><p>Take a website chat straight to SMS on a local number. Tenants and leads can keep the conversation going after they leave the page.</p><div class="via native">Native</div></div>
+    <div class="int-card"><div class="row"><div class="int-logo">Wa</div><h3>WhatsApp</h3></div><p>Handoff to WhatsApp for international leads or businesses where customers prefer WhatsApp to SMS.</p><div class="via native">Native</div></div>
+    <div class="int-card"><div class="row"><div class="int-logo">iM</div><h3>iMessage (beta)</h3></div><p>US-based iPhone customers can continue a Kazozo conversation over iMessage on premium Apple Business Messages numbers.</p><div class="via">Beta</div></div>
+  </div>
+</section>
+
+<!-- Reviews -->
+<section class="wrap">
+  <div class="cat-header"><h2>Review management</h2><span class="cat-count">3 integrations</span></div>
+  <div class="int-grid">
+    <div class="int-card"><div class="row"><div class="int-logo">Gb</div><h3>Google Business Profile</h3></div><p>Review Manager agent reads incoming reviews, drafts on-brand responses for approval or auto-posts.</p><div class="via native">Native</div></div>
+    <div class="int-card"><div class="row"><div class="int-logo">Yp</div><h3>Yelp</h3></div><p>Pull Yelp reviews into the review dashboard and draft responses.</p><div class="via native">Native</div></div>
+    <div class="int-card"><div class="row"><div class="int-logo">Fb</div><h3>Facebook Pages</h3></div><p>Read Facebook Page reviews and ratings alongside Google and Yelp in one inbox.</p><div class="via">Webhook</div></div>
+  </div>
+</section>
+
+<!-- Commerce & payments -->
+<section class="wrap">
+  <div class="cat-header"><h2>Commerce &amp; payments</h2><span class="cat-count">4 integrations</span></div>
+  <div class="int-grid">
+    <div class="int-card"><div class="row"><div class="int-logo">Sh</div><h3>Shopify</h3></div><p>Order lookup, status, return policy, and restock alerts — agents can answer real order questions, not just canned FAQs.</p><div class="via native">Native</div></div>
+    <div class="int-card"><div class="row"><div class="int-logo">Wo</div><h3>WooCommerce</h3></div><p>Same capability as Shopify for WordPress/WooCommerce stores via REST API.</p><div class="via">REST API</div></div>
+    <div class="int-card"><div class="row"><div class="int-logo">St</div><h3>Stripe</h3></div><p>Finance Agent reads invoices, retries failed payments, and sends dunning reminders.</p><div class="via native">Native</div></div>
+    <div class="int-card"><div class="row"><div class="int-logo">Qb</div><h3>QuickBooks</h3></div><p>Finance Agent reads AR and AP data for invoice-status questions and late-payment follow-up.</p><div class="via native">Native</div></div>
+  </div>
+</section>
+
+<!-- Data & Workflow -->
+<section class="wrap">
+  <div class="cat-header"><h2>Data, docs &amp; workflow</h2><span class="cat-count">5 integrations</span></div>
+  <div class="int-grid">
+    <div class="int-card"><div class="row"><div class="int-logo">Gs</div><h3>Google Sheets</h3></div><p>The fastest way to start — dump qualified leads, bookings, or FAQ hits into a Sheet without any CRM setup.</p><div class="via native">Native</div></div>
+    <div class="int-card"><div class="row"><div class="int-logo">At</div><h3>Airtable</h3></div><p>Push leads and ops tasks into Airtable bases. Field mapping per base.</p><div class="via native">Native</div></div>
+    <div class="int-card"><div class="row"><div class="int-logo">Za</div><h3>Zapier</h3></div><p>6,000+ app bridge. If Kazozo doesn't integrate natively, Zapier will connect it.</p><div class="via native">Native</div></div>
+    <div class="int-card"><div class="row"><div class="int-logo">Mk</div><h3>Make</h3></div><p>For teams that prefer Make (formerly Integromat) over Zapier — webhook triggers and scenario steps.</p><div class="via native">Native</div></div>
+    <div class="int-card"><div class="row"><div class="int-logo">Gd</div><h3>Google Drive</h3></div><p>Agents read from Drive folders (SOPs, policies, specs) so Frontline and Customer Support cite your actual documents.</p><div class="via native">Native</div></div>
+  </div>
+</section>
+
+<!-- Voice / Phone -->
+<section class="wrap">
+  <div class="cat-header"><h2>Voice &amp; phone</h2><span class="cat-count">3 integrations</span></div>
+  <div class="int-grid">
+    <div class="int-card"><div class="row"><div class="int-logo">Tw</div><h3>Twilio</h3></div><p>Under the hood of Voice Agent — local-presence numbers, SMS, and voice routing. No separate Twilio account required.</p><div class="via native">Native</div></div>
+    <div class="int-card"><div class="row"><div class="int-logo">Rc</div><h3>RingCentral / Dialpad</h3></div><p>Port existing business numbers into Kazozo Voice Agent or forward unanswered calls to a Kazozo number.</p><div class="via">Porting / forwarding</div></div>
+    <div class="int-card"><div class="row"><div class="int-logo">Ge</div><h3>Google Voice</h3></div><p>Forward Google Voice to your Kazozo number for after-hours or overflow answering.</p><div class="via">Forwarding</div></div>
+  </div>
+</section>
+
+<!-- Helpdesk -->
+<section class="wrap">
+  <div class="cat-header"><h2>Helpdesk &amp; tickets</h2><span class="cat-count">3 integrations</span></div>
+  <div class="int-grid">
+    <div class="int-card"><div class="row"><div class="int-logo">Zd</div><h3>Zendesk</h3></div><p>Customer Support agent escalates to Zendesk tickets with full conversation as the first comment.</p><div class="via native">Native</div></div>
+    <div class="int-card"><div class="row"><div class="int-logo">Ic</div><h3>Intercom</h3></div><p>Hand off live conversations from Kazozo to human agents in Intercom without losing context.</p><div class="via">Webhook</div></div>
+    <div class="int-card"><div class="row"><div class="int-logo">Fd</div><h3>Freshdesk</h3></div><p>Auto-create Freshdesk tickets when Customer Support agent needs a human.</p><div class="via">Webhook</div></div>
+  </div>
+</section>
+
+<!-- Don't see yours -->
+<div class="hub-section">
+  <div class="hub-inner">
+    <h2>Don't see the tool you use?</h2>
+    <p>Almost every missing integration is one webhook or one <strong>Zapier zap</strong> away. If the tool has a public API or a Zapier app, Kazozo can push to it or pull from it.</p>
+    <p>Tell us what you're running during your demo and we'll confirm the exact path — native, webhook, or Zapier — on the call.</p>
+  </div>
+</div>
+
+<!-- FINAL CTA -->
+<div class="final-cta">
+  <h2>See Kazozo wired into your actual stack.</h2>
+  <p>In your demo we'll plug into your CRM, scheduling tool, and review profile live — so you see the data flowing end-to-end, not a slide of logos.</p>
+  <div class="cta-row">
+    <a href="book-a-demo.html" class="btn btn-coral">Book a demo →</a>
+    <a href="agents.html" class="btn btn-ghost">Explore the 11 agents</a>
+    <a href="pricing.html" class="btn btn-ghost">See pricing</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">Kazozo</div>
+      <p style="margin-top:8px;max-width:280px;font-size:13px;line-height:1.5;">AI agents for small businesses. Premium AI on every plan.</p>
+    </div>
+    <div class="footer-nav">
+      <h4>Product</h4>
+      <a href="agents.html">AI Agents</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="industries.html">Industries</a>
+      <a href="integrations.html" aria-current="page">Integrations</a>
+      <a href="simulation.html">Simulation</a>
+    </div>
+    <div class="footer-nav">
+      <h4>Compare</h4>
+      <a href="compare/kazozo-vs-intercom.html">vs Intercom</a>
+      <a href="compare/kazozo-vs-lindy.html">vs Lindy.ai</a>
+      <a href="compare/kazozo-vs-salesforce-agentforce.html">vs Salesforce Agentforce</a>
+      <a href="compare/kazozo-vs-drift.html">vs Drift</a>
+      <a href="compare/kazozo-vs-chatgpt.html">vs ChatGPT</a>
+      <a href="compare/kazozo-vs-hubspot.html">vs HubSpot</a>
+    </div>
+    <div class="footer-nav">
+      <h4>Company</h4>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="blog/">Blog</a>
+      <a href="book-a-demo.html">Book a demo</a>
+      <a href="roi-calculator.html">ROI Calculator</a>
+      <a href="trust.html">Trust &amp; Security</a>
+    </div>
+  </div>
+  <div class="footer-copy">© 2026 Kazozo. All rights reserved.</div>
+</footer>
+
+<!-- Kazozo Widget -->
+<script src="https://api.kazozo.com/widget/embed-loader.js"
+  data-tenant="kazozo-001"
+  data-position="bottom-right"></script>
+
+<script src="scripts/sticky-cta.js" defer></script>
+<script src="scripts/analytics.js" defer></script>
+
+</body>
+</html>
