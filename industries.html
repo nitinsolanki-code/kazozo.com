@@ -157,13 +157,25 @@
 <script src="nav.js?v=3"></script>
 
 
-  <section style="padding:140px 24px 40px; text-align:center; max-width:800px; margin:0 auto;">
+  <section style="padding:140px 24px 24px; text-align:center; max-width:800px; margin:0 auto;">
     <h1 style="font-family:'Space Grotesk',sans-serif; font-size:clamp(38px,5vw,64px); font-weight:700; line-height:0.95; letter-spacing:-0.03em; margin-bottom:16px;">AI agents for <span style="color:var(--lime);">your industry</span></h1>
     <p style="font-size:18px; color:var(--muted); line-height:1.7; max-width:600px; margin:0 auto;">Pre-configured agent packages for 27 verticals. Pick your industry, connect your CRM, and go live in 1&ndash;2 weeks. No AI expertise needed.</p>
   </section>
 
-  <section style="max-width:1200px; margin:0 auto; padding:40px 24px 80px;">
-    <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(280px, 1fr)); gap:20px;">
+  <!-- Filter bar -->
+  <section style="max-width:720px; margin:0 auto; padding:8px 24px 0;">
+    <div style="position:relative;">
+      <input id="industry-filter" type="search" placeholder="Search 27 industries — dental, HVAC, real estate, legal…" autocomplete="off"
+        style="width:100%; padding:16px 20px 16px 48px; background:var(--surface); border:1px solid var(--border); border-radius:14px; color:var(--text); font-family:'Manrope',sans-serif; font-size:15px; outline:none; transition:border-color 0.2s, box-shadow 0.2s;"
+        onfocus="this.style.borderColor='var(--coral-vivid)';this.style.boxShadow='0 0 0 3px rgba(255,87,51,0.12)'"
+        onblur="this.style.borderColor='var(--border)';this.style.boxShadow='none'">
+      <svg style="position:absolute; left:18px; top:50%; transform:translateY(-50%); width:18px; height:18px; color:var(--muted);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <div id="industry-count" style="margin-top:10px; font-size:12px; color:var(--muted); text-align:center; font-family:'Space Grotesk',sans-serif; letter-spacing:0.06em; text-transform:uppercase;"></div>
+    </div>
+  </section>
+
+  <section style="max-width:1200px; margin:0 auto; padding:32px 24px 80px;">
+    <div id="industries-grid" style="display:grid; grid-template-columns:repeat(auto-fill, minmax(280px, 1fr)); gap:20px;">
       
       <a href="home-services.html" style="background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:28px; text-decoration:none; transition:all 0.3s; display:block;" onmouseover="this.style.borderColor='rgba(255,255,255,0.12)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='none'">
         <div style="font-size:32px; margin-bottom:12px;">🔧</div>
@@ -409,7 +421,56 @@
         </div>
       </a>
     </div>
+    <div id="industry-empty" style="display:none; text-align:center; padding:48px 24px; color:var(--muted); font-size:15px;">
+      No matches. Try another keyword — or <a href="javascript:void(0)" onclick="if(window.KazozoWidget){window.KazozoWidget.open()}" style="color:var(--coral-vivid);">tell Kaz your industry</a> and we'll build it.
+    </div>
   </section>
+
+  <script>
+  (function() {
+    var input = document.getElementById('industry-filter');
+    var grid = document.getElementById('industries-grid');
+    var countEl = document.getElementById('industry-count');
+    var emptyEl = document.getElementById('industry-empty');
+    var cards = Array.prototype.slice.call(grid.querySelectorAll('a'));
+    var totalText = cards.length + ' industries packaged — and growing';
+    countEl.textContent = totalText;
+
+    function normalize(s) { return (s || '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim(); }
+
+    // Pre-compute searchable text per card (title + tags + href)
+    cards.forEach(function(c) {
+      var title = c.querySelector('h3') ? c.querySelector('h3').textContent : '';
+      var tags = c.querySelector('p') ? c.querySelector('p').textContent : '';
+      var href = c.getAttribute('href') || '';
+      c.__search = normalize(title + ' ' + tags + ' ' + href.replace('.html', ''));
+    });
+
+    function apply() {
+      var q = normalize(input.value);
+      if (!q) {
+        cards.forEach(function(c) { c.style.display = 'block'; });
+        countEl.textContent = totalText;
+        emptyEl.style.display = 'none';
+        return;
+      }
+      var terms = q.split(' ').filter(Boolean);
+      var visible = 0;
+      cards.forEach(function(c) {
+        var match = terms.every(function(t) { return c.__search.indexOf(t) !== -1; });
+        c.style.display = match ? 'block' : 'none';
+        if (match) visible++;
+      });
+      countEl.textContent = visible === 1 ? '1 match' : visible + ' matches';
+      emptyEl.style.display = visible === 0 ? 'block' : 'none';
+    }
+    input.addEventListener('input', apply);
+
+    // If URL has ?q=foo, prefill
+    var params = new URLSearchParams(window.location.search);
+    if (params.get('q')) { input.value = params.get('q'); apply(); }
+  })();
+  </script>
 
   <section style="max-width:800px; margin:0 auto; padding:0 24px 80px;">
     <div style="background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:40px; text-align:center;">
