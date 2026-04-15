@@ -339,50 +339,50 @@
 
 <!-- Demo form handler -->
 <script>
-  // ⚠ Replace with your deployed worker URL after following workers/demo-request-worker.js setup.
-  // When left blank the form falls back to a mailto: link so submissions aren't lost.
-  var DEMO_ENDPOINT = '';
+  var DEMO_ENDPOINT  = 'https://api.kazozo.com/v1/leads/ingest';
+  var DEMO_SITE_KEY  = '%%KAZOZO_SITE_KEY%%'; // replaced at deploy — set KAZOZO_HQ_SITE_KEY env var on Railway
   var FALLBACK_EMAIL = 'hello@kazozo.com';
+
+  // ── UTM capture ────────────────────────────────────────────────────────
+  function _utmParams() {
+    var p = {};
+    try {
+      var sp = new URLSearchParams(window.location.search);
+      ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','gclid','fbclid'].forEach(function(k) {
+        if (sp.get(k)) p[k] = sp.get(k);
+      });
+      // Persist UTMs in sessionStorage so they survive landing page → demo page navigation
+      if (Object.keys(p).length) sessionStorage.setItem('kz_utms', JSON.stringify(p));
+    } catch(_) {}
+    // Fall back to stored UTMs if none on current URL
+    if (!Object.keys(p).length) {
+      try { p = JSON.parse(sessionStorage.getItem('kz_utms') || '{}'); } catch(_) {}
+    }
+    return p;
+  }
 
   function handleDemoSubmit(e) {
     e.preventDefault();
     var form = document.getElementById('demoForm');
-    var btn = document.getElementById('demoSubmitBtn');
-    var msg = document.getElementById('demoMessage');
+    var btn  = document.getElementById('demoSubmitBtn');
+    var msg  = document.getElementById('demoMessage');
     msg.className = 'form-message';
     msg.textContent = '';
 
-    var data = {
-      name: form.name.value.trim(),
-      email: form.email.value.trim(),
-      business: form.business.value.trim(),
-      website: form.website.value.trim(),
-      notes: form.notes.value.trim(),
-      source: 'Demo Request',
-      page: 'book-a-demo'
-    };
+    var data = Object.assign({
+      name:       form.name.value.trim(),
+      email:      form.email.value.trim(),
+      company:    form.business.value.trim(),
+      website:    form.website.value.trim(),
+      notes:      form.notes.value.trim(),
+      source:     'demo_request',
+      page:       'book-a-demo',
+      referrer:   document.referrer || '',
+    }, _utmParams());
 
     if (!data.name || !data.email) {
       msg.className = 'form-message error';
       msg.textContent = 'Name and email are required.';
-      return false;
-    }
-
-    // Fallback: no worker configured → use mailto so we never silently drop a lead
-    if (!DEMO_ENDPOINT) {
-      var subject = 'Demo request — ' + (data.business || data.name);
-      var bodyLines = [
-        'Name: ' + data.name,
-        'Email: ' + data.email,
-        'Business: ' + data.business,
-        'Website: ' + data.website,
-        '',
-        'What they want Kazozo to handle:',
-        data.notes || '(not specified)'
-      ];
-      window.location.href = 'mailto:' + FALLBACK_EMAIL + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(bodyLines.join('\n'));
-      msg.className = 'form-message success';
-      msg.textContent = "Opening your email client so we don't lose your request. Hit send and we'll follow up within a business day.";
       return false;
     }
 
@@ -391,29 +391,66 @@
 
     fetch(DEMO_ENDPOINT, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: {
+        'Content-Type':       'application/json',
+        'X-Kazozo-Site-Key':  DEMO_SITE_KEY,
+      },
       body: JSON.stringify(data)
     })
-      .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, body: j }; }); })
-      .then(function (res) {
-        if (res.ok) {
-          msg.className = 'form-message success';
-          msg.textContent = "Got it. We'll reach out within one business day to schedule.";
-          form.reset();
-          btn.textContent = 'Request received ✓';
+      .then(function(r) { return r.json().then(function(j) { return { ok: r.ok, status: r.status, body: j }; }); })
+      .then(function(res) {
+        if (res.ok || res.status === 202) {
+          _showSuccess(form, btn, res.body && res.body.booking_url || null);
           if (window.gtag) window.gtag('event', 'demo_request_submit', { source: 'book-a-demo' });
         } else {
           throw new Error((res.body && res.body.error) || 'Submit failed');
         }
       })
-      .catch(function () {
-        msg.className = 'form-message error';
-        msg.textContent = "Something went wrong on our end. Email us directly at " + FALLBACK_EMAIL + " and we'll get back to you fast.";
+      .catch(function() {
+        // Network or server error — fall back to mailto so no lead is lost
+        _fallbackMailto(data);
         btn.disabled = false;
-        btn.textContent = 'Request demo →';
+        btn.textContent = 'Request demo \u2192';
       });
 
     return false;
+  }
+
+  function _showSuccess(form, btn, bookingUrl) {
+    form.reset();
+    btn.textContent = 'Request received \u2713';
+
+    // ── Thank-you state: show booking prompt if URL available ─────────────
+    var card = document.querySelector('.demo-form-card');
+    if (card) {
+      var thankYou = document.createElement('div');
+      thankYou.style.cssText = 'margin-top:24px;padding:20px 24px;background:rgba(61,220,151,0.06);border:1px solid rgba(61,220,151,0.25);border-radius:12px;text-align:center;';
+      thankYou.innerHTML = bookingUrl
+        ? '<p style="color:#3ddc97;font-weight:700;font-size:17px;margin:0 0 8px;">You\'re in. One more step \u2192</p>'
+          + '<p style="color:#a0a0a8;font-size:14px;margin:0 0 16px;">Skip the scheduling back-and-forth \u2014 grab a slot that works for you right now.</p>'
+          + '<a href="' + bookingUrl + '" target="_blank" rel="noopener" '
+          + 'style="display:inline-block;padding:12px 28px;background:#3ddc97;color:#0d0c14;font-weight:700;border-radius:8px;text-decoration:none;font-size:15px;">Pick a time \u2192</a>'
+          + '<p style="color:#7d7a8c;font-size:12px;margin:12px 0 0;">Or we\'ll email you within one business day to schedule.</p>'
+        : '<p style="color:#3ddc97;font-weight:700;font-size:17px;margin:0 0 8px;">Got it \u2014 you\'re on the list.</p>'
+          + '<p style="color:#a0a0a8;font-size:14px;margin:0;">We\'ll reach out within one business day to schedule your demo.</p>';
+      card.appendChild(thankYou);
+    }
+  }
+
+  function _fallbackMailto(data) {
+    try {
+      var subject   = 'Demo request \u2014 ' + (data.company || data.name);
+      var bodyLines = [
+        'Name: '    + data.name,
+        'Email: '   + data.email,
+        'Business: '+ (data.company || ''),
+        'Website: ' + (data.website || ''),
+        '',
+        'What they want Kazozo to handle:',
+        data.notes || '(not specified)'
+      ];
+      window.open('mailto:' + FALLBACK_EMAIL + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(bodyLines.join('\n')));
+    } catch(_) {}
   }
 </script>
 
