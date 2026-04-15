@@ -41,11 +41,12 @@
   // For pages in subdirectories, prefix paths
   var prefix = isInSubdir ? '../' : '';
 
-  var pricingHref  = isHome ? '#pricing'  : prefix + 'index.html#pricing';
-  var agentsHref   = isHome ? '#agents'   : prefix + 'index.html#agents';
+  var pricingHref  = prefix + 'pricing.html';
+  var agentsHref   = prefix + 'agents.html';
   var appsHref     = isHome ? '#agentic-apps' : prefix + 'index.html#agentic-apps';
   var industriesHref = prefix + 'industries.html';
   var simulationHref = prefix + 'simulation.html';
+  var demoHref     = prefix + 'book-a-demo.html';
   var homeHref     = prefix + 'index.html';
   var aboutHref    = prefix + 'about.html';
   var contactHref  = prefix + 'contact.html';
@@ -252,6 +253,7 @@
       <li><a href="' + pricingHref + '">Pricing</a></li>\
       <li><a href="' + industriesHref + '">Industries</a></li>\
       <li><a href="' + simulationHref + '">Simulation</a></li>\
+      <li><a href="' + demoHref + '">Book a demo</a></li>\
       <li><button type="button" onclick="' + talkToKaz + '" class="kz-btn-nav">Talk to Kaz</button></li>\
     </ul>\
     <div class="kz-auth">\
@@ -269,6 +271,7 @@
   <span class="kz-mobile-label" style="margin-top:16px;">Navigate</span>\
   <a href="' + pricingHref + '" class="kz-mobile-link">Pricing</a>\
   <a href="' + industriesHref + '" class="kz-mobile-link">Industries</a>\
+  <a href="' + demoHref + '" class="kz-mobile-link">Book a demo</a>\
   <a href="' + simulationHref + '" class="kz-mobile-link">Simulation</a>\
   <span class="kz-mobile-label" style="margin-top:16px;">Company</span>\
   <a href="' + aboutHref + '" class="kz-mobile-link">About</a>\
