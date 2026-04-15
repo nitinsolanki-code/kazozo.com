@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Add AI to HubSpot Without Upgrading to Service Hub Pro</title>
+    <meta name="description" content="Most AI features in HubSpot live behind Service Hub Pro ($90/seat/mo, 5-seat min). Here's how to layer real AI agents on top of free or Starter HubSpot without the upgrade.">
+    <meta property="og:title" content="How to Add AI to HubSpot Without Upgrading to Service Hub Pro">
+    <meta property="og:description" content="Most AI features in HubSpot live behind Service Hub Pro ($90/seat/mo, 5-seat min). Here's how to layer real AI agents on top of free or Starter HubSpot without the upgrade.">
+    <meta property="og:image" content="https://kazozo.com/og-image.jpg">
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2026-04-15T00:00:00Z">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="How to Add AI to HubSpot Without Upgrading to Service Hub Pro">
+    <meta name="twitter:description" content="Most AI features in HubSpot live behind Service Hub Pro ($90/seat/mo, 5-seat min). Here's how to layer real AI agents on top of free or Starter HubSpot without the upgrade.">
+    <link rel="canonical" href="https://kazozo.com/blog/hubspot-ai-without-service-hub-pro.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700;1,800&family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #0C0B12;
+            --surface: #13121D;
+            --card: #1A192A;
+            --coral: #FF6B5A;
+            --lime: #CDFF64;
+            --lavender: #B8A9FF;
+            --sky: #64D2FF;
+            --amber: #FFB84D;
+            --text: #F0EFF4;
+            --muted: #7D7A8C;
+            --border: rgba(255,255,255,0.06);
+            --green: #34d399;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        /* Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(12, 11, 18, 0.95);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 2rem;
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-decoration: none;
+            color: var(--text);
+        }
+
+        .logo span {
+            color: var(--coral);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            color: var(--coral);
+        }
+
+        .cta-button {
+            background: var(--coral);
+            color: #fff;
+            padding: 0.6rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background 0.3s;
+        }
+
+        .cta-button:hover {
+            background: #ff5549;
+        }
+
+        /* Main Content */
+        main {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .back-link {
+            color: var(--coral);
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            display: inline-block;
+            transition: color 0.3s;
+        }
+
+        .back-link:hover {
+            color: var(--lime);
+        }
+
+        .article-header {
+            margin-bottom: 3rem;
+        }
+
+        .article-meta {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        .article-category {
+            background: rgba(255, 107, 90, 0.15);
+            color: var(--coral);
+            padding: 0.35rem 1rem;
+            border-radius: 20px;
+            font-weight: 600;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.8rem;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+            line-height: 1.2;
+        }
+
+        .article-summary {
+            font-size: 1.1rem;
+            color: var(--muted);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        /* Article Content */
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin: 2rem 0 1rem 0;
+            font-weight: 700;
+        }
+
+        h3 {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.3rem;
+            margin: 1.5rem 0 0.75rem 0;
+            font-weight: 700;
+            color: var(--lime);
+        }
+
+        p {
+            margin-bottom: 1.25rem;
+            color: var(--text);
+        }
+
+        strong {
+            color: var(--lime);
+            font-weight: 700;
+        }
+
+        a {
+            color: var(--coral);
+            text-decoration: underline;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: var(--lime);
+        }
+
+        ul, ol {
+            margin: 1.25rem 0 1.25rem 2rem;
+            color: var(--text);
+        }
+
+        li {
+            margin-bottom: 0.75rem;
+        }
+
+        .highlight {
+            background: rgba(205, 255, 100, 0.1);
+            padding: 1.5rem;
+            border-left: 3px solid var(--lime);
+            border-radius: 4px;
+            margin: 1.5rem 0;
+        }
+
+        .highlight p {
+            margin-bottom: 0;
+        }
+
+        /* Related Posts */
+        .related-posts {
+            margin-top: 4rem;
+            padding-top: 3rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .related-posts h3 {
+            color: var(--text);
+            margin-bottom: 1.5rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+        }
+
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .related-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 1.25rem;
+            text-decoration: none;
+            color: inherit;
+            transition: border-color 0.3s;
+        }
+
+        .related-card:hover {
+            border-color: var(--coral);
+        }
+
+        .related-card h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--text);
+        }
+
+        .related-card p {
+            color: var(--muted);
+            font-size: 0.9rem;
+            margin-bottom: 0;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--surface);
+            border-top: 1px solid var(--border);
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+        }
+
+        footer .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        footer h3 {
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        footer ul {
+            list-style: none;
+            margin: 0;
+        }
+
+        footer li {
+            margin-bottom: 0.75rem;
+        }
+
+        footer a {
+            color: var(--muted);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        footer a:hover {
+            color: var(--coral);
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            h2 {
+                font-size: 1.3rem;
+            }
+
+            .related-grid {
+                grid-template-columns: 1fr;
+            }
+
+            nav ul {
+                gap: 1rem;
+                font-size: 0.85rem;
+            }
+        }
+    
+/* ===== FOOTER ===== */
+  footer {
+    border-top: 1px solid rgba(228,225,230,0.05); padding: 64px 24px 32px;
+    max-width: 1200px; margin: 0 auto;
+  }
+  .footer-inner {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    margin-bottom: 32px;
+  }
+  .footer-brand { display: flex; flex-direction: column; gap: 12px; }
+  .footer-logo { font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 700; color: var(--text); text-decoration: none; letter-spacing: -0.02em; }
+  .footer-logo span { color: var(--coral-vivid, #FF5733); }
+  .footer-tagline { font-size: 13px; color: rgba(228,225,230,0.5); max-width: 280px; line-height: 1.6; }
+  .footer-nav { display: flex; gap: 48px; }
+  .footer-col h4 { font-family: 'Space Grotesk', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--text, #E4E1E6); margin-bottom: 16px; }
+  .footer-col a { display: block; color: rgba(228,225,230,0.5); text-decoration: none; font-size: 14px; padding: 4px 0; transition: color 0.3s; }
+  .footer-col a:hover { color: var(--text, #E4E1E6); }
+  .footer-divider { border: none; border-top: 1px solid rgba(228,225,230,0.05); margin-bottom: 20px; }
+  .footer-bottom {
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .footer-credit { font-size: 12px; color: rgba(228,225,230,0.5); }
+  .footer-socials { display: flex; gap: 16px; align-items: center; }
+  .footer-socials a {
+    color: var(--muted, rgba(228,225,230,0.5)); transition: color 0.3s;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .footer-socials a:hover { color: var(--text, #E4E1E6); }
+  .footer-socials svg { width: 18px; height: 18px; }
+  @media (max-width: 900px) {
+    .footer-inner { flex-direction: column; gap: 24px; text-align: center; }
+    .footer-bottom { flex-direction: column; gap: 12px; }
+  }
+  @media (max-width: 600px) {
+    footer { padding: 32px 16px 24px; }
+    .footer-nav { flex-direction: column; gap: 24px; }
+  }
+  </style>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "How to Add AI to HubSpot Without Upgrading to Service Hub Pro",
+        "description": "Most AI features in HubSpot live behind Service Hub Pro ($90/seat/mo, 5-seat min). Here's how to layer real AI agents on top of free or Starter HubSpot without the upgrade.",
+        "image": "https://kazozo.com/og-image.jpg",
+        "author": {
+            "@type": "Organization",
+            "name": "Kazozo"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Kazozo",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://kazozo.com/logo.png"
+            }
+        },
+        "datePublished": "2026-04-15T00:00:00Z",
+        "dateModified": "2026-04-15T00:00:00Z"
+    }
+    </script>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="/" class="logo">kazo<span>zo</span></a>
+            <ul>
+                <li><a href="/#agents">Agents</a></li>
+                <li><a href="/#pricing">Pricing</a></li>
+                <li><a href="/industries.html">Industries</a>
+      <a href="../integrations.html">Integrations</a></li>
+                <li><a href="/simulation.html">Simulation</a></li>
+                <li><a href="#contact" class="cta-button">Talk to Kaz</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <a href="/blog/" class="back-link">← Back to Blog</a>
+
+        <article class="article-header">
+            <div class="article-meta">
+                <span class="article-category">CRM &amp; Tools</span>
+                <span>10 min read</span>
+                <span>Apr 15, 2026</span>
+            </div>
+            <h1>How to Add AI to HubSpot Without Upgrading to Service Hub Pro</h1>
+            <p class="article-summary">Most of HubSpot's AI features — Breeze Intelligence, Service Hub AI replies, conversation intelligence — are gated behind Pro and Enterprise tiers that run $90–$120/seat/month with seat minimums. If you're on free or Starter, here's how to layer real AI agents on top of HubSpot without the upgrade.</p>
+        </article>
+
+                <h2>What's actually included in free and Starter HubSpot</h2>
+        <p>HubSpot's free CRM is genuinely excellent for contact management, deal pipelines, and simple task tracking. Starter adds the ability to remove HubSpot branding, run basic email marketing, and a light live-chat experience. What's <em>not</em> in either tier, in 2026, is real AI. The chatbot on free HubSpot is a rule-based flow builder — you draw branches with if/then logic, and it hands off to a human when the conversation goes off-script.</p>
+
+        <p>That was fine in 2020. In 2026 your customers expect natural-language conversations. They type "my order is late and I paid for next-day shipping, what's going on?" and they expect a real answer, not a menu of buttons.</p>
+
+        <h2>The AI features you actually want (and where they live in HubSpot)</h2>
+        <p>If you've poked around HubSpot's AI marketing, you've probably seen these features advertised. Here's where each one actually sits in the pricing:</p>
+        <ul>
+            <li><strong>AI-drafted email replies</strong> — Service Hub Pro ($90/seat/mo, 5-seat min)</li>
+            <li><strong>Conversation intelligence</strong> — Sales Hub Pro or Service Hub Pro</li>
+            <li><strong>AI content assistant (Breeze Copilot)</strong> — Available on most tiers, but for composition, not live customer-facing AI</li>
+            <li><strong>Breeze Intelligence (data enrichment + intent)</strong> — Credit-based add-on, priced per record</li>
+            <li><strong>AI agent for customer support</strong> — Service Hub Enterprise</li>
+            <li><strong>Real AI chatbot (natural-language, not rule-based)</strong> — Not quite there yet; the Breeze Agent is in gradual rollout and priced per resolution</li>
+        </ul>
+        <p>If you're a 10-person service business, the seat math gets ugly fast: Service Hub Pro at 5 seats is $450/mo before you've bought anything else. And if your goal is to get a natural-language AI on your website and phones — not to give five team members dashboard access — per-seat pricing is the wrong unit for the job.</p>
+
+        <div class="highlight">
+            <p>The real question isn't "HubSpot or something else?" It's "should I pay HubSpot for a CRM <strong>and</strong> pay HubSpot again for AI?" For most SMBs, the answer is: pay HubSpot for the CRM, pay a purpose-built AI platform for the AI.</p>
+        </div>
+
+        <h2>The layered stack: HubSpot for CRM, Kazozo for AI</h2>
+        <p>The setup we see working cleanly for small businesses is a two-tool stack:</p>
+
+        <h3>1. HubSpot (free or Starter) stays the system of record</h3>
+        <p>Contacts, deals, notes, deal stages, simple email sequences — all of that continues to live in HubSpot. Your team still logs into HubSpot to see the pipeline. You don't migrate anything. You don't retrain anyone on a new CRM.</p>
+
+        <h3>2. Kazozo handles the AI conversation layer on top</h3>
+        <p>Every inbound conversation — website chat, SMS, WhatsApp, voice — hits Kazozo first. The AI agent qualifies the lead, answers FAQs, checks product or service details, books appointments on your calendar, and pushes a structured lead record into your HubSpot CRM. The 11 agents cover front desk, qualification, follow-up, reviews, voice, finance, and ops out of the box — across <a href="../industries.html">27 industries</a>.</p>
+
+        <p>The integration is two pieces:</p>
+        <ul>
+            <li><strong>Outbound from Kazozo → HubSpot:</strong> when Kazozo qualifies a lead or books a meeting, a new HubSpot contact is created (or matched), the deal is staged, and the full conversation transcript gets logged as a note. Full setup in our <a href="../integrations.html">integrations page</a>.</li>
+            <li><strong>Inbound from HubSpot → Kazozo:</strong> when a HubSpot contact fills a form or gets added to a list, Kazozo's Sales Agent can pick up the follow-up — dynamic, conversational, across email and SMS — until the lead either books, opts out, or gets handed to a human.</li>
+        </ul>
+
+        <h2>What this costs vs the Service Hub Pro upgrade</h2>
+        <p>Let's compare a realistic 5-person SMB scenario: you want AI handling website conversations, qualifying leads, and following up. You already have HubSpot free or Starter for CRM.</p>
+
+        <h3>Option A: Upgrade to HubSpot Service Hub Pro</h3>
+        <ul>
+            <li>Service Hub Pro: ~$90/seat/month, 5-seat minimum = <strong>~$450/mo</strong></li>
+            <li>You still don't get true natural-language AI chat out of the box — you build flows, plus pay per AI reply credit</li>
+            <li>Breeze Agent / AI chatbot pricing is per-resolution on top</li>
+            <li>Annual contract, typically</li>
+        </ul>
+
+        <h3>Option B: Keep HubSpot free/Starter + add Kazozo</h3>
+        <ul>
+            <li>HubSpot free or Starter (what you're already paying): $0–$20/seat/mo</li>
+            <li>Kazozo Starter: <a href="../pricing.html">$249/mo flat</a>, 500 AI responses included</li>
+            <li>Kazozo Growth: $499/mo flat, 2,500 AI responses</li>
+            <li>Month-to-month, no seat minimums</li>
+            <li>11 agents live same-day, 27 industry templates</li>
+        </ul>
+
+        <p>For most 5-person SMBs, Option B is cheaper and delivers the AI capability you actually wanted from the upgrade. The <a href="../roi-calculator.html">ROI calculator</a> lets you plug in your own volume to compare.</p>
+
+        <h2>When the Service Hub Pro upgrade actually makes sense</h2>
+        <p>Being fair to HubSpot: there are cases where Service Hub Pro is the right call and you don't need a second tool.</p>
+        <ul>
+            <li><strong>You're a ticket-driven B2B support org.</strong> Service Hub's ticket routing, knowledge base, and customer portal are mature and tightly integrated with the CRM.</li>
+            <li><strong>Your team lives inside the CRM every day.</strong> If your SDRs and reps are already trained on HubSpot workflows and sequences, the friction of a second tool might not be worth the savings.</li>
+            <li><strong>You need full marketing automation under one vendor.</strong> Marketing Hub + Sales Hub + Service Hub as one bundle with shared contacts has real operational value when you have the budget.</li>
+        </ul>
+        <p>If that's you, Service Hub Pro is the right call and you should probably stay inside the HubSpot ecosystem. For the rest of us — small service businesses where AI is the <em>actual</em> job to be done — the layered stack wins on price and on capability.</p>
+
+        <h2>How to set it up in 20 minutes</h2>
+        <p>If you decide to try the layered stack, here's the literal setup:</p>
+        <ol>
+            <li><strong>Keep your HubSpot account as-is.</strong> No migration. No seat changes.</li>
+            <li><strong>Connect Kazozo to HubSpot.</strong> One OAuth step inside the Kazozo setup — Kazozo gets write access to contacts, deals, and notes scoped to your workspace.</li>
+            <li><strong>Install the Kazozo widget on your site.</strong> One script tag. Replaces or sits alongside the HubSpot chatbot, depending on how you want to route.</li>
+            <li><strong>Pick your agents.</strong> Frontline is the default for website chat; Lead Qualifier wires into your qualifying questions; Sales Agent handles follow-up. All 11 are available on every plan; Voice Agent is Pro.</li>
+            <li><strong>Map the CRM fields.</strong> Tell Kazozo which HubSpot properties to write to: source, deal stage, assigned owner, lead score.</li>
+            <li><strong>Test with a real conversation.</strong> Watch a qualified lead land in your HubSpot pipeline end-to-end.</li>
+        </ol>
+
+        <p>The whole thing is usually done inside one demo call. You don't have to call HubSpot support. You don't have to change plans.</p>
+
+        <h2>What to watch out for</h2>
+        <p>Two things that trip teams up when they layer AI on top of their CRM:</p>
+        <p><strong>Duplicate contacts.</strong> If Kazozo creates a contact in HubSpot and HubSpot already has one for that phone or email, you want matching by primary key, not blind creation. Kazozo matches on email first, then phone — confirm the matching rules before you go live.</p>
+        <p><strong>Ownership routing.</strong> If your HubSpot workflow assigns new contacts to specific owners, you want Kazozo to either respect that workflow or override it cleanly. Decide up front, and configure once.</p>
+
+        <h2>The bottom line</h2>
+        <p>HubSpot is a great CRM. It's not necessarily the best AI platform — and more importantly, its AI features are priced to upsell mid-market teams, not to deliver clean per-response ROI to small businesses. You don't have to pick one or the other.</p>
+
+        <p>The layered stack — free or Starter HubSpot for the CRM, Kazozo for the AI agents — gets you natural-language conversations on your site and phone, qualified leads in your pipeline, and follow-up on autopilot, usually at less than the cost of the Service Hub Pro upgrade you were about to buy.</p>
+
+        <p>If you want to see it running on top of your actual HubSpot, <a href="../book-a-demo.html">book a 20-minute demo</a> — we'll connect your workspace live and watch a qualified lead land in your pipeline.</p>
+
+        <div class="related-posts">
+            <h3>Related Reading</h3>
+            <div class="related-grid">
+                <a href="ai-receptionist-for-small-business.html" class="related-card">
+                    <h4>AI Receptionist for Small Business</h4>
+                    <p>What an AI receptionist does, what it doesn't, and what it costs in 2026.</p>
+                </a>
+                <a href="ai-agents-vs-chatbots.html" class="related-card">
+                    <h4>AI Agents vs Chatbots</h4>
+                    <p>Why rule-based chatbots lose to natural-language agents — even inside HubSpot.</p>
+                </a>
+                <a href="ai-agents-roi-small-business.html" class="related-card">
+                    <h4>ROI of AI Agents for SMBs</h4>
+                    <p>What kind of returns can you realistically expect? We break down the numbers.</p>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="../index.html" class="footer-logo" style="text-decoration:none;">kazo<span>zo</span></a>
+        <p class="footer-tagline">The AI platform for business. Agents, apps, and automation.</p>
+      </div>
+      <div class="footer-nav">
+        <div class="footer-col">
+          <h4>Products</h4>
+          <a href="../agents.html">AI Agents</a>
+          <a href="../pricing.html">Pricing</a>
+          <a href="../industries.html">Industries</a>
+          <a href="../simulation.html">Simulation</a>
+        </div>
+        <div class="footer-col">
+          <h4>Compare</h4>
+          <a href="../compare/kazozo-vs-salesforce-agentforce.html">vs Salesforce</a>
+          <a href="../compare/kazozo-vs-lindy.html">vs Lindy.ai</a>
+          <a href="../compare/kazozo-vs-intercom.html">vs Intercom</a>
+          <a href="../compare/kazozo-vs-drift.html">vs Drift</a>
+      <a href="../compare/kazozo-vs-chatgpt.html">vs ChatGPT</a>
+      <a href="../compare/kazozo-vs-hubspot.html">vs HubSpot</a>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <a href="../blog/">Blog</a>
+          <a href="../book-a-demo.html">Book a demo</a>
+      <a href="../roi-calculator.html">ROI Calculator</a>
+      <a href="../trust.html">Trust &amp; Security</a>
+          <a href="mailto:hello@kazozo.com">hello@kazozo.com</a>
+          <button type="button" onclick="if(window.KazozoWidget){window.KazozoWidget.open()}" style="color:inherit;background:none;border:none;cursor:pointer;font:inherit;padding:0;">Talk to Kaz</button>
+        </div>
+      </div>
+    </div>
+    <hr class="footer-divider">
+    <div class="footer-bottom">
+      <div class="footer-credit">&copy; 2026 Kazozo &middot; <a href="https://solanki.co" target="_blank" rel="noopener" style="color:var(--muted);text-decoration:none;">A Solanki Co product</a> &middot; <a href="../privacy.html" style="color:var(--muted);text-decoration:none;">Privacy</a> &middot; <a href="../terms.html" style="color:var(--muted);text-decoration:none;">Terms</a></div>
+      <div class="footer-socials">
+        <a href="https://instagram.com/kazozo.ai" target="_blank" rel="noopener" aria-label="Follow Kazozo on Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg></a>
+      </div>
+    </div>
+  </footer>
+<!-- Kazozo Frontline Agent Widget -->
+<script async src="https://api.kazozo.com/widget/frontline-widget.js"
+  data-tenant-id="d4182074-fe70-4bac-8e14-9ab6e47ca458"
+  data-api-url="https://api.kazozo.com"
+  data-bot-name="Kaz"
+  data-primary-color="#FF5733"
+  data-position="right"></script>
+<script src="../scripts/sticky-cta.js" defer></script>
+<script src="../scripts/analytics.js" defer></script>
+</body>
+</html>
