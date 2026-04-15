@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trust &amp; Security — How Kazozo Protects Your Customer Data</title>
+<meta name="description" content="How Kazozo handles customer conversations, data, and access control. Logs, isolation, policies, retention, and how we think about safety for regulated industries.">
+<meta name="keywords" content="Kazozo security, AI chatbot data privacy, HIPAA AI, AI compliance small business">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://kazozo.com/trust.html">
+
+<meta property="og:title" content="Trust &amp; Security — Kazozo">
+<meta property="og:description" content="How Kazozo protects your customer data. Logs, isolation, retention, policies.">
+<meta property="og:url" content="https://kazozo.com/trust.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Kazozo">
+<meta property="og:image" content="https://kazozo.com/og-image.png">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Trust &amp; Security — Kazozo">
+<meta name="twitter:description" content="How Kazozo protects your customer data.">
+<meta name="twitter:image" content="https://kazozo.com/og-image.png">
+
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230C0B12'/%3E%3Ctext x='3' y='23' font-family='system-ui,sans-serif' font-size='20' font-weight='700' fill='%23F0EFF4'%3Ek%3C/text%3E%3Ctext x='15' y='23' font-family='system-ui,sans-serif' font-size='20' font-weight='700' fill='%23FF6B5A'%3Ez%3C/text%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --bg: #131316;
+    --surface: #1b1b1e;
+    --surface-2: #17161f;
+    --border: rgba(228,225,230,0.08);
+    --border-strong: rgba(228,225,230,0.14);
+    --text: #f0eff4;
+    --muted: #9a99a5;
+    --coral: #FF5733;
+    --green: #3ddc97;
+  }
+  html, body { background: var(--bg); color: var(--text); font-family: 'Manrope', system-ui, sans-serif; -webkit-font-smoothing: antialiased; line-height: 1.6; }
+  a { color: inherit; }
+
+  .page-hero { padding: 96px 24px 40px; text-align: center; }
+  .page-hero-inner { max-width: 780px; margin: 0 auto; }
+  .overline { display: inline-block; padding: 6px 14px; border: 1px solid var(--border); border-radius: 999px; color: var(--coral); font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 20px; }
+  h1 { font-family: 'Space Grotesk', sans-serif; font-size: clamp(34px, 5.5vw, 52px); font-weight: 600; letter-spacing: -0.02em; line-height: 1.08; margin-bottom: 18px; }
+  h1 em { color: var(--coral); font-style: normal; }
+  .lead { color: var(--muted); font-size: clamp(16px, 2vw, 19px); max-width: 640px; margin: 0 auto; line-height: 1.6; }
+
+  section.wrap { max-width: 1080px; margin: 0 auto; padding: 64px 24px 24px; }
+  h2 { font-family: 'Space Grotesk', sans-serif; font-size: clamp(24px, 3vw, 32px); letter-spacing: -0.02em; margin-bottom: 14px; }
+  .section-sub { color: var(--muted); font-size: 16px; max-width: 640px; margin-bottom: 32px; }
+
+  .pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  @media (max-width: 840px) { .pillars { grid-template-columns: 1fr; } }
+  .pillar { padding: 28px; background: var(--surface); border: 1px solid var(--border); border-radius: 16px; }
+  .pillar .icon { width: 40px; height: 40px; border-radius: 10px; background: rgba(255,87,51,0.12); color: var(--coral); display: inline-flex; align-items: center; justify-content: center; font-size: 20px; margin-bottom: 16px; }
+  .pillar h3 { font-family: 'Space Grotesk', sans-serif; font-size: 18px; margin-bottom: 10px; }
+  .pillar p { color: var(--muted); font-size: 14px; line-height: 1.6; }
+
+  .detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width: 840px) { .detail-grid { grid-template-columns: 1fr; } }
+  .detail-card { padding: 28px; background: var(--surface); border: 1px solid var(--border); border-radius: 16px; }
+  .detail-card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 18px; margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
+  .detail-card h3::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: var(--coral); }
+  .detail-card p { color: var(--muted); font-size: 15px; line-height: 1.65; }
+  .detail-card p + p { margin-top: 10px; }
+  .detail-card strong { color: var(--text); font-weight: 600; }
+
+  .honest { background: linear-gradient(180deg, rgba(255,87,51,0.05), transparent); border: 1px solid rgba(255,87,51,0.25); }
+
+  details.faq-item { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 18px 22px; cursor: pointer; margin-bottom: 10px; }
+  details.faq-item[open] { border-color: rgba(255,87,51,0.3); }
+  details.faq-item summary { font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 16px; list-style: none; position: relative; padding-right: 32px; }
+  details.faq-item summary::-webkit-details-marker { display: none; }
+  details.faq-item summary::after { content: '+'; position: absolute; right: 0; top: -2px; font-size: 22px; color: var(--coral); transition: transform 0.2s ease; }
+  details.faq-item[open] summary::after { transform: rotate(45deg); }
+  details.faq-item .faq-answer { margin-top: 12px; color: var(--muted); font-size: 15px; line-height: 1.7; }
+
+  .final-cta { max-width: 900px; margin: 72px auto 80px; padding: 48px 32px; background: var(--surface); border: 1px solid var(--border); border-radius: 20px; text-align: center; }
+  .final-cta h2 { font-family: 'Space Grotesk', sans-serif; font-size: clamp(22px, 3vw, 30px); margin-bottom: 12px; }
+  .final-cta p { color: var(--muted); margin-bottom: 26px; font-size: 16px; }
+  .cta-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .btn { display: inline-flex; align-items: center; justify-content: center; padding: 14px 26px; border-radius: 12px; font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 15px; text-decoration: none; border: none; cursor: pointer; transition: transform 0.15s ease, box-shadow 0.15s ease; }
+  .btn-coral { background: var(--coral); color: #fff; }
+  .btn-coral:hover { transform: translateY(-1px); box-shadow: 0 12px 32px rgba(255,87,51,0.32); }
+  .btn-ghost { background: transparent; color: var(--text); border: 1px solid var(--border-strong); }
+  .btn-ghost:hover { border-color: var(--coral); color: var(--coral); }
+
+  footer { border-top: 1px solid var(--border); padding: 48px 24px 32px; color: var(--muted); font-size: 14px; }
+  .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 32px; }
+  .footer-brand { font-family: 'Space Grotesk', sans-serif; font-weight: 700; color: var(--text); font-size: 18px; }
+  .footer-nav { display: flex; flex-direction: column; gap: 10px; }
+  .footer-nav h4 { font-size: 12px; font-weight: 600; color: var(--text); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 4px; }
+  .footer-nav a { color: var(--muted); text-decoration: none; }
+  .footer-nav a:hover { color: var(--coral); }
+  .footer-copy { width: 100%; text-align: center; padding-top: 24px; border-top: 1px solid var(--border); margin-top: 32px; color: #5a5965; font-size: 13px; }
+</style>
+</head>
+<body>
+
+<script src="nav.js?v=3"></script>
+
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <div class="overline">Trust &amp; Security</div>
+    <h1>Your customer data <em>stays yours.</em></h1>
+    <p class="lead">How Kazozo handles the conversations, contacts, and content flowing through your agents — including what we store, what we don't, and what you can export on demand.</p>
+  </div>
+</section>
+
+<!-- PILLARS -->
+<section class="wrap">
+  <h2>The three things we get right</h2>
+  <p class="section-sub">Anything else is a detail. These are the three commitments we design every feature around.</p>
+
+  <div class="pillars">
+    <div class="pillar">
+      <div class="icon">&#9873;</div>
+      <h3>Data minimization</h3>
+      <p>We store what's needed to run your agents and nothing more. Every message is tied to a tenant, every action is logged, and you can export or delete any conversation through the dashboard.</p>
+    </div>
+    <div class="pillar">
+      <div class="icon">&#9881;</div>
+      <h3>Per-tenant isolation</h3>
+      <p>Your customer data never crosses tenant boundaries. Agents are loaded with your policies, your FAQ content, and your routing rules — other businesses on the platform can't see any of it.</p>
+    </div>
+    <div class="pillar">
+      <div class="icon">&#9733;</div>
+      <h3>Model outputs are gated</h3>
+      <p>AI responses flow through policy checks before they reach your customers. The model can't send SMS, push leads to your CRM, or take any action that isn't explicitly configured for your tenant.</p>
+    </div>
+  </div>
+</section>
+
+<!-- DETAIL -->
+<section class="wrap">
+  <h2>How it works, in detail</h2>
+  <p class="section-sub">Plain-English answers to the questions our customers ask before go-live.</p>
+
+  <div class="detail-grid">
+    <div class="detail-card">
+      <h3>Encryption</h3>
+      <p><strong>In transit:</strong> All traffic between your website, the Kazozo platform, and any integrations uses TLS 1.2 or higher.</p>
+      <p><strong>At rest:</strong> Conversations, lead data, and configuration are encrypted at rest using industry-standard AES-256.</p>
+    </div>
+
+    <div class="detail-card">
+      <h3>Access control</h3>
+      <p>Every dashboard user is scoped to a single tenant. Internal access to production systems is restricted, logged, and audited. We don't read your customer conversations unless you open a support ticket that requires it — and we log when we do.</p>
+    </div>
+
+    <div class="detail-card">
+      <h3>Retention &amp; deletion</h3>
+      <p>You control retention at the tenant level. Conversations can be set to expire after a defined window or kept indefinitely for training and audit. You can delete any conversation, lead, or contact on demand — including after a customer exercises a right-to-be-forgotten request.</p>
+    </div>
+
+    <div class="detail-card">
+      <h3>No training on your data</h3>
+      <p>Your customer conversations are not used to train the underlying AI models. They're used to run your agents — and only your agents. If we improve the platform based on patterns we see, those improvements are de-identified aggregate signals, never raw content.</p>
+    </div>
+
+    <div class="detail-card">
+      <h3>Audit logs</h3>
+      <p>Every agent action is logged with a timestamp, the inputs it saw, the decision it made, and the action it took. This is how we catch weird behavior before it reaches a customer — and how you'd reconstruct what happened if a customer complaint needed investigation.</p>
+    </div>
+
+    <div class="detail-card">
+      <h3>Uptime &amp; incidents</h3>
+      <p>We target 99.9% platform uptime. When we miss it, we publish the incident — what happened, what was affected, and what we changed so it doesn't happen again. No corporate hedging.</p>
+    </div>
+  </div>
+</section>
+
+<!-- HONEST LIMITATIONS -->
+<section class="wrap">
+  <h2>What we <em style="color:var(--coral);font-style:normal;">aren't</em> yet</h2>
+  <p class="section-sub">Some SMB software vendors claim certifications they don't have. We'd rather be honest about where we are and where we're headed.</p>
+
+  <div class="detail-grid">
+    <div class="detail-card honest">
+      <h3>SOC 2 — in progress</h3>
+      <p>We're building toward SOC 2 Type II and can share our current controls, subprocessor list, and DPA under NDA for customers doing formal vendor reviews. If that's a dealbreaker today, please tell us so we can prioritize it correctly.</p>
+    </div>
+
+    <div class="detail-card honest">
+      <h3>HIPAA — not a BAA signatory</h3>
+      <p>Kazozo is not HIPAA-covered today. For dental and medical customers, we help you configure agents so they never collect or store protected health information — appointment booking + intake happens through your existing HIPAA-covered systems, and Kazozo handles only public-facing conversations. If you have a HIPAA requirement that needs us to sign a BAA, we'd want to talk before you sign anything.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="wrap">
+  <h2>Questions we hear a lot</h2>
+  <details class="faq-item">
+    <summary>Who owns the customer data?</summary>
+    <div class="faq-answer">You do. The conversations, lead records, and contact info are yours. If you leave Kazozo, we help you export it and we delete our copy on request.</div>
+  </details>
+  <details class="faq-item">
+    <summary>What happens to my data if I cancel?</summary>
+    <div class="faq-answer">Your account is retained for 30 days by default so you can come back or export anything you need. After that, conversation content is deleted. Billing records are kept for the period required by tax and compliance law.</div>
+  </details>
+  <details class="faq-item">
+    <summary>Do you sell data to third parties?</summary>
+    <div class="faq-answer">No. Not for advertising, not for training, not for aggregated "insights" products. Your conversations exist to run your agents.</div>
+  </details>
+  <details class="faq-item">
+    <summary>Where is data hosted?</summary>
+    <div class="faq-answer">In the United States by default. We can discuss region-specific hosting for enterprise customers with a data-residency requirement.</div>
+  </details>
+  <details class="faq-item">
+    <summary>Can I request a DPA or subprocessor list?</summary>
+    <div class="faq-answer">Yes. Email <a href="mailto:hello@kazozo.com">hello@kazozo.com</a> and we'll send you our current DPA, subprocessor list, and security overview under a mutual NDA.</div>
+  </details>
+  <details class="faq-item">
+    <summary>How do you handle prompt injection?</summary>
+    <div class="faq-answer">Every model response runs through a policy layer before it reaches the customer. The model can't be tricked into performing actions outside its allow-list — no sending unauthorized SMS, no accessing other tenants, no leaking system prompts. The policy layer is versioned, tested, and audited separately from the model itself.</div>
+  </details>
+</section>
+
+<!-- FINAL CTA -->
+<div class="final-cta">
+  <h2>Still have security questions?</h2>
+  <p>We'd rather walk through them with you on a call than leave you parsing a policy doc. No legalese — just real answers.</p>
+  <div class="cta-row">
+    <a href="book-a-demo.html" class="btn btn-coral">Book a demo →</a>
+    <a href="mailto:hello@kazozo.com?subject=Kazozo%20security%20questions" class="btn btn-ghost">Email security@kazozo</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">Kazozo</div>
+      <p style="margin-top:8px;max-width:280px;font-size:13px;line-height:1.5;">AI agents for small businesses. Premium AI on every plan.</p>
+    </div>
+    <div class="footer-nav">
+      <h4>Product</h4>
+      <a href="agents.html">AI Agents</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="industries.html">Industries</a>
+      <a href="simulation.html">Simulation</a>
+    </div>
+    <div class="footer-nav">
+      <h4>Compare</h4>
+      <a href="compare/kazozo-vs-intercom.html">vs Intercom</a>
+      <a href="compare/kazozo-vs-lindy.html">vs Lindy.ai</a>
+      <a href="compare/kazozo-vs-salesforce-agentforce.html">vs Salesforce Agentforce</a>
+      <a href="compare/kazozo-vs-drift.html">vs Drift</a>
+      <a href="compare/kazozo-vs-chatgpt.html">vs ChatGPT</a>
+    </div>
+    <div class="footer-nav">
+      <h4>Company</h4>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="blog/">Blog</a>
+      <a href="book-a-demo.html">Book a demo</a>
+      <a href="roi-calculator.html">ROI Calculator</a>
+      <a href="trust.html" aria-current="page">Trust &amp; Security</a>
+    </div>
+  </div>
+  <div class="footer-copy">© 2026 Kazozo. All rights reserved.</div>
+</footer>
+
+<script src="https://api.kazozo.com/widget/embed-loader.js"
+  data-tenant="kazozo-001"
+  data-position="bottom-right"></script>
+
+<script src="scripts/sticky-cta.js" defer></script>
+<script src="scripts/analytics.js" defer></script>
+
+</body>
+</html>
