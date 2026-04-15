@@ -4,13 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AI Agent ROI Calculator — See What Missed Leads Cost You | Kazozo</title>
-<meta name="description" content="Plug in your lead volume, response time, and average ticket. See how much revenue you're leaking to slow follow-up — and what Kazozo's AI agents would return per month.">
-<meta name="keywords" content="AI agent ROI calculator, chatbot ROI, lead response time calculator, AI for small business ROI">
+<meta name="description" content="Plug in your lead volume, response time, and deal value. See how much revenue you're leaking to slow follow-up, which Kazozo plan fits your usage, and what your all-in monthly cost will be including overage.">
+<meta name="keywords" content="AI agent ROI calculator, chatbot ROI, lead response time calculator, AI for small business ROI, per-response AI pricing">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://kazozo.com/roi-calculator.html">
 
 <meta property="og:title" content="AI Agent ROI Calculator — Kazozo">
-<meta property="og:description" content="See what slow lead response is costing your business per month. Built-in Kazozo ROI breakdown.">
+<meta property="og:description" content="See what slow lead response is costing your business per month, plus which Kazozo plan fits your usage.">
 <meta property="og:url" content="https://kazozo.com/roi-calculator.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Kazozo">
@@ -18,7 +18,7 @@
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="AI Agent ROI Calculator — Kazozo">
-<meta name="twitter:description" content="See what slow lead response is costing your business per month.">
+<meta name="twitter:description" content="See what slow lead response is costing your business, plus which Kazozo plan fits your usage.">
 <meta name="twitter:image" content="https://kazozo.com/og-image.png">
 
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230C0B12'/%3E%3Ctext x='3' y='23' font-family='system-ui,sans-serif' font-size='20' font-weight='700' fill='%23F0EFF4'%3Ek%3C/text%3E%3Ctext x='15' y='23' font-family='system-ui,sans-serif' font-size='20' font-weight='700' fill='%23FF6B5A'%3Ez%3C/text%3E%3C/svg%3E">
@@ -42,6 +42,7 @@
     --coral-soft: #FFB4A4;
     --green: #3ddc97;
     --red: #ff6b6b;
+    --amber: #EBC314;
   }
   html, body { background: var(--bg); color: var(--text); font-family: 'Manrope', system-ui, sans-serif; -webkit-font-smoothing: antialiased; line-height: 1.6; }
   a { color: inherit; }
@@ -71,6 +72,11 @@
   .field input[type="number"] { width: 110px; padding: 10px 12px; background: var(--surface-2); border: 1px solid var(--border-strong); border-radius: 8px; color: var(--text); font-family: 'Manrope', sans-serif; font-size: 15px; font-weight: 600; text-align: right; }
   .field input[type="number"]:focus { outline: none; border-color: var(--coral); }
 
+  .toggle { display:flex; align-items:center; gap:10px; padding:10px 0; }
+  .toggle input { width:18px; height:18px; accent-color: var(--coral); cursor:pointer; }
+  .toggle label { font-size:14px; font-weight:600; cursor:pointer; margin:0; }
+  .toggle .help { margin-left:28px; }
+
   /* Results */
   .results { background: linear-gradient(180deg, rgba(255,87,51,0.06), transparent); border: 1px solid rgba(255,87,51,0.25); }
   .metric { padding: 18px 0; border-bottom: 1px solid var(--border); }
@@ -80,6 +86,7 @@
   .metric .m-sub { font-size: 13px; color: var(--muted); margin-top: 4px; }
   .metric.hero-leak .m-value { color: var(--red); }
   .metric.hero-savings .m-value { color: var(--green); }
+  .metric.warn .m-value { color: var(--amber); }
 
   .result-cta { margin-top: 24px; display: flex; gap: 10px; flex-wrap: wrap; }
   .btn { display: inline-flex; align-items: center; justify-content: center; padding: 14px 22px; border-radius: 12px; font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 15px; text-decoration: none; border: none; cursor: pointer; transition: transform 0.15s ease, box-shadow 0.15s ease; }
@@ -88,11 +95,29 @@
   .btn-ghost { background: transparent; color: var(--text); border: 1px solid var(--border-strong); }
   .btn-ghost:hover { border-color: var(--coral); color: var(--coral); }
 
+  /* Plan comparison */
+  .plans-wrap { max-width: 1080px; margin: 40px auto 0; padding: 0 24px; }
+  .plans-wrap h2 { font-family: 'Space Grotesk', sans-serif; font-size: clamp(22px, 3vw, 28px); margin-bottom: 6px; letter-spacing: -0.01em; }
+  .plans-wrap .section-sub { color: var(--muted); font-size: 15px; margin-bottom: 24px; }
+  .plan-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  @media (max-width: 840px) { .plan-grid { grid-template-columns: 1fr; } }
+  .plan-card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 22px; position:relative; transition: border-color 0.15s ease, transform 0.15s ease; }
+  .plan-card.rec { border-color: var(--coral); box-shadow: 0 0 0 1px var(--coral) inset; }
+  .plan-card .rec-badge { position:absolute; top:-10px; right:16px; background: var(--coral); color:#fff; font-size:11px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; padding:4px 10px; border-radius: 999px; }
+  .plan-card h4 { font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight:600; margin-bottom: 4px; }
+  .plan-card .included { font-size: 13px; color: var(--muted); margin-bottom: 14px; }
+  .plan-card .price { font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight:600; letter-spacing: -0.01em; }
+  .plan-card .price .sub { font-size: 13px; color: var(--muted); font-weight:400; margin-left: 4px; }
+  .plan-card .breakdown { margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--border); font-size: 13px; color: var(--muted); line-height: 1.7; }
+  .plan-card .breakdown span { color: var(--text); font-weight: 500; }
+  .plan-card .overage-line { color: var(--amber); }
+
   /* Assumptions */
-  .assumptions { max-width: 1080px; margin: 48px auto 0; padding: 0 24px; }
+  .assumptions { max-width: 1080px; margin: 40px auto 0; padding: 0 24px; }
   .assumptions-inner { background: var(--surface-2); border: 1px solid var(--border); border-radius: 16px; padding: 24px 28px; }
   .assumptions-inner h4 { font-size: 13px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 12px; }
-  .assumptions-inner p { font-size: 14px; color: var(--muted); line-height: 1.7; }
+  .assumptions-inner p { font-size: 14px; color: var(--muted); line-height: 1.7; margin-bottom: 10px; }
+  .assumptions-inner p:last-child { margin-bottom: 0; }
 
   /* Below */
   section.wrap { max-width: 1080px; margin: 0 auto; padding: 72px 24px 24px; }
@@ -130,8 +155,8 @@
 <section class="page-hero">
   <div class="page-hero-inner">
     <div class="overline">ROI Calculator</div>
-    <h1>How much are slow replies <em>costing you?</em></h1>
-    <p class="lead">The leads you don't answer within 5 minutes convert at a fraction of the rate. Plug in your numbers below to see the monthly leak — and what closing it would return.</p>
+    <h1>What are slow replies <em>actually costing you?</em></h1>
+    <p class="lead">Plug in your numbers. See the monthly revenue leak from missed leads, which Kazozo plan fits your volume, and what your all-in cost looks like — including any overage.</p>
   </div>
 </section>
 
@@ -144,17 +169,26 @@
       <h3>Your business</h3>
 
       <div class="field">
-        <label for="leads">Monthly inbound leads</label>
-        <div class="help">Website forms + chat conversations + missed calls that leave a message.</div>
+        <label for="leads">Monthly inbound conversations</label>
+        <div class="help">Website chats + missed calls that leave a message + form submissions handed off to an agent.</div>
         <div class="input-row">
-          <input id="leadsRange" type="range" min="10" max="2000" step="10" value="200">
-          <input id="leads" type="number" min="0" max="10000" step="10" value="200">
+          <input id="leadsRange" type="range" min="10" max="5000" step="10" value="400">
+          <input id="leads" type="number" min="0" max="50000" step="10" value="400">
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="rpc">Avg AI responses per conversation</label>
+        <div class="help">An AI response is one reply the agent generates. Most chat conversations use 4–8; voicebot calls use 3–5; short FAQ lookups use 1–2.</div>
+        <div class="input-row">
+          <input id="rpcRange" type="range" min="1" max="15" step="1" value="5">
+          <input id="rpc" type="number" min="1" max="50" step="1" value="5">
         </div>
       </div>
 
       <div class="field">
         <label for="ticket">Average deal value ($)</label>
-        <div class="help">The revenue from a typical won customer over their first engagement.</div>
+        <div class="help">Revenue from a typical won customer over their first engagement.</div>
         <div class="input-row">
           <span class="input-prefix">$</span>
           <input id="ticketRange" type="range" min="100" max="20000" step="50" value="1500">
@@ -183,14 +217,17 @@
       </div>
 
       <div class="field">
-        <label for="plan">Kazozo plan</label>
-        <div class="help">Starter $249 (500 responses) · Growth $499 (2,000) · Pro $999 (6,000).</div>
-        <div class="input-row">
-          <select id="plan" style="width:100%;padding:12px;background:var(--surface-2);border:1px solid var(--border-strong);border-radius:8px;color:var(--text);font-family:'Manrope',sans-serif;font-size:15px;font-weight:600;">
-            <option value="249">Starter — $249/mo</option>
-            <option value="499" selected>Growth — $499/mo</option>
-            <option value="999">Pro — $999/mo</option>
-          </select>
+        <div class="toggle">
+          <input id="voiceOn" type="checkbox">
+          <label for="voiceOn">Include Voice Agent add-on ($1.10 per answered call)</label>
+        </div>
+        <div class="field" id="voiceCallsField" style="display:none; margin-top:10px;">
+          <label for="voiceCalls">Voice calls / month handled</label>
+          <div class="help">Only the calls the voice agent actually answers count. After-hours + overflow is typical.</div>
+          <div class="input-row">
+            <input id="voiceRange" type="range" min="0" max="2000" step="10" value="80">
+            <input id="voiceCalls" type="number" min="0" max="20000" step="10" value="80">
+          </div>
         </div>
       </div>
     </div>
@@ -201,26 +238,26 @@
 
       <div class="metric hero-leak">
         <div class="m-label">Revenue leaking to slow response</div>
-        <div class="m-value" id="leakValue">$33,750</div>
-        <div class="m-sub" id="leakSub">Missed leads × close rate × deal value</div>
+        <div class="m-value" id="leakValue">$47,250</div>
+        <div class="m-sub" id="leakSub">Missed conversations × recoverable × close rate × deal value</div>
       </div>
 
       <div class="metric">
-        <div class="m-label">Missed-lead count</div>
-        <div class="m-value" id="missedCount">90</div>
-        <div class="m-sub">Leads that don't get a fast, qualified response</div>
+        <div class="m-label">AI responses / month you'll use</div>
+        <div class="m-value" id="usageValue">2,000</div>
+        <div class="m-sub" id="usageSub">400 conversations × 5 responses each</div>
       </div>
 
       <div class="metric">
-        <div class="m-label">Kazozo plan cost</div>
-        <div class="m-value" id="planCost">$499</div>
-        <div class="m-sub">Billed monthly, no seat counts, no minimums</div>
+        <div class="m-label">Recommended plan + all-in cost</div>
+        <div class="m-value" id="recoValue">Growth — $499</div>
+        <div class="m-sub" id="recoSub">Right-sized for your usage</div>
       </div>
 
       <div class="metric hero-savings">
         <div class="m-label">Estimated net return</div>
-        <div class="m-value" id="netReturn">$33,251</div>
-        <div class="m-sub" id="netSub">Recovered revenue minus plan cost</div>
+        <div class="m-value" id="netReturn">$46,751</div>
+        <div class="m-sub" id="netSub">Recovered revenue minus all-in Kazozo cost</div>
       </div>
 
       <div class="result-cta">
@@ -230,10 +267,38 @@
     </div>
   </div>
 
+  <!-- Plan comparison -->
+  <div class="plans-wrap">
+    <h2>How each plan stacks up at your volume</h2>
+    <p class="section-sub">Base plan + metered overage for any AI responses above your included allowance. The recommended plan minimizes all-in cost for your usage.</p>
+    <div class="plan-grid">
+      <div class="plan-card" id="card-starter">
+        <h4>Starter</h4>
+        <div class="included">500 AI responses / month included</div>
+        <div class="price" id="priceStarter">$249<span class="sub">all-in</span></div>
+        <div class="breakdown" id="breakStarter"></div>
+      </div>
+      <div class="plan-card" id="card-growth">
+        <h4>Growth</h4>
+        <div class="included">2,000 AI responses / month included</div>
+        <div class="price" id="priceGrowth">$499<span class="sub">all-in</span></div>
+        <div class="breakdown" id="breakGrowth"></div>
+      </div>
+      <div class="plan-card" id="card-pro">
+        <h4>Pro</h4>
+        <div class="included">6,000 AI responses / month included</div>
+        <div class="price" id="pricePro">$999<span class="sub">all-in</span></div>
+        <div class="breakdown" id="breakPro"></div>
+      </div>
+    </div>
+  </div>
+
   <div class="assumptions">
     <div class="assumptions-inner">
       <h4>How this is calculated</h4>
-      <p><strong>Leak</strong> = monthly leads × missed % × close rate × deal value. This is a directional number, not a contract — your actual results depend on your traffic quality, sales process, and how fast you staff your team today. Most SMBs recover <strong>60–80%</strong> of the "missed" bucket by switching on an always-on AI agent, so treat the leak number as an upper bound of recoverable revenue. Kazozo's Voice Agent (Pro) handles after-hours calls at $1.10 per answered call; that's on top of the plan price and not included in the comparison above.</p>
+      <p><strong>Leak</strong> = monthly conversations × missed % × <strong>70% recoverable</strong> × close rate × deal value. We assume ~70% of missed leads are recoverable by an always-on agent; the rest fail for reasons no tool can fix (wrong number, tire-kickers, etc.). Treat the leak number as an upper bound of recoverable revenue — real-world results depend on your traffic quality and sales process.</p>
+      <p><strong>AI response usage</strong> = conversations × responses per conversation. Each plan includes a response allowance; anything over bills at that plan's per-response rate (Starter $0.40, Growth $0.30, Pro $0.22).</p>
+      <p><strong>Recommended plan</strong> is the plan with the lowest all-in cost (base + overage) for your usage level. Voice Agent is a separate add-on at $1.10 per answered call.</p>
     </div>
   </div>
 </div>
@@ -253,7 +318,7 @@
       <p>But your competitors' AI can. Every lead that hits your site outside business hours is effectively gone unless something picks it up in the moment.</p>
     </div>
     <div class="reason-card">
-      <h4>Qualification matters more than speed alone</h4>
+      <h4>Qualification beats speed alone</h4>
       <p>Speed without qualification just means faster noise. Kazozo's Lead Qualifier agent asks the right questions, scores the lead, and hands you only the ones worth your time.</p>
     </div>
   </div>
@@ -274,7 +339,7 @@
   <div class="footer-inner">
     <div>
       <div class="footer-brand">Kazozo</div>
-      <p style="margin-top:8px;max-width:280px;font-size:13px;line-height:1.5;">AI agents for small businesses. Premium AI on every plan.</p>
+      <p style="margin-top:8px;max-width:280px;font-size:13px;line-height:1.5;">The AI platform for business. Agents, apps, and automation.</p>
     </div>
     <div class="footer-nav">
       <h4>Product</h4>
@@ -301,7 +366,7 @@
       <a href="book-a-demo.html">Book a demo</a>
       <a href="roi-calculator.html">ROI Calculator</a>
       <a href="trust.html">Trust &amp; Security</a>
-        <a href="changelog.html">Changelog</a>
+      <a href="changelog.html">Changelog</a>
     </div>
   </div>
   <div class="footer-copy">© 2026 Kazozo. All rights reserved.</div>
@@ -320,15 +385,21 @@
   var fmt = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 });
   var fmtInt = new Intl.NumberFormat('en-US', { maximumFractionDigits: 0 });
 
+  var PLANS = {
+    starter: { name: 'Starter', base: 249, included: 500,  overageRate: 0.40 },
+    growth:  { name: 'Growth',  base: 499, included: 2000, overageRate: 0.30 },
+    pro:     { name: 'Pro',     base: 999, included: 6000, overageRate: 0.22 }
+  };
+  var VOICE_RATE = 1.10;
+
   function $(id) { return document.getElementById(id); }
   function num(id) { var v = parseFloat($(id).value); return isNaN(v) ? 0 : v; }
 
-  // Two-way binding between range and number inputs
   function bind(rangeId, numId) {
     var r = $(rangeId), n = $(numId);
+    if (!r || !n) return;
     r.addEventListener('input', function() { n.value = r.value; compute(); });
     n.addEventListener('input', function() {
-      // clamp to range bounds when possible
       var v = parseFloat(n.value);
       if (!isNaN(v)) {
         var rmin = parseFloat(r.min), rmax = parseFloat(r.max);
@@ -338,32 +409,99 @@
     });
   }
   bind('leadsRange', 'leads');
+  bind('rpcRange', 'rpc');
   bind('ticketRange', 'ticket');
   bind('closeRange', 'closeRate');
   bind('missedRange', 'missedPct');
-  $('plan').addEventListener('change', compute);
+  bind('voiceRange', 'voiceCalls');
+  $('voiceOn').addEventListener('change', function() {
+    $('voiceCallsField').style.display = $('voiceOn').checked ? 'block' : 'none';
+    compute();
+  });
+
+  function planCost(plan, usage) {
+    var over = Math.max(usage - plan.included, 0);
+    return { base: plan.base, overage: over * plan.overageRate, overResponses: over };
+  }
 
   function compute() {
     var leads = num('leads');
+    var rpc = Math.max(num('rpc'), 1);
     var ticket = num('ticket');
     var closeRate = num('closeRate') / 100;
     var missedPct = num('missedPct') / 100;
-    var plan = num('plan');
+    var voiceOn = $('voiceOn').checked;
+    var voiceCalls = voiceOn ? num('voiceCalls') : 0;
 
+    var usage = Math.round(leads * rpc);
     var missed = Math.round(leads * missedPct);
-    // Assume 70% of missed leads are recoverable by always-on response.
     var recoverable = missed * 0.7;
     var leak = recoverable * closeRate * ticket;
-    var net = Math.max(leak - plan, 0);
+    var voiceCost = voiceCalls * VOICE_RATE;
 
-    $('missedCount').textContent = fmtInt.format(missed);
+    // Compute each plan's all-in cost
+    var results = {};
+    Object.keys(PLANS).forEach(function(k) {
+      var c = planCost(PLANS[k], usage);
+      results[k] = { ...c, allIn: c.base + c.overage + voiceCost };
+    });
+
+    // Recommend the plan with the lowest all-in
+    var recKey = Object.keys(results).reduce(function(best, k) {
+      return results[k].allIn < results[best].allIn ? k : best;
+    }, 'starter');
+    var rec = results[recKey];
+    var recPlan = PLANS[recKey];
+
+    // Top metrics
     $('leakValue').textContent = fmt.format(leak);
-    $('planCost').textContent = fmt.format(plan);
-    $('netReturn').textContent = fmt.format(net);
+    $('leakSub').textContent = fmtInt.format(missed) + ' missed × 70% recoverable × ' + Math.round(closeRate * 100) + '% close × ' + fmt.format(ticket);
+    $('usageValue').textContent = fmtInt.format(usage);
+    $('usageSub').textContent = fmtInt.format(leads) + ' conversations × ' + rpc + ' responses each';
+    $('recoValue').textContent = recPlan.name + ' — ' + fmt.format(rec.allIn);
+    $('recoSub').textContent = buildRecSub(rec, recPlan, voiceOn, voiceCalls);
+    $('netReturn').textContent = fmt.format(Math.max(leak - rec.allIn, 0));
+    $('netSub').textContent = 'Recovered revenue (' + fmt.format(leak) + ') minus Kazozo cost (' + fmt.format(rec.allIn) + ')';
 
-    $('leakSub').textContent = fmtInt.format(missed) + ' missed × 70% recoverable × ' + (closeRate * 100).toFixed(0) + '% close × ' + fmt.format(ticket);
-    $('netSub').textContent = 'Recovered revenue (' + fmt.format(leak) + ') minus plan (' + fmt.format(plan) + ')';
+    // Plan comparison cards
+    renderCard('starter', results.starter, PLANS.starter, recKey === 'starter', voiceOn, voiceCalls);
+    renderCard('growth',  results.growth,  PLANS.growth,  recKey === 'growth',  voiceOn, voiceCalls);
+    renderCard('pro',     results.pro,     PLANS.pro,     recKey === 'pro',     voiceOn, voiceCalls);
   }
+
+  function buildRecSub(res, plan, voiceOn, voiceCalls) {
+    var parts = [fmt.format(plan.base) + ' base'];
+    if (res.overage > 0) parts.push(fmt.format(res.overage) + ' overage (' + fmtInt.format(res.overResponses) + ' extra responses)');
+    if (voiceOn && voiceCalls > 0) parts.push(fmt.format(voiceCalls * VOICE_RATE) + ' voice (' + fmtInt.format(voiceCalls) + ' calls)');
+    return parts.join(' · ');
+  }
+
+  function renderCard(key, res, plan, isRec, voiceOn, voiceCalls) {
+    var card = $('card-' + key);
+    card.classList.toggle('rec', isRec);
+    var badge = card.querySelector('.rec-badge');
+    if (isRec && !badge) {
+      badge = document.createElement('div');
+      badge.className = 'rec-badge';
+      badge.textContent = 'Recommended';
+      card.insertBefore(badge, card.firstChild);
+    } else if (!isRec && badge) {
+      badge.remove();
+    }
+    $('price' + cap(key)).innerHTML = fmt.format(res.allIn) + '<span class="sub">all-in</span>';
+    var lines = [];
+    lines.push('<span>' + fmt.format(plan.base) + '</span> base plan');
+    if (res.overage > 0) {
+      lines.push('<span class="overage-line">+' + fmt.format(res.overage) + '</span> overage (' + fmtInt.format(res.overResponses) + ' × $' + plan.overageRate.toFixed(2) + ')');
+    } else {
+      lines.push('<span style="color:var(--green);">No overage</span> — usage fits within allowance');
+    }
+    if (voiceOn && voiceCalls > 0) {
+      lines.push('<span>+' + fmt.format(voiceCalls * VOICE_RATE) + '</span> voice (' + fmtInt.format(voiceCalls) + ' × $1.10)');
+    }
+    $('break' + cap(key)).innerHTML = lines.join('<br>');
+  }
+  function cap(s) { return s.charAt(0).toUpperCase() + s.slice(1); }
 
   compute();
 })();
