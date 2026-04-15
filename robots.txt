@@ -9,6 +9,7 @@ Disallow: /option-f-platform.html
 Disallow: /kazozo-landing.html
 Disallow: /case-study.html
 Disallow: /demo.html
+Disallow: /demo/
 Disallow: /index%202.html
 
 Sitemap: https://kazozo.com/sitemap.xml
