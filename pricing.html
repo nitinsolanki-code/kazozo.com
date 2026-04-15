@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pricing — Kazozo | Plans from $249/mo, premium AI included</title>
+<meta name="description" content="Simple Kazozo pricing — $249 Starter, $499 Growth, $999 Pro. Premium AI on every plan, billed by AI responses. No per-seat fees. No surprises.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://kazozo.com/pricing.html">
+
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230C0B12'/%3E%3Ctext x='3' y='23' font-family='system-ui,sans-serif' font-size='20' font-weight='700' fill='%23F0EFF4'%3Ek%3C/text%3E%3Ctext x='15' y='23' font-family='system-ui,sans-serif' font-size='20' font-weight='700' fill='%23FF6B5A'%3Ez%3C/text%3E%3C/svg%3E">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Pricing — Kazozo | Plans from $249/mo">
+<meta property="og:description" content="Simple Kazozo pricing — $249 Starter, $499 Growth, $999 Pro. Premium AI on every plan, billed by AI responses.">
+<meta property="og:url" content="https://kazozo.com/pricing.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Kazozo">
+<meta property="og:image" content="https://kazozo.com/og-image.png">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Pricing — Kazozo | Plans from $249/mo">
+<meta name="twitter:description" content="Simple Kazozo pricing — Starter, Growth, Pro. Premium AI on every plan.">
+<meta name="twitter:image" content="https://kazozo.com/og-image.png">
+
+<!-- Product schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Kazozo — AI Platform for Business",
+  "description": "Kazozo is an AI platform with 11 agents for sales, support, reviews, ops, and reporting. Every plan includes premium AI.",
+  "brand": { "@type": "Brand", "name": "Kazozo" },
+  "offers": {
+    "@type": "AggregateOffer",
+    "priceCurrency": "USD",
+    "lowPrice": "249",
+    "highPrice": "999",
+    "offerCount": "3",
+    "offers": [
+      { "@type": "Offer", "name": "Starter", "price": "249", "priceCurrency": "USD", "url": "https://kazozo.com/pricing.html#starter" },
+      { "@type": "Offer", "name": "Growth", "price": "499", "priceCurrency": "USD", "url": "https://kazozo.com/pricing.html#growth" },
+      { "@type": "Offer", "name": "Pro", "price": "999", "priceCurrency": "USD", "url": "https://kazozo.com/pricing.html#pro" }
+    ]
+  }
+}
+</script>
+
+<!-- FAQ schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What counts as an AI response?",
+      "acceptedAnswer": { "@type": "Answer", "text": "One AI response is a single reply from a Kazozo agent to a customer, lead, or teammate. Conversation threads don't count as one — each reply the agent sends counts toward your monthly pool." }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens if I go over my included AI responses?",
+      "acceptedAnswer": { "@type": "Answer", "text": "You get charged your plan's per-AI-response overage rate — $0.40 on Starter, $0.30 on Growth, $0.22 on Pro. No overage caps, no surprise cutoffs." }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there a contract or annual commitment?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No. All plans are month-to-month. Cancel any time." }
+    },
+    {
+      "@type": "Question",
+      "name": "How does Voice Agent pricing work?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Voice Agent is included on the Pro plan. Each answered call is billed at $1.10 in addition to your plan base — covering telephony, transcription, and voice synthesis costs." }
+    },
+    {
+      "@type": "Question",
+      "name": "Are all agents powered by the same AI?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Every plan uses the same premium AI model on customer-facing agents. We don't downgrade you on Starter." }
+    }
+  ]
+}
+</script>
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://api.kazozo.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg: #131316;
+    --surface: #1b1b1e;
+    --card: #1f1f22;
+    --card-high: #2a2a2d;
+    --coral: #FFB4A4;
+    --coral-vivid: #FF5733;
+    --lime: #7BEA8E;
+    --sky: #46EAED;
+    --lavender: #C4A8FF;
+    --amber: #EBC314;
+    --text: #E4E1E6;
+    --muted: #9e9ba5;
+    --border: rgba(228,225,230,0.06);
+  }
+
+  :focus-visible { outline: 2px solid var(--coral); outline-offset: 2px; }
+
+  body {
+    background: var(--bg); color: var(--text);
+    font-family: 'Manrope', sans-serif; font-size: 16px;
+    line-height: 1.6; -webkit-font-smoothing: antialiased;
+  }
+
+  /* ===== PAGE HERO ===== */
+  .page-hero { padding: 140px 24px 40px; text-align: center; position: relative; overflow: hidden; }
+  .page-hero::before {
+    content: ''; position: absolute;
+    top: -200px; left: 50%; transform: translateX(-50%);
+    width: 900px; height: 600px;
+    background: radial-gradient(ellipse, rgba(235,195,20,0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .page-hero-inner { max-width: 760px; margin: 0 auto; position: relative; z-index: 1; }
+  .page-hero .overline {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 12px; font-weight: 600;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--amber); margin-bottom: 20px;
+  }
+  .page-hero h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(36px, 5vw, 52px);
+    font-weight: 700; letter-spacing: -0.03em;
+    line-height: 1.08; margin-bottom: 20px;
+  }
+  .page-hero h1 em { font-style: normal; color: var(--amber); }
+  .page-hero .lead {
+    font-size: 17px; color: var(--muted);
+    line-height: 1.7; max-width: 580px; margin: 0 auto;
+  }
+
+  /* ===== QUALITY BADGE ===== */
+  .quality-badge {
+    max-width: 620px; margin: 24px auto 0;
+    padding: 28px 32px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    text-align: center;
+  }
+  .quality-badge-icon { font-size: 26px; margin-bottom: 10px; line-height: 1; }
+  .quality-badge h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 18px; font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .quality-badge p { font-size: 14px; color: var(--muted); line-height: 1.6; }
+  .quality-badge .tagline { margin-top: 10px; font-size: 13px; font-style: italic; color: var(--muted); }
+
+  /* ===== TIERS ===== */
+  .tiers-wrap { max-width: 1200px; margin: 0 auto; padding: 40px 24px 48px; }
+  .tiers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+  }
+  .tier-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px 24px;
+    position: relative;
+    display: flex; flex-direction: column;
+    transition: transform 0.2s, border-color 0.2s;
+  }
+  .tier-card:hover { transform: translateY(-2px); }
+  .tier-card.popular {
+    border-color: rgba(123,234,142,0.3);
+    background: linear-gradient(180deg, rgba(123,234,142,0.04) 0%, var(--surface) 100%);
+  }
+  .tier-popular-ribbon {
+    position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+    background: var(--lime); color: #0a0a0f;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 10px; font-weight: 700;
+    letter-spacing: 1.5px; text-transform: uppercase;
+    padding: 5px 14px; border-radius: 999px;
+  }
+  .tier-badge {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 11px; font-weight: 700;
+    letter-spacing: 1.4px; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 16px;
+  }
+  .tier-card h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 22px; font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .tier-price {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 40px; font-weight: 700;
+    letter-spacing: -0.02em;
+    margin: 8px 0 4px;
+  }
+  .tier-price .cents { font-size: 18px; color: var(--muted); font-weight: 500; }
+  .tier-card.starter .tier-price { color: var(--sky); }
+  .tier-card.growth .tier-price { color: var(--lime); }
+  .tier-card.pro .tier-price { color: var(--lavender); }
+  .tier-card.enterprise .tier-price { color: var(--coral-vivid); font-size: 30px; }
+  .tier-tag { font-size: 13px; color: var(--muted); margin-bottom: 20px; }
+
+  .tier-features { list-style: none; padding: 0; margin: 0 0 24px; flex: 1; }
+  .tier-features li {
+    padding: 10px 0; border-bottom: 1px solid var(--border);
+    font-size: 14px; color: var(--text); line-height: 1.5;
+  }
+  .tier-features li:last-child { border-bottom: none; }
+  .tier-features li strong { color: var(--text); font-weight: 600; }
+  .tier-features li .agents-detail {
+    display: block; margin-top: 6px;
+    font-size: 12px; color: var(--muted); line-height: 1.5;
+  }
+
+  .tier-cta {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    padding: 13px 20px;
+    border-radius: 10px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 14px; font-weight: 600;
+    text-decoration: none;
+    background: var(--card); color: var(--text);
+    border: 1px solid var(--border);
+    transition: all 0.2s;
+  }
+  .tier-cta:hover { border-color: var(--text); transform: translateY(-1px); }
+  .tier-card.popular .tier-cta { background: var(--coral-vivid); color: #fff; border-color: var(--coral-vivid); }
+  .tier-card.popular .tier-cta:hover { opacity: 0.9; }
+
+  .tier-foot {
+    font-size: 12px; color: var(--muted);
+    text-align: center; margin-top: 28px;
+  }
+  .tier-foot a { color: var(--coral-vivid); text-decoration: none; }
+  .tier-foot a:hover { text-decoration: underline; }
+
+  /* ===== VOICE CALLOUT ===== */
+  .voice-callout {
+    max-width: 900px; margin: 0 auto 48px;
+    padding: 28px 32px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    display: flex; gap: 20px; align-items: center;
+  }
+  .voice-callout-icon { font-size: 32px; flex-shrink: 0; }
+  .voice-callout-body h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 17px; font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .voice-callout-body p { font-size: 14px; color: var(--muted); line-height: 1.6; }
+  @media (max-width: 600px) {
+    .voice-callout { flex-direction: column; text-align: center; padding: 24px; }
+  }
+
+  /* ===== VOLUME DISCOUNT ===== */
+  .volume-block {
+    max-width: 900px; margin: 0 auto 64px;
+    padding: 24px 28px;
+    text-align: center;
+    font-size: 13px; color: var(--muted);
+    background: var(--card);
+    border-radius: 12px;
+  }
+  .volume-block strong { color: var(--text); }
+
+  /* ===== COMPARE TABLE ===== */
+  .compare-wrap { max-width: 1100px; margin: 0 auto; padding: 32px 24px 80px; }
+  .compare-header {
+    text-align: center; margin-bottom: 32px;
+  }
+  .compare-header h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(24px, 3vw, 32px);
+    font-weight: 700; letter-spacing: -0.02em;
+    margin-bottom: 8px;
+  }
+  .compare-header p { color: var(--muted); font-size: 15px; }
+  .compare-table {
+    width: 100%; border-collapse: collapse;
+    background: var(--surface); border-radius: 16px;
+    overflow: hidden;
+  }
+  .compare-table th, .compare-table td {
+    padding: 16px 20px; text-align: left;
+    border-bottom: 1px solid var(--border);
+    font-size: 14px;
+  }
+  .compare-table th {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 13px; font-weight: 600;
+    color: var(--text);
+  }
+  .compare-table th:not(:first-child) { text-align: center; }
+  .compare-table td:not(:first-child) { text-align: center; color: var(--muted); }
+  .compare-table tr:last-child th, .compare-table tr:last-child td { border-bottom: none; }
+  .compare-table tbody tr:hover { background: rgba(255,255,255,0.015); }
+  .check { color: var(--lime); font-weight: 700; }
+  @media (max-width: 700px) {
+    .compare-table { font-size: 13px; }
+    .compare-table th, .compare-table td { padding: 12px 10px; }
+  }
+
+  /* ===== FAQ ===== */
+  .faq-wrap { max-width: 800px; margin: 0 auto; padding: 40px 24px 80px; }
+  .faq-header {
+    text-align: center; margin-bottom: 32px;
+  }
+  .faq-header h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(24px, 3vw, 32px);
+    font-weight: 700; letter-spacing: -0.02em;
+  }
+  details.faq-item {
+    background: var(--surface);
+    border-radius: 12px;
+    margin-bottom: 12px;
+    padding: 0;
+    border: 1px solid var(--border);
+    transition: border-color 0.2s;
+  }
+  details.faq-item[open] { border-color: rgba(255,87,51,0.2); }
+  details.faq-item summary {
+    padding: 20px 24px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 16px; font-weight: 600;
+    cursor: pointer;
+    list-style: none;
+    position: relative;
+    padding-right: 56px;
+  }
+  details.faq-item summary::-webkit-details-marker { display: none; }
+  details.faq-item summary::after {
+    content: '+';
+    position: absolute; right: 24px; top: 50%; transform: translateY(-50%);
+    color: var(--coral-vivid); font-weight: 300; font-size: 22px;
+    transition: transform 0.2s;
+  }
+  details.faq-item[open] summary::after { content: '−'; transform: translateY(-50%) rotate(180deg); }
+  details.faq-item .faq-answer {
+    padding: 0 24px 20px;
+    font-size: 15px; color: var(--muted); line-height: 1.7;
+  }
+  details.faq-item .faq-answer a { color: var(--coral-vivid); }
+
+  /* ===== FINAL CTA ===== */
+  .final-cta { max-width: 900px; margin: 0 auto 80px; padding: 48px 32px; background: var(--surface); border-radius: 20px; text-align: center; }
+  .final-cta h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(24px, 3vw, 32px);
+    font-weight: 700; letter-spacing: -0.02em;
+    margin-bottom: 12px;
+  }
+  .final-cta p { color: var(--muted); font-size: 16px; margin-bottom: 28px; }
+  .final-cta .cta-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 14px 28px; border-radius: 10px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 14px; font-weight: 600;
+    text-decoration: none; border: none; cursor: pointer;
+    transition: opacity 0.2s, transform 0.2s;
+  }
+  .btn-coral { background: var(--coral-vivid); color: #fff; }
+  .btn-coral:hover { opacity: 0.9; transform: translateY(-1px); }
+  .btn-ghost { background: transparent; color: var(--text); border: 1px solid var(--border); }
+  .btn-ghost:hover { border-color: var(--text); }
+
+  /* ===== FOOTER ===== */
+  footer { border-top: 1px solid rgba(228,225,230,0.05); padding: 64px 24px 32px; max-width: 1200px; margin: 0 auto; }
+  .footer-inner { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 32px; }
+  .footer-brand { display: flex; flex-direction: column; gap: 12px; }
+  .footer-logo { font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 700; color: var(--text); text-decoration: none; letter-spacing: -0.02em; }
+  .footer-logo span { color: var(--coral-vivid); }
+  .footer-tagline { font-size: 13px; color: rgba(228,225,230,0.5); max-width: 280px; line-height: 1.6; }
+  .footer-nav { display: flex; gap: 48px; }
+  .footer-col h4 { font-family: 'Space Grotesk', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--text); margin-bottom: 16px; }
+  .footer-col a { display: block; color: rgba(228,225,230,0.5); text-decoration: none; font-size: 14px; padding: 4px 0; transition: color 0.3s; }
+  .footer-col a:hover { color: var(--text); }
+  .footer-divider { border: none; border-top: 1px solid rgba(228,225,230,0.05); margin-bottom: 20px; }
+  .footer-bottom { display: flex; justify-content: space-between; align-items: center; }
+  .footer-credit { font-size: 12px; color: rgba(228,225,230,0.5); }
+  .footer-socials { display: flex; gap: 16px; align-items: center; }
+  .footer-socials a { color: var(--muted); transition: color 0.3s; display: flex; align-items: center; justify-content: center; }
+  .footer-socials a:hover { color: var(--text); }
+  .footer-socials svg { width: 18px; height: 18px; }
+
+  @media (max-width: 900px) {
+    .footer-inner { flex-direction: column; gap: 24px; text-align: center; }
+    .footer-bottom { flex-direction: column; gap: 12px; }
+  }
+  @media (max-width: 600px) {
+    footer { padding: 32px 16px 24px; }
+    .footer-nav { flex-direction: column; gap: 24px; }
+  }
+</style>
+</head>
+<body data-no-sticky-cta="true">
+
+<script src="nav.js?v=2"></script>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <div class="overline">Transparent Pricing</div>
+    <h1>Simple, predictable <em>pricing.</em></h1>
+    <p class="lead">Pick a plan, pick your agents, go live. Premium AI on every plan, billed by AI responses — not seats, not agents, not resolutions.</p>
+    <div class="quality-badge">
+      <div class="quality-badge-icon">🥇</div>
+      <h3>Premium AI on every plan</h3>
+      <p>Every Kazozo agent is powered by frontier-class AI — the same quality on Starter as on Pro. Choose your plan based on AI response volume and the agents you need.</p>
+      <p class="tagline">One AI tier. No upsells. No surprises.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TIERS -->
+<div class="tiers-wrap">
+  <div class="tiers-grid">
+
+    <!-- STARTER -->
+    <div class="tier-card starter" id="starter">
+      <div class="tier-badge">Starter</div>
+      <h2>Starter</h2>
+      <div class="tier-price" data-price="plans.starter.display">$249<span class="cents">/mo</span></div>
+      <p class="tier-tag">For solo operators and new businesses</p>
+      <ul class="tier-features">
+        <li><strong>500</strong> included AI responses/mo</li>
+        <li><strong>$0.40</strong> per extra AI response</li>
+        <li><strong>3 agents:</strong>
+          <span class="agents-detail">🛡️ Frontline · 🎧 Customer Support · 🎯 Lead Qualifier</span>
+        </li>
+        <li>Web + SMS + WhatsApp channels</li>
+        <li>Email support</li>
+      </ul>
+      <a href="contact.html" class="tier-cta">Start with Starter →</a>
+    </div>
+
+    <!-- GROWTH -->
+    <div class="tier-card growth popular" id="growth">
+      <div class="tier-popular-ribbon">Most popular</div>
+      <div class="tier-badge">Growth</div>
+      <h2>Growth</h2>
+      <div class="tier-price" data-price="plans.growth.display">$499<span class="cents">/mo</span></div>
+      <p class="tier-tag">For growing teams that need follow-up</p>
+      <ul class="tier-features">
+        <li><strong>2,000</strong> included AI responses/mo</li>
+        <li><strong>$0.30</strong> per extra AI response</li>
+        <li><strong>6 agents (Starter + 3):</strong>
+          <span class="agents-detail">+ ✉️ Sales · ⭐ Review Manager · 🎬 Content</span>
+        </li>
+        <li>Web + SMS + WhatsApp + iMessage</li>
+        <li>Priority support</li>
+      </ul>
+      <a href="contact.html" class="tier-cta">Start with Growth →</a>
+    </div>
+
+    <!-- PRO -->
+    <div class="tier-card pro" id="pro">
+      <div class="tier-badge">Pro</div>
+      <h2>Pro</h2>
+      <div class="tier-price" data-price="plans.pro.display">$999<span class="cents">/mo</span></div>
+      <p class="tier-tag">For established businesses going full-stack</p>
+      <ul class="tier-features">
+        <li><strong>6,000</strong> included AI responses/mo</li>
+        <li><strong>$0.22</strong> per extra AI response</li>
+        <li><strong>All 11 agents (Growth + 5):</strong>
+          <span class="agents-detail">+ ☎️ Voice · 🔧 Service Ops · 👤 Employee · 💰 Finance · 📊 Weekly Report</span>
+        </li>
+        <li>Every channel (web · SMS · WhatsApp · iMessage · voice)</li>
+        <li>Priority support + onboarding call</li>
+      </ul>
+      <a href="contact.html" class="tier-cta">Start with Pro →</a>
+    </div>
+
+    <!-- ENTERPRISE -->
+    <div class="tier-card enterprise" id="enterprise">
+      <div class="tier-badge">Enterprise</div>
+      <h2>Enterprise</h2>
+      <div class="tier-price">Custom</div>
+      <p class="tier-tag">For multi-location or high-volume operators</p>
+      <ul class="tier-features">
+        <li>Custom AI response volume</li>
+        <li>Custom overage rate</li>
+        <li>All 11 agents included</li>
+        <li>Custom SLAs + dedicated support</li>
+        <li>SSO, audit logs, DPA on request</li>
+      </ul>
+      <a href="contact.html" class="tier-cta">Talk to us →</a>
+    </div>
+
+  </div>
+
+  <p class="tier-foot">Billing is based on AI-generated replies, not conversation threads. <a href="faq.html#ai-response">What counts as an AI response? →</a></p>
+</div>
+
+<!-- VOICE CALLOUT -->
+<div class="voice-callout">
+  <div class="voice-callout-icon">☎️</div>
+  <div class="voice-callout-body">
+    <h3>Voice Agent: <span data-price="agents.voice.display">$1.10</span> per answered call</h3>
+    <p>Voice is included on Pro. Each answered call is billed at $1.10 on top of your plan base — covers telephony, transcription, and voice synthesis. No per-minute charges, no connection fees.</p>
+  </div>
+</div>
+
+<!-- VOLUME -->
+<div class="volume-block">
+  <strong>Volume discounts:</strong> 10% off at 4–6 agents · 15% off at 7–9 · 20% off at 10+. <strong>Bulk lead projects:</strong> $99 minimum + $0.05/lead up to 10K, $0.03/lead 10K–50K, custom above — sold separately from your monthly plan.
+</div>
+
+<!-- COMPARE TABLE -->
+<div class="compare-wrap">
+  <div class="compare-header">
+    <h2>Compare plans at a glance</h2>
+    <p>The same premium AI on every plan. You're picking volume and agent lineup.</p>
+  </div>
+  <table class="compare-table">
+    <thead>
+      <tr>
+        <th>Feature</th>
+        <th>Starter</th>
+        <th>Growth</th>
+        <th>Pro</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><th>Monthly price</th><td>$249</td><td>$499</td><td>$999</td></tr>
+      <tr><th>Included AI responses</th><td>500</td><td>2,000</td><td>6,000</td></tr>
+      <tr><th>Overage rate</th><td>$0.40</td><td>$0.30</td><td>$0.22</td></tr>
+      <tr><th>Number of agents</th><td>3</td><td>6</td><td>11</td></tr>
+      <tr><th>Web / SMS / WhatsApp</th><td><span class="check">✓</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+      <tr><th>iMessage channel</th><td>—</td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+      <tr><th>Voice Agent ($1.10/call)</th><td>—</td><td>—</td><td><span class="check">✓</span></td></tr>
+      <tr><th>Onboarding call</th><td>—</td><td>—</td><td><span class="check">✓</span></td></tr>
+      <tr><th>Premium AI quality</th><td><span class="check">✓</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- FAQ -->
+<div class="faq-wrap">
+  <div class="faq-header">
+    <h2>Pricing FAQ</h2>
+  </div>
+  <details class="faq-item">
+    <summary>What counts as an AI response?</summary>
+    <div class="faq-answer">One AI response is a single reply from a Kazozo agent to a customer, lead, or teammate. Conversation threads don't count as one — each reply the agent sends counts toward your monthly pool. See the <a href="faq.html#ai-response">full definition in the FAQ</a>.</div>
+  </details>
+  <details class="faq-item">
+    <summary>What happens if I go over my included AI responses?</summary>
+    <div class="faq-answer">You get charged your plan's per-AI-response overage rate — $0.40 on Starter, $0.30 on Growth, $0.22 on Pro. No overage caps, no surprise cutoffs — your agents keep working.</div>
+  </details>
+  <details class="faq-item">
+    <summary>Is there a contract or annual commitment?</summary>
+    <div class="faq-answer">No. All plans are month-to-month. Cancel any time, keep access through the end of your paid period.</div>
+  </details>
+  <details class="faq-item">
+    <summary>How does Voice Agent pricing work?</summary>
+    <div class="faq-answer">Voice Agent is included on the Pro plan. Each answered call is billed at $1.10 in addition to your plan base — covering telephony, transcription, and voice synthesis. No per-minute charges, no connection fees, no ringing/missed call charges.</div>
+  </details>
+  <details class="faq-item">
+    <summary>Are all agents powered by the same AI?</summary>
+    <div class="faq-answer">Yes. Every plan uses the same premium AI model on customer-facing agents. We don't downgrade you on Starter — the difference between plans is volume and which agents you have, not which AI you get.</div>
+  </details>
+  <details class="faq-item">
+    <summary>Do you offer a free trial?</summary>
+    <div class="faq-answer">We don't do a self-serve trial — every new account gets a short setup call so we can configure your agents correctly and ingest your data. Talk to Kaz to walk through what that looks like for your business.</div>
+  </details>
+  <details class="faq-item">
+    <summary>Can I switch plans later?</summary>
+    <div class="faq-answer">Yes, any time. Upgrades take effect immediately with a prorated credit. Downgrades take effect at the next billing cycle.</div>
+  </details>
+</div>
+
+<!-- FINAL CTA -->
+<div class="final-cta">
+  <h2>Ready to see it live?</h2>
+  <p>Talk to Kaz for a walkthrough — or jump straight to the agent lineup.</p>
+  <div class="cta-row">
+    <button type="button" onclick="if(window.KazozoWidget){window.KazozoWidget.open()}else{window.location.href='contact.html'}" class="btn btn-coral">Talk to Kaz</button>
+    <a href="agents.html" class="btn btn-ghost">Explore the 11 agents →</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="index.html" class="footer-logo">kazo<span>zo</span></a>
+      <p class="footer-tagline">The AI platform for business. Agents, apps, and automation.</p>
+    </div>
+    <div class="footer-nav">
+      <div class="footer-col">
+        <h4>Products</h4>
+        <a href="agents.html">AI Agents</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="industries.html">Industries</a>
+        <a href="simulation.html">Simulation</a>
+      </div>
+      <div class="footer-col">
+        <h4>Compare</h4>
+        <a href="compare/kazozo-vs-salesforce-agentforce.html">vs Salesforce</a>
+        <a href="compare/kazozo-vs-lindy.html">vs Lindy.ai</a>
+        <a href="compare/kazozo-vs-intercom.html">vs Intercom</a>
+      </div>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <a href="blog/">Blog</a>
+        <a href="faq.html">FAQ</a>
+        <a href="mailto:hello@kazozo.com">hello@kazozo.com</a>
+      </div>
+    </div>
+  </div>
+  <hr class="footer-divider">
+  <div class="footer-bottom">
+    <div class="footer-credit">&copy; 2026 Kazozo &middot; <a href="https://solanki.co" target="_blank" rel="noopener" style="color:var(--muted);text-decoration:none;">A Solanki Co product</a> &middot; <a href="privacy.html" style="color:var(--muted);text-decoration:none;">Privacy</a> &middot; <a href="terms.html" style="color:var(--muted);text-decoration:none;">Terms</a></div>
+    <div class="footer-socials">
+      <a href="https://instagram.com/kazozo.ai" target="_blank" rel="noopener" aria-label="Follow Kazozo on Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg></a>
+    </div>
+  </div>
+</footer>
+
+<!-- Kazozo Widget -->
+<script src="https://api.kazozo.com/widget/embed-loader.js"
+  data-tenant="kazozo-001"
+  data-api="https://api.kazozo.com"
+  data-bot-name="Kaz"
+  data-color="#FF5733"
+  data-position="bottom-right"></script>
+
+<!-- Pricing loader: fetches live prices from pricing.json -->
+<script src="scripts/pricing-loader.js" defer></script>
+
+</body>
+</html>

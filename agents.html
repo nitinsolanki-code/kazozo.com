@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Agents — Kazozo | 11 agents for sales, support, and ops</title>
+<meta name="description" content="Every Kazozo plan comes with AI agents that handle sales, support, reviews, operations, and reporting. Explore all 11 agents, powered by premium AI.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://kazozo.com/agents.html">
+
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230C0B12'/%3E%3Ctext x='3' y='23' font-family='system-ui,sans-serif' font-size='20' font-weight='700' fill='%23F0EFF4'%3Ek%3C/text%3E%3Ctext x='15' y='23' font-family='system-ui,sans-serif' font-size='20' font-weight='700' fill='%23FF6B5A'%3Ez%3C/text%3E%3C/svg%3E">
+
+<!-- Open Graph -->
+<meta property="og:title" content="AI Agents — Kazozo | 11 agents for sales, support, and ops">
+<meta property="og:description" content="Meet the Kazozo agent lineup — from Frontline to Voice. Premium AI on every plan, starting at $249/mo.">
+<meta property="og:url" content="https://kazozo.com/agents.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Kazozo">
+<meta property="og:image" content="https://kazozo.com/og-image.png">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AI Agents — Kazozo">
+<meta name="twitter:description" content="11 AI agents for sales, support, reviews, ops, and reporting. Premium AI on every plan.">
+<meta name="twitter:image" content="https://kazozo.com/og-image.png">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://api.kazozo.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg: #131316;
+    --surface: #1b1b1e;
+    --card: #1f1f22;
+    --card-high: #2a2a2d;
+    --coral: #FFB4A4;
+    --coral-vivid: #FF5733;
+    --lime: #7BEA8E;
+    --sky: #46EAED;
+    --lavender: #C4A8FF;
+    --amber: #EBC314;
+    --text: #E4E1E6;
+    --muted: #9e9ba5;
+    --border: rgba(228,225,230,0.06);
+  }
+
+  :focus-visible { outline: 2px solid var(--coral); outline-offset: 2px; }
+
+  body {
+    background: var(--bg); color: var(--text);
+    font-family: 'Manrope', sans-serif; font-size: 16px;
+    line-height: 1.6; -webkit-font-smoothing: antialiased;
+  }
+
+  /* ===== PAGE HERO ===== */
+  .page-hero {
+    padding: 140px 24px 60px; text-align: center;
+    position: relative; overflow: hidden;
+  }
+  .page-hero::before {
+    content: ''; position: absolute;
+    top: -200px; left: 50%; transform: translateX(-50%);
+    width: 900px; height: 600px;
+    background: radial-gradient(ellipse, rgba(255,87,51,0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .page-hero-inner { max-width: 760px; margin: 0 auto; position: relative; z-index: 1; }
+  .page-hero .overline {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 12px; font-weight: 600;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--coral-vivid); margin-bottom: 20px;
+  }
+  .page-hero h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(36px, 5vw, 52px);
+    font-weight: 700; letter-spacing: -0.03em;
+    line-height: 1.08; margin-bottom: 20px;
+  }
+  .page-hero h1 em { font-style: normal; color: var(--coral-vivid); }
+  .page-hero .lead {
+    font-size: 17px; color: var(--muted);
+    line-height: 1.7; max-width: 580px; margin: 0 auto;
+  }
+
+  /* ===== AGENTS GRID ===== */
+  .agents-wrap { max-width: 1200px; margin: 0 auto; padding: 40px 24px 80px; }
+  .tier-label {
+    display: inline-block;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 11px; font-weight: 700;
+    letter-spacing: 1.4px; text-transform: uppercase;
+    padding: 6px 14px; border-radius: 999px;
+    margin-bottom: 20px;
+  }
+  .tier-starter { background: rgba(70,234,237,0.1); color: var(--sky); }
+  .tier-growth { background: rgba(123,234,142,0.1); color: var(--lime); }
+  .tier-pro { background: rgba(196,168,255,0.1); color: var(--lavender); }
+
+  .tier-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 22px; font-weight: 600; letter-spacing: -0.01em;
+    margin-bottom: 4px;
+  }
+  .tier-sub {
+    color: var(--muted); font-size: 14px; margin-bottom: 24px;
+  }
+
+  .agent-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+    margin-bottom: 56px;
+  }
+  .agent-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 24px;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+    display: flex; flex-direction: column;
+  }
+  .agent-card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(255,87,51,0.4);
+  }
+  .agent-icon {
+    font-size: 28px; margin-bottom: 14px; line-height: 1;
+  }
+  .agent-name {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 17px; font-weight: 600; margin-bottom: 6px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .agent-name .arrow { color: var(--coral-vivid); transition: transform 0.2s; }
+  .agent-card:hover .agent-name .arrow { transform: translateX(3px); }
+  .agent-desc { font-size: 14px; color: var(--muted); line-height: 1.55; }
+
+  /* ===== CTA STRIP ===== */
+  .cta-strip {
+    max-width: 900px; margin: 0 auto;
+    padding: 40px 32px; background: var(--surface);
+    border-radius: 20px; text-align: center;
+  }
+  .cta-strip h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(24px, 3vw, 30px);
+    font-weight: 700; letter-spacing: -0.02em;
+    margin-bottom: 12px;
+  }
+  .cta-strip p { color: var(--muted); font-size: 15px; margin-bottom: 24px; }
+  .cta-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 13px 26px; border-radius: 10px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 14px; font-weight: 600;
+    text-decoration: none; border: none; cursor: pointer;
+    transition: opacity 0.2s, transform 0.2s;
+  }
+  .btn-coral { background: var(--coral-vivid); color: #fff; }
+  .btn-coral:hover { opacity: 0.9; transform: translateY(-1px); }
+  .btn-ghost { background: transparent; color: var(--text); border: 1px solid var(--border); }
+  .btn-ghost:hover { border-color: var(--text); }
+
+  /* ===== FOOTER ===== */
+  footer { border-top: 1px solid rgba(228,225,230,0.05); padding: 64px 24px 32px; max-width: 1200px; margin: 0 auto; }
+  .footer-inner { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 32px; }
+  .footer-brand { display: flex; flex-direction: column; gap: 12px; }
+  .footer-logo { font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 700; color: var(--text); text-decoration: none; letter-spacing: -0.02em; }
+  .footer-logo span { color: var(--coral-vivid); }
+  .footer-tagline { font-size: 13px; color: rgba(228,225,230,0.5); max-width: 280px; line-height: 1.6; }
+  .footer-nav { display: flex; gap: 48px; }
+  .footer-col h4 { font-family: 'Space Grotesk', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--text); margin-bottom: 16px; }
+  .footer-col a { display: block; color: rgba(228,225,230,0.5); text-decoration: none; font-size: 14px; padding: 4px 0; transition: color 0.3s; }
+  .footer-col a:hover { color: var(--text); }
+  .footer-divider { border: none; border-top: 1px solid rgba(228,225,230,0.05); margin-bottom: 20px; }
+  .footer-bottom { display: flex; justify-content: space-between; align-items: center; }
+  .footer-credit { font-size: 12px; color: rgba(228,225,230,0.5); }
+  .footer-socials { display: flex; gap: 16px; align-items: center; }
+  .footer-socials a { color: var(--muted); transition: color 0.3s; display: flex; align-items: center; justify-content: center; }
+  .footer-socials a:hover { color: var(--text); }
+  .footer-socials svg { width: 18px; height: 18px; }
+
+  @media (max-width: 900px) {
+    .footer-inner { flex-direction: column; gap: 24px; text-align: center; }
+    .footer-bottom { flex-direction: column; gap: 12px; }
+  }
+  @media (max-width: 600px) {
+    footer { padding: 32px 16px 24px; }
+    .footer-nav { flex-direction: column; gap: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<script src="nav.js?v=2"></script>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <div class="overline">AI Agents</div>
+    <h1>11 agents. <em>One platform.</em></h1>
+    <p class="lead">Front desk, follow-up, reviews, ops, reporting — every Kazozo plan includes agents that work together, powered by premium AI.</p>
+  </div>
+</section>
+
+<!-- AGENTS GRID -->
+<div class="agents-wrap">
+
+  <!-- Starter tier -->
+  <div class="tier-label tier-starter">Included in Starter · $249/mo</div>
+  <div class="tier-title">Core front desk</div>
+  <p class="tier-sub">The three agents every business needs to capture, qualify, and respond.</p>
+  <div class="agent-grid">
+    <a href="agents/frontline-agent.html" class="agent-card">
+      <div class="agent-icon">🛡️</div>
+      <div class="agent-name">Frontline Agent <span class="arrow">→</span></div>
+      <div class="agent-desc">Your 24/7 front desk — answers questions, books appointments, captures leads from your website, SMS, or WhatsApp.</div>
+    </a>
+    <a href="agents/customer-support.html" class="agent-card">
+      <div class="agent-icon">🎧</div>
+      <div class="agent-name">Customer Support <span class="arrow">→</span></div>
+      <div class="agent-desc">Handles orders, returns, refunds, and "where's my stuff?" in your voice. Escalates what it can't resolve.</div>
+    </a>
+    <a href="agents/lead-qualifier.html" class="agent-card">
+      <div class="agent-icon">🎯</div>
+      <div class="agent-name">Lead Qualifier <span class="arrow">→</span></div>
+      <div class="agent-desc">Asks the right questions, scores every inbound lead, routes hot ones to sales the moment they're ready.</div>
+    </a>
+  </div>
+
+  <!-- Growth tier -->
+  <div class="tier-label tier-growth">Added on Growth · $499/mo</div>
+  <div class="tier-title">Revenue + reputation</div>
+  <p class="tier-sub">Three more agents that follow up, win back, and keep your reviews coming.</p>
+  <div class="agent-grid">
+    <a href="agents/sales-agent.html" class="agent-card">
+      <div class="agent-icon">✉️</div>
+      <div class="agent-name">Sales Agent <span class="arrow">→</span></div>
+      <div class="agent-desc">Follows up on unsold quotes, nurtures pipeline, books sales calls. Never lets a hot lead go cold.</div>
+    </a>
+    <a href="agents/review-manager.html" class="agent-card">
+      <div class="agent-icon">⭐</div>
+      <div class="agent-name">Review Manager <span class="arrow">→</span></div>
+      <div class="agent-desc">Requests Google reviews after every job, responds to new reviews automatically, escalates the bad ones.</div>
+    </a>
+    <a href="agents/content-agent.html" class="agent-card">
+      <div class="agent-icon">🎬</div>
+      <div class="agent-name">Content Agent <span class="arrow">→</span></div>
+      <div class="agent-desc">Drafts social posts, newsletters, and campaigns on brand — from your own content library and tone of voice.</div>
+    </a>
+  </div>
+
+  <!-- Pro tier -->
+  <div class="tier-label tier-pro">Added on Pro · $999/mo</div>
+  <div class="tier-title">Back office + voice</div>
+  <p class="tier-sub">Five agents that handle ops, calls, employees, finance, and executive reporting.</p>
+  <div class="agent-grid">
+    <a href="agents/voice-agent.html" class="agent-card">
+      <div class="agent-icon">☎️</div>
+      <div class="agent-name">Voice Agent <span class="arrow">→</span></div>
+      <div class="agent-desc">Answers inbound calls with natural conversation, books appointments, takes messages. 24/7, no hold music.</div>
+    </a>
+    <a href="agents/service-operations.html" class="agent-card">
+      <div class="agent-icon">🔧</div>
+      <div class="agent-name">Service Operations <span class="arrow">→</span></div>
+      <div class="agent-desc">Triages service requests, dispatches to the right technician, keeps the queue moving and customers updated.</div>
+    </a>
+    <a href="agents/employee-agent.html" class="agent-card">
+      <div class="agent-icon">👤</div>
+      <div class="agent-name">Employee Agent <span class="arrow">→</span></div>
+      <div class="agent-desc">Your internal help desk — answers HR, IT, and policy questions from your own docs and wiki.</div>
+    </a>
+    <a href="agents/finance-agent.html" class="agent-card">
+      <div class="agent-icon">💰</div>
+      <div class="agent-name">Finance Agent <span class="arrow">→</span></div>
+      <div class="agent-desc">Invoice follow-ups, AR triage, expense questions, cashflow summaries. Knows your chart of accounts.</div>
+    </a>
+    <a href="agents/weekly-report.html" class="agent-card">
+      <div class="agent-icon">📊</div>
+      <div class="agent-name">Weekly Report <span class="arrow">→</span></div>
+      <div class="agent-desc">Monday-morning ops summary — revenue, pipeline, reviews, customer sentiment — delivered to your inbox.</div>
+    </a>
+  </div>
+
+  <!-- CTA STRIP -->
+  <div class="cta-strip">
+    <h2>Ready to put your agents to work?</h2>
+    <p>Starter is $249/mo with 500 AI responses included. Talk to Kaz to see which agents fit your business.</p>
+    <div class="cta-row">
+      <a href="pricing.html" class="btn btn-coral">See pricing →</a>
+      <button type="button" onclick="if(window.KazozoWidget){window.KazozoWidget.open()}else{window.location.href='contact.html'}" class="btn btn-ghost">Talk to Kaz</button>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="index.html" class="footer-logo">kazo<span>zo</span></a>
+      <p class="footer-tagline">The AI platform for business. Agents, apps, and automation.</p>
+    </div>
+    <div class="footer-nav">
+      <div class="footer-col">
+        <h4>Products</h4>
+        <a href="agents.html">AI Agents</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="industries.html">Industries</a>
+        <a href="simulation.html">Simulation</a>
+      </div>
+      <div class="footer-col">
+        <h4>Compare</h4>
+        <a href="compare/kazozo-vs-salesforce-agentforce.html">vs Salesforce</a>
+        <a href="compare/kazozo-vs-lindy.html">vs Lindy.ai</a>
+        <a href="compare/kazozo-vs-intercom.html">vs Intercom</a>
+      </div>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <a href="blog/">Blog</a>
+        <a href="faq.html">FAQ</a>
+        <a href="mailto:hello@kazozo.com">hello@kazozo.com</a>
+      </div>
+    </div>
+  </div>
+  <hr class="footer-divider">
+  <div class="footer-bottom">
+    <div class="footer-credit">&copy; 2026 Kazozo &middot; <a href="https://solanki.co" target="_blank" rel="noopener" style="color:var(--muted);text-decoration:none;">A Solanki Co product</a> &middot; <a href="privacy.html" style="color:var(--muted);text-decoration:none;">Privacy</a> &middot; <a href="terms.html" style="color:var(--muted);text-decoration:none;">Terms</a></div>
+    <div class="footer-socials">
+      <a href="https://instagram.com/kazozo.ai" target="_blank" rel="noopener" aria-label="Follow Kazozo on Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg></a>
+    </div>
+  </div>
+</footer>
+
+<!-- Kazozo Widget -->
+<script src="https://api.kazozo.com/widget/embed-loader.js"
+  data-tenant="kazozo-001"
+  data-api="https://api.kazozo.com"
+  data-bot-name="Kaz"
+  data-color="#FF5733"
+  data-position="bottom-right"></script>
+<script src="scripts/sticky-cta.js" defer></script>
+
+</body>
+</html>

@@ -48,7 +48,7 @@
     wrap.setAttribute('aria-label', 'Pricing call to action');
 
     var a = document.createElement('a');
-    a.href = root + 'index.html#pricing';
+    a.href = root + 'pricing.html';
     a.innerHTML =
       '<span>Plans from</span>' +
       '<span class="kz-sticky-price" data-price="plans.starter.display">$249</span>' +
