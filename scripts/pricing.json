@@ -32,7 +32,8 @@
     },
     "voice": {
       "rate": 1.10,
-      "display": "$1.10"
+      "display": "$1.10",
+      "description": "Per-call add-on; $1.10 per answered call in addition to plan base."
     }
   }
 }

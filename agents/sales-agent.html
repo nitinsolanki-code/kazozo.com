@@ -4,22 +4,24 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sales Agent — Outreach, follow-ups, proposals, and closes | Kazozo</title>
-<meta name="description" content="The Sales Agent runs personalized outreach sequences, sends follow-ups at the right time, generates proposals, schedules meetings, and logs every interacti">
+<meta name="description" content="The Sales Agent runs personalized outreach sequences, generates proposals, schedules meetings, and logs all interactions to your CRM for closing deals.">>
 <link rel="canonical" href="https://kazozo.com/agents/sales-agent.html">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Sales Agent — Outreach, follow-ups, proposals, and closes | Kazozo">
-<meta property="og:description" content="The Sales Agent runs personalized outreach sequences, sends follow-ups at the right time, generates proposals, schedules meetings, and logs every interacti">
+<meta property="og:description" content="The Sales Agent runs personalized outreach sequences, generates proposals, schedules meetings, and logs all interactions to your CRM for closing deals.">>
 <meta property="og:url" content="https://kazozo.com/agents/sales-agent.html">
 <meta property="og:image" content="https://kazozo.com/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Sales Agent — Outreach, follow-ups, proposals, and closes | Kazozo">
-<meta name="twitter:description" content="The Sales Agent runs personalized outreach sequences, sends follow-ups at the right time, generates proposals, schedules meetings, and logs every interacti">
+<meta name="twitter:description" content="The Sales Agent runs personalized outreach sequences, generates proposals, schedules meetings, and logs all interactions to your CRM for closing deals.">>
 
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230C0B12'/%3E%3Ctext x='3' y='23' font-family='system-ui,sans-serif' font-size='20' font-weight='700' fill='%23F0EFF4'%3Ek%3C/text%3E%3Ctext x='15' y='23' font-family='system-ui,sans-serif' font-size='20' font-weight='700' fill='%23FF6B5A'%3Ez%3C/text%3E%3C/svg%3E">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="preconnect" href="https://api.kazozo.com">
 
 <style>
 
@@ -222,6 +224,21 @@ body {
 .route-intent { font-size: .82rem; color: var(--muted); flex: 1; }
 .route-target { font-family: 'Space Grotesk', sans-serif; font-size: .82rem; font-weight: 700; color: var(--text); white-space: nowrap; }
 
+/* ===== FAQ ===== */
+.faq-list { margin-top: 16px; }
+.faq-item { border-bottom: 1px solid var(--border); }
+.faq-q {
+  display: flex; justify-content: space-between; align-items: center; gap: 16px;
+  padding: 20px 0; cursor: pointer; font-weight: 600; font-size: 1rem; color: var(--text);
+  background: none; border: none; width: 100%; text-align: left; font-family: inherit;
+}
+.faq-q:hover { color: var(--coral); }
+.faq-arrow { font-size: 1.2rem; color: var(--muted); transition: transform 0.3s; flex-shrink: 0; }
+.faq-item.open .faq-arrow { transform: rotate(45deg); }
+.faq-a { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.4s ease; }
+.faq-item.open .faq-a { max-height: 500px; }
+.faq-a-inner { padding: 0 0 20px; color: var(--muted); font-size: 0.95rem; line-height: 1.7; }
+
 /* ===== CTA ===== */
 .cta-section {
   text-align: center; padding: 80px 0;
@@ -292,6 +309,30 @@ footer { border-top: 1px solid var(--border); padding: 48px 0 32px; }
     "name": "Kazozo",
     "url": "https://kazozo.com"
   }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What does the Sales Agent actually do?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The Sales Agent runs personalized outreach campaigns, schedules follow-ups at optimal times, generates custom proposals, qualifies prospects, books meetings, and logs every touchpoint to your CRM."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is pricing measured?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Every interaction with the Sales Agent counts as one AI response against your plan's monthly pool. Your plan includes a set number of AI responses per month (Starter: 500, Growth: 2,000, Pro: 6,000)."
+      }
+    }
+  ]
 }
 </script>
 </head>
@@ -499,6 +540,37 @@ footer { border-top: 1px solid var(--border); padding: 48px 0 32px; }
           <div class="vert-desc">Enrollment follow-ups, financial aid proposals, campus visit scheduling.</div>
         </div>
       </div>
+  <section class="section">
+    <div class="container">
+      <div class="section-label">FAQ</div>
+      <h2 class="section-title">Frequently asked questions</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-q">What does the Sales Agent actually do?<span class="faq-arrow">+</span></button>
+          <div class="faq-a"><div class="faq-a-inner">The Sales Agent runs personalized outreach campaigns, schedules follow-ups at optimal times, generates custom proposals, qualifies prospects, books meetings, and logs every touchpoint to your CRM. It turns lead lists into closed deals without manual busywork.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">How does the Sales Agent connect to my existing tools?<span class="faq-arrow">+</span></button>
+          <div class="faq-a"><div class="faq-a-inner">It integrates with Salesforce, HubSpot, Pipedrive, Outreach, and other CRM platforms. Prospects are pulled from your CRM, outreach is logged automatically, and new deals are created in your pipeline in real-time.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">How is pricing measured?<span class="faq-arrow">+</span></button>
+          <div class="faq-a"><div class="faq-a-inner">Every interaction with the Sales Agent counts as one AI response against your plan's monthly pool. Your plan includes a set number of AI responses per month (Starter: 500, Growth: 2,000, Pro: 6,000). Overages are billed at your plan's per-AI-response rate.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Can I customize its behavior?<span class="faq-arrow">+</span></button>
+          <div class="faq-a"><div class="faq-a-inner">Completely. You define target personas, message templates, follow-up cadences, qualification criteria, and deal stages. The Sales Agent adapts to your sales methodology and uses your exact pitch language.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">What happens when it can't solve something?<span class="faq-arrow">+</span></button>
+          <div class="faq-a"><div class="faq-a-inner">If a prospect shows complex needs or requires a custom proposal, the Sales Agent escalates to your team with all research and prior interactions. It also flags unresponsive leads so you don't waste time.</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
     </div>
   </section>
 
@@ -550,6 +622,15 @@ footer { border-top: 1px solid var(--border); padding: 48px 0 32px; }
       </div>
     </div>
   </footer>
+
+<script>
+document.querySelectorAll('.faq-q).forEach(button => {
+  button.addEventListener('click', () => {
+    const item = button.parentElement;
+    item.classList.toggle('open');
+  });
+});
+</script>
 
 <script async src="https://api.kazozo.com/widget/frontline-widget.js"
   data-tenant-id="d4182074-fe70-4bac-8e14-9ab6e47ca458"

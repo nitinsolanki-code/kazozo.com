@@ -4,22 +4,24 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Review Manager — Monitors, responds to, and grows your online reviews | Kazozo</title>
-<meta name="description" content="The Review Manager monitors reviews across Google, Yelp, and Facebook, analyzes sentiment, drafts on-brand responses, sends review requests after service, ">
+<meta name="description" content="Monitor reviews across Google, Yelp, and Facebook, analyze sentiment, draft on-brand responses, send review requests, and alert on urgent issues.">>
 <link rel="canonical" href="https://kazozo.com/agents/review-manager.html">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Review Manager — Monitors, responds to, and grows your online reviews | Kazozo">
-<meta property="og:description" content="The Review Manager monitors reviews across Google, Yelp, and Facebook, analyzes sentiment, drafts on-brand responses, sends review requests after service, ">
+<meta property="og:description" content="Monitor reviews across Google, Yelp, and Facebook, analyze sentiment, draft on-brand responses, send review requests, and alert on urgent issues.">>
 <meta property="og:url" content="https://kazozo.com/agents/review-manager.html">
 <meta property="og:image" content="https://kazozo.com/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Review Manager — Monitors, responds to, and grows your online reviews | Kazozo">
-<meta name="twitter:description" content="The Review Manager monitors reviews across Google, Yelp, and Facebook, analyzes sentiment, drafts on-brand responses, sends review requests after service, ">
+<meta name="twitter:description" content="Monitor reviews across Google, Yelp, and Facebook, analyze sentiment, draft on-brand responses, send review requests, and alert on urgent issues.">>
 
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230C0B12'/%3E%3Ctext x='3' y='23' font-family='system-ui,sans-serif' font-size='20' font-weight='700' fill='%23F0EFF4'%3Ek%3C/text%3E%3Ctext x='15' y='23' font-family='system-ui,sans-serif' font-size='20' font-weight='700' fill='%23FF6B5A'%3Ez%3C/text%3E%3C/svg%3E">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="preconnect" href="https://api.kazozo.com">
 
 <style>
 
@@ -222,6 +224,21 @@ body {
 .route-intent { font-size: .82rem; color: var(--muted); flex: 1; }
 .route-target { font-family: 'Space Grotesk', sans-serif; font-size: .82rem; font-weight: 700; color: var(--text); white-space: nowrap; }
 
+/* ===== FAQ ===== */
+.faq-list { margin-top: 16px; }
+.faq-item { border-bottom: 1px solid var(--border); }
+.faq-q {
+  display: flex; justify-content: space-between; align-items: center; gap: 16px;
+  padding: 20px 0; cursor: pointer; font-weight: 600; font-size: 1rem; color: var(--text);
+  background: none; border: none; width: 100%; text-align: left; font-family: inherit;
+}
+.faq-q:hover { color: var(--coral); }
+.faq-arrow { font-size: 1.2rem; color: var(--muted); transition: transform 0.3s; flex-shrink: 0; }
+.faq-item.open .faq-arrow { transform: rotate(45deg); }
+.faq-a { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.4s ease; }
+.faq-item.open .faq-a { max-height: 500px; }
+.faq-a-inner { padding: 0 0 20px; color: var(--muted); font-size: 0.95rem; line-height: 1.7; }
+
 /* ===== CTA ===== */
 .cta-section {
   text-align: center; padding: 80px 0;
@@ -292,6 +309,30 @@ footer { border-top: 1px solid var(--border); padding: 48px 0 32px; }
     "name": "Kazozo",
     "url": "https://kazozo.com"
   }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What does the Review Manager actually do?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The Review Manager monitors your online reputation across Google, Yelp, Facebook, and other platforms, analyzes sentiment and themes, drafts on-brand responses to reviews, and sends review requests automatically."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is pricing measured?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Every interaction with the Review Manager counts as one AI response against your plan's monthly pool. Your plan includes a set number of AI responses per month (Starter: 500, Growth: 2,000, Pro: 6,000)."
+      }
+    }
+  ]
 }
 </script>
 </head>
@@ -483,6 +524,37 @@ footer { border-top: 1px solid var(--border); padding: 48px 0 32px; }
           <div class="vert-desc">Repeat business built on reputation and word-of-mouth.</div>
         </div>
       </div>
+  <section class="section">
+    <div class="container">
+      <div class="section-label">FAQ</div>
+      <h2 class="section-title">Frequently asked questions</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-q">What does the Review Manager actually do?<span class="faq-arrow">+</span></button>
+          <div class="faq-a"><div class="faq-a-inner">The Review Manager monitors your online reputation across Google, Yelp, Facebook, and other platforms, analyzes sentiment and themes, drafts on-brand responses to reviews, sends automatic review requests after service, and alerts you to urgent issues. Your reputation, managed 24/7.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">How does the Review Manager connect to my existing tools?<span class="faq-arrow">+</span></button>
+          <div class="faq-a"><div class="faq-a-inner">It integrates with Google My Business, Yelp, Facebook, and other review platforms via their APIs. It also connects to your CRM to send review requests at the right moment and logs responses in your customer records.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">How is pricing measured?<span class="faq-arrow">+</span></button>
+          <div class="faq-a"><div class="faq-a-inner">Every interaction with the Review Manager counts as one AI response against your plan's monthly pool. Your plan includes a set number of AI responses per month (Starter: 500, Growth: 2,000, Pro: 6,000). Overages are billed at your plan's per-AI-response rate.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Can I customize its behavior?<span class="faq-arrow">+</span></button>
+          <div class="faq-a"><div class="faq-a-inner">Yes. You define your brand voice and tone so responses match your style. You set thresholds for alerts, choose which platforms to monitor, customize the review request timing, and control response templates.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">What happens when it can't solve something?<span class="faq-arrow">+</span></button>
+          <div class="faq-a"><div class="faq-a-inner">If a review requires a nuanced response or involves a sensitive issue, the Review Manager flags it for your team to review before sending. Complex issues always go to human review first.</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
     </div>
   </section>
 
@@ -534,6 +606,15 @@ footer { border-top: 1px solid var(--border); padding: 48px 0 32px; }
       </div>
     </div>
   </footer>
+
+<script>
+document.querySelectorAll('.faq-q).forEach(button => {
+  button.addEventListener('click', () => {
+    const item = button.parentElement;
+    item.classList.toggle('open');
+  });
+});
+</script>
 
 <script async src="https://api.kazozo.com/widget/frontline-widget.js"
   data-tenant-id="d4182074-fe70-4bac-8e14-9ab6e47ca458"
