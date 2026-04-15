@@ -752,6 +752,17 @@
   ]
 }
 </script>
+
+    <style id="further-reading-style">
+        .further-reading { padding: 4rem 2rem; max-width: 1200px; margin: 0 auto; }
+        .further-reading h2 { font-family: 'Space Grotesk', sans-serif; font-size: clamp(1.5rem, 3vw, 2rem); margin-bottom: 0.5rem; }
+        .further-reading .fr-sub { color: var(--muted, rgba(240,239,244,0.55)); margin-bottom: 2rem; font-size: 1rem; }
+        .fr-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem; }
+        .fr-card { display: block; padding: 1.5rem; background: rgba(255,255,255,0.03); border: 1px solid var(--border, rgba(255,255,255,0.08)); border-radius: 12px; text-decoration: none; color: inherit; transition: border-color .2s, transform .2s; }
+        .fr-card:hover { border-color: var(--coral, #FF6B5A); transform: translateY(-2px); }
+        .fr-card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 1.1rem; margin-bottom: 0.5rem; color: var(--text, #F0EFF4); }
+        .fr-card p { font-size: 0.9rem; color: var(--muted, rgba(240,239,244,0.6)); line-height: 1.5; }
+    </style>
 </head>
 <body>
 <div id="site-nav"></div>
@@ -983,7 +994,26 @@
         </div>
     </section>
 
-    <!-- CTA Section -->
+    <!-- FURTHER_READING_BLOCK -->
+    <section class="further-reading">
+        <h2>Further reading</h2>
+        <p class="fr-sub">Deeper context on pricing, product choice, and what to ask before signing.</p>
+        <div class="fr-grid">
+            <a href="../blog/ai-response-vs-per-seat-pricing.html" class="fr-card">
+                <h3>AI Response vs Per-Seat Pricing →</h3>
+                <p>The three AI billing models and which one matches the job you're buying for.</p>
+            </a>
+            <a href="../blog/kazozo-vs-building-your-own-ai.html" class="fr-card">
+                <h3>Buy vs Build: Why Pre-Configured Agents Win →</h3>
+                <p>Why custom AI development usually costs more and delivers less.</p>
+            </a>
+            <a href="../blog/ai-agents-roi-small-business.html" class="fr-card">
+                <h3>ROI of AI Agents for SMBs →</h3>
+                <p>Realistic payback math across chat, voice, and lead follow-up.</p>
+            </a>
+        </div>
+    </section>
+<!-- CTA Section -->
     <section class="cta-section">
         <h2>Ready to Transform Your Business?</h2>
         <p>Let's discuss which AI agent platform is the best fit for your team and goals.</p>
