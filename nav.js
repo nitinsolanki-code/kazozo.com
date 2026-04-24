@@ -41,16 +41,20 @@
   // For pages in subdirectories, prefix paths
   var prefix = isInSubdir ? '../' : '';
 
-  var pricingHref  = prefix + 'pricing.html';
-  var agentsHref   = prefix + 'agents.html';
-  var appsHref     = isHome ? '#agentic-apps' : prefix + 'index.html#agentic-apps';
-  var industriesHref = prefix + 'industries.html';
-  var simulationHref = prefix + 'simulation.html';
-  var demoHref     = prefix + 'book-a-demo.html';
-  var homeHref     = prefix + 'index.html';
-  var aboutHref    = prefix + 'about.html';
-  var contactHref  = prefix + 'contact.html';
-  var faqHref      = prefix + 'faq.html';
+  var homeHref        = prefix + 'index.html';
+  var pricingHref     = isHome ? '#pricing' : prefix + 'pricing.html';
+  var platformHref    = isHome ? '#products' : prefix + 'index.html#products';
+  var integrationsHref= prefix + 'integrations.html';
+  var trustHref       = prefix + 'trust.html';
+  var agentsPageHref  = prefix + 'agents.html';
+  var useCasesHref    = prefix + 'industries.html';
+  var blogHref        = prefix + 'blog/';
+  var simulationHref  = prefix + 'simulation.html';
+  var roiCalcHref     = prefix + 'roi-calculator.html';
+  var faqHref         = prefix + 'faq.html';
+  var aboutHref       = prefix + 'about.html';
+  var contactHref     = prefix + 'contact.html';
+  var bookDemoHref    = prefix + 'book-a-demo.html';
 
   /* ------------------------------------------------------------------ */
   /*  2.  Scoped CSS                                                     */
@@ -232,29 +236,82 @@
     </div>\
     <ul class="kz-nav-links">\
       <li class="kz-dropdown">\
-        <button type="button" class="kz-dropdown-trigger">Products <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 4.5l3 3 3-3"/></svg></button>\
+        <button type="button" class="kz-dropdown-trigger">Platform <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 4.5l3 3 3-3"/></svg></button>\
         <div class="kz-dropdown-menu">\
-          <a href="' + agentsHref + '">\
-            <div class="kz-dropdown-icon">&#129302;</div>\
-            <div>\
-              <div class="kz-dropdown-label">AI Agents</div>\
-              <div class="kz-dropdown-desc">Sales, support &amp; ops on autopilot</div>\
-            </div>\
-          </a>\
-          <a href="' + appsHref + '" style="opacity:0.5; pointer-events:none;">\
+          <a href="' + platformHref + '">\
             <div class="kz-dropdown-icon">&#9889;</div>\
             <div>\
-              <div class="kz-dropdown-label">Agentic Apps <span class="kz-dropdown-soon">Soon</span></div>\
-              <div class="kz-dropdown-desc">AI-powered business applications</div>\
+              <div class="kz-dropdown-label">How It Works</div>\
+              <div class="kz-dropdown-desc">The AI workforce platform, explained</div>\
+            </div>\
+          </a>\
+          <a href="' + integrationsHref + '">\
+            <div class="kz-dropdown-icon">&#128279;</div>\
+            <div>\
+              <div class="kz-dropdown-label">Integrations</div>\
+              <div class="kz-dropdown-desc">HubSpot, Calendly, Shopify &amp; more</div>\
+            </div>\
+          </a>\
+          <a href="' + trustHref + '">\
+            <div class="kz-dropdown-icon">&#128737;</div>\
+            <div>\
+              <div class="kz-dropdown-label">Trust &amp; Security</div>\
+              <div class="kz-dropdown-desc">How we handle your data</div>\
             </div>\
           </a>\
         </div>\
       </li>\
+      <li><a href="' + agentsPageHref + '">Agents</a></li>\
+      <li><a href="' + useCasesHref + '">Use Cases</a></li>\
       <li><a href="' + pricingHref + '">Pricing</a></li>\
-      <li><a href="' + industriesHref + '">Industries</a></li>\
-      <li><a href="' + simulationHref + '">Simulation</a></li>\
-      <li><a href="' + demoHref + '">Book a demo</a></li>\
-      <li><button type="button" onclick="' + talkToKaz + '" class="kz-btn-nav">Talk to Kaz</button></li>\
+      <li class="kz-dropdown">\
+        <button type="button" class="kz-dropdown-trigger">Resources <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 4.5l3 3 3-3"/></svg></button>\
+        <div class="kz-dropdown-menu">\
+          <a href="' + blogHref + '">\
+            <div class="kz-dropdown-icon">&#128221;</div>\
+            <div>\
+              <div class="kz-dropdown-label">Blog</div>\
+              <div class="kz-dropdown-desc">Guides, playbooks &amp; updates</div>\
+            </div>\
+          </a>\
+          <a href="' + simulationHref + '">\
+            <div class="kz-dropdown-icon">&#127916;</div>\
+            <div>\
+              <div class="kz-dropdown-label">Live Simulation</div>\
+              <div class="kz-dropdown-desc">See agents in action</div>\
+            </div>\
+          </a>\
+          <a href="' + roiCalcHref + '">\
+            <div class="kz-dropdown-icon">&#128200;</div>\
+            <div>\
+              <div class="kz-dropdown-label">ROI Calculator</div>\
+              <div class="kz-dropdown-desc">Estimate your savings</div>\
+            </div>\
+          </a>\
+          <a href="' + faqHref + '">\
+            <div class="kz-dropdown-icon">&#10067;</div>\
+            <div>\
+              <div class="kz-dropdown-label">FAQ</div>\
+              <div class="kz-dropdown-desc">Common questions</div>\
+            </div>\
+          </a>\
+          <a href="' + aboutHref + '">\
+            <div class="kz-dropdown-icon">&#127970;</div>\
+            <div>\
+              <div class="kz-dropdown-label">About</div>\
+              <div class="kz-dropdown-desc">Who we are</div>\
+            </div>\
+          </a>\
+          <a href="' + contactHref + '">\
+            <div class="kz-dropdown-icon">&#9993;</div>\
+            <div>\
+              <div class="kz-dropdown-label">Contact</div>\
+              <div class="kz-dropdown-desc">Get in touch</div>\
+            </div>\
+          </a>\
+        </div>\
+      </li>\
+      <li><a href="' + bookDemoHref + '" class="kz-btn-nav">Book a Demo</a></li>\
     </ul>\
     <div class="kz-auth">\
       <a href="https://api.kazozo.com/login.html?role=customer" class="kz-login">Login</a>\
@@ -265,19 +322,22 @@
 \
 <div class="kz-mobile-overlay" id="kzMobileOverlay"></div>\
 <div class="kz-mobile-nav" id="kzMobileNav">\
-  <span class="kz-mobile-label">Products</span>\
-  <a href="' + agentsHref + '" class="kz-mobile-link">AI Agents</a>\
-  <a href="#" class="kz-mobile-link" style="opacity:0.4; pointer-events:none;">Agentic Apps <span class="kz-dropdown-soon">Soon</span></a>\
+  <span class="kz-mobile-label">Platform</span>\
+  <a href="' + platformHref + '" class="kz-mobile-link">How It Works</a>\
+  <a href="' + integrationsHref + '" class="kz-mobile-link">Integrations</a>\
+  <a href="' + trustHref + '" class="kz-mobile-link">Trust &amp; Security</a>\
   <span class="kz-mobile-label" style="margin-top:16px;">Navigate</span>\
+  <a href="' + agentsPageHref + '" class="kz-mobile-link">Agents</a>\
+  <a href="' + useCasesHref + '" class="kz-mobile-link">Use Cases</a>\
   <a href="' + pricingHref + '" class="kz-mobile-link">Pricing</a>\
-  <a href="' + industriesHref + '" class="kz-mobile-link">Industries</a>\
-  <a href="' + demoHref + '" class="kz-mobile-link">Book a demo</a>\
-  <a href="' + simulationHref + '" class="kz-mobile-link">Simulation</a>\
-  <span class="kz-mobile-label" style="margin-top:16px;">Company</span>\
-  <a href="' + aboutHref + '" class="kz-mobile-link">About</a>\
+  <span class="kz-mobile-label" style="margin-top:16px;">Resources</span>\
+  <a href="' + blogHref + '" class="kz-mobile-link">Blog</a>\
+  <a href="' + simulationHref + '" class="kz-mobile-link">Live Simulation</a>\
+  <a href="' + roiCalcHref + '" class="kz-mobile-link">ROI Calculator</a>\
   <a href="' + faqHref + '" class="kz-mobile-link">FAQ</a>\
+  <a href="' + aboutHref + '" class="kz-mobile-link">About</a>\
   <a href="' + contactHref + '" class="kz-mobile-link">Contact</a>\
-  <button type="button" onclick="' + talkToKaz + ';kzCloseMobile();" class="kz-mobile-cta">Talk to Kaz &#8594;</button>\
+  <a href="' + bookDemoHref + '" class="kz-mobile-cta" style="text-decoration:none;">Book a Demo &#8594;</a>\
   <div style="display:flex; gap:12px; margin-top:12px;">\
     <a href="https://api.kazozo.com/login.html?role=customer" class="kz-mobile-link" style="flex:1; text-align:center;">Login</a>\
     <a href="https://api.kazozo.com/signup.html" class="kz-mobile-cta" style="flex:1; text-align:center; margin:0;">Get Started</a>\
