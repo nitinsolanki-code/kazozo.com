@@ -1,166 +1,228 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Data Deletion Status – Kazozo</title>
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background: #0c0b12;
-      color: #f0eeff;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 2rem 1.25rem;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Data Deletion Instructions — Kazozo</title>
+<link rel="canonical" href="https://kazozo.com/data-deletion.html">
+<meta property="og:title" content="Data Deletion Instructions — Kazozo">
+<meta property="og:description" content="How to request deletion of data Kazozo holds about you, including data obtained through connected Meta (Instagram, Facebook) accounts.">
+<meta property="og:url" content="https://kazozo.com/data-deletion.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Kazozo">
+<meta property="og:image" content="https://kazozo.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Data Deletion Instructions — Kazozo">
+<meta name="twitter:description" content="How to request deletion of your Kazozo and connected-platform data.">
+<meta name="twitter:image" content="https://kazozo.com/og-image.png">
+<meta name="description" content="Kazozo data deletion instructions for end users and connected platform accounts (Instagram, Facebook, LinkedIn).">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230C0B12'/%3E%3Ctext x='3' y='23' font-family='system-ui,sans-serif' font-size='20' font-weight='700' fill='%23F0EFF4'%3Ek%3C/text%3E%3Ctext x='15' y='23' font-family='system-ui,sans-serif' font-size='20' font-weight='700' fill='%23FF6B5A'%3Ez%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  :root {
+      --bg: #131316;
+      --surface: #1b1b1e;
+      --card: #1f1f22;
+      --card-high: #2a2a2d;
+      --coral: #FFB4A4;
+      --coral-vivid: #FF5733;
+      --lime: #46EAED;
+      --lavender: #46EAED;
+      --sky: #46EAED;
+      --amber: #EBC314;
+      --text: #E4E1E6;
+      --muted: #9e9ba5;
+      --border: rgba(228,225,230,0.06);
+      --green: #46EAED;
     }
+  html { overflow-x:hidden; scroll-behavior:smooth; }
+  body { font-family:'Manrope',sans-serif; background:var(--bg); color:var(--text); overflow-x:hidden; width:100%; max-width:100vw; }
+  a { color:var(--coral); }
+  nav { position:fixed; top:0; left:0; right:0; z-index:1000; padding:12px 24px; }
+  .nav-inner { max-width:1200px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; background:rgba(19,18,29,0.85); backdrop-filter:blur(20px); border:1px solid var(--border); border-radius:16px; padding:14px 28px; }
+  .logo { font-family:'Space Grotesk',sans-serif; font-size:24px; font-weight:700; color:var(--text); text-decoration:none; }
+  .logo span { color:var(--coral); }
+  .back-link { color:var(--muted); text-decoration:none; font-size:14px; font-weight:500; transition:color 0.3s; }
+  .back-link:hover { color:var(--text); }
+  .content { max-width:760px; margin:0 auto; padding:140px 24px 80px; }
+  h1 { font-family:'Space Grotesk',sans-serif; font-size:clamp(28px,4vw,42px); font-weight:800; margin-bottom:8px; letter-spacing:-1px; }
+  .updated { font-size:13px; color:var(--muted); margin-bottom:40px; }
+  h2 { font-family:'Space Grotesk',sans-serif; font-size:20px; font-weight:600; margin:40px 0 12px; color:var(--text); }
+  h3 { font-family:'Space Grotesk',sans-serif; font-size:16px; font-weight:600; margin:24px 0 10px; color:var(--text); }
+  p, li { font-size:15px; color:var(--muted); line-height:1.8; margin-bottom:12px; }
+  ul, ol { padding-left:20px; margin-bottom:12px; }
+  .callout { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:20px 22px; margin:20px 0; }
+  .callout p:last-child { margin-bottom:0; }
+  code { font-family:'JetBrains Mono', ui-monospace, monospace; font-size:13px; background:var(--card); padding:1px 6px; border-radius:4px; color:var(--text); }
+  footer { border-top:1px solid var(--border); padding:24px; text-align:center; font-size:13px; color:var(--muted); }
 
-    .card {
-      background: #1a1826;
-      border: 1px solid #2e2b42;
-      border-radius: 12px;
-      max-width: 520px;
-      width: 100%;
-      padding: 2.5rem 2rem;
-      text-align: center;
-    }
+  /* MOBILE FIRST FIXES */
+  img, iframe, video, embed, object, svg { max-width: 100%; }
 
-    .logo {
-      font-size: 1.75rem;
-      font-weight: 700;
-      letter-spacing: -0.5px;
-      margin-bottom: 1.75rem;
-    }
-    .logo span { color: #ff6b6b; }
+  @media(max-width:600px) {
+    nav { padding:8px 12px; }
+    .nav-inner { padding:10px 16px; border-radius:12px; }
+    .logo { font-size:20px; }
+    .content { padding:120px 16px 60px; }
+    footer { padding:32px 16px; }
+  }
 
-    .icon {
-      width: 56px;
-      height: 56px;
-      background: #12291a;
-      border: 1.5px solid #1e5a2e;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 1.25rem;
-    }
-    .icon svg { width: 28px; height: 28px; }
-
-    h1 {
-      font-size: 1.35rem;
-      font-weight: 600;
-      margin-bottom: 0.75rem;
-      color: #ffffff;
-    }
-
-    p {
-      font-size: 0.95rem;
-      color: #9f9bbf;
-      line-height: 1.6;
-      margin-bottom: 1.5rem;
-    }
-
-    .code-block {
-      background: #0c0b12;
-      border: 1px solid #2e2b42;
-      border-radius: 8px;
-      padding: 0.875rem 1rem;
-      margin-bottom: 1.75rem;
-    }
-
-    .code-label {
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: #6b68a0;
-      margin-bottom: 0.4rem;
-    }
-
-    .code-value {
-      font-family: "SF Mono", "Fira Code", "Courier New", monospace;
-      font-size: 1rem;
-      font-weight: 600;
-      color: #b8b0ff;
-      word-break: break-all;
-    }
-
-    .code-value.empty {
-      color: #4a4770;
-      font-style: italic;
-      font-size: 0.875rem;
-    }
-
-    .note {
-      font-size: 0.8rem;
-      color: #6b68a0;
-      line-height: 1.5;
-      margin-bottom: 0;
-    }
-
-    .divider {
-      border: none;
-      border-top: 1px solid #2e2b42;
-      margin: 1.75rem 0;
-    }
-
-    a { color: #b8b0ff; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-  </style>
+  /* ===== FOOTER ===== */
+  footer {
+    border-top: 1px solid rgba(228,225,230,0.05); padding: 64px 24px 32px;
+    max-width: 1200px; margin: 0 auto;
+  }
+  .footer-inner {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    margin-bottom: 32px;
+  }
+  .footer-brand { display: flex; flex-direction: column; gap: 12px; }
+  .footer-logo { font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 700; color: var(--text); text-decoration: none; letter-spacing: -0.02em; }
+  .footer-logo span { color: var(--coral-vivid, #FF5733); }
+  .footer-tagline { font-size: 13px; color: rgba(228,225,230,0.5); max-width: 280px; line-height: 1.6; }
+  .footer-nav { display: flex; gap: 48px; }
+  .footer-col h4 { font-family: 'Space Grotesk', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--text, #E4E1E6); margin-bottom: 16px; }
+  .footer-col a { display: block; color: rgba(228,225,230,0.5); text-decoration: none; font-size: 14px; padding: 4px 0; transition: color 0.3s; }
+  .footer-col a:hover { color: var(--text, #E4E1E6); }
+  .footer-divider { border: none; border-top: 1px solid rgba(228,225,230,0.05); margin-bottom: 20px; }
+  .footer-bottom { display: flex; justify-content: space-between; align-items: center; }
+  .footer-credit { font-size: 12px; color: rgba(228,225,230,0.5); }
+  .footer-socials { display: flex; gap: 16px; align-items: center; }
+  .footer-socials a { color: var(--muted, rgba(228,225,230,0.5)); transition: color 0.3s; display: flex; align-items: center; justify-content: center; }
+  .footer-socials a:hover { color: var(--text, #E4E1E6); }
+  .footer-socials svg { width: 18px; height: 18px; }
+  @media (max-width: 900px) {
+    .footer-inner { flex-direction: column; gap: 24px; text-align: center; }
+    .footer-bottom { flex-direction: column; gap: 12px; }
+  }
+  @media (max-width: 600px) {
+    footer { padding: 32px 16px 24px; }
+    .footer-nav { flex-direction: column; gap: 24px; }
+  }
+</style>
 </head>
 <body>
-  <div class="card">
-    <div class="logo">kazo<span>zo</span></div>
+<div id="site-nav"></div>
+<script src="nav.js?v=3"></script>
 
-    <div class="icon">
-      <svg viewBox="0 0 24 24" fill="none" stroke="#34d058" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <circle cx="12" cy="12" r="10"/>
-        <polyline points="7 12 10.5 15.5 17 8.5"/>
-      </svg>
-    </div>
+<div class="content">
+  <h1>Data Deletion Instructions</h1>
+  <p class="updated">Last updated: April 25, 2026</p>
 
-    <h1>Data Deletion Confirmed</h1>
-    <p>
-      Your request to delete data associated with your Facebook account from
-      Kazozo has been received and is being processed. Any engagement data
-      linked to your account will be permanently removed.
-    </p>
+  <p style="margin-top:16px;">This page explains how to request deletion of personal data that <strong>Kazozo, Inc.</strong> ("Kazozo") holds about you, including data obtained when you or your business connects a third-party account — such as Instagram, Facebook, LinkedIn, or other Meta platforms — to a Kazozo agent.</p>
 
-    <div class="code-block">
-      <div class="code-label">Confirmation code</div>
-      <div class="code-value" id="code"></div>
-    </div>
+  <p>For our full description of how we collect, use, and protect data, see the <a href="privacy.html">Privacy Policy</a>.</p>
 
-    <p class="note">
-      Keep this confirmation code for your records. If you have questions,
-      contact us at <a href="mailto:hello@kazozo.com">hello@kazozo.com</a>
-      and reference this code.
-    </p>
+  <h2>1. What this covers</h2>
+  <p>Kazozo holds two kinds of personal data that you can ask us to delete:</p>
+  <ul>
+    <li><strong>Account data</strong> — name, email, billing details, and any content you submitted through the Kazozo product or website.</li>
+    <li><strong>Connected-platform data</strong> — when a Kazozo customer connects an Instagram, Facebook, LinkedIn, or similar account to power features like the Engagement Inbox, we ingest signals such as public mentions, comments, direct-message metadata, contact handles, and page or business identifiers. We use this data only to operate the connected feature for that customer; we do not sell it and do not use it for advertising.</li>
+  </ul>
 
-    <hr class="divider" />
+  <h2>2. If you are an end user (you commented, messaged, or interacted with a Kazozo-powered account)</h2>
+  <p>If you do not have a Kazozo account but a Kazozo customer's connected Instagram, Facebook, or LinkedIn account has captured your information through ordinary platform interaction (a comment, mention, or DM), you can request deletion of that data in either of two ways:</p>
 
-    <p class="note">
-      <a href="https://kazozo.com/privacy">Privacy Policy</a>
-      &nbsp;&middot;&nbsp;
-      <a href="https://kazozo.com">kazozo.com</a>
-    </p>
+  <h3>Option A — Email request</h3>
+  <ol>
+    <li>Email <a href="mailto:privacy@kazozo.com">privacy@kazozo.com</a> with the subject line <code>Data Deletion Request</code>.</li>
+    <li>Include the platform (Instagram, Facebook, LinkedIn, etc.), your handle or username on that platform, and — if you remember it — the name or handle of the business whose account interacted with you.</li>
+    <li>We will verify your control of the handle (typically by asking you to reply from a verifiable address or to send a one-time confirmation from the account in question), then delete the requested data within <strong>30 days</strong>.</li>
+    <li>We will email you a confirmation when deletion is complete, including a confirmation code you can retain.</li>
+  </ol>
+
+  <h3>Option B — Remove the source</h3>
+  <p>You can also remove our access at the source by deleting the underlying comment, message, or mention from your platform of origin. When the originating object is deleted on the platform, Kazozo's stored copy is purged on its next reconciliation cycle (within 7 days).</p>
+
+  <h2>3. If you are a Kazozo customer (you have a Kazozo account)</h2>
+  <p>You can take the following actions yourself from your Kazozo dashboard:</p>
+  <ul>
+    <li><strong>Disconnect a platform integration</strong> at <em>Integrations → [platform] → Disconnect</em>. Disconnection immediately stops further ingestion and queues deletion of all stored signals from that connection within <strong>30 days</strong>.</li>
+    <li><strong>Delete individual records</strong> from the Engagement Inbox, CRM, or other surfaces using the standard delete actions in the UI.</li>
+    <li><strong>Close your Kazozo account</strong> by emailing <a href="mailto:privacy@kazozo.com">privacy@kazozo.com</a> from your registered address. Account closure triggers deletion under the timelines in Section 9 of our <a href="privacy.html">Privacy Policy</a>.</li>
+  </ul>
+
+  <h2>4. Meta-specific deletion (Instagram &amp; Facebook)</h2>
+  <p>If you previously authorized Kazozo to access your Instagram or Facebook account, you can revoke that access directly with Meta — Kazozo's stored data for that connection is then deleted automatically:</p>
+  <ol>
+    <li>Open <a href="https://accounts.meta.com/apps/" target="_blank" rel="noopener">Meta Accounts Center → Apps and websites</a> (or, on Facebook: <em>Settings &amp; Privacy → Settings → Apps and websites</em>).</li>
+    <li>Locate <strong>Kazozo</strong> in the list of authorized apps.</li>
+    <li>Click <strong>Remove</strong>. Meta will notify Kazozo of the removal via the data deletion callback.</li>
+    <li>Within <strong>30 days</strong>, Kazozo deletes all data ingested through that connection. You will be redirected to <a href="data-deletion-status.html">our confirmation page</a> with a unique confirmation code you can retain.</li>
+  </ol>
+
+  <div class="callout">
+    <p><strong>Data Deletion Callback URL (for Meta App Review):</strong></p>
+    <p><code>https://api.kazozo.com/api/meta/data-deletion</code></p>
+    <p>This endpoint accepts Meta's signed deletion notifications, returns a confirmation URL of the form <code>https://kazozo.com/data-deletion-status.html?code={code}</code>, and triggers asynchronous deletion of all data tied to the affected user ID across Kazozo systems.</p>
   </div>
 
-  <script>
-    (function () {
-      var params = new URLSearchParams(window.location.search);
-      var code   = params.get("code");
-      var el     = document.getElementById("code");
-      if (code && /^[A-Za-z0-9\-_]{4,64}$/.test(code)) {
-        el.textContent = code;
-      } else {
-        el.textContent = "No confirmation code provided";
-        el.classList.add("empty");
-      }
-    })();
-  </script>
+  <h2>5. What we cannot delete</h2>
+  <p>Some records may be retained for limited purposes even after a deletion request:</p>
+  <ul>
+    <li><strong>Billing and tax records</strong> — retained for up to 7 years to meet legal accounting obligations.</li>
+    <li><strong>Security and audit logs</strong> — retained for up to 12 months in tamper-evident form to investigate fraud, abuse, or security incidents.</li>
+    <li><strong>Aggregated, de-identified data</strong> — that cannot reasonably be re-associated with you may be retained for product analytics.</li>
+    <li><strong>Data we are legally required to preserve</strong> — for example, in response to a valid legal hold.</li>
+  </ul>
+
+  <h2>6. Verification &amp; timelines</h2>
+  <p>To protect against fraudulent deletion requests, we will verify your identity or control of the relevant account before processing. Verification methods are proportionate to the sensitivity of the request.</p>
+  <p>Standard timeline: <strong>acknowledgement within 5 business days, completion within 30 days</strong> of a verified request. Where applicable law (GDPR, CCPA/CPRA) requires a shorter timeline, we comply with that.</p>
+
+  <h2>7. Questions or escalations</h2>
+  <p>For questions about this process, write to <a href="mailto:privacy@kazozo.com">privacy@kazozo.com</a>. If you are unsatisfied with our response, EEA/UK residents may lodge a complaint with their local supervisory authority; California residents may contact the California Privacy Protection Agency.</p>
+
+  <p style="margin-top:32px;font-size:13px;">Kazozo, Inc. · <a href="mailto:privacy@kazozo.com">privacy@kazozo.com</a></p>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="index.html" class="footer-logo" style="text-decoration:none;">kazo<span>zo</span></a>
+      <p class="footer-tagline">The AI workforce platform for every business. Agents that answer, sell, support, and operate.</p>
+    </div>
+    <div class="footer-nav">
+      <div class="footer-col">
+        <h4>Platform</h4>
+        <a href="agents.html">Agents</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="industries.html">Use Cases</a>
+        <a href="integrations.html">Integrations</a>
+        <a href="simulation.html">Simulation</a>
+      </div>
+      <div class="footer-col">
+        <h4>Compare</h4>
+        <a href="compare/kazozo-vs-salesforce-agentforce.html">vs Salesforce</a>
+        <a href="compare/kazozo-vs-lindy.html">vs Lindy.ai</a>
+        <a href="compare/kazozo-vs-intercom.html">vs Intercom</a>
+        <a href="compare/kazozo-vs-drift.html">vs Drift</a>
+        <a href="compare/kazozo-vs-chatgpt.html">vs ChatGPT</a>
+        <a href="compare/kazozo-vs-hubspot.html">vs HubSpot</a>
+      </div>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <a href="blog/">Blog</a>
+        <a href="book-a-demo.html">Book a Demo</a>
+        <a href="roi-calculator.html">ROI Calculator</a>
+        <a href="trust.html">Trust &amp; Security</a>
+        <a href="changelog.html">Changelog</a>
+        <a href="mailto:hello@kazozo.com">hello@kazozo.com</a>
+      </div>
+    </div>
+  </div>
+  <hr class="footer-divider">
+  <div class="footer-bottom">
+    <div class="footer-credit">&copy; 2026 Kazozo &middot; <a href="https://solanki.co" target="_blank" rel="noopener" style="color:var(--muted);text-decoration:none;">A Solanki Co product</a> &middot; <a href="privacy.html" style="color:var(--muted);text-decoration:none;">Privacy</a> &middot; <a href="terms.html" style="color:var(--muted);text-decoration:none;">Terms</a></div>
+    <div class="footer-socials">
+      <a href="https://instagram.com/kazozo.ai" target="_blank" rel="noopener" aria-label="Follow Kazozo on Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg></a>
+    </div>
+  </div>
+</footer>
+
+<script src="scripts/analytics.js" defer></script>
 </body>
 </html>

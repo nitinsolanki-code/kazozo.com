@@ -128,7 +128,7 @@
 
   <div class="content">
     <h1>Privacy Policy</h1>
-    <p class="updated">Last updated: April 15, 2026</p>
+    <p class="updated">Last updated: April 25, 2026</p>
 
     <p style="margin-top:16px;">This policy explains how <strong>Kazozo, Inc.</strong> ("Kazozo," "we," "us") collects, uses, and protects information in connection with kazozo.com and the Kazozo AI agent platform (the "Service"). For business customers, the processing of personal data about their end users is also governed by our <a href="dpa.html">Data Processing Agreement</a>, where Kazozo acts as a processor.</p>
 
@@ -138,6 +138,7 @@
       <li><strong>Information you provide</strong> — name, email, phone number, company, billing address, and any content you submit through forms, support channels, or the product itself.</li>
       <li><strong>Information from use of the Service</strong> — conversation content processed by the AI agents you configure, event logs (logins, feature usage, errors), and metadata about sessions.</li>
       <li><strong>Information from your devices</strong> — IP address, browser and OS identifiers, approximate location derived from IP, and cookie or similar identifiers described in Section 7.</li>
+      <li><strong>Information from connected platforms</strong> — when a customer authorizes Kazozo to connect to a third-party platform (such as Instagram, Facebook, LinkedIn, Google, or a CRM), we receive the data the customer authorizes through that platform's OAuth scopes. For social platforms used by the Engagement Inbox feature, this typically includes the connected business or page identifier, public mentions and comments, direct-message metadata and content sent to the connected account, and the handle and profile picture of the contact who interacted with the account. We use this data only to operate the connected feature for that customer — see Section 13 (<em>Connected platforms</em>).</li>
     </ul>
     <p>When business customers use Kazozo to run AI agents, we process data about <em>their</em> end users on <em>their</em> behalf. For that data, we act as a processor and the customer is the controller — the <a href="dpa.html">DPA</a> governs that relationship.</p>
 
@@ -222,7 +223,43 @@
     <h2>12. Changes to this policy</h2>
     <p>We may update this policy periodically. The "Last updated" date at the top reflects the most recent change. For material changes, we'll provide additional notice (email to account admins or an in-product notice) at least 30 days before they take effect, where practicable.</p>
 
-    <h2>13. Contact us</h2>
+    <h2>13. Connected platforms (Meta, LinkedIn, Google, and similar)</h2>
+    <p>Kazozo offers features — most notably the <strong>Engagement Inbox</strong> for the Content Agent — that operate on data Kazozo receives from third-party platforms a customer connects through OAuth. The data, retention, and deletion practices described in this section apply <em>in addition</em> to the rest of this policy.</p>
+
+    <h3 style="font-family:'Space Grotesk',sans-serif;font-size:16px;font-weight:600;margin:24px 0 10px;color:var(--text);">13.1 What we receive</h3>
+    <p>For Meta platforms (Instagram and Facebook) the data we receive through the permissions a customer grants typically includes:</p>
+    <ul>
+      <li>The Instagram Business Account ID and connected Facebook Page ID and metadata (name, profile picture, category).</li>
+      <li>Public comments and mentions directed at the connected account, with the commenting/mentioning user's handle, display name, and profile picture.</li>
+      <li>Direct messages sent <em>to</em> the connected account (and our replies sent through the connected account), with the sending user's handle and display name.</li>
+      <li>Engagement metadata — timestamps, message IDs, conversation IDs, and platform-supplied signals required to thread a conversation.</li>
+    </ul>
+    <p>For LinkedIn, Google, and other connected platforms we receive the equivalent set of identifiers, content, and metadata that the platform's authorized scopes return.</p>
+
+    <h3 style="font-family:'Space Grotesk',sans-serif;font-size:16px;font-weight:600;margin:24px 0 10px;color:var(--text);">13.2 How we use it (Limited Use)</h3>
+    <p>We use connected-platform data only to:</p>
+    <ul>
+      <li>Operate the feature the customer connected the platform for — for example, surfacing inbound mentions, comments, and messages in the Engagement Inbox; bundling them by contact; scoring against the customer's Ideal Customer Profile; and drafting suggested replies for the customer to review and approve.</li>
+      <li>Send replies <em>through</em> the connected account when the customer explicitly approves them.</li>
+      <li>Maintain reasonable security, audit, and abuse-detection logs.</li>
+    </ul>
+    <p><strong>We do not</strong> use connected-platform data for advertising, do not sell it, do not share it with data brokers, do not use it to build profiles for purposes unrelated to the connected feature, and do not use it to train any general-purpose model. Where Meta Platform Terms apply, our use of Meta data complies with the Meta Platform Terms' "Limited Use" requirements and is restricted to the purposes the customer enabled the integration for.</p>
+
+    <h3 style="font-family:'Space Grotesk',sans-serif;font-size:16px;font-weight:600;margin:24px 0 10px;color:var(--text);">13.3 Sharing</h3>
+    <p>Connected-platform data is processed by the same subprocessors listed at <a href="subprocessors.html">kazozo.com/subprocessors.html</a> — primarily our hosting, database, and LLM providers — under the terms described in Section 5. We do not share connected-platform data with the customer's other tenants and do not aggregate it across customers.</p>
+
+    <h3 style="font-family:'Space Grotesk',sans-serif;font-size:16px;font-weight:600;margin:24px 0 10px;color:var(--text);">13.4 Retention &amp; deletion</h3>
+    <p>Connected-platform data is retained for the same periods described in Section 9. In addition:</p>
+    <ul>
+      <li>When a customer disconnects an integration from <em>Integrations → [platform] → Disconnect</em> in the Kazozo dashboard, all signals ingested through that connection are queued for deletion within 30 days.</li>
+      <li>When a user revokes Kazozo's access via the platform itself (for Meta: <em>Accounts Center → Apps and websites → Kazozo → Remove</em>), the platform notifies Kazozo via the data deletion callback at <code style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:13px;background:var(--card);padding:1px 6px;border-radius:4px;color:var(--text);">https://api.kazozo.com/api/meta/data-deletion</code>, and we delete all data tied to that user ID within 30 days.</li>
+      <li>End users (people who interacted with a customer's connected account but do not have a Kazozo account themselves) can request deletion through the process described in our <a href="data-deletion.html">Data Deletion Instructions</a> page.</li>
+    </ul>
+
+    <h3 style="font-family:'Space Grotesk',sans-serif;font-size:16px;font-weight:600;margin:24px 0 10px;color:var(--text);">13.5 User control</h3>
+    <p>You can review and revoke Kazozo's access to a connected platform at any time, either from the Kazozo dashboard (customer-side) or from the platform itself (end-user side). Step-by-step instructions are on the <a href="data-deletion.html">Data Deletion Instructions</a> page.</p>
+
+    <h2>14. Contact us</h2>
     <p>Kazozo, Inc. · <a href="mailto:privacy@kazozo.com">privacy@kazozo.com</a> for privacy and data subject requests · <a href="mailto:legal@kazozo.com">legal@kazozo.com</a> for DPA and contract questions · <a href="mailto:security@kazozo.com">security@kazozo.com</a> for security concerns. Our EU and UK representatives' details are available on request.</p>
   </div>
 
