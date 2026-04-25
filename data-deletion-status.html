@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Data Deletion Status — Kazozo</title>
+<link rel="canonical" href="https://kazozo.com/data-deletion-status.html">
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230C0B12'%3E%3Ctext x='3' y='23' font-family='system-ui,sans-serif' font-size='20' font-weight='700' fill='%23F0EFF4'%3Ek%3C/text%3E%3Ctext x='15' y='23' font-family='system-ui,sans-serif' font-size='20' font-weight='700' fill='%23FF6B5A'%3Ez%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+ $:root {
+    --bg: #131316;
+    --surface: #1b1b1e;
+    --card: #1f1f22;
+    --coral: #FFB4A4;
+    --coral-vivid: #FF5733;
+    --text: #E4E1E6;
+    --muted: #9e9ba5;
+    --border: rgba(228,225,230,0.06);
+    --green: #46EAED;
+  }
+  html { overflow-x:hidden; }
+  body {
+    font-family: 'Manrope', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1.25rem;
+  }
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    max-width: 500px;
+    width: 100%;
+    padding: 2.5rem 2rem;
+    text-align: center;
+  }
+  .logo {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.75rem;
+    text-decoration: none;
+    color: var(--text);
+    display: block;
+  }
+  .logo span { color: var(--coral-vivid); }
+  .icon {
+    width: 56px;
+    height: 56px;
+    background: rgba(70, 234, 237, 0.08);
+    border: 1.5px solid rgba(70, 234, 237, 0.25);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.25rem;
+  }
+  .icon svg { width: 26px; height: 26px; }
+  h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 0.625rem;
+    color: var(--text);
+    letter-spacing: -0.02em;
+  }
+  .subtitle {
+    font-size: 0.875rem;
+    color: var(--muted);
+    line-height: 1.6;
+    margin-bottom: 1.75rem;
+  }
+  .code-block {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1rem;
+    margin-bottom: 1.75rem;
+  }
+  .code-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    margin-bottom: 0.375rem;
+    font-weight: 600;
+  }
+  .code-value {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--green);
+    word-break: break-all;
+  }
+  .code-value.empty {
+    color: var(--muted);
+    font-style: italic;
+    font-size: 0.875rem;
+  }
+  .note {
+    font-size: 0.8rem;
+    color: var(--muted);
+    line-height: 1.6;
+    margin-bottom: 0;
+  }
+  .divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 1.5rem 0;
+  }
+  a { color: var(--coral); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  @media (max-width: 480px) {
+    .card { padding: 1.75rem 1.25rem; }
+  }
+</style>
+</head>
+<body>
+  <div class="card">
+    <a class="logo" href="https://kazozo.com">kazo<span>zo</span></a>
+
+    <div class="icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#46EAED" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10"/>
+        <polyline points="7 12 10.5 15.5 17 8.5"/>
+      </svg>
+    </div>
+
+    <h1>Deletion Request Received</h1>
+    <p class="subtitle">
+      Your request to delete data associated with your Facebook account from
+      Kazozo has been received and is being processed. Any engagement data
+      linked to your account will be permanently removed.
+    </p>
+
+    <div class="code-block">
+      <div class="code-label">Confirmation code</div>
+      <div class="code-value" id="code"></div>
+    </div>
+
+    <p class="note">
+      Keep this code for your records. Questions?
+      Email <a href="mailto:hello@kazozo.com">hello@kazozo.com</a> and reference it.
+    </p>
+
+    <hr class="divider">
+
+    <p class="note">
+      <a href="https://kazozo.com/data-deletion.html">Deletion instructions</a>
+      &nbsp;&middot;&nbsp;
+      <a href="https://kazozo.com/privacy.html">Privacy Policy</a>
+      &nbsp;&middot;&nbsp;
+      <a href="https://kazozo.com">kazozo.com</a>
+    </p>
+  </div>
+
+  <script>
+    (function () {
+      var params = new URLSearchParams(window.location.search);
+      var code = params.get("code");
+      var el = document.getElementById("code");
+      if (code && /^[A-Za-z0-9\-_]{4,64}$/.test(code)) {
+        el.textContent = code;
+      } else {
+        el.textContent = "No confirmation code provided";
+        el.classList.add("empty");
+      }
+    })();
+  </script>
+</body>
+</html>
