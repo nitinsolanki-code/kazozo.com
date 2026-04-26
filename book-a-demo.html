@@ -339,8 +339,19 @@
 
 <!-- Demo form handler -->
 <script>
+  // Endpoint shipped in Platform R18 is POST /api/v1/leads (not /leads/ingest).
+  // Auth: requires the Bearer kzo_* tenant API key for Kazozo's own tenant
+  // (issued from Settings → API Keys). `X-Kazozo-Site-Key` is no longer used.
+  // Public lead-ingest endpoint — no API key required in the browser.
+  // Auth is via X-Kazozo-Site-Key (a non-secret public site identifier).
+  // KAZOZO_HQ_SITE_KEY is a server-side env var; embed its VALUE here.
+  // If the env var is not yet provisioned, use the placeholder below and
+  // update before deploying. Do NOT use a Bearer token here.
   var DEMO_ENDPOINT  = 'https://api.kazozo.com/api/v1/leads/ingest';
-  var DEMO_SITE_KEY  = '3E67EDE9-48A3-4A21-BBD2-6D355E187932';
+  var DEMO_SITE_KEY  = 'kzo_hq_site'; // Replace with value of KAZOZO_HQ_SITE_KEY env var before deploy
+  // Public Zoho Bookings page for the Kazozo workspace. Shown on success
+  // if the server does not return a booking_url in the 202 response.
+  var BOOKING_URL    = 'https://kazozo.zohobookings.com/#/kazozo';
   var FALLBACK_EMAIL = 'hello@kazozo.com';
 
   // ── UTM capture ────────────────────────────────────────────────────────
@@ -389,18 +400,40 @@
     btn.disabled = true;
     btn.textContent = 'Sending…';
 
+    // POST /api/v1/leads/ingest — public endpoint, authenticated via
+    // X-Kazozo-Site-Key (a non-secret site identifier, safe to embed).
+    // No Bearer token is used or stored in the browser.
     fetch(DEMO_ENDPOINT, {
       method: 'POST',
       headers: {
-        'Content-Type':       'application/json',
-        'X-Kazozo-Site-Key':  DEMO_SITE_KEY,
+        'Content-Type': 'application/json',
+        'X-Kazozo-Site-Key': DEMO_SITE_KEY,
       },
-      body: JSON.stringify(data)
+      body: JSON.stringify({
+        name:     data.name,
+        email:    data.email,
+        company:  data.company,
+        website:  data.website,
+        notes:    data.notes,
+        source:   data.source,
+        page:     data.page,
+        referrer: data.referrer,
+        utm_source:   data.utm_source   || undefined,
+        utm_medium:   data.utm_medium   || undefined,
+        utm_campaign: data.utm_campaign || undefined,
+        utm_content:  data.utm_content  || undefined,
+        utm_term:     data.utm_term     || undefined,
+        gclid:        data.gclid        || undefined,
+        fbclid:       data.fbclid       || undefined,
+      })
     })
       .then(function(r) { return r.json().then(function(j) { return { ok: r.ok, status: r.status, body: j }; }); })
       .then(function(res) {
         if (res.ok || res.status === 202) {
-          _showSuccess(form, btn, res.body && res.body.booking_url || null);
+          // Use booking_url from server response if provided (Zoho Bookings
+          // integration runs server-side); fall back to the hardcoded constant.
+          var bookingUrl = (res.body && res.body.booking_url) || BOOKING_URL || null;
+          _showSuccess(form, btn, bookingUrl);
           if (window.gtag) window.gtag('event', 'demo_request_submit', { source: 'book-a-demo' });
         } else {
           throw new Error((res.body && res.body.error) || 'Submit failed');
