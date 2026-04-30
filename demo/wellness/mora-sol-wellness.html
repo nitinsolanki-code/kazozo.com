@@ -823,12 +823,17 @@ footer{background:var(--dark);padding:var(--sp-8) var(--sp-5) var(--sp-4);color:
 })();
 </script>
 
-<!-- Kazozo Frontline Agent Widget -->
+<!-- Kazozo Frontline Agent Widget — branding (botName, primaryColor,
+     welcomeMessage, quickReplies) is pulled live from the tenant's
+     Workspace Settings → Branding tab via /api/tenants/:id. Don't hardcode
+     overrides here; the data-* attrs win over the API and the demo
+     drifts every time the tenant updates their brand.
+
+     Overrides intentionally removed 2026-04-30 — were stale against
+     the dashboard values. -->
 <script src="https://api.kazozo.com/widget/embed-loader.js"
   data-tenant="mora-sol-wellness-4354b8"
   data-api="https://api.kazozo.com"
-  data-bot-name="Mora Sol Concierge"
-  data-color="#8B7355"
   data-position="bottom-right"></script>
 
 </body>
