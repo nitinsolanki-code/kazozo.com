@@ -132,39 +132,7 @@ h2 { font-family: 'Space Grotesk', sans-serif; font-size: clamp(22px, 3vw, 30px)
 .who-card.yes .who-list li::before { content: '\2713'; color: var(--success); }
 .who-card.no .who-list li::before { content: '\2715'; color: #ff6b6b; }
 
-/* ─── TESTIMONIAL ─── */
-.testimonial {
-  padding: 28px 32px;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-left: 3px solid var(--coral);
-  border-radius: 14px;
-  margin-top: 8px;
-}
-.testimonial blockquote {
-  font-size: 17px;
-  font-style: italic;
-  line-height: 1.6;
-  color: var(--text);
-  margin-bottom: 12px;
-}
-.testimonial cite {
-  font-style: normal;
-  font-size: 14px;
-  color: var(--muted);
-}
-.testimonial .placeholder {
-  display: inline-block;
-  margin-top: 8px;
-  padding: 4px 10px;
-  background: rgba(255,87,51,0.08);
-  border-radius: 6px;
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--coral);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
+/* ─── (testimonial styles removed — re-add when real testimonials are available) ─── */
 
 /* ─── CTA SECTION ─── */
 .cta-section {
@@ -347,7 +315,7 @@ footer {
 
     <div class="included-item">
       <div class="check-icon"><svg viewBox="0 0 20 20" fill="none" stroke="#FF5733" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="5 10 8.5 13.5 15 7"/></svg></div>
-      <div><strong>CRM sync</strong> <span>&mdash; pushes qualified leads into your existing system (HubSpot, Zoho, Jobber, and more)</span></div>
+      <div><strong>CRM sync</strong> <span>&mdash; connects to HubSpot, Zoho, Jobber, and more. Takes about 5 minutes to connect your account during onboarding.</span></div>
     </div>
 
     <div class="included-item">
@@ -377,15 +345,6 @@ footer {
         <li>Anyone not ready to follow up on qualified leads within a few hours</li>
       </ul>
     </div>
-  </div>
-</section>
-
-<!-- ═══════════════════ TESTIMONIAL ═══════════════════ -->
-<section class="section">
-  <div class="testimonial">
-    <blockquote>"We had 3 leads come in overnight after a storm that would have gone straight to voicemail. All 3 were scheduled for inspections by morning."</blockquote>
-    <cite>&mdash; Roofing contractor, [City]</cite>
-    <div class="placeholder">Placeholder &mdash; replace with real testimonial after first pilot</div>
   </div>
 </section>
 
