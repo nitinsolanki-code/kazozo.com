@@ -134,21 +134,7 @@ h2 { font-family: 'Space Grotesk', sans-serif; font-size: clamp(22px, 3vw, 30px)
 
 /* ─── (testimonial styles removed — re-add when real testimonials are available) ─── */
 
-/* ─── CTA SECTION ─── */
-.cta-section {
-  max-width: 860px;
-  margin: 0 auto;
-  padding: 32px 24px 0;
-}
-.cta-card {
-  text-align: center;
-  padding: 48px 32px;
-  background: linear-gradient(135deg, rgba(255,87,51,0.06) 0%, var(--surface) 100%);
-  border: 1px solid var(--border);
-  border-radius: 20px;
-}
-.cta-card h2 { margin-bottom: 12px; }
-.cta-card p { color: var(--muted); font-size: 15px; max-width: 540px; margin: 0 auto 28px; line-height: 1.6; }
+/* ─── (CTA section removed — form is inline now) ─── */
 .cta-btn {
   display: inline-block;
   padding: 16px 36px;
@@ -166,33 +152,17 @@ h2 { font-family: 'Space Grotesk', sans-serif; font-size: clamp(22px, 3vw, 30px)
 .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(255,87,51,0.32); text-decoration: none; }
 .cta-fine { margin-top: 16px; font-size: 14px; color: var(--muted); }
 
-/* ─── FORM OVERLAY ─── */
-.modal-overlay {
-  display: none;
-  position: fixed; inset: 0;
-  background: rgba(0,0,0,0.7);
-  z-index: 9000;
-  align-items: center; justify-content: center;
-  padding: 24px;
-}
-.modal-overlay.open { display: flex; }
-.modal-card {
-  width: 100%; max-width: 520px;
+/* ─── INLINE FORM CARD ─── */
+.form-card {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 20px;
   padding: 36px;
-  position: relative;
+  max-width: 600px;
+  margin: 0 auto;
 }
-.modal-close {
-  position: absolute; top: 16px; right: 16px;
-  background: none; border: none; color: var(--muted);
-  font-size: 22px; cursor: pointer; line-height: 1;
-  padding: 4px 8px; border-radius: 6px;
-}
-.modal-close:hover { color: var(--text); background: var(--card); }
-.modal-card h2 { font-size: 22px; margin-bottom: 6px; }
-.modal-card .form-sub { color: var(--muted); font-size: 14px; margin-bottom: 24px; line-height: 1.5; }
+.form-card h2 { font-size: 24px; margin-bottom: 6px; }
+.form-card .form-sub { color: var(--muted); font-size: 15px; margin-bottom: 28px; line-height: 1.6; }
 
 .field { margin-bottom: 16px; }
 .field label { display: block; font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 6px; }
@@ -250,6 +220,7 @@ footer {
     <div class="badge">Free 30-Day Pilot</div>
     <h1>Stop Losing Leads to Voicemail <em>&mdash; Free 30-Day AI Agent Pilot</em> for Home Service Contractors</h1>
     <p>We'll set up a fully configured AI agent for your roofing or HVAC business. It answers leads 24/7, qualifies them, and follows up instantly. Free for 30 days. No credit card. No obligation.</p>
+    <a href="#apply" class="cta-btn" style="margin-top:28px;">Apply for the free pilot &rarr;</a>
   </div>
 </section>
 
@@ -348,22 +319,11 @@ footer {
   </div>
 </section>
 
-<!-- ═══════════════════ CTA ═══════════════════ -->
-<section class="cta-section">
-  <div class="cta-card">
+<!-- ═══════════════════ APPLY ═══════════════════ -->
+<section class="section" id="apply">
+  <div class="form-card">
     <h2>Apply for the free pilot</h2>
-    <p>We're onboarding two companies this month &mdash; one roofing, one HVAC. Spots are limited by design so we can give each setup proper attention.</p>
-    <a href="javascript:void(0)" class="cta-btn" onclick="document.getElementById('pilotModal').classList.add('open')">Apply for the free pilot &rarr;</a>
-    <p class="cta-fine">No credit card. No contract. Just results.</p>
-  </div>
-</section>
-
-<!-- ═══════════════════ MODAL FORM ═══════════════════ -->
-<div class="modal-overlay" id="pilotModal">
-  <div class="modal-card">
-    <button class="modal-close" onclick="this.closest('.modal-overlay').classList.remove('open')" aria-label="Close">&times;</button>
-    <h2>Apply for the pilot</h2>
-    <p class="form-sub">Tell us about your business. If you're a fit, we'll have your agent live within 24 hours.</p>
+    <p class="form-sub">We're onboarding two companies this month &mdash; one roofing, one HVAC. Spots are limited by design so we can give each setup proper attention. Tell us about your business &mdash; if you're a fit, we'll have your agent live within 24 hours.</p>
 
     <form id="pilotForm" onsubmit="return handlePilotSubmit(event)" novalidate>
       <div class="row-2">
@@ -407,11 +367,11 @@ footer {
       </div>
 
       <button type="submit" class="submit-btn" id="pilotSubmitBtn">Apply for the free pilot &rarr;</button>
-      <p class="form-note">No credit card. No obligation. We'll follow up within one business day.</p>
+      <p class="form-note">No credit card. No contract. No obligation. We'll follow up within one business day.</p>
       <div class="form-message" id="pilotMessage" role="status" aria-live="polite"></div>
     </form>
   </div>
-</div>
+</section>
 
 <!-- ═══════════════════ FOOTER ═══════════════════ -->
 <footer>
@@ -502,13 +462,12 @@ footer {
     return false;
   }
 
-  // Close modal on overlay click
-  document.getElementById('pilotModal').addEventListener('click', function(e) {
-    if (e.target === this) this.classList.remove('open');
-  });
-  // Close modal on Escape
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') document.getElementById('pilotModal').classList.remove('open');
+  // Smooth-scroll "Apply" links to the form
+  document.querySelectorAll('a[href="#apply"]').forEach(function(a) {
+    a.addEventListener('click', function(e) {
+      e.preventDefault();
+      document.getElementById('apply').scrollIntoView({ behavior: 'smooth' });
+    });
   });
 </script>
 
