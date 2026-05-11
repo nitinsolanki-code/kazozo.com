@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Free 30-Day AI Agent Pilot for Home Service Contractors — Kazozo</title>
+<meta name="description" content="We'll set up a fully configured AI agent for your roofing or HVAC business. Answers leads 24/7, qualifies them, follows up instantly. Free for 30 days.">
+
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230C0B12'/%3E%3Ctext x='3' y='23' font-family='system-ui,sans-serif' font-size='20' font-weight='700' fill='%23F0EFF4'%3Ek%3C/text%3E%3Ctext x='15' y='23' font-family='system-ui,sans-serif' font-size='20' font-weight='700' fill='%23FF6B5A'%3Ez%3C/text%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg: #131316;
+  --surface: #1b1b1e;
+  --card: #1f1f22;
+  --card-high: #2a2a2d;
+  --border: rgba(228,225,230,0.08);
+  --text: #f0eff4;
+  --muted: #9a99a5;
+  --coral: #FF5733;
+  --coral-soft: rgba(255,87,51,0.12);
+  --success: #3ddc97;
+  --danger: #ff6b6b;
+}
+
+html, body { background: var(--bg); color: var(--text); font-family: 'Manrope', system-ui, sans-serif; -webkit-font-smoothing: antialiased; line-height: 1.6; }
+a { color: var(--coral); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ─── NAV SPACER ─── */
+.nav-spacer { height: 72px; }
+
+/* ─── HERO ─── */
+.hero { padding: 64px 24px 56px; text-align: center; }
+.hero-inner { max-width: 780px; margin: 0 auto; }
+.badge { display: inline-block; padding: 6px 14px; border: 1px solid var(--border); border-radius: 999px; color: var(--coral); font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 24px; }
+h1 { font-family: 'Space Grotesk', sans-serif; font-size: clamp(30px, 5vw, 48px); font-weight: 700; letter-spacing: -0.02em; line-height: 1.12; margin-bottom: 20px; }
+h1 em { color: var(--coral); font-style: normal; }
+.hero p { color: var(--muted); font-size: clamp(16px, 2vw, 18px); line-height: 1.65; max-width: 640px; margin: 0 auto; }
+
+/* ─── SECTIONS ─── */
+.section { max-width: 860px; margin: 0 auto; padding: 48px 24px; }
+.section + .section { padding-top: 0; }
+
+h2 { font-family: 'Space Grotesk', sans-serif; font-size: clamp(22px, 3vw, 30px); font-weight: 700; letter-spacing: -0.01em; margin-bottom: 28px; }
+
+/* ─── HOW IT WORKS (numbered steps) ─── */
+.steps { display: grid; gap: 20px; counter-reset: step; }
+.step {
+  position: relative;
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  gap: 16px;
+  align-items: start;
+  padding: 20px 24px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+}
+.step-num {
+  width: 48px; height: 48px;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--coral-soft);
+  border-radius: 12px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700; font-size: 20px;
+  color: var(--coral);
+}
+.step h3 { font-family: 'Space Grotesk', sans-serif; font-size: 17px; font-weight: 600; margin-bottom: 4px; }
+.step p { color: var(--muted); font-size: 15px; line-height: 1.55; }
+
+/* ─── INCLUDED LIST ─── */
+.included { display: grid; gap: 14px; }
+.included-item {
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  gap: 14px;
+  align-items: start;
+  padding: 16px 20px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+.check-icon {
+  width: 28px; height: 28px;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--coral-soft);
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.check-icon svg { width: 14px; height: 14px; }
+.included-item strong { font-weight: 700; color: var(--text); }
+.included-item span { color: var(--muted); font-size: 14px; }
+
+/* ─── WHO IS / ISN'T ─── */
+.who-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+@media (max-width: 700px) { .who-grid { grid-template-columns: 1fr; } }
+.who-card {
+  padding: 24px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+}
+.who-card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 700; margin-bottom: 16px; }
+.who-card.yes h3 { color: var(--success); }
+.who-card.no h3 { color: var(--muted); }
+.who-list { list-style: none; padding: 0; margin: 0; }
+.who-list li {
+  position: relative;
+  padding: 10px 0 10px 28px;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--muted);
+  border-bottom: 1px solid var(--border);
+}
+.who-list li:last-child { border-bottom: none; }
+.who-list li::before {
+  position: absolute;
+  left: 0;
+  top: 12px;
+  font-size: 14px;
+  font-weight: 700;
+}
+.who-card.yes .who-list li::before { content: '\2713'; color: var(--success); }
+.who-card.no .who-list li::before { content: '\2715'; color: #ff6b6b; }
+
+/* ─── TESTIMONIAL ─── */
+.testimonial {
+  padding: 28px 32px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--coral);
+  border-radius: 14px;
+  margin-top: 8px;
+}
+.testimonial blockquote {
+  font-size: 17px;
+  font-style: italic;
+  line-height: 1.6;
+  color: var(--text);
+  margin-bottom: 12px;
+}
+.testimonial cite {
+  font-style: normal;
+  font-size: 14px;
+  color: var(--muted);
+}
+.testimonial .placeholder {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 4px 10px;
+  background: rgba(255,87,51,0.08);
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--coral);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ─── CTA SECTION ─── */
+.cta-section {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 32px 24px 0;
+}
+.cta-card {
+  text-align: center;
+  padding: 48px 32px;
+  background: linear-gradient(135deg, rgba(255,87,51,0.06) 0%, var(--surface) 100%);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+}
+.cta-card h2 { margin-bottom: 12px; }
+.cta-card p { color: var(--muted); font-size: 15px; max-width: 540px; margin: 0 auto 28px; line-height: 1.6; }
+.cta-btn {
+  display: inline-block;
+  padding: 16px 36px;
+  background: var(--coral);
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.cta-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(255,87,51,0.32); text-decoration: none; }
+.cta-fine { margin-top: 16px; font-size: 14px; color: var(--muted); }
+
+/* ─── FORM OVERLAY ─── */
+.modal-overlay {
+  display: none;
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.7);
+  z-index: 9000;
+  align-items: center; justify-content: center;
+  padding: 24px;
+}
+.modal-overlay.open { display: flex; }
+.modal-card {
+  width: 100%; max-width: 520px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 36px;
+  position: relative;
+}
+.modal-close {
+  position: absolute; top: 16px; right: 16px;
+  background: none; border: none; color: var(--muted);
+  font-size: 22px; cursor: pointer; line-height: 1;
+  padding: 4px 8px; border-radius: 6px;
+}
+.modal-close:hover { color: var(--text); background: var(--card); }
+.modal-card h2 { font-size: 22px; margin-bottom: 6px; }
+.modal-card .form-sub { color: var(--muted); font-size: 14px; margin-bottom: 24px; line-height: 1.5; }
+
+.field { margin-bottom: 16px; }
+.field label { display: block; font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 6px; }
+.field label .req { color: var(--coral); }
+.field input, .field select, .field textarea {
+  width: 100%; padding: 12px 14px;
+  background: var(--bg); border: 1px solid var(--border); border-radius: 10px;
+  color: var(--text); font-family: inherit; font-size: 15px;
+  transition: border-color 0.15s ease;
+}
+.field select { appearance: none; cursor: pointer; }
+.field textarea { resize: vertical; min-height: 80px; line-height: 1.5; }
+.field input::placeholder, .field textarea::placeholder { color: #5a5965; }
+.field input:focus, .field select:focus, .field textarea:focus { outline: none; border-color: var(--coral); }
+
+.row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+@media (max-width: 500px) { .row-2 { grid-template-columns: 1fr; } }
+
+.submit-btn {
+  width: 100%; padding: 14px 24px;
+  background: var(--coral); color: #fff; border: none; border-radius: 12px;
+  font-family: 'Space Grotesk', sans-serif; font-size: 15px; font-weight: 600;
+  cursor: pointer; transition: transform 0.15s, box-shadow 0.15s;
+}
+.submit-btn:hover { transform: translateY(-1px); box-shadow: 0 10px 28px rgba(255,87,51,0.3); }
+.submit-btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; box-shadow: none; }
+.form-note { margin-top: 12px; font-size: 13px; color: var(--muted); text-align: center; }
+.form-message { display: none; margin-top: 16px; padding: 14px 16px; border-radius: 10px; font-size: 14px; line-height: 1.5; }
+.form-message.success { display: block; background: rgba(61,220,151,0.08); border: 1px solid rgba(61,220,151,0.3); color: var(--success); }
+.form-message.error { display: block; background: rgba(255,107,107,0.08); border: 1px solid rgba(255,107,107,0.3); color: var(--danger); }
+
+/* ─── FOOTER ─── */
+footer {
+  border-top: 1px solid var(--border);
+  padding: 48px 24px 32px;
+  color: var(--muted);
+  font-size: 14px;
+  max-width: 1200px;
+  margin: 64px auto 0;
+}
+.footer-inner { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 32px; margin-bottom: 32px; }
+.footer-brand { font-family: 'Space Grotesk', sans-serif; font-weight: 700; color: var(--text); font-size: 18px; }
+.footer-copy { text-align: center; padding-top: 24px; border-top: 1px solid var(--border); margin-top: 32px; color: #5a5965; font-size: 13px; }
+</style>
+</head>
+<body>
+
+<div id="site-nav"></div>
+<script src="nav.js?v=3"></script>
+<div class="nav-spacer"></div>
+
+<!-- ═══════════════════ HERO ═══════════════════ -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="badge">Free 30-Day Pilot</div>
+    <h1>Stop Losing Leads to Voicemail <em>&mdash; Free 30-Day AI Agent Pilot</em> for Home Service Contractors</h1>
+    <p>We'll set up a fully configured AI agent for your roofing or HVAC business. It answers leads 24/7, qualifies them, and follows up instantly. Free for 30 days. No credit card. No obligation.</p>
+  </div>
+</section>
+
+<!-- ═══════════════════ HOW IT WORKS ═══════════════════ -->
+<section class="section">
+  <h2>How it works</h2>
+  <div class="steps">
+
+    <div class="step">
+      <div class="step-num">1</div>
+      <div>
+        <h3>We set it up in 24 hours</h3>
+        <p>You tell us your service area, job types, and how you want leads routed. We handle the rest.</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">2</div>
+      <div>
+        <h3>Your agent goes live</h3>
+        <p>Answers calls, web inquiries, and texts around the clock. Qualifies every lead before it reaches you.</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">3</div>
+      <div>
+        <h3>You track the results</h3>
+        <p>See exactly how many leads came in, how many were qualified, and how fast they were followed up.</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">4</div>
+      <div>
+        <h3>After 30 days</h3>
+        <p>If it worked, you stay on. If not, walk away. No pressure.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════ WHAT'S INCLUDED ═══════════════════ -->
+<section class="section">
+  <h2>What's included in the pilot</h2>
+  <div class="included">
+
+    <div class="included-item">
+      <div class="check-icon"><svg viewBox="0 0 20 20" fill="none" stroke="#FF5733" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="5 10 8.5 13.5 15 7"/></svg></div>
+      <div><strong>Frontline Agent</strong> <span>&mdash; answers and qualifies every inbound lead 24/7</span></div>
+    </div>
+
+    <div class="included-item">
+      <div class="check-icon"><svg viewBox="0 0 20 20" fill="none" stroke="#FF5733" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="5 10 8.5 13.5 15 7"/></svg></div>
+      <div><strong>Instant SMS follow-up</strong> <span>&mdash; responds to every lead in under 60 seconds</span></div>
+    </div>
+
+    <div class="included-item">
+      <div class="check-icon"><svg viewBox="0 0 20 20" fill="none" stroke="#FF5733" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="5 10 8.5 13.5 15 7"/></svg></div>
+      <div><strong>Lead qualification</strong> <span>&mdash; captures job type, urgency, location, and contact details</span></div>
+    </div>
+
+    <div class="included-item">
+      <div class="check-icon"><svg viewBox="0 0 20 20" fill="none" stroke="#FF5733" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="5 10 8.5 13.5 15 7"/></svg></div>
+      <div><strong>CRM sync</strong> <span>&mdash; pushes qualified leads into your existing system (HubSpot, Zoho, Jobber, and more)</span></div>
+    </div>
+
+    <div class="included-item">
+      <div class="check-icon"><svg viewBox="0 0 20 20" fill="none" stroke="#FF5733" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="5 10 8.5 13.5 15 7"/></svg></div>
+      <div><strong>Setup and configuration</strong> <span>&mdash; done for you, no tech skills needed</span></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════ WHO IS / ISN'T ═══════════════════ -->
+<section class="section">
+  <div class="who-grid">
+    <div class="who-card yes">
+      <h3>Who this is for</h3>
+      <ul class="who-list">
+        <li>Roofing contractors tired of losing storm leads to competitors who answer faster</li>
+        <li>HVAC owners who miss calls during summer surges when every tech is in the field</li>
+        <li>Any home service business where the owner is on the job and can't always pick up</li>
+      </ul>
+    </div>
+    <div class="who-card no">
+      <h3>Who this is NOT for</h3>
+      <ul class="who-list">
+        <li>Businesses already happy with their lead response time</li>
+        <li>Companies with a full-time receptionist handling every call</li>
+        <li>Anyone not ready to follow up on qualified leads within a few hours</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ TESTIMONIAL ═══════════════════ -->
+<section class="section">
+  <div class="testimonial">
+    <blockquote>"We had 3 leads come in overnight after a storm that would have gone straight to voicemail. All 3 were scheduled for inspections by morning."</blockquote>
+    <cite>&mdash; Roofing contractor, [City]</cite>
+    <div class="placeholder">Placeholder &mdash; replace with real testimonial after first pilot</div>
+  </div>
+</section>
+
+<!-- ═══════════════════ CTA ═══════════════════ -->
+<section class="cta-section">
+  <div class="cta-card">
+    <h2>Apply for the free pilot</h2>
+    <p>We're onboarding two companies this month &mdash; one roofing, one HVAC. Spots are limited by design so we can give each setup proper attention.</p>
+    <a href="javascript:void(0)" class="cta-btn" onclick="document.getElementById('pilotModal').classList.add('open')">Apply for the free pilot &rarr;</a>
+    <p class="cta-fine">No credit card. No contract. Just results.</p>
+  </div>
+</section>
+
+<!-- ═══════════════════ MODAL FORM ═══════════════════ -->
+<div class="modal-overlay" id="pilotModal">
+  <div class="modal-card">
+    <button class="modal-close" onclick="this.closest('.modal-overlay').classList.remove('open')" aria-label="Close">&times;</button>
+    <h2>Apply for the pilot</h2>
+    <p class="form-sub">Tell us about your business. If you're a fit, we'll have your agent live within 24 hours.</p>
+
+    <form id="pilotForm" onsubmit="return handlePilotSubmit(event)" novalidate>
+      <div class="row-2">
+        <div class="field">
+          <label for="pName">Name <span class="req">*</span></label>
+          <input type="text" id="pName" name="name" placeholder="Your name" required autocomplete="name">
+        </div>
+        <div class="field">
+          <label for="pEmail">Email <span class="req">*</span></label>
+          <input type="email" id="pEmail" name="email" placeholder="you@company.com" required autocomplete="email">
+        </div>
+      </div>
+
+      <div class="row-2">
+        <div class="field">
+          <label for="pCompany">Company</label>
+          <input type="text" id="pCompany" name="company" placeholder="e.g. Smith Roofing" autocomplete="organization">
+        </div>
+        <div class="field">
+          <label for="pWebsite">Website</label>
+          <input type="url" id="pWebsite" name="website" placeholder="smithroofing.com" autocomplete="url">
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="pTrade">Trade</label>
+        <select id="pTrade" name="trade">
+          <option value="">Select your trade</option>
+          <option value="roofing">Roofing</option>
+          <option value="hvac">HVAC</option>
+          <option value="plumbing">Plumbing</option>
+          <option value="electrical">Electrical</option>
+          <option value="general_contractor">General Contractor</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="pNotes">What's costing you leads right now?</label>
+        <textarea id="pNotes" name="notes" placeholder="e.g. Missed calls after hours, slow follow-up on web forms, owner is always on the job site..."></textarea>
+      </div>
+
+      <button type="submit" class="submit-btn" id="pilotSubmitBtn">Apply for the free pilot &rarr;</button>
+      <p class="form-note">No credit card. No obligation. We'll follow up within one business day.</p>
+      <div class="form-message" id="pilotMessage" role="status" aria-live="polite"></div>
+    </form>
+  </div>
+</div>
+
+<!-- ═══════════════════ FOOTER ═══════════════════ -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">Kazozo</div>
+      <p style="margin-top:8px;max-width:280px;font-size:13px;line-height:1.5;">The AI platform for business. Agents, apps, and automation.</p>
+    </div>
+  </div>
+  <div class="footer-copy">&copy; 2026 Kazozo. All rights reserved.</div>
+</footer>
+
+<!-- ═══════════════════ FORM HANDLER ═══════════════════ -->
+<script>
+  var PILOT_ENDPOINT = 'https://api.kazozo.com/api/v1/leads/ingest';
+  var PILOT_SITE_KEY = '3E67EDE9-48A3-4A21-BBD2-6D355E187932';
+
+  function _utmParams() {
+    var p = {};
+    try {
+      var sp = new URLSearchParams(window.location.search);
+      ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','gclid','fbclid'].forEach(function(k) {
+        if (sp.get(k)) p[k] = sp.get(k);
+      });
+      if (Object.keys(p).length) sessionStorage.setItem('kz_utms', JSON.stringify(p));
+    } catch(_) {}
+    if (!Object.keys(p).length) {
+      try { p = JSON.parse(sessionStorage.getItem('kz_utms') || '{}'); } catch(_) {}
+    }
+    return p;
+  }
+
+  function handlePilotSubmit(e) {
+    e.preventDefault();
+    var form = document.getElementById('pilotForm');
+    var btn  = document.getElementById('pilotSubmitBtn');
+    var msg  = document.getElementById('pilotMessage');
+    msg.className = 'form-message';
+    msg.textContent = '';
+
+    var data = Object.assign({
+      name:    form.name.value.trim(),
+      email:   form.email.value.trim(),
+      company: form.company.value.trim(),
+      website: form.website.value.trim(),
+      notes:   (form.trade.value ? '[' + form.trade.value + '] ' : '') + form.notes.value.trim(),
+      source:  'home_services_pilot',
+      page:    'home-services-pilot',
+      referrer: document.referrer || '',
+    }, _utmParams());
+
+    if (!data.name || !data.email) {
+      msg.className = 'form-message error';
+      msg.textContent = 'Name and email are required.';
+      return false;
+    }
+
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+
+    fetch(PILOT_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'X-Kazozo-Site-Key': PILOT_SITE_KEY },
+      body: JSON.stringify(data)
+    })
+    .then(function(r) { return r.json().then(function(j) { return { ok: r.ok, status: r.status, body: j }; }); })
+    .then(function(res) {
+      if (res.ok || res.status === 202) {
+        form.reset();
+        btn.textContent = 'Application received ✓';
+        msg.className = 'form-message success';
+        msg.textContent = "You’re in. We’ll review your application and reach out within one business day to start setup.";
+        if (window.gtag) window.gtag('event', 'pilot_application', { source: 'home-services-pilot' });
+      } else {
+        throw new Error((res.body && res.body.error) || 'Submit failed');
+      }
+    })
+    .catch(function() {
+      try {
+        var subject = 'Pilot application — ' + (data.company || data.name);
+        var body = ['Name: '+data.name, 'Email: '+data.email, 'Company: '+(data.company||''), 'Website: '+(data.website||''), '', 'Notes:', data.notes||'(none)'].join('\n');
+        window.open('mailto:hello@kazozo.com?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body));
+      } catch(_) {}
+      btn.disabled = false;
+      btn.textContent = 'Apply for the free pilot →';
+    });
+
+    return false;
+  }
+
+  // Close modal on overlay click
+  document.getElementById('pilotModal').addEventListener('click', function(e) {
+    if (e.target === this) this.classList.remove('open');
+  });
+  // Close modal on Escape
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') document.getElementById('pilotModal').classList.remove('open');
+  });
+</script>
+
+<!-- Kazozo Widget -->
+<script src="https://api.kazozo.com/widget/embed-loader.js"
+  data-tenant="kazozo-001"
+  data-api="https://api.kazozo.com"
+  data-bot-name="Kaz"
+  data-color="#FF5733"
+  data-position="bottom-right"></script>
+<script src="scripts/analytics.js" defer></script>
+
+</body>
+</html>
