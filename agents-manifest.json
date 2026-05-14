@@ -419,8 +419,8 @@
       "escalatesTo": "human-agent"
     },
     {
-      "id": "strategic/weekly-report",
-      "name": "Weekly Report",
+      "id": "strategic/insights-agent",
+      "name": "Insights Agent",
       "customerFacingName": "Business Intelligence",
       "tier": "strategic",
       "description": "Generates executive performance summaries from CRM and metrics data. Aggregates KPIs, pipeline status, revenue trends, agent performance, and competitive intelligence into actionable weekly reports delivered automatically.",
