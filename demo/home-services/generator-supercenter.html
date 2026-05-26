@@ -1257,5 +1257,17 @@ const io = new IntersectionObserver(entries=>{
 },{threshold:.3});
 document.querySelectorAll('.data-card,.kpi').forEach(c=>io.observe(c));
 </script>
+
+<!-- Kazozo AI Live Widget -->
+<script
+  src="https://api.kazozo.com/widget/embed-loader.js"
+  data-tenant="generator-supercenter-pbch"
+  data-bot-name="Max"
+  data-color="#E05C00"
+  data-position="bottom-right"
+  data-welcome="Hi, I'm Max — Generator Supercenter's AI Concierge. I can help you get a generator quote, triage a repair issue, or learn about GenMonitor maintenance plans. What can I help with?"
+  data-no-branding="true"
+  async
+></script>
 </body>
 </html>
