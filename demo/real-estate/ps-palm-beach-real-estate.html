@@ -270,6 +270,25 @@ footer a{display:block;color:#aab1bb;margin-bottom:8px}footer a:hover{color:#e7d
   document.querySelectorAll('[data-i18n]').forEach(function(el){ EN[el.getAttribute('data-i18n')] = el.textContent; });
   TRANS.en = EN;
   /* Localized concierge greeting — the AI then converses in the chosen language */
+  /* When a language is explicitly chosen, pin the concierge to it: inject lang into
+     the widget's chat requests so it replies in that language even if the visitor types English.
+     (No pin until a language is clicked, so organic visitors still get mirror behaviour.) */
+  var __pspbLang = null;
+  (function(){
+    if(window.__pspbWrapped) return;
+    var _of = window.fetch;
+    window.fetch = function(u, o){
+      try{
+        var url = (typeof u === 'string') ? u : (u && u.url);
+        if(__pspbLang && url && url.indexOf('/api/chat/message') >= 0 && o && o.body){
+          var b = JSON.parse(o.body);
+          if(!b.lang){ b.lang = __pspbLang; o.body = JSON.stringify(b); }
+        }
+      }catch(e){}
+      return _of.apply(this, arguments);
+    };
+    window.__pspbWrapped = true;
+  })();
   var WELCOME = {
     en:"Good evening, and welcome to PS Palm Beach. I'm the team's concierge — ask me about any listing, or how I can help, any time of day.",
     de:"Guten Abend und willkommen bei PS Palm Beach. Ich bin der Concierge des Teams — fragen Sie mich nach jedem Objekt oder wie ich helfen kann, zu jeder Tageszeit.",
@@ -295,6 +314,7 @@ footer a{display:block;color:#aab1bb;margin-bottom:8px}footer a:hover{color:#e7d
     });
     document.documentElement.lang = code;
     document.querySelectorAll('#langsel button').forEach(function(b){ b.classList.toggle('on', b.getAttribute('data-lang')===code); });
+    __pspbLang = code;
     setConciergeLang(code);
   }
   document.querySelectorAll('#langsel button').forEach(function(b){
