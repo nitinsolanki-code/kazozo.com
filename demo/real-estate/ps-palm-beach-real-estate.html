@@ -269,6 +269,23 @@ footer a{display:block;color:#aab1bb;margin-bottom:8px}footer a:hover{color:#e7d
   var EN = {};
   document.querySelectorAll('[data-i18n]').forEach(function(el){ EN[el.getAttribute('data-i18n')] = el.textContent; });
   TRANS.en = EN;
+  /* Localized concierge greeting — the AI then converses in the chosen language */
+  var WELCOME = {
+    en:"Good evening, and welcome to PS Palm Beach. I'm the team's concierge — ask me about any listing, or how I can help, any time of day.",
+    de:"Guten Abend und willkommen bei PS Palm Beach. Ich bin der Concierge des Teams — fragen Sie mich nach jedem Objekt oder wie ich helfen kann, zu jeder Tageszeit.",
+    ru:"Добрый вечер! Добро пожаловать в PS Palm Beach. Я консьерт команды — спрашивайте о любом объекте или о том, чем я могу помочь, в любое время.",
+    uk:"Доброго вечора! Ласкаво просимо до PS Palm Beach. Я консьєрж команди — запитуйте про будь-який об'єкт або про те, чим я можу допомогти, будь-коли.",
+    fr:"Bonsoir et bienvenue chez PS Palm Beach. Je suis le concierge de l'équipe — demandez-moi des informations sur n'importe quel bien, ou comment je peux vous aider, à toute heure."
+  };
+  function setConciergeLang(code){
+    try{
+      var w = window.KazozoWidget;
+      if(w && w.config){
+        w.config.welcomeMessage = WELCOME[code] || WELCOME.en;
+        if(w.isOpen && typeof w.startOver==='function'){ w.startOver(); }
+      }
+    }catch(e){}
+  }
   function setLang(code){
     var dict = TRANS[code] || EN;
     document.querySelectorAll('[data-i18n]').forEach(function(el){
@@ -278,6 +295,7 @@ footer a{display:block;color:#aab1bb;margin-bottom:8px}footer a:hover{color:#e7d
     });
     document.documentElement.lang = code;
     document.querySelectorAll('#langsel button').forEach(function(b){ b.classList.toggle('on', b.getAttribute('data-lang')===code); });
+    setConciergeLang(code);
   }
   document.querySelectorAll('#langsel button').forEach(function(b){
     b.addEventListener('click', function(){ setLang(b.getAttribute('data-lang')); });
