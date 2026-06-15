@@ -26,7 +26,11 @@ h1,h2,h3{font-family:var(--serif);font-weight:500;letter-spacing:.2px;line-heigh
 .eyebrow{font-size:11px;letter-spacing:3.5px;text-transform:uppercase;color:var(--gold);font-weight:500}
 .topbar{background:var(--ink);color:#cbd0d8;font-size:11.5px;letter-spacing:1.5px;text-transform:uppercase}
 .topbar .wrap{display:flex;justify-content:space-between;align-items:center;height:34px}
-.topbar .r span{margin-left:22px}
+.topbar .r{display:flex;align-items:center;gap:22px}
+.langsel{display:flex;align-items:center;gap:2px}
+.langsel button{background:none;border:none;color:#8b95a3;font-family:var(--sans);font-size:11px;letter-spacing:1px;font-weight:500;cursor:pointer;padding:2px 6px;border-radius:3px;transition:color .2s,background .2s}
+.langsel button:hover{color:#fff}
+.langsel button.on{color:var(--ink);background:var(--gold)}
 header{position:sticky;top:0;z-index:50;background:rgba(251,249,245,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
 header .wrap{display:flex;align-items:center;justify-content:space-between;height:84px}
 .brand{display:flex;flex-direction:column;align-items:flex-start;line-height:1}
@@ -106,14 +110,23 @@ footer a{display:block;color:#aab1bb;margin-bottom:8px}footer a:hover{color:#e7d
 <body>
 
 <div class="topbar"><div class="wrap">
-  <div class="l">An exclusive member of Forbes Global Properties</div>
-  <div class="r"><span>561-626-7000</span><span>Sign In</span><span>Saved Homes ♡</span></div>
+  <div class="l" data-i18n="forbes">An exclusive member of Forbes Global Properties</div>
+  <div class="r">
+    <div class="langsel" id="langsel">
+      <button data-lang="en" class="on">EN</button>
+      <button data-lang="de">DE</button>
+      <button data-lang="ru">RU</button>
+      <button data-lang="uk">UA</button>
+      <button data-lang="fr">FR</button>
+    </div>
+    <span>561-626-7000</span>
+  </div>
 </div></div>
 
 <header><div class="wrap">
   <a class="brand" href="#"><span class="nm">PS Palm Beach</span><span class="sub">Illustrated Properties</span></a>
   <nav class="main">
-    <a href="#listings">Buy</a><a href="#cta">Sell</a><a href="#listings">Listings</a><a href="#communities">Communities</a><a href="#team">About</a><a href="#cta">Contact</a>
+    <a href="#listings" data-i18n="nav_buy">Buy</a><a href="#cta" data-i18n="nav_sell">Sell</a><a href="#listings" data-i18n="nav_listings">Listings</a><a href="#communities" data-i18n="nav_communities">Communities</a><a href="#team" data-i18n="nav_about">About</a><a href="#cta" data-i18n="nav_contact">Contact</a>
   </nav>
   <div class="hcall">561-626-7000</div>
 </div></header>
@@ -122,26 +135,26 @@ footer a{display:block;color:#aab1bb;margin-bottom:8px}footer a:hover{color:#e7d
   <div class="hero-img" style="background-image:url('https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=1600&q=80')"></div>
   <div class="hero-c">
     <div class="eyebrow">Palm Beach · Miami · Broward · The Treasure Coast</div>
-    <h1>South Florida's Finest Addresses</h1>
-    <p>A boutique luxury team representing the most distinctive waterfront and estate properties on the coast.</p>
+    <h1 data-i18n="hero_h1">South Florida's Finest Addresses</h1>
+    <p data-i18n="hero_sub">A boutique luxury team representing the most distinctive waterfront and estate properties on the coast.</p>
   </div>
 </section>
 
 <div class="wrap">
   <div class="search">
-    <div class="f"><label>Location</label><div class="val">Palm Beach, FL</div></div>
-    <div class="f"><label>Price</label><div class="val">$2M – $10M+</div></div>
-    <div class="f"><label>Type</label><div class="val">Waterfront Estate</div></div>
-    <button>Search</button>
+    <div class="f"><label data-i18n="s_location">Location</label><div class="val">Palm Beach, FL</div></div>
+    <div class="f"><label data-i18n="s_price">Price</label><div class="val">$2M – $10M+</div></div>
+    <div class="f"><label data-i18n="s_type">Type</label><div class="val">Waterfront Estate</div></div>
+    <button data-i18n="s_btn">Search</button>
   </div>
 </div>
 
 <section class="blk" id="listings">
   <div class="wrap">
     <div class="shead">
-      <div class="eyebrow">Featured Properties</div>
-      <h2>Currently Represented</h2>
-      <p>A curated selection of the team's active luxury listings across South Florida.</p>
+      <div class="eyebrow" data-i18n="feat_eyebrow">Featured Properties</div>
+      <h2 data-i18n="feat_h2">Currently Represented</h2>
+      <p data-i18n="feat_p">A curated selection of the team's active luxury listings across South Florida.</p>
     </div>
     <div class="grid3">
       <div class="card">
@@ -175,13 +188,13 @@ footer a{display:block;color:#aab1bb;margin-bottom:8px}footer a:hover{color:#e7d
 <section class="band" id="communities">
   <div class="wrap">
     <div>
-      <div class="eyebrow">The PS Palm Beach Difference</div>
-      <h2>Relationships first. Results always.</h2>
-      <p>Luxury real estate is a relationship business. As an exclusive member of Forbes Global Properties, our team pairs white-glove, personal service with global reach — representing buyers and sellers of South Florida's most exceptional homes.</p>
+      <div class="eyebrow" data-i18n="diff_eyebrow">The PS Palm Beach Difference</div>
+      <h2 data-i18n="diff_h2">Relationships first. Results always.</h2>
+      <p data-i18n="diff_p">Luxury real estate is a relationship business. As an exclusive member of Forbes Global Properties, our team pairs white-glove, personal service with global reach — representing buyers and sellers of South Florida's most exceptional homes.</p>
       <div class="stats">
-        <div><b>$500M+</b><span>Lifetime Sales</span></div>
-        <div><b>20+</b><span>Years Combined</span></div>
-        <div><b>Global</b><span>Forbes Network</span></div>
+        <div><b>$500M+</b><span data-i18n="stat_sales">Lifetime Sales</span></div>
+        <div><b>20+</b><span data-i18n="stat_years">Years Combined</span></div>
+        <div><b>Global</b><span data-i18n="stat_network">Forbes Network</span></div>
       </div>
     </div>
     <div class="band-ph" style="background-image:url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=900&q=80')"></div>
@@ -191,23 +204,23 @@ footer a{display:block;color:#aab1bb;margin-bottom:8px}footer a:hover{color:#e7d
 <section class="blk" id="team">
   <div class="wrap">
     <div class="shead">
-      <div class="eyebrow">Meet the Team</div>
+      <div class="eyebrow" data-i18n="team_eyebrow">Meet the Team</div>
       <h2>Julia &amp; Karina</h2>
-      <p>The principals behind PS Palm Beach — your personal guides to the South Florida luxury market.</p>
+      <p data-i18n="team_p">The principals behind PS Palm Beach — your personal guides to the South Florida luxury market.</p>
     </div>
     <div class="team">
-      <div class="agent"><div class="av">J</div><h3>Julia</h3><div class="role">Principal Agent</div><p>Specializing in oceanfront estates and serving discerning buyers from around the world.</p></div>
-      <div class="agent"><div class="av">K</div><h3>Karina</h3><div class="role">Principal Agent</div><p>Trusted advisor to sellers and second-home buyers, from Palm Beach to the Treasure Coast.</p></div>
+      <div class="agent"><div class="av">J</div><h3>Julia</h3><div class="role" data-i18n="role_principal">Principal Agent</div><p data-i18n="julia_bio">Specializing in oceanfront estates and serving discerning buyers from around the world.</p></div>
+      <div class="agent"><div class="av">K</div><h3>Karina</h3><div class="role" data-i18n="role_principal2">Principal Agent</div><p data-i18n="karina_bio">Trusted advisor to sellers and second-home buyers, from Palm Beach to the Treasure Coast.</p></div>
     </div>
   </div>
 </section>
 
 <section class="blk cta" id="cta">
   <div class="wrap">
-    <div class="eyebrow">Let's Talk</div>
-    <h2>Thinking of buying or selling?</h2>
-    <p>Reach the PS Palm Beach team any time — our concierge answers instantly, day or night.</p>
-    <button class="btn" onclick="openKazozo()">Chat with our concierge</button>
+    <div class="eyebrow" data-i18n="cta_eyebrow">Let's Talk</div>
+    <h2 data-i18n="cta_h2">Thinking of buying or selling?</h2>
+    <p data-i18n="cta_p">Reach the PS Palm Beach team any time — our concierge answers instantly, day or night, in your language.</p>
+    <button class="btn" onclick="openKazozo()" data-i18n="cta_btn">Chat with our concierge</button>
   </div>
 </section>
 
@@ -216,19 +229,18 @@ footer a{display:block;color:#aab1bb;margin-bottom:8px}footer a:hover{color:#e7d
     <div class="fgrid">
       <div>
         <div class="nm">PS Palm Beach</div><div class="sub">Illustrated Properties</div>
-        <p style="max-width:340px">An exclusive member of Forbes Global Properties. Representing South Florida's finest homes across Palm Beach, Miami-Dade, Broward, Martin, and the Treasure Coast.</p>
+        <p style="max-width:340px" data-i18n="foot_about">An exclusive member of Forbes Global Properties. Representing South Florida's finest homes across Palm Beach, Miami-Dade, Broward, Martin, and the Treasure Coast.</p>
       </div>
-      <div><h4>Explore</h4><a href="#listings">Featured Listings</a><a href="#communities">Communities</a><a href="#team">Meet the Team</a><a href="#cta">Sell Your Home</a></div>
-      <div><h4>Contact</h4><a href="#">561-626-7000</a><a href="#">hello@pspalmbeach.com</a><a href="#">Palm Beach, Florida</a><a href="#">@pspalmbeach</a></div>
+      <div><h4 data-i18n="foot_explore">Explore</h4><a href="#listings" data-i18n="nav_listings2">Featured Listings</a><a href="#communities" data-i18n="nav_communities2">Communities</a><a href="#team" data-i18n="foot_team">Meet the Team</a><a href="#cta" data-i18n="foot_sell">Sell Your Home</a></div>
+      <div><h4 data-i18n="foot_contact">Contact</h4><a href="#">561-626-7000</a><a href="#">hello@pspalmbeach.com</a><a href="#">Palm Beach, Florida</a><a href="#">@pspalmbeach</a></div>
     </div>
     <div class="fbot">
-      <div>© 2026 PS Palm Beach · Illustrated Properties. All rights reserved.</div>
-      <div class="eh"><span class="box"></span> Equal Housing Opportunity</div>
+      <div>© 2026 PS Palm Beach · Illustrated Properties.</div>
+      <div class="eh"><span class="box"></span> <span data-i18n="eho">Equal Housing Opportunity</span></div>
     </div>
   </div>
 </footer>
 
-<!-- ===== LIVE KAZOZO WIDGET — talks to the real agent for tenant "ps-palm-beach" ===== -->
 <script async src="https://api.kazozo.com/widget/embed-loader.js"
   data-tenant="ps-palm-beach-64aed9"
   data-api="https://api.kazozo.com"
@@ -247,6 +259,29 @@ footer a{display:block;color:#aab1bb;margin-bottom:8px}footer a:hover{color:#e7d
       else { var b=document.querySelector('[class*="kazozo"][class*="bubble"],.kazozo-widget-bubble,#kazozo-bubble'); if(b) b.click(); }
     }catch(e){}
   }
+  var TRANS = {
+    en: {},
+    de: { forbes:"Exklusives Mitglied von Forbes Global Properties", nav_buy:"Kaufen", nav_sell:"Verkaufen", nav_listings:"Angebote", nav_communities:"Regionen", nav_about:"Über uns", nav_contact:"Kontakt", hero_h1:"Südfloridas exklusivste Adressen", hero_sub:"Ein Boutique-Luxusteam, das die außergewöhnlichsten Wasser- und Anwesen-Immobilien der Küste vertritt.", s_location:"Lage", s_price:"Preis", s_type:"Typ", s_btn:"Suchen", feat_eyebrow:"Ausgewählte Objekte", feat_h2:"Aktuell vertreten", feat_p:"Eine kuratierte Auswahl der aktuellen Luxusangebote des Teams in ganz Südflorida.", diff_eyebrow:"Der PS Palm Beach Unterschied", diff_h2:"Beziehungen zuerst. Immer Ergebnisse.", diff_p:"Luxusimmobilien sind ein Beziehungsgeschäft. Als exklusives Mitglied von Forbes Global Properties verbindet unser Team erstklassigen, persönlichen Service mit globaler Reichweite.", stat_sales:"Lebenszeit-Umsatz", stat_years:"Jahre zusammen", stat_network:"Forbes-Netzwerk", team_eyebrow:"Unser Team", team_p:"Die Köpfe hinter PS Palm Beach — Ihre persönlichen Begleiter im Luxusmarkt Südfloridas.", role_principal:"Geschäftsführende Maklerin", role_principal2:"Geschäftsführende Maklerin", julia_bio:"Spezialisiert auf Strandvillen und anspruchsvolle Käufer aus aller Welt.", karina_bio:"Vertrauensberaterin für Verkäufer und Zweitwohnsitz-Käufer, von Palm Beach bis zur Treasure Coast.", cta_eyebrow:"Sprechen wir", cta_h2:"Denken Sie über Kauf oder Verkauf nach?", cta_p:"Erreichen Sie das PS Palm Beach Team jederzeit — unser Concierge antwortet sofort, Tag und Nacht, in Ihrer Sprache.", cta_btn:"Mit unserem Concierge chatten", foot_about:"Exklusives Mitglied von Forbes Global Properties. Wir vertreten Südfloridas schönste Häuser in Palm Beach, Miami-Dade, Broward, Martin und der Treasure Coast.", foot_explore:"Entdecken", nav_listings2:"Ausgewählte Objekte", nav_communities2:"Regionen", foot_team:"Unser Team", foot_sell:"Haus verkaufen", foot_contact:"Kontakt", eho:"Chancengleichheit beim Wohnen" },
+    ru: { forbes:"Эксклюзивный член Forbes Global Properties", nav_buy:"Купить", nav_sell:"Продать", nav_listings:"Объекты", nav_communities:"Районы", nav_about:"О нас", nav_contact:"Контакты", hero_h1:"Лучшие адреса Южной Флориды", hero_sub:"Бутиковая команда премиум-класса, представляющая самые изысканные объекты на побережье и у воды.", s_location:"Локация", s_price:"Цена", s_type:"Тип", s_btn:"Поиск", feat_eyebrow:"Избранные объекты", feat_h2:"В нашем представлении", feat_p:"Тщательно подобранная коллекция актуальных люксовых предложений команды по всей Южной Флориде.", diff_eyebrow:"Преимущество PS Palm Beach", diff_h2:"Сначала отношения. Всегда результат.", diff_p:"Элитная недвижимость — это бизнес отношений. Будучи эксклюзивным членом Forbes Global Properties, наша команда сочетает первоклассный персональный сервис с глобальным охватом.", stat_sales:"Продажи за всё время", stat_years:"Лет вместе", stat_network:"Сеть Forbes", team_eyebrow:"Наша команда", team_p:"Те, кто стоит за PS Palm Beach — ваши личные проводники на люксовом рынке Южной Флориды.", role_principal:"Ведущий агент", role_principal2:"Ведущий агент", julia_bio:"Специализируется на океанских поместьях и взыскательных покупателях со всего мира.", karina_bio:"Доверенный советник для продавцов и покупателей вторых домов, от Палм-Бич до Treasure Coast.", cta_eyebrow:"Давайте обсудим", cta_h2:"Думаете о покупке или продаже?", cta_p:"Свяжитесь с командой PS Palm Beach в любое время — наш консьерж отвечает мгновенно, днём и ночью, на вашем языке.", cta_btn:"Связаться с консьержем", foot_about:"Эксклюзивный член Forbes Global Properties. Представляем лучшие дома Южной Флориды в Палм-Бич, Майами-Дейд, Бровард, Мартин и на Treasure Coast.", foot_explore:"Обзор", nav_listings2:"Избранные объекты", nav_communities2:"Районы", foot_team:"Наша команда", foot_sell:"Продать дом", foot_contact:"Контакты", eho:"Равные возможности жилья" },
+    uk: { forbes:"Ексклюзивний член Forbes Global Properties", nav_buy:"Купити", nav_sell:"Продати", nav_listings:"Об'єкти", nav_communities:"Райони", nav_about:"Про нас", nav_contact:"Контакти", hero_h1:"Найкращі адреси Південної Флориди", hero_sub:"Бутикова команда преміумкласу, що представляє найвишуканіші об'єкти на узбережжі та біля води.", s_location:"Локація", s_price:"Ціна", s_type:"Тип", s_btn:"Пошук", feat_eyebrow:"Вибрані об'єкти", feat_h2:"Наразі представляємо", feat_p:"Ретельно дібрана колекція актуальних люкс-пропозицій команди по всій Південній Флориді.", diff_eyebrow:"Перевага PS Palm Beach", diff_h2:"Спершу стосунки. Завжди результат.", diff_p:"Елітна нерухомість — це бізнес стосунків. Як ексклюзивний член Forbes Global Properties, наша команда поєднує першокласний персональний сервіс із глобальним охопленням.", stat_sales:"Продажі за весь час", stat_years:"Років разом", stat_network:"Мережа Forbes", team_eyebrow:"Наша команда", team_p:"Ті, хто стоїть за PS Palm Beach — ваші особисті провідники на люкс-ринку Південної Флориди.", role_principal:"Провідний агент", role_principal2:"Провідний агент", julia_bio:"Спеціалізується на океанських маєтках і вибагливих покупцях з усього світу.", karina_bio:"Надійний радник для продавців і покупців других домівок, від Палм-Біч до Treasure Coast.", cta_eyebrow:"Поговорімо", cta_h2:"Плануєте купівлю чи продаж?", cta_p:"Звертайтеся до команди PS Palm Beach будь-коли — наш консьєрж відповідає миттєво, удень і вночі, вашою мовою.", cta_btn:"Звернутися до консьєржа", foot_about:"Ексклюзивний член Forbes Global Properties. Представляємо найкращі домівки Південної Флориди в Палм-Біч, Маямі-Дейд, Бровард, Мартін та на Treasure Coast.", foot_explore:"Огляд", nav_listings2:"Вибрані об'єкти", nav_communities2:"Райони", foot_team:"Наша команда", foot_sell:"Продати дім", foot_contact:"Контакти", eho:"Рівні можливості житла" },
+    fr: { forbes:"Membre exclusif de Forbes Global Properties", nav_buy:"Acheter", nav_sell:"Vendre", nav_listings:"Annonces", nav_communities:"Quartiers", nav_about:"À propos", nav_contact:"Contact", hero_h1:"Les plus belles adresses du sud de la Floride", hero_sub:"Une équipe de luxe représentant les propriétés en bord de mer et les domaines les plus prestigieux de la côte.", s_location:"Lieu", s_price:"Prix", s_type:"Type", s_btn:"Rechercher", feat_eyebrow:"Propriétés en vedette", feat_h2:"Actuellement représentées", feat_p:"Une sélection des annonces de luxe actives de l'équipe à travers le sud de la Floride.", diff_eyebrow:"La différence PS Palm Beach", diff_h2:"Les relations d'abord. Toujours des résultats.", diff_p:"L'immobilier de luxe est une affaire de relations. Membre exclusif de Forbes Global Properties, notre équipe allie un service personnel haut de gamme à une portée mondiale.", stat_sales:"Ventes à vie", stat_years:"Années cumulées", stat_network:"Réseau Forbes", team_eyebrow:"Notre équipe", team_p:"Les visages derrière PS Palm Beach — vos guides personnels sur le marché du luxe du sud de la Floride.", role_principal:"Agente principale", role_principal2:"Agente principale", julia_bio:"Spécialisée dans les domaines en bord de mer et les acheteurs exigeants du monde entier.", karina_bio:"Conseillère de confiance pour les vendeurs et les acheteurs de résidences secondaires, de Palm Beach à la Treasure Coast.", cta_eyebrow:"Parlons-en", cta_h2:"Vous envisagez d'acheter ou de vendre ?", cta_p:"Contactez l'équipe PS Palm Beach à tout moment — notre concierge répond instantanément, jour et nuit, dans votre langue.", cta_btn:"Discuter avec notre concierge", foot_about:"Membre exclusif de Forbes Global Properties. Nous représentons les plus belles demeures du sud de la Floride à Palm Beach, Miami-Dade, Broward, Martin et la Treasure Coast.", foot_explore:"Explorer", nav_listings2:"Propriétés en vedette", nav_communities2:"Quartiers", foot_team:"Notre équipe", foot_sell:"Vendre votre bien", foot_contact:"Contact", eho:"Égalité d'accès au logement" }
+  };
+  var EN = {};
+  document.querySelectorAll('[data-i18n]').forEach(function(el){ EN[el.getAttribute('data-i18n')] = el.textContent; });
+  TRANS.en = EN;
+  function setLang(code){
+    var dict = TRANS[code] || EN;
+    document.querySelectorAll('[data-i18n]').forEach(function(el){
+      var k = el.getAttribute('data-i18n');
+      if(dict[k]!==undefined) el.textContent = dict[k];
+      else if(EN[k]!==undefined) el.textContent = EN[k];
+    });
+    document.documentElement.lang = code;
+    document.querySelectorAll('#langsel button').forEach(function(b){ b.classList.toggle('on', b.getAttribute('data-lang')===code); });
+  }
+  document.querySelectorAll('#langsel button').forEach(function(b){
+    b.addEventListener('click', function(){ setLang(b.getAttribute('data-lang')); });
+  });
 </script>
 </body>
 </html>
