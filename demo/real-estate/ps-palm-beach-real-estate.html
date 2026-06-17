@@ -111,6 +111,26 @@ footer a{display:block;color:#aab1bb;margin-bottom:8px}footer a:hover{color:#e7d
 .eh .box{width:14px;height:14px;border:1px solid #7c8590;position:relative}
 .eh .box::after{content:'=';position:absolute;top:-3px;left:3px;font-size:11px}
 @media(max-width:680px){.fbot{flex-direction:column;gap:12px;text-align:center}}
+
+/* mobile polish pass */
+@media(max-width:680px){
+  section.blk{padding:60px 0}
+  .band .wrap{padding:56px 24px}
+  .band .stats{gap:26px 30px;flex-wrap:wrap}
+  .band .stats b{font-size:34px}
+  .shead{margin-bottom:34px}
+}
+@media(max-width:520px){
+  .search{grid-template-columns:1fr;margin-top:20px}
+  .search .f{border-right:none;border-bottom:1px solid var(--line)}
+  .search button{grid-column:auto;padding:16px}
+  .hero{height:70vh;min-height:460px}
+  .hero h1{font-size:34px}
+  .hero p{font-size:14.5px}
+  .brand .nm{font-size:23px}
+  header .wrap{height:66px}
+  section.blk{padding:48px 0}
+}
 </style>
 </head>
 <body>
