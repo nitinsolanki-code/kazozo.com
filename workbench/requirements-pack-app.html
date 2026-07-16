@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Kazozo Analyst — Requirements Pack (interactive prototype)</title>
+<meta name="robots" content="noindex" />
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#131316;--surface:#1b1b1e;--card:#1f1f22;--card-2:#26262a;--card-3:#2f2f34;
+    --text:#E4E1E6;--muted:#9e9ba5;--faint:#6f6c77;
+    --line:rgba(228,225,230,.09);--line-2:rgba(228,225,230,.14);
+    --coral:#FF5733;--coral-soft:#FFB4A4;--lime:#7BEA8E;--sky:#46EAED;--lavender:#C4A8FF;--amber:#EBC314;
+    --sig:#C4A8FF;--sig-soft:rgba(196,168,255,.14);
+    --disp:"Space Grotesk",-apple-system,sans-serif;--sans:"Manrope",-apple-system,"Segoe UI",sans-serif;
+    --mono:"SF Mono",ui-monospace,Menlo,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:var(--sans);color:var(--text);background:#0c0c0e;-webkit-font-smoothing:antialiased}
+  h1,h2,h3,h4,h5,h6{font-family:var(--disp);letter-spacing:-.02em;font-weight:700}
+  .frame{max-width:1200px;margin:22px auto;border:1px solid var(--line-2);border-radius:16px;overflow:hidden;box-shadow:0 40px 100px rgba(0,0,0,.6);background:var(--surface)}
+  .chrome{display:flex;align-items:center;gap:8px;padding:11px 15px;background:#0e0e10;border-bottom:1px solid var(--line)}
+  .dot{width:11px;height:11px;border-radius:50%}.dot.r{background:#ff5f57}.dot.y{background:#febc2e}.dot.g{background:#28c840}
+  .url{flex:1;margin-left:12px;background:var(--card);border:1px solid var(--line);border-radius:7px;font-size:12px;color:var(--muted);padding:6px 12px;font-family:var(--mono)}
+  .app{display:grid;grid-template-columns:210px 1fr;min-height:660px;background:var(--bg)}
+  /* sidebar */
+  .side{background:#0e0e10;border-right:1px solid var(--line);padding:16px 12px;display:flex;flex-direction:column}
+  .brand{display:flex;align-items:center;gap:8px;padding:2px 6px 16px}
+  .word{font-family:var(--disp);font-weight:700;font-size:18px}.word .zo{color:var(--coral)}
+  .brand .tag{font-size:9.5px;font-weight:700;color:var(--lavender);background:var(--sig-soft);padding:2px 7px;border-radius:6px}
+  .snav{list-style:none}
+  .snav li{display:flex;align-items:center;gap:10px;padding:9px 11px;border-radius:9px;font-size:13.5px;color:var(--muted);margin-bottom:2px;cursor:pointer;font-weight:600}
+  .snav li .i{width:16px;text-align:center;opacity:.85}
+  .snav li.on{background:var(--sig-soft);color:var(--text)}
+  .snav li:hover:not(.on){background:rgba(255,255,255,.04)}
+  .side .foot{margin-top:auto;padding-top:14px;border-top:1px solid var(--line);font-size:11px;color:var(--faint)}
+  .side .up{display:flex;align-items:center;gap:8px;margin-top:10px}
+  .side .up .av{width:26px;height:26px;border-radius:50%;background:linear-gradient(145deg,var(--coral),var(--coral-soft));display:grid;place-items:center;font-size:10.5px;font-weight:800;color:#20120d}
+  .side .up small{font-size:12px;color:var(--muted);font-weight:600}
+  /* main */
+  .main{display:flex;flex-direction:column;min-width:0}
+  .top{display:flex;align-items:center;justify-content:space-between;padding:15px 22px;border-bottom:1px solid var(--line);background:var(--surface)}
+  .crumb{font-size:12px;color:var(--faint)}.crumb b{color:var(--text)}
+  .top h3{font-size:16px;margin-top:3px}
+  .step-ind{display:flex;gap:6px;align-items:center;font-size:11.5px;color:var(--faint)}
+  .step-ind .s{display:flex;align-items:center;gap:6px}
+  .step-ind .n{width:19px;height:19px;border-radius:50%;border:1px solid var(--line-2);display:grid;place-items:center;font-size:10px;font-weight:700}
+  .step-ind .s.on .n{background:var(--coral);color:#20120d;border-color:var(--coral)}
+  .step-ind .s.done .n{background:var(--sig-soft);color:var(--lavender);border-color:transparent}
+  .step-ind .arw{color:var(--faint)}
+  .body{flex:1;overflow:auto;padding:26px 28px}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-family:var(--sans);font-weight:700;font-size:14px;padding:11px 18px;border-radius:11px;cursor:pointer;border:1px solid transparent;transition:.16s}
+  .btn-primary{background:linear-gradient(120deg,var(--coral),var(--coral-soft));color:#20120d;box-shadow:0 6px 20px rgba(255,87,51,.3)}
+  .btn-primary:hover{transform:translateY(-1px)}
+  .btn-primary:disabled{opacity:.5;cursor:not-allowed;transform:none}
+  .btn-ghost{background:rgba(255,255,255,.04);color:var(--text);border-color:var(--line-2)}
+  .btn-ghost:hover{background:rgba(255,255,255,.08)}
+  .btn-sm{padding:8px 13px;font-size:13px}
+
+  /* STEP 1 — input */
+  .setup{max-width:820px;margin:0 auto}
+  .setup h2{font-size:26px;margin-bottom:6px}
+  .setup .sub{font-size:14.5px;color:var(--muted);margin-bottom:24px}
+  .field{margin-bottom:16px}
+  .field label{display:block;font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:7px}
+  .field input,.field select,.field textarea{width:100%;background:var(--card);border:1px solid var(--line-2);border-radius:11px;color:var(--text);font-family:var(--sans);font-size:14px;padding:12px 14px;outline:none}
+  .field input:focus,.field textarea:focus,.field select:focus{border-color:var(--coral)}
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .drop{border:1.5px dashed var(--line-2);border-radius:14px;padding:14px;background:var(--card)}
+  .drop .dh{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+  .drop .dh .lbl{font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+  .drop textarea{min-height:190px;resize:vertical;border:none;background:transparent;padding:4px 2px;font-size:13px;line-height:1.6;color:var(--muted)}
+  .drop .foot{display:flex;align-items:center;justify-content:space-between;margin-top:8px;font-size:12px;color:var(--faint)}
+  .chipbtn{font-size:12px;font-weight:600;color:var(--lavender);background:var(--sig-soft);border:1px solid rgba(196,168,255,.25);padding:5px 11px;border-radius:999px;cursor:pointer}
+  .setup .actions{display:flex;justify-content:space-between;align-items:center;margin-top:22px}
+
+  /* STEP 2 — generating */
+  .gen{max-width:560px;margin:60px auto;text-align:center}
+  .gen .orb{width:72px;height:72px;border-radius:20px;margin:0 auto 24px;background:linear-gradient(135deg,var(--coral),var(--coral-soft));display:grid;place-items:center;font-size:30px;box-shadow:0 16px 50px rgba(255,87,51,.4);animation:pulse 1.6s ease-in-out infinite}
+  @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}
+  .gen h2{font-size:24px;margin-bottom:8px}
+  .gen p{color:var(--muted);font-size:14px;margin-bottom:26px}
+  .glist{text-align:left;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:8px}
+  .gi{display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:10px;font-size:13.5px;color:var(--faint);transition:.3s}
+  .gi .tick{width:20px;height:20px;border-radius:50%;border:2px solid var(--line-2);flex:none;display:grid;place-items:center;font-size:11px}
+  .gi.run{color:var(--text)}.gi.run .tick{border-color:var(--coral);border-top-color:transparent;animation:sp .8s linear infinite}
+  .gi.done{color:var(--muted)}.gi.done .tick{background:var(--lime);border-color:var(--lime);color:#0c1c10;animation:none}
+  @keyframes sp{to{transform:rotate(360deg)}}
+
+  /* STEP 3 — output */
+  .out-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;flex-wrap:wrap;gap:12px}
+  .out-head .l h2{font-size:22px}
+  .out-head .l .meta{font-size:12.5px;color:var(--muted);margin-top:2px}
+  .out-head .r{display:flex;gap:9px;align-items:center}
+  .status{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;color:var(--lime);background:rgba(123,234,142,.14);padding:6px 12px;border-radius:999px}
+  .layout{display:grid;grid-template-columns:1.15fr .85fr;gap:20px}
+  @media(max-width:900px){.layout{grid-template-columns:1fr}}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px}
+  .tabs{display:flex;gap:2px;border-bottom:1px solid var(--line);padding:0 8px;flex-wrap:wrap}
+  .tab{font-size:12.5px;font-weight:700;color:var(--muted);padding:12px 12px;border-bottom:2px solid transparent;margin-bottom:-1px;cursor:pointer}
+  .tab.on{color:var(--text);border-bottom-color:var(--coral)}
+  .pane{display:none;padding:18px}.pane.on{display:block;animation:fade .25s}
+  @keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+  .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px}
+  .kpi{background:var(--card-2);border:1px solid var(--line);border-radius:11px;padding:13px}
+  .kpi .v{font-family:var(--disp);font-size:24px;color:var(--coral-soft)}
+  .kpi .k{font-size:11px;color:var(--muted);font-weight:600}
+  .sum p{font-size:13.5px;color:var(--muted);line-height:1.6;margin-bottom:11px}.sum b{color:var(--text)}
+  .story{border:1px solid var(--line);border-radius:11px;padding:13px 15px;margin-bottom:10px;background:var(--card-2)}
+  .story .t{display:flex;justify-content:space-between;align-items:center;margin-bottom:5px}
+  .story .id{font-size:11px;font-weight:800;color:var(--lavender);letter-spacing:.04em}
+  .prio{font-size:9.5px;font-weight:800;padding:3px 8px;border-radius:6px;text-transform:uppercase}
+  .prio.hi{background:rgba(255,87,51,.16);color:var(--coral-soft)}.prio.md{background:rgba(235,195,20,.16);color:var(--amber)}
+  .story .x{font-size:13.5px;color:var(--text);line-height:1.5}
+  .story .ac{margin-top:9px;padding-top:9px;border-top:1px dashed var(--line-2);font-size:12px;color:var(--muted)}
+  .story .ac ul{list-style:none;margin-top:4px}.story .ac li{padding:2px 0 2px 18px;position:relative}
+  .story .ac li:before{content:"✓";position:absolute;left:0;color:var(--lime);font-weight:800;font-size:10px}
+  [contenteditable="true"]{outline:1px dashed rgba(196,168,255,.5);outline-offset:3px;border-radius:3px;background:rgba(196,168,255,.05)}
+  .q,.risk{display:flex;gap:9px;padding:11px 13px;border:1px solid var(--line);border-radius:10px;background:var(--card-2);margin-bottom:8px;font-size:13px;color:var(--muted)}
+  .q{border-left:3px solid var(--amber)}.risk{border-left:3px solid var(--coral)}
+  .q b,.risk b{color:var(--text)}
+  .persona{display:flex;gap:11px;padding:12px;border:1px solid var(--line);border-radius:11px;background:var(--card-2);margin-bottom:9px}
+  .persona .pv{width:38px;height:38px;border-radius:10px;flex:none;display:grid;place-items:center;font-size:16px;background:var(--sig-soft)}
+  .persona h6{font-size:14px;margin-bottom:2px}.persona p{font-size:12px;color:var(--muted)}
+  .agenda{list-style:none}.agenda li{display:flex;gap:11px;padding:9px 0;border-bottom:1px solid var(--line);font-size:13.5px}
+  .agenda li .num{font-family:var(--disp);color:var(--lavender);font-weight:700;flex:none;width:22px}
+  /* right rail: source transcript */
+  .rail h4{font-size:11.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--faint);font-weight:800;padding:16px 16px 0}
+  .src{padding:14px 16px;font-size:12px;color:var(--muted);line-height:1.55;max-height:520px;overflow:auto}
+  .src .r{margin-bottom:11px}.src .who{font-weight:700;color:var(--coral-soft);font-size:11.5px}
+  .hl{background:rgba(196,168,255,.16);border-radius:3px;padding:0 2px;color:#d9c8ff;cursor:pointer}
+  .prov{font-size:11px;color:var(--lavender);margin-top:6px;font-weight:600}
+
+  /* export modal */
+  .modal-bg{position:fixed;inset:0;background:rgba(8,8,10,.7);backdrop-filter:blur(4px);display:none;align-items:center;justify-content:center;z-index:50;padding:24px}
+  .modal-bg.on{display:flex}
+  .modal{background:var(--surface);border:1px solid var(--line-2);border-radius:16px;max-width:760px;width:100%;max-height:88vh;overflow:hidden;box-shadow:0 40px 100px rgba(0,0,0,.7);display:flex;flex-direction:column}
+  .modal .mh{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid var(--line)}
+  .modal .mh h3{font-size:16px}
+  .modal .close{cursor:pointer;color:var(--muted);font-size:20px;background:none;border:none}
+  .modal .mbody{overflow:auto;padding:22px;background:#0e0e10}
+  .doc{background:#fbfaf8;color:#1a1a1a;border-radius:8px;padding:40px 44px;font-family:Georgia,'Times New Roman',serif;box-shadow:0 20px 50px rgba(0,0,0,.4)}
+  .doc .logo{display:flex;align-items:center;justify-content:space-between;border-bottom:2px solid #e4b8ac;padding-bottom:14px;margin-bottom:20px}
+  .doc .logo .lw{font-family:var(--disp);font-weight:700;font-size:18px;color:#c23e1e;letter-spacing:-.02em}
+  .doc .logo .meta{font-family:var(--sans);font-size:10.5px;color:#888;text-align:right}
+  .doc h1{font-family:var(--disp);font-size:24px;color:#1a1a1a;margin-bottom:4px}
+  .doc .dsub{font-family:var(--sans);font-size:12px;color:#777;margin-bottom:20px}
+  .doc h2{font-family:var(--sans);font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:#c23e1e;margin:20px 0 8px;font-weight:700}
+  .doc p,.doc li{font-size:13.5px;line-height:1.65;color:#2a2a2a}
+  .doc .us{margin:0 0 10px;padding:10px 14px;background:#f3eef0;border-radius:6px}
+  .doc .us .id{font-family:var(--sans);font-size:10px;font-weight:800;color:#9163d6;letter-spacing:.04em}
+  .doc ul{margin:4px 0 0 18px}
+  .modal .mf{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;border-top:1px solid var(--line);background:var(--surface)}
+  .modal .mf .opt{font-size:12px;color:var(--muted)}
+  .fmt{display:inline-flex;gap:6px}
+  .fmt button{font-size:12px;font-weight:700;padding:7px 12px;border-radius:8px;border:1px solid var(--line-2);background:var(--card);color:var(--text);cursor:pointer}
+  .fmt button.on{background:var(--sig-soft);border-color:rgba(196,168,255,.4);color:var(--lavender)}
+  .toast{position:fixed;bottom:26px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--card);border:1px solid var(--line-2);border-radius:12px;padding:13px 20px;font-size:13.5px;font-weight:600;box-shadow:0 20px 50px rgba(0,0,0,.5);opacity:0;transition:.3s;z-index:60;display:flex;gap:9px;align-items:center}
+  .toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+  .toast .c{color:var(--lime)}
+  .banner{max-width:1200px;margin:0 auto;padding:0 8px;font-size:12px;color:var(--faint);text-align:center}
+</style>
+</head>
+<body>
+
+<div class="frame">
+  <div class="chrome"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+    <span class="url">app.kazozo.com/analyst/projects/northwind-portal/requirements-pack</span>
+  </div>
+  <div class="app">
+    <aside class="side">
+      <div class="brand"><span class="word">kazo<span class="zo">zo</span></span><span class="tag">Analyst</span></div>
+      <ul class="snav">
+        <li><span class="i">▤</span> Dashboard</li>
+        <li class="on"><span class="i">▣</span> Projects</li>
+        <li><span class="i">🎙</span> Transcripts</li>
+        <li><span class="i">✦</span> Artifacts</li>
+        <li><span class="i">◈</span> Frameworks</li>
+        <li><span class="i">⚙</span> Settings</li>
+      </ul>
+      <div class="foot"><div style="font-weight:700;color:var(--muted)">Consultant plan</div>7 of 10 packs used
+        <div class="up"><div class="av">NS</div><small>Nitin Solanki</small></div>
+      </div>
+    </aside>
+
+    <div class="main">
+      <div class="top">
+        <div>
+          <div class="crumb">Projects / <b>Northwind Logistics</b> / Requirements Pack</div>
+          <h3 id="topTitle">New Requirements Pack</h3>
+        </div>
+        <div class="step-ind" id="steps">
+          <span class="s on" data-s="input"><span class="n">1</span> Input</span><span class="arw">→</span>
+          <span class="s" data-s="generating"><span class="n">2</span> Generate</span><span class="arw">→</span>
+          <span class="s" data-s="output"><span class="n">3</span> Review &amp; export</span>
+        </div>
+      </div>
+
+      <div class="body">
+        <!-- STEP 1 : INPUT -->
+        <div id="view-input">
+          <div class="setup">
+            <h2>New Requirements Pack</h2>
+            <p class="sub">Give it a transcript or your notes. Choose the framework you work in, and Analyst drafts the pack for you to review.</p>
+            <div class="row2">
+              <div class="field"><label>Client</label><input value="Northwind Logistics" /></div>
+              <div class="field"><label>Project</label><input value="Customer Portal — Discovery" /></div>
+            </div>
+            <div class="row2">
+              <div class="field"><label>Output</label><select><option>Requirements Pack</option><option>Requirements Pack + Journey (soon)</option></select></div>
+              <div class="field"><label>Framework</label><select><option>Kazozo default</option><option>Your house template</option><option>Agile / user-story</option></select></div>
+            </div>
+            <div class="field">
+              <label>Transcript or notes</label>
+              <div class="drop">
+                <div class="dh"><span class="lbl">📄 Pasted transcript · 44:12</span><span class="chipbtn" onclick="loadSample()">↺ Reload sample</span></div>
+                <textarea id="tx">Dana (Ops Lead): The real headache is that reps re-key every order from email into the CRM by hand. It's slow and we get typos on quantities.
+Dana (Ops Lead): And customers keep calling to ask "where's my order" — support spends half their day on status checks.
+You (Consultant): If the portal showed live status, would that take the pressure off support?
+Marcus (Sales): Maybe. But not every customer should see pricing — the wholesale accounts are on different terms.
+Dana (Ops Lead): We'd also need it to work for the German distributors… not sure about the timeline though.</textarea>
+                <div class="foot"><span>Drag a file, paste text, or connect a recorder</span><span id="wc">just now</span></div>
+              </div>
+            </div>
+            <div class="actions">
+              <span style="font-size:12.5px;color:var(--faint)">You approve every word before anything is exported.</span>
+              <button class="btn btn-primary" id="genBtn" onclick="startGen()">Generate pack →</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 2 : GENERATING -->
+        <div id="view-generating" style="display:none">
+          <div class="gen">
+            <div class="orb">✦</div>
+            <h2>Reading the transcript…</h2>
+            <p>Analyst is turning the conversation into a structured pack. This usually takes under a minute.</p>
+            <div class="glist" id="glist">
+              <div class="gi" data-g="0"><span class="tick"></span> Reading &amp; segmenting the transcript</div>
+              <div class="gi" data-g="1"><span class="tick"></span> Identifying personas &amp; stakeholders</div>
+              <div class="gi" data-g="2"><span class="tick"></span> Extracting user stories</div>
+              <div class="gi" data-g="3"><span class="tick"></span> Drafting acceptance criteria</div>
+              <div class="gi" data-g="4"><span class="tick"></span> Surfacing open questions &amp; risks</div>
+              <div class="gi" data-g="5"><span class="tick"></span> Compiling the pack</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 3 : OUTPUT -->
+        <div id="view-output" style="display:none">
+          <div class="out-head">
+            <div class="l"><h2>Requirements Pack — Northwind</h2><div class="meta">Generated from a 44:12 transcript · 11 stories · 3 personas · 4 open questions</div></div>
+            <div class="r">
+              <span class="status">● Draft ready</span>
+              <button class="btn btn-ghost btn-sm" id="editBtn" onclick="toggleEdit()">✎ Edit pack</button>
+              <button class="btn btn-primary btn-sm" onclick="openExport()">⬇ Export</button>
+            </div>
+          </div>
+          <div class="layout">
+            <div class="card">
+              <div class="tabs">
+                <span class="tab on" data-t="sum">Summary</span>
+                <span class="tab" data-t="per">Personas</span>
+                <span class="tab" data-t="sto">Stories</span>
+                <span class="tab" data-t="que">Questions</span>
+                <span class="tab" data-t="ris">Risks</span>
+                <span class="tab" data-t="agn">Agenda</span>
+              </div>
+              <div class="pane on" id="p-sum">
+                <div class="kpis"><div class="kpi"><div class="v">11</div><div class="k">User stories</div></div><div class="kpi"><div class="v">3</div><div class="k">Personas</div></div><div class="kpi"><div class="v">4</div><div class="k">Open questions</div></div></div>
+                <div class="sum" data-edit>
+                  <p><b>Context.</b> Northwind Logistics wants to reduce manual order entry and inbound "where's my order" calls by introducing a customer self-serve portal and automating order creation from inbound email.</p>
+                  <p><b>Goal.</b> Cut rep re-keying and free support capacity, while respecting tiered pricing visibility for wholesale accounts and planning for German-market distributors.</p>
+                  <p style="margin-bottom:0"><b>Recommended next step.</b> Confirm v1 scope (portal status + email intake), resolve pricing-visibility rules, and agree a target go-live in the follow-up workshop.</p>
+                </div>
+              </div>
+              <div class="pane" id="p-per">
+                <div class="persona"><div class="pv">🧭</div><div><h6>Dana — Operations Lead</h6><p>Owns fulfilment throughput. Pain: manual re-keying and status-call load.</p></div></div>
+                <div class="persona"><div class="pv">💼</div><div><h6>Marcus — Sales</h6><p>Guards account terms. Needs pricing visibility controlled per tier.</p></div></div>
+                <div class="persona"><div class="pv">📦</div><div><h6>End customer</h6><p>Wants self-serve order status without phoning support.</p></div></div>
+              </div>
+              <div class="pane" id="p-sto">
+                <div class="story" data-edit><div class="t"><span class="id">US-01</span><span class="prio hi">High</span></div><div class="x">As a sales rep, I want orders auto-created from inbound email so I stop re-keying them into the CRM.</div><div class="ac">Acceptance criteria<ul><li>Inbound order email creates a draft order in the CRM</li><li>Quantities and SKUs parsed and shown for confirmation</li><li>Rep confirms before the order is committed</li></ul></div></div>
+                <div class="story" data-edit><div class="t"><span class="id">US-02</span><span class="prio hi">High</span></div><div class="x">As a customer, I want live order status in a self-serve portal so I don't have to call support.</div><div class="ac">Acceptance criteria<ul><li>Status updates within 5 minutes of a fulfilment change</li><li>Accessible via secure link without a full login</li></ul></div></div>
+                <div class="story" data-edit><div class="t"><span class="id">US-03</span><span class="prio md">Medium</span></div><div class="x">As a sales manager, I want pricing hidden from wholesale-tier customers so account terms stay protected.</div><div class="ac">Acceptance criteria<ul><li>Pricing visibility driven by customer tier</li><li>Wholesale accounts see status but not list pricing</li></ul></div></div>
+                <div style="text-align:center;font-size:12.5px;color:var(--faint);padding:6px">+ 8 more stories</div>
+              </div>
+              <div class="pane" id="p-que">
+                <div class="q" data-edit><span style="color:var(--amber);font-weight:800">?</span><span>Which customer tiers may see pricing? Wholesale accounts are on different terms — needs a rule.</span></div>
+                <div class="q" data-edit><span style="color:var(--amber);font-weight:800">?</span><span>Is German-language support in scope for v1, or a fast-follow?</span></div>
+                <div class="q" data-edit><span style="color:var(--amber);font-weight:800">?</span><span>No timeline was agreed — what's the target go-live to plan against?</span></div>
+                <div class="q" data-edit><span style="color:var(--amber);font-weight:800">?</span><span>Which system is the source of truth for fulfilment status feeding the portal?</span></div>
+              </div>
+              <div class="pane" id="p-ris">
+                <div class="risk" data-edit><span style="color:var(--coral-soft);font-weight:800">⚠</span><span><b>Pricing exposure.</b> Without tier rules at launch, wholesale pricing could show to the wrong customers.</span></div>
+                <div class="risk" data-edit><span style="color:var(--coral-soft);font-weight:800">⚠</span><span><b>Status accuracy.</b> The portal is only as trustworthy as the upstream fulfilment feed — an integration dependency.</span></div>
+                <div class="risk" data-edit><span style="color:var(--coral-soft);font-weight:800">⚠</span><span><b>Scope creep.</b> German-market support is unscoped; folding it into v1 risks the timeline.</span></div>
+              </div>
+              <div class="pane" id="p-agn">
+                <ol class="agenda" data-edit>
+                  <li><span class="num">1</span><span>Confirm v1 scope: portal status + email-to-order intake.</span></li>
+                  <li><span class="num">2</span><span>Decide pricing-visibility rules by customer tier.</span></li>
+                  <li><span class="num">3</span><span>Agree the source of truth for fulfilment status.</span></li>
+                  <li><span class="num">4</span><span>Scope German-market support: v1 or fast-follow?</span></li>
+                  <li><span class="num">5</span><span>Set a target go-live and re-baseline the plan.</span></li>
+                </ol>
+              </div>
+            </div>
+            <div class="card rail">
+              <h4>Source transcript</h4>
+              <div class="src">
+                <div class="r"><div class="who">Dana — Ops Lead</div>Reps <span class="hl" title="→ US-01">re-key every order from email</span> into the CRM by hand. Slow, and typos on quantities.<div class="prov">↳ US-01</div></div>
+                <div class="r"><div class="who">Dana — Ops Lead</div>Customers keep calling to ask <span class="hl" title="→ US-02">"where's my order"</span> — support loses half the day.<div class="prov">↳ US-02</div></div>
+                <div class="r"><div class="who">You</div>If the portal showed live status, would that take the pressure off?</div>
+                <div class="r"><div class="who">Marcus — Sales</div><span class="hl" title="→ US-03">Not every customer should see pricing</span> — wholesale accounts differ.<div class="prov">↳ US-03 · Q1</div></div>
+                <div class="r"><div class="who">Dana — Ops Lead</div>Need it for the German distributors too… <span class="hl" title="→ Q2/Q3">not sure on timeline.</span><div class="prov">↳ Q2 · Q3 · Risk</div></div>
+                <p style="font-size:11.5px;color:var(--faint);margin-top:10px">Every item traces back to the transcript — click a story to see its source.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<p class="banner">Interactive concept prototype · sample data. Click <b style="color:var(--muted)">Generate pack</b>, switch tabs, toggle <b style="color:var(--muted)">Edit</b>, and <b style="color:var(--muted)">Export</b>.</p>
+
+<!-- EXPORT MODAL -->
+<div class="modal-bg" id="modal">
+  <div class="modal">
+    <div class="mh"><h3>Export — client-ready document</h3><button class="close" onclick="closeExport()">✕</button></div>
+    <div class="mbody">
+      <div class="doc">
+        <div class="logo"><span class="lw">Solanki Advisory</span><span class="meta">Prepared for Northwind Logistics<br>Discovery · Requirements Pack</span></div>
+        <h1>Customer Portal — Requirements</h1>
+        <div class="dsub">Generated with Kazozo Analyst · reviewed by N. Solanki</div>
+        <h2>Executive summary</h2>
+        <p>Northwind Logistics will reduce manual order entry and inbound status calls via a customer self-serve portal and email-to-order automation, respecting tiered pricing visibility and planning for German-market distributors.</p>
+        <h2>Priority user stories</h2>
+        <div class="us"><div class="id">US-01 · HIGH</div>As a sales rep, I want orders auto-created from inbound email so I stop re-keying them.<ul><li>Email creates a draft order; quantities &amp; SKUs parsed; rep confirms before commit.</li></ul></div>
+        <div class="us"><div class="id">US-02 · HIGH</div>As a customer, I want live order status in a portal so I don't have to call support.<ul><li>Status within 5 min of a fulfilment change; secure link, no full login.</li></ul></div>
+        <h2>Open questions</h2>
+        <p>Pricing visibility by tier · German-language scope for v1 · target go-live · source of truth for status.</p>
+      </div>
+    </div>
+    <div class="mf">
+      <div class="fmt"><button class="on">.docx</button><button>PDF</button><button>Copy to clipboard</button></div>
+      <button class="btn btn-primary btn-sm" onclick="doExport()">Download .docx</button>
+    </div>
+  </div>
+</div>
+<div class="toast" id="toast"><span class="c">✓</span> <span>Requirements_Pack_Northwind.docx exported</span></div>
+
+<script>
+  const SAMPLE=document.getElementById('tx').value;
+  function loadSample(){document.getElementById('tx').value=SAMPLE;}
+  function setStep(s){document.querySelectorAll('#steps .s').forEach(el=>{el.classList.remove('on','done');const k=el.dataset.s;const order=['input','generating','output'];if(order.indexOf(k)<order.indexOf(s))el.classList.add('done');if(k===s)el.classList.add('on');});}
+  function show(v){['input','generating','output'].forEach(x=>document.getElementById('view-'+x).style.display=(x===v?'block':'none'));setStep(v);}
+  function startGen(){
+    show('generating');document.getElementById('topTitle').textContent='Generating…';
+    const items=[...document.querySelectorAll('.gi')];let i=0;
+    const titles=['Reading the transcript…','Mapping the stakeholders…','Extracting the stories…','Drafting acceptance criteria…','Checking for gaps &amp; risks…','Compiling your pack…'];
+    function step(){
+      if(i>0)items[i-1].classList.remove('run'),items[i-1].classList.add('done');
+      if(i<items.length){items[i].classList.add('run');document.querySelector('#view-generating h2').innerHTML=titles[i];i++;setTimeout(step,520);}
+      else{setTimeout(()=>{show('output');document.getElementById('topTitle').textContent='Requirements Pack — draft';},350);}
+    }
+    step();
+  }
+  document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',()=>{
+    document.querySelectorAll('.tab').forEach(x=>x.classList.remove('on'));
+    document.querySelectorAll('.pane').forEach(p=>p.classList.remove('on'));
+    t.classList.add('on');document.getElementById('p-'+t.dataset.t).classList.add('on');
+  }));
+  let editing=false;
+  function toggleEdit(){
+    editing=!editing;
+    document.querySelectorAll('[data-edit]').forEach(el=>el.setAttribute('contenteditable',editing));
+    document.getElementById('editBtn').innerHTML=editing?'✓ Done editing':'✎ Edit pack';
+    if(editing)document.querySelector('[data-edit]').focus();
+  }
+  function openExport(){document.getElementById('modal').classList.add('on');}
+  function closeExport(){document.getElementById('modal').classList.remove('on');}
+  document.getElementById('modal').addEventListener('click',e=>{if(e.target.id==='modal')closeExport();});
+  document.querySelectorAll('.fmt button').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.fmt button').forEach(x=>x.classList.remove('on'));b.classList.add('on');}));
+  function doExport(){closeExport();const t=document.getElementById('toast');t.classList.add('on');setTimeout(()=>t.classList.remove('on'),2600);}
+</script>
+</body>
+</html>
