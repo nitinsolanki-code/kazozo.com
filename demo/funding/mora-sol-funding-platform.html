@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Platform — Kazozo by Mora Sol Digital</title>
+<meta name="description" content="Kazozo is an AI-powered lending operations platform built by Mora Sol Digital. CRM, pipeline management, borrower portals, and intelligent automation for private lending.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Inter:wght@300;400;500;600&display=swap">
+<style>
+:root {
+  --bg: #F6F4EF; --bg-warm: #EDE9E0; --bg-card: #FFFFFF;
+  --fg: #1A1A18; --fg-muted: #6B6860; --fg-light: #9B958A;
+  --accent: #8B7355; --accent-warm: #A6896A; --accent-gold: #C4A87C;
+  --border: #DDD8CE;
+  --serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #1A1A18; --bg-warm: #242420; --bg-card: #2A2A26;
+    --fg: #F0EDE6; --fg-muted: #A09A8E; --fg-light: #7A756B;
+    --accent: #C4A87C; --accent-warm: #D4BA92; --accent-gold: #E0CCA6;
+    --border: #3A3830;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #1A1A18; --bg-warm: #242420; --bg-card: #2A2A26;
+  --fg: #F0EDE6; --fg-muted: #A09A8E; --fg-light: #7A756B;
+  --accent: #C4A87C; --accent-warm: #D4BA92; --accent-gold: #E0CCA6;
+  --border: #3A3830;
+  color-scheme: dark;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--fg); font-family: var(--sans);
+  font-weight: 400; line-height: 1.7; -webkit-font-smoothing: antialiased;
+}
+
+/* ── NAV ── */
+.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: var(--bg); border-bottom: 1px solid var(--border); }
+.nav-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 18px max(20px, env(safe-area-inset-right, 0px)) 18px max(20px, env(safe-area-inset-left, 0px)); }
+.nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--fg); }
+.nav-logo-mark { width: 36px; height: 36px; border: 1.5px solid var(--accent); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-family: var(--serif); font-size: 16px; font-weight: 600; color: var(--accent); }
+.nav-logo-text { font-family: var(--serif); font-size: 17px; letter-spacing: 2px; font-weight: 600; }
+.nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+.nav-links a { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; color: var(--fg-muted); transition: color 0.2s; font-weight: 500; }
+.nav-links a:hover { color: var(--fg); }
+.nav-cta { font-size: 11px !important; letter-spacing: 2px !important; text-transform: uppercase; padding: 10px 24px; border: 1px solid var(--accent); color: var(--accent) !important; transition: all 0.3s; text-decoration: none; }
+.nav-cta:hover { background: var(--accent); color: var(--bg) !important; }
+.nav-mobile-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; color: var(--fg); }
+.nav-mobile-toggle svg { display: block; }
+
+/* ── HERO ── */
+.plat-hero { padding-top: calc(80px + env(safe-area-inset-top, 0px)); min-height: 80vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: linear-gradient(160deg, var(--bg) 0%, var(--bg-warm) 50%, var(--bg) 100%); padding-inline: max(20px, env(safe-area-inset-left, 0px)); position: relative; overflow: hidden; }
+.plat-hero::before { content: ''; position: absolute; top: -30%; right: -20%; width: 60%; height: 80%; border-radius: 50%; background: radial-gradient(ellipse, rgba(139,115,85,0.06) 0%, transparent 70%); pointer-events: none; }
+.plat-hero-badge { display: inline-block; font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--accent); border: 1px solid var(--accent); padding: 8px 24px; margin-bottom: 32px; font-weight: 500; }
+.plat-hero-title { font-family: var(--serif); font-size: clamp(40px, 6vw, 72px); font-weight: 400; line-height: 1.1; letter-spacing: 4px; margin-bottom: 24px; position: relative; }
+.plat-hero-subtitle { font-family: var(--serif); font-size: clamp(16px, 2vw, 22px); font-weight: 400; font-style: italic; color: var(--fg-muted); margin-bottom: 48px; max-width: 600px; position: relative; }
+.plat-hero-powered { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--fg-light); position: relative; }
+.plat-hero-powered a { color: var(--accent); text-decoration: none; }
+.plat-hero-powered a:hover { text-decoration: underline; }
+
+/* ── SECTION ── */
+.section { padding-block: 100px; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
+.section-inner { max-width: 1100px; margin: 0 auto; }
+.section-label { font-size: 12px; letter-spacing: 4px; text-transform: uppercase; color: var(--fg-light); text-align: center; margin-bottom: 16px; }
+.section-rule { width: 40px; height: 2px; background: var(--accent); margin: 0 auto 24px; }
+.section-heading { font-family: var(--serif); font-size: clamp(28px, 4vw, 42px); font-weight: 400; text-align: center; color: var(--fg); line-height: 1.3; margin-bottom: 24px; }
+.section-subheading { font-size: 16px; color: var(--fg-muted); text-align: center; max-width: 640px; margin: 0 auto 60px; line-height: 1.8; }
+.bg-warm { background: var(--bg-warm); }
+.bg-default { background: var(--bg); }
+
+/* ── CAPABILITIES GRID ── */
+.cap-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.cap-card { background: var(--bg-card); border: 1px solid var(--border); padding: 40px 32px; transition: transform 0.3s, box-shadow 0.3s; }
+.cap-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.06); }
+.cap-icon { width: 44px; height: 44px; margin-bottom: 20px; color: var(--accent); }
+.cap-title { font-family: var(--serif); font-size: 18px; font-weight: 500; margin-bottom: 12px; color: var(--fg); }
+.cap-desc { font-size: 14px; color: var(--fg-muted); line-height: 1.8; }
+
+/* ── ARCHITECTURE ── */
+.arch-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+.arch-text h3 { font-family: var(--serif); font-size: 28px; font-weight: 400; margin-bottom: 20px; }
+.arch-text p { font-size: 15px; color: var(--fg-muted); line-height: 1.8; margin-bottom: 16px; }
+.arch-diagram { background: var(--bg-card); border: 1px solid var(--border); padding: 40px; }
+.arch-layer { padding: 16px; border: 1px solid var(--border); margin-bottom: 12px; text-align: center; transition: border-color 0.3s; }
+.arch-layer:hover { border-color: var(--accent); }
+.arch-layer-label { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--fg-light); margin-bottom: 4px; }
+.arch-layer-name { font-family: var(--serif); font-size: 16px; color: var(--fg); font-weight: 500; }
+.arch-connector { text-align: center; color: var(--border); font-size: 18px; margin: -4px 0; }
+
+/* ── VERTICALS ── */
+.vert-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+.vert-card { text-align: center; padding: 36px 20px; border: 1px solid var(--border); background: var(--bg-card); }
+.vert-icon { font-size: 32px; margin-bottom: 16px; color: var(--accent); }
+.vert-title { font-family: var(--serif); font-size: 16px; font-weight: 500; margin-bottom: 8px; color: var(--fg); }
+.vert-desc { font-size: 13px; color: var(--fg-muted); line-height: 1.6; }
+.vert-badge { display: inline-block; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--accent-gold); border: 1px solid var(--accent-gold); padding: 4px 12px; margin-top: 12px; }
+
+/* ── BUILDER SECTION ── */
+.builder-card { max-width: 800px; margin: 0 auto; background: var(--bg-card); border: 1px solid var(--border); padding: 60px 48px; text-align: center; }
+.builder-logo { display: flex; align-items: center; justify-content: center; gap: 16px; margin-bottom: 32px; }
+.builder-logo-mark { width: 48px; height: 48px; border: 2px solid var(--accent); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-family: var(--serif); font-size: 22px; font-weight: 600; color: var(--accent); }
+.builder-logo-text { font-family: var(--serif); font-size: 24px; letter-spacing: 2px; font-weight: 500; }
+.builder-tagline { font-family: var(--serif); font-size: 18px; font-style: italic; color: var(--fg-muted); margin-bottom: 24px; }
+.builder-desc { font-size: 15px; color: var(--fg-muted); line-height: 1.8; max-width: 560px; margin: 0 auto 32px; }
+.builder-link { display: inline-block; font-size: 12px; letter-spacing: 3px; text-transform: uppercase; padding: 14px 40px; border: 1px solid var(--accent); color: var(--accent); text-decoration: none; transition: all 0.3s; font-weight: 500; }
+.builder-link:hover { background: var(--accent); color: var(--bg-card); }
+.builder-services { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 40px; text-align: center; }
+.builder-service { font-size: 12px; letter-spacing: 1px; color: var(--fg-light); text-transform: uppercase; padding-top: 16px; border-top: 1px solid var(--border); }
+
+/* ── CTA ── */
+.plat-cta { background: var(--fg); padding-block: 80px; text-align: center; padding-inline: max(20px, env(safe-area-inset-left, 0px)); }
+.plat-cta-heading { font-family: var(--serif); font-size: clamp(24px, 3.5vw, 36px); font-weight: 400; color: #F0EDE6; margin-bottom: 16px; }
+.plat-cta-sub { font-size: 15px; color: rgba(240,237,230,0.6); margin-bottom: 36px; max-width: 500px; margin-inline: auto; line-height: 1.7; }
+.plat-cta-btn { display: inline-block; font-size: 12px; letter-spacing: 3px; text-transform: uppercase; padding: 16px 48px; border: 1px solid rgba(240,237,230,0.5); color: #F0EDE6; text-decoration: none; transition: all 0.3s; font-weight: 500; }
+.plat-cta-btn:hover { background: #F0EDE6; color: #1A1A18; border-color: #F0EDE6; }
+
+/* ── FOOTER ── */
+.footer { background: var(--fg); padding-block: 48px; text-align: center; padding-inline: max(20px, env(safe-area-inset-left, 0px)); }
+.footer-inner { max-width: 1100px; margin: 0 auto; }
+.footer-links { display: flex; justify-content: center; gap: 32px; margin-bottom: 20px; flex-wrap: wrap; }
+.footer-links a { font-size: 12px; color: rgba(240,237,230,0.5); text-decoration: none; letter-spacing: 1px; transition: color 0.2s; }
+.footer-links a:hover { color: #F0EDE6; }
+.footer-copy { font-size: 12px; color: rgba(240,237,230,0.3); margin-bottom: 8px; }
+.footer-parent { font-size: 11px; color: rgba(240,237,230,0.2); letter-spacing: 1px; }
+.footer-parent a { color: rgba(240,237,230,0.3); text-decoration: none; }
+.footer-parent a:hover { color: rgba(240,237,230,0.5); }
+
+@media (max-width: 900px) {
+  .nav-links { display: none; }
+  .nav-mobile-toggle { display: block; }
+  .nav.mobile-open .nav-links { display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: var(--bg); padding: 24px; border-bottom: 1px solid var(--border); gap: 20px; }
+  .cap-grid { grid-template-columns: 1fr; }
+  .arch-grid { grid-template-columns: 1fr; gap: 40px; }
+  .vert-grid { grid-template-columns: repeat(2, 1fr); }
+  .builder-services { grid-template-columns: 1fr; }
+}
+@media (max-width: 500px) {
+  .vert-grid { grid-template-columns: 1fr; }
+  .builder-card { padding: 40px 24px; }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <div class="nav-logo-mark">K</div>
+      <span class="nav-logo-text">Kazozo</span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#capabilities">Platform</a></li>
+      <li><a href="#architecture">Architecture</a></li>
+      <li><a href="#verticals">Verticals</a></li>
+      <li><a href="#builder">Mora Sol Digital</a></li>
+      <li><a href="mora-sol-funding.html" class="nav-cta">Mora Sol Funding</a></li>
+    </ul>
+    <button class="nav-mobile-toggle" id="mobileToggle" aria-label="Menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/>
+      </svg>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="plat-hero">
+  <div class="plat-hero-badge">Lending Operations Platform</div>
+  <h1 class="plat-hero-title">Kazozo</h1>
+  <p class="plat-hero-subtitle">The intelligent operating system for private lending — from lead capture to loan servicing, powered by AI.</p>
+  <div class="plat-hero-powered">Built by <a href="https://morasoldigital.com" target="_blank" rel="noopener">Mora Sol Digital</a></div>
+</section>
+
+<!-- CAPABILITIES -->
+<section class="section bg-warm" id="capabilities">
+  <div class="section-inner">
+    <div class="section-label">Core Capabilities</div>
+    <div class="section-rule"></div>
+    <h2 class="section-heading">Everything a Lender Needs.</h2>
+    <p class="section-subheading">Kazozo replaces the patchwork of spreadsheets, manual follow-ups, and disconnected tools with a single intelligent platform.</p>
+    <div class="cap-grid">
+      <div class="cap-card">
+        <svg class="cap-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="22" cy="16" r="8"/><path d="M8 38c0-8 6-14 14-14s14 6 14 14"/></svg>
+        <div class="cap-title">CRM & Lead Management</div>
+        <div class="cap-desc">Capture, qualify, and route leads automatically. AI agents screen borrowers in seconds. Every interaction tracked from first touch to funded deal.</div>
+      </div>
+      <div class="cap-card">
+        <svg class="cap-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="6" y="6" width="32" height="32" rx="2"/><path d="M6 16h32"/><line x1="16" y1="6" x2="16" y2="38"/></svg>
+        <div class="cap-title">Pipeline & Workflow</div>
+        <div class="cap-desc">Visual deal pipeline with automated stage progression. Custom workflows trigger document requests, notifications, and task assignments at every milestone.</div>
+      </div>
+      <div class="cap-card">
+        <svg class="cap-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="8" y="10" width="28" height="24" rx="2"/><path d="M8 18h28"/><circle cx="16" cy="28" r="3"/><path d="M22 26h10"/><path d="M22 30h7"/></svg>
+        <div class="cap-title">Borrower Portal</div>
+        <div class="cap-desc">Branded, white-labeled portals for borrowers to upload documents, track loan status, sign disclosures, and communicate with their loan officer — all in one place.</div>
+      </div>
+      <div class="cap-card">
+        <svg class="cap-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 32L20 24L28 28L36 16"/><circle cx="36" cy="16" r="3"/><line x1="8" y1="8" x2="8" y2="36"/><line x1="8" y1="36" x2="38" y2="36"/></svg>
+        <div class="cap-title">Decision Intelligence</div>
+        <div class="cap-desc">AI-assisted underwriting with automated comp analysis, construction budget validation, and market-informed exit modeling. Faster decisions backed by better data.</div>
+      </div>
+      <div class="cap-card">
+        <svg class="cap-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="6" y="12" width="14" height="20" rx="1"/><rect x="24" y="12" width="14" height="20" rx="1"/><path d="M20 22h4"/><path d="M13 18v8"/><path d="M31 18v8"/></svg>
+        <div class="cap-title">Integrations & API</div>
+        <div class="cap-desc">Connect to your existing stack — LOS systems, document management, credit pulls, appraisal ordering, and title companies. Open API for custom workflows.</div>
+      </div>
+      <div class="cap-card">
+        <svg class="cap-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 8v6"/><path d="M22 30v6"/><path d="M8 22h6"/><path d="M30 22h6"/><circle cx="22" cy="22" r="6"/><circle cx="22" cy="22" r="14"/></svg>
+        <div class="cap-title">Investor Reporting</div>
+        <div class="cap-desc">Automated investor dashboards, distribution tracking, capital call management, and K-1 document distribution. Real-time visibility for your capital partners.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ARCHITECTURE -->
+<section class="section bg-default" id="architecture">
+  <div class="section-inner">
+    <div class="section-label">Architecture</div>
+    <div class="section-rule"></div>
+    <h2 class="section-heading">Built for Scale.</h2>
+    <p class="section-subheading">A modern, multi-tenant architecture where each deployment is isolated, branded, and independently configurable — without shared-database risk.</p>
+    <div class="arch-grid">
+      <div class="arch-text">
+        <h3>One Codebase. Isolated Deployments.</h3>
+        <p>Kazozo uses a shared-codebase, separate-deployment architecture. Every customer gets their own isolated environment with dedicated database, storage, and configuration — no data commingling, no noisy neighbors.</p>
+        <p>Each deployment is independently branded and configurable. Business rules, pipeline stages, document checklists, and portal themes are all per-customer settings — not code changes.</p>
+        <p>Updates deploy atomically across environments. New features reach every customer without migration risk or downtime.</p>
+      </div>
+      <div class="arch-diagram">
+        <div class="arch-layer"><div class="arch-layer-label">Presentation</div><div class="arch-layer-name">Branded Portals & Dashboards</div></div>
+        <div class="arch-connector">&#8595;</div>
+        <div class="arch-layer"><div class="arch-layer-label">Intelligence</div><div class="arch-layer-name">Kazozo AI Engine</div></div>
+        <div class="arch-connector">&#8595;</div>
+        <div class="arch-layer"><div class="arch-layer-label">Operations</div><div class="arch-layer-name">CRM · Pipeline · Workflow</div></div>
+        <div class="arch-connector">&#8595;</div>
+        <div class="arch-layer"><div class="arch-layer-label">Integrations</div><div class="arch-layer-name">LOS · Credit · Appraisal · Title</div></div>
+        <div class="arch-connector">&#8595;</div>
+        <div class="arch-layer"><div class="arch-layer-label">Infrastructure</div><div class="arch-layer-name">Isolated Tenant Environments</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VERTICALS -->
+<section class="section bg-warm" id="verticals">
+  <div class="section-inner">
+    <div class="section-label">Industry Verticals</div>
+    <div class="section-rule"></div>
+    <h2 class="section-heading">Beyond Mortgage.</h2>
+    <p class="section-subheading">Kazozo's architecture is vertical-agnostic. The same platform that powers private lending operations extends to any industry where lead-to-deal pipeline management, customer portals, and AI automation create value.</p>
+    <div class="vert-grid">
+      <div class="vert-card">
+        <svg class="vert-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" width="32" height="32"><rect x="4" y="14" width="24" height="14" rx="1"/><path d="M16 4L28 14H4L16 4Z"/></svg>
+        <div class="vert-title">Private Lending</div>
+        <div class="vert-desc">Fix & flip, bridge, DSCR, construction, and capital markets financing.</div>
+        <div class="vert-badge">Live</div>
+      </div>
+      <div class="vert-card">
+        <svg class="vert-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" width="32" height="32"><circle cx="16" cy="16" r="12"/><path d="M16 8v8l6 4"/></svg>
+        <div class="vert-title">Insurance</div>
+        <div class="vert-desc">Policy intake, quoting workflows, claims management, and agency portals.</div>
+        <div class="vert-badge">Planned</div>
+      </div>
+      <div class="vert-card">
+        <svg class="vert-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" width="32" height="32"><rect x="6" y="8" width="20" height="20" rx="1"/><rect x="10" y="14" width="4" height="4"/><rect x="18" y="14" width="4" height="4"/><rect x="10" y="22" width="4" height="6"/><rect x="18" y="22" width="4" height="6"/></svg>
+        <div class="vert-title">Real Estate</div>
+        <div class="vert-desc">Property management, tenant portals, lease tracking, and investor reporting.</div>
+        <div class="vert-badge">Planned</div>
+      </div>
+      <div class="vert-card">
+        <svg class="vert-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" width="32" height="32"><path d="M8 26V12l8-8 8 8v14"/><line x1="8" y1="26" x2="24" y2="26"/><rect x="13" y="18" width="6" height="8"/></svg>
+        <div class="vert-title">Professional Services</div>
+        <div class="vert-desc">Client intake, project pipelines, billing workflows, and client portals.</div>
+        <div class="vert-badge">Planned</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BUILT BY MORA SOL DIGITAL -->
+<section class="section bg-default" id="builder">
+  <div class="section-inner">
+    <div class="section-label">The Builder</div>
+    <div class="section-rule"></div>
+    <h2 class="section-heading">Mora Sol Digital.</h2>
+    <p class="section-subheading">The technology studio behind Kazozo. We build software products, platforms, and AI systems for businesses that need more than off-the-shelf tools.</p>
+    <div class="builder-card">
+      <div class="builder-logo">
+        <div class="builder-logo-mark">MSD</div>
+        <div class="builder-logo-text">Mora Sol Digital</div>
+      </div>
+      <div class="builder-tagline">Apps · AI · Platforms</div>
+      <p class="builder-desc">Mora Sol Digital is the technology arm of Solanki Co. We design, build, and operate software products for businesses that demand precision, performance, and ownership of their technology stack. Kazozo is our flagship platform — and we deploy it for every Mora Sol operating company.</p>
+      <a href="https://morasoldigital.com" target="_blank" rel="noopener" class="builder-link">Visit Mora Sol Digital</a>
+      <div class="builder-services">
+        <div class="builder-service">Custom Applications</div>
+        <div class="builder-service">AI & Automation</div>
+        <div class="builder-service">Platform Development</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="plat-cta">
+  <div class="plat-cta-heading">See Kazozo in Action.</div>
+  <p class="plat-cta-sub">Mora Sol Funding runs on Kazozo. Experience the platform through a real lending operation — from application to funded deal.</p>
+  <a href="mora-sol-funding.html" class="plat-cta-btn">Visit Mora Sol Funding</a>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-links">
+      <a href="#capabilities">Platform</a>
+      <a href="#architecture">Architecture</a>
+      <a href="#verticals">Verticals</a>
+      <a href="#builder">Mora Sol Digital</a>
+      <a href="mora-sol-funding.html">Mora Sol Funding</a>
+    </div>
+    <div class="footer-copy">&copy; 2026 Kazozo. All rights reserved.</div>
+    <div class="footer-parent">A product of <a href="https://morasoldigital.com" target="_blank" rel="noopener">Mora Sol Digital</a> · A <a href="https://solanki.co" target="_blank" rel="noopener">Solanki Co</a> company</div>
+  </div>
+</footer>
+
+<script>
+const toggle = document.getElementById('mobileToggle');
+const nav = document.getElementById('nav');
+toggle.addEventListener('click', () => { nav.classList.toggle('mobile-open'); });
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const id = a.getAttribute('href');
+    if (id === '#') return;
+    e.preventDefault();
+    const el = document.querySelector(id);
+    if (el) { el.scrollIntoView({ behavior: 'smooth', block: 'start' }); nav.classList.remove('mobile-open'); }
+  });
+});
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => { if (entry.isIntersecting) { entry.target.style.opacity = '1'; entry.target.style.transform = 'translateY(0)'; } });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.cap-card, .arch-layer, .vert-card, .builder-card').forEach(el => {
+  el.style.opacity = '0'; el.style.transform = 'translateY(20px)'; el.style.transition = 'opacity 0.6s ease, transform 0.6s ease'; observer.observe(el);
+});
+</script>
+</body>
+</html>
