@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mora Sol Funding — Private Capital · Structured Lending</title>
+<meta name="description" content="Private lending platform for real estate professionals. Fix & flip, bridge, DSCR rental, ground-up construction, and capital markets financing.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Inter:wght@300;400;500;600&display=swap">
+<style>
+:root {
+  --bg: #F6F4EF;
+  --bg-warm: #EDE9E0;
+  --bg-card: #FFFFFF;
+  --fg: #1A1A18;
+  --fg-muted: #6B6860;
+  --fg-light: #9B958A;
+  --accent: #8B7355;
+  --accent-warm: #A6896A;
+  --accent-gold: #C4A87C;
+  --border: #DDD8CE;
+  --hero-overlay: rgba(26, 26, 24, 0.55);
+  --serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #1A1A18;
+    --bg-warm: #242420;
+    --bg-card: #2A2A26;
+    --fg: #F0EDE6;
+    --fg-muted: #A09A8E;
+    --fg-light: #7A756B;
+    --accent: #C4A87C;
+    --accent-warm: #D4BA92;
+    --accent-gold: #E0CCA6;
+    --border: #3A3830;
+    --hero-overlay: rgba(26, 26, 24, 0.65);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #1A1A18;
+  --bg-warm: #242420;
+  --bg-card: #2A2A26;
+  --fg: #F0EDE6;
+  --fg-muted: #A09A8E;
+  --fg-light: #7A756B;
+  --accent: #C4A87C;
+  --accent-warm: #D4BA92;
+  --accent-gold: #E0CCA6;
+  --border: #3A3830;
+  --hero-overlay: rgba(26, 26, 24, 0.65);
+  color-scheme: dark;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--sans);
+  font-weight: 400;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── NAV ── */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  transition: background 0.3s, box-shadow 0.3s;
+}
+.nav.scrolled {
+  box-shadow: 0 1px 20px rgba(0,0,0,0.06);
+}
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px max(20px, env(safe-area-inset-right, 0px)) 18px max(20px, env(safe-area-inset-left, 0px));
+}
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: var(--fg);
+}
+.nav-logo-mark {
+  width: 36px;
+  height: 36px;
+  border: 1.5px solid var(--fg);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--serif);
+  font-size: 16px;
+  font-weight: 500;
+}
+.nav-logo-text {
+  font-family: var(--serif);
+  font-size: 15px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  list-style: none;
+}
+.nav-links a {
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--fg-muted);
+  transition: color 0.2s;
+  font-weight: 500;
+}
+.nav-links a:hover { color: var(--fg); }
+.nav-cta {
+  font-size: 11px !important;
+  letter-spacing: 2px !important;
+  text-transform: uppercase;
+  padding: 10px 24px;
+  border: 1px solid var(--fg);
+  color: var(--fg) !important;
+  transition: all 0.3s;
+}
+.nav-cta:hover {
+  background: var(--fg);
+  color: var(--bg) !important;
+}
+.nav-mobile-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  color: var(--fg);
+}
+.nav-mobile-toggle svg { display: block; }
+
+/* ── HERO ── */
+.hero {
+  padding-top: calc(80px + env(safe-area-inset-top, 0px));
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background:
+    linear-gradient(var(--hero-overlay), var(--hero-overlay)),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='800'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%23342E25'/%3E%3Cstop offset='50%25' stop-color='%231A1A18'/%3E%3Cstop offset='100%25' stop-color='%232A2520'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23g)' width='1200' height='800'/%3E%3C/svg%3E") center/cover no-repeat;
+  position: relative;
+  overflow: hidden;
+  padding-inline: max(20px, env(safe-area-inset-left, 0px));
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 20% 80%, rgba(139,115,85,0.12) 0%, transparent 70%),
+    radial-gradient(ellipse 60% 50% at 80% 20%, rgba(196,168,124,0.08) 0%, transparent 60%);
+  pointer-events: none;
+}
+.hero-label {
+  font-size: 12px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--accent-gold);
+  margin-bottom: 32px;
+  position: relative;
+}
+.hero-title {
+  font-family: var(--serif);
+  font-size: clamp(42px, 7vw, 80px);
+  font-weight: 400;
+  line-height: 1.1;
+  color: #F0EDE6;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  position: relative;
+}
+.hero-subtitle {
+  font-family: var(--serif);
+  font-size: clamp(18px, 2.5vw, 26px);
+  font-weight: 400;
+  font-style: italic;
+  color: rgba(240, 237, 230, 0.7);
+  margin-bottom: 48px;
+  position: relative;
+  max-width: 600px;
+}
+.hero-cta {
+  display: inline-block;
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  padding: 16px 48px;
+  border: 1px solid rgba(240,237,230,0.5);
+  color: #F0EDE6;
+  text-decoration: none;
+  transition: all 0.3s;
+  position: relative;
+  font-weight: 500;
+}
+.hero-cta:hover {
+  background: #F0EDE6;
+  color: #1A1A18;
+  border-color: #F0EDE6;
+}
+
+/* ── SECTIONS ── */
+.section {
+  padding-block: 100px;
+  padding-left: max(20px, env(safe-area-inset-left, 0px));
+  padding-right: max(20px, env(safe-area-inset-right, 0px));
+}
+.section-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.section-label {
+  font-size: 12px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--fg-light);
+  text-align: center;
+  margin-bottom: 16px;
+}
+.section-rule {
+  width: 40px;
+  height: 2px;
+  background: var(--accent);
+  margin: 0 auto 24px;
+}
+.section-heading {
+  font-family: var(--serif);
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 400;
+  text-align: center;
+  color: var(--fg);
+  line-height: 1.3;
+  margin-bottom: 24px;
+}
+.section-subheading {
+  font-size: 16px;
+  color: var(--fg-muted);
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto 60px;
+  line-height: 1.8;
+}
+
+/* ── ABOUT ── */
+.about-bg { background: var(--bg); }
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.about-text-label {
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 16px;
+}
+.about-text h2 {
+  font-family: var(--serif);
+  font-size: clamp(26px, 3.5vw, 38px);
+  font-weight: 400;
+  line-height: 1.3;
+  margin-bottom: 24px;
+  color: var(--fg);
+}
+.about-text p {
+  color: var(--fg-muted);
+  margin-bottom: 16px;
+  line-height: 1.8;
+  font-size: 15px;
+}
+.about-visual {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.about-stat-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+.about-stat {
+  padding: 28px;
+  border: 1px solid var(--border);
+  text-align: center;
+}
+.about-stat-num {
+  font-family: var(--serif);
+  font-size: 36px;
+  font-weight: 400;
+  color: var(--accent);
+  margin-bottom: 6px;
+}
+.about-stat-label {
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--fg-light);
+}
+
+/* ── LOAN PROGRAMS ── */
+.programs-bg { background: var(--bg-warm); }
+.programs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 60px;
+}
+.program-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  padding: 40px 32px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.program-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.06);
+}
+.program-icon {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 24px;
+  color: var(--accent);
+}
+.program-category {
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+.program-name {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  color: var(--fg);
+}
+.program-desc {
+  font-size: 14px;
+  color: var(--fg-muted);
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+.program-details {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.program-detail {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  padding-block: 4px;
+  border-bottom: 1px solid var(--border);
+}
+.program-detail-label { color: var(--fg-light); }
+.program-detail-value { color: var(--fg); font-weight: 500; }
+
+/* ── STATS BAND ── */
+.stats-band {
+  background: var(--fg);
+  padding-block: 60px;
+  padding-left: max(20px, env(safe-area-inset-left, 0px));
+  padding-right: max(20px, env(safe-area-inset-right, 0px));
+}
+.stats-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  text-align: center;
+}
+.stat-number {
+  font-family: var(--serif);
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 400;
+  color: var(--accent-gold);
+  margin-bottom: 8px;
+}
+.stat-desc {
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(240,237,230,0.6);
+}
+
+/* ── HOW WE WORK ── */
+.process-bg { background: var(--bg); }
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 60px;
+  text-align: center;
+}
+.process-step-num {
+  font-family: var(--serif);
+  font-size: 48px;
+  color: var(--border);
+  margin-bottom: 20px;
+}
+.process-step-title {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-style: italic;
+  margin-bottom: 16px;
+  color: var(--fg);
+}
+.process-step-desc {
+  font-size: 14px;
+  color: var(--fg-muted);
+  line-height: 1.8;
+}
+
+/* ── AI SECTION ── */
+.ai-bg { background: var(--bg-warm); }
+.ai-content {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+}
+.ai-badge {
+  display: inline-block;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  padding: 6px 20px;
+  margin-bottom: 32px;
+}
+.ai-content p {
+  color: var(--fg-muted);
+  line-height: 1.8;
+  margin-bottom: 20px;
+  font-size: 15px;
+}
+.ai-features {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-top: 48px;
+  text-align: left;
+}
+.ai-feature {
+  padding: 28px;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+}
+.ai-feature-title {
+  font-family: var(--serif);
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 8px;
+  color: var(--fg);
+}
+.ai-feature-desc {
+  font-size: 13px;
+  color: var(--fg-muted);
+  line-height: 1.7;
+}
+
+/* ── WHO WE SERVE ── */
+.audience-bg { background: var(--bg); }
+.audience-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  text-align: center;
+}
+.audience-item {
+  padding: 32px 20px;
+  border: 1px solid var(--border);
+}
+.audience-icon {
+  font-size: 28px;
+  margin-bottom: 16px;
+  color: var(--accent);
+}
+.audience-title {
+  font-family: var(--serif);
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 8px;
+  color: var(--fg);
+}
+.audience-desc {
+  font-size: 13px;
+  color: var(--fg-muted);
+  line-height: 1.6;
+}
+
+/* ── CLOSING CTA ── */
+.closing {
+  background: var(--bg-warm);
+  padding-block: 120px;
+  text-align: center;
+  padding-left: max(20px, env(safe-area-inset-left, 0px));
+  padding-right: max(20px, env(safe-area-inset-right, 0px));
+}
+.closing-rule {
+  width: 40px;
+  height: 2px;
+  background: var(--accent);
+  margin: 0 auto 40px;
+}
+.closing-quote {
+  font-family: var(--serif);
+  font-size: clamp(24px, 3.5vw, 38px);
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--fg);
+  max-width: 700px;
+  margin: 0 auto 48px;
+}
+.closing-cta {
+  display: inline-block;
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  padding: 16px 48px;
+  border: 1px solid var(--fg);
+  color: var(--fg);
+  text-decoration: none;
+  transition: all 0.3s;
+  font-weight: 500;
+}
+.closing-cta:hover {
+  background: var(--fg);
+  color: var(--bg);
+}
+
+/* ── FOOTER ── */
+.footer {
+  background: var(--fg);
+  padding-block: 60px;
+  text-align: center;
+  padding-left: max(20px, env(safe-area-inset-left, 0px));
+  padding-right: max(20px, env(safe-area-inset-right, 0px));
+}
+.footer-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+.footer-logo-mark {
+  width: 36px;
+  height: 36px;
+  border: 1.5px solid rgba(240,237,230,0.4);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--serif);
+  font-size: 15px;
+  color: #F0EDE6;
+}
+.footer-logo-text {
+  font-family: var(--serif);
+  font-size: 14px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #F0EDE6;
+}
+.footer-rule {
+  width: 40px;
+  height: 1px;
+  background: rgba(240,237,230,0.2);
+  margin: 0 auto 24px;
+}
+.footer-tagline {
+  font-size: 13px;
+  color: rgba(240,237,230,0.5);
+  margin-bottom: 20px;
+  font-style: italic;
+  font-family: var(--serif);
+}
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  margin-bottom: 20px;
+}
+.footer-links a {
+  font-size: 12px;
+  color: rgba(240,237,230,0.5);
+  text-decoration: none;
+  letter-spacing: 1px;
+  transition: color 0.2s;
+}
+.footer-links a:hover { color: #F0EDE6; }
+.footer-copy {
+  font-size: 12px;
+  color: rgba(240,237,230,0.3);
+}
+.footer-parent {
+  margin-top: 12px;
+  font-size: 11px;
+  color: rgba(240,237,230,0.25);
+  letter-spacing: 1px;
+}
+.footer-parent a {
+  color: rgba(240,237,230,0.35);
+  text-decoration: none;
+}
+
+/* ── MOBILE ── */
+@media (max-width: 900px) {
+  .nav-links { display: none; }
+  .nav-mobile-toggle { display: block; }
+  .nav.mobile-open .nav-links {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--bg);
+    padding: 24px;
+    border-bottom: 1px solid var(--border);
+    gap: 20px;
+  }
+  .about-grid { grid-template-columns: 1fr; gap: 40px; }
+  .programs-grid { grid-template-columns: 1fr; }
+  .stats-inner { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+  .process-grid { grid-template-columns: 1fr; gap: 40px; }
+  .ai-features { grid-template-columns: 1fr; }
+  .audience-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 500px) {
+  .audience-grid { grid-template-columns: 1fr; }
+  .about-stat-row { grid-template-columns: 1fr; }
+  .hero { min-height: 90vh; }
+}
+</style>
+</head>
+<body>
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <div class="nav-logo-mark">M</div>
+      <span class="nav-logo-text">Mora Sol Funding</span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#programs">Programs</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#process">Process</a></li>
+      <li><a href="#platform">Platform</a></li>
+      <li><a href="#apply" class="nav-cta">Apply</a></li>
+    </ul>
+    <button class="nav-mobile-toggle" id="mobileToggle" aria-label="Menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <line x1="4" y1="7" x2="20" y2="7"/>
+        <line x1="4" y1="12" x2="20" y2="12"/>
+        <line x1="4" y1="17" x2="20" y2="17"/>
+      </svg>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-label">Private Capital · Structured Lending</div>
+  <h1 class="hero-title">Mora Sol<br>Funding</h1>
+  <p class="hero-subtitle">Capital deployed with discipline, discretion, and a builder's understanding of what it takes.</p>
+  <a href="#apply" class="hero-cta">Start Your Application</a>
+</section>
+
+<!-- ABOUT -->
+<section class="section about-bg" id="about">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-text">
+        <div class="about-text-label">Mora Sol Capital</div>
+        <h2>Private Lending Built on Principle.</h2>
+        <p>Mora Sol Funding is a private lending platform structured for real estate professionals who need capital that moves at the speed of opportunity. We fund acquisition, construction, and stabilization across residential and commercial asset classes.</p>
+        <p>Every loan is underwritten with a builder's perspective — evaluating the deal, the operator, and the exit. We don't outsource decisions. We don't chase volume. We deploy capital where discipline and conviction meet.</p>
+        <p>Mora Sol Funding operates within the Solanki Co ecosystem — backed by the same standards of integrity, craft, and quiet discipline that define every Mora Sol entity.</p>
+      </div>
+      <div class="about-visual">
+        <div class="about-stat-row">
+          <div class="about-stat">
+            <div class="about-stat-num">$2B+</div>
+            <div class="about-stat-label">Capital Deployed</div>
+          </div>
+          <div class="about-stat">
+            <div class="about-stat-num">3,000+</div>
+            <div class="about-stat-label">Loans Funded</div>
+          </div>
+        </div>
+        <div class="about-stat-row">
+          <div class="about-stat">
+            <div class="about-stat-num">44</div>
+            <div class="about-stat-label">States Covered</div>
+          </div>
+          <div class="about-stat">
+            <div class="about-stat-num">15+</div>
+            <div class="about-stat-label">Years Experience</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAND -->
+<section class="stats-band">
+  <div class="stats-inner">
+    <div>
+      <div class="stat-number">24hr</div>
+      <div class="stat-desc">Term Sheets</div>
+    </div>
+    <div>
+      <div class="stat-number">7–10</div>
+      <div class="stat-desc">Day Closings</div>
+    </div>
+    <div>
+      <div class="stat-number">90%</div>
+      <div class="stat-desc">LTC Available</div>
+    </div>
+    <div>
+      <div class="stat-number">$50M+</div>
+      <div class="stat-desc">Single Loan Capacity</div>
+    </div>
+  </div>
+</section>
+
+<!-- LOAN PROGRAMS -->
+<section class="section programs-bg" id="programs">
+  <div class="section-inner">
+    <div class="section-label">Lending Programs</div>
+    <div class="section-rule"></div>
+    <h2 class="section-heading">Structured for Every Stage.</h2>
+    <p class="section-subheading">From acquisition through stabilization, each program is built around the lifecycle of the deal — not a one-size product sheet.</p>
+
+    <div class="programs-grid">
+      <!-- Fix & Flip -->
+      <div class="program-card">
+        <svg class="program-icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="16" width="32" height="20" rx="2"/><path d="M20 4L36 16H4L20 4Z"/><line x1="14" y1="24" x2="14" y2="36"/><line x1="26" y1="24" x2="26" y2="36"/></svg>
+        <div class="program-category">Residential</div>
+        <div class="program-name">Fix &amp; Flip</div>
+        <p class="program-desc">Short-term acquisition and renovation financing for residential properties. Fast closings, flexible draw schedules, and rehab budgets built into the structure.</p>
+        <div class="program-details">
+          <div class="program-detail"><span class="program-detail-label">Loan Amount</span><span class="program-detail-value">$100K – $3M</span></div>
+          <div class="program-detail"><span class="program-detail-label">Term</span><span class="program-detail-value">12 – 18 months</span></div>
+          <div class="program-detail"><span class="program-detail-label">LTC</span><span class="program-detail-value">Up to 90%</span></div>
+        </div>
+      </div>
+
+      <!-- Bridge -->
+      <div class="program-card">
+        <svg class="program-icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 28C4 28 12 12 20 12C28 12 36 28 36 28"/><line x1="4" y1="28" x2="36" y2="28"/><line x1="12" y1="28" x2="12" y2="20"/><line x1="20" y1="28" x2="20" y2="12"/><line x1="28" y1="28" x2="28" y2="20"/></svg>
+        <div class="program-category">Commercial</div>
+        <div class="program-name">Bridge</div>
+        <p class="program-desc">Transitional capital for value-add commercial properties, repositioning plays, and acquisitions that need speed over structure. Bridge to stabilization or permanent financing.</p>
+        <div class="program-details">
+          <div class="program-detail"><span class="program-detail-label">Loan Amount</span><span class="program-detail-value">$500K – $20M</span></div>
+          <div class="program-detail"><span class="program-detail-label">Term</span><span class="program-detail-value">12 – 36 months</span></div>
+          <div class="program-detail"><span class="program-detail-label">LTV</span><span class="program-detail-value">Up to 75%</span></div>
+        </div>
+      </div>
+
+      <!-- DSCR -->
+      <div class="program-card">
+        <svg class="program-icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="6" y="6" width="28" height="28" rx="2"/><path d="M12 24L18 18L24 22L32 14"/><circle cx="32" cy="14" r="2"/></svg>
+        <div class="program-category">Investment</div>
+        <div class="program-name">DSCR Rental</div>
+        <p class="program-desc">Long-term financing for stabilized rental properties underwritten on property cash flow — not personal income. Designed for portfolio builders scaling with discipline.</p>
+        <div class="program-details">
+          <div class="program-detail"><span class="program-detail-label">Loan Amount</span><span class="program-detail-value">$100K – $5M</span></div>
+          <div class="program-detail"><span class="program-detail-label">Term</span><span class="program-detail-value">30-year fixed / ARM</span></div>
+          <div class="program-detail"><span class="program-detail-label">Min DSCR</span><span class="program-detail-value">1.0x</span></div>
+        </div>
+      </div>
+
+      <!-- Ground-Up Construction -->
+      <div class="program-card">
+        <svg class="program-icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="8" y="20" width="24" height="16" rx="1"/><line x1="20" y1="4" x2="20" y2="20"/><line x1="12" y1="12" x2="20" y2="4"/><line x1="28" y1="12" x2="20" y2="4"/><rect x="14" y="26" width="4" height="6"/><rect x="22" y="24" width="4" height="4"/></svg>
+        <div class="program-category">Development</div>
+        <div class="program-name">Ground-Up</div>
+        <p class="program-desc">Construction financing for new development — single-family, townhomes, and small multifamily. Structured draw schedules with in-house inspection and disbursement.</p>
+        <div class="program-details">
+          <div class="program-detail"><span class="program-detail-label">Loan Amount</span><span class="program-detail-value">$250K – $10M</span></div>
+          <div class="program-detail"><span class="program-detail-label">Term</span><span class="program-detail-value">18 – 24 months</span></div>
+          <div class="program-detail"><span class="program-detail-label">LTC</span><span class="program-detail-value">Up to 85%</span></div>
+        </div>
+      </div>
+
+      <!-- Capital Markets -->
+      <div class="program-card">
+        <svg class="program-icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="20" cy="20" r="14"/><path d="M14 20C14 16.7 16.7 14 20 14"/><path d="M20 26C23.3 26 26 23.3 26 20"/><line x1="20" y1="10" x2="20" y2="14"/><line x1="20" y1="26" x2="20" y2="30"/></svg>
+        <div class="program-category">Structured</div>
+        <div class="program-name">Capital Markets</div>
+        <p class="program-desc">Advisory and structured financing for larger transactions, portfolio acquisitions, and institutional-grade placements. Tailored capital stack solutions from our network.</p>
+        <div class="program-details">
+          <div class="program-detail"><span class="program-detail-label">Loan Amount</span><span class="program-detail-value">$5M – $50M+</span></div>
+          <div class="program-detail"><span class="program-detail-label">Structure</span><span class="program-detail-value">Custom</span></div>
+          <div class="program-detail"><span class="program-detail-label">Asset Class</span><span class="program-detail-value">All CRE</span></div>
+        </div>
+      </div>
+
+      <!-- Private Fund -->
+      <div class="program-card">
+        <svg class="program-icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 32V16L20 8L32 16V32"/><line x1="8" y1="32" x2="32" y2="32"/><rect x="16" y="22" width="8" height="10"/><line x1="14" y1="20" x2="26" y2="20"/></svg>
+        <div class="program-category">Private</div>
+        <div class="program-name">Fund Allocation</div>
+        <p class="program-desc">Direct capital commitments for qualified borrowers and repeat operators. Dedicated allocation with streamlined approvals and relationship-based terms.</p>
+        <div class="program-details">
+          <div class="program-detail"><span class="program-detail-label">Commitment</span><span class="program-detail-value">$1M – $25M</span></div>
+          <div class="program-detail"><span class="program-detail-label">Access</span><span class="program-detail-value">Invitation Only</span></div>
+          <div class="program-detail"><span class="program-detail-label">Relationship</span><span class="program-detail-value">Dedicated</span></div>
+        </div>
+      </div>
+
+      <!-- International Structured Debt -->
+      <div class="program-card">
+        <svg class="program-icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="20" cy="20" r="14"/><ellipse cx="20" cy="20" rx="6" ry="14"/><line x1="6" y1="20" x2="34" y2="20"/><path d="M8 13h24"/><path d="M8 27h24"/></svg>
+        <div class="program-category">International</div>
+        <div class="program-name">Structured Debt</div>
+        <p class="program-desc">Access international capital markets for large-scale U.S. real estate portfolios. Non-recourse corporate bond issuances structured through a dedicated holding entity — no personal guarantees, no traditional lender constraints. Diversify your capital stack beyond domestic sources.</p>
+        <div class="program-details">
+          <div class="program-detail"><span class="program-detail-label">Issue Size</span><span class="program-detail-value">$150M+</span></div>
+          <div class="program-detail"><span class="program-detail-label">Timeline</span><span class="program-detail-value">3 – 6 months</span></div>
+          <div class="program-detail"><span class="program-detail-label">Asset Class</span><span class="program-detail-value">Multifamily · Hotels · Office · Industrial</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="section process-bg" id="process">
+  <div class="section-inner">
+    <div class="section-label">How We Work</div>
+    <div class="section-rule"></div>
+    <h2 class="section-heading">Curate. Underwrite. Fund.</h2>
+    <p class="section-subheading">One point of contact. Consistent standards. Whether it's a single flip or a $20M development — the experience is seamless and the outcomes are real.</p>
+    <div class="process-grid">
+      <div>
+        <div class="process-step-num">01</div>
+        <div class="process-step-title">Submit</div>
+        <p class="process-step-desc">Share your deal. We review the asset, the plan, and the operator — not just the credit score. Term sheets delivered within 24 hours.</p>
+      </div>
+      <div>
+        <div class="process-step-num">02</div>
+        <div class="process-step-title">Structure</div>
+        <p class="process-step-desc">Every deal gets a tailored capital structure. We work through draw schedules, holdbacks, and exit strategies before the first document is signed.</p>
+      </div>
+      <div>
+        <div class="process-step-num">03</div>
+        <div class="process-step-title">Fund</div>
+        <p class="process-step-desc">Close in 7–10 days. Construction draws processed in 48 hours. One relationship manager from application through payoff.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AI PLATFORM -->
+<section class="section ai-bg" id="platform">
+  <div class="section-inner">
+    <div class="section-label">Technology</div>
+    <div class="section-rule"></div>
+    <h2 class="section-heading">Built on Kazozo.</h2>
+    <p class="section-subheading">Our lending operations are powered by Kazozo — a proprietary AI platform built by Mora Sol Digital that handles everything from lead intake to loan servicing.</p>
+    <div class="ai-content">
+      <div class="ai-badge">AI-Powered Operations</div>
+      <p>Traditional lenders run on spreadsheets, manual follow-ups, and handoff gaps that cost borrowers time and deals. Mora Sol Funding runs on an intelligent operating system that keeps every loan moving.</p>
+    </div>
+    <div class="ai-features">
+      <div class="ai-feature">
+        <div class="ai-feature-title">Intelligent Lead Capture</div>
+        <div class="ai-feature-desc">AI agents qualify borrowers in under 30 seconds. Property details, experience level, and capital needs — captured and routed before a human touches the file.</div>
+      </div>
+      <div class="ai-feature">
+        <div class="ai-feature-title">Automated Pipeline</div>
+        <div class="ai-feature-desc">Every loan stage tracked in real time. Document checklists auto-generated. Milestone notifications keep borrowers informed without manual outreach.</div>
+      </div>
+      <div class="ai-feature">
+        <div class="ai-feature-title">Borrower Portal</div>
+        <div class="ai-feature-desc">Secure document uploads, real-time status tracking, and direct communication — all in one place. No email chains. No lost attachments.</div>
+      </div>
+      <div class="ai-feature">
+        <div class="ai-feature-title">Decision Intelligence</div>
+        <div class="ai-feature-desc">Underwriting supported by automated comp analysis, construction budget validation, and market-informed exit modeling. Faster decisions backed by better data.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO WE SERVE -->
+<section class="section audience-bg">
+  <div class="section-inner">
+    <div class="section-label">Who We Serve</div>
+    <div class="section-rule"></div>
+    <h2 class="section-heading">Built for Operators.</h2>
+    <p class="section-subheading">We work with experienced real estate professionals who value speed, certainty, and a lending partner that understands the business.</p>
+    <div class="audience-grid">
+      <div class="audience-item">
+        <div class="audience-icon"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="14" width="24" height="14" rx="1"/><path d="M16 4L28 14H4L16 4Z"/></svg></div>
+        <div class="audience-title">Fix &amp; Flip Investors</div>
+        <div class="audience-desc">Single-project and portfolio-scale renovation operators.</div>
+      </div>
+      <div class="audience-item">
+        <div class="audience-icon"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="6" y="8" width="20" height="20" rx="1"/><rect x="10" y="14" width="4" height="4"/><rect x="18" y="14" width="4" height="4"/><rect x="10" y="22" width="4" height="6"/><rect x="18" y="22" width="4" height="6"/></svg></div>
+        <div class="audience-title">Rental Investors</div>
+        <div class="audience-desc">Buy-and-hold operators building long-term cash flow portfolios.</div>
+      </div>
+      <div class="audience-item">
+        <div class="audience-icon"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="16" y1="4" x2="16" y2="28"/><line x1="8" y1="10" x2="16" y2="4"/><line x1="24" y1="10" x2="16" y2="4"/><rect x="6" y="18" width="20" height="10" rx="1"/></svg></div>
+        <div class="audience-title">Developers</div>
+        <div class="audience-desc">Ground-up builders from single lots to planned communities.</div>
+      </div>
+      <div class="audience-item">
+        <div class="audience-icon"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="16" cy="16" r="12"/><path d="M16 8V16L22 20"/></svg></div>
+        <div class="audience-title">Mortgage Brokers</div>
+        <div class="audience-desc">Originators seeking reliable private capital for their clients.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSING -->
+<section class="closing" id="apply">
+  <div class="closing-rule"></div>
+  <p class="closing-quote">Move forward with quiet strength.<br>Build something that outlasts you.</p>
+  <a href="#" class="closing-cta">Start a Conversation</a>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-logo">
+    <div class="footer-logo-mark">M</div>
+    <span class="footer-logo-text">Mora Sol Funding</span>
+  </div>
+  <div class="footer-rule"></div>
+  <div class="footer-tagline">Private Capital · Structured Lending</div>
+  <div class="footer-links">
+    <a href="#">Programs</a>
+    <a href="#">About</a>
+    <a href="#">Apply</a>
+    <a href="#">Privacy</a>
+    <a href="#">Terms</a>
+  </div>
+  <div class="footer-copy">&copy; 2026 Mora Sol Funding. All rights reserved.</div>
+  <div class="footer-parent">A <a href="https://solanki.co" target="_blank" rel="noopener">Solanki Co</a> entity</div>
+</footer>
+
+<script>
+// Nav scroll effect
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 40);
+});
+
+// Mobile toggle
+const toggle = document.getElementById('mobileToggle');
+toggle.addEventListener('click', () => {
+  nav.classList.toggle('mobile-open');
+});
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const id = a.getAttribute('href');
+    if (id === '#') return;
+    e.preventDefault();
+    const el = document.querySelector(id);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      nav.classList.remove('mobile-open');
+    }
+  });
+});
+
+// Fade-in on scroll
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = '1';
+      entry.target.style.transform = 'translateY(0)';
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.program-card, .about-stat, .ai-feature, .audience-item, .process-grid > div').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(20px)';
+  el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+  observer.observe(el);
+});
+</script>
+</body>
+</html>
