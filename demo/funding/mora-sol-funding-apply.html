@@ -351,7 +351,15 @@ function buildPayload(form) {
     firstName: d.get('firstName'),
     lastName: d.get('lastName'),
     emailAddress: d.get('emailAddress'),
-    source: d.get('source') || 'Web',
+    /* Map form source values to CRM-valid Lead source enum */
+    source: ({
+      'Referral': 'Partner',
+      'Online Search': 'Web Site',
+      'Social Media': 'Web Site',
+      'Industry Event': 'Campaign',
+      'Existing Relationship': 'Existing Customer',
+      'Other': 'Other'
+    })[d.get('source')] || 'Web Site',
   };
   if (d.get('phoneNumber')) lead.phoneNumber = d.get('phoneNumber');
   if (d.get('accountName')) lead.accountName = d.get('accountName');
