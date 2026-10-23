@@ -356,6 +356,19 @@ function buildPayload(form) {
   if (d.get('phoneNumber')) lead.phoneNumber = d.get('phoneNumber');
   if (d.get('accountName')) lead.accountName = d.get('accountName');
 
+  /* Map interest type (option VALUES) to CRM service category (required enum on Lead) */
+  const categoryMap = {
+    'Fix & Flip': 'Mortgage',
+    'Bridge': 'Mortgage',
+    'DSCR Rental': 'Mortgage',
+    'Ground-Up Construction': 'Mortgage',
+    'Capital Markets': 'Commercial',
+    'Fund Allocation': 'Commercial',
+    'Structured Debt': 'Mortgage',
+    'General Inquiry': 'Other'
+  };
+  lead.cServiceCategory = categoryMap[d.get('interestType')] || 'Other';
+
   /* Store interest type and deal details in description (vertical-agnostic) */
   const parts = [];
   if (d.get('interestType')) parts.push('Program: ' + d.get('interestType'));
